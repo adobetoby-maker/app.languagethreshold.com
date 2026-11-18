@@ -1,0 +1,437 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "roofing",
+  "lessonId": "roofing:17:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-16-18-draft.json",
+      "sha256": "ef60bf977985351cfbfead1a89641d9d73440ad2f0e5fa43d33b1578184e9999"
+    }
+  },
+  "sourceEnglishTitle": "Fastener Pattern",
+  "sourceEnglishObjective": "Confirm the manufacturer's fastener count and pattern",
+  "sourceEnglishSpeaking": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern.",
+  "sourceSpanishReaderTitle": "El patrón de clavado",
+  "candidateObjective": "製品ごとの釘の本数と配置をメーカーの施工説明書で確認する。",
+  "candidateFocus": "～によると attributes the four-nail example to the guide; ～ごとに marks each shingle. ～てから orders reading product instructions before choosing the pattern.",
+  "archivedForms": [
+    {
+      "base": "確認する",
+      "exampleJa": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+      "meaningEnglish": "to check",
+      "exampleEnglish": "Check the product instructions before setting the nail pattern.",
+      "sourceInfinitiveSpanish": "revisar"
+    },
+    {
+      "base": "読む",
+      "exampleJa": "梱包の包装紙を読んでください。",
+      "meaningEnglish": "to read",
+      "exampleEnglish": "Read the wrapper on the package.",
+      "sourceInfinitiveSpanish": "leer"
+    },
+    {
+      "base": "必要とする",
+      "exampleJa": "この製品には正確な釘打ちパターンが必要です。",
+      "meaningEnglish": "to need",
+      "exampleEnglish": "I need the exact pattern for this product.",
+      "sourceInfinitiveSpanish": "necesitar"
+    },
+    {
+      "base": "使う",
+      "exampleJa": "どのシングル材にも同じパターンを使ってください。",
+      "meaningEnglish": "to use",
+      "exampleEnglish": "Use the same pattern on every shingle.",
+      "sourceInfinitiveSpanish": "usar"
+    },
+    {
+      "base": "開ける",
+      "exampleJa": "今日、作業班はアスファルトシングル材の新しい梱包を開けます。",
+      "meaningEnglish": "to open",
+      "exampleEnglish": "Today the crew opens a new package of asphalt shingles.",
+      "sourceInfinitiveSpanish": "abrir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "ガイドの例では一枚につき四本です。この製品の正確な釘打ちパターンを確認してください。",
+    "goal": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern."
+  },
+  "audioScript": null,
+  "curriculumAdaptationNote": "Preserve the current source sequence: open a new asphalt-shingle package; ask the nail count; attribute four nails per shingle to a guide example; inspect this manufacturer's instructions and package wrapper; obtain this product's exact pattern; then repeat that selected pattern on its shingles. Four nails is not a universal specification, nor is one pattern shared across all products. Archived Japanese narrows wrapper to paper and uses generic shingle wording; hold those faces for qualified source/roofing/Japanese review. Current curriculum has no authored verb-example list; archived forms remain conditional evidence. No selected learner/audio text or progress identity is created.",
+  "sourceVerbExamples": null,
+  "cards": [
+    {
+      "id": "roofing:17:ja-en:card:1",
+      "legacySourceRef": "roofing:17:ja-en:cards:1",
+      "sourceSpanish": "Patrón de clavado",
+      "sourceEnglish": "nail pattern",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ちパターン",
+      "archivedJapanese": "釘打ちパターン",
+      "archivedEnglish": "nail pattern",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:2",
+      "legacySourceRef": "roofing:17:ja-en:cards:2",
+      "sourceSpanish": "Teja asfáltica",
+      "sourceEnglish": "shingle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材",
+      "archivedEnglish": "shingle",
+      "reviewNote": "Source teja asfáltica specifies asphalt shingle. Archived シングル材 names a shingle material generically; confirm the material sense and consistent Japanese term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:3",
+      "legacySourceRef": "roofing:17:ja-en:cards:3",
+      "sourceSpanish": "Instrucciones del fabricante",
+      "sourceEnglish": "manufacturer instructions",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "メーカーの施工説明書",
+      "archivedJapanese": "メーカーの施工説明書",
+      "archivedEnglish": "manufacturer instructions",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:4",
+      "legacySourceRef": "roofing:17:ja-en:cards:4",
+      "sourceSpanish": "Clavo",
+      "sourceEnglish": "nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘",
+      "archivedJapanese": "釘",
+      "archivedEnglish": "nail",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:5",
+      "legacySourceRef": "roofing:17:ja-en:cards:5",
+      "sourceSpanish": "Sujetador",
+      "sourceEnglish": "fastener",
+      "sourceNoteSpanish": "también: elemento de fijación",
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "固定具",
+      "archivedJapanese": "固定具",
+      "archivedEnglish": "fastener",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:6",
+      "legacySourceRef": "roofing:17:ja-en:cards:6",
+      "sourceSpanish": "Pistola de clavos",
+      "sourceEnglish": "nail gun",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ち機",
+      "archivedJapanese": "釘打ち機",
+      "archivedEnglish": "nail gun",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:7",
+      "legacySourceRef": "roofing:17:ja-en:cards:7",
+      "sourceSpanish": "Envoltura",
+      "sourceEnglish": "wrapper",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "包装紙",
+      "archivedEnglish": "wrapper",
+      "reviewNote": "Wrapper / envoltura del paquete is product packaging; archived 包装紙 specifies paper. Confirm actual packaging material or use material-neutral wording.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:8",
+      "legacySourceRef": "roofing:17:ja-en:cards:8",
+      "sourceSpanish": "Producto",
+      "sourceEnglish": "product",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "製品",
+      "archivedJapanese": "製品",
+      "archivedEnglish": "product",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:9",
+      "legacySourceRef": "roofing:17:ja-en:cards:9",
+      "sourceSpanish": "Cantidad de clavos",
+      "sourceEnglish": "number of nails",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘の本数",
+      "archivedJapanese": "釘の本数",
+      "archivedEnglish": "number of nails",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:10",
+      "legacySourceRef": "roofing:17:ja-en:cards:10",
+      "sourceSpanish": "Cuatro clavos por teja.",
+      "sourceEnglish": "Four nails per shingle.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材一枚につき釘を四本打ちます。",
+      "archivedEnglish": "Four nails per shingle.",
+      "reviewNote": "The four-nail count is only the guide's language example, not this product's requirement. Archived declarative Japanese face lacks attribution and may teach a universal installation rule.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:11",
+      "legacySourceRef": "roofing:17:ja-en:cards:11",
+      "sourceSpanish": "Revisen las instrucciones del producto antes de definir el patrón de clavado.",
+      "sourceEnglish": "Check the product instructions before setting the nail pattern.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+      "archivedJapanese": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+      "archivedEnglish": "Check the product instructions before setting the nail pattern.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:12",
+      "legacySourceRef": "roofing:17:ja-en:cards:12",
+      "sourceSpanish": "¿Cuántos clavos necesita esta teja?",
+      "sourceEnglish": "How many nails does this shingle need?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "このシングル材には釘が何本必要ですか。",
+      "archivedEnglish": "How many nails does this shingle need?",
+      "reviewNote": "This shingle refers to the selected asphalt shingle product; retain the product/material distinction when resolving the archived generic シングル材.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:13",
+      "legacySourceRef": "roofing:17:ja-en:cards:13",
+      "sourceSpanish": "Lean la envoltura del paquete.",
+      "sourceEnglish": "Read the wrapper.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "包装紙を読んでください。",
+      "archivedEnglish": "Read the wrapper.",
+      "reviewNote": "Archived 包装紙 specifies paper while source wrapper does not; preserve the package-instruction sense without asserting paper packaging.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:14",
+      "legacySourceRef": "roofing:17:ja-en:cards:14",
+      "sourceSpanish": "Usen el mismo patrón en cada teja.",
+      "sourceEnglish": "Use the same pattern on every shingle.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "どのシングル材にも同じパターンを使ってください。",
+      "archivedEnglish": "Use the same pattern on every shingle.",
+      "reviewNote": "Same pattern on every shingle applies only after selecting this product's manufacturer pattern. Isolated card omits that scope; do not teach one pattern as universal across products.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:card:15",
+      "legacySourceRef": "roofing:17:ja-en:cards:15",
+      "sourceSpanish": "Necesito el patrón exacto de este producto.",
+      "sourceEnglish": "I need the exact pattern for this product.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": "この製品の正確な釘打ちパターンが必要です。",
+      "archivedJapanese": "この製品の正確な釘打ちパターンが必要です。",
+      "archivedEnglish": "I need the exact pattern for this product.",
+      "reviewNote": null,
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "roofing:17:ja-en:line:1",
+      "legacySourceRef": "roofing:17:ja-en:reader:1",
+      "sourceSpanish": "Hoy la cuadrilla abre un paquete nuevo de tejas asfálticas.",
+      "sourceEnglish": "Today the crew opens a new package of asphalt shingles.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今日、作業班はアスファルトシングル材の新しい梱包を開けます。",
+      "archivedEnglish": "Today the crew opens a new package of asphalt shingles.",
+      "reviewNote": "Source says asphalt shingles; confirm archived アスファルトシングル材 and card 2 use a consistent material term.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:2",
+      "legacySourceRef": "roofing:17:ja-en:reader:2",
+      "sourceSpanish": "Un obrero pregunta: ¿Cuántos clavos necesita esta teja?",
+      "sourceEnglish": "A worker asks: How many nails does this shingle need?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業員が「このシングル材には釘が何本必要ですか」と尋ねます。",
+      "archivedEnglish": "A worker asks: How many nails does this shingle need?",
+      "reviewNote": "Retain this specific shingle/product context; card 12 has the same material distinction.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:3",
+      "legacySourceRef": "roofing:17:ja-en:reader:3",
+      "sourceSpanish": "En el ejemplo de la guía son cuatro clavos por teja.",
+      "sourceEnglish": "In the guide's example it is four nails per shingle.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ガイドの例では、一枚につき釘が四本です。",
+      "archivedEnglish": "In the guide's example it is four nails per shingle.",
+      "reviewNote": "Guide-attributed four-nail count is an example, not a universal installation requirement; preserve explicit attribution.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:4",
+      "legacySourceRef": "roofing:17:ja-en:reader:4",
+      "sourceSpanish": "Pero cada fabricante da sus propias instrucciones.",
+      "sourceEnglish": "But every manufacturer gives its own instructions.",
+      "selectedJapanese": null,
+      "candidateJapanese": "ただし、メーカーごとに施工説明書があります。",
+      "archivedJapanese": "ただし、メーカーごとに施工説明書があります。",
+      "archivedEnglish": "But every manufacturer gives its own instructions.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:5",
+      "legacySourceRef": "roofing:17:ja-en:reader:5",
+      "sourceSpanish": "Lean la envoltura del paquete.",
+      "sourceEnglish": "Read the wrapper on the package.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "梱包の包装紙を読んでください。",
+      "archivedEnglish": "Read the wrapper on the package.",
+      "reviewNote": "Archived 包装紙 specifies paper, but source only says package wrapper. Confirm material-neutral trade wording.",
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:6",
+      "legacySourceRef": "roofing:17:ja-en:reader:6",
+      "sourceSpanish": "Revisen las instrucciones del producto antes de definir el patrón de clavado.",
+      "sourceEnglish": "Check the product instructions before setting the nail pattern.",
+      "selectedJapanese": null,
+      "candidateJapanese": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+      "archivedJapanese": "釘打ちパターンを決める前に製品の施工説明書を確認してください。",
+      "archivedEnglish": "Check the product instructions before setting the nail pattern.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:7",
+      "legacySourceRef": "roofing:17:ja-en:reader:7",
+      "sourceSpanish": "Necesito el patrón exacto de este producto.",
+      "sourceEnglish": "I need the exact pattern for this product.",
+      "selectedJapanese": null,
+      "candidateJapanese": "この製品の正確な釘打ちパターンが必要です。",
+      "archivedJapanese": "この製品の正確な釘打ちパターンが必要です。",
+      "archivedEnglish": "I need the exact pattern for this product.",
+      "reviewNote": null,
+      "reviewed": false
+    },
+    {
+      "id": "roofing:17:ja-en:line:8",
+      "legacySourceRef": "roofing:17:ja-en:reader:8",
+      "sourceSpanish": "Después, usen el mismo patrón en cada teja.",
+      "sourceEnglish": "After that, use the same pattern on every shingle.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、どのシングル材にも同じパターンを使ってください。",
+      "archivedEnglish": "After that, use the same pattern on every shingle.",
+      "reviewNote": "Same pattern on every shingle is scoped to the product instructions just checked. Keep that sequence and avoid a universal cross-product rule.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Find the guide's example nail count.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall nail pattern, wrapper, and manufacturer instructions.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 釘の本数 from 釘打ちパターン when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'How many nails does this shingle need?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Use the guide's four-nail example, then ask for this product's pattern.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write what the worker checks before setting the pattern.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

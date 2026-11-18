@@ -1,0 +1,444 @@
+{
+  "schema": "french101-master12-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 12,
+  "stableLessonId": "master-french-basics:12",
+  "stablePairId": "master-french-basics:12:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-10-12-redesign-draft.json": "ac4cbab6e3fc15db15a16a0f6f1a0f5ad28779facecfd1221b2dfc496cf0b98e"
+  },
+  "sourceTitleEnglish": "Make a plan everyone can do",
+  "sourceObjectiveEnglish": "Make a plan everyone can do: Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden.",
+  "sourceFocusEnglish": "Make a plan everyone can do",
+  "sourceSpeakingEnglish": "Role-play Un sábado libre with a patient classmate. Practice make a plan everyone can do. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden. The next verb stays in the infinitive: puedo hablar.",
+    "examples": [
+      {
+        "es": "Quiero ir al museo.",
+        "en": "I want to go to the museum."
+      },
+      {
+        "es": "Julia puede venir por la mañana.",
+        "en": "Julia can come in the morning."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Un sábado libre",
+  "cards": [
+    {
+      "id": "master-french-basics:12:card:1",
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "proposedFrench": "table",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:2",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish el marks masculine singular; French le also elides before a vowel. Contextual article forms need review."
+    },
+    {
+      "id": "master-french-basics:12:card:3",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": "la",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish la groups definite article and feminine object pronouns; French la needs role and elision context."
+    },
+    {
+      "id": "master-french-basics:12:card:4",
+      "sourceSpanish": "una",
+      "sourceEnglish": "a (feminine)",
+      "kind": "term",
+      "proposedFrench": "une",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:5",
+      "sourceSpanish": "una mesa",
+      "sourceEnglish": "a table",
+      "kind": "term",
+      "proposedFrench": "une table",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:6",
+      "sourceSpanish": "aquí",
+      "sourceEnglish": "here",
+      "kind": "term",
+      "proposedFrench": "ici",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:7",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en groups in/on/at. One isolated French answer would erase place and time contrasts."
+    },
+    {
+      "id": "master-french-basics:12:card:8",
+      "sourceSpanish": "las",
+      "sourceEnglish": "the / them (feminine plural)",
+      "kind": "term",
+      "proposedFrench": "les",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish las is feminine plural article/object; French les is gender-neutral and can be article or object pronoun."
+    },
+    {
+      "id": "master-french-basics:12:card:9",
+      "sourceSpanish": "para",
+      "sourceEnglish": "for / in order to",
+      "kind": "term",
+      "proposedFrench": "pour",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source para groups for and purpose. French pour needs object versus infinitive context."
+    },
+    {
+      "id": "master-french-basics:12:card:10",
+      "sourceSpanish": "tres",
+      "sourceEnglish": "three",
+      "kind": "term",
+      "proposedFrench": "trois",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:11",
+      "sourceSpanish": "de",
+      "sourceEnglish": "of / from",
+      "kind": "term",
+      "proposedFrench": "de",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source de groups of/from; French de requires phrase-level sense and contraction decisions."
+    },
+    {
+      "id": "master-french-basics:12:card:12",
+      "sourceSpanish": "no",
+      "sourceEnglish": "no / not",
+      "kind": "term",
+      "proposedFrench": null,
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source no groups no and not. French non versus ne…pas depends on the utterance."
+    },
+    {
+      "id": "master-french-basics:12:card:13",
+      "sourceSpanish": "Quiero ir al museo.",
+      "sourceEnglish": "I want to go to the museum.",
+      "kind": "phrase",
+      "proposedFrench": "Je veux aller au musée.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:14",
+      "sourceSpanish": "Julia puede venir por la mañana.",
+      "sourceEnglish": "Julia can come in the morning.",
+      "kind": "phrase",
+      "proposedFrench": "Julia peut venir le matin.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:15",
+      "sourceSpanish": "Diego no puede salir antes de las diez.",
+      "sourceEnglish": "Diego cannot go out before ten.",
+      "kind": "phrase",
+      "proposedFrench": "Diego ne peut pas sortir avant dix heures.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:16",
+      "sourceSpanish": "Podemos comer después de la visita.",
+      "sourceEnglish": "We can eat after the visit.",
+      "kind": "phrase",
+      "proposedFrench": "Nous pouvons manger après la visite.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:17",
+      "sourceSpanish": "Queremos caminar por el parque.",
+      "sourceEnglish": "We want to walk through the park.",
+      "kind": "phrase",
+      "proposedFrench": "Nous voulons marcher à travers le parc.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish caminar por el parque means walking through the park; à travers preserves the directional reading, subject to idiom review."
+    },
+    {
+      "id": "master-french-basics:12:card:18",
+      "sourceSpanish": "¿Puedes reservar una mesa para tres?",
+      "sourceEnglish": "Can you reserve a table for three?",
+      "kind": "phrase",
+      "proposedFrench": "Peux-tu réserver une table pour trois ?",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source puedes is informal singular; French tu is proposed, but role/register review remains."
+    },
+    {
+      "id": "master-french-basics:12:card:19",
+      "sourceSpanish": "Puedo estudiar aquí hoy.",
+      "sourceEnglish": "I can study here today.",
+      "kind": "phrase",
+      "proposedFrench": "Je peux étudier ici aujourd’hui.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:card:20",
+      "sourceSpanish": "¿Puedes abrir la ventana?",
+      "sourceEnglish": "Can you open the window?",
+      "kind": "phrase",
+      "proposedFrench": "Peux-tu ouvrir la fenêtre ?",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source puedes is informal singular; French tu is proposed, but role/register review remains."
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:12:reader:1",
+      "sourceSpanish": "Quiero ir al museo.",
+      "sourceEnglish": "I want to go to the museum.",
+      "proposedFrench": "Je veux aller au musée.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:reader:2",
+      "sourceSpanish": "Julia puede venir por la mañana.",
+      "sourceEnglish": "Julia can come in the morning.",
+      "proposedFrench": "Julia peut venir le matin.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:reader:3",
+      "sourceSpanish": "Diego no puede salir antes de las diez.",
+      "sourceEnglish": "Diego cannot go out before ten.",
+      "proposedFrench": "Diego ne peut pas sortir avant dix heures.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:reader:4",
+      "sourceSpanish": "Podemos comer después de la visita.",
+      "sourceEnglish": "We can eat after the visit.",
+      "proposedFrench": "Nous pouvons manger après la visite.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:reader:5",
+      "sourceSpanish": "Queremos caminar por el parque.",
+      "sourceEnglish": "We want to walk through the park.",
+      "proposedFrench": "Nous voulons marcher à travers le parc.",
+      "selectedFrench": null,
+      "decisionNote": "Preserve through the park; review à travers versus dans for the scene."
+    },
+    {
+      "id": "master-french-basics:12:reader:6",
+      "sourceSpanish": "¿Puedes reservar una mesa para tres?",
+      "sourceEnglish": "Can you reserve a table for three?",
+      "proposedFrench": "Peux-tu réserver une table pour trois ?",
+      "selectedFrench": null,
+      "decisionNote": "Spanish puedes is informal singular; proposed tu needs the speaking relationship confirmed."
+    },
+    {
+      "id": "master-french-basics:12:reader:7",
+      "sourceSpanish": "Puedo estudiar aquí hoy.",
+      "sourceEnglish": "I can study here today.",
+      "proposedFrench": "Je peux étudier ici aujourd’hui.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:reader:8",
+      "sourceSpanish": "¿Puedes abrir la ventana?",
+      "sourceEnglish": "Can you open the window?",
+      "proposedFrench": "Peux-tu ouvrir la fenêtre ?",
+      "selectedFrench": null,
+      "decisionNote": "Spanish puedes is informal singular; proposed tu needs the speaking relationship confirmed."
+    },
+    {
+      "id": "master-french-basics:12:reader:9",
+      "sourceSpanish": "Ana puede ayudar con la tarea.",
+      "sourceEnglish": "Ana can help with the homework.",
+      "proposedFrench": "Ana peut aider pour les devoirs.",
+      "selectedFrench": null,
+      "decisionNote": "French aider pour les devoirs is a conditional idiom choice for help with homework."
+    },
+    {
+      "id": "master-french-basics:12:reader:10",
+      "sourceSpanish": "Podemos hablar en voz baja.",
+      "sourceEnglish": "We can speak quietly.",
+      "proposedFrench": "Nous pouvons parler à voix basse.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:12:reader:11",
+      "sourceSpanish": "No pueden comer en esta sala.",
+      "sourceEnglish": "They cannot eat in this room.",
+      "proposedFrench": "Ils ne peuvent pas manger dans cette salle.",
+      "selectedFrench": null,
+      "decisionNote": "Spanish pueden does not identify gender; French ils introduces a gender default requiring a source/context decision."
+    },
+    {
+      "id": "master-french-basics:12:reader:12",
+      "sourceSpanish": "¿Puede repetir la pregunta, por favor?",
+      "sourceEnglish": "Can you repeat the question, please?",
+      "proposedFrench": "Pouvez-vous répéter la question, s’il vous plaît ?",
+      "selectedFrench": null,
+      "decisionNote": "Spanish puede can be polite usted or third person; polite vous is inferred from please and needs review."
+    }
+  ],
+  "conditionalModeEvidence": [
+    {
+      "mode": "See",
+      "sourceRef": "master-french-basics:12:reader:1",
+      "sourceEnglish": "I want to go to the museum.",
+      "conditionalFrench": "Je veux aller au musée.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Recall",
+      "sourceRef": "master-french-basics:12:reader:2",
+      "sourceEnglish": "Julia can come in the morning.",
+      "conditionalFrench": "Julia peut venir le matin.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Hear",
+      "sourceRef": "master-french-basics:12:reader:3",
+      "sourceEnglish": "Diego cannot go out before ten.",
+      "conditionalFrench": "Diego ne peut pas sortir avant dix heures.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Type",
+      "sourceRef": "master-french-basics:12:reader:4",
+      "sourceEnglish": "We can eat after the visit.",
+      "conditionalFrench": "Nous pouvons manger après la visite.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Say",
+      "sourceRef": "master-french-basics:12:reader:6",
+      "sourceEnglish": "Can you reserve a table for three?",
+      "conditionalFrench": "Peux-tu réserver une table pour trois ?",
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    {
+      "mode": "Write",
+      "sourceRef": "master-french-basics:12:reader:11",
+      "sourceEnglish": "They cannot eat in this room.",
+      "conditionalFrench": "Ils ne peuvent pas manger dans cette salle.",
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  ],
+  "conditionalFormEvidence": [
+    {
+      "sourceRefs": [
+        "master-french-basics:12:reader:2",
+        "master-french-basics:12:reader:3",
+        "master-french-basics:12:reader:4"
+      ],
+      "focus": "pouvoir + infinitive; person and negation",
+      "readyForLearner": false
+    },
+    {
+      "sourceRefs": [
+        "master-french-basics:12:reader:6",
+        "master-french-basics:12:reader:8",
+        "master-french-basics:12:reader:12"
+      ],
+      "focus": "tu versus vous request register",
+      "readyForLearner": false
+    }
+  ],
+  "conditionalSpeakingEvidence": {
+    "sourceScene": "Un sábado libre",
+    "focus": "Make a plan everyone can do, including availability and a table for three.",
+    "sourceRefs": [
+      "master-french-basics:12:reader:1",
+      "master-french-basics:12:reader:2",
+      "master-french-basics:12:reader:3",
+      "master-french-basics:12:reader:4",
+      "master-french-basics:12:reader:6",
+      "master-french-basics:12:reader:12"
+    ],
+    "readyForLearner": false
+  },
+  "archivedRedesign": {
+    "title": "Négocier un projet de groupe réalisable",
+    "scene": "Un groupe doit préparer une présentation. Une première heure exclut un membre et la salle voulue n’est pas libre.",
+    "separateFromCurrentSource": true,
+    "reason": "The archived group-presentation meeting, room permission and fallback library differ from the source free-Saturday museum/park/table plan."
+  },
+  "sourceDecisions": [
+    "The pinned Spanish objective teaches poder stem change o→ue except nosotros; French pouvoir has its own irregular paradigm and must be authored as a French objective rather than copied.",
+    "The source places a beginner ability-and-planning lesson at Master 12; qualified curriculum review must decide stage placement without changing saved identity silently.",
+    "Grouped articles, pronouns, prepositions and no/not require contextual dictionary senses; masculine/feminine information in Spanish may not survive identical French forms.",
+    "The source Reader alternates informal puedes, ambiguous puede and unspecified third-person plural pueden; French register and gender choices need review before selection."
+  ],
+  "selectedDecision": null,
+  "normalProjectionAllowed": false,
+  "audioScript": null,
+  "gates": {
+    "reviewed": false,
+    "qualifiedFrenchReview": false,
+    "qualifiedSourceReview": false,
+    "qualifiedDictionaryReview": false,
+    "learnerRegistered": false,
+    "scoringRegistered": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offlineRegistered": false,
+    "progressRegistered": false,
+    "nativeV4Registered": false
+  }
+}

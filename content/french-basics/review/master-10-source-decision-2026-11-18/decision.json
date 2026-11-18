@@ -1,0 +1,587 @@
+{
+  "schema": "french101-master10-source-decision-v1",
+  "pairKey": "French:English",
+  "courseId": "french-basics",
+  "moduleId": "master-french-basics",
+  "stage": "master",
+  "n": 10,
+  "stableLessonId": "master-french-basics:10",
+  "stablePairId": "master-french-basics:10:fr-en",
+  "sourceFilesSha256": {
+    "src/data/core60/es/master-spanish-basics.json": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede",
+    "src/data/spanish-basics-practice.json": "04760ebadb52a4bf08fb87b670bb68169e9c90ca343ad5fc9a1c945eb1c331fe",
+    "content/review-archive/french-japanese-2026-11-15/french-101/master-10-12-redesign-draft.json": "ac4cbab6e3fc15db15a16a0f6f1a0f5ad28779facecfd1221b2dfc496cf0b98e"
+  },
+  "sourceTitleEnglish": "Return the right belongings",
+  "sourceObjectiveEnglish": "Return the right belongings: Possessives agree with what is possessed, not the owner: mi libro, mis libros; tu mesa, tus mesas.",
+  "sourceFocusEnglish": "Return the right belongings",
+  "sourceSpeakingEnglish": "Role-play Al final de la clase with a patient classmate. Practice return the right belongings. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+  "sourceGrammarEnglish": {
+    "focus": "Possessives agree with what is possessed, not the owner: mi libro, mis libros; tu mesa, tus mesas. Su can mean his, her, your formal or their; clarify with de when needed.",
+    "examples": [
+      {
+        "es": "Mi teléfono está en tu mesa.",
+        "en": "My phone is on your table."
+      },
+      {
+        "es": "Tu libro está en mi mochila.",
+        "en": "Your book is in my backpack."
+      }
+    ]
+  },
+  "sourceReaderTitleSpanish": "Al final de la clase",
+  "cards": [
+    {
+      "id": "master-french-basics:10:card:1",
+      "sourceSpanish": "mesa",
+      "sourceEnglish": "table",
+      "kind": "term",
+      "proposedFrench": "table",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:2",
+      "sourceSpanish": "mochila",
+      "sourceEnglish": "backpack",
+      "kind": "term",
+      "proposedFrench": "sac à dos",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish mochila is feminine, but French sac à dos is masculine; possessives follow French noun gender."
+    },
+    {
+      "id": "master-french-basics:10:card:3",
+      "sourceSpanish": "cuaderno",
+      "sourceEnglish": "notebook",
+      "kind": "term",
+      "proposedFrench": "cahier",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:4",
+      "sourceSpanish": "libro",
+      "sourceEnglish": "book",
+      "kind": "term",
+      "proposedFrench": "livre",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:5",
+      "sourceSpanish": "clase",
+      "sourceEnglish": "class / classroom",
+      "kind": "term",
+      "proposedFrench": "classe",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source groups class and classroom; classe and salle de classe are context-dependent, not one scored slash answer."
+    },
+    {
+      "id": "master-french-basics:10:card:6",
+      "sourceSpanish": "está",
+      "sourceEnglish": "is (condition/location)",
+      "kind": "term",
+      "proposedFrench": "est",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish está specifies condition/location; French est also expresses identity."
+    },
+    {
+      "id": "master-french-basics:10:card:7",
+      "sourceSpanish": "el",
+      "sourceEnglish": "the (masculine singular)",
+      "kind": "term",
+      "proposedFrench": "le",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:8",
+      "sourceSpanish": "la",
+      "sourceEnglish": "the / it / her (feminine)",
+      "kind": "term",
+      "proposedFrench": "la",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source groups article and feminine object/person pronoun senses; Reader only demonstrates article."
+    },
+    {
+      "id": "master-french-basics:10:card:9",
+      "sourceSpanish": "aquí",
+      "sourceEnglish": "here",
+      "kind": "term",
+      "proposedFrench": "ici",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:10",
+      "sourceSpanish": "en",
+      "sourceEnglish": "in / on / at",
+      "kind": "term",
+      "proposedFrench": "dans / sur / à",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source en groups in/on/at; French dans, sur and à require sentence-specific choices."
+    },
+    {
+      "id": "master-french-basics:10:card:11",
+      "sourceSpanish": "están",
+      "sourceEnglish": "are (condition/location)",
+      "kind": "term",
+      "proposedFrench": "sont",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Spanish están specifies condition/location; French sont also expresses identity."
+    },
+    {
+      "id": "master-french-basics:10:card:12",
+      "sourceSpanish": "libros",
+      "sourceEnglish": "books",
+      "kind": "term",
+      "proposedFrench": "livres",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:13",
+      "sourceSpanish": "Mi teléfono está en tu mesa.",
+      "sourceEnglish": "My phone is on your table.",
+      "kind": "phrase",
+      "proposedFrench": "Mon téléphone est sur ta table.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:14",
+      "sourceSpanish": "Tu libro está en mi mochila.",
+      "sourceEnglish": "Your book is in my backpack.",
+      "kind": "phrase",
+      "proposedFrench": "Ton livre est dans mon sac à dos.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:15",
+      "sourceSpanish": "Mis cuadernos están en la biblioteca.",
+      "sourceEnglish": "My notebooks are in the library.",
+      "kind": "phrase",
+      "proposedFrench": "Mes cahiers sont dans la bibliothèque.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": "Source specifies in the library; dans makes interior location explicit rather than merely at the library."
+    },
+    {
+      "id": "master-french-basics:10:card:16",
+      "sourceSpanish": "Tus lápices están aquí.",
+      "sourceEnglish": "Your pencils are here.",
+      "kind": "phrase",
+      "proposedFrench": "Tes crayons sont ici.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:17",
+      "sourceSpanish": "Ana busca su mochila.",
+      "sourceEnglish": "Ana is looking for her backpack.",
+      "kind": "phrase",
+      "proposedFrench": "Ana cherche son sac à dos.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source her describes Ana; French son agrees with masculine sac à dos, not Ana."
+    },
+    {
+      "id": "master-french-basics:10:card:18",
+      "sourceSpanish": "La mochila de Ana está cerca de la puerta.",
+      "sourceEnglish": "Ana's backpack is near the door.",
+      "kind": "phrase",
+      "proposedFrench": "Le sac à dos d'Ana est près de la porte.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:card:19",
+      "sourceSpanish": "Mi mochila está en la clase.",
+      "sourceEnglish": "My backpack is in the classroom.",
+      "kind": "phrase",
+      "proposedFrench": "Mon sac à dos est dans la salle de classe.",
+      "selectedFrench": null,
+      "decisionRequired": true,
+      "decisionNote": "Source classroom requires salle de classe; older French dans la classe can mean among the class."
+    },
+    {
+      "id": "master-french-basics:10:card:20",
+      "sourceSpanish": "Mis libros están en mi mochila.",
+      "sourceEnglish": "My books are in my backpack.",
+      "kind": "phrase",
+      "proposedFrench": "Mes livres sont dans mon sac à dos.",
+      "selectedFrench": null,
+      "decisionRequired": false,
+      "decisionNote": null
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-french-basics:10:reader:1",
+      "sourceSpanish": "Mi teléfono está en tu mesa.",
+      "sourceEnglish": "My phone is on your table.",
+      "proposedFrench": "Mon téléphone est sur ta table.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:2",
+      "sourceSpanish": "Tu libro está en mi mochila.",
+      "sourceEnglish": "Your book is in my backpack.",
+      "proposedFrench": "Ton livre est dans mon sac à dos.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:3",
+      "sourceSpanish": "Mis cuadernos están en la biblioteca.",
+      "sourceEnglish": "My notebooks are in the library.",
+      "proposedFrench": "Mes cahiers sont dans la bibliothèque.",
+      "selectedFrench": null,
+      "decisionNote": "Source specifies in the library; dans makes interior location explicit rather than merely at the library."
+    },
+    {
+      "id": "master-french-basics:10:reader:4",
+      "sourceSpanish": "Tus lápices están aquí.",
+      "sourceEnglish": "Your pencils are here.",
+      "proposedFrench": "Tes crayons sont ici.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:5",
+      "sourceSpanish": "Ana busca su mochila.",
+      "sourceEnglish": "Ana is looking for her backpack.",
+      "proposedFrench": "Ana cherche son sac à dos.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:6",
+      "sourceSpanish": "La mochila de Ana está cerca de la puerta.",
+      "sourceEnglish": "Ana's backpack is near the door.",
+      "proposedFrench": "Le sac à dos d'Ana est près de la porte.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:7",
+      "sourceSpanish": "Mi mochila está en la clase.",
+      "sourceEnglish": "My backpack is in the classroom.",
+      "proposedFrench": "Mon sac à dos est dans la salle de classe.",
+      "selectedFrench": null,
+      "decisionNote": "Use salle de classe for the room; older candidate dans la classe is ambiguous."
+    },
+    {
+      "id": "master-french-basics:10:reader:8",
+      "sourceSpanish": "Mis libros están en mi mochila.",
+      "sourceEnglish": "My books are in my backpack.",
+      "proposedFrench": "Mes livres sont dans mon sac à dos.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:9",
+      "sourceSpanish": "¿Dónde está tu cuaderno?",
+      "sourceEnglish": "Where is your notebook?",
+      "proposedFrench": "Où est ton cahier ?",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:10",
+      "sourceSpanish": "Tus lápices están aquí.",
+      "sourceEnglish": "Your pencils are here.",
+      "proposedFrench": "Tes crayons sont ici.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:11",
+      "sourceSpanish": "La profesora busca su teléfono.",
+      "sourceEnglish": "The teacher is looking for her phone.",
+      "proposedFrench": "La professeure cherche son téléphone.",
+      "selectedFrench": null,
+      "decisionNote": null
+    },
+    {
+      "id": "master-french-basics:10:reader:12",
+      "sourceSpanish": "El teléfono de la profesora está en la mesa.",
+      "sourceEnglish": "The teacher's phone is on the table.",
+      "proposedFrench": "Le téléphone de la professeure est sur la table.",
+      "selectedFrench": null,
+      "decisionNote": null
+    }
+  ],
+  "conditionalSourceAlignedCandidate": {
+    "privatePath": "/Users/drive/lt-review/french101-lesson-teams-2026-11-14/french101-master10-normalized/flagged-owner-review-packet.json",
+    "privateSha256": "d066923038796be737e86064bcf01f982e42537a688f26bf6debafc54d7f435f",
+    "sourceAlignedButUnqualified": true
+  },
+  "conditionalArchivedRedesign": {
+    "path": "content/review-archive/french-japanese-2026-11-15/french-101/master-10-12-redesign-draft.json",
+    "lessonNumber": 10,
+    "titleFrench": "Retrouver le propriétaire d’un objet",
+    "objectiveEnglish": "Identify an owner from several clues, describe the item precisely and return it while confirming its ownership.",
+    "sourceMeaningAligned": false,
+    "description": "Two-scarf lost-property workshop redesign changes the current classroom belongings and possessive lesson."
+  },
+  "candidateModes": {
+    "see": {
+      "reviewKey": "master-french-basics:10:mode:see",
+      "prompt": "My phone is on your table.",
+      "proposedTargetText": "Mon téléphone est sur ta table.",
+      "sourceRefs": [
+        "master-french-basics:10:card:13"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "recall": {
+      "reviewKey": "master-french-basics:10:mode:recall",
+      "prompt": "Your book is in my backpack.",
+      "proposedTargetText": "Ton livre est dans mon sac à dos.",
+      "sourceRefs": [
+        "master-french-basics:10:card:14"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "hear": {
+      "reviewKey": "master-french-basics:10:mode:hear",
+      "prompt": "My notebooks are in the library.",
+      "proposedTargetText": "Mes cahiers sont dans la bibliothèque.",
+      "sourceRefs": [
+        "master-french-basics:10:card:15"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "type": {
+      "reviewKey": "master-french-basics:10:mode:type",
+      "prompt": "Your pencils are here.",
+      "proposedTargetText": "Tes crayons sont ici.",
+      "sourceRefs": [
+        "master-french-basics:10:card:16"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "say": {
+      "reviewKey": "master-french-basics:10:mode:say",
+      "prompt": "Ana is looking for her backpack.",
+      "proposedTargetText": "Ana cherche son sac à dos.",
+      "sourceRefs": [
+        "master-french-basics:10:card:17"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    },
+    "write": {
+      "reviewKey": "master-french-basics:10:mode:write",
+      "prompt": "My books are in my backpack.",
+      "proposedTargetText": "Mes livres sont dans mon sac à dos.",
+      "sourceRefs": [
+        "master-french-basics:10:card:20"
+      ],
+      "readyForLearner": false,
+      "recordedAudio": false
+    }
+  },
+  "candidateForms": [
+    {
+      "reviewKey": "master-french-basics:10:form-01",
+      "proposedFrench": "Mon téléphone",
+      "sourceEnglish": "my phone",
+      "explanation": "Mon is the masculine singular form, used because téléphone is masculine. The owner does not change the form.",
+      "sourceCardRef": "master-french-basics:10:card:13",
+      "sourceEnglishExactSubstring": true,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-02",
+      "proposedFrench": "ta table",
+      "sourceEnglish": "your table",
+      "explanation": "Ta is feminine singular because table is feminine. Compare ton livre (masculine).",
+      "sourceCardRef": "master-french-basics:10:card:13",
+      "sourceEnglishExactSubstring": true,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-03",
+      "proposedFrench": "Ton livre",
+      "sourceEnglish": "your book",
+      "explanation": "Ton is the masculine singular form, used because livre is masculine.",
+      "sourceCardRef": "master-french-basics:10:card:14",
+      "sourceEnglishExactSubstring": true,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-04",
+      "proposedFrench": "mon sac à dos",
+      "sourceEnglish": "my backpack",
+      "explanation": "Mon is used because sac à dos is masculine. The owner’s gender does not matter.",
+      "sourceCardRef": "master-french-basics:10:card:14",
+      "sourceEnglishExactSubstring": true,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-05",
+      "proposedFrench": "Mes cahiers",
+      "sourceEnglish": "my notebooks",
+      "explanation": "Mes is the plural form for a plural possessed noun, here cahiers.",
+      "sourceCardRef": "master-french-basics:10:card:15",
+      "sourceEnglishExactSubstring": true,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-06",
+      "proposedFrench": "Tes crayons",
+      "sourceEnglish": "your pencils",
+      "explanation": "Tes is the plural form for a plural possessed noun, here crayons.",
+      "sourceCardRef": "master-french-basics:10:card:16",
+      "sourceEnglishExactSubstring": true,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-07",
+      "proposedFrench": "son sac à dos",
+      "sourceEnglish": "her / his backpack",
+      "explanation": "Son agrees with sac, a masculine singular noun. It does not change to match Ana, and the English her is a translation choice, not a French form rule.",
+      "sourceCardRef": "master-french-basics:10:card:17",
+      "sourceEnglishExactSubstring": false,
+      "reviewed": false,
+      "readyForLearner": false
+    },
+    {
+      "reviewKey": "master-french-basics:10:form-08",
+      "proposedFrench": "d'Ana",
+      "sourceEnglish": "of Ana",
+      "explanation": "French names the owner with article + noun + de: le sac à dos d'Ana (not son sac à dos d'Ana). Before a vowel, de becomes d'.",
+      "sourceCardRef": "master-french-basics:10:card:18",
+      "sourceEnglishExactSubstring": false,
+      "reviewed": false,
+      "readyForLearner": false
+    }
+  ],
+  "candidateSpeaking": {
+    "sourceEnglish": "Role-play Al final de la clase with a patient classmate. Practice return the right belongings. Use this lesson's grammar, ask a related question, answer the partner, and confirm understanding. Keep language at beginner level; explain unfamiliar words in English when asked.",
+    "conditionalFrenchObjectives": [
+      "Jouer une scène « À la fin du cours » avec un camarade de classe patient.",
+      "Pratiquer les phrases pour rendre les bonnes affaires, en utilisant la grammaire de cette leçon.",
+      "Poser une question liée aux affaires, par exemple « Où est ton cahier ? ».",
+      "Répondre à la question du partenaire et confirmer sa compréhension.",
+      "Garder un niveau débutant et expliquer en anglais les mots inconnus si on le demande."
+    ],
+    "readyForLearner": false
+  },
+  "sourceConflicts": [
+    {
+      "kind": "curriculum-stage",
+      "detail": "Current source teaches basic possessives in a classroom scene at Master stage; decide placement."
+    },
+    {
+      "kind": "archive-meaning",
+      "detail": "Archived scarf workshop is a different scene and cannot replace stable numbered source or inherit progress."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:2",
+      "detail": "Spanish mochila is feminine, but French sac à dos is masculine; possessives follow French noun gender."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:5",
+      "detail": "Source groups class and classroom; classe and salle de classe are context-dependent, not one scored slash answer."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:6",
+      "detail": "Spanish está specifies condition/location; French est also expresses identity."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:8",
+      "detail": "Source groups article and feminine object/person pronoun senses; Reader only demonstrates article."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:10",
+      "detail": "Source en groups in/on/at; French dans, sur and à require sentence-specific choices."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:11",
+      "detail": "Spanish están specifies condition/location; French sont also expresses identity."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:17",
+      "detail": "Source her describes Ana; French son agrees with masculine sac à dos, not Ana."
+    },
+    {
+      "kind": "card-face",
+      "cardId": "master-french-basics:10:card:19",
+      "detail": "Source classroom requires salle de classe; older French dans la classe can mean among the class."
+    },
+    {
+      "kind": "reader-face",
+      "readerId": "master-french-basics:10:reader:7",
+      "detail": "Use salle de classe for the room; older candidate dans la classe is ambiguous."
+    },
+    {
+      "kind": "forms",
+      "detail": "Private forms 7–8 use explanatory English glosses outside exact source-card substrings; qualified review needed."
+    },
+    {
+      "kind": "mode-schema",
+      "detail": "Six text cues are conditional; Hear has no recording or listening decision, scoring variants unspecified."
+    },
+    {
+      "kind": "dictionary-saved-items",
+      "detail": "Contextual possessive, article/pronoun and preposition senses plus saved-item continuity need qualified review."
+    },
+    {
+      "kind": "reader-face",
+      "readerId": "master-french-basics:10:reader:3",
+      "detail": "Older à la bibliothèque can mean at the library; proposed dans reflects source in the library."
+    }
+  ],
+  "normalCardProjectionAllowed": false,
+  "selectedDecision": null,
+  "gates": {
+    "reviewed": false,
+    "registered": false,
+    "readyForLearner": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "progress": false,
+    "ownerRoute": false,
+    "v4": false
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "schema": 1,
+  "track": "construction-foreman",
+  "stage": "foundation",
+  "pairKey": "Japanese:English",
+  "lessonKey": "foundation:7",
+  "stableLessonId": "foundation-construction-foreman:7:ja-en",
+  "candidateRevision": "foundation-construction-foreman:7:ja-en:source-decision-v1",
+  "sourceCommit": "d02c719190abea77144d89af908d352fd011eacb",
+  "source": {
+    "curriculumPath": "src/data/core60/es/foundation-construction-foreman.json",
+    "curriculumSha256": "d615822646bf94c386633b2bdc113ac1c7d0cdb310549181874d74aba5996df5",
+    "readerPath": "public/lesson-content/es/foundation-construction-foreman.json",
+    "readerSha256": "d8e2b50125606f19111889fe816a0733f9685e5933cbc2c86e17c4f08bcd8ded",
+    "japaneseDraftPath": "content/japanese-construction-foreman/foundation-draft.json",
+    "japaneseDraftSha256": "061c6bb30eae842e3c092c8dc69d279e0630fad2157db304499267ec263720ae",
+    "objectiveEnglish": "Ask what, who, where, when, how many and why about tasks, plans and permits on site.",
+    "focusSpanish": "Question words qué, quién, dónde, cuándo, cuánto, cómo, por qué, cuál",
+    "speakingEnglish": "Ask a crew member where the blueprints are, who has the permit, and when the inspector is coming.",
+    "readerTitleSpanish": "Preguntas antes de la inspección"
+  },
+  "archivedDraft": {
+    "title": "Correct the tool name",
+    "scene": "In storage, Sato holds his saw and new helper Kobayashi holds Sato's hammer; after Kobayashi checks the saw's name, Sato quizzes him about the hammer before they put the tools away",
+    "termCount": 10,
+    "readerCount": 8,
+    "materialDrift": [
+      "Old Japanese Foundation 7 names Sato and Kobayashi's saw and hammer in a storage-room yes/no exercise; current source asks Luis and Rosa site, blueprint, permit, inspection and worker-count questions."
+    ]
+  },
+  "reviewed": false,
+  "cards": [
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:01",
+      "position": 1,
+      "sourceSpanish": "¿qué?",
+      "sourceEnglish": "what?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "何？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:02",
+      "position": 2,
+      "sourceSpanish": "¿quién?",
+      "sourceEnglish": "who?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "誰？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:03",
+      "position": 3,
+      "sourceSpanish": "¿dónde?",
+      "sourceEnglish": "where?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "どこ？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:04",
+      "position": 4,
+      "sourceSpanish": "¿cuándo?",
+      "sourceEnglish": "when?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "いつ？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:05",
+      "position": 5,
+      "sourceSpanish": "¿cuánto?",
+      "sourceEnglish": "how much?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": null,
+      "selectedJapanese": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:06",
+      "position": 6,
+      "sourceSpanish": "¿cuántos?",
+      "sourceEnglish": "how many?",
+      "kind": "term",
+      "sourceNoteInternal": "Use ¿cuántas? with feminine nouns: ¿cuántas tablas?",
+      "japaneseDraft": "いくつ？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:07",
+      "position": 7,
+      "sourceSpanish": "¿cómo?",
+      "sourceEnglish": "how?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "どう？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:08",
+      "position": 8,
+      "sourceSpanish": "¿por qué?",
+      "sourceEnglish": "why?",
+      "kind": "term",
+      "sourceNoteInternal": "Two words with an accent for 'why'; porque, one word, means 'because'.",
+      "japaneseDraft": "なぜ？",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:09",
+      "position": 9,
+      "sourceSpanish": "¿cuál?",
+      "sourceEnglish": "which?",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": null,
+      "selectedJapanese": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:10",
+      "position": 10,
+      "sourceSpanish": "el permiso",
+      "sourceEnglish": "the permit",
+      "kind": "term",
+      "sourceNoteInternal": null,
+      "japaneseDraft": null,
+      "selectedJapanese": null,
+      "decisionOpen": true
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:11",
+      "position": 11,
+      "sourceSpanish": "el plano",
+      "sourceEnglish": "the blueprint",
+      "kind": "term",
+      "sourceNoteInternal": "Often plural: los planos.",
+      "japaneseDraft": "図面",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:12",
+      "position": 12,
+      "sourceSpanish": "¿Dónde están los planos?",
+      "sourceEnglish": "Where are the blueprints?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "図面はどこにありますか。",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:13",
+      "position": 13,
+      "sourceSpanish": "¿Quién maneja el montacargas hoy?",
+      "sourceEnglish": "Who's driving the forklift today?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "今日は誰がフォークリフトを運転しますか。",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:14",
+      "position": 14,
+      "sourceSpanish": "¿Cuándo viene el inspector?",
+      "sourceEnglish": "When is the inspector coming?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "検査員はいつ来ますか。",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:15",
+      "position": 15,
+      "sourceSpanish": "¿Cuántas tablas faltan?",
+      "sourceEnglish": "How many boards are we missing?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "板は何枚足りませんか。",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:16",
+      "position": 16,
+      "sourceSpanish": "¿Qué escalera uso?",
+      "sourceEnglish": "Which ladder do I use?",
+      "kind": "phrase",
+      "sourceNoteInternal": "Before a noun, ¿qué? is the standard choice. You may hear ¿cuál escalera? in Mexico.",
+      "japaneseDraft": "どのはしごを使いますか。",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:card:17",
+      "position": 17,
+      "sourceSpanish": "¿Qué necesita usted?",
+      "sourceEnglish": "What do you need?",
+      "kind": "phrase",
+      "sourceNoteInternal": null,
+      "japaneseDraft": "何が必要ですか。",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:01",
+      "position": 1,
+      "sourceSpanish": "En la obra, Luis le pregunta a Rosa: ¿Dónde están los planos?",
+      "sourceEnglish": "At the site, Luis asks Rosa: Where are the blueprints?",
+      "japaneseDraft": "現場でルイスはローサに尋ねます。「図面はどこにありますか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:02",
+      "position": 2,
+      "sourceSpanish": "Rosa: Están en la troca, pero ¿qué plano necesita usted?",
+      "sourceEnglish": "Rosa: They are in the truck, but which blueprint do you need?",
+      "japaneseDraft": "ローサ：「トラックの中にあります。でも、どの図面が必要ですか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:03",
+      "position": 3,
+      "sourceSpanish": "Luis: Necesito el plano de la cocina, y ¿quién tiene el permiso?",
+      "sourceEnglish": "Luis: I need the kitchen blueprint, and who has the permit?",
+      "japaneseDraft": "ルイス：「台所の図面が必要です。それと、許可証は誰が持っていますか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:04",
+      "position": 4,
+      "sourceSpanish": "Rosa: Yo tengo el permiso, pero ¿por qué lo necesita?",
+      "sourceEnglish": "Rosa: I have the permit, but why do you need it?",
+      "japaneseDraft": "ローサ：「私が許可証を持っています。でも、なぜ必要なのですか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:05",
+      "position": 5,
+      "sourceSpanish": "Luis: Hay inspección hoy, pero ¿cuándo viene el inspector?",
+      "sourceEnglish": "Luis: There is an inspection today, but when is the inspector coming?",
+      "japaneseDraft": "ルイス：「今日は検査があります。でも、検査員はいつ来ますか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:06",
+      "position": 6,
+      "sourceSpanish": "Rosa: Viene a las 10, según la oficina, pero ¿qué revisa?",
+      "sourceEnglish": "Rosa: He comes at 10, according to the office, but what does he check?",
+      "japaneseDraft": "ローサ：「事務所によると10時に来ます。でも、何を調べますか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:07",
+      "position": 7,
+      "sourceSpanish": "Luis: Revisa la cocina, pero ¿cuántos trabajadores hay allí?",
+      "sourceEnglish": "Luis: He checks the kitchen, but how many workers are there?",
+      "japaneseDraft": "ルイス：「台所を調べます。でも、そこには作業員が何人いますか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:08",
+      "position": 8,
+      "sourceSpanish": "Rosa: Hay 4 trabajadores, y ¿cuánto tiempo necesita el inspector?",
+      "sourceEnglish": "Rosa: There are 4 workers, and how much time does the inspector need?",
+      "japaneseDraft": "ローサ：「作業員は4人います。それと、検査員にはどのくらい時間が必要ですか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    },
+    {
+      "id": "foundation-construction-foreman:7:ja-en:source-decision-v1:reader:09",
+      "position": 9,
+      "sourceSpanish": "Luis: Una hora, más o menos, pero ¿cómo está la cocina ahora?",
+      "sourceEnglish": "Luis: About one hour, but how does the kitchen look now?",
+      "japaneseDraft": "ルイス：「だいたい1時間です。でも、台所は今どんな状態ですか。」",
+      "selectedJapanese": null,
+      "decisionOpen": false
+    }
+  ],
+  "decisionsNeeded": [
+    "Resolve source cuánto amount-versus-duration and cuántos noun/classifier senses before selecting Japanese cards 5 and 6.",
+    "Resolve cuál as stand-alone which versus qué before a noun; source card 16 asks which ladder with qué, so Japanese どの is only a contextual candidate.",
+    "Identify what kind of site permit the source means before selecting card 10 and Reader 3–4 Japanese 許可証 terminology; do not invent a permit type or legal requirement.",
+    "Confirm the site inspection/blueprint/truck/kitchen scene, characters, ten-o'clock visit, four-worker count and approximately one-hour duration with qualified Japanese and construction reviewers.",
+    "Review polite register for Spanish usted, forklift operator wording and the source question-words objective as Japanese curriculum, not a Spanish-word translation exercise.",
+    "Author exact six mode prompt/target pairs, forms, speaking, contextual dictionary and saved-item mapping; verify exact text before audio synthesis and distinct listening review."
+  ],
+  "gates": {
+    "ownerPage": false,
+    "learnerRegistered": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "progress": false,
+    "v4Imported": false
+  }
+}

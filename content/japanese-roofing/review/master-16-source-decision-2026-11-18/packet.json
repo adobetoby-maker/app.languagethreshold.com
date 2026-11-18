@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:16:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-16-18-draft.json",
+      "sha256": "98e4983f5cb1af020f7cf968215c3f17e07627fe0ace8262ac51d6c759c00211"
+    }
+  },
+  "sourceEnglishTitle": "Inspector on Site",
+  "sourceEnglishObjective": "Receive a city inspector formally, explain your procedures with passive se, and handle a correction notice",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for.",
+  "sourceSpanishReaderTitle": "The Inspector Arrives Mid-Install",
+  "sourceLessonType": "Document",
+  "sourceBlock": "D",
+  "sourceGrammar": {
+    "focus": "Formal register; passive se for procedures",
+    "examples": [
+      {
+        "es": "Aquí se revisa cada hilera antes de seguir.",
+        "en": "Here each course is checked before continuing."
+      },
+      {
+        "es": "¿Podría indicarme qué hay que corregir?",
+        "en": "Could you tell me what needs to be corrected?"
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "cumplir",
+      "native": "to comply",
+      "forms": {
+        "yo": "cumplo",
+        "tú": "cumples",
+        "él_ella_usted": "cumple",
+        "nosotros": "cumplimos",
+        "ellos_ustedes": "cumplen"
+      },
+      "example": {
+        "target": "Todo cumple con el código de construcción.",
+        "native": "Everything complies with the building code."
+      },
+      "note": "Cumplir con: to comply with a code or a requirement."
+    },
+    {
+      "infinitive": "corregir",
+      "native": "to correct",
+      "forms": {
+        "yo": "corrijo",
+        "tú": "corriges",
+        "él_ella_usted": "corrige",
+        "nosotros": "corregimos",
+        "ellos_ustedes": "corrigen"
+      },
+      "example": {
+        "target": "Lo corregimos hoy mismo.",
+        "native": "We'll correct it today."
+      },
+      "note": "Stem change e to i, and g changes to j in the yo form: corrijo."
+    },
+    {
+      "infinitive": "indicar",
+      "native": "to indicate, to point out",
+      "forms": {
+        "yo": "indico",
+        "tú": "indicas",
+        "él_ella_usted": "indica",
+        "nosotros": "indicamos",
+        "ellos_ustedes": "indican"
+      },
+      "example": {
+        "target": "¿Podría indicarme qué hay que corregir?",
+        "native": "Could you tell me what needs to be corrected?"
+      },
+      "note": "The conditional for a formal request: ¿podría indicarme…?"
+    },
+    {
+      "infinitive": "anotar",
+      "native": "to note down",
+      "forms": {
+        "yo": "anoto",
+        "tú": "anotas",
+        "él_ella_usted": "anota",
+        "nosotros": "anotamos",
+        "ellos_ustedes": "anotan"
+      },
+      "example": {
+        "target": "El método de fijación se anota en el reporte del día.",
+        "native": "The fastening method is noted in the day's report."
+      },
+      "note": "Passive se for a procedure: se anota, se anotan."
+    },
+    {
+      "infinitive": "deber",
+      "native": "must, to have to",
+      "forms": {
+        "yo": "debo",
+        "tú": "debes",
+        "él_ella_usted": "debe",
+        "nosotros": "debemos",
+        "ellos_ustedes": "deben"
+      },
+      "example": {
+        "target": "Se debe instalar tapajuntas escalonado en cada hilera.",
+        "native": "Step flashing must be installed on every course."
+      },
+      "note": "Se debe + infinitive is a formal way to state a requirement."
+    }
+  ],
+  "candidateObjective": "市の検査員を丁寧に迎え、施工方法を説明し、是正通知の内容を確認する。",
+  "candidateFocus": "～されています describes a documented procedure without naming the actor. ～によると attributes a fastening rule to its source; ～していただけますか asks formally for a finding.",
+  "archivedForms": [
+    {
+      "base": "適合する",
+      "exampleJa": "すべて建築基準に適合しています。",
+      "meaningEnglish": "to comply",
+      "exampleEnglish": "Everything complies with the building code.",
+      "sourceInfinitiveSpanish": "cumplir"
+    },
+    {
+      "base": "是正する",
+      "exampleJa": "本日是正します。",
+      "meaningEnglish": "to correct",
+      "exampleEnglish": "We'll correct it today.",
+      "sourceInfinitiveSpanish": "corregir"
+    },
+    {
+      "base": "示す",
+      "exampleJa": "どこを是正する必要があるか示していただけますか。",
+      "meaningEnglish": "to indicate, to point out",
+      "exampleEnglish": "Could you tell me what needs to be corrected?",
+      "sourceInfinitiveSpanish": "indicar"
+    },
+    {
+      "base": "記録する",
+      "exampleJa": "固定方法をその日の報告書に記録しています。",
+      "meaningEnglish": "to note down",
+      "exampleEnglish": "The fastening method is noted in the day's report.",
+      "sourceInfinitiveSpanish": "anotar"
+    },
+    {
+      "base": "必要がある",
+      "exampleJa": "すべての列に段差水切り板金を取り付ける必要があります。",
+      "meaningEnglish": "must, to have to",
+      "exampleEnglish": "Step flashing must be installed on every course.",
+      "sourceInfinitiveSpanish": "deber"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "おはようございます。こちらが建築許可証です。固定方法と水切り板金についてご説明します。是正が必要な箇所を教えていただけますか。",
+    "goal": "Greet the city inspector politely, present the permit, explain the observed fastening and flashing method, ask for the exact correction, and state the re-inspection plan."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:16:ja-en:card:1",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:1",
+      "sourceSpanish": "el inspector municipal",
+      "sourceEnglish": "the city inspector",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "市の検査員",
+      "archivedEnglish": "the city inspector",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:2",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:2",
+      "sourceSpanish": "el permiso de construcción",
+      "sourceEnglish": "the building permit",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "建築許可証",
+      "archivedEnglish": "the building permit",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:3",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:3",
+      "sourceSpanish": "la tarjeta de inspección",
+      "sourceEnglish": "the inspection card",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査記録票",
+      "archivedEnglish": "the inspection card",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:4",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:4",
+      "sourceSpanish": "el código de construcción",
+      "sourceEnglish": "the building code",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "建築基準",
+      "archivedEnglish": "the building code",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:5",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:5",
+      "sourceSpanish": "la revisión",
+      "sourceEnglish": "the check (review)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査",
+      "archivedEnglish": "the check (review)",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:6",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:6",
+      "sourceSpanish": "la observación",
+      "sourceEnglish": "the finding (inspector's note)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "指摘事項",
+      "archivedEnglish": "the finding (inspector's note)",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:7",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:7",
+      "sourceSpanish": "la nota de corrección",
+      "sourceEnglish": "the correction notice",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "是正通知",
+      "archivedEnglish": "the correction notice",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:8",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:8",
+      "sourceSpanish": "la reinspección",
+      "sourceEnglish": "the re-inspection",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "再検査",
+      "archivedEnglish": "the re-inspection",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:9",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:9",
+      "sourceSpanish": "el método de fijación",
+      "sourceEnglish": "the fastening method",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "固定方法",
+      "archivedEnglish": "the fastening method",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:10",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:10",
+      "sourceSpanish": "la cantidad de clavos",
+      "sourceEnglish": "the number of nails",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "釘の本数",
+      "archivedEnglish": "the number of nails",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:11",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:11",
+      "sourceSpanish": "la ventilación del ático",
+      "sourceEnglish": "the attic ventilation",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根裏の換気",
+      "archivedEnglish": "the attic ventilation",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:12",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:12",
+      "sourceSpanish": "el cumplimiento",
+      "sourceEnglish": "the compliance",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "適合",
+      "archivedEnglish": "the compliance",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:13",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:13",
+      "sourceSpanish": "el requisito",
+      "sourceEnglish": "the requirement",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "要件",
+      "archivedEnglish": "the requirement",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:14",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:14",
+      "sourceSpanish": "la aprobación",
+      "sourceEnglish": "the approval",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "承認",
+      "archivedEnglish": "the approval",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:15",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:15",
+      "sourceSpanish": "Buenos días, aquí tiene el permiso.",
+      "sourceEnglish": "Good morning, here's the permit.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "おはようございます。こちらが許可証です。",
+      "archivedEnglish": "Good morning, here's the permit.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:16",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:16",
+      "sourceSpanish": "¿Desea subir o prefiere ver las fotos?",
+      "sourceEnglish": "Would you like to go up or would you rather see the photos?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に上がりますか。それとも写真をご覧になりますか。",
+      "archivedEnglish": "Would you like to go up or would you rather see the photos?",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:17",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:17",
+      "sourceSpanish": "Aquí se clava según las instrucciones del producto.",
+      "sourceEnglish": "Here nailing is done according to the product instructions.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ここでは製品の施工説明書に従って釘留めしています。",
+      "archivedEnglish": "Here nailing is done according to the product instructions.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:18",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:18",
+      "sourceSpanish": "Se revisa cada hilera antes de seguir.",
+      "sourceEnglish": "Each course is checked before continuing.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "次へ進む前に各列を確認しています。",
+      "archivedEnglish": "Each course is checked before continuing.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:19",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:19",
+      "sourceSpanish": "¿Podría indicarme qué hay que corregir?",
+      "sourceEnglish": "Could you tell me what needs to be corrected?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "どこを是正する必要があるか教えていただけますか。",
+      "archivedEnglish": "Could you tell me what needs to be corrected?",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:20",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:20",
+      "sourceSpanish": "Lo corregimos hoy mismo.",
+      "sourceEnglish": "We'll correct it today.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "本日是正します。",
+      "archivedEnglish": "We'll correct it today.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:card:21",
+      "legacySourceRef": "master-roofing:16:ja-en:cards:21",
+      "sourceSpanish": "Avísame si ves llegar al inspector.",
+      "sourceEnglish": "Let me know if you see the inspector arrive.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員が到着したら知らせてください。",
+      "archivedEnglish": "Let me know if you see the inspector arrive.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:16:ja-en:line:1",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:1",
+      "sourceSpanish": "A las once llegó el inspector municipal, el señor Wong, mientras la cuadrilla instalaba las tejas del lado sur.",
+      "sourceEnglish": "At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "十一時に、市の検査員ウォンさんが到着しました。作業班は南側でシングル材を施工していました。",
+      "archivedEnglish": "At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:2",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:2",
+      "sourceSpanish": "Rogelio bajó del techo y lo saludó: Buenos días, aquí tiene el permiso.",
+      "sourceEnglish": "Rogelio came down from the roof and greeted him: Good morning, here's the permit.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは屋根から降りて挨拶しました。「おはようございます。こちらが許可証です。」",
+      "archivedEnglish": "Rogelio came down from the roof and greeted him: Good morning, here's the permit.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:3",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:3",
+      "sourceSpanish": "El permiso de construcción y la tarjeta de inspección estaban en la ventana del garaje, como pide la ciudad.",
+      "sourceEnglish": "The building permit and the inspection card were in the garage window, as the city requires.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "市の要件に従い、建築許可証と検査記録票は車庫の窓に置いてありました。",
+      "archivedEnglish": "The building permit and the inspection card were in the garage window, as the city requires.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:4",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:4",
+      "sourceSpanish": "Inspector: Gracias; vengo a hacer la revisión de la fijación y del tapajuntas.",
+      "sourceEnglish": "Inspector: Thank you; I'm here to check the fastening and the flashing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員「ありがとうございます。固定方法と水切り板金を検査します。」",
+      "archivedEnglish": "Inspector: Thank you; I'm here to check the fastening and the flashing.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:5",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: ¿Desea subir o prefiere ver las fotos?",
+      "sourceEnglish": "Rogelio: Would you like to go up or would you rather see the photos?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「屋根に上がりますか。それとも写真をご覧になりますか。」",
+      "archivedEnglish": "Rogelio: Would you like to go up or would you rather see the photos?",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:6",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:6",
+      "sourceSpanish": "Inspector: Prefiero subir; ¿cómo se clavan las tejas en esta obra?",
+      "sourceEnglish": "Inspector: I'd rather go up; how are the shingles nailed on this job?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員「屋根に上がります。この現場ではシングル材をどう釘留めしていますか。」",
+      "archivedEnglish": "Inspector: I'd rather go up; how are the shingles nailed on this job?",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:7",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: Aquí se clava según las instrucciones del producto, y la cantidad de clavos se ajusta a la pendiente y al viento, según el fabricante.",
+      "sourceEnglish": "Rogelio: Here nailing is done according to the product instructions, and the number of nails is adjusted for the slope and the wind, according to the manufacturer.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ここでは製品の施工説明書に従って釘留めし、勾配と風に応じてメーカーの指定する釘の本数に調整しています。」",
+      "archivedEnglish": "Rogelio: Here nailing is done according to the product instructions, and the number of nails is adjusted for the slope and the wind, according to the manufacturer.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:8",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Se revisa cada hilera antes de seguir, y el método de fijación se anota en el reporte del día.",
+      "sourceEnglish": "Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「次へ進む前に各列を確認し、固定方法をその日の報告書に記録しています。」",
+      "archivedEnglish": "Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:9",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:9",
+      "sourceSpanish": "El inspector revisó la ventilación del ático y el tapajuntas de la chimenea.",
+      "sourceEnglish": "The inspector checked the attic ventilation and the chimney flashing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員は屋根裏の換気と煙突周りの水切り板金を確認しました。",
+      "archivedEnglish": "The inspector checked the attic ventilation and the chimney flashing.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:10",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:10",
+      "sourceSpanish": "Inspector: Todo cumple con el código de construcción, menos una cosa.",
+      "sourceEnglish": "Inspector: Everything complies with the building code, except one thing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員「一点を除き、すべて建築基準に適合しています。」",
+      "archivedEnglish": "Inspector: Everything complies with the building code, except one thing.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:11",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:11",
+      "sourceSpanish": "Inspector: En la pared del garaje falta el tapajuntas escalonado en dos hileras.",
+      "sourceEnglish": "Inspector: On the garage wall the step flashing is missing on two courses.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員「車庫の壁際では二列分、段差水切り板金が欠けています。」",
+      "archivedEnglish": "Inspector: On the garage wall the step flashing is missing on two courses.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:12",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: ¿Podría indicarme qué hay que corregir exactamente, según el requisito?",
+      "sourceEnglish": "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「要件に照らして、どこを是正する必要があるか詳しく教えていただけますか。」",
+      "archivedEnglish": "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:13",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:13",
+      "sourceSpanish": "El inspector escribió una observación en la nota de corrección: Se debe instalar tapajuntas escalonado en cada hilera junto a la pared.",
+      "sourceEnglish": "The inspector wrote a finding on the correction notice: Step flashing must be installed on every course next to the wall.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員は是正通知に指摘事項を書きました。「壁に接するすべての列に段差水切り板金を取り付けること。」",
+      "archivedEnglish": "The inspector wrote a finding on the correction notice: Step flashing must be installed on every course next to the wall.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:14",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Lo corregimos hoy mismo y pedimos la reinspección por la página de la ciudad.",
+      "sourceEnglish": "Rogelio: We'll correct it today and request the re-inspection through the city website.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「本日是正し、市のウェブサイトから再検査を申請します。」",
+      "archivedEnglish": "Rogelio: We'll correct it today and request the re-inspection through the city website.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:15",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:15",
+      "sourceSpanish": "Inspector: Muy bien; si se confirma el cumplimiento, tendrá la aprobación.",
+      "sourceEnglish": "Inspector: Very good; if compliance is confirmed, you'll have the approval.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "検査員「分かりました。適合が確認されれば承認します。」",
+      "archivedEnglish": "Inspector: Very good; if compliance is confirmed, you'll have the approval.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:16:ja-en:line:16",
+      "legacySourceRef": "master-roofing:16:ja-en:reader:16",
+      "sourceSpanish": "Al final, Rogelio le dijo a Kevin: La próxima vez, avísame si ves llegar al inspector.",
+      "sourceEnglish": "At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最後にロヘリオはケビンに「次回、検査員が到着したら知らせてください」と言いました。",
+      "archivedEnglish": "At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive.",
+      "reviewNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the permit, inspection card, step flashing, and correction notice.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall inspector, requirement, compliance, re-inspection, and approval.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 是正通知 from 再検査 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'We'll correct it today' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Greet the inspector formally and explain the documented fastening method.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Record the finding, the required correction, and the re-inspection request.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Inspector authority, permit posting, code compliance, access, fastening/nail counts, step flashing and reinspection depend on jurisdiction and product. Preserve source scene; qualified Japanese, roofing/code and locale review must settle the terms and instructions. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

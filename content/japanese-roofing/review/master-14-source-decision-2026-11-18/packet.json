@@ -1,0 +1,734 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:14:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-13-15-draft.json",
+      "sha256": "7c45fda6eb8d2b4e2ad6a5f4e106e5e2db8642d5d7426f481e7fd2b880028991"
+    }
+  },
+  "sourceEnglishTitle": "Near-Miss Conversation",
+  "sourceEnglishObjective": "Talk a near-miss through with the crew without blame, say what almost happened, and agree on the fix",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+  "sourceSpanishReaderTitle": "The Bundle That Nearly Hit Someone",
+  "sourceLessonType": "Case",
+  "sourceBlock": "D",
+  "sourceGrammar": {
+    "focus": "Casi, por poco, podría haber; si clauses",
+    "examples": [
+      {
+        "es": "Por poco le cae en la cabeza al vecino.",
+        "en": "It nearly fell on the neighbor's head."
+      },
+      {
+        "es": "El bulto podría haber golpeado a alguien.",
+        "en": "The bundle could have hit someone."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "pesar",
+      "native": "to weigh",
+      "forms": {
+        "yo": "peso",
+        "tú": "pesas",
+        "él_ella_usted": "pesa",
+        "nosotros": "pesamos",
+        "ellos_ustedes": "pesan"
+      },
+      "example": {
+        "target": "Según la marca, un bulto puede pesar más de 60 libras.",
+        "native": "Depending on the brand, a bundle can weigh more than 60 pounds."
+      }
+    },
+    {
+      "infinitive": "golpear",
+      "native": "to hit",
+      "forms": {
+        "yo": "golpeo",
+        "tú": "golpeas",
+        "él_ella_usted": "golpea",
+        "nosotros": "golpeamos",
+        "ellos_ustedes": "golpean"
+      },
+      "example": {
+        "target": "Por poco el bulto golpea al vecino.",
+        "native": "The bundle nearly hit the neighbor."
+      },
+      "note": "Podría haber + participle for what could have happened: podría haber golpeado."
+    },
+    {
+      "infinitive": "proponer",
+      "native": "to propose",
+      "forms": {
+        "yo": "propongo",
+        "tú": "propones",
+        "él_ella_usted": "propone",
+        "nosotros": "proponemos",
+        "ellos_ustedes": "proponen"
+      },
+      "example": {
+        "target": "Marcos propone poner conos en la acera.",
+        "native": "Marcos proposes putting cones on the sidewalk."
+      },
+      "note": "Conjugated like poner: propongo; preterite: propuse, propuso."
+    },
+    {
+      "infinitive": "entender",
+      "native": "to understand",
+      "forms": {
+        "yo": "entiendo",
+        "tú": "entiendes",
+        "él_ella_usted": "entiende",
+        "nosotros": "entendemos",
+        "ellos_ustedes": "entienden"
+      },
+      "example": {
+        "target": "Queremos entender la causa.",
+        "native": "We want to understand the cause."
+      },
+      "note": "Stem change e to ie: entiendo, but entendemos."
+    },
+    {
+      "infinitive": "caminar",
+      "native": "to walk",
+      "forms": {
+        "yo": "camino",
+        "tú": "caminas",
+        "él_ella_usted": "camina",
+        "nosotros": "caminamos",
+        "ellos_ustedes": "caminan"
+      },
+      "example": {
+        "target": "Un vecino caminaba con su perro.",
+        "native": "A neighbor was walking his dog."
+      },
+      "note": "Imperfect for background: caminaba."
+    }
+  ],
+  "candidateObjective": "責任追及をせず、起こりかけたことと原因を話し、再発を防ぐ変更点を決める。",
+  "candidateFocus": "～そうになった expresses a near event. ～ていたら～だった would state the counterfactual; ～ように asks for a change that prevents recurrence.",
+  "archivedForms": [
+    {
+      "base": "重さがある",
+      "exampleJa": "ブランドによっては一束が六十ポンドを超える重さがあります。",
+      "meaningEnglish": "to weigh",
+      "exampleEnglish": "Depending on the brand, a bundle can weigh more than 60 pounds.",
+      "sourceInfinitiveSpanish": "pesar"
+    },
+    {
+      "base": "当たる",
+      "exampleJa": "束は危うく近所の人に当たるところでした。",
+      "meaningEnglish": "to hit",
+      "exampleEnglish": "The bundle nearly hit the neighbor.",
+      "sourceInfinitiveSpanish": "golpear"
+    },
+    {
+      "base": "提案する",
+      "exampleJa": "マルコスは歩道にカラーコーンを置くことを提案します。",
+      "meaningEnglish": "to propose",
+      "exampleEnglish": "Marcos proposes putting cones on the sidewalk.",
+      "sourceInfinitiveSpanish": "proponer"
+    },
+    {
+      "base": "理解する",
+      "exampleJa": "原因を理解したいのです。",
+      "meaningEnglish": "to understand",
+      "exampleEnglish": "We want to understand the cause.",
+      "sourceInfinitiveSpanish": "entender"
+    },
+    {
+      "base": "歩く",
+      "exampleJa": "近所の人は犬を連れて歩いていました。",
+      "meaningEnglish": "to walk",
+      "exampleEnglish": "A neighbor was walking his dog.",
+      "sourceInfinitiveSpanish": "caminar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "シングル材の束が歩道に落ち、危うく歩行者に当たるところでした。原因を一緒に確認し、再発しないよう変更点を決めましょう。",
+    "goal": "Discuss a falling-bundle near-miss with the crew. Describe what happened and what could have happened, invite the worker's account, and agree on a concrete prevention change without assigning blame."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:14:ja-en:card:1",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:1",
+      "sourceSpanish": "el casi accidente",
+      "sourceEnglish": "the near-miss",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ヒヤリ・ハット事例",
+      "archivedEnglish": "the near-miss",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:2",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:2",
+      "sourceSpanish": "el bulto de tejas",
+      "sourceEnglish": "the bundle of shingles",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "シングル材の束",
+      "archivedEnglish": "the bundle of shingles",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:3",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:3",
+      "sourceSpanish": "la pila",
+      "sourceEnglish": "the stack",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "積み重ね",
+      "archivedEnglish": "the stack",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:4",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:4",
+      "sourceSpanish": "el soporte de techo",
+      "sourceEnglish": "the roof bracket (roof jack)",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根用ブラケット",
+      "archivedEnglish": "the roof bracket (roof jack)",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:5",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:5",
+      "sourceSpanish": "la tabla de apoyo",
+      "sourceEnglish": "the toe board",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "つま先板",
+      "archivedEnglish": "the toe board",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:6",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:6",
+      "sourceSpanish": "la pendiente",
+      "sourceEnglish": "the slope",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根の勾配面",
+      "archivedEnglish": "the slope",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:7",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:7",
+      "sourceSpanish": "la zona de peligro",
+      "sourceEnglish": "the danger zone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "危険区域",
+      "archivedEnglish": "the danger zone",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:8",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:8",
+      "sourceSpanish": "la acera",
+      "sourceEnglish": "the sidewalk",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "歩道",
+      "archivedEnglish": "the sidewalk",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:9",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:9",
+      "sourceSpanish": "el peatón",
+      "sourceEnglish": "the pedestrian",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "歩行者",
+      "archivedEnglish": "the pedestrian",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:10",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:10",
+      "sourceSpanish": "el aviso",
+      "sourceEnglish": "the warning sign",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "警告標識",
+      "archivedEnglish": "the warning sign",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:11",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:11",
+      "sourceSpanish": "la lección",
+      "sourceEnglish": "the lesson",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "教訓",
+      "archivedEnglish": "the lesson",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:12",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:12",
+      "sourceSpanish": "la herida",
+      "sourceEnglish": "the injury",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "けが",
+      "archivedEnglish": "the injury",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:13",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:13",
+      "sourceSpanish": "la causa",
+      "sourceEnglish": "the cause",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "原因",
+      "archivedEnglish": "the cause",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:14",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:14",
+      "sourceSpanish": "la prevención",
+      "sourceEnglish": "the prevention",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "予防",
+      "archivedEnglish": "the prevention",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:15",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:15",
+      "sourceSpanish": "Por poco le cae en la cabeza.",
+      "sourceEnglish": "It nearly fell on his head.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "危うく彼の頭に当たるところでした。",
+      "archivedEnglish": "It nearly fell on his head.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:16",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:16",
+      "sourceSpanish": "Casi pasa una desgracia.",
+      "sourceEnglish": "A tragedy almost happened.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "大惨事になりかけました。",
+      "archivedEnglish": "A tragedy almost happened.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:17",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:17",
+      "sourceSpanish": "Podría haber matado a alguien.",
+      "sourceEnglish": "It could have killed someone.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "人が亡くなっていたかもしれません。",
+      "archivedEnglish": "It could have killed someone.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:18",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:18",
+      "sourceSpanish": "Si alguien hubiera estado abajo, estaría en el hospital.",
+      "sourceEnglish": "If someone had been below, they would be in the hospital.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "下に人がいたら、病院に運ばれていたでしょう。",
+      "archivedEnglish": "If someone had been below, they would be in the hospital.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:19",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:19",
+      "sourceSpanish": "¿Qué podemos cambiar para que no vuelva a pasar?",
+      "sourceEnglish": "What can we change so it doesn't happen again?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "二度と起きないように何を変えられますか。",
+      "archivedEnglish": "What can we change so it doesn't happen again?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:20",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:20",
+      "sourceSpanish": "Gracias por avisar, eso ayuda a todos.",
+      "sourceEnglish": "Thanks for speaking up, that helps everyone.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "話してくれてありがとうございます。皆の役に立ちます。",
+      "archivedEnglish": "Thanks for speaking up, that helps everyone.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:21",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:21",
+      "sourceSpanish": "¿Estás bien, carnal?",
+      "sourceEnglish": "Are you OK, bro?",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "大丈夫か。",
+      "archivedEnglish": "Are you OK, bro?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:card:22",
+      "legacySourceRef": "master-roofing:14:ja-en:cards:22",
+      "sourceSpanish": "Disculpe el susto, señor.",
+      "sourceEnglish": "Sorry for the scare, sir.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "驚かせてしまい、申し訳ありません。",
+      "archivedEnglish": "Sorry for the scare, sir.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:14:ja-en:line:1",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:1",
+      "sourceSpanish": "A media mañana, un bulto de tejas se resbaló por la pendiente y cayó desde el techo.",
+      "sourceEnglish": "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午前中、シングル材の束が屋根の勾配面を滑り落ち、屋根から落下しました。",
+      "archivedEnglish": "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:2",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:2",
+      "sourceSpanish": "El bulto cayó en la acera, a dos pasos de un vecino que caminaba con su perro.",
+      "sourceEnglish": "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "束は犬を散歩させていた近所の人から二歩ほど離れた歩道に落ちました。",
+      "archivedEnglish": "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:3",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:3",
+      "sourceSpanish": "Nadie sufrió ninguna herida, pero todos se quedaron callados.",
+      "sourceEnglish": "Nobody got a single injury, but everyone went quiet.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "誰もけがをしませんでしたが、全員が静まり返りました。",
+      "archivedEnglish": "Nobody got a single injury, but everyone went quiet.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:4",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:4",
+      "sourceSpanish": "Rogelio bajó primero a hablar con el peatón.",
+      "sourceEnglish": "Rogelio went down first to talk to the pedestrian.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオはまず降りて、歩行者に話しかけました。",
+      "archivedEnglish": "Rogelio went down first to talk to the pedestrian.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:5",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:5",
+      "sourceSpanish": "Rogelio: Disculpe el susto, señor; ¿está bien?",
+      "sourceEnglish": "Rogelio: Sorry for the scare, sir; are you all right?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「驚かせてしまい、申し訳ありません。おけがはありませんか。」",
+      "archivedEnglish": "Rogelio: Sorry for the scare, sir; are you all right?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:6",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:6",
+      "sourceSpanish": "Después subió con la cuadrilla, y Kevin estaba pálido.",
+      "sourceEnglish": "Then he went up with the crew, and Kevin was pale.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、作業班のところへ上がると、ケビンは青ざめていました。",
+      "archivedEnglish": "Then he went up with the crew, and Kevin was pale.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:7",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: ¿Estás bien, carnal?",
+      "sourceEnglish": "Rogelio: Are you OK, bro?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「大丈夫か。」",
+      "archivedEnglish": "Rogelio: Are you OK, bro?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:8",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Por poco le cae en la cabeza; casi pasa una desgracia.",
+      "sourceEnglish": "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「危うくあの人の頭に当たるところでした。大惨事になりかけました。」",
+      "archivedEnglish": "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:9",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Según la marca, un bulto puede pesar más de 60 libras, y podría haber matado a alguien.",
+      "sourceEnglish": "Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ブランドによっては一束が六十ポンドを超えることもあり、人が亡くなっていたかもしれません。」",
+      "archivedEnglish": "Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:10",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Si alguien hubiera estado abajo, estaría en el hospital.",
+      "sourceEnglish": "Rogelio: If someone had been below, they would be in the hospital.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「下に人がいたら、病院に運ばれていたでしょう。」",
+      "archivedEnglish": "Rogelio: If someone had been below, they would be in the hospital.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:11",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Pero esto es un casi accidente, nadie va a recibir un castigo y queremos entender la causa.",
+      "sourceEnglish": "Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「これはヒヤリ・ハット事例です。誰かを罰するためではなく、原因を理解したいのです。」",
+      "archivedEnglish": "Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:12",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:12",
+      "sourceSpanish": "Kevin: Yo dejé la pila de bultos sin la tabla de apoyo, porque solo iba a ser un momento.",
+      "sourceEnglish": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビン「少しの間だけだと思い、つま先板を付けずに束を積んでしまいました。」",
+      "archivedEnglish": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:13",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: Gracias por avisar, eso ayuda a todos.",
+      "sourceEnglish": "Rogelio: Thanks for speaking up, that helps everyone.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「話してくれてありがとうございます。皆の役に立ちます。」",
+      "archivedEnglish": "Rogelio: Thanks for speaking up, that helps everyone.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:14",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Si ponemos los bultos sobre el soporte de techo, con la tabla de apoyo, no se resbalan.",
+      "sourceEnglish": "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「つま先板を付けた屋根用ブラケットに束を置けば、滑り落ちません。」",
+      "archivedEnglish": "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:15",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: ¿Qué podemos cambiar para que no vuelva a pasar?",
+      "sourceEnglish": "Rogelio: What can we change so it doesn't happen again?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「二度と起きないように何を変えられますか。」",
+      "archivedEnglish": "Rogelio: What can we change so it doesn't happen again?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:16",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:16",
+      "sourceSpanish": "Marcos propuso marcar una zona de peligro abajo con conos y poner un aviso en la acera mientras suben material.",
+      "sourceEnglish": "Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "マルコスは資材を上げる間、下にカラーコーンで危険区域を示し、歩道に警告標識を置くことを提案しました。",
+      "archivedEnglish": "Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:ja-en:line:17",
+      "legacySourceRef": "master-roofing:14:ja-en:reader:17",
+      "sourceSpanish": "Esa tarde, Rogelio anotó el caso como una lección de prevención para toda la compañía.",
+      "sourceEnglish": "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その日の午後、ロヘリオはこの出来事を会社全体の予防の教訓として記録しました。",
+      "archivedEnglish": "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the sliding bundle, sidewalk, pedestrian, and toe board.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall near-miss, danger zone, roof bracket, warning sign, and cause.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish ヒヤリ・ハット from けが when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'It nearly fell on his head' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Discuss what almost happened without blame and agree on a fix.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the cause, proposed change, and prevention lesson.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Current source and archived Japanese remain separate evidence. All faces are held for qualified review of near-miss/public-protection claims, or weather stop-work, tarp and restart decisions as applicable. Source grammar and verbs are pinned; six archived mode labels are not authored activities. No learner/audio selection or progress migration is made.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

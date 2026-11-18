@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:13:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-13-15-draft.json",
+      "sha256": "7c45fda6eb8d2b4e2ad6a5f4e106e5e2db8642d5d7426f481e7fd2b880028991"
+    }
+  },
+  "sourceEnglishTitle": "Fall Incident Report",
+  "sourceEnglishObjective": "Respond to a fall, then report what happened in order, by phone and in writing, with clear times",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+  "sourceSpanishReaderTitle": "Report: Fall from the Roof Edge",
+  "sourceLessonType": "Case",
+  "sourceBlock": "D",
+  "sourceGrammar": {
+    "focus": "Past narration with time markers",
+    "examples": [
+      {
+        "es": "A las diez y cuarto, Julio bajaba a la escalera.",
+        "en": "At a quarter past ten, Julio was going down to the ladder."
+      },
+      {
+        "es": "Mientras bajaba, se le resbaló el pie y cayó.",
+        "en": "While he was coming down, his foot slipped and he fell."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "bajar",
+      "native": "to go down",
+      "forms": {
+        "yo": "bajo",
+        "tú": "bajas",
+        "él_ella_usted": "baja",
+        "nosotros": "bajamos",
+        "ellos_ustedes": "bajan"
+      },
+      "example": {
+        "target": "Julio estaba en la orilla del techo y bajaba a la escalera.",
+        "native": "Julio was at the roof edge and was going down to the ladder."
+      },
+      "note": "Imperfect for an action in progress: bajaba; preterite for a completed one: bajó."
+    },
+    {
+      "infinitive": "resbalar",
+      "native": "to slip",
+      "forms": {
+        "yo": "resbalo",
+        "tú": "resbalas",
+        "él_ella_usted": "resbala",
+        "nosotros": "resbalamos",
+        "ellos_ustedes": "resbalan"
+      },
+      "example": {
+        "target": "Mientras bajaba, se le resbaló el pie.",
+        "native": "While he was coming down, his foot slipped."
+      },
+      "note": "Preterite: resbaló; se le resbaló el pie means his foot slipped."
+    },
+    {
+      "infinitive": "perder",
+      "native": "to lose",
+      "forms": {
+        "yo": "pierdo",
+        "tú": "pierdes",
+        "él_ella_usted": "pierde",
+        "nosotros": "perdemos",
+        "ellos_ustedes": "pierden"
+      },
+      "example": {
+        "target": "Perdió el equilibrio y cayó.",
+        "native": "He lost his balance and fell."
+      },
+      "note": "Preterite: perdí, perdió (no stem change in the preterite)."
+    },
+    {
+      "infinitive": "gritar",
+      "native": "to shout",
+      "forms": {
+        "yo": "grito",
+        "tú": "gritas",
+        "él_ella_usted": "grita",
+        "nosotros": "gritamos",
+        "ellos_ustedes": "gritan"
+      },
+      "example": {
+        "target": "Rogelio corrió hacia él y gritó.",
+        "native": "Rogelio ran to him and shouted."
+      },
+      "note": "Preterite: grité, gritó."
+    },
+    {
+      "infinitive": "escribir",
+      "native": "to write",
+      "forms": {
+        "yo": "escribo",
+        "tú": "escribes",
+        "él_ella_usted": "escribe",
+        "nosotros": "escribimos",
+        "ellos_ustedes": "escriben"
+      },
+      "example": {
+        "target": "Esa tarde, Rogelio escribió el reporte de incidente.",
+        "native": "That afternoon, Rogelio wrote the incident report."
+      },
+      "note": "Preterite: escribí, escribió; participle: escrito."
+    }
+  ],
+  "candidateObjective": "墜落時の対応を伝え、起きたことを時刻と順序を明確にして電話と書面で報告する。",
+  "candidateFocus": "～しているとき places the fall during descent. ～ごろ and ～から～の間 distinguish approximate from bounded time; 推定原因 labels an inference in the written report.",
+  "archivedForms": [
+    {
+      "base": "降りる",
+      "exampleJa": "フリオは屋根の端からはしごへ降りようとしていました。",
+      "meaningEnglish": "to go down",
+      "exampleEnglish": "Julio was at the roof edge and was going down to the ladder.",
+      "sourceInfinitiveSpanish": "bajar"
+    },
+    {
+      "base": "滑る",
+      "exampleJa": "降りているときに足を滑らせました。",
+      "meaningEnglish": "to slip",
+      "exampleEnglish": "While he was coming down, his foot slipped.",
+      "sourceInfinitiveSpanish": "resbalar"
+    },
+    {
+      "base": "失う",
+      "exampleJa": "バランスを失って墜落しました。",
+      "meaningEnglish": "to lose",
+      "exampleEnglish": "He lost his balance and fell.",
+      "sourceInfinitiveSpanish": "perder"
+    },
+    {
+      "base": "叫ぶ",
+      "exampleJa": "ロヘリオはフリオのところに走って叫びました。",
+      "meaningEnglish": "to shout",
+      "exampleEnglish": "Rogelio ran to him and shouted.",
+      "sourceInfinitiveSpanish": "gritar"
+    },
+    {
+      "base": "書く",
+      "exampleJa": "その日の午後、ロヘリオは事故報告書を書きました。",
+      "meaningEnglish": "to write",
+      "exampleEnglish": "That afternoon, Rogelio wrote the incident report.",
+      "sourceInfinitiveSpanish": "escribir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "十時十五分から二十分の間に、フリオが屋根からはしごへ降りる途中で足を滑らせ、約八フィート墜落しました。救急隊員が十時三十分に到着しました。",
+    "goal": "Report a worker's fall to the supervisor in time order. State what happened, the observed injury, the call for help, and what the incident report will record without inventing an exact time."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:13:ja-en:card:1",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:1",
+      "sourceSpanish": "la caída",
+      "sourceEnglish": "the fall",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "墜落",
+      "archivedEnglish": "the fall",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:2",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:2",
+      "sourceSpanish": "el reporte de incidente",
+      "sourceEnglish": "the incident report",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "事故報告書",
+      "archivedEnglish": "the incident report",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:3",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:3",
+      "sourceSpanish": "los primeros auxilios",
+      "sourceEnglish": "the first aid",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "応急手当",
+      "archivedEnglish": "the first aid",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:4",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:4",
+      "sourceSpanish": "la línea de vida",
+      "sourceEnglish": "the lifeline",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "親綱",
+      "archivedEnglish": "the lifeline",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:5",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:5",
+      "sourceSpanish": "el anclaje de techo",
+      "sourceEnglish": "the roof anchor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根のアンカー",
+      "archivedEnglish": "the roof anchor",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:6",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:6",
+      "sourceSpanish": "el arnés",
+      "sourceEnglish": "the harness",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フルハーネス",
+      "archivedEnglish": "the harness",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:7",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:7",
+      "sourceSpanish": "la eslinga",
+      "sourceEnglish": "the lanyard",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ランヤード",
+      "archivedEnglish": "the lanyard",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:8",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:8",
+      "sourceSpanish": "la escena",
+      "sourceEnglish": "the scene",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "現場",
+      "archivedEnglish": "the scene",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:9",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:9",
+      "sourceSpanish": "el lesionado",
+      "sourceEnglish": "the injured person",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "負傷者",
+      "archivedEnglish": "the injured person",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:10",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:10",
+      "sourceSpanish": "los paramédicos",
+      "sourceEnglish": "the paramedics",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "救急隊員",
+      "archivedEnglish": "the paramedics",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:11",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:11",
+      "sourceSpanish": "el tobillo",
+      "sourceEnglish": "the ankle",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "足首",
+      "archivedEnglish": "the ankle",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:12",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:12",
+      "sourceSpanish": "la escalera de extensión",
+      "sourceEnglish": "the extension ladder",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "伸縮はしご",
+      "archivedEnglish": "the extension ladder",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:13",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:13",
+      "sourceSpanish": "la orilla del techo",
+      "sourceEnglish": "the roof edge",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根の端",
+      "archivedEnglish": "the roof edge",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:14",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:14",
+      "sourceSpanish": "la hora exacta",
+      "sourceEnglish": "the exact time",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "正確な時刻",
+      "archivedEnglish": "the exact time",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:15",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:15",
+      "sourceSpanish": "A las diez y cuarto, Julio estaba en la orilla del techo.",
+      "sourceEnglish": "At a quarter past ten, Julio was at the roof edge.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "十時十五分、フリオは屋根の端にいました。",
+      "archivedEnglish": "At a quarter past ten, Julio was at the roof edge.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:16",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:16",
+      "sourceSpanish": "Mientras bajaba, se le resbaló el pie.",
+      "sourceEnglish": "While he was coming down, his foot slipped.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "降りているときに足を滑らせました。",
+      "archivedEnglish": "While he was coming down, his foot slipped.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:17",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:17",
+      "sourceSpanish": "Llamen al 911 ahora mismo.",
+      "sourceEnglish": "Call 911 right now.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "今すぐ911に電話してください。",
+      "archivedEnglish": "Call 911 right now.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:18",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:18",
+      "sourceSpanish": "No lo muevan; esperen a los paramédicos.",
+      "sourceEnglish": "Don't move him; wait for the paramedics.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "彼を動かさず、救急隊員を待ってください。",
+      "archivedEnglish": "Don't move him; wait for the paramedics.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:19",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:19",
+      "sourceSpanish": "Tranquilo, ya viene la ayuda.",
+      "sourceEnglish": "Easy, help is on the way.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "落ち着いてください。助けが向かっています。",
+      "archivedEnglish": "Easy, help is on the way.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:20",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:20",
+      "sourceSpanish": "¿A qué hora pasó exactamente?",
+      "sourceEnglish": "What time exactly did it happen?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "正確には何時に起きましたか。",
+      "archivedEnglish": "What time exactly did it happen?",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:card:21",
+      "legacySourceRef": "master-roofing:13:ja-en:cards:21",
+      "sourceSpanish": "Le informo que tuvimos un accidente.",
+      "sourceEnglish": "I'm informing you that we had an accident.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "事故が起きたことを報告します。",
+      "archivedEnglish": "I'm informing you that we had an accident.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:13:ja-en:line:1",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:1",
+      "sourceSpanish": "El martes, a las diez y cuarto, Julio estaba en la orilla del techo y bajaba a la escalera de extensión.",
+      "sourceEnglish": "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "火曜日の十時十五分ごろ、フリオは屋根の端にいて、伸縮はしごへ降りようとしていました。",
+      "archivedEnglish": "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:2",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:2",
+      "sourceSpanish": "Mientras bajaba, se le resbaló el pie y cayó unos 8 pies hasta el pasto.",
+      "sourceEnglish": "While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "降りているときに足を滑らせ、約八フィート下の芝生に落ちました。",
+      "archivedEnglish": "While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:3",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:3",
+      "sourceSpanish": "En ese momento no tenía la eslinga conectada a la línea de vida, porque ya estaba saliendo del techo.",
+      "sourceEnglish": "At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その時、フリオはすでに屋根から降りかけていたため、ランヤードを親綱に接続していませんでした。",
+      "archivedEnglish": "At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:4",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:4",
+      "sourceSpanish": "Rogelio corrió hacia él y gritó: Llamen al 911 ahora mismo.",
+      "sourceEnglish": "Rogelio ran to him and shouted: Call 911 right now.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオはフリオのところに走り、「今すぐ911に電話してください」と叫びました。",
+      "archivedEnglish": "Rogelio ran to him and shouted: Call 911 right now.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:5",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:5",
+      "sourceSpanish": "Julio estaba consciente, pero le dolía mucho el tobillo.",
+      "sourceEnglish": "Julio was conscious, but his ankle hurt a lot.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "フリオには意識がありましたが、足首がひどく痛みました。",
+      "archivedEnglish": "Julio was conscious, but his ankle hurt a lot.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:6",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Tranquilo, ya viene la ayuda; no te muevas.",
+      "sourceEnglish": "Rogelio: Easy, help is on the way; don't move.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「落ち着いてください。助けが向かっています。動かないでください。」",
+      "archivedEnglish": "Rogelio: Easy, help is on the way; don't move.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:7",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:7",
+      "sourceSpanish": "Rogelio a la cuadrilla: No lo muevan; esperen a los paramédicos.",
+      "sourceEnglish": "Rogelio to the crew: Don't move him; wait for the paramedics.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは作業班に「彼を動かさず、救急隊員を待ってください」と伝えました。",
+      "archivedEnglish": "Rogelio to the crew: Don't move him; wait for the paramedics.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:8",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:8",
+      "sourceSpanish": "Kevin le dio primeros auxilios básicos, como aprendió en el curso, y Marcos cerró la escena con cinta de precaución.",
+      "sourceEnglish": "Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビンは講習で習った基本的な応急手当をし、マルコスは警告テープで現場を囲みました。",
+      "archivedEnglish": "Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:9",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:9",
+      "sourceSpanish": "Los paramédicos llegaron a las diez y media y se llevaron al lesionado al hospital.",
+      "sourceEnglish": "The paramedics arrived at half past ten and took the injured man to the hospital.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "救急隊員は十時三十分に到着し、負傷者を病院へ運びました。",
+      "archivedEnglish": "The paramedics arrived at half past ten and took the injured man to the hospital.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:10",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:10",
+      "sourceSpanish": "Después, Rogelio llamó al supervisor: Le informo que tuvimos un accidente; Julio se cayó del techo y ya va al hospital.",
+      "sourceEnglish": "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、ロヘリオは監督者に電話し、「事故が起きたことを報告します。フリオが屋根から落ち、病院へ向かっています」と伝えました。",
+      "archivedEnglish": "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:11",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:11",
+      "sourceSpanish": "Supervisor: ¿A qué hora pasó exactamente?",
+      "sourceEnglish": "Supervisor: What time exactly did it happen?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "監督者「正確には何時に起きましたか。」",
+      "archivedEnglish": "Supervisor: What time exactly did it happen?",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:12",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: No sé la hora exacta, pero fue entre las diez y cuarto y las diez y veinte.",
+      "sourceEnglish": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「正確な時刻は分かりませんが、十時十五分から十時二十分の間です。」",
+      "archivedEnglish": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:13",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:13",
+      "sourceSpanish": "Esa tarde, Rogelio escribió el reporte de incidente sobre la caída: Hora: 10:15 aproximadamente.",
+      "sourceEnglish": "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その日の午後、ロヘリオは墜落について事故報告書を書きました。「時刻：約十時十五分。」",
+      "archivedEnglish": "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:14",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:14",
+      "sourceSpanish": "Descripción: El trabajador bajaba del techo a la escalera; mientras pasaba de uno a otro, perdió el equilibrio y cayó.",
+      "sourceEnglish": "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「状況：作業員は屋根からはしごへ降りる途中、その移動中にバランスを失って墜落した。」",
+      "archivedEnglish": "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:15",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:15",
+      "sourceSpanish": "Causa probable: el arnés no estaba conectado a la línea de vida ni al anclaje de techo durante el paso a la escalera.",
+      "sourceEnglish": "Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「推定原因：はしごへ移る際、ハーネスが親綱または屋根のアンカーに接続されていなかった。」",
+      "archivedEnglish": "Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:13:ja-en:line:16",
+      "legacySourceRef": "master-roofing:13:ja-en:reader:16",
+      "sourceSpanish": "Acción: mañana repasamos con toda la cuadrilla cómo pasar del techo a la escalera sin quedar desconectado.",
+      "sourceEnglish": "Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "「対応：明日、屋根からはしごへ接続を外さず移る方法を作業班全員で確認する。」",
+      "archivedEnglish": "Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected.",
+      "reviewNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the roof edge, ladder, lifeline, and injured worker.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall fall, ankle, paramedics, first aid, and incident report.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 親綱 from ランヤード when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'What time exactly did it happen?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Report the incident by phone in chronological order with times.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the report time, description, probable cause, and next action.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Hold fall-transfer/disconnection, probable cause, first-aid actions, paramedic timing and 911 locale for qualified safety/clinical/source and Japanese review. Preserve the source incident and clinical vocabulary directly; no site-specific transfer method is selected.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

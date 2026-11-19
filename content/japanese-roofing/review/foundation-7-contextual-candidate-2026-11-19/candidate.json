@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:7:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-7-source-audit-2026-11-18/packet.json",
+    "sha256": "b37193a9764dbbf8ea91bd0ac29d0139711734bffcd1d3fe5164eb67cab98385"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-7-10-draft.json",
+      "sha256": "a77687f79bc60d725bf692cd0168f9216eceb04d6f0f3f54ffebeb402ed46f10"
+    }
+  },
+  "objectiveEnglish": "Ask basic questions on a roofing job using what, who, where, when, how much, how many, how, why, and which.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語の疑問詞を見て、意味を確認しましょう。「what」は「なに・何」です。",
+      "targetEnglish": "what",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:1",
+      "id": "foundation-roofing:7:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「だれ」にあたる英語の疑問詞を、ヒントなしで思い出してみましょう。",
+      "targetEnglish": "who",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:2",
+      "id": "foundation-roofing:7:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、読まれた英文と同じものを選んでください。",
+      "targetEnglish": "Where is the ladder?",
+      "candidateOptionsEnglish": [
+        "Where is the ladder?",
+        "Who is the boss?",
+        "When does the material arrive?"
+      ],
+      "sourceAnchor": "foundation-roofing:7:ja-en:line:3",
+      "id": "foundation-roofing:7:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Where is the ladder?",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「なぜ」にあたる英語の疑問詞を入力してください。",
+      "targetEnglish": "why",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:7",
+      "id": "foundation-roofing:7:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「私たちはなぜ止まるのですか。」を、主語 we を使って英語で声に出して言ってみましょう。",
+      "targetEnglish": "Why are we stopping?",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:12",
+      "id": "foundation-roofing:7:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「材料はいつ届きますか。」の意味になる英文を書いてください。material の前に the を付けます。",
+      "targetEnglish": "When does the material arrive?",
+      "sourceAnchor": "foundation-roofing:7:ja-en:line:4",
+      "id": "foundation-roofing:7:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "How much material do we need",
+      "explanationJapanese": "How much は material のような数えられないものの量をたずねるときに使います。数えられるものの数をたずねるときは how many を使います。",
+      "sourceAnchor": "foundation-roofing:7:ja-en:line:5",
+      "id": "foundation-roofing:7:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Why are we stopping",
+      "explanationJapanese": "Why は「なぜ」と理由をたずねる疑問詞です。文の先頭に置き、その後は are we のように疑問文の語順にします。",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:12",
+      "id": "foundation-roofing:7:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "What do I do first",
+      "explanationJapanese": "What は動詞 do（する）の目的語で、文の先頭に出ます。最初の do は疑問文を作る助動詞、二つ目の do が「する」という意味の動詞です。first は「最初に」という副詞です。",
+      "sourceAnchor": "foundation-roofing:7:ja-en:line:6",
+      "id": "foundation-roofing:7:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "where",
+      "glossJapanese": "どこ",
+      "senseJapanese": "場所をたずねる疑問詞です。Where is the ladder? のように使います。",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:3",
+      "id": "foundation-roofing:7:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "how much, how many",
+      "glossJapanese": "どれくらい、いくつ",
+      "senseJapanese": "量や数をたずねます。数えられないものの量には how much、数えられるものの数には how many を使います。",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:5",
+      "id": "foundation-roofing:7:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "which",
+      "glossJapanese": "どれ、どちら",
+      "senseJapanese": "限られた選択肢の中から選ぶようにたずねるときに使う疑問詞です。",
+      "sourceAnchor": "foundation-roofing:7:ja-en:card:8",
+      "id": "foundation-roofing:7:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "学習者（現場で質問をする人。最初の一言と最後の質問を言います）",
+      "partner": "パートナー（現場の同僚。学習者の質問を聞く相手です）"
+    },
+    "openingEnglish": "Today is my first day and I have questions.",
+    "objectivesEnglish": [
+      "Ask who the boss is.",
+      "Ask where the ladder is.",
+      "Ask when the material arrives."
+    ],
+    "wordBankEnglish": [
+      "Who is the boss?",
+      "Where is the ladder?",
+      "When does the material arrive?",
+      "Why are we stopping?"
+    ],
+    "closureEnglish": "Why are we stopping at eleven?",
+    "sourceAnchors": [
+      "foundation-roofing:7:ja-en:line:1",
+      "foundation-roofing:7:ja-en:line:2",
+      "foundation-roofing:7:ja-en:line:3",
+      "foundation-roofing:7:ja-en:line:4",
+      "foundation-roofing:7:ja-en:card:12",
+      "foundation-roofing:7:ja-en:line:7"
+    ],
+    "id": "foundation-roofing:7:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older source-audit reverse pair label remains provenance only.",
+    "Source harness and roof-work safety claims remain unresolved and are excluded from these supplemental activities.",
+    "F7 what-do explanation, exact-source Hear distractors, F8 nobody/nothing and another/other senses corrected after critique.",
+    "Source headword grouping less/fewer and still/yet remains contextual dictionary review; AI assistance is not qualified approval."
+  ]
+}

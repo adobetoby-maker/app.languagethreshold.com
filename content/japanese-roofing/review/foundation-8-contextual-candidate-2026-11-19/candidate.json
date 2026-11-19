@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:8:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-8-source-audit-2026-11-18/packet.json",
+    "sha256": "42003ee092d2911e71cfb8a3ac5d1f627deb5ba018508f3fa1eb0d8929537878"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-7-10-draft.json",
+      "sha256": "a77687f79bc60d725bf692cd0168f9216eceb04d6f0f3f54ffebeb402ed46f10"
+    }
+  },
+  "objectiveEnglish": "Use never, nobody, nothing, another, fewer, and yet to describe a job situation and ask for what you need.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を見て、意味を確認しましょう。「never」は「決して〜ない」です。",
+      "targetEnglish": "never",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:1",
+      "id": "foundation-roofing:8:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「何も〜ない」にあたる英語の一語を、ヒントなしで思い出してみましょう。",
+      "targetEnglish": "nothing",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:3",
+      "id": "foundation-roofing:8:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、読まれた英文と同じものを選んでください。",
+      "targetEnglish": "Not yet.",
+      "candidateOptionsEnglish": [
+        "Not yet.",
+        "I don't understand.",
+        "There's nothing in the wheelbarrow."
+      ],
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:10",
+      "id": "foundation-roofing:8:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Not yet.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「束がもう一つ必要です。」を英語で入力してください。another を使い、その前に a は付けません。",
+      "targetEnglish": "I need another bundle.",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:12",
+      "id": "foundation-roofing:8:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「わかりません。」を、主語 I を使って英語で声に出して言ってみましょう。",
+      "targetEnglish": "I don't understand.",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:9",
+      "id": "foundation-roofing:8:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「屋根はまだ準備ができていません。」の意味になる英文を書いてください。roof の前に the を付け、is not は短縮形 isn't にします。",
+      "targetEnglish": "The roof isn't ready yet.",
+      "sourceAnchor": "foundation-roofing:8:ja-en:line:1",
+      "id": "foundation-roofing:8:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "There's nothing in the wheelbarrow",
+      "explanationJapanese": "There's nothing … は「…には何もない」という意味です。nothing 自体が否定を表すので、not を重ねません。",
+      "sourceAnchor": "foundation-roofing:8:ja-en:line:4",
+      "id": "foundation-roofing:8:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "isn't ready yet",
+      "explanationJapanese": "否定文の yet は「まだ（〜ない）」という意味で、文の終わりに置きます。isn't は is not の短縮形です。",
+      "sourceAnchor": "foundation-roofing:8:ja-en:line:1",
+      "id": "foundation-roofing:8:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "fewer shingles than yesterday",
+      "explanationJapanese": "fewer は「より少ない」という意味で、shingles のような数えられる名詞の複数形に使います。カードの less も「より少ない」ですが、数えられないものに使います。than は「〜より」と比べる相手を示します。",
+      "sourceAnchor": "foundation-roofing:8:ja-en:line:6",
+      "id": "foundation-roofing:8:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "nobody",
+      "glossJapanese": "だれも〜ない",
+      "senseJapanese": "人について「だれも〜ない」と言う語です。nobody 自体が否定を表すので、英語では not を重ねません。主語になるとき、現在形の動詞は三人称単数の形にします。",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:2",
+      "id": "foundation-roofing:8:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "another, other",
+      "glossJapanese": "もう一つの、ほかの",
+      "senseJapanese": "another は数えられる名詞の単数形の前に置き、「追加でもう一つ」または「別の一つ」を表します。I need another bundle. は「追加でもう一つ」の意味です。other は複数形の名詞の前や the の後で「ほかの」を表します。",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:6",
+      "id": "foundation-roofing:8:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "still, yet",
+      "glossJapanese": "まだ",
+      "senseJapanese": "still は「まだ〜している」と続いている状態を表します。yet は否定文で「まだ〜ない」、疑問文では「もう」の意味になります。Not yet. は「まだです」という短い返事です。",
+      "sourceAnchor": "foundation-roofing:8:ja-en:card:7",
+      "id": "foundation-roofing:8:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "学習者（現場で作業する人。聞き取れないことを伝え、必要なものを頼みます）",
+      "partner": "パートナー（現場の同僚。最初の一言と最後の一言を言います）"
+    },
+    "openingEnglish": "The roof isn't ready yet.",
+    "objectivesEnglish": [
+      "Say that you do not understand and ask the partner to speak more slowly.",
+      "Say that there is nothing in the wheelbarrow.",
+      "Ask for another bundle and a few more nails."
+    ],
+    "wordBankEnglish": [
+      "I don't understand, can you speak more slowly?",
+      "There's nothing in the wheelbarrow.",
+      "I need another bundle and a few more nails.",
+      "Not yet."
+    ],
+    "closureEnglish": "Today we use fewer shingles than yesterday.",
+    "sourceAnchors": [
+      "foundation-roofing:8:ja-en:line:1",
+      "foundation-roofing:8:ja-en:line:7",
+      "foundation-roofing:8:ja-en:line:4",
+      "foundation-roofing:8:ja-en:line:5",
+      "foundation-roofing:8:ja-en:card:10",
+      "foundation-roofing:8:ja-en:line:6"
+    ],
+    "id": "foundation-roofing:8:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older source-audit reverse pair label remains provenance only.",
+    "Source harness and roof-work safety claims remain unresolved and are excluded from these supplemental activities.",
+    "F7 what-do explanation, exact-source Hear distractors, F8 nobody/nothing and another/other senses corrected after critique.",
+    "Source headword grouping less/fewer and still/yet remains contextual dictionary review; AI assistance is not qualified approval."
+  ]
+}

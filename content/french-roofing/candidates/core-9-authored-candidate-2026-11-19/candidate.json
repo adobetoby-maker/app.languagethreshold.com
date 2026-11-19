@@ -1,0 +1,655 @@
+{
+  "lessonId": "core-roofing:9:fr-en",
+  "candidateObjectiveEnglish": "Name cleanup tools and gloves, describe two workers’ tool use and produce a glove reminder and old-nail removal phrase.",
+  "grammarExplanationEnglish": "An imperative uses the base verb without a subject: \"Put on your gloves.\" In \"Pull all the old nails\", \"all the\" precedes a plural noun. It can also precede an uncountable noun in other contexts. \"One worker uses the shovel and another uses the wheelbarrow\" describes two people and their tools.",
+  "grammarExplanationFrench": "L’impératif emploie le verbe de base sans sujet : « Put on your gloves ». Dans « Pull all the old nails », « all the » précède un nom pluriel ; un nom indénombrable est possible ailleurs. « One worker uses the shovel and another uses the wheelbarrow » décrit deux personnes et leurs outils.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le mot anglais et son sens : magnet — l’aimant.",
+      "candidateTargetEnglish": "magnet",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "l’aimant",
+      "provenance": "Exact source card 5 with archived French 'l’aimant'. The prompt wording is a new composition.",
+      "id": "core-roofing:9:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Rappelez-vous le mot anglais pour : les gants.",
+      "candidateTargetEnglish": "gloves",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "les gants",
+      "provenance": "Exact source card 9 with archived French 'les gants'. The prompt wording is a new composition.",
+      "id": "core-roofing:9:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:reader:4"
+      ],
+      "expectedMeaningFrench": "Un ouvrier utilise la pelle et un autre la brouette.",
+      "provenance": "Exact source reader 4 with archived French. The prompt wording is a new composition.",
+      "id": "core-roofing:9:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "acceptedCandidateAlternatesFrench": [
+        "Un ouvrier utilise la pelle et un autre utilise la brouette."
+      ]
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais le mot pour : la pelle.",
+      "candidateTargetEnglish": "shovel",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "la pelle",
+      "provenance": "Exact source card 8 with archived French 'la pelle'. The prompt wording is a new composition.",
+      "id": "core-roofing:9:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Mettez vos gants. »",
+      "candidateTargetEnglish": "Put on your gloves.",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:15",
+        "core-roofing:9:fr-en:reader:2"
+      ],
+      "expectedMeaningFrench": "Mettez vos gants.",
+      "provenance": "Exact source card 15 and reader 2 with archived French. The prompt wording is a new composition.",
+      "id": "core-roofing:9:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Retirez tous les vieux clous. »",
+      "candidateTargetEnglish": "Pull all the old nails.",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:11",
+        "core-roofing:9:fr-en:reader:5"
+      ],
+      "expectedMeaningFrench": "Retirez tous les vieux clous.",
+      "provenance": "Exact source card 11 and reader 5 with archived French. The prompt wording is a new composition.",
+      "id": "core-roofing:9:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "Remove all the old nails."
+      ],
+      "alternateStatus": "Proposed synonym only; source-exact target remains Pull all the old nails and scoring remains disabled."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Put on your [noun].",
+      "meaningFrench": "Impératif : une consigne directe pour mettre un objet sur soi, avec « your » pour la personne qui écoute.",
+      "candidateExampleEnglish": "Put on your gloves.",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:15",
+        "core-roofing:9:fr-en:reader:2"
+      ],
+      "provenance": "Exact source card 15 and reader 2 with archived French.",
+      "id": "core-roofing:9:fr-en:form:1",
+      "reviewed": false
+    },
+    {
+      "englishForm": "One [noun] uses the [noun] and another uses the [noun].",
+      "meaningFrench": "Deux personnes sont décrites avec one et another ; chacune utilise un outil.",
+      "candidateExampleEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:reader:4"
+      ],
+      "provenance": "Exact source reader 4 with archived French.",
+      "id": "core-roofing:9:fr-en:form:2",
+      "reviewed": false
+    },
+    {
+      "englishForm": "[Base verb] all the [plural noun].",
+      "meaningFrench": "Consigne directe qui vise tous les éléments d’un ensemble, avec « all the » suivi d’un nom au pluriel.",
+      "candidateExampleEnglish": "Pull all the old nails.",
+      "sourceAnchors": [
+        "core-roofing:9:fr-en:card:11",
+        "core-roofing:9:fr-en:reader:5"
+      ],
+      "provenance": "Exact source card 11 and reader 5 with archived French.",
+      "id": "core-roofing:9:fr-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker describing which tools two people use.",
+    "partnerRole": "Another coworker asking about the second person’s tool.",
+    "candidateOpeningEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+    "goalEnglish": "Describe the shovel and wheelbarrow users and give the source glove reminder.",
+    "candidateWordBankEnglish": [
+      "shovel",
+      "wheelbarrow",
+      "gloves",
+      "Put on your gloves."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
+    "sourceAnchors": [
+      "core-roofing:9:fr-en:card:7",
+      "core-roofing:9:fr-en:card:8",
+      "core-roofing:9:fr-en:card:9",
+      "core-roofing:9:fr-en:card:15",
+      "core-roofing:9:fr-en:reader:4"
+    ],
+    "id": "core-roofing:9:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
+    "partnerCuesEnglish": [
+      "Which tool does the other worker use?",
+      "Thank you."
+    ],
+    "partnerCueProvenance": "New descriptive question and courtesy acknowledgement; no compliance or site-clearance finding.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:9:fr-en:card:10",
+      "core-roofing:9:fr-en:card:13",
+      "core-roofing:9:fr-en:card:14"
+    ],
+    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
+    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment.",
+    "expectedLearnerSecondTurnEnglish": "The other worker uses the wheelbarrow."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-9-source-decision-2026-11-18/packet.json",
+    "sha256": "8f8a9c6365c8166b73465285812556281e8104f6fc2b2bb1b9d74fb67574b771"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:9:fr-en:card:1",
+      "sourceEnglish": "dumpster",
+      "candidateFrench": null,
+      "hold": "The source names a debris dumpster, but archived French uses generic benne à déchets. Choose the site-appropriate dumpster/container term and ensure the disposal destination is not broadened to all waste.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:9:fr-en:card:2",
+      "sourceEnglish": "old nails",
+      "candidateFrench": "les vieux clous",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:9:fr-en:card:3",
+      "sourceEnglish": "sweep",
+      "candidateFrench": "balayer",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:9:fr-en:card:4",
+      "sourceEnglish": "debris",
+      "candidateFrench": "les débris",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:9:fr-en:card:5",
+      "sourceEnglish": "magnet",
+      "candidateFrench": "l’aimant",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:9:fr-en:card:6",
+      "sourceEnglish": "broom",
+      "candidateFrench": "le balai",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:9:fr-en:card:7",
+      "sourceEnglish": "wheelbarrow",
+      "candidateFrench": "la brouette",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:9:fr-en:card:8",
+      "sourceEnglish": "shovel",
+      "candidateFrench": "la pelle",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:9:fr-en:card:9",
+      "sourceEnglish": "gloves",
+      "candidateFrench": "les gants",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:9:fr-en:card:10",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "candidateFrench": null,
+      "hold": "The English source specifies shingles while Spanish tejas can also mean roof tiles. Archived bardeaux may imply asphalt or wood shingles depending on locale. Preserve the source job material consistently in disposal instructions after qualified source/trade review. Source speaking only assigns one worker to shingles and another to old nails. Archived speaking adds ground-zone isolation and cleanup confirmation. Keep those safety/domain notes separate until qualified review determines what belongs in the lesson and authored modes.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:9:fr-en:card:11",
+      "sourceEnglish": "Pull all the old nails.",
+      "candidateFrench": "Retirez tous les vieux clous.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:9:fr-en:card:12",
+      "sourceEnglish": "Sweep the deck before underlayment.",
+      "candidateFrench": null,
+      "hold": "Source deck is the roof deck before underlayment. Archived support may be broader; choose the regional structural roof-deck and underlayment terms before scoring or narrating the cleanup step.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:9:fr-en:card:13",
+      "sourceEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "candidateFrench": null,
+      "hold": "Source card names the magnetic nail sweep operation; Reader asks for completion of picking up nails with a magnet. Archived ramassage magnétique is less explicit about the tool and scope. Align card, Reader and Say target without inventing a clearance certification.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:9:fr-en:card:14",
+      "sourceEnglish": "Pick up all the shingle pieces.",
+      "candidateFrench": null,
+      "hold": "The English source specifies shingles while Spanish tejas can also mean roof tiles. Archived bardeaux may imply asphalt or wood shingles depending on locale. Preserve the source job material consistently in disposal instructions after qualified source/trade review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:9:fr-en:card:15",
+      "sourceEnglish": "Put on your gloves.",
+      "candidateFrench": "Mettez vos gants.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:1",
+      "sourceEnglish": "After the tear-off there is debris everywhere.",
+      "candidateFrench": null,
+      "hold": "Linked tear-off/old-roof scope decision from Core7 card1/Reader1 remains open; no inherited narrowing to covering is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:2",
+      "sourceEnglish": "Put on your gloves.",
+      "candidateFrench": "Mettez vos gants.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:3",
+      "sourceEnglish": "Throw the shingles into the debris dumpster.",
+      "candidateFrench": null,
+      "hold": "The source names a debris dumpster, but archived French uses generic benne à déchets. Choose the site-appropriate dumpster/container term and ensure the disposal destination is not broadened to all waste. The English source specifies shingles while Spanish tejas can also mean roof tiles. Archived bardeaux may imply asphalt or wood shingles depending on locale. Preserve the source job material consistently in disposal instructions after qualified source/trade review. Source speaking only assigns one worker to shingles and another to old nails. Archived speaking adds ground-zone isolation and cleanup confirmation. Keep those safety/domain notes separate until qualified review determines what belongs in the lesson and authored modes.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:4",
+      "sourceEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+      "candidateFrench": "Un ouvrier utilise la pelle et un autre la brouette.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:5",
+      "sourceEnglish": "Pull all the old nails.",
+      "candidateFrench": "Retirez tous les vieux clous.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:6",
+      "sourceEnglish": "Then run the magnet over the yard.",
+      "candidateFrench": null,
+      "hold": "Linked ground-control and magnetic pickup scope from Reader8 remains open; yard locale and movement wording require qualification, not a clearance certificate.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:7",
+      "sourceEnglish": "Sweep the deck before the underlayment.",
+      "candidateFrench": null,
+      "hold": "Source deck is the roof deck before underlayment. Archived support may be broader; choose the regional structural roof-deck and underlayment terms before scoring or narrating the cleanup step.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:9:fr-en:reader:8",
+      "sourceEnglish": "Tell me when you finish picking up the nails with the magnet.",
+      "candidateFrench": null,
+      "hold": "Source card names the magnetic nail sweep operation; Reader asks for completion of picking up nails with a magnet. Archived ramassage magnétique is less explicit about the tool and scope. Align card, Reader and Say target without inventing a clearance certification. The source says run the magnet over the yard and report nail pickup. Confirm local ground-control scope; this dialogue alone is not a complete debris, sharp-object or public-area safety procedure.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:9:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:9:fr-en:card:1",
+      "englishHeadword": "dumpster",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Debris & Old Nails",
+      "status": "held",
+      "hold": "The source names a debris dumpster, but archived French uses generic benne à déchets. Choose the site-appropriate dumpster/container term and ensure the disposal destination is not broadened to all waste.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:9:fr-en:card:2",
+      "englishHeadword": "old nails",
+      "candidateFrenchSense": "les vieux clous",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:9:fr-en:card:3",
+      "englishHeadword": "sweep",
+      "candidateFrenchSense": "balayer",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:9:fr-en:card:4",
+      "englishHeadword": "debris",
+      "candidateFrenchSense": "les débris",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:9:fr-en:card:5",
+      "englishHeadword": "magnet",
+      "candidateFrenchSense": "l’aimant",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "linkedOperationDecisionRefs": [
+        "core-roofing:9:fr-en:card:13",
+        "core-roofing:9:fr-en:reader:6",
+        "core-roofing:9:fr-en:reader:8"
+      ],
+      "candidateSenseScope": "Generic physical magnet only, not a magnetic-sweep method or clearance certificate."
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:9:fr-en:card:6",
+      "englishHeadword": "broom",
+      "candidateFrenchSense": "le balai",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:9:fr-en:card:7",
+      "englishHeadword": "wheelbarrow",
+      "candidateFrenchSense": "la brouette",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:9:fr-en:card:8",
+      "englishHeadword": "shovel",
+      "candidateFrenchSense": "la pelle",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:9:fr-en:card:9",
+      "englishHeadword": "gloves",
+      "candidateFrenchSense": "les gants",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:9:fr-en:card:10",
+      "englishHeadword": "Throw the shingles into the dumpster.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Debris & Old Nails",
+      "status": "held",
+      "hold": "The English source specifies shingles while Spanish tejas can also mean roof tiles. Archived bardeaux may imply asphalt or wood shingles depending on locale. Preserve the source job material consistently in disposal instructions after qualified source/trade review. Source speaking only assigns one worker to shingles and another to old nails. Archived speaking adds ground-zone isolation and cleanup confirmation. Keep those safety/domain notes separate until qualified review determines what belongs in the lesson and authored modes.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:9:fr-en:card:11",
+      "englishHeadword": "Pull all the old nails.",
+      "candidateFrenchSense": "Retirez tous les vieux clous.",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "candidateAlternativeFrenchForReview": "Arrachez tous les vieux clous.",
+      "internalAlternativeNote": "Force/traction nuance needs qualified French/source review; idiomatic Retirez remains a candidate, not silently replaced by a stronger command."
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:9:fr-en:card:12",
+      "englishHeadword": "Sweep the deck before underlayment.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Debris & Old Nails",
+      "status": "held",
+      "hold": "Source deck is the roof deck before underlayment. Archived support may be broader; choose the regional structural roof-deck and underlayment terms before scoring or narrating the cleanup step.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:9:fr-en:card:13",
+      "englishHeadword": "Tell me when the magnetic nail sweep is finished.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Debris & Old Nails",
+      "status": "held",
+      "hold": "Source card names the magnetic nail sweep operation; Reader asks for completion of picking up nails with a magnet. Archived ramassage magnétique is less explicit about the tool and scope. Align card, Reader and Say target without inventing a clearance certification.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:9:fr-en:card:14",
+      "englishHeadword": "Pick up all the shingle pieces.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Debris & Old Nails",
+      "status": "held",
+      "hold": "The English source specifies shingles while Spanish tejas can also mean roof tiles. Archived bardeaux may imply asphalt or wood shingles depending on locale. Preserve the source job material consistently in disposal instructions after qualified source/trade review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:9:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:9:fr-en:card:15",
+      "englishHeadword": "Put on your gloves.",
+      "candidateFrenchSense": "Mettez vos gants.",
+      "contextEnglish": "Debris & Old Nails",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full source speaking assigns shingle and old-nail removal. This narrower descriptive language proposal does not settle disposal, deck or magnetic nail-sweep scope/clearance decisions.",
+    "Cross-lesson source material qualifiers must be compared verbatim; Core7 and Core9 Spanish wording can differ despite matching English. No source wording was homogenized or changed.",
+    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source."
+  ]
+}

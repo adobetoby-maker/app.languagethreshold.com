@@ -1,0 +1,645 @@
+{
+  "lessonId": "core-roofing:8:fr-en",
+  "candidateObjectiveEnglish": "Name a panel and plywood, recall replace, produce identification/location sentences and recognize a marking instruction.",
+  "grammarExplanationEnglish": "An imperative uses the base verb without a subject: \"Mark the damaged area.\" \"This is a panel\" identifies a countable item with a. \"This is plywood\" names a material without an article. \"Where is the panel?\" asks for the location of a specific panel.",
+  "grammarExplanationFrench": "L’impératif emploie le verbe à la forme de base : « Mark the damaged area ». « This is a panel » identifie un objet dénombrable ; « This is plywood » nomme un matériau sans article anglais. « Where is the panel? » demande où se trouve le panneau.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le mot anglais et son sens : mark — marquer.",
+      "candidateTargetEnglish": "mark",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "marquer",
+      "provenance": "Exact source card 9 with archived French 'marquer'. The prompt wording is a new composition.",
+      "id": "core-roofing:8:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Rappelez-vous le mot anglais pour : remplacer.",
+      "candidateTargetEnglish": "replace",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "remplacer",
+      "provenance": "Exact source card 6 with archived French 'remplacer'. The prompt wording is a new composition.",
+      "id": "core-roofing:8:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "Mark the damaged area.",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:14",
+        "core-roofing:8:fr-en:reader:7"
+      ],
+      "expectedMeaningFrench": "Marquez la zone endommagée.",
+      "provenance": "Exact source card 14 and reader 7 with archived French. The prompt wording is a new composition.",
+      "id": "core-roofing:8:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script"
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais le mot pour : le contreplaqué.",
+      "candidateTargetEnglish": "plywood",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le contreplaqué",
+      "provenance": "Exact source card 8 with archived French 'le contreplaqué'. The prompt wording is a new composition.",
+      "id": "core-roofing:8:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « C’est un panneau. »",
+      "candidateTargetEnglish": "This is a panel.",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "C’est un panneau.",
+      "provenance": "New labelled-sample identification from panel headword; no structural assessment.",
+      "id": "core-roofing:8:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "New candidate French identification support, unreviewed.",
+      "acceptedCandidateAlternatesEnglish": [
+        "It's a panel."
+      ]
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Où est le panneau ? »",
+      "candidateTargetEnglish": "Where is the panel?",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "Où est le panneau ?",
+      "provenance": "New location-question composition using source panel headword; no site-location claim.",
+      "id": "core-roofing:8:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Mark the [adjective] [noun].",
+      "meaningFrench": "Impératif : une consigne directe avec un groupe nominal qui contient un adjectif.",
+      "candidateExampleEnglish": "Mark the damaged area.",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:14",
+        "core-roofing:8:fr-en:reader:7"
+      ],
+      "provenance": "Exact source card 14 and reader 7 with archived French.",
+      "id": "core-roofing:8:fr-en:form:1",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:form:2",
+      "englishForm": "This is a [countable noun]. / This is [material noun].",
+      "meaningFrench": "C’est + article adapté + nom d’objet ou de matériau.",
+      "candidateExampleEnglish": "This is a panel.",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:7",
+        "core-roofing:8:fr-en:card:8"
+      ],
+      "provenance": "New labelled-sample identification from source panel headword.",
+      "reviewed": false,
+      "additionalExampleEnglish": "This is plywood.",
+      "frenchSupportProvenance": "New candidate French identification support, unreviewed.",
+      "exampleMeaningFrench": "C’est un panneau.",
+      "additionalExampleMeaningFrench": "C’est du contreplaqué."
+    },
+    {
+      "id": "core-roofing:8:fr-en:form:3",
+      "englishForm": "Where is the [singular noun]?",
+      "meaningFrench": "Question pour demander où se trouve un élément au singulier.",
+      "candidateExampleEnglish": "Where is the panel?",
+      "sourceAnchors": [
+        "core-roofing:8:fr-en:card:7"
+      ],
+      "provenance": "New location question from source panel headword, not source site data.",
+      "reviewed": false
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker identifying panel and plywood terms.",
+    "partnerRole": "Another coworker asking for the item names.",
+    "candidateOpeningEnglish": "This is a panel.",
+    "goalEnglish": "Name a panel and plywood using short English identification sentences.",
+    "candidateWordBankEnglish": [
+      "panel",
+      "plywood",
+      "This is a panel.",
+      "This is plywood."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
+    "sourceAnchors": [
+      "core-roofing:8:fr-en:card:7",
+      "core-roofing:8:fr-en:card:8"
+    ],
+    "id": "core-roofing:8:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
+    "partnerCuesEnglish": [
+      "What is this material?",
+      "Thank you."
+    ],
+    "partnerCueProvenance": "New label-reading cues, not a repair or marking instruction.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:8:fr-en:card:12",
+      "core-roofing:8:fr-en:card:13",
+      "core-roofing:8:fr-en:card:15"
+    ],
+    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
+    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment.",
+    "openingProvenance": "New identification from source panel headword, not a structural assessment.",
+    "expectedLearnerSecondTurnEnglish": "This is plywood."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-8-source-decision-2026-11-18/packet.json",
+    "sha256": "0851a4b353853ac15174c38890cf5ca651c69096eeda9b7f660088b0b1527337"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:8:fr-en:card:1",
+      "sourceEnglish": "sheathing",
+      "candidateFrench": null,
+      "hold": "Sheathing and deck refer to roof substrate in the source scene, while archived platelage de toiture and support de couverture may imply different structural layers. Choose approved French trade terms and align the imperatives before scored use.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:8:fr-en:card:2",
+      "sourceEnglish": "soft deck",
+      "candidateFrench": null,
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:8:fr-en:card:3",
+      "sourceEnglish": "damage",
+      "candidateFrench": null,
+      "hold": "The source term damage is singular or mass; archived les dommages is plural. Resolve the dictionary sense and article for a field-reporting card.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:8:fr-en:card:4",
+      "sourceEnglish": "rotten wood",
+      "candidateFrench": "le bois pourri",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:8:fr-en:card:5",
+      "sourceEnglish": "repair",
+      "candidateFrench": "la réparation",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:8:fr-en:card:6",
+      "sourceEnglish": "replace",
+      "candidateFrench": "remplacer",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:8:fr-en:card:7",
+      "sourceEnglish": "panel",
+      "candidateFrench": "le panneau",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:8:fr-en:card:8",
+      "sourceEnglish": "plywood",
+      "candidateFrench": "le contreplaqué",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:8:fr-en:card:9",
+      "sourceEnglish": "mark",
+      "candidateFrench": "marquer",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:8:fr-en:card:10",
+      "sourceEnglish": "Don't damage the sheathing.",
+      "candidateFrench": null,
+      "hold": "Sheathing and deck refer to roof substrate in the source scene, while archived platelage de toiture and support de couverture may imply different structural layers. Choose approved French trade terms and align the imperatives before scored use.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:8:fr-en:card:11",
+      "sourceEnglish": "Tell me if the deck feels soft or damaged.",
+      "candidateFrench": null,
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:8:fr-en:card:12",
+      "sourceEnglish": "Stop here; the deck needs repair before we continue.",
+      "candidateFrench": null,
+      "hold": "The worker feels rotten wood while stepping on a panel; archived constate changes tactile observation into a conclusion. Preserve the source observation and stop/work-hold command. A qualified person must assess the damaged deck before any repair procedure is taught. Source speaking asks the supervisor to stop a worker about to cover a soft panel and request a repair. Archived speaking adds marking and verification of a planned repair. Keep those extra actions separate from scored source meaning until source and roofing review decide the objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:8:fr-en:card:13",
+      "sourceEnglish": "Do not cover the soft panel.",
+      "candidateFrench": null,
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:8:fr-en:card:14",
+      "sourceEnglish": "Mark the damaged area.",
+      "candidateFrench": "Marquez la zone endommagée.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:8:fr-en:card:15",
+      "sourceEnglish": "We need to replace this plywood.",
+      "candidateFrench": null,
+      "hold": "Exact replacement-decision phrase retained as source evidence; structural assessment/source decision remains open before selecting a production target.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:1",
+      "sourceEnglish": "The crew removes the shingles from the roof.",
+      "candidateFrench": null,
+      "hold": "Linked shingle material/locale decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:2",
+      "sourceEnglish": "Don't damage the sheathing.",
+      "candidateFrench": null,
+      "hold": "Sheathing and deck refer to roof substrate in the source scene, while archived platelage de toiture and support de couverture may imply different structural layers. Choose approved French trade terms and align the imperatives before scored use.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:3",
+      "sourceEnglish": "Tell me if the deck feels soft or damaged.",
+      "candidateFrench": null,
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:4",
+      "sourceEnglish": "A worker steps on a panel and feels that the wood is rotten.",
+      "candidateFrench": null,
+      "hold": "The worker feels rotten wood while stepping on a panel; archived constate changes tactile observation into a conclusion. Preserve the source observation and stop/work-hold command. A qualified person must assess the damaged deck before any repair procedure is taught.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:5",
+      "sourceEnglish": "The foreman says: Stop here; the deck needs repair before we continue.",
+      "candidateFrench": null,
+      "hold": "The worker feels rotten wood while stepping on a panel; archived constate changes tactile observation into a conclusion. Preserve the source observation and stop/work-hold command. A qualified person must assess the damaged deck before any repair procedure is taught. Source speaking asks the supervisor to stop a worker about to cover a soft panel and request a repair. Archived speaking adds marking and verification of a planned repair. Keep those extra actions separate from scored source meaning until source and roofing review decide the objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:6",
+      "sourceEnglish": "Do not cover the soft panel.",
+      "candidateFrench": null,
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:7",
+      "sourceEnglish": "Mark the damaged area.",
+      "candidateFrench": "Marquez la zone endommagée.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:8:fr-en:reader:8",
+      "sourceEnglish": "We need to replace this plywood.",
+      "candidateFrench": null,
+      "hold": "Exact replacement-decision phrase retained as source evidence; structural assessment/source decision remains open before selecting a production target.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:8:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:8:fr-en:card:1",
+      "englishHeadword": "sheathing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "Sheathing and deck refer to roof substrate in the source scene, while archived platelage de toiture and support de couverture may imply different structural layers. Choose approved French trade terms and align the imperatives before scored use.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:8:fr-en:card:2",
+      "englishHeadword": "soft deck",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:8:fr-en:card:3",
+      "englishHeadword": "damage",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "The source term damage is singular or mass; archived les dommages is plural. Resolve the dictionary sense and article for a field-reporting card.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:8:fr-en:card:4",
+      "englishHeadword": "rotten wood",
+      "candidateFrenchSense": "le bois pourri",
+      "contextEnglish": "Protect the Sheathing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:8:fr-en:card:5",
+      "englishHeadword": "repair",
+      "candidateFrenchSense": "la réparation",
+      "contextEnglish": "Protect the Sheathing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:8:fr-en:card:6",
+      "englishHeadword": "replace",
+      "candidateFrenchSense": "remplacer",
+      "contextEnglish": "Protect the Sheathing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:8:fr-en:card:7",
+      "englishHeadword": "panel",
+      "candidateFrenchSense": "le panneau",
+      "contextEnglish": "roof panel in the source scene, not a road or notice sign; exact product/material remains unselected",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:8:fr-en:card:8",
+      "englishHeadword": "plywood",
+      "candidateFrenchSense": "le contreplaqué",
+      "contextEnglish": "Protect the Sheathing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:8:fr-en:card:9",
+      "englishHeadword": "mark",
+      "candidateFrenchSense": "marquer",
+      "contextEnglish": "Protect the Sheathing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:8:fr-en:card:10",
+      "englishHeadword": "Don't damage the sheathing.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "Sheathing and deck refer to roof substrate in the source scene, while archived platelage de toiture and support de couverture may imply different structural layers. Choose approved French trade terms and align the imperatives before scored use.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:8:fr-en:card:11",
+      "englishHeadword": "Tell me if the deck feels soft or damaged.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:8:fr-en:card:12",
+      "englishHeadword": "Stop here; the deck needs repair before we continue.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "The worker feels rotten wood while stepping on a panel; archived constate changes tactile observation into a conclusion. Preserve the source observation and stop/work-hold command. A qualified person must assess the damaged deck before any repair procedure is taught. Source speaking asks the supervisor to stop a worker about to cover a soft panel and request a repair. Archived speaking adds marking and verification of a planned repair. Keep those extra actions separate from scored source meaning until source and roofing review decide the objective.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:8:fr-en:card:13",
+      "englishHeadword": "Do not cover the soft panel.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "The source says soft or damaged deck and soft panel. Archived affaibli weakens the tactile soft condition, and semble replaces feels. Retain the observed condition without diagnosing a repair method.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:8:fr-en:card:14",
+      "englishHeadword": "Mark the damaged area.",
+      "candidateFrenchSense": "Marquez la zone endommagée.",
+      "contextEnglish": "Protect the Sheathing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:8:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:8:fr-en:card:15",
+      "englishHeadword": "We need to replace this plywood.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Protect the Sheathing",
+      "status": "held",
+      "hold": "Exact replacement-decision phrase retained as source evidence; structural assessment/source decision remains open before selecting a production target.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Exact replacement phrase remains direct source vocabulary/grammar evidence, not an approved repair decision. Source stop-worker/soft-panel/repair speaking remains blocked by qualified trade and source review.",
+    "Cross-lesson source material qualifiers must be compared verbatim; Core7 and Core9 Spanish wording can differ despite matching English. No source wording was homogenized or changed.",
+    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source."
+  ]
+}

@@ -1,0 +1,666 @@
+{
+  "lessonId": "core-roofing:7:fr-en",
+  "candidateObjectiveEnglish": "Name a hand tool and layers, produce a clarity question and recognize a removal-understanding question.",
+  "grammarExplanationEnglish": "\"This is a\" + singular noun identifies an item: \"This is a pry bar.\" An imperative uses a base verb without a subject: \"Use the pry bar carefully.\" In \"Do you understand what must be removed?\", do comes before you; \"what must be removed\" means the required removal scope. \"Is that clear?\" asks whether an explanation is clear.",
+  "grammarExplanationFrench": "« This is a » + nom singulier identifie un objet : « This is a pry bar ». Dans ces exemples, la question fermée commence par « do » ou « is » avant le sujet. « What must be removed » signifie ce qui doit être retiré ; le périmètre concret doit être connu séparément.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le mot anglais et son sens : layer — la couche.",
+      "candidateTargetEnglish": "layer",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "la couche",
+      "provenance": "Exact source card 5 with archived French 'la couche'. The prompt wording is a new composition.",
+      "id": "core-roofing:7:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Rappelez-vous le mot anglais pour : la sous-couche.",
+      "candidateTargetEnglish": "underlayment",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "la sous-couche",
+      "provenance": "Exact source card 7 with archived French 'la sous-couche'. The prompt wording is a new composition.",
+      "id": "core-roofing:7:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "Use the pry bar carefully.",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:reader:6"
+      ],
+      "expectedMeaningFrench": "Utilisez le pied-de-biche avec précaution.",
+      "provenance": "Exact source reader 6 with archived French. The prompt wording is a new composition.",
+      "id": "core-roofing:7:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script"
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le terme anglais qui signifie « le pied-de-biche ».",
+      "candidateTargetEnglish": "pry bar",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le pied-de-biche",
+      "provenance": "Exact source card 8 with archived French 'le pied-de-biche'. The prompt wording is a new composition.",
+      "id": "core-roofing:7:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Est-ce clair ? »",
+      "candidateTargetEnglish": "Is that clear?",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:15",
+        "core-roofing:7:fr-en:reader:9"
+      ],
+      "expectedMeaningFrench": "Est-ce clair ?",
+      "provenance": "Exact source card 15 and reader 9 with archived French. The prompt wording is a new composition.",
+      "id": "core-roofing:7:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Comprenez-vous ce qui doit être retiré ? »",
+      "candidateTargetEnglish": "Do you understand what must be removed?",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:14",
+        "core-roofing:7:fr-en:reader:8"
+      ],
+      "expectedMeaningFrench": "Comprenez-vous ce qui doit être retiré ?",
+      "provenance": "Exact source card 14 and reader 8 with archived French. The prompt wording is a new composition. The activity asks a confirmation question only.",
+      "id": "core-roofing:7:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:7:fr-en:card:10",
+        "core-roofing:7:fr-en:card:12",
+        "core-roofing:7:fr-en:card:13"
+      ],
+      "holdReason": "The concrete removal scope is not approved; this exact question remains a source-language proposal only."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Use the [noun] carefully.",
+      "meaningFrench": "Forme d’impératif : une consigne donnée directement, avec un adverbe de manière à la fin.",
+      "candidateExampleEnglish": "Use the pry bar carefully.",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:reader:6"
+      ],
+      "provenance": "Exact source reader 6 with archived French.",
+      "id": "core-roofing:7:fr-en:form:1",
+      "reviewed": false
+    },
+    {
+      "englishForm": "Do you understand [clause]?",
+      "meaningFrench": "Question fermée pour vérifier la compréhension.",
+      "candidateExampleEnglish": "Do you understand what must be removed?",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:14",
+        "core-roofing:7:fr-en:reader:8"
+      ],
+      "provenance": "Exact source card 14 and reader 8 with archived French.",
+      "id": "core-roofing:7:fr-en:form:2",
+      "reviewed": false,
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:7:fr-en:card:10",
+        "core-roofing:7:fr-en:card:12",
+        "core-roofing:7:fr-en:card:13"
+      ],
+      "holdReason": "The concrete removal scope is not approved; this exact question remains a source-language proposal only."
+    },
+    {
+      "englishForm": "Is that [adjective]?",
+      "meaningFrench": "« Is that » + adjectif ; ici, pour demander si l’explication est claire.",
+      "candidateExampleEnglish": "Is that clear?",
+      "sourceAnchors": [
+        "core-roofing:7:fr-en:card:15",
+        "core-roofing:7:fr-en:reader:9"
+      ],
+      "provenance": "Exact source card 15 and reader 9 with archived French.",
+      "id": "core-roofing:7:fr-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker naming a hand tool.",
+    "partnerRole": "Another coworker asking about the description.",
+    "candidateOpeningEnglish": "This is a pry bar.",
+    "goalEnglish": "Name the pry bar and ask whether the explanation is clear.",
+    "candidateWordBankEnglish": [
+      "pry bar",
+      "Is that clear?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
+    "sourceAnchors": [
+      "core-roofing:7:fr-en:card:8",
+      "core-roofing:7:fr-en:card:15"
+    ],
+    "id": "core-roofing:7:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
+    "partnerCuesEnglish": [
+      "Yes, that is clear."
+    ],
+    "partnerCueProvenance": "New ordinary comprehension reply, not approval of any removal scope.",
+    "openingProvenance": "New This is + source pry-bar headword composition.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:7:fr-en:card:10",
+      "core-roofing:7:fr-en:card:12",
+      "core-roofing:7:fr-en:card:13"
+    ],
+    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
+    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-7-source-decision-2026-11-18/packet.json",
+    "sha256": "0f75a36c930059df92282633a3bba254c165b89ef7b0d283c428b8d7f1f1520f"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:7:fr-en:card:1",
+      "sourceEnglish": "tear-off",
+      "candidateFrench": null,
+      "hold": "Linked old-roof/tear-off scope decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:7:fr-en:card:2",
+      "sourceEnglish": "shingles",
+      "candidateFrench": null,
+      "hold": "The source explicitly names asphalt shingles in Spanish and generic shingles in English. Archived French bardeaux omits asphalt. Decide whether the material specificity must carry through cards, Reader and disposal instruction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:7:fr-en:card:3",
+      "sourceEnglish": "deck",
+      "candidateFrench": null,
+      "hold": "Deck is the structural roof deck in this tear-off scope. Archived support de couverture may imply a more general support; choose a consistent French trade term before giving the remove-to-deck command.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:7:fr-en:card:4",
+      "sourceEnglish": "old roof",
+      "candidateFrench": null,
+      "hold": "Old roof is broad; archived ancienne couverture may narrow to covering layers. Decide whether it includes retained roof elements, and align the objective with the current source rather than a universal tear-off procedure.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:7:fr-en:card:5",
+      "sourceEnglish": "layer",
+      "candidateFrench": "la couche",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:7:fr-en:card:6",
+      "sourceEnglish": "scope of work",
+      "candidateFrench": "l’étendue des travaux",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:7:fr-en:card:7",
+      "sourceEnglish": "underlayment",
+      "candidateFrench": "la sous-couche",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalSenseScope": "Generic underlayment category only; no product type, structural layer detail or installation order selected.",
+      "linkedSenseReviewRefs": [
+        "core-roofing:2:fr-en:card:2",
+        "core-roofing:9:fr-en:card:12"
+      ]
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:7:fr-en:card:8",
+      "sourceEnglish": "pry bar",
+      "candidateFrench": "le pied-de-biche",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:7:fr-en:card:9",
+      "sourceEnglish": "flashing",
+      "candidateFrench": "le solin",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:7:fr-en:card:10",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "candidateFrench": null,
+      "hold": "Deck is the structural roof deck in this tear-off scope. Archived support de couverture may imply a more general support; choose a consistent French trade term before giving the remove-to-deck command. Old roof is broad; archived ancienne couverture may narrow to covering layers. Decide whether it includes retained roof elements, and align the objective with the current source rather than a universal tear-off procedure. Archived French says toute la couverture, potentially narrowing source everything down to the deck. Resolve the precise scope across card, Reader, speaking command and six authored modes together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:7:fr-en:card:11",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "candidateFrench": null,
+      "hold": "The source explicitly names asphalt shingles in Spanish and generic shingles in English. Archived French bardeaux omits asphalt. Decide whether the material specificity must carry through cards, Reader and disposal instruction. Dumpster/container destination sense must also be settled with Core9 card1.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "linkedDumpsterDecision": "core-roofing:9:fr-en:card:1"
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:7:fr-en:card:12",
+      "sourceEnglish": "Remove all the layers.",
+      "candidateFrench": null,
+      "hold": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:7:fr-en:card:13",
+      "sourceEnglish": "Tear off the flashing too.",
+      "candidateFrench": null,
+      "hold": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:7:fr-en:card:14",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "candidateFrench": "Comprenez-vous ce qui doit être retiré ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:7:fr-en:card:15",
+      "sourceEnglish": "Is that clear?",
+      "candidateFrench": "Est-ce clair ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:1",
+      "sourceEnglish": "Today the tear-off of the old roof begins.",
+      "candidateFrench": null,
+      "hold": "Linked old-roof/tear-off scope decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:2",
+      "sourceEnglish": "The foreman explains the scope of work.",
+      "candidateFrench": null,
+      "hold": "Linked foreman role decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:3",
+      "sourceEnglish": "Tear off everything down to the deck.",
+      "candidateFrench": null,
+      "hold": "Deck is the structural roof deck in this tear-off scope. Archived support de couverture may imply a more general support; choose a consistent French trade term before giving the remove-to-deck command. Archived French says toute la couverture, potentially narrowing source everything down to the deck. Resolve the precise scope across card, Reader, speaking command and six authored modes together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:4",
+      "sourceEnglish": "Remove all the layers, including the underlayment.",
+      "candidateFrench": null,
+      "hold": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands. Archived French says toute la couverture, potentially narrowing source everything down to the deck. Resolve the precise scope across card, Reader, speaking command and six authored modes together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:5",
+      "sourceEnglish": "Tear off the flashing too.",
+      "candidateFrench": null,
+      "hold": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands. Archived French says toute la couverture, potentially narrowing source everything down to the deck. Resolve the precise scope across card, Reader, speaking command and six authored modes together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:6",
+      "sourceEnglish": "Use the pry bar carefully.",
+      "candidateFrench": "Utilisez le pied-de-biche avec précaution.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:7",
+      "sourceEnglish": "Throw the shingles into the dumpster.",
+      "candidateFrench": null,
+      "hold": "The source explicitly names asphalt shingles in Spanish and generic shingles in English. Archived French bardeaux omits asphalt. Decide whether the material specificity must carry through cards, Reader and disposal instruction. Dumpster/container destination sense must also be settled with Core9 card1.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "linkedDumpsterDecision": "core-roofing:9:fr-en:card:1"
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:8",
+      "sourceEnglish": "Do you understand what must be removed?",
+      "candidateFrench": "Comprenez-vous ce qui doit être retiré ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:7:fr-en:reader:9",
+      "sourceEnglish": "Is that clear?",
+      "candidateFrench": "Est-ce clair ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:7:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:7:fr-en:card:1",
+      "englishHeadword": "tear-off",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "Linked old-roof/tear-off scope decision propagated; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:7:fr-en:card:2",
+      "englishHeadword": "shingles",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "The source explicitly names asphalt shingles in Spanish and generic shingles in English. Archived French bardeaux omits asphalt. Decide whether the material specificity must carry through cards, Reader and disposal instruction.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:7:fr-en:card:3",
+      "englishHeadword": "deck",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "Deck is the structural roof deck in this tear-off scope. Archived support de couverture may imply a more general support; choose a consistent French trade term before giving the remove-to-deck command.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:7:fr-en:card:4",
+      "englishHeadword": "old roof",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "Old roof is broad; archived ancienne couverture may narrow to covering layers. Decide whether it includes retained roof elements, and align the objective with the current source rather than a universal tear-off procedure.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:7:fr-en:card:5",
+      "englishHeadword": "layer",
+      "candidateFrenchSense": "la couche",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:7:fr-en:card:6",
+      "englishHeadword": "scope of work",
+      "candidateFrenchSense": "l’étendue des travaux",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:7:fr-en:card:7",
+      "englishHeadword": "underlayment",
+      "candidateFrenchSense": "la sous-couche",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "candidateSenseScope": "Generic layer category, independent of still-held product and deck-cleanup details; qualified dictionary gate remains false."
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:7:fr-en:card:8",
+      "englishHeadword": "pry bar",
+      "candidateFrenchSense": "le pied-de-biche",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:7:fr-en:card:9",
+      "englishHeadword": "flashing",
+      "candidateFrenchSense": "le solin",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:7:fr-en:card:10",
+      "englishHeadword": "Tear off everything down to the deck.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "Deck is the structural roof deck in this tear-off scope. Archived support de couverture may imply a more general support; choose a consistent French trade term before giving the remove-to-deck command. Old roof is broad; archived ancienne couverture may narrow to covering layers. Decide whether it includes retained roof elements, and align the objective with the current source rather than a universal tear-off procedure. Archived French says toute la couverture, potentially narrowing source everything down to the deck. Resolve the precise scope across card, Reader, speaking command and six authored modes together.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:7:fr-en:card:11",
+      "englishHeadword": "Throw the shingles into the dumpster.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "The source explicitly names asphalt shingles in Spanish and generic shingles in English. Archived French bardeaux omits asphalt. Decide whether the material specificity must carry through cards, Reader and disposal instruction. Dumpster/container destination sense must also be settled with Core9 card1.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:7:fr-en:card:12",
+      "englishHeadword": "Remove all the layers.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:7:fr-en:card:13",
+      "englishHeadword": "Tear off the flashing too.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tear-Off Scope",
+      "status": "held",
+      "hold": "The source scene orders all layers, underlayment and flashing removed. This is a fictional job scope, not a universal instruction; qualify the actual approved scope, elements to retain and site safety plan before selecting scored French commands.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:7:fr-en:card:14",
+      "englishHeadword": "Do you understand what must be removed?",
+      "candidateFrenchSense": "Comprenez-vous ce qui doit être retiré ?",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:7:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:7:fr-en:card:15",
+      "englishHeadword": "Is that clear?",
+      "candidateFrenchSense": "Est-ce clair ?",
+      "contextEnglish": "Tear-Off Scope",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "The source command-and-removal-scope speaking objective remains held; this narrower lexical identification proposal does not complete it.",
+    "Cross-lesson source material qualifiers must be compared verbatim; Core7 and Core9 Spanish wording can differ despite matching English. No source wording was homogenized or changed.",
+    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source."
+  ]
+}

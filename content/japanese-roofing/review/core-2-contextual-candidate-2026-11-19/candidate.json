@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:2:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-2-source-decision-2026-11-18/packet.json",
+    "sha256": "895aa35fbc5addbc9f906fee02623b69582216c35dd8a92a1bdd39b61c992854"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-1-3-draft.json",
+      "sha256": "ec1dff1ce6f7e948ff078bef0f32fa7841a407d264d7d50b6e6827bc1c8932f5"
+    }
+  },
+  "objectiveEnglish": "Practice a few roof-layer and roof-edge terms and one short question about where a part goes. This supplement covers only selected terminology and descriptions and does not complete the lesson.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「underlayment」は「下葺き材（したぶきざい）」という意味です。英語の語を見て、意味を確認してください。",
+      "targetEnglish": "underlayment",
+      "sourceAnchor": "roofing:2:ja-en:card:2",
+      "id": "core-roofing:2:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「軒（のき）」を表す英語を思い出してください。",
+      "targetEnglish": "eave",
+      "sourceAnchor": "roofing:2:ja-en:card:6",
+      "id": "core-roofing:2:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語の語句を選んでください。",
+      "targetEnglish": "felt paper",
+      "candidateOptionsEnglish": [
+        "felt paper",
+        "drip edge",
+        "synthetic underlayment"
+      ],
+      "sourceAnchor": "roofing:2:ja-en:card:3",
+      "id": "core-roofing:2:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "felt paper",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「ケラバ（屋根の妻側の端）」を英語で入力してください。",
+      "targetEnglish": "rake",
+      "sourceAnchor": "roofing:2:ja-en:card:7",
+      "id": "core-roofing:2:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "次の質問を声に出して読んでください。ドリップエッジがどこに来るかを尋ねる質問です。",
+      "targetEnglish": "Where does the drip edge go?",
+      "sourceAnchor": "roofing:2:ja-en:card:14",
+      "id": "core-roofing:2:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「合板（ごうはん）」を英語で書いてください。",
+      "targetEnglish": "plywood",
+      "sourceAnchor": "roofing:2:ja-en:card:8",
+      "id": "core-roofing:2:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The crew looks at the layers under the shingles.",
+      "explanationJapanese": "「look at ～」は「～を見る」という意味です。主語が The crew なので looks になります。layers は「層」、under ～ は「～の下の」という意味です。",
+      "sourceAnchor": "roofing:2:ja-en:line:1",
+      "id": "core-roofing:2:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Where does the drip edge go?",
+      "explanationJapanese": "「Where does ～ go?」は「～はどこに来ますか」と、部材の場所を尋ねる疑問文の形です。",
+      "sourceAnchor": "roofing:2:ja-en:card:14",
+      "id": "core-roofing:2:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "A worker points to the eave edge and the rake edge.",
+      "explanationJapanese": "「point to ～」は「～を指さす」という意味です。「A and B」で二つの場所を並べています。誰が何をしているかを説明する文です。",
+      "sourceAnchor": "roofing:2:ja-en:line:6",
+      "id": "core-roofing:2:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "drip edge",
+      "glossJapanese": "ドリップエッジ（屋根の端の水切り）",
+      "senseJapanese": "屋根の端で、雨水を外側へ落とすための部材の名前です。",
+      "sourceAnchor": "roofing:2:ja-en:card:4",
+      "id": "core-roofing:2:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "eave",
+      "glossJapanese": "軒（のき）",
+      "senseJapanese": "屋根の下端で、外壁より外へ張り出している部分です。その先端（軒先・のきさき）は eave edge と言います。",
+      "sourceAnchor": "roofing:2:ja-en:card:6",
+      "id": "core-roofing:2:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "rake",
+      "glossJapanese": "ケラバ",
+      "senseJapanese": "切妻屋根の妻側にある、傾斜した屋根の端の部分です。",
+      "sourceAnchor": "roofing:2:ja-en:card:7",
+      "id": "core-roofing:2:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "A crew member who names roof layers and roof edges and asks where a part goes.",
+      "partner": "A foreman who looks at the roof with the crew and asks short questions."
+    },
+    "openingEnglish": "The crew looks at the layers under the shingles.",
+    "closureEnglish": "A worker points to the eave edge and the rake edge.",
+    "objectivesEnglish": [
+      "Practice part of the roof-layer vocabulary, such as underlayment and felt paper.",
+      "Ask where the drip edge goes using the sample question.",
+      "Name one roof edge term, such as eave or rake, in a short exchange."
+    ],
+    "wordBankEnglish": [
+      "underlayment",
+      "felt paper",
+      "drip edge",
+      "eave",
+      "rake",
+      "plywood"
+    ],
+    "sourceAnchors": [
+      "roofing:2:ja-en:line:1",
+      "roofing:2:ja-en:line:5",
+      "roofing:2:ja-en:line:6",
+      "roofing:2:ja-en:card:14",
+      "roofing:2:ja-en:card:2",
+      "roofing:2:ja-en:card:3",
+      "roofing:2:ja-en:card:4",
+      "roofing:2:ja-en:card:6",
+      "roofing:2:ja-en:card:7",
+      "roofing:2:ja-en:card:8"
+    ],
+    "id": "core-roofing:2:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older reverse pair and roofing header retained as source provenance only. Proposed core IDs are not registered.",
+    "Partial supplement: material senses, product suitability, installation sequence, fastening and leak-repair instructions need qualified Japanese/trade/source/dictionary decisions.",
+    "Source odd English remains pinned: Core1 metal-panel sentence and installing versus future mismatch; Core2 layering wording; Core3 joints terminology and installation fragments. No silent source rewrites.",
+    "AI assistance is not qualified approval. Source material claims are held; generic descriptive dictionary senses remain conditional."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

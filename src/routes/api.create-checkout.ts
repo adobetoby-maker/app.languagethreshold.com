@@ -1,6 +1,11 @@
 import { configuredIndividualPriceIds, INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
+import { adultOfferAccount } from "@/lib/resource-offer";
+import { resourceOfferService } from "@/lib/resource-offer-server";
+import { resourceOfferRepo } from "@/lib/resource-offer-repo";
+import { ownerServiceFetch } from "@/lib/owner-service-fetch";
+import { consumeServerRequestBudget } from "@/lib/speaking-security";
 import { randomBytes } from "node:crypto";
 import { z } from "zod";
 import { prepareTeamJson, MAX_TEAM_WORKFLOW_BYTES } from "@/lib/team-request";
@@ -47,11 +52,57 @@ export const Route = createFileRoute("/api/create-checkout")({
             const productId = (price: Stripe.Price) =>
               typeof price.product === "string" ? price.product : price.product.id;
             if (
-              !monthly.active || monthly.currency !== "usd" || monthly.unit_amount !== 3500 ||
-              monthly.recurring?.interval !== "month" || productId(monthly) !== productId(annual)
+              !monthly.active ||
+              monthly.currency !== "usd" ||
+              monthly.unit_amount !== 3500 ||
+              monthly.recurring?.interval !== "month" ||
+              productId(monthly) !== productId(annual)
             ) {
               throw new TeamOperationError("Family monthly checkout is not configured yet.", 503);
             }
+          }
+          const familyPlan =
+            prepared.data.priceId === INDIVIDUAL_PRICES.family
+              ? "family"
+              : prepared.data.priceId === INDIVIDUAL_PRICES.familyMonthly
+                ? "family-monthly"
+                : null;
+          if (
+            familyPlan &&
+            (process.env.RESOURCE_OFFER_FAMILY_GUARDS_ENABLED === "true" ||
+              process.env.RESOURCE_OFFER_JUNIOR_ENABLED === "true")
+          ) {
+            if (process.env.RESOURCE_OFFER_FAMILY_GUARDS_ENABLED !== "true")
+              throw new TeamOperationError(
+                "Family checkout is waiting for its reviewed upgrade guard. No purchase was created.",
+                503,
+              );
+            if (!adultOfferAccount(user))
+              throw new TeamOperationError(
+                "A confirmed parent or adult purchaser is required.",
+                403,
+              );
+            if (
+              !(await consumeServerRequestBudget(
+                "lt-family-checkout",
+                user.id,
+                10,
+                3600,
+                request.signal,
+              ))
+            )
+              throw new TeamOperationError(
+                "Please wait before opening another Family checkout.",
+                429,
+              );
+            const journal = teamAdminClient(ownerServiceFetch(AbortSignal.timeout(120000)));
+            return json(
+              await resourceOfferService({
+                stripe,
+                repo: resourceOfferRepo(journal),
+                active: () => request.signal.throwIfAborted(),
+              }).familyCheckout({ id: user.id, email: user.email! }, familyPlan),
+            );
           }
           const origin = new URL(request.url).origin;
           const session = await stripe.checkout.sessions.create({

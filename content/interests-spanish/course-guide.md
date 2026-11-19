@@ -160,7 +160,7 @@ Each course has 10 Foundation, 30 Core and 20 Master lessons. Each lesson contai
 
 ## Availability
 
-Web preview: https://language-threshold-p2d8p4879-adobetoby-5572s-projects.vercel.app Production and TestFlight have not been updated.
+Web preview: https://language-threshold-p2d8p4879-adobetoby-5572s-projects.vercel.app Production is live at https://app.languagethreshold.com with all 120 lessons and 5,212 selected-voice recording mappings. GitHub main push is awaiting CLI reauthorization. TestFlight has not been updated.
 The V4-compatible course pack is exported and schema-tested. All staged V4 lesson audio is now present in both voices; see v4-audio-readiness.json. The course pack is not installed in V4 yet.
 Picture & Action uses shared room scenes with module-specific objects. Its 96 new exact commands have both recorded voices in Spanish and English.
 

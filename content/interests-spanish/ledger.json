@@ -91,7 +91,7 @@
   "specialistFormalExams": false,
   "customSceneImages": false,
   "v4Installed": false,
-  "productionDeployed": false,
+  "productionDeployed": true,
   "preview": "https://language-threshold-p2d8p4879-adobetoby-5572s-projects.vercel.app",
   "sourceCommit": "72133231d",
   "previewVerified": {
@@ -130,5 +130,14 @@
       }
     ]
   },
-  "releaseRequest": "Push both courses to main and add recorded lesson audio"
+  "releaseRequest": "Push both courses to main and add recorded lesson audio",
+  "production": {
+    "url": "https://app.languagethreshold.com",
+    "deploymentID": "dpl_7XyA4Wkef1ufUKMFSiCxsv1YfU9x",
+    "status": "READY",
+    "sourceCommit": "6f63e357c",
+    "verifiedAt": "2026-11-19T06:37:24.501946+00:00",
+    "evidence": "production-verification.json"
+  },
+  "gitMainPush": "pending GitHub CLI reauthorization; previous local credential expired"
 }

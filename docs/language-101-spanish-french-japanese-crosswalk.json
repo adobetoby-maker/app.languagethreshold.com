@@ -1,0 +1,1474 @@
+{
+  "schema": "fr-ja-101-spanish-purpose-crosswalk-v1",
+  "scope": "Source-level lesson mapping only; no linguistic, audio, runtime, native, or release approval",
+  "revisions": {
+    "spanish": "70cd3dd900b84e5052abe7a8f9e3a397f3000e8e",
+    "japanese": "018e69872875ae15acc7381368bac199bf61171e",
+    "french": "4ce799e176201f874a8a0091408ff33ce1ca4887"
+  },
+  "pairs": {
+    "spanish": "Spanish:English",
+    "japanese": "Japanese:English",
+    "french": "French:English"
+  },
+  "reviewed": false,
+  "sources": [
+    {
+      "repository": "spanish",
+      "path": "src/data/core60/es/foundation-spanish-basics.json",
+      "sha256": "820ed6fcd726180c3794027f4578de051666d973eb2e23373e086c94c6211eb0"
+    },
+    {
+      "repository": "japanese",
+      "path": "content/japanese-basics/foundation.json",
+      "sha256": "b36cf1dda4c0121d3cfabf49576058e33e0af4f336b33ca53e0054ec794d9c85"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/foundation-1-3-draft.json",
+      "sha256": "0fa2a42466842dcc7d68153deff8407ddd0cb47c1417b16035471bc088cc4886"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/foundation-4-6-draft.json",
+      "sha256": "7a99f59564b96d255f6cca1702e4a1ae062ac743b312054dd272b880432991f8"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/foundation-7-8-draft.json",
+      "sha256": "2e6061a52d81394e005efec1703ae652617b4f8396c1ae336d1047a76dbb5a62"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/foundation-9-10-draft.json",
+      "sha256": "11b0fed41ea3f049f61ccbdf24af0a83aee37078d3393375c68a1b853ee8cd7b"
+    },
+    {
+      "repository": "spanish",
+      "path": "src/data/spanish-basics-core.json",
+      "sha256": "d50c3e52a846331e9c0bcec19a5c91605585f4e285c62138941425390d160e38"
+    },
+    {
+      "repository": "japanese",
+      "path": "content/japanese-basics/core.json",
+      "sha256": "c44067dc6241077f67616dfdd781b63e617fa219355683d281a8205bdca74da5"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-1-3-draft.json",
+      "sha256": "59ab2196d68220e329b5572c0433aa51abe0842921215afef326b533a7fd0157"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-10-12-draft.json",
+      "sha256": "ce1f6aa6a1c23fe610e9ae433914b9a41f5e8af33d84a6014b57bc9394d860aa"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-13-15-draft.json",
+      "sha256": "062cb5d98e06b2df56d1f7c5fc8f4c6d180a6e2ea0ad026aff6b76c1558a1476"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-16-18-draft.json",
+      "sha256": "f132b521313ebab7cb7d0de15db681a019de0ce0963672924d2d8d1946bc3bf8"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-19-21-draft.json",
+      "sha256": "a612ac67adc5152ba9d6bb697878f26c63ef128ddf21008678dc1e7deb9f927c"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-22-24-draft.json",
+      "sha256": "47da7b6429135e9fdf982c1186c090d106b5fce6081f0e9bd293604f74f4e41e"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-25-27-draft.json",
+      "sha256": "56d97eb4cb8212345bb82ac399ee5d15da401cd39bb6cb6bbd8bf489cc342b03"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-28-30-draft.json",
+      "sha256": "6f822f59d29b1bbf6948219c5d8f108d417ad622ca03409cdc79167e7429be24"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-4-6-draft.json",
+      "sha256": "38ff5172764f4658a27aa929e213a3797a37fda87b12c09696c198bee74b45dd"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/core-7-9-draft.json",
+      "sha256": "6849334969a6ad29bafa457bc5cecba35f008c07d26544bf01af6730a9e69efc"
+    },
+    {
+      "repository": "spanish",
+      "path": "src/data/core60/es/master-spanish-basics.json",
+      "sha256": "27084a65c51ef96ab6b74dd969de1c4b38cd670be1c4b148e2b66f4d9bb15ede"
+    },
+    {
+      "repository": "japanese",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-1-3-redesign-draft.json",
+      "sha256": "21dc4e7af37843ba92356ebddeb13e7e8b1c23a94e54210e4795734a412f70bb"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-10-12-redesign-draft.json",
+      "sha256": "ac4cbab6e3fc15db15a16a0f6f1a0f5ad28779facecfd1221b2dfc496cf0b98e"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-13-15-redesign-draft.json",
+      "sha256": "c85ab7131d6d9967dbcfdc93f7f4e3e875c6e5a8af94fa7fde5e5c83c7f029a4"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-16-18-redesign-draft.json",
+      "sha256": "e7beef3838d3c56452eb135b68de488f532be6024acf2f46121b8ffa9225d6a0"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-19-20-redesign-draft.json",
+      "sha256": "c55e0d18a62f6c739746b493d21be0331d2f2000886f50bdc831ca5be616f9d7"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-4-6-redesign-draft.json",
+      "sha256": "bc12df06529ff0abae18d9bc10bd8e7b42a291adda719e12640c80f61e377bbf"
+    },
+    {
+      "repository": "french",
+      "path": "content/french-basics/master-7-9-redesign-draft.json",
+      "sha256": "69a69913548ffe3f41b51af7fbe2a63d443b1f416be9d29f154ca9e846703d61"
+    }
+  ],
+  "lessons": [
+    {
+      "stage": "foundation",
+      "number": 1,
+      "spanish": {
+        "title": "Greetings and clear vowels",
+        "objective": "Greetings and clear vowels: Say each Spanish vowel clearly: a, e, i, o, u.",
+        "focus": "Greetings and clear vowels",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Hello and your name",
+        "focus": "Hear the five Japanese vowels あ・い・う・え・お. Use a polite greeting and ～です for a name; は marks the topic and is pronounced wa here. Add か at the end to make a polite question.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Greetings and your name",
+        "objective": "Greet a new adult learner, exchange names politely, and hear and produce the French /ʒ/, /u/, and nasal /ɔ̃/ sounds in familiar words.",
+        "focus": "Greet someone with bonjour and introduce yourself with je m’appelle. The j in je and bonjour sounds /ʒ/; ou in bonjour sounds /u/; on in bonjour is a nasal vowel /ɔ̃/ with no separate n sound. Some final consonants are silent (Paris, salut), but others are pronounced (Marc, Paul, bonjour). Use vous with an adult you have just met; save tu for familiar classmates once you agree to be informal. A woman writes enchantée with a final -e; it sounds the same as enchanté.",
+        "source": "content/french-basics/foundation-1-3-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 2,
+      "spanish": {
+        "title": "El, la, un and una",
+        "objective": "El, la, un and una: A noun has grammatical gender.",
+        "focus": "El, la, un and una",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "This and that",
+        "focus": "Practice hiragana in short nouns. これ is this (near me), それ is that (near you), and あれ is that over there. この goes before a noun; の connects nouns or marks possession. Japanese nouns have no articles or grammatical gender.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Masculine and feminine: le, la, un, une",
+        "objective": "Name familiar classroom objects with un or une, and use le or la when pointing to a specific object.",
+        "focus": "French nouns are grammatically masculine or feminine. Learn each object with its article: un stylo, une trousse. Use un/une when naming or introducing one object (C’est un cahier); use le/la for a particular object already identified (Voilà la gomme). The noun ending is only a partial gender clue, so learn the article with the noun. Hear the difference between nasal un and pronounced n in une, and between le and la.",
+        "source": "content/french-basics/foundation-1-3-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 3,
+      "spanish": {
+        "title": "One thing or several",
+        "objective": "One thing or several: Usually add -s after a vowel and -es after a consonant.",
+        "focus": "One thing or several",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "One or several",
+        "focus": "Keep practicing hiragana and recognize katakana in loanwords (ノート, ゴム). Japanese nouns usually do not change for plural; quantity and context tell us how many. Use ～つ for general items such as erasers; bound notebooks use ～さつ (にさつ means two notebooks). The object particle を is pronounced o. も means also or too and replaces は or を.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "One thing or several: des, les and plurals",
+        "objective": "Distinguish one classroom object from several using un/une/des and le/la/les, and hear plural meaning through the article.",
+        "focus": "Most French plurals are written with -s: un crayon → des crayons. The final -s is usually silent, so the article often tells you whether one or several are meant: le /lə/ versus les /le/, un or une versus des /de/. Un and une become des for unspecified plural objects; le and la become les for specific plural objects. Nouns already ending in -s, -x, or -z keep that ending in the plural. Other patterns come later; learn each new plural in context.",
+        "source": "content/french-basics/foundation-1-3-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 4,
+      "spanish": {
+        "title": "Who is speaking?",
+        "objective": "Who is speaking?: Yo means I, tú means informal you, and usted means formal you.",
+        "focus": "Who is speaking?",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Who is speaking?",
+        "focus": "Use a name or わたし when needed, but notice that Japanese often omits a subject clear from context. Ask どなたですか politely for who; だれですか is less formal. Use ～さん politely after a person's name.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Who is speaking?",
+        "objective": "Introduce yourself and a classmate with je suis, tu es, and nous sommes; identify a third person or group with il/elle est or ils/elles sont, keeping tu or vous consistent with the relationship.",
+        "focus": "Use être for “am / is / are”: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Peers often use tu right away; use vous with a teacher, staff member, or an adult stranger, and keep one register in a conversation. A mixed group uses ils, and masculine plural étudiants; an all-female group uses elles and étudiantes. In est the final t is usually silent, but it links before a vowel in il est ici; the t in êtes is pronounced.",
+        "source": "content/french-basics/foundation-4-6-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 5,
+      "spanish": {
+        "title": "Ser: identity and origin",
+        "objective": "Ser: identity and origin: Use ser for identity, origin and characteristics.",
+        "focus": "Ser: identity and origin",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Identity and origin",
+        "focus": "Use ～です for identity or role and ～から きました for where someone came from. は introduces the topic; が can identify the person answering who, but keep the contrast contextual.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Who am I? Identity and origin",
+        "objective": "Introduce a learner’s role and origin with être and the appropriate Je viens de country chunk, and describe a person with a correctly matched adjective.",
+        "focus": "Use être for roles and traits: je suis étudiant or étudiante; il est gentil, elle est gentille. A role normally has no article after être: je suis étudiante. Learn the noun or adjective ending for the person described. Learn Je viens de as a fixed origin chunk for now: de France for a feminine country, d’Espagne before a vowel, du Canada for a masculine country, and des États-Unis for a plural country. Country articles matter; do not apply de to every country.",
+        "source": "content/french-basics/foundation-4-6-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 6,
+      "spanish": {
+        "title": "Estar: location and condition",
+        "objective": "Estar: location and condition: Use estar for a person's or object's location and for conditions.",
+        "focus": "Estar: location and condition",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Where people and things are",
+        "focus": "Use あります for inanimate things and います for people or animals. に marks where something exists; ここ, そこ, and あそこ locate it.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Where is it? Location and state",
+        "objective": "Locate a person or object with être, sur, dans, or près de/du, and describe a state with an adjective that matches the noun or person.",
+        "focus": "Use être for the locations and states in this lesson: Le livre est sur la table; La porte est ouverte. Some other everyday states use avoir (for example, j’ai faim); those come later. Sur means on, dans means in, and près de means near; before le, de + le becomes du (près du livre), and before les it becomes des (here meaning de + les, distinct from the indefinite article des). For a thing, il replaces a masculine noun and elle a feminine noun: le livre → il, la trousse → elle. Adjectives agree with the noun or person: le livre est ouvert, la porte est ouverte; Marc est fatigué, Claire est fatiguée.",
+        "source": "content/french-basics/foundation-4-6-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 7,
+      "spanish": {
+        "title": "Hay: what exists",
+        "objective": "Hay: what exists: Hay means there is or there are.",
+        "focus": "Hay: what exists",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "What is in the room?",
+        "focus": "Ask ～に なにが ありますか about things and ～に だれが いますか about people. Reuse the あります/います contrast and location words without treating them as interchangeable.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Il y a: what exists",
+        "objective": "Say what exists with il y a and where something is with être; negate existence with il n’y a pas de or d’ before a vowel.",
+        "focus": "Il y a means there is or there are and does not change for number. Use est, a form of être, for where a particular thing is. In il n’y a pas de + noun, de replaces un, une or des; write d’ before a vowel: il n’y a pas d’ordinateur. Review la/une/les with noun gender and number.",
+        "source": "content/french-basics/foundation-7-8-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 8,
+      "spanish": {
+        "title": "Numbers and age",
+        "objective": "Numbers and age: Use tener for age: tengo dieciocho años, literally I have eighteen years.",
+        "focus": "Numbers and age",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Numbers, age, and counters",
+        "focus": "Read numbers one to ten. なんにん means how many people; いくつ means how many general items. Use ～さい（歳） for age and an appropriate counter for objects; ～つ counts general items, while ～にん（人） counts people. Some readings change, including ひとり（一人）. に (two) sounds the same as the location particle に; さん (three) sounds the same as the polite name suffix. 18 is じゅうはち, but 18 years old is じゅうはっさい.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Numbers and age",
+        "objective": "Give an assigned age with avoir (j’ai dix-huit ans), count 1–20, and say how many students there are and how many books a class needs.",
+        "focus": "French uses avoir for age: j’ai dix-huit ans, literally “I have eighteen years,” never je suis. Learn j’ai, tu as, il/elle a, nous avons; Tu as quel âge ? asks “How old are you?” Use il y a for a count and avoir besoin de + number + noun for a need. Count 1–20, including dix-huit and vingt. Pronunciation: dix is /dis/ alone, /di/ before a consonant, /diz/ before a vowel; dix-huit is /dizɥit/ and vingt ans links the final t. There is no elision before onze: de onze livres.",
+        "source": "content/french-basics/foundation-7-8-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 9,
+      "spanish": {
+        "title": "Simple questions and no",
+        "objective": "Simple questions and no: Put no before the verb to make a negative.",
+        "focus": "Simple questions and no",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Ask and say no",
+        "focus": "Add か to make a polite question. Say いいえ for no and use じゃありません for a negative noun sentence (more formal: では ありません); polite verb negatives use ～ません.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Simple questions and no",
+        "objective": "Ask simple yes/no questions in French and make a negative with ne…pas.",
+        "focus": "Make a negative with ne before the verb and pas after it: je ne suis pas, je n’ai pas. Before a vowel or mute h, ne becomes n’: elle n’est pas, je n’ai pas. After a negated avoir, un/une/des usually become de: je n’ai pas de livre; after être, keep the article: ce n’est pas un livre. Ask yes/no questions with rising intonation (Tu as un livre ?) or est-ce que. In conversation ne is often dropped, but write the full ne…pas in this course. Être covers identity and location; avoir expresses possession. Je suis étudiant has no article before the role.",
+        "source": "content/french-basics/foundation-9-10-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "foundation",
+      "number": 10,
+      "spanish": {
+        "title": "Ask for help and review",
+        "objective": "Ask for help and review: Use a short repair phrase when you need help: No entiendo; ¿Puedes repetir?; Más despacio, por favor.",
+        "focus": "Ask for help and review",
+        "source": "src/data/core60/es/foundation-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Ask for help and review",
+        "focus": "Keep a conversation going with わかりません and もういちど おねがいします; the reply ゆっくり はなします means I will speak slowly. Review なんですか and ～が あります from Foundation.",
+        "source": "content/japanese-basics/foundation.json"
+      },
+      "french": {
+        "title": "Ask for help and review",
+        "objective": "Ask a classmate to repeat or speak more slowly, ask a teacher politely, and review selected earlier forms: être, articles, agreement, il y a (from Lesson 7) and ne…pas.",
+        "focus": "New repair phrases: Je ne comprends pas (ce mot); Tu peux répéter, s’il te plaît ?; Plus lentement, s’il te plaît. Use Vous pouvez répéter, s’il vous plaît ? with a teacher. Comprendre means to understand; répéter means to repeat; plus lentement means more slowly. Review être, articles, noun/adjective agreement, il y a from Lesson 7, and full ne…pas. With a plain role, say je suis étudiante without an article; when the role noun has an adjective, the article returns: je suis une nouvelle étudiante or je suis un nouvel étudiant. The adjective comes before the noun: nouveau before a masculine consonant, nouvel before a masculine vowel sound (un nouvel étudiant), and nouvelle for feminine (une nouvelle étudiante). Plus has a silent s in plus lentement. Keep the pronoun/verb in the chosen tu or vous register. Pronunciation: un étudiant links the n to the vowel; est-ce que sounds roughly “es-kuh”; the final consonants of comprends and pas are silent; il y a is pronounced together as a short group.",
+        "source": "content/french-basics/foundation-9-10-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 1,
+      "spanish": {
+        "title": "Regular -ar verbs",
+        "objective": "Regular -ar verbs: Remove -ar and add -o, -as, -a, -amos, -an: hablo, hablas, habla, hablamos, hablan.",
+        "focus": "Regular -ar verbs",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Polite verbs for everyday actions",
+        "focus": "Practice polite ～ます forms for familiar actions; a time word such as あした can also make them describe a future action. で marks where an action happens (としょかんで はたらきます); と marks the person you do it with (ともだちと はなします), rather than linking two nouns as in Foundation.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Regular -er verbs",
+        "objective": "Verbes réguliers en -er : retirer -er et ajouter -e, -es, -e, -ons, -ent : parle, parles, parle, parlons, parlent.",
+        "focus": "Regular -er verbs (parler, étudier, travailler, écouter, pratiquer)",
+        "source": "content/french-basics/core-1-3-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 2,
+      "spanish": {
+        "title": "Regular -er verbs",
+        "objective": "Regular -er verbs: Remove -er and add -o, -es, -e, -emos, -en: como, comes, come, comemos, comen.",
+        "focus": "Regular -er verbs",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Common verb groups",
+        "focus": "Notice たべる→たべます (る-verb), のむ→のみます (う-verb), and irregular する→します and くる→きます. Learn each polite form in context.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Regular -er verbs, with irregular exceptions",
+        "objective": "Verbes réguliers en -er : retirer -er et ajouter -e, -es, -e, -ons, -ent (manger : mange, manges, mange, mangeons, mangent). Boire, lire et comprendre sont irréguliers et se mémorisent à part.",
+        "focus": "Regular -er verbs (manger), plus irregular boire, lire and comprendre",
+        "source": "content/french-basics/core-1-3-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 3,
+      "spanish": {
+        "title": "Regular -ir verbs",
+        "objective": "Regular -ir verbs: Remove -ir and add -o, -es, -e, -imos, -en.",
+        "focus": "Regular -ir verbs",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Polite past and negative",
+        "focus": "Use ～ました for a completed action and ～ません for a polite negative. ～ませんでした says it did not happen.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Regular -ir verbs, with irregular exceptions",
+        "objective": "Verbes réguliers en -ir : retirer -ir et ajouter -is, -is, -it, -issons, -issent (finir : finis, finis, finit, finissons, finissent). Vivre, écrire, ouvrir et recevoir sont irréguliers dans cette leçon.",
+        "focus": "Regular -ir verbs (finir), plus irregular vivre, écrire, ouvrir and recevoir",
+        "source": "content/french-basics/core-1-3-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 4,
+      "spanish": {
+        "title": "Adjective agreement",
+        "objective": "Adjective agreement: Adjectives agree with the noun they describe: un libro rojo, unas mochilas rojas.",
+        "focus": "Adjective agreement",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Two kinds of adjective",
+        "focus": "い-adjectives directly describe nouns. な-adjectives take な before a noun; neither agrees for gender or plural. きれい ends in い but is a な-adjective (きれいな へや).",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Accord des adjectifs",
+        "objective": "Accordez les adjectifs au genre et au nombre du nom : un sac rouge, des sacs rouges, une petite trousse, des petites trousses.",
+        "focus": "Gender and number agreement for common descriptive adjectives",
+        "source": "content/french-basics/core-4-6-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 5,
+      "spanish": {
+        "title": "Mi, tu and su",
+        "objective": "Mi, tu and su: Possessives agree with what is possessed, not the owner: mi libro, mis libros; tu mesa, tus mesas.",
+        "focus": "Mi, tu and su",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Whose item is it, and is it good?",
+        "focus": "Review の for ownership while adding a polite negative い-adjective. Remove the final い and add くないです: おおきい → おおきくないです (not big). The common adjective いい is irregular: よくないです (not good). The くないです pattern works only for い-adjectives; な-adjectives such as しずか and きれい do not take it.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Mon, ton et son",
+        "objective": "Choisissez mon, ton ou son selon le genre et le nombre de l'objet possédé, et non selon le propriétaire : mon cahier, ma table, mes livres.",
+        "focus": "Possessive determiners mon/ma/mes, ton/ta/tes, son/sa/ses",
+        "source": "content/french-basics/core-4-6-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 6,
+      "spanish": {
+        "title": "Tener: possessions and needs",
+        "objective": "Tener: possessions and needs: Tener is irregular: tengo, tienes, tiene, tenemos, tienen.",
+        "focus": "Tener: possessions and needs",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Have and need",
+        "focus": "Use あります for possessing a thing in simple contexts. ～が ひつようです states that something is needed; ～が いります is conversational.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Avoir : possessions et besoins",
+        "objective": "Utilisez avoir au présent pour exprimer ce que l'on possède et certains besoins : j'ai, tu as, il a, nous avons, ils ont ; j'ai faim, elle a soif.",
+        "focus": "Present-tense avoir, possession, hunger and thirst",
+        "source": "content/french-basics/core-4-6-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 7,
+      "spanish": {
+        "title": "Ir and the contraction al",
+        "objective": "Ir and the contraction al: Ir is voy, vas, va, vamos, van.",
+        "focus": "Ir and the contraction al",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Go, come, and return",
+        "focus": "いきます moves away, きます toward the speaker or reference point, and かえります returns home. に or へ marks a destination.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Aller et la contraction au",
+        "objective": "Dites où vous allez avec aller au présent et choisissez au, à la, à l’ ou aux selon le lieu.",
+        "focus": "Aller in the present; à + le = au, à + les = aux",
+        "source": "content/french-basics/core-7-9-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 8,
+      "spanish": {
+        "title": "Questions with qué and cuál",
+        "objective": "Questions with qué and cuál: Qué asks what something is or what someone does.",
+        "focus": "Questions with qué and cuál",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "What or which?",
+        "focus": "なに asks what before particles such as を; なん is common before です. どれ stands alone for which one among several, and どの modifies a noun.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Poser des questions : que et quel",
+        "objective": "Demandez ce que quelqu’un étudie et choisissez entre des cours ou des livres avec que, quel et lequel en contexte.",
+        "focus": "Que/quoi for what; quel/quelle for which; lequel for which one",
+        "source": "content/french-basics/core-7-9-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 9,
+      "spanish": {
+        "title": "Where, when and why",
+        "objective": "Where, when and why: Dónde asks where, cuándo asks when, and por qué asks why.",
+        "focus": "Where, when and why",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Where, when, and why",
+        "focus": "Use どこ for where, いつ for when, and どうして for why. Answer with a short reason using ～から when appropriate; here から means because, unlike the from in そこから (lesson 7).",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Où, quand et pourquoi",
+        "objective": "Posez trois questions distinctes sur le lieu, le moment et la raison, puis répondez avec à, à neuf heures et parce que.",
+        "focus": "Où, quand, pourquoi; répondre avec parce que",
+        "source": "content/french-basics/core-7-9-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 10,
+      "spanish": {
+        "title": "Time and schedules",
+        "objective": "Time and schedules: Use es la una but son las dos, tres and so on.",
+        "focus": "Time and schedules",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Time and schedules",
+        "focus": "Say a clock time with ～じ（時） and minutes with ～ふん/ぷん（分）. に marks a scheduled time; some number readings change before counters. ～ましょう suggests doing something together, while ～ましょうか asks the other person to decide.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Dire l’heure et organiser sa journée",
+        "objective": "Dites l’heure avec il est, puis indiquez à quelle heure commencent et finissent les activités de la journée.",
+        "focus": "Il est + heure; à + heure for schedules; du matin / de l’après-midi",
+        "source": "content/french-basics/core-10-12-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 11,
+      "spanish": {
+        "title": "Gustar: one thing or many",
+        "objective": "Gustar: one thing or many: With gustar, the liked thing controls the verb: me gusta el libro; me gustan los libros.",
+        "focus": "Gustar: one thing or many",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Likes and dislikes",
+        "focus": "すき (好き) and きらい (嫌い) express likes and dislikes; the item commonly takes が. They do not follow an English verb pattern.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Dire ce qu’on aime",
+        "objective": "Exprimez vos goûts avec aimer au présent et distinguez j’aime, nous aimons, ils aiment et la négation.",
+        "focus": "Aimer + noun or infinitive; French subject agreement and ne…pas",
+        "source": "content/french-basics/core-10-12-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 12,
+      "spanish": {
+        "title": "Querer: wants",
+        "objective": "Querer: wants: Querer changes e to ie in quiero, quieres, quiere and quieren; nosotros queremos keeps e.",
+        "focus": "Querer: wants",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Wanting things and actions",
+        "focus": "～がほしい marks the wanted thing with が. ～たい attaches to a verb’s ます-stem (たべます → たべたい); its object often takes を, and が is also common. At a café, use ～をください to order.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Vouloir et les projets du samedi",
+        "objective": "Dites ce que vous voulez faire avec vouloir au présent, suivi d’un infinitif, et comparez je veux, nous voulons et ils veulent.",
+        "focus": "Vouloir present tense + infinitive; polite choice with je voudrais",
+        "source": "content/french-basics/core-10-12-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 13,
+      "spanish": {
+        "title": "Poder: ability and permission",
+        "objective": "Poder: ability and permission: Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden.",
+        "focus": "Poder: ability and permission",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Can I? May I?",
+        "focus": "できます states ability; verbs can also have potential forms such as よみます → よめます (can read). ～てもいいですか asks permission; ～てはいけません prohibits an action. Here とって is the て-form of とります; learn the two とって phrases together for now, then study the て-form in lesson 20.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Pouvoir : possibilité et permission",
+        "objective": "Dites ce que vous pouvez faire et demandez poliment la permission dans une bibliothèque.",
+        "focus": "pouvoir + infinitif : je peux, tu peux, il/elle peut, nous pouvons, ils/elles peuvent; est-ce que je peux… ?",
+        "source": "content/french-basics/core-13-15-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 14,
+      "spanish": {
+        "title": "Necesitar and tener que",
+        "objective": "Necesitar and tener que: Necesitar + infinitive expresses a need.",
+        "focus": "Necesitar and tener que",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "What must be done",
+        "focus": "Use ～なければなりません or conversational ～ないといけません for an obligation. Both say that something must be done. First make the plain negative: for う-verbs, change the last sound to the あ-row and add ない (いきます → いく → いかない; かいます, buy → かう → かわない, with final う becoming わ). For る-verbs, drop る and add ない (たべる → たべない). Irregular する → しない and くる → こない. Replace ない with なければなりません, or add といけません after ない.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Exprimer un besoin et une obligation",
+        "objective": "Distinguez avoir besoin de pour un besoin et devoir pour une obligation avant un examen.",
+        "focus": "avoir besoin de + nom/infinitif; devoir + infinitif : je dois, tu dois, il/elle doit, nous devons",
+        "source": "content/french-basics/core-13-15-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 15,
+      "spanish": {
+        "title": "Hacer and daily activities",
+        "objective": "Hacer and daily activities: Hacer has the irregular yo form hago.",
+        "focus": "Hacer and daily activities",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Doing everyday activities",
+        "focus": "Many activities use a noun plus します, such as べんきょうします (study) and そうじします (clean). You may also hear noun + を + します.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Faire et les activités du quotidien",
+        "objective": "Décrivez des tâches et habitudes avec faire et des verbes précis quand le français les préfère.",
+        "focus": "faire : je fais, tu fais, il/elle fait, nous faisons, ils/elles font; faire du sport, faire ses devoirs",
+        "source": "content/french-basics/core-13-15-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 16,
+      "spanish": {
+        "title": "Reflexive routines",
+        "objective": "Reflexive routines: A reflexive pronoun changes with the person: me, te, se, nos, se.",
+        "focus": "Reflexive routines",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "A daily routine in order",
+        "focus": "Use time words, まず (first), それから (then), and さいごに (finally) to connect ordinary actions. Seven o’clock is read しちじ.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Les gestes du matin",
+        "objective": "Racontez une routine avec les verbes pronominaux au présent et accordez le pronom avec la personne.",
+        "focus": "se lever, se doucher, se préparer, se coucher, se réveiller; me, te, se, nous, vous, se",
+        "source": "content/french-basics/core-16-18-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 17,
+      "spanish": {
+        "title": "This, that and those",
+        "objective": "This, that and those: Demonstratives agree with the noun: este libro, esta mesa, estos libros, estas mesas.",
+        "focus": "This, that and those",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Prices and choices",
+        "focus": "Use いくら to ask a price. ひゃく is one hundred, にひゃく is two hundred, and さんびゃく is three hundred (after さん, ひゃく changes to びゃく). えん means yen. For later prices, せん is one thousand, にせん is two thousand, and さんぜん is three thousand (せん changes to ぜん). Review これ/それ/あれ as standalone choices and この/その/あの before nouns.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Choisir ce livre ou celui-là",
+        "objective": "Désignez des objets proches ou plus éloignés avec ce, cet, cette, ces et les pronoms celui ou celle.",
+        "focus": "ce / cet / cette / ces + nom; celui / celle; -ci / -là for explicit contrast",
+        "source": "content/french-basics/core-16-18-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 18,
+      "spanish": {
+        "title": "Location prepositions",
+        "objective": "Location prepositions: Use en for in/on/at as context requires.",
+        "focus": "Location prepositions",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Being somewhere and doing something there",
+        "focus": "に marks a place where someone or something exists; で marks the place of an action. Use position nouns such as うえ (上), した (下), and なか (中) with の.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Trouver la salle de cours",
+        "objective": "Donnez un itinéraire simple dans un bâtiment avec au, près de, loin de, sous, devant et derrière.",
+        "focus": "au deuxième étage; près du café; loin de l’école; sous la table; devant / derrière",
+        "source": "content/french-basics/core-16-18-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 19,
+      "spanish": {
+        "title": "Future plans with ir a",
+        "objective": "Future plans with ir a: Use a present form of ir + a + infinitive: voy a estudiar.",
+        "focus": "Future plans with ir a",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Plans for tomorrow",
+        "focus": "Present polite forms can express future plans with a time word. ～つもりです states intention and ～よていです states a scheduled plan. Both follow the plain dictionary form (あいます → あう; します → する).",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Prévoir demain",
+        "objective": "Annoncez des projets proches avec aller au présent suivi d’un infinitif et posez une question sur le programme d’un ami.",
+        "focus": "je vais, tu vas, il/elle va, nous allons, ils/elles vont + infinitif",
+        "source": "content/french-basics/core-19-21-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 20,
+      "spanish": {
+        "title": "Actions happening now",
+        "objective": "Actions happening now: Use estar + gerund for an action in progress: estoy hablando.",
+        "focus": "Actions happening now",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "What is happening now?",
+        "focus": "～ています can show an action in progress. It uses the て-form: よみます → よんで、のみます → のんで、まちます → まって. The form also includes します → して, as in なにを していますか. Some ～ています forms describe a resulting state instead; you will meet these later.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Ce qui se passe maintenant",
+        "objective": "Décrivez une action en cours avec être en train de + infinitif et reconnaissez le présent simple lorsque le contexte suffit.",
+        "focus": "être en train de + infinitif; je suis, tu es, il/elle est, nous sommes, ils/elles sont",
+        "source": "content/french-basics/core-19-21-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 21,
+      "spanish": {
+        "title": "Saber and conocer",
+        "objective": "Saber and conocer: Use saber for a fact or an ability with an infinitive.",
+        "focus": "Saber and conocer",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Know, understand, or be able to",
+        "focus": "しっています (知っています) is a resulting ～ています state: someone knows after learning. しりません is its usual negative. わかります means understand; できます means can do. いけます is the potential of いきます (can go).",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Savoir un fait, connaître une personne",
+        "objective": "Choisissez savoir pour un fait ou une compétence et connaître pour une personne, un lieu ou une chose familière.",
+        "focus": "savoir + fait/question/infinitif; connaître + personne/lieu",
+        "source": "content/french-basics/core-19-21-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 22,
+      "spanish": {
+        "title": "Comparisons",
+        "objective": "Comparisons: Use más .",
+        "focus": "Comparisons",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Compare useful choices",
+        "focus": "A は B より… compares A with B. A と B と、どちらが… asks which of two; いちばん marks the top choice in a group.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Comparer deux lieux",
+        "objective": "Comparez deux lieux d’étude avec plus, moins et aussi ; employez meilleur et mieux dans le bon contexte.",
+        "focus": "plus/moins + adjectif + que; aussi + adjectif + que; meilleur pour + nom",
+        "source": "content/french-basics/core-22-24-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 23,
+      "spanish": {
+        "title": "Direct object pronouns",
+        "objective": "Direct object pronouns: Lo, la, los and las replace a direct object and agree with it: el libro → lo; las llaves → las.",
+        "focus": "Direct object pronouns",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "The object of an action",
+        "focus": "を marks the direct object of many actions. Once the object is clear, Japanese can omit it naturally where English uses it or them. も can replace を when adding another object, as in ペンも いれます.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Remplacer ce qu’on cherche",
+        "objective": "Remplacez un objet déjà nommé par le, la, l’ ou les et placez ce pronom avant le verbe conjugué.",
+        "focus": "le, la, l’, les before a conjugated verb; object gender and number",
+        "source": "content/french-basics/core-22-24-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 24,
+      "spanish": {
+        "title": "Indirect objects: to whom?",
+        "objective": "Indirect objects: to whom?: Me, te, le, nos and les can identify the recipient: le doy el libro a Ana.",
+        "focus": "Indirect objects: to whom?",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Giving and receiving",
+        "focus": "に marks the recipient with あげます and くれます. With もらいます, the giver takes に or から. The three verbs differ by whose perspective the sentence takes.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Dire à qui l’on donne",
+        "objective": "Dites à qui s’adresse une action avec me, te, lui, nous ou leur devant le verbe.",
+        "focus": "me, te, lui, nous, leur as indirect-object pronouns; à + recipient",
+        "source": "content/french-basics/core-22-24-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 25,
+      "spanish": {
+        "title": "Personal a",
+        "objective": "Personal a: Use personal a before a specific person who is a direct object: veo a Ana.",
+        "focus": "Personal a",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "People as objects or destinations",
+        "focus": "Use に with あいます for the person you meet. To go to a person, say [person] の ところに いきます. Use を with よびます (call over) or てつだいます (help). The particle depends on the Japanese verb.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Chercher une personne",
+        "objective": "Parlez de personnes et de choses que vous cherchez, voyez ou connaissez, sans ajouter de préposition devant le complément direct en français.",
+        "focus": "verbe transitif + personne/chose; pas de « a » personnel en français",
+        "source": "content/french-basics/core-25-27-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 26,
+      "spanish": {
+        "title": "Regular completed past actions",
+        "objective": "Regular completed past actions: The preterite reports completed past actions.",
+        "focus": "Regular completed past actions",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Invite someone and report back",
+        "focus": "Use a polite negative question ～ませんか to invite someone: べんきょうしませんか asks “Would you like to study?” rather than stating that you do not study. Answer with a time or activity; use ～ました to report a completed action from yesterday.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Raconter hier",
+        "objective": "Racontez des actions achevées hier au passé composé avec avoir et distinguez les participes réguliers de quelques formes fréquentes irrégulières.",
+        "focus": "passé composé: avoir au présent + participe passé; -é/-i/-u and acheté, étudié, parlé, fini, mangé, écrit",
+        "source": "content/french-basics/core-25-27-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 27,
+      "spanish": {
+        "title": "Ir and ser in the past",
+        "objective": "Ir and ser in the past: Fui, fuiste, fue, fuimos and fueron are preterite forms of both ir and ser.",
+        "focus": "Ir and ser in the past",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Polite past and what did not happen",
+        "focus": "Contrast past statements with past negatives. For verbs, ～ます → ～ました, while ～ません → ～ませんでした. Nouns and な-adjectives use ～でした / ～ではありませんでした (りょこうでした → りょこうではありませんでした; きれいでした → きれいではありませんでした); for an い-adjective remove final い and add ～かったです / ～くなかったです. Here たのしい → たのしかったです and むずかしい → むずかしくなかったです.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Aller ou être hier",
+        "objective": "Distinguez un déplacement accompli avec être allé d’un état ou jugement passé avec a été, et accordez allé avec le sujet.",
+        "focus": "aller: être + allé(e)(s); être: avoir + été",
+        "source": "content/french-basics/core-25-27-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 28,
+      "spanish": {
+        "title": "Past routines with the imperfect",
+        "objective": "Past routines with the imperfect: Use the imperfect for past habits or background: estudiaba, comía, vivía.",
+        "focus": "Past routines with the imperfect",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "An old habit and one event",
+        "focus": "Japanese does not need a separate form for “used to.” Use よく or いつも with past forms for habits, and a specific time for a single event.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Avant et maintenant",
+        "objective": "Décrivez d’anciennes habitudes et situations à l’imparfait, puis opposez-les à la vie actuelle au présent.",
+        "focus": "imparfait: -ais/-ait/-ions/-iez/-aient; avoir → avait; maintenant + présent",
+        "source": "content/french-basics/core-28-30-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 29,
+      "spanish": {
+        "title": "Por and para: first contrasts",
+        "objective": "Por and para: first contrasts: Para often marks purpose, recipient or destination.",
+        "focus": "Por and para: first contrasts",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Purpose and reason",
+        "focus": "Purpose can use a verb’s ます-stem + に いきます (べんきょうします → べんきょうしに) or noun + の ために. Reason can use ～から or ～ので.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Pour, par et vers",
+        "objective": "Choisissez pour pour un bénéficiaire ou un but, par pour un passage ou une cause, et vers pour une direction.",
+        "focus": "pour + bénéficiaire/infinitif; par + passage/cause; vers + direction",
+        "source": "content/french-basics/core-28-30-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "core",
+      "number": 30,
+      "spanish": {
+        "title": "Connect ideas and review",
+        "objective": "Connect ideas and review: Y adds an idea, pero contrasts it, porque explains a reason, and entonces signals a result or next step.",
+        "focus": "Connect ideas and review",
+        "source": "src/data/spanish-basics-core.json"
+      },
+      "japanese": {
+        "title": "Connect and review ideas",
+        "focus": "そして adds, でも contrasts, それから sequences, and だから gives a result. でかける is the plain form of でかけます before よてい. Make a short coherent account and review particles and polite forms.",
+        "source": "content/japanese-basics/core.json"
+      },
+      "french": {
+        "title": "Relier ses idées",
+        "objective": "Reliez une idée supplémentaire, une opposition, une raison et une conséquence avec et, mais, parce que et donc/alors.",
+        "focus": "et; mais; parce que; donc/alors; puis/ensuite",
+        "source": "content/french-basics/core-28-30-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 1,
+      "spanish": {
+        "title": "Introduce a classmate",
+        "objective": "Introduce a classmate: Say each Spanish vowel clearly: a, e, i, o, u.",
+        "focus": "Introduce a classmate",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Introduce a classmate to the study group",
+        "focus": "Introduce a new group member, ask about a preference, recall a meeting with polite past ～ました, make a plan with ～つもりです, and describe how studying went with an い-adjective past (たのしい → たのしかったです).",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Présenter une nouvelle camarade au groupe",
+        "objective": "Introduce a new classmate to a group, adapt tu/vous and role information, and answer two follow-up questions without prompts.",
+        "focus": "présenter quelqu’un; tu/vous; venir de; parce que; reformulation polie",
+        "source": "content/french-basics/master-1-3-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 2,
+      "spanish": {
+        "title": "Pack for a first class",
+        "objective": "Pack for a first class: A noun has grammatical gender.",
+        "focus": "Pack for a first class",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Pack for the first class",
+        "focus": "Read a supplies note, count items, and clarify which things are needed. Bound notebooks use ～さつ: にさつ means two notebooks. The polite request is ～てください: もつ becomes もって, くる becomes きて, so もってきてください means “please bring.”",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Adapter une liste de matériel",
+        "objective": "Read a short supplies brief, reconcile what is already available with what is missing, and explain a revised packing list.",
+        "focus": "il faut; il manque; avoir besoin de; à la place de; confirmation explicite",
+        "source": "content/french-basics/master-1-3-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 3,
+      "spanish": {
+        "title": "Prepare materials for a group",
+        "objective": "Prepare materials for a group: Usually add -s after a vowel and -es after a consonant.",
+        "focus": "Prepare materials for a group",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Prepare for a small group",
+        "focus": "Coordinate quantities, recipients, and materials; confirm what each person received. Count bound notebooks with ～さつ (さんさつ, いっさつ); general ～つ works for pens here.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Répartir le matériel entre quatre personnes",
+        "objective": "Count and allocate shared materials to named recipients, explain a shortage, and agree who will bring the missing items.",
+        "focus": "il manque; il nous faut; chacun; lui/leur; proposer une répartition équitable",
+        "source": "content/french-basics/master-1-3-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 4,
+      "spanish": {
+        "title": "Identity or current condition?",
+        "objective": "Identity or current condition?: Use ser for identity, origin and characteristics.",
+        "focus": "Identity or current condition?",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Identity, condition, and location",
+        "focus": "Separate who someone is, how they feel, and where they are. つかれています describes a resulting state (“is tired”), not an action in progress.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Préciser un rôle et un état passager",
+        "objective": "Distinguish a person’s role from a temporary condition, ask a clarification question and restate the confirmed facts.",
+        "focus": "être responsable de; être disponible; se sentir; sembler; demander qui et quand",
+        "source": "content/french-basics/master-4-6-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 5,
+      "spanish": {
+        "title": "Describe a room accurately",
+        "objective": "Describe a room accurately: Hay means there is or there are.",
+        "focus": "Describe a room accurately",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Describe a room accurately",
+        "focus": "Distinguish people and objects with います/あります and give useful locations. ついています describes the resulting state of a light being on.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Signaler ce qui a changé dans une salle",
+        "objective": "Describe a room from two observations, distinguish people from objects, and explain what moved or is missing.",
+        "focus": "il y avait / il y a; se trouver; être dans/sur/sous; déplacer; manquer",
+        "source": "content/french-basics/master-4-6-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 6,
+      "spanish": {
+        "title": "Ask instead of guessing",
+        "objective": "Ask instead of guessing: Put no before the verb to make a negative.",
+        "focus": "Ask instead of guessing",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Clarify the route to a meeting",
+        "focus": "Confirm tomorrow’s meeting place and time, then say you do not know the route. Use a map, ask a follow-up question, and check whether you can get there alone. In この みちを いきます, を marks the road you travel along.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Corriger une demande mal comprise",
+        "objective": "Recognize a misunderstood request, reformulate it politely, check the answer and summarize the agreement.",
+        "focus": "pardon; pourriez-vous répéter; je voulais dire; si je comprends bien; confirmer",
+        "source": "content/french-basics/master-4-6-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 7,
+      "spanish": {
+        "title": "Explain your study routine",
+        "objective": "Explain your study routine: Remove -ar and add -o, -as, -a, -amos, -an: hablo, hablas, habla, hablamos, hablan.",
+        "focus": "Explain your study routine",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Explain how you study a difficult word",
+        "focus": "Ask どうやって ('how') and explain a repeatable study strategy rather than only listing a daily schedule. Use ききます for asking a teacher, やりかた for a method, and すこしずつ for gradual progress. Reuse polite question-and-answer turns.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Adapter son programme d’étude",
+        "objective": "Describe a weekly study routine, contrast it with today’s exception and agree on a revised schedule.",
+        "focus": "imparfait habituel; présent exceptionnel; sauf; au lieu de; proposer un autre créneau",
+        "source": "content/french-basics/master-7-9-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 8,
+      "spanish": {
+        "title": "Read and write a short message",
+        "objective": "Read and write a short message: Remove -ir and add -o, -es, -e, -imos, -en.",
+        "focus": "Read and write a short message",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Reply to a short message",
+        "focus": "Read a plan, reply with a time and place, and confirm the meeting. In a written reply, put the exact words inside 「」 and add と after the closing quote: 「…」と かきました / かえしました means “wrote … / replied ….”",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Lire un message et négocier un rendez-vous",
+        "objective": "Extract a request and deadline from a message, write a concise reply, and confirm a new meeting time.",
+        "focus": "repérer demande et échéance; demander de; répondre que; conditionnel poli; convenir de",
+        "source": "content/french-basics/master-7-9-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 9,
+      "spanish": {
+        "title": "Choose and describe an item",
+        "objective": "Choose and describe an item: Adjectives agree with the noun they describe: un libro rojo, unas mochilas rojas.",
+        "focus": "Choose and describe an item",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Choose an item and explain why",
+        "focus": "Use demonstratives and adjectives to compare two items and make a choice. さんぜん has a sound change from せん; どちら means which of two here.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Comparer des options et justifier son choix",
+        "objective": "Compare two candidate items using relevant properties, give a reason for the choice and check the other person’s preference.",
+        "focus": "plus/moins/aussi...que; meilleur; cependant; vérifier la préférence",
+        "source": "content/french-basics/master-7-9-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 10,
+      "spanish": {
+        "title": "Return the right belongings",
+        "objective": "Return the right belongings: Possessives agree with what is possessed, not the owner: mi libro, mis libros; tu mesa, tus mesas.",
+        "focus": "Return the right belongings",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Return the right belongings",
+        "focus": "Identify ownership, describe an item, and return it politely. Link two actions in order with the て-form: みる becomes みて, so かさを みて、うなずきます means “look at the umbrella and nod.”",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Retrouver le propriétaire d’un objet",
+        "objective": "Identify an owner from several clues, describe the item precisely and return it while confirming its ownership.",
+        "focus": "possessifs; celui/celle; le/la/les; appartenir à; demander confirmation",
+        "source": "content/french-basics/master-10-12-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 11,
+      "spanish": {
+        "title": "Order around different preferences",
+        "objective": "Order around different preferences: With gustar, the liked thing controls the verb: me gusta el libro; me gustan los libros.",
+        "focus": "Order around different preferences",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Order for two people",
+        "focus": "Ask preferences, order for two, and confirm an ingredient that someone does not want. For an ingredient in a dish, はいる becomes はいって. はいっています means “is in it / contains” (a present state), and the negative はいっていません means “is not in it / does not contain it.” This is a present state, not a past event.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Commander pour deux personnes",
+        "objective": "Ask about two people’s preferences and a restriction, place an order and confirm that each person receives the right item.",
+        "focus": "aimer/préférer; sans; au lieu de; lui/leur; confirmer chaque commande",
+        "source": "content/french-basics/master-10-12-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 12,
+      "spanish": {
+        "title": "Make a plan everyone can do",
+        "objective": "Make a plan everyone can do: Poder changes o to ue except in nosotros: puedo, puedes, puede, podemos, pueden.",
+        "focus": "Make a plan everyone can do",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Make a plan both can do",
+        "focus": "Negotiate ability, permission, and timing before agreeing on a plan. ～なら sets a condition: さんじなら means “if it is at three.”",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Négocier un projet de groupe réalisable",
+        "objective": "Combine ability, permission, location and timing to propose a plan that everyone can follow.",
+        "focus": "pouvoir; devoir; si + présent; d’abord/ensuite; vérifier permissions et horaires",
+        "source": "content/french-basics/master-10-12-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 13,
+      "spanish": {
+        "title": "Explain what needs doing",
+        "objective": "Explain what needs doing: Necesitar + infinitive expresses a need.",
+        "focus": "Explain what needs doing",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Explain what needs doing",
+        "focus": "Give a short task list, separate must-do from optional actions, and confirm completion.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Transformer une demande en tâches prioritaires",
+        "objective": "Read a short request, distinguish required from optional tasks, assign responsibility and confirm completion criteria.",
+        "focus": "il faut; devoir; avant de; nécessaire/facultatif; responsabilité et critère de fin",
+        "source": "content/french-basics/master-13-15-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 14,
+      "spanish": {
+        "title": "Tell a daily routine in order",
+        "objective": "Tell a daily routine in order: A reflexive pronoun changes with the person: me, te, se, nos, se.",
+        "focus": "Tell a daily routine in order",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Tell a daily routine and a changed plan",
+        "focus": "ふだん marks the usual pattern and きょう marks today's change. Order actions with まず, それから, and さいごに. Use polite ～ます for the usual routine, ～ています for the ongoing train delay, and ～ました/～ていました for the completed arrival and waiting.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Raconter une habitude et son interruption",
+        "objective": "Describe a normal sequence, then explain a specific interruption and the next action.",
+        "focus": "imparfait de routine; soudain; passé composé de rupture; d’abord/ensuite",
+        "source": "content/french-basics/master-13-15-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 15,
+      "spanish": {
+        "title": "Give directions on campus",
+        "objective": "Give directions on campus: Use en for in/on/at as context requires.",
+        "focus": "Give directions on campus",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Give directions and verify",
+        "focus": "Use destinations, action locations, and position nouns to guide someone and check understanding.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Guider vers une entrée de remplacement",
+        "objective": "Give multi-step directions using landmarks, ask the listener to repeat the route and correct a wrong turn.",
+        "focus": "tourner; traverser; à côté de; si...alors; vérification par reformulation",
+        "source": "content/french-basics/master-13-15-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 16,
+      "spanish": {
+        "title": "Separate now from tomorrow",
+        "objective": "Separate now from tomorrow: Use a present form of ir + a + infinitive: voy a estudiar.",
+        "focus": "Separate now from tomorrow",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Now versus tomorrow",
+        "focus": "Contrast an action happening now with an intention or scheduled future action. まだ きめていません means “have not decided yet”: まだ + ～ていません says something has not happened so far (compare きめませんでした, “did not decide”). It is the same ～ていません form first practiced with はいっていません in Master 11.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Distinguer le travail en cours du plan de demain",
+        "objective": "Report what is happening now, state a near-future intention and explain what must finish first.",
+        "focus": "être en train de; aller + infinitif; avant de; conséquence sur un plan proche",
+        "source": "content/french-basics/master-16-18-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 17,
+      "spanish": {
+        "title": "Refer back without repeating",
+        "objective": "Refer back without repeating: Lo, la, los and las replace a direct object and agree with it: el libro → lo; las llaves → las.",
+        "focus": "Refer back without repeating",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Refer back naturally",
+        "focus": "Use context to avoid repeating clear objects; ask when an omitted reference is not clear.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Réparer une référence ambiguë",
+        "objective": "Track two people and several objects across turns, use unambiguous references and repair a pronoun misunderstanding.",
+        "focus": "le/la/les; lui/leur; celui-ci/celle-là; reformulation explicite",
+        "source": "content/french-basics/master-16-18-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 18,
+      "spanish": {
+        "title": "Tell what happened yesterday",
+        "objective": "Tell what happened yesterday: The preterite reports completed past actions.",
+        "focus": "Tell what happened yesterday",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "Tell yesterday's outing",
+        "focus": "Narrate several completed actions in polite past, then check one detail with a partner.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Raconter une sortie passée dans l’ordre",
+        "objective": "Narrate a completed outing in time order, include who went where and what happened, then answer follow-up questions.",
+        "focus": "passé composé avec avoir/être; d’abord/puis/finalement; cause et ordre",
+        "source": "content/french-basics/master-16-18-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 19,
+      "spanish": {
+        "title": "Contrast a habit and an event",
+        "objective": "Contrast a habit and an event: Use the imperfect for past habits or background: estudiaba, comía, vivía.",
+        "focus": "Contrast a habit and an event",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "A habit versus one event",
+        "focus": "Contrast what often happened with one dated event; use time words rather than inventing an imperfect tense.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Expliquer comment une habitude a changé",
+        "objective": "Explain what usually happened before, what happened once, and how the one event affected the routine.",
+        "focus": "imparfait habituel; passé composé ponctuel; depuis; cause et conséquence",
+        "source": "content/french-basics/master-19-20-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    },
+    {
+      "stage": "master",
+      "number": 20,
+      "spanish": {
+        "title": "Spanish 101 final conversation",
+        "objective": "Spanish 101 final conversation: Y adds an idea, pero contrasts it, porque explains a reason, and entonces signals a result or next step.",
+        "focus": "Spanish 101 final conversation",
+        "source": "src/data/core60/es/master-spanish-basics.json"
+      },
+      "japanese": {
+        "title": "A full everyday conversation",
+        "focus": "Greet, clarify a word, plan a meeting, refer back to a previous visit, and close a short conversation politely. いってください can mean “please say” (言って) here; the same kana means “please go” (行って) in Master 15. Context identifies the verb.",
+        "source": "content/japanese-basics/master.json"
+      },
+      "french": {
+        "title": "Mener une conversation complète en français",
+        "objective": "Open, clarify, compare, decide, report a past event and close a conversation with minimal prompting and suitable register.",
+        "focus": "ouvrir; clarifier; comparer; négocier; événement passé; récapituler; tu/vous",
+        "source": "content/french-basics/master-19-20-redesign-draft.json"
+      },
+      "alignmentReview": "pending-qualified-review"
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "lessonId": "foundation-roofing:7:fr-en",
+  "candidateObjectiveEnglish": "Ask location and reason questions in English and recognize question words.",
+  "grammarExplanationEnglish": "Use where and why to ask about location and reason. With be, put is/are before the subject: Where is the ladder? With progressive be, keep the -ing verb after the subject: Why are we stopping? Who is there? uses who as the subject, so it has a different pattern.",
+  "activities": [
+    {
+      "id": "foundation-roofing:7:fr-en:activity:see",
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais et son équivalent français : who, qui.",
+      "candidateTargetEnglish": "who",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "qui",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:activity:recall",
+      "mode": "recall",
+      "promptFrench": "Quel mot anglais signifie « où » ?",
+      "candidateTargetEnglish": "where",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "où",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:activity:hear",
+      "mode": "hear",
+      "promptFrench": "Écoutez le mot anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "when",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "quand",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script"
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:activity:type",
+      "mode": "type",
+      "promptFrench": "Tapez le mot anglais qui signifie « pourquoi ».",
+      "candidateTargetEnglish": "why",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "pourquoi",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:activity:say",
+      "mode": "say",
+      "promptFrench": "Dites à voix haute la phrase anglaise qui signifie « Où est l'échelle ? »",
+      "candidateTargetEnglish": "Where is the ladder?",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:9",
+        "foundation-roofing:7:fr-en:line:3"
+      ],
+      "expectedMeaningFrench": "Où est l'échelle ?",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "Where's the ladder?"
+      ]
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:activity:write",
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais la phrase qui signifie « Pourquoi on s'arrête à onze heures ? »",
+      "candidateTargetEnglish": "Why are we stopping at eleven?",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:line:7"
+      ],
+      "expectedMeaningFrench": "Pourquoi on s'arrête à onze heures ?",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "who",
+      "meaningFrench": "qui",
+      "candidateExampleEnglish": "Who is there?",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:2"
+      ],
+      "id": "foundation-roofing:7:fr-en:form:1",
+      "reviewed": false,
+      "provenance": "Newly authored example from the anchored question word."
+    },
+    {
+      "englishForm": "where",
+      "meaningFrench": "où",
+      "candidateExampleEnglish": "Where is the ladder?",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:3",
+        "foundation-roofing:7:fr-en:card:9",
+        "foundation-roofing:7:fr-en:line:3"
+      ],
+      "id": "foundation-roofing:7:fr-en:form:2",
+      "reviewed": false,
+      "provenance": "Exact anchored source example."
+    },
+    {
+      "englishForm": "why",
+      "meaningFrench": "pourquoi",
+      "candidateExampleEnglish": "Why are we stopping at eleven?",
+      "sourceAnchors": [
+        "foundation-roofing:7:fr-en:card:7",
+        "foundation-roofing:7:fr-en:line:7"
+      ],
+      "id": "foundation-roofing:7:fr-en:form:3",
+      "reviewed": false,
+      "provenance": "Exact anchored source example."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member practicing location and reason questions.",
+    "partnerRole": "A coworker who asks the learner to repeat each question.",
+    "candidateOpeningEnglish": "Excuse me, where is the ladder?",
+    "goalEnglish": "Ask where the ladder is and why work is stopping at eleven.",
+    "candidateWordBankEnglish": [
+      "where",
+      "why",
+      "ladder",
+      "stopping",
+      "eleven"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Ordinary closing phrase authored for this supplement; not drawn from a held row.",
+    "sourceAnchors": [
+      "foundation-roofing:7:fr-en:card:3",
+      "foundation-roofing:7:fr-en:card:7",
+      "foundation-roofing:7:fr-en:card:9",
+      "foundation-roofing:7:fr-en:line:3",
+      "foundation-roofing:7:fr-en:line:7"
+    ],
+    "id": "foundation-roofing:7:fr-en:speaking:1",
+    "reviewed": false,
+    "openingProvenance": "Source-anchored question with newly authored polite opener."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/foundation-7-source-decision-2026-11-18/decision.json",
+    "sha256": "0db55fe16b264527f7e1cb6864cee8bcdc092812df689bb6cd85e45b36761571"
+  },
+  "candidateRows": [
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:1",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:1",
+      "sourceEnglish": "what",
+      "candidateFrench": null,
+      "hold": "The source headword 'what' is context-free. Archived qu'est-ce que is a question construction; standalone quoi and other syntax need contextual dictionary and mode decisions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:2",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:2",
+      "sourceEnglish": "who",
+      "candidateFrench": "qui",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:3",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:3",
+      "sourceEnglish": "where",
+      "candidateFrench": "où",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:4",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:4",
+      "sourceEnglish": "when",
+      "candidateFrench": "quand",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:5",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:5",
+      "sourceEnglish": "how much, how many",
+      "candidateFrench": null,
+      "hold": "The source 'how much, how many' can stand alone. Archived combien de requires a following noun; select contextual forms together with Reader line 5.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:6",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:6",
+      "sourceEnglish": "how",
+      "candidateFrench": "comment",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:7",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:7",
+      "sourceEnglish": "why",
+      "candidateFrench": "pourquoi",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:8",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:8",
+      "sourceEnglish": "which",
+      "candidateFrench": null,
+      "hold": "The source 'which' is context-free. Archived quel, quelle shows only singular gender forms; plural forms and noun agreement need an authored activity and dictionary decision.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:9",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:9",
+      "sourceEnglish": "Where is the ladder?",
+      "candidateFrench": "Où est l'échelle ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:10",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:10",
+      "sourceEnglish": "When does the material arrive?",
+      "candidateFrench": null,
+      "hold": "The source says singular 'the material'. Archived les matériaux is plural; do not score or record it until number and construction-material sense are settled.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:11",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:11",
+      "sourceEnglish": "Who is the boss?",
+      "candidateFrench": null,
+      "hold": "The source 'boss' may refer to employer or crew lead. Archived chef needs a qualified role/register decision before selection.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:cards:12",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:12",
+      "sourceEnglish": "Why are we stopping?",
+      "candidateFrench": "Pourquoi on s'arrête ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:1",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:1",
+      "sourceEnglish": "Today is my first day and I have questions.",
+      "candidateFrench": null,
+      "hold": "The exact source begins 'Today is my first day'; the archived French omits today. Restore the time anchor before a selected answer or recording.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:2",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:2",
+      "sourceEnglish": "Who is the boss?",
+      "candidateFrench": null,
+      "hold": "Archived chef needs the same boss-versus-crew-lead role decision as card 11.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:3",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:3",
+      "sourceEnglish": "Where is the ladder?",
+      "candidateFrench": "Où est l'échelle ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:4",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:4",
+      "sourceEnglish": "When does the material arrive?",
+      "candidateFrench": null,
+      "hold": "The source says singular material; archived les matériaux is plural. Align this line with card 10 and the intended jobsite sense.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:5",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:5",
+      "sourceEnglish": "How much material do we need and what color are the shingles?",
+      "candidateFrench": null,
+      "hold": "Archived les matériaux changes source singular material, and bardeaux narrows shingles by material/locale. Qualified trade and French review must settle both before recording.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:6",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:6",
+      "sourceEnglish": "What do I do first and how do I put on the harness?",
+      "candidateFrench": null,
+      "hold": "Harness donning question retained as source evidence; no procedure is selected. Align trade/safety terminology with Foundation8 before promotion.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:candidate:reader:7",
+      "sourceAnchor": "foundation-roofing:7:fr-en:line:7",
+      "sourceEnglish": "Why are we stopping at eleven?",
+      "candidateFrench": "Pourquoi on s'arrête à onze heures ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:1",
+      "englishHeadword": "what",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite questions",
+      "status": "held",
+      "hold": "The source headword 'what' is context-free. Archived qu'est-ce que is a question construction; standalone quoi and other syntax need contextual dictionary and mode decisions.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:2",
+      "englishHeadword": "who",
+      "candidateFrenchSense": "qui",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:3",
+      "englishHeadword": "where",
+      "candidateFrenchSense": "où",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:4",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:4",
+      "englishHeadword": "when",
+      "candidateFrenchSense": "quand",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:5",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:5",
+      "englishHeadword": "how much, how many",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite questions",
+      "status": "held",
+      "hold": "The source 'how much, how many' can stand alone. Archived combien de requires a following noun; select contextual forms together with Reader line 5.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:6",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:6",
+      "englishHeadword": "how",
+      "candidateFrenchSense": "comment",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "usageNote": "Method/manner sense only; how + adjective and quantity constructions need separate contextual mapping."
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:7",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:7",
+      "englishHeadword": "why",
+      "candidateFrenchSense": "pourquoi",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:8",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:8",
+      "englishHeadword": "which",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite questions",
+      "status": "held",
+      "hold": "The source 'which' is context-free. Archived quel, quelle shows only singular gender forms; plural forms and noun agreement need an authored activity and dictionary decision.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:9",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:9",
+      "englishHeadword": "Where is the ladder?",
+      "candidateFrenchSense": "Où est l'échelle ?",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:10",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:10",
+      "englishHeadword": "When does the material arrive?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite questions",
+      "status": "held",
+      "hold": "The source says singular 'the material'. Archived les matériaux is plural; do not score or record it until number and construction-material sense are settled.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:11",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:11",
+      "englishHeadword": "Who is the boss?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite questions",
+      "status": "held",
+      "hold": "The source 'boss' may refer to employer or crew lead. Archived chef needs a qualified role/register decision before selection.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:7:fr-en:dictionary:12",
+      "sourceAnchor": "foundation-roofing:7:fr-en:card:12",
+      "englishHeadword": "Why are we stopping?",
+      "candidateFrenchSense": "Pourquoi on s'arrête ?",
+      "contextEnglish": "jobsite questions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish grammar is provenance only.",
+    "Held source safety, register and regional senses are not selected.",
+    "No recorded audio, progress migration, owner page or runtime registration.",
+    "French vous in interface prompts is a candidate instruction convention, separate from held tu/vous in learner utterances.",
+    "French spoken on and question-form choices remain candidate register decisions; on/nous and est-ce que must receive course-level qualified review before selection.",
+    "Role/material/harness questions remain held; partner supplies repetition cues only, no unreviewed factual answer."
+  ],
+  "grammarExplanationFrench": "Pour demander où : Where is the ladder? Pour demander pourquoi une action est en cours : Why are we stopping? Dans ces exemples, is ou are se place avant le sujet. Who is there? emploie who comme sujet."
+}

@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:1:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-1-source-audit-2026-11-17/packet.json",
+    "sha256": "9e0552a6eee8ed28ba4bf01b105484b02e08d724910b1bf5d5ff7bc117c29064"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-1-3-draft.json",
+      "sha256": "fc08c463fd83f57adc7c10d0c9b3341703ebc335867373b37ed4bd9ec8e66e15"
+    }
+  },
+  "objectiveEnglish": "Greet a coworker in English, name a tool and request repetition or slower speech.",
+  "activities": [
+    {
+      "id": "foundation-roofing:1:ja-en:activity:see",
+      "mode": "see",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:9",
+      "promptJapanese": "「おはようございます」に当たる英語を読んでください。",
+      "targetEnglish": "Good morning.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:activity:recall",
+      "mode": "recall",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:4",
+      "promptJapanese": "英語で「ハンマー」を思い出してください（the を付けて）。",
+      "targetEnglish": "the hammer",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:activity:hear",
+      "mode": "hear",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:5",
+      "promptJapanese": "英語の単語を聞いて、同じ道具の名前を選んでください。",
+      "targetEnglish": "the ladder",
+      "hearScriptCandidateEnglish": "the ladder",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "candidateOptionsEnglish": [
+        "the ladder",
+        "the hammer",
+        "the roof"
+      ]
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:activity:type",
+      "mode": "type",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:12",
+      "promptJapanese": "「もう一度言ってください」を英語で入力してください。",
+      "targetEnglish": "Please repeat.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:activity:say",
+      "mode": "say",
+      "sourceAnchor": "foundation-roofing:1:ja-en:line:1",
+      "promptJapanese": "新人のルイスとして、英語で挨拶し、名前と新人であることを伝えてください。",
+      "targetEnglish": "Good morning, my name is Luis and I'm new.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:activity:write",
+      "mode": "write",
+      "sourceAnchor": "foundation-roofing:1:ja-en:line:7",
+      "promptJapanese": "同僚にもっとゆっくり話してほしいと頼む英文を書いてください。",
+      "targetEnglish": "Slower, please.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "forms": [
+    {
+      "id": "foundation-roofing:1:ja-en:form:1",
+      "sourceAnchor": "foundation-roofing:1:ja-en:line:1",
+      "exampleEnglish": "my name is Luis",
+      "explanationJapanese": "My name is + 名前 で名前を伝えます。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:form:2",
+      "sourceAnchor": "foundation-roofing:1:ja-en:line:3",
+      "exampleEnglish": "I need the harness, the rope and the hammer.",
+      "explanationJapanese": "I need + 名詞で必要な物を述べます。3つ以上を並べるときは、最後の項目の前に and を置きます。",
+      "reviewed": false,
+      "meaningHoldEnglish": "Harness equipment sense remains subject to qualified trade review; this is a source-pinned grammar candidate only."
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:form:3",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:12",
+      "exampleEnglish": "Please repeat.",
+      "explanationJapanese": "Please + 動詞の原形で丁寧に依頼します。",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "foundation-roofing:1:ja-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:4",
+      "headEnglish": "hammer",
+      "glossJapanese": "ハンマー",
+      "senseJapanese": "釘を打つ手工具（金づち）。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:5",
+      "headEnglish": "ladder",
+      "glossJapanese": "はしご",
+      "senseJapanese": "高い所に上るためのはしご。階段は stairs。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:1:ja-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:1:ja-en:card:12",
+      "headEnglish": "repeat",
+      "glossJapanese": "繰り返す、もう一度言う",
+      "senseJapanese": "この文では発言をもう一度言うよう頼みます。",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "id": "foundation-roofing:1:ja-en:speaking:contextual",
+    "sourceAnchors": [
+      "foundation-roofing:1:ja-en:line:1",
+      "foundation-roofing:1:ja-en:line:7",
+      "foundation-roofing:1:ja-en:card:4",
+      "foundation-roofing:1:ja-en:card:11",
+      "foundation-roofing:1:ja-en:card:12",
+      "foundation-roofing:1:ja-en:card:5"
+    ],
+    "roles": {
+      "learner": "New crew member",
+      "partner": "Coworker"
+    },
+    "openingEnglish": "Good morning.",
+    "objectivesEnglish": [
+      "Greet a coworker and give your name.",
+      "Name one tool.",
+      "Ask a coworker to slow down.",
+      "Ask for repetition."
+    ],
+    "wordBankEnglish": [
+      "hammer",
+      "ladder",
+      "please",
+      "repeat",
+      "Please repeat.",
+      "Slower, please."
+    ],
+    "closureEnglish": "Thank you.",
+    "reviewed": false,
+    "scaffoldNoteEnglish": "Opening and closure are added conversational scaffolds; source anchors identify lesson-specific content only."
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support explicitly corrects the reverse pair label in the older source-audit packet without modifying it.",
+    "Source Spanish-pronunciation objective is provenance, not the English objective.",
+    "Harness/shingle product senses and any equipment or measurement instructions require qualified source/trade review; this supplement does not settle them.",
+    "Hear contains a candidate script only; no recording or listening approval exists."
+  ]
+}

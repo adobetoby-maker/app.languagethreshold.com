@@ -1,0 +1,618 @@
+{
+  "lessonId": "core-roofing:4:fr-en",
+  "candidateObjectiveEnglish": "Recognize ridge, gutter and downspout terms, ask about a downspout and describe a clogged gutter.",
+  "grammarExplanationEnglish": "In present-simple questions with an action verb, use where + does/do + subject + base verb: Where does the downspout go? With be, ask Where is…? instead. Must takes a base verb without to. Is + adjective or past participle describes a state: The gutter is clogged.",
+  "grammarExplanationFrench": "Au présent simple avec un verbe d’action, utilisez « where + does/do + sujet + verbe de base ». Avec « be », utilisez « Where is…? ». « Must » est suivi du verbe sans « to ». « Is » + adjectif ou participe passé décrit un état.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le terme anglais et son sens français, puis dites le terme anglais à voix haute.",
+      "candidateTargetEnglish": "downspout",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "la descente pluviale",
+      "provenance": "Exact source headword from card 4; French from conditionalFrench of card 4.",
+      "id": "core-roofing:4:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le mot anglais pour : la gouttière.",
+      "candidateTargetEnglish": "gutter",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "la gouttière",
+      "provenance": "Exact source headword from card 3; French from conditionalFrench of card 3. English is hidden in the prompt.",
+      "id": "core-roofing:4:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateArticleVariantEnglish": "the gutter",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase en anglais, puis donnez son sens en français.",
+      "candidateTargetEnglish": "Where does the downspout go?",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Où va la descente pluviale ?",
+      "provenance": "Exact source phrase from card 12; French from conditionalFrench of card 12.",
+      "id": "core-roofing:4:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « le faîtage ».",
+      "candidateTargetEnglish": "ridge",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "le faîtage",
+      "provenance": "Exact source headword from card 6; French from conditionalFrench of card 6.",
+      "id": "core-roofing:4:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateArticleVariantEnglish": "the ridge",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites à voix haute en anglais : « La gouttière est bouchée. »",
+      "candidateTargetEnglish": "The gutter is clogged.",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:13"
+      ],
+      "expectedMeaningFrench": "La gouttière est bouchée.",
+      "provenance": "Exact source phrase from card 13; French from conditionalFrench of card 13.",
+      "id": "core-roofing:4:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « L'eau doit s'écouler à l'écart de la maison. »",
+      "candidateTargetEnglish": "The water must drain away from the house.",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:14",
+        "core-roofing:4:fr-en:reader:6"
+      ],
+      "expectedMeaningFrench": "L'eau doit s'écouler à l'écart de la maison.",
+      "provenance": "Exact source phrase from card 14; French from conditionalFrench of card 14. The learner writes the sentence from the French meaning.",
+      "id": "core-roofing:4:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "The water has to run away from the house."
+      ],
+      "alternateProvenance": "Exact source Reader6 variant, unreviewed for scoring.",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Where does the [term] go?",
+      "meaningFrench": "Où va + nom ?",
+      "candidateExampleEnglish": "Where does the gutter go?",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:12",
+        "core-roofing:4:fr-en:card:3"
+      ],
+      "provenance": "New composition (label): the pattern is taken from the card 12 question, and 'gutter' is substituted from card 3.",
+      "id": "core-roofing:4:fr-en:form:1",
+      "reviewed": false,
+      "exampleMeaningFrench": "Où va la gouttière ?",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "englishForm": "The [term] must [base verb] + [complement].",
+      "meaningFrench": "sujet + doit + infinitif + complément",
+      "candidateExampleEnglish": "The water must drain away from the house.",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:14"
+      ],
+      "provenance": "Exact source phrase from card 14, shown as an example of the pattern. The pattern itself is a composition (label).",
+      "id": "core-roofing:4:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "englishForm": "subject + is + adjective/past participle",
+      "meaningFrench": "sujet + est + adjectif/participe passé",
+      "candidateExampleEnglish": "The gutter is clogged.",
+      "sourceAnchors": [
+        "core-roofing:4:fr-en:card:13"
+      ],
+      "provenance": "Exact source phrase from card 13, shown as an example of the pattern. The pattern itself is a composition (label).",
+      "id": "core-roofing:4:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A worker asking a teammate where a downspout goes.",
+    "partnerRole": "A coworker looking at the same labelled practice picture.",
+    "candidateOpeningEnglish": "Where does the downspout go?",
+    "goalEnglish": "Ask the teammate where the downspout goes, then say that the gutter is clogged.",
+    "candidateWordBankEnglish": [
+      "downspout",
+      "gutter",
+      "ridge",
+      "Where does the downspout go?",
+      "The gutter is clogged.",
+      "The water must drain away from the house."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure.",
+    "sourceAnchors": [
+      "core-roofing:4:fr-en:card:4",
+      "core-roofing:4:fr-en:card:12",
+      "core-roofing:4:fr-en:card:3",
+      "core-roofing:4:fr-en:card:13",
+      "core-roofing:4:fr-en:card:14",
+      "core-roofing:4:fr-en:card:6"
+    ],
+    "id": "core-roofing:4:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical labelled practice picture showing a gutter blockage, not actual site data.",
+    "partnerCuesEnglish": [
+      "The downspout is marked here.",
+      "What do you notice about the gutter?"
+    ],
+    "partnerCueProvenance": "New picture-based descriptive cues; no drainage placement or repair method is prescribed.",
+    "objectiveProvenance": "New bounded practice task from unheld source rows; full source objective is not established as complete.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:4:fr-en:card:7",
+      "core-roofing:4:fr-en:reader:2",
+      "core-roofing:4:fr-en:reader:8"
+    ],
+    "holdReason": "Source speaking objective/term review is not complete. This authored proposal remains held-dependent and cannot be promoted as a completed speaking lesson."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-4-source-decision-2026-11-18/packet.json",
+    "sha256": "b14a29a677e5b4931502b3de048b1eb7f574f899367b90a64af714711a49a15d"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:4:fr-en:card:1",
+      "sourceEnglish": "ridge cap",
+      "candidateFrench": null,
+      "hold": "The source ridge cap is generic; archived bardeau de faîtage selects a shingle product. Decide material/product sense before using a scored term.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:4:fr-en:card:2",
+      "sourceEnglish": "vent",
+      "candidateFrench": null,
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:4:fr-en:card:3",
+      "sourceEnglish": "gutter",
+      "candidateFrench": "la gouttière",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:4:fr-en:card:4",
+      "sourceEnglish": "downspout",
+      "candidateFrench": "la descente pluviale",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:4:fr-en:card:5",
+      "sourceEnglish": "fascia",
+      "candidateFrench": null,
+      "hold": "Choose fascia and soffit senses for this roof edge; archived planche de rive and sous-face de débord de toit need regional/trade review and exact card-to-Reader consistency.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:4:fr-en:card:6",
+      "sourceEnglish": "ridge",
+      "candidateFrench": "le faîtage",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "candidateSenseOptionsFrench": [
+        "le faîtage",
+        "le faîte"
+      ],
+      "internalSenseNote": "Ridge versus ridge-covering sense remains subject to qualified trade review; neither is selected."
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:4:fr-en:card:7",
+      "sourceEnglish": "ridge vent",
+      "candidateFrench": null,
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context. The source speaking task describes where ridge vent and downspouts belong; archived speaking adds plan confirmation. Review objective and card/Reader terms together before authoring speaking or six scored modes.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:4:fr-en:card:8",
+      "sourceEnglish": "box vent",
+      "candidateFrench": null,
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:4:fr-en:card:9",
+      "sourceEnglish": "soffit",
+      "candidateFrench": null,
+      "hold": "Choose fascia and soffit senses for this roof edge; archived planche de rive and sous-face de débord de toit need regional/trade review and exact card-to-Reader consistency.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:4:fr-en:card:10",
+      "sourceEnglish": "attic",
+      "candidateFrench": null,
+      "hold": "Decide whether archived les combles conveys source attic in this scene without implying a finished room or a different building space.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:4:fr-en:card:11",
+      "sourceEnglish": "The ridge vent goes along the ridge.",
+      "candidateFrench": null,
+      "hold": "The source states where the ridge vent goes. Keep it a location description; confirm ventilation and drainage placements from the approved design before treating it as installation guidance.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:4:fr-en:card:12",
+      "sourceEnglish": "Where does the downspout go?",
+      "candidateFrench": "Où va la descente pluviale ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Neutral goes question; does not choose placement versus existing-object interpretation."
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:4:fr-en:card:13",
+      "sourceEnglish": "The gutter is clogged.",
+      "candidateFrench": "La gouttière est bouchée.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:4:fr-en:card:14",
+      "sourceEnglish": "The water must drain away from the house.",
+      "candidateFrench": "L'eau doit s'écouler à l'écart de la maison.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Away from does not require a distance claim."
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:4:fr-en:card:15",
+      "sourceEnglish": "The attic needs ventilation.",
+      "candidateFrench": null,
+      "hold": "Linked attic/combles space decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:1",
+      "sourceEnglish": "At the highest part of the roof is the ridge.",
+      "candidateFrench": "Dans la partie la plus haute du toit se trouve le faîtage.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:2",
+      "sourceEnglish": "The ridge vent goes along the ridge.",
+      "candidateFrench": null,
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context. The source states where the ridge vent goes. Keep it a location description; confirm ventilation and drainage placements from the approved design before treating it as installation guidance. The source speaking task describes where ridge vent and downspouts belong; archived speaking adds plan confirmation. Review objective and card/Reader terms together before authoring speaking or six scored modes.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:3",
+      "sourceEnglish": "The attic needs ventilation.",
+      "candidateFrench": null,
+      "hold": "Linked attic/combles space decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:4",
+      "sourceEnglish": "Below, at the edge of the roof, are the fascia and the soffit.",
+      "candidateFrench": null,
+      "hold": "Choose fascia and soffit senses for this roof edge; archived planche de rive and sous-face de débord de toit need regional/trade review and exact card-to-Reader consistency.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:5",
+      "sourceEnglish": "The gutter is clogged.",
+      "candidateFrench": "La gouttière est bouchée.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:6",
+      "sourceEnglish": "The water has to run away from the house.",
+      "candidateFrench": "L'eau doit s'écouler à l'écart de la maison.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Away from does not require a distance claim."
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:7",
+      "sourceEnglish": "The foreman asks: Where does the downspout go?",
+      "candidateFrench": null,
+      "hold": "Linked foreman role decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:4:fr-en:reader:8",
+      "sourceEnglish": "A worker points to it at the corner of the house.",
+      "candidateFrench": null,
+      "hold": "Source worker points to the downspout at the corner. Archived French points to its location; decide whether this preserves the object reference and the intended placement meaning.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:4:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:4:fr-en:card:1",
+      "englishHeadword": "ridge cap",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "The source ridge cap is generic; archived bardeau de faîtage selects a shingle product. Decide material/product sense before using a scored term.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:4:fr-en:card:2",
+      "englishHeadword": "vent",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:4:fr-en:card:3",
+      "englishHeadword": "gutter",
+      "candidateFrenchSense": "la gouttière",
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:4:fr-en:card:4",
+      "englishHeadword": "downspout",
+      "candidateFrenchSense": "la descente pluviale",
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:4:fr-en:card:5",
+      "englishHeadword": "fascia",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Choose fascia and soffit senses for this roof edge; archived planche de rive and sous-face de débord de toit need regional/trade review and exact card-to-Reader consistency.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:4:fr-en:card:6",
+      "englishHeadword": "ridge",
+      "candidateFrenchSense": "le faîtage",
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:4:fr-en:card:7",
+      "englishHeadword": "ridge vent",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context. The source speaking task describes where ridge vent and downspouts belong; archived speaking adds plan confirmation. Review objective and card/Reader terms together before authoring speaking or six scored modes.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:4:fr-en:card:8",
+      "englishHeadword": "box vent",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Distinguish generic vent, ridge vent and box vent products. Archived évent de toit for box vent is broad and may erase the source type; verify French regional trade terms and the approved design context.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:4:fr-en:card:9",
+      "englishHeadword": "soffit",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Choose fascia and soffit senses for this roof edge; archived planche de rive and sous-face de débord de toit need regional/trade review and exact card-to-Reader consistency.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:4:fr-en:card:10",
+      "englishHeadword": "attic",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Decide whether archived les combles conveys source attic in this scene without implying a finished room or a different building space.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:4:fr-en:card:11",
+      "englishHeadword": "The ridge vent goes along the ridge.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "The source states where the ridge vent goes. Keep it a location description; confirm ventilation and drainage placements from the approved design before treating it as installation guidance.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:4:fr-en:card:12",
+      "englishHeadword": "Where does the downspout go?",
+      "candidateFrenchSense": "Où va la descente pluviale ?",
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:4:fr-en:card:13",
+      "englishHeadword": "The gutter is clogged.",
+      "candidateFrenchSense": "La gouttière est bouchée.",
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:4:fr-en:card:14",
+      "englishHeadword": "The water must drain away from the house.",
+      "candidateFrenchSense": "L'eau doit s'écouler à l'écart de la maison.",
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:4:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:4:fr-en:card:15",
+      "englishHeadword": "The attic needs ventilation.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge, Vents & Drainage",
+      "status": "held",
+      "hold": "Linked attic/combles space decision propagated; no dependent activity uses this face.",
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Candidate apostrophe variants require comparison normalization before any future scoring; exact source rows and hashes are preserved unchanged.",
+    "Source hold on authoring the ridge-vent/downspout brief remains intact. This separate unscored candidate practices unheld gutter/downspout language only; it neither resolves the ridge-vent product nor fulfills the source speaking objective. Qualified review gates stay false."
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:2:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-2-source-audit-2026-11-17/packet.json",
+    "sha256": "ae8876ac63c46b0bd0743a513f24b48dced7d90a997bb60987fb8669917b1337"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-1-3-draft.json",
+      "sha256": "fc08c463fd83f57adc7c10d0c9b3341703ebc335867373b37ed4bd9ec8e66e15"
+    }
+  },
+  "objectiveEnglish": "State the start time, ask how many bundles are needed, and report a length.",
+  "activities": [
+    {
+      "id": "foundation-roofing:2:ja-en:activity:see",
+      "mode": "see",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:10",
+      "promptJapanese": "「七時です」に当たる英語の時刻表現を読んでください。",
+      "targetEnglish": "It's seven o'clock.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:activity:recall",
+      "mode": "recall",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:9",
+      "promptJapanese": "「何束ですか」を英語で思い出してください。",
+      "targetEnglish": "How many bundles?",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:activity:hear",
+      "mode": "hear",
+      "sourceAnchor": "foundation-roofing:2:ja-en:line:2",
+      "promptJapanese": "英語を聞いて、同じ文を選んでください。",
+      "targetEnglish": "The truck arrives in twenty minutes.",
+      "hearScriptCandidateEnglish": "The truck arrives in twenty minutes.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "candidateOptionsEnglish": [
+        "The truck arrives in twenty minutes.",
+        "The truck arrives in thirty minutes.",
+        "We start at six."
+      ]
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:activity:type",
+      "mode": "type",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:11",
+      "promptJapanese": "「長さは十フィートです」を英語で入力してください。",
+      "targetEnglish": "It measures ten feet.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:activity:say",
+      "mode": "say",
+      "sourceAnchor": "foundation-roofing:2:ja-en:line:1",
+      "promptJapanese": "朝六時に始めることを同僚に英語で伝えてください。",
+      "targetEnglish": "We start at six in the morning.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:activity:write",
+      "mode": "write",
+      "sourceAnchor": "foundation-roofing:2:ja-en:line:7",
+      "promptJapanese": "釘の長さが一インチ半であることを英語で書いてください。",
+      "targetEnglish": "The nail is one and a half inches long.",
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "forms": [
+    {
+      "id": "foundation-roofing:2:ja-en:form:1",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:12",
+      "exampleEnglish": "We start at six.",
+      "explanationJapanese": "at + 時刻で「〜時に」を表します。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:form:2",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:9",
+      "exampleEnglish": "How many bundles?",
+      "explanationJapanese": "How many + 複数名詞で個数を尋ねます。bundle の複数形は bundles です。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:form:3",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:11",
+      "exampleEnglish": "It measures ten feet.",
+      "explanationJapanese": "measure + 数量で「長さ（寸法）が〜ある」を表します。foot の複数形は feet です。",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "foundation-roofing:2:ja-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:3",
+      "headEnglish": "foot / feet",
+      "glossJapanese": "フィート",
+      "senseJapanese": "ここでは長さの単位です。身体の足の意味とは区別します。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:6",
+      "headEnglish": "bundle",
+      "glossJapanese": "束、梱包された一組",
+      "senseJapanese": "この場面では屋根材の束を数えます。",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:2:ja-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:2:ja-en:card:4",
+      "headEnglish": "inch",
+      "glossJapanese": "インチ",
+      "senseJapanese": "長さの単位。one and a half inches は1.5インチ（1インチ半）です。",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "id": "foundation-roofing:2:ja-en:speaking:contextual",
+    "sourceAnchors": [
+      "foundation-roofing:2:ja-en:line:1",
+      "foundation-roofing:2:ja-en:line:7",
+      "foundation-roofing:2:ja-en:card:9"
+    ],
+    "roles": {
+      "learner": "New crew member",
+      "partner": "Coworker"
+    },
+    "openingEnglish": "Good morning.",
+    "objectivesEnglish": [
+      "Say what time you start.",
+      "Ask how many bundles.",
+      "Give a length in feet or inches."
+    ],
+    "wordBankEnglish": [
+      "six",
+      "bundles",
+      "feet",
+      "inches"
+    ],
+    "closureEnglish": "Thank you.",
+    "reviewed": false,
+    "scaffoldNoteEnglish": "Opening and closure are added conversational scaffolds; source anchors identify lesson-specific content only."
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support explicitly corrects the reverse pair label in the older source-audit packet without modifying it.",
+    "Source Spanish-pronunciation objective is provenance, not the English objective.",
+    "Bundle product senses and measurement context require qualified source/trade review; this supplement does not settle them.",
+    "Hear contains a candidate script only; no recording or listening approval exists."
+  ]
+}

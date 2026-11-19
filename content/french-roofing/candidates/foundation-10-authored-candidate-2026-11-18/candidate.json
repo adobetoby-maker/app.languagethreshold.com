@@ -1,0 +1,516 @@
+{
+  "lessonId": "foundation-roofing:10:fr-en",
+  "candidateObjectiveEnglish": "Recognize English help-related vocabulary, ask for help and ask the meaning of an English word.",
+  "grammarExplanationEnglish": "English nouns inspection, protection and construction share spelling with French but differ in pronunciation. \"I need help\" uses need with an uncountable noun. In questions, do/does comes before the subject and the following verb stays in its base form: \"Do you speak English?\" and \"What does inspection mean?\"",
+  "activities": [
+    {
+      "id": "foundation-roofing:10:fr-en:activity:see",
+      "mode": "see",
+      "promptFrench": "Regardez le mot anglais et son sens français.",
+      "candidateTargetEnglish": "the inspection",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "l'inspection",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:activity:recall",
+      "mode": "recall",
+      "promptFrench": "Comment dit-on « la sécurité » en anglais ?",
+      "candidateTargetEnglish": "safety",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "la sécurité",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "derivationNote": "English article-free safety is the proposed usage form; source headword the safety remains exact evidence."
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:activity:hear",
+      "mode": "hear",
+      "promptFrench": "Écoutez le mot anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "the hospital",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "l'hôpital",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script"
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:activity:type",
+      "mode": "type",
+      "promptFrench": "Tapez en anglais « l'urgence » au sens d'une situation nécessitant une aide immédiate.",
+      "candidateTargetEnglish": "the emergency",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "l'urgence",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "internalSenseNote": "Emergency event, not abstract urgency or emergency-department plural; broader dictionary distinctions pending qualified review."
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:activity:say",
+      "mode": "say",
+      "promptFrench": "Dites à voix haute la phrase anglaise pour « J'ai besoin d'aide. »",
+      "candidateTargetEnglish": "I need help.",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:10"
+      ],
+      "expectedMeaningFrench": "J'ai besoin d'aide.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:activity:write",
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Que veut dire le mot anglais inspection ? »",
+      "candidateTargetEnglish": "What does inspection mean?",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:9",
+        "foundation-roofing:10:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "Que veut dire inspection ?",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "derivationNote": "New English-word question instantiated from source card9 and card5, not held Reader7.",
+      "adaptationReference": "Uses source card9 template with English card5; this is a proposed curriculum adaptation, separate from held Reader7."
+    }
+  ],
+  "forms": [
+    {
+      "id": "foundation-roofing:10:fr-en:form:1",
+      "englishForm": "do + you + base verb",
+      "meaningFrench": "question au présent : do + sujet + verbe à la forme de base",
+      "candidateExampleEnglish": "Do you speak English?",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:12"
+      ],
+      "provenance": "Exact source card12.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:form:2",
+      "englishForm": "does … mean",
+      "meaningFrench": "veut dire",
+      "candidateExampleEnglish": "What does inspection mean?",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:9",
+        "foundation-roofing:10:fr-en:card:5"
+      ],
+      "provenance": "New instantiation of source question template with an English cognate.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:form:3",
+      "englishForm": "need",
+      "meaningFrench": "avoir besoin de",
+      "candidateExampleEnglish": "I need help.",
+      "sourceAnchors": [
+        "foundation-roofing:10:fr-en:card:10"
+      ],
+      "provenance": "Exact source card.",
+      "reviewed": false
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member practicing help requests and English word meanings.",
+    "partnerRole": "A coworker giving the French meaning of inspection in a language practice exchange.",
+    "candidateOpeningEnglish": "I need help.",
+    "goalEnglish": "Ask a coworker for help understanding the English word inspection, then ask its meaning.",
+    "candidateWordBankEnglish": [
+      "I need help.",
+      "inspection",
+      "What does … mean?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Reuses Foundation9 card2 courtesy phrase; not in this source packet.",
+    "sourceAnchors": [
+      "foundation-roofing:10:fr-en:card:5",
+      "foundation-roofing:10:fr-en:card:9",
+      "foundation-roofing:10:fr-en:card:10"
+    ],
+    "id": "foundation-roofing:10:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCueFrench": "Le mot anglais « inspection » veut dire « inspection » en français.",
+    "partnerCueProvenance": "New explicit cognate gloss; no inspection procedure or technical finding.",
+    "crossLessonCourtesyRef": "foundation-roofing:9:fr-en:card:2"
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/foundation-10-source-decision-2026-11-18/decision.json",
+    "sha256": "7093059fbfbfefdf2ca2d7c25690a3ef5ad6c2d3c2d7839d79e92d36f7574781"
+  },
+  "candidateRows": [
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:1",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:1",
+      "sourceEnglish": "the emergency",
+      "candidateFrench": "l'urgence",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:2",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:2",
+      "sourceEnglish": "the accident",
+      "candidateFrench": "l'accident",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:3",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:3",
+      "sourceEnglish": "the ambulance",
+      "candidateFrench": "l'ambulance",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:4",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:4",
+      "sourceEnglish": "the construction",
+      "candidateFrench": "la construction",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:5",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:5",
+      "sourceEnglish": "the inspection",
+      "candidateFrench": "l'inspection",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:6",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:6",
+      "sourceEnglish": "the protection",
+      "candidateFrench": "la protection",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:7",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:7",
+      "sourceEnglish": "the safety",
+      "candidateFrench": "la sécurité",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:8",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:8",
+      "sourceEnglish": "the hospital",
+      "candidateFrench": "l'hôpital",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:9",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:9",
+      "sourceEnglish": "What does … mean?",
+      "candidateFrench": "Que veut dire … ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:10",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:10",
+      "sourceEnglish": "I need help.",
+      "candidateFrench": "J'ai besoin d'aide.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:11",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:11",
+      "sourceEnglish": "Call 911.",
+      "candidateFrench": null,
+      "hold": "The source's Call 911 is a US emergency-number scene without an explicit location in this lesson. Confirm the source setting and locale before selecting a French scored phrase or recording; preserve 911 in the pinned source.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:cards:12",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:12",
+      "sourceEnglish": "Do you speak English?",
+      "candidateFrench": "Vous parlez anglais ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:1",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:1",
+      "sourceEnglish": "In construction, safety comes first.",
+      "candidateFrench": "Dans la construction, la sécurité passe en premier.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:2",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:2",
+      "sourceEnglish": "Today there's a fall protection inspection.",
+      "candidateFrench": null,
+      "hold": "The source calls this a fall-protection inspection. Qualified roofing safety review must confirm the context and terminology before a recorded/scored French line.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:3",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:3",
+      "sourceEnglish": "A coworker has a small accident on the ladder.",
+      "candidateFrench": "Une personne de l'équipe a un petit accident sur l'échelle.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Gender-neutral person-of-the-crew wording; preserves source event and does not classify any actual injury."
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:4",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:4",
+      "sourceEnglish": "It's not an emergency, but I need help.",
+      "candidateFrench": "Ce n'est pas une urgence, mais j'ai besoin d'aide.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:5",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:5",
+      "sourceEnglish": "If it's serious, call 911 and ask for an ambulance.",
+      "candidateFrench": null,
+      "hold": "Preserve the source's conditional serious-injury/911/ambulance meaning. The source scene lacks an explicit location; settle locale and emergency wording before selecting a recording script.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:6",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:6",
+      "sourceEnglish": "The ambulance goes to the hospital.",
+      "candidateFrench": "L'ambulance va à l'hôpital.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:candidate:reader:7",
+      "sourceAnchor": "foundation-roofing:10:fr-en:line:7",
+      "sourceEnglish": "What does the word caída mean?",
+      "candidateFrench": null,
+      "hold": "The current source asks what Spanish caída means, while the archived French scene and its rewritten English support ask what French chute means. This is a curriculum/language-adaptation decision, not exact English parity; keep the archived line unselected. Supplemental Write/form/speaking proposes an English-word question from card9+card5 as a third curriculum option; it does not settle this Reader adaptation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:1",
+      "englishHeadword": "the emergency",
+      "candidateFrenchSense": "l'urgence",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:2",
+      "englishHeadword": "the accident",
+      "candidateFrenchSense": "l'accident",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:3",
+      "englishHeadword": "the ambulance",
+      "candidateFrenchSense": "l'ambulance",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:4",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:4",
+      "englishHeadword": "the construction",
+      "candidateFrenchSense": "la construction",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:5",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:5",
+      "englishHeadword": "the inspection",
+      "candidateFrenchSense": "l'inspection",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:6",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:6",
+      "englishHeadword": "the protection",
+      "candidateFrenchSense": "la protection",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:7",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:7",
+      "englishHeadword": "the safety",
+      "candidateFrenchSense": "la sécurité",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:8",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:8",
+      "englishHeadword": "the hospital",
+      "candidateFrenchSense": "l'hôpital",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:9",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:9",
+      "englishHeadword": "What does … mean?",
+      "candidateFrenchSense": "Que veut dire … ?",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:10",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:10",
+      "englishHeadword": "I need help.",
+      "candidateFrenchSense": "J'ai besoin d'aide.",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:11",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:11",
+      "englishHeadword": "Call 911.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "getting help and word meanings",
+      "status": "held",
+      "hold": "The source's Call 911 is a US emergency-number scene without an explicit location in this lesson. Confirm the source setting and locale before selecting a French scored phrase or recording; preserve 911 in the pinned source.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:10:fr-en:dictionary:12",
+      "sourceAnchor": "foundation-roofing:10:fr-en:card:12",
+      "englishHeadword": "Do you speak English?",
+      "candidateFrenchSense": "Vous parlez anglais ?",
+      "contextEnglish": "getting help and word meanings",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish grammar is provenance only.",
+    "Held source safety, register and regional senses are not selected.",
+    "No recorded audio, progress migration, owner page or runtime registration.",
+    "Small accident and not an emergency are preserved exact source scene claims, not a learner triage assignment. Their contextual clinical/trade review remains required; no emergency-number or injury-severity decision is selected.",
+    "French vous and intonation questions remain candidate register choices consistent with the polite-request lesson; course-level qualification remains open.",
+    "Only vous address is consistent with Foundation9; inversion and intonation-question forms differ and require the course register decision. Source English articles in the construction/protection are headword conventions, not required articles in all English uses. Candidate wording dans la construction and neutral coworker paraphrase require locale/French confirmation."
+  ],
+  "grammarExplanationFrench": "« Inspection », « protection » et « construction » ressemblent aux mots français, mais leur prononciation anglaise diffère. « I need help » signifie « J'ai besoin d'aide ». Dans une question, placez « do » ou « does » avant le sujet ; le verbe reste à la forme de base : « Do you speak English? » ; « What does inspection mean? »",
+  "adaptationProvenance": {
+    "affectedFields": [
+      "grammarExplanationEnglish",
+      "grammarExplanationFrench",
+      "activities.write",
+      "forms.2",
+      "speaking.goalEnglish",
+      "speaking.candidateWordBankEnglish"
+    ],
+    "decision": "English-word meaning question is newly instantiated from card9 plus inspection card5; held caída/chute Reader7 decision remains open."
+  }
+}

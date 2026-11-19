@@ -1,0 +1,514 @@
+{
+  "lessonId": "foundation-roofing:9:fr-en",
+  "candidateObjectiveEnglish": "Make polite requests with 'Can you ...?' and give short, clear English instructions with base-form verbs.",
+  "grammarExplanationEnglish": "Use 'Can you' + base verb to make a polite request, as in 'Can you pass me the hammer?' Add 'please' at the end to sound more polite. For a short instruction, use the imperative: the base form of the verb with no subject, such as 'Wait', 'Come', 'Bring', or 'Be careful'. Put 'here' after the verb to say where, as in 'Wait here.' Use 'Excuse me' when you need to pass someone, and 'Thank you' after someone helps you. Keep each instruction short: verb first, then the object or place.",
+  "activities": [
+    {
+      "id": "foundation-roofing:9:fr-en:activity:see",
+      "mode": "see",
+      "promptFrench": "Regardez la phrase anglaise et son sens français.",
+      "candidateTargetEnglish": "Can you pass me the hammer?",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "Pouvez-vous me passer le marteau ?",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:activity:recall",
+      "mode": "recall",
+      "promptFrench": "Comment dit-on « merci » en anglais ?",
+      "candidateTargetEnglish": "thank you",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "merci",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:activity:hear",
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "Wait here, please.",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:11"
+      ],
+      "expectedMeaningFrench": "Attendez ici, s'il vous plaît.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script"
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:activity:type",
+      "mode": "type",
+      "promptFrench": "Tapez la traduction anglaise de « Venez ici. »",
+      "candidateTargetEnglish": "Come here.",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:7",
+        "foundation-roofing:9:fr-en:card:8",
+        "foundation-roofing:9:fr-en:line:4"
+      ],
+      "expectedMeaningFrench": "Venez ici.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "derivationNote": "New combination of come and here from card7/card8, not an exact full source row."
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:activity:say",
+      "mode": "say",
+      "promptFrench": "Dites à voix haute la phrase anglaise pour « Faites attention. »",
+      "candidateTargetEnglish": "Be careful.",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:10"
+      ],
+      "expectedMeaningFrench": "Faites attention.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "internalSenseNote": "Be careful is this phrase target; broader careful/watch-out headword remains held. No scored comparison is enabled."
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:activity:write",
+      "mode": "write",
+      "promptFrench": "Écrivez la phrase anglaise pour « Apportez l'échelle. »",
+      "candidateTargetEnglish": "Bring the ladder.",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Apportez l'échelle.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Can you + base verb?",
+      "meaningFrench": "Pouvez-vous + infinitif ?",
+      "candidateExampleEnglish": "Can you pass me the hammer, please?",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:9",
+        "foundation-roofing:9:fr-en:line:2"
+      ],
+      "id": "foundation-roofing:9:fr-en:form:1",
+      "reviewed": false,
+      "provenance": "Exact Reader2 example.",
+      "exampleMeaningFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?"
+    },
+    {
+      "englishForm": "wait",
+      "meaningFrench": "attendez",
+      "candidateExampleEnglish": "Wait here, please.",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:6",
+        "foundation-roofing:9:fr-en:card:11",
+        "foundation-roofing:9:fr-en:line:5",
+        "foundation-roofing:9:fr-en:card:8"
+      ],
+      "id": "foundation-roofing:9:fr-en:form:2",
+      "reviewed": false,
+      "provenance": "Card6 form exact; example exact card11/Reader5.",
+      "exampleMeaningFrench": "Attendez ici, s'il vous plaît."
+    },
+    {
+      "englishForm": "come / bring",
+      "meaningFrench": "venez / apportez",
+      "candidateExampleEnglish": "Come here and bring the ladder.",
+      "sourceAnchors": [
+        "foundation-roofing:9:fr-en:card:7",
+        "foundation-roofing:9:fr-en:card:12",
+        "foundation-roofing:9:fr-en:line:4",
+        "foundation-roofing:9:fr-en:card:8"
+      ],
+      "id": "foundation-roofing:9:fr-en:form:3",
+      "reviewed": false,
+      "provenance": "Exact Reader4 example.",
+      "exampleMeaningFrench": "Venez ici et apportez l'échelle."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member asking for a hammer.",
+    "partnerRole": "A coworker who hands over the hammer.",
+    "candidateOpeningEnglish": "Can you pass me the hammer, please?",
+    "goalEnglish": "Ask politely for a tool, give one short instruction, and thank your coworker.",
+    "candidateWordBankEnglish": [
+      "excuse me",
+      "can you pass me",
+      "please",
+      "thank you",
+      "wait here",
+      "come here",
+      "bring",
+      "be careful"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Exact card2 courtesy phrase; an instruction is not a closing.",
+    "sourceAnchors": [
+      "foundation-roofing:9:fr-en:card:2",
+      "foundation-roofing:9:fr-en:card:3",
+      "foundation-roofing:9:fr-en:card:6",
+      "foundation-roofing:9:fr-en:card:7",
+      "foundation-roofing:9:fr-en:card:9",
+      "foundation-roofing:9:fr-en:card:10",
+      "foundation-roofing:9:fr-en:card:11",
+      "foundation-roofing:9:fr-en:card:12",
+      "foundation-roofing:9:fr-en:card:1",
+      "foundation-roofing:9:fr-en:card:8",
+      "foundation-roofing:9:fr-en:line:2"
+    ],
+    "id": "foundation-roofing:9:fr-en:speaking:1",
+    "reviewed": false,
+    "wordBankProvenance": "Reduced source phrases and new combinations of wait/come/bring/here from the cited source rows; not all are verbatim full rows."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/foundation-9-source-decision-2026-11-18/decision.json",
+    "sha256": "ce3797e78d79fe5dab1a327b84287c25a11207cbb423e1353cc63eebaa8b4531"
+  },
+  "candidateRows": [
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:1",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:1",
+      "sourceEnglish": "please",
+      "candidateFrench": "s'il vous plaît",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:2",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:2",
+      "sourceEnglish": "thank you",
+      "candidateFrench": "merci",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:3",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:3",
+      "sourceEnglish": "excuse me (to pass)",
+      "candidateFrench": "excusez-moi",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:4",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:4",
+      "sourceEnglish": "sorry, excuse me",
+      "candidateFrench": null,
+      "hold": "The source combines apology and excuse senses in one card. Archived 'désolé, pardon' gives two alternatives; speaker gender changes désolé/désolée. Select contextual answer and dictionary senses before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:5",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:5",
+      "sourceEnglish": "careful, watch out",
+      "candidateFrench": null,
+      "hold": "The source combines 'careful' and 'watch out'. Archived 'attention' is a warning, while 'faites attention' is an instruction to be careful. Choose the scored face in context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:6",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:6",
+      "sourceEnglish": "wait",
+      "candidateFrench": "attendez",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:7",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:7",
+      "sourceEnglish": "come",
+      "candidateFrench": "venez",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:8",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:8",
+      "sourceEnglish": "here",
+      "candidateFrench": "ici",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:9",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:9",
+      "sourceEnglish": "Can you pass me the hammer?",
+      "candidateFrench": "Pouvez-vous me passer le marteau ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:10",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:10",
+      "sourceEnglish": "Be careful.",
+      "candidateFrench": "Faites attention.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:11",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:11",
+      "sourceEnglish": "Wait here, please.",
+      "candidateFrench": "Attendez ici, s'il vous plaît.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:cards:12",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:12",
+      "sourceEnglish": "Bring the ladder.",
+      "candidateFrench": "Apportez l'échelle.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:reader:1",
+      "sourceAnchor": "foundation-roofing:9:fr-en:line:1",
+      "sourceEnglish": "Excuse me, I'm coming through with the ladder.",
+      "candidateFrench": "Excusez-moi, je passe avec l'échelle.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Aligns the to-pass sense with card3 without selecting the grouped apology alternatives."
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:reader:2",
+      "sourceAnchor": "foundation-roofing:9:fr-en:line:2",
+      "sourceEnglish": "Can you pass me the hammer, please?",
+      "candidateFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:reader:3",
+      "sourceAnchor": "foundation-roofing:9:fr-en:line:3",
+      "sourceEnglish": "Thank you, and sorry for the wait.",
+      "candidateFrench": null,
+      "hold": "Archived 'désolé' assumes a speaker gender that the source Reader does not fix. Choose speaker/context or a gender-neutral apology before recording.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:reader:4",
+      "sourceAnchor": "foundation-roofing:9:fr-en:line:4",
+      "sourceEnglish": "Come here and bring the ladder.",
+      "candidateFrench": "Venez ici et apportez l'échelle.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:reader:5",
+      "sourceAnchor": "foundation-roofing:9:fr-en:line:5",
+      "sourceEnglish": "Wait here, please.",
+      "candidateFrench": "Attendez ici, s'il vous plaît.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:candidate:reader:6",
+      "sourceAnchor": "foundation-roofing:9:fr-en:line:6",
+      "sourceEnglish": "Be careful with the edge of the roof.",
+      "candidateFrench": null,
+      "hold": "The source names the roof edge. Archived 'Faites attention au bord du toit' preserves it, but this safety-critical instruction needs qualified roofing and locale review before audio or learner use.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:1",
+      "englishHeadword": "please",
+      "candidateFrenchSense": "s'il vous plaît",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:2",
+      "englishHeadword": "thank you",
+      "candidateFrenchSense": "merci",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:3",
+      "englishHeadword": "excuse me (to pass)",
+      "candidateFrenchSense": "excusez-moi",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:4",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:4",
+      "englishHeadword": "sorry, excuse me",
+      "candidateFrenchSense": null,
+      "contextEnglish": "polite requests and instructions",
+      "status": "held",
+      "hold": "The source combines apology and excuse senses in one card. Archived 'désolé, pardon' gives two alternatives; speaker gender changes désolé/désolée. Select contextual answer and dictionary senses before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:5",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:5",
+      "englishHeadword": "careful, watch out",
+      "candidateFrenchSense": null,
+      "contextEnglish": "polite requests and instructions",
+      "status": "held",
+      "hold": "The source combines 'careful' and 'watch out'. Archived 'attention' is a warning, while 'faites attention' is an instruction to be careful. Choose the scored face in context.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:6",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:6",
+      "englishHeadword": "wait",
+      "candidateFrenchSense": "attendez",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:7",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:7",
+      "englishHeadword": "come",
+      "candidateFrenchSense": "venez",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:8",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:8",
+      "englishHeadword": "here",
+      "candidateFrenchSense": "ici",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:9",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:9",
+      "englishHeadword": "Can you pass me the hammer?",
+      "candidateFrenchSense": "Pouvez-vous me passer le marteau ?",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:10",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:10",
+      "englishHeadword": "Be careful.",
+      "candidateFrenchSense": "Faites attention.",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:11",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:11",
+      "englishHeadword": "Wait here, please.",
+      "candidateFrenchSense": "Attendez ici, s'il vous plaît.",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:9:fr-en:dictionary:12",
+      "sourceAnchor": "foundation-roofing:9:fr-en:card:12",
+      "englishHeadword": "Bring the ladder.",
+      "candidateFrenchSense": "Apportez l'échelle.",
+      "contextEnglish": "polite requests and instructions",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish grammar is provenance only.",
+    "Held source safety, register and regional senses are not selected.",
+    "No recorded audio, progress migration, owner page or runtime registration.",
+    "French vous is proposed for this polite-command lesson only; course-level request register across Foundation5/6 remains a separate qualified decision.",
+    "No ladder setup method is proposed.",
+    "Card3 excusez-moi and Reader1 pardon differ in the to-pass sense; qualified register review must harmonize or document variants."
+  ],
+  "grammarExplanationFrench": "Utilisez « Can you » + verbe à la forme de base pour une demande polie. Ajoutez « please » à la fin pour être plus poli. Pour une consigne courte, mettez le verbe en premier, sans sujet : « Wait here, please. » « Here » indique le lieu. Utilisez « Excuse me » pour passer et « Thank you » pour remercier."
+}

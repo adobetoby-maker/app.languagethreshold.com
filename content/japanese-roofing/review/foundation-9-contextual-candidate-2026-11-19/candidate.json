@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:9:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-9-source-audit-2026-11-18/packet.json",
+    "sha256": "77c17c5f19104e8190c89e58c807720a3437fb674688a3b6746f9d5897988787"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-7-10-draft.json",
+      "sha256": "a77687f79bc60d725bf692cd0168f9216eceb04d6f0f3f54ffebeb402ed46f10"
+    }
+  },
+  "objectiveEnglish": "Ask for tools and give simple safety warnings on a roof site.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を見て、意味を確認しましょう。please＝「お願いします」",
+      "targetEnglish": "please",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:1",
+      "id": "foundation-roofing:9:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「ありがとう」にあたる英語を思い出してください。",
+      "targetEnglish": "thank you",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:2",
+      "id": "foundation-roofing:9:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語を選んでください。",
+      "targetEnglish": "come",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:7",
+      "candidateOptionsEnglish": [
+        "wait",
+        "come",
+        "here"
+      ],
+      "id": "foundation-roofing:9:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "come",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "定冠詞 the を付けて、「（その）金づちを取ってもらえますか。」にあたる英文を入力してください。",
+      "targetEnglish": "Can you pass me the hammer?",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:9",
+      "id": "foundation-roofing:9:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「気をつけて。」にあたる英語を声に出して言ってください。",
+      "targetEnglish": "Be careful.",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:10",
+      "id": "foundation-roofing:9:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "定冠詞 the を付けて、「（その）はしごを持ってきて。」にあたる英語を書いてください。please は付けません。",
+      "targetEnglish": "Bring the ladder.",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:12",
+      "id": "foundation-roofing:9:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Can you pass me",
+      "explanationJapanese": "「Can you ～?」は相手に何かを依頼する言い方です。「pass me」で「私に手渡す」を表します。",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:9",
+      "id": "foundation-roofing:9:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Be careful",
+      "explanationJapanese": "「Be ＋ 形容詞」の命令の形です。「Be careful.」は相手に注意を促す表現で、「気をつけて」の意味です。",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:10",
+      "id": "foundation-roofing:9:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Wait here, please",
+      "explanationJapanese": "動詞の原形で始めると指示の文になります。文末に「, please」を付けると、丁寧に頼む言い方になります。",
+      "sourceAnchor": "foundation-roofing:9:ja-en:line:5",
+      "id": "foundation-roofing:9:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "hammer",
+      "glossJapanese": "金づち、ハンマー",
+      "senseJapanese": "釘を打ったり、物を叩いたりするための工具。",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:9",
+      "id": "foundation-roofing:9:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "ladder",
+      "glossJapanese": "はしご",
+      "senseJapanese": "段があり、高い場所への上り下りに使う道具。",
+      "sourceAnchor": "foundation-roofing:9:ja-en:card:12",
+      "id": "foundation-roofing:9:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "edge",
+      "glossJapanese": "端、縁",
+      "senseJapanese": "屋根などの、外側の端の部分。",
+      "sourceAnchor": "foundation-roofing:9:ja-en:line:6",
+      "id": "foundation-roofing:9:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業現場で、道具を頼んだり注意を伝えたりする役です。",
+      "partner": "同僚として、頼まれたり注意されたりしたときに応答する役です。"
+    },
+    "openingEnglish": "Excuse me, I'm coming through with the ladder.",
+    "objectivesEnglish": [
+      "Can you pass me the hammer, please?",
+      "Come here and bring the ladder.",
+      "Be careful with the edge of the roof."
+    ],
+    "wordBankEnglish": [
+      "please",
+      "thank you",
+      "wait",
+      "come",
+      "here",
+      "Be careful.",
+      "Bring the ladder."
+    ],
+    "closureEnglish": "Wait here, please.",
+    "sourceAnchors": [
+      "foundation-roofing:9:ja-en:line:1",
+      "foundation-roofing:9:ja-en:line:2",
+      "foundation-roofing:9:ja-en:line:4",
+      "foundation-roofing:9:ja-en:line:6",
+      "foundation-roofing:9:ja-en:line:5",
+      "foundation-roofing:9:ja-en:card:1",
+      "foundation-roofing:9:ja-en:card:2",
+      "foundation-roofing:9:ja-en:card:6",
+      "foundation-roofing:9:ja-en:card:7",
+      "foundation-roofing:9:ja-en:card:8",
+      "foundation-roofing:9:ja-en:card:10",
+      "foundation-roofing:9:ja-en:card:12"
+    ],
+    "id": "foundation-roofing:9:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older source-audit reverse pair label remains provenance only.",
+    "Source emergency number 911 and small-accident/not-emergency classification remain exact source evidence and require source/locale/clinical review; no substitution or severity judgment is made.",
+    "Direct emergency, accident, ambulance and hospital terminology remains teaching vocabulary; factual/domain notes stay internal.",
+    "F10 source Spanish caída in the English sentence remains pinned for source-objective review. Ellipsis template is shown, not typed.",
+    "AI assistance is not qualified language, clinical or roofing approval."
+  ]
+}

@@ -9,6 +9,22 @@ export interface ScoreResult {
 const FONT_STACK = '"Hiragino Sans", "Yu Gothic", "Noto Sans JP", "Meiryo", serif';
 const CANVAS_SIZE = 300;
 
+export function setFittedWritingFont(
+  ctx: Pick<CanvasRenderingContext2D, "font" | "measureText">,
+  text: string,
+  size: number,
+) {
+  let fontSize = Math.floor(size * 0.72);
+  ctx.font = `${fontSize}px ${FONT_STACK}`;
+  const width = ctx.measureText(text).width;
+  const available = size * 0.88;
+  if (width > available) {
+    fontSize = Math.max(1, Math.floor((fontSize * available) / width));
+    ctx.font = `${fontSize}px ${FONT_STACK}`;
+  }
+  return fontSize;
+}
+
 export function scoreDrawing(
   userCanvas: HTMLCanvasElement,
   char: string,
@@ -19,8 +35,7 @@ export function scoreDrawing(
   off.height = CANVAS_SIZE;
   const ctx = off.getContext("2d")!;
 
-  const fontSize = Math.floor(CANVAS_SIZE * 0.72);
-  ctx.font = `${fontSize}px ${FONT_STACK}`;
+  setFittedWritingFont(ctx, char, CANVAS_SIZE);
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = "#000";
@@ -112,8 +127,7 @@ export function renderGuideToCanvas(
   ctx.clearRect(0, 0, size, size);
   drawGridOnCanvas(ctx, size);
 
-  const fontSize = Math.floor(size * 0.72);
-  ctx.font = `${fontSize}px ${FONT_STACK}`;
+  setFittedWritingFont(ctx, char, size);
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 

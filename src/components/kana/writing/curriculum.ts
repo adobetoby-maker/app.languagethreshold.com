@@ -17,6 +17,18 @@ export interface PracticeSentence {
   meaning: string;
 }
 
+export function kanaPatternNote(word: string): string | null {
+  const hasSmallTsu = /[っッ]/u.test(word);
+  const hasContractedSound = /[ゃゅょャュョ]/u.test(word);
+  if (hasSmallTsu && hasContractedSound)
+    return "Small っ/ッ doubles the next consonant; small ゃ/ゅ/ょ or ャ/ュ/ョ joins the preceding sound. Say and write each as part of this word.";
+  if (hasSmallTsu)
+    return "Small っ/ッ doubles the next consonant, as in きっぷ (kippu). Say and write it as part of the word.";
+  if (hasContractedSound)
+    return "Small ゃ/ゅ/ょ or ャ/ュ/ョ joins the preceding sound, as in しゃ (sha). Say and write it as part of the word.";
+  return null;
+}
+
 export const HIRAGANA_GROUPS: CharGroup[] = [
   {
     id: "h-vowels",
@@ -68,6 +80,36 @@ export const HIRAGANA_GROUPS: CharGroup[] = [
     romaji: ["ra", "ri", "ru", "re", "ro"],
   },
   { id: "h-w", name: "W-row わをん", chars: ["わ", "を", "ん"], romaji: ["wa", "wo", "n"] },
+  {
+    id: "h-g",
+    name: "G-row (voiced) がぎぐげご",
+    chars: ["が", "ぎ", "ぐ", "げ", "ご"],
+    romaji: ["ga", "gi", "gu", "ge", "go"],
+  },
+  {
+    id: "h-z",
+    name: "Z-row (voiced) ざじずぜぞ",
+    chars: ["ざ", "じ", "ず", "ぜ", "ぞ"],
+    romaji: ["za", "ji", "zu", "ze", "zo"],
+  },
+  {
+    id: "h-d",
+    name: "D-row (voiced) だぢづでど",
+    chars: ["だ", "ぢ", "づ", "で", "ど"],
+    romaji: ["da", "ji", "zu", "de", "do"],
+  },
+  {
+    id: "h-b",
+    name: "B-row (voiced) ばびぶべぼ",
+    chars: ["ば", "び", "ぶ", "べ", "ぼ"],
+    romaji: ["ba", "bi", "bu", "be", "bo"],
+  },
+  {
+    id: "h-p",
+    name: "P-row ぱぴぷぺぽ",
+    chars: ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"],
+    romaji: ["pa", "pi", "pu", "pe", "po"],
+  },
 ];
 
 export const KATAKANA_GROUPS: CharGroup[] = [
@@ -121,34 +163,164 @@ export const KATAKANA_GROUPS: CharGroup[] = [
     romaji: ["ra", "ri", "ru", "re", "ro"],
   },
   { id: "k-w", name: "W-row ワヲン", chars: ["ワ", "ヲ", "ン"], romaji: ["wa", "wo", "n"] },
+  {
+    id: "k-g",
+    name: "G-row (voiced) ガギグゲゴ",
+    chars: ["ガ", "ギ", "グ", "ゲ", "ゴ"],
+    romaji: ["ga", "gi", "gu", "ge", "go"],
+  },
+  {
+    id: "k-z",
+    name: "Z-row (voiced) ザジズゼゾ",
+    chars: ["ザ", "ジ", "ズ", "ゼ", "ゾ"],
+    romaji: ["za", "ji", "zu", "ze", "zo"],
+  },
+  {
+    id: "k-d",
+    name: "D-row (voiced) ダヂヅデド",
+    chars: ["ダ", "ヂ", "ヅ", "デ", "ド"],
+    romaji: ["da", "ji", "zu", "de", "do"],
+  },
+  {
+    id: "k-b",
+    name: "B-row (voiced) バビブベボ",
+    chars: ["バ", "ビ", "ブ", "ベ", "ボ"],
+    romaji: ["ba", "bi", "bu", "be", "bo"],
+  },
+  {
+    id: "k-p",
+    name: "P-row パピプペポ",
+    chars: ["パ", "ピ", "プ", "ペ", "ポ"],
+    romaji: ["pa", "pi", "pu", "pe", "po"],
+  },
 ];
 
-// Words built from early hiragana groups — shown after the group is practiced
+// Contextual words shown after their character group is practiced.
 export const PRACTICE_WORDS: Record<string, PracticeWord[]> = {
   "h-vowels": [
-    { kana: "あお", romaji: "ao", meaning: "blue" },
-    { kana: "うえ", romaji: "ue", meaning: "above" },
-    { kana: "いえ", romaji: "ie", meaning: "house" },
+    { kana: "あおい", romaji: "aoi", meaning: "blue" },
+    { kana: "うえ", romaji: "ue", meaning: "above/on" },
+    { kana: "いい", romaji: "ii", meaning: "good" },
   ],
   "h-k": [
     { kana: "かお", romaji: "kao", meaning: "face" },
-    { kana: "いく", romaji: "iku", meaning: "to go" },
-    { kana: "きく", romaji: "kiku", meaning: "to listen" },
+    { kana: "いきます", romaji: "ikimasu", meaning: "go" },
+    { kana: "きます", romaji: "kimasu", meaning: "come" },
   ],
   "h-s": [
-    { kana: "すき", romaji: "suki", meaning: "like / love" },
+    { kana: "すき", romaji: "suki", meaning: "like" },
     { kana: "さかな", romaji: "sakana", meaning: "fish" },
-    { kana: "そこ", romaji: "soko", meaning: "there" },
+    { kana: "そこ", romaji: "soko", meaning: "there near you" },
   ],
   "h-t": [
-    { kana: "たべる", romaji: "taberu", meaning: "to eat" },
+    { kana: "たべます", romaji: "tabemasu", meaning: "eat" },
     { kana: "ちいさい", romaji: "chiisai", meaning: "small" },
-    { kana: "とける", romaji: "tokeru", meaning: "to melt" },
+    { kana: "ともだち", romaji: "tomodachi", meaning: "friend" },
   ],
   "h-n": [
     { kana: "なに", romaji: "nani", meaning: "what" },
     { kana: "にほん", romaji: "nihon", meaning: "Japan" },
     { kana: "ねこ", romaji: "neko", meaning: "cat" },
+  ],
+  "h-h": [
+    { kana: "ほん", romaji: "hon", meaning: "book" },
+    { kana: "へや", romaji: "heya", meaning: "room" },
+  ],
+  "h-m": [
+    { kana: "なまえ", romaji: "namae", meaning: "name" },
+    { kana: "まど", romaji: "mado", meaning: "window" },
+  ],
+  "h-y": [
+    { kana: "よん", romaji: "yon", meaning: "four" },
+    { kana: "ゆっくり", romaji: "yukkuri", meaning: "slowly" },
+  ],
+  "h-r": [
+    { kana: "だれ", romaji: "dare", meaning: "who" },
+    { kana: "ろく", romaji: "roku", meaning: "six" },
+  ],
+  "h-w": [
+    { kana: "わたし", romaji: "watashi", meaning: "I" },
+    { kana: "ほん", romaji: "hon", meaning: "book" },
+  ],
+  "h-g": [
+    { kana: "がくせい", romaji: "gakusei", meaning: "student" },
+    { kana: "みぎ", romaji: "migi", meaning: "right" },
+  ],
+  "h-z": [
+    { kana: "みず", romaji: "mizu", meaning: "water" },
+    { kana: "じかん", romaji: "jikan", meaning: "time" },
+  ],
+  "h-d": [
+    { kana: "ともだち", romaji: "tomodachi", meaning: "friend" },
+    { kana: "でんしゃ", romaji: "densha", meaning: "train" },
+  ],
+  "h-b": [
+    { kana: "ことば", romaji: "kotoba", meaning: "word" },
+    { kana: "べんきょう", romaji: "benkyou", meaning: "study" },
+  ],
+  "h-p": [
+    { kana: "きっぷ", romaji: "kippu", meaning: "ticket" },
+    { kana: "えんぴつ", romaji: "enpitsu", meaning: "pencil" },
+  ],
+  "k-vowels": [
+    { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
+    { kana: "ドア", romaji: "doa", meaning: "door" },
+  ],
+  "k-k": [
+    { kana: "コピー", romaji: "kopii", meaning: "copy" },
+    { kana: "クラス", romaji: "kurasu", meaning: "class" },
+  ],
+  "k-s": [
+    { kana: "クラス", romaji: "kurasu", meaning: "class" },
+    { kana: "スタッフ", romaji: "sutaffu", meaning: "staff" },
+  ],
+  "k-t": [
+    { kana: "ノート", romaji: "nooto", meaning: "notebook" },
+    { kana: "テスト", romaji: "tesuto", meaning: "test" },
+  ],
+  "k-n": [
+    { kana: "ノート", romaji: "nooto", meaning: "notebook" },
+    { kana: "ニュース", romaji: "nyuusu", meaning: "news" },
+  ],
+  "k-h": [
+    { kana: "ホテル", romaji: "hoteru", meaning: "hotel" },
+    { kana: "ハム", romaji: "hamu", meaning: "ham" },
+  ],
+  "k-m": [
+    { kana: "メニュー", romaji: "menyuu", meaning: "menu" },
+    { kana: "メンバー", romaji: "menbaa", meaning: "member" },
+  ],
+  "k-y": [
+    { kana: "ヨガ", romaji: "yoga", meaning: "yoga" },
+    { kana: "ユーロ", romaji: "yuuro", meaning: "euro" },
+  ],
+  "k-r": [
+    { kana: "アメリカ", romaji: "amerika", meaning: "United States" },
+    { kana: "グループ", romaji: "guruupu", meaning: "group" },
+  ],
+  "k-w": [
+    { kana: "ペン", romaji: "pen", meaning: "pen" },
+    { kana: "パン", romaji: "pan", meaning: "bread" },
+  ],
+  "k-g": [
+    { kana: "グループ", romaji: "guruupu", meaning: "group" },
+    { kana: "けしゴム", romaji: "keshigomu", meaning: "eraser" },
+  ],
+  "k-z": [
+    { kana: "メッセージ", romaji: "messeeji", meaning: "message" },
+    { kana: "デザート", romaji: "dezaato", meaning: "dessert" },
+  ],
+  "k-d": [
+    { kana: "ドア", romaji: "doa", meaning: "door" },
+    { kana: "デパート", romaji: "depaato", meaning: "department store" },
+  ],
+  "k-b": [
+    { kana: "メンバー", romaji: "menbaa", meaning: "member" },
+    { kana: "バス", romaji: "basu", meaning: "bus" },
+  ],
+  "k-p": [
+    { kana: "ペン", romaji: "pen", meaning: "pen" },
+    { kana: "パン", romaji: "pan", meaning: "bread" },
   ],
 };
 

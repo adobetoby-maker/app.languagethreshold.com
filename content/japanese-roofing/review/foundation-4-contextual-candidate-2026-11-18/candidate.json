@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:4:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-4-source-audit-2026-11-18/packet.json",
+    "sha256": "e07770368fa8304f93298fa4a6a4928565a959acb8f7189489a443c6865ba134"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-4-6-draft.json",
+      "sha256": "39ab05d005fe21885e6886478f3a4242e7ec53543cf728d502d58b7b5a80aa7c"
+    }
+  },
+  "objectiveEnglish": "Use English words and short sentences to name jobsite items, state what you need, and report a simple problem.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を見て、意味を確認しましょう。the water（水）",
+      "targetEnglish": "the water",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:1",
+      "id": "foundation-roofing:4:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「道具」にあたる英語を、the を付けて思い出してください。",
+      "targetEnglish": "the tool",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:2",
+      "id": "foundation-roofing:4:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、当てはまる英文を選びましょう。",
+      "targetEnglish": "There's a problem.",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:9",
+      "candidateOptionsEnglish": [
+        "There's a problem.",
+        "I need more nails.",
+        "I'm thirsty."
+      ],
+      "id": "foundation-roofing:4:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "There's a problem.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「手袋」を英語で、the を付けて入力しましょう。",
+      "targetEnglish": "the gloves",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:3",
+      "id": "foundation-roofing:4:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「のどが渇きました」を英語で言ってみましょう。",
+      "targetEnglish": "I'm thirsty.",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:11",
+      "id": "foundation-roofing:4:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「もっと釘が必要です」を英語で書きましょう。",
+      "targetEnglish": "I need more nails.",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:10",
+      "id": "foundation-roofing:4:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "I need more nails.",
+      "explanationJapanese": "need の後に名詞を置くと「〜が必要です」という意味になります。more は「もっと多くの」を表します。",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:10",
+      "id": "foundation-roofing:4:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "I'm thirsty.",
+      "explanationJapanese": "I'm は I am の短縮形です。I'm thirsty. で「のどが渇いています」という意味になります。",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:11",
+      "id": "foundation-roofing:4:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "There's a problem.",
+      "explanationJapanese": "There's は There is の短縮形で、「〜があります」という意味を表します。",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:9",
+      "id": "foundation-roofing:4:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "tool",
+      "glossJapanese": "道具",
+      "senseJapanese": "作業に使う器具の総称です。",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:2",
+      "id": "foundation-roofing:4:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "broom",
+      "glossJapanese": "ほうき",
+      "senseJapanese": "地面などのごみやくずを掃き集める道具です。",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:8",
+      "id": "foundation-roofing:4:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "water",
+      "glossJapanese": "水",
+      "senseJapanese": "この場面では、のどが渇いた人が欲しい水を指します。",
+      "sourceAnchor": "foundation-roofing:4:ja-en:card:1",
+      "id": "foundation-roofing:4:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Reports a problem on the jobsite and says what they need and what they have.",
+      "partner": "Responds to the problem and confirms what the learner needs."
+    },
+    "openingEnglish": "There's a problem on the jobsite.",
+    "objectivesEnglish": [
+      "Report a problem on the jobsite.",
+      "Say that you are thirsty and want cold water.",
+      "Say that you need more nails."
+    ],
+    "wordBankEnglish": [
+      "water",
+      "thirsty",
+      "cold",
+      "nails",
+      "problem"
+    ],
+    "closureEnglish": "I need more nails.",
+    "sourceAnchors": [
+      "foundation-roofing:4:ja-en:line:1",
+      "foundation-roofing:4:ja-en:line:3",
+      "foundation-roofing:4:ja-en:card:10"
+    ],
+    "id": "foundation-roofing:4:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older audit reverse pair label retained as provenance only.",
+    "Source harness safety claims and product-specific tarp/hard-hat terms are excluded from this supplemental practice pending qualified review.",
+    "Haiku authoring, Opus critique and Fable corrections are AI assistance, not qualified approval.",
+    "Self-check replaced F4 tarp dictionary and hard-hat speaking with source-anchored water/thirst/nails; exact target and form validation required."
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:3:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-3-source-audit-2026-11-17/packet.json",
+    "sha256": "95ac4657df53c396aa98b71dbe2df6aae2285543dd5d17844d3e99e4400aa280"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-1-3-draft.json",
+      "sha256": "fc08c463fd83f57adc7c10d0c9b3341703ebc335867373b37ed4bd9ec8e66e15"
+    }
+  },
+  "objectiveEnglish": "Describe roof conditions (wet, slippery, dangerous) and ask whether equipment is ready.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を見て、意味を確認しましょう。ready（準備ができた）",
+      "targetEnglish": "ready",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:1",
+      "id": "foundation-roofing:3:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「安全な」にあたる英語を思い出してください。",
+      "targetEnglish": "safe",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:2",
+      "id": "foundation-roofing:3:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、当てはまる英文を選びましょう。",
+      "targetEnglish": "The roof is wet.",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:9",
+      "candidateOptionsEnglish": [
+        "It's dangerous.",
+        "Is it ready?",
+        "The roof is wet."
+      ],
+      "id": "foundation-roofing:3:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "The roof is wet.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「危険な」を英語で入力しましょう。",
+      "targetEnglish": "dangerous",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:3",
+      "id": "foundation-roofing:3:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「ここにいます」を英語で言ってみましょう。",
+      "targetEnglish": "I'm here.",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:12",
+      "id": "foundation-roofing:3:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「準備はできていますか？」を英語で書きましょう。",
+      "targetEnglish": "Is it ready?",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:11",
+      "id": "foundation-roofing:3:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Is it ready?",
+      "explanationJapanese": "be動詞（is）を主語の前に出すと疑問文になります。it は前に話題になったものを指します。",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:11",
+      "id": "foundation-roofing:3:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "I'm here.",
+      "explanationJapanese": "I'm は I am の短縮形です。I'm here. で「（私は）ここにいます」という意味になります。",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:12",
+      "id": "foundation-roofing:3:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The roof is wet.",
+      "explanationJapanese": "is の後に状態を表す形容詞（wet など）を置くと、「〜は…な状態です」という意味になります。",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:9",
+      "id": "foundation-roofing:3:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "wet",
+      "glossJapanese": "濡れた",
+      "senseJapanese": "水などで表面が濡れている状態を表します。例: The roof is wet.",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:4",
+      "id": "foundation-roofing:3:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "slippery",
+      "glossJapanese": "滑りやすい",
+      "senseJapanese": "表面がつるつるしていて、足が取られやすい状態です。",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:5",
+      "id": "foundation-roofing:3:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "dangerous",
+      "glossJapanese": "危険な",
+      "senseJapanese": "けがや事故につながるおそれがある状態を表します。",
+      "sourceAnchor": "foundation-roofing:3:ja-en:card:3",
+      "id": "foundation-roofing:3:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Asks whether the equipment is ready and describes the condition of the roof.",
+      "partner": "Listens, responds briefly, and confirms the roof condition."
+    },
+    "openingEnglish": "Is the equipment ready?",
+    "objectivesEnglish": [
+      "Ask whether the equipment is ready.",
+      "Say that the roof is wet.",
+      "Say that a wet roof is slippery and dangerous."
+    ],
+    "wordBankEnglish": [
+      "ready",
+      "wet",
+      "slippery",
+      "dangerous",
+      "equipment",
+      "roof"
+    ],
+    "closureEnglish": "It's dangerous.",
+    "sourceAnchors": [
+      "foundation-roofing:3:ja-en:line:6",
+      "foundation-roofing:3:ja-en:line:3",
+      "foundation-roofing:3:ja-en:card:9",
+      "foundation-roofing:3:ja-en:card:10"
+    ],
+    "id": "foundation-roofing:3:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older audit reverse pair label retained as provenance only.",
+    "Source harness safety claims and product-specific tarp/hard-hat terms are excluded from this supplemental practice pending qualified review.",
+    "Haiku authoring, Opus critique and Fable corrections are AI assistance, not qualified approval.",
+    "Self-check replaced F4 tarp dictionary and hard-hat speaking with source-anchored water/thirst/nails; exact target and form validation required."
+  ]
+}

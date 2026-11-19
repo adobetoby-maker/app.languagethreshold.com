@@ -14,6 +14,24 @@ import type { Core60ManifestEntry } from "../../lib/core60-stage-core.ts";
 
 export const CORE60_MANIFEST: readonly Core60ManifestEntry[] = [
   {
+    base: "dance-team",
+    language: "Spanish",
+    nativeLanguage: "English",
+    tradeLabel: "Dance Team",
+    foundation: { blurb: "Ten beginner dance-team Spanish lessons." },
+    master: { blurb: "Twenty rehearsal, teamwork and performance conversations." },
+  },
+  {
+    base: "cosmetology",
+    language: "Spanish",
+    nativeLanguage: "English",
+    tradeLabel: "Cosmetology: Hair & Nails",
+    foundation: { blurb: "Ten beginner Spanish lessons with hair and nails from day one." },
+    master: {
+      blurb: "Twenty client consultations, design decisions and complete salon conversations.",
+    },
+  },
+  {
     base: "or-cleaning",
     language: "Spanish",
     nativeLanguage: "English",

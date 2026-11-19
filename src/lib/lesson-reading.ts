@@ -1,3 +1,4 @@
+import { interestLesson } from "../data/interests-spanish.ts";
 import { orCleaningLesson } from "../data/or-cleaning.ts";
 import { placeLesson } from "../data/place-directions.ts";
 import { soundLesson } from "../data/sound-like-a-native.ts";
@@ -15,6 +16,18 @@ export function authoredLessonReading(
   targetLanguage: string,
   instructionLanguage: string,
 ) {
+  const interest = lessonNumber
+    ? interestLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)
+    : null;
+  if (interest)
+    return {
+      id: `${moduleId}-lesson-${lessonNumber}`,
+      title: interest.reading.title,
+      sentences: interest.reading.target.map((target, i) => ({
+        target,
+        en: interest.reading.native[i],
+      })),
+    };
   const cleaning = lessonNumber
     ? orCleaningLesson(moduleId, lessonNumber, targetLanguage, instructionLanguage)
     : null;

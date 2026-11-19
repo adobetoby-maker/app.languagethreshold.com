@@ -1,6 +1,7 @@
 // Catalog of paid plug-in modules. Frontend-only stub for now —
 // no payments wired yet; purchased ids live in app-state (localStorage).
 
+import { INTEREST_MODULES } from "./interests-spanish-catalog.ts";
 import type { Language, NativeLanguage } from "@/state/app-state";
 import { TRAVEL_ZONE_MODULES } from "./travel-zone.ts";
 import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts";
@@ -83,6 +84,7 @@ export function moduleSupportsLearningPair(
 
 // The hand-written catalog. MODULES (below) adds each data-driven Core 60 stage after its trade.
 const CATALOG: AppModule[] = [
+  ...INTEREST_MODULES,
   {
     id: "place-directions",
     name: "Place & Directions · Core 60",

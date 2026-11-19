@@ -173,7 +173,7 @@ test("the worker acknowledges protocol support without reading or downloading an
   const r = runtime();
   const response = await r.command("LESSON_PACK_PING");
   assert.equal(response.protocol, 2);
-  assert.deepEqual(Array.from(response.packIds), ["sound-like-a-native-es-en", "foundation-sound-like-a-native-es-en", "master-sound-like-a-native-es-en", "roofing-es-en", "landscaper-es-en", "construction-foreman-es-en", "foundation-military-en-es", "military-en-es", "master-military-en-es", "foundation-japanese-basics-ja-en", "japanese-basics-ja-en", "master-japanese-basics-ja-en"]);
+  assert.deepEqual(Array.from(response.packIds), ["foundation-dance-team-es-en", "dance-team-es-en", "master-dance-team-es-en", "foundation-cosmetology-es-en", "cosmetology-es-en", "master-cosmetology-es-en", "sound-like-a-native-es-en", "foundation-sound-like-a-native-es-en", "master-sound-like-a-native-es-en", "roofing-es-en", "landscaper-es-en", "construction-foreman-es-en", "foundation-military-en-es", "military-en-es", "master-military-en-es", "foundation-japanese-basics-ja-en", "japanese-basics-ja-en", "master-japanese-basics-ja-en"]);
   assert.equal(response.ok, true);
   assert.equal(r.calls.length, 0);
   assert.equal(r.stores.size, 0);

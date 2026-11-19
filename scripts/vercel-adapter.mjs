@@ -19,6 +19,12 @@ await buildOfflineLessonPack(`${out}/static`);
 await buildOfflineLessonPack(`${out}/static`, "landscaper-es-en");
 await buildOfflineLessonPack(`${out}/static`, "construction-foreman-es-en");
 for (const pack of [
+  "foundation-dance-team-es-en",
+  "dance-team-es-en",
+  "master-dance-team-es-en",
+  "foundation-cosmetology-es-en",
+  "cosmetology-es-en",
+  "master-cosmetology-es-en",
   "foundation-military-en-es",
   "military-en-es",
   "master-military-en-es",
@@ -113,12 +119,12 @@ writeFileSync(
         dest: "/audio/$1",
       },
       {
-        src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman|(?:foundation-|master-)?sound-like-a-native)-es-en|(?:foundation-military|military|master-military)-en-es|(?:foundation-|master-)?japanese-basics-ja-en)\\.json)",
+        src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman|(?:foundation-|master-)?(?:dance-team|cosmetology)|(?:foundation-|master-)?sound-like-a-native)-es-en|(?:foundation-military|military|master-military)-en-es|(?:foundation-|master-)?japanese-basics-ja-en)\\.json)",
         headers: { "cache-control": "no-store" },
         dest: "/lesson-packs/$1",
       },
       {
-        src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman|(?:foundation-|master-)?sound-like-a-native)-es-en|(?:foundation-military|military|master-military)-en-es|(?:foundation-|master-)?japanese-basics-ja-en)-[a-f0-9]{64}\\.json)",
+        src: "/lesson-packs/((?:(?:roofing|landscaper|construction-foreman|(?:foundation-|master-)?(?:dance-team|cosmetology)|(?:foundation-|master-)?sound-like-a-native)-es-en|(?:foundation-military|military|master-military)-en-es|(?:foundation-|master-)?japanese-basics-ja-en)-[a-f0-9]{64}\\.json)",
         headers: { "cache-control": "public, max-age=31536000, immutable" },
         dest: "/lesson-packs/$1",
       },

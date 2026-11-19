@@ -8,7 +8,7 @@ import {
 } from "../src/lib/picture-assembly.ts";
 import { PICTURE_OBJECTS } from "../src/lib/picture-action.ts";
 test("each module gets six distinct real items and six non-overlapping puzzle destinations", () => {
-  assert.equal(ASSEMBLY_PUZZLES.length, 73);
+  assert.equal(ASSEMBLY_PUZZLES.length, 75);
   for (const p of ASSEMBLY_PUZZLES) {
     assert.equal(p.items.length, 6);
     assert.equal(new Set(p.items.map((i) => i.object)).size, 6);

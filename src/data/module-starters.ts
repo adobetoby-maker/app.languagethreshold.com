@@ -1,3 +1,4 @@
+import { interestLessonCount } from "./interests-spanish.ts";
 import type { Language } from "@/state/app-state";
 import type { LibraryEntry } from "@/state/library-state";
 
@@ -522,6 +523,11 @@ export const MODULE_LESSONS: LessonMap = {
 };
 
 export function getLessons(moduleId: string, language: Language): string[] {
+  const interestCount = interestLessonCount(moduleId);
+  if (interestCount)
+    return language === "Spanish"
+      ? Array.from({ length: interestCount }, (_, i) => `seed-es-${moduleId}-lesson-${i + 1}`)
+      : [];
   const japaneseBasicsCount =
     moduleId === "japanese-basics"
       ? 30

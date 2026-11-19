@@ -1,3 +1,4 @@
+import { interestLesson } from "@/data/interests-spanish";
 import { orCleaningLesson } from "@/data/or-cleaning";
 import { placeLesson } from "@/data/place-directions";
 import { soundLesson } from "@/data/sound-like-a-native";
@@ -147,7 +148,8 @@ export function LessonReader({
     language === "Spanish" &&
     state.nativeLanguage === "English" &&
     lessonNumber &&
-    (placeLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
+    (interestLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
+      placeLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       soundLesson(moduleId, lessonNumber, language, state.nativeLanguage)) &&
     lessonNumber

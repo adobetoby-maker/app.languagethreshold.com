@@ -1,0 +1,733 @@
+{
+  "version": 1,
+  "module": "foundation-cosmetology",
+  "language": "Spanish",
+  "nativeLanguage": "English",
+  "headline": "Cosmetology: Hair & Nails Foundation",
+  "threshold": "Use Spanish to complete the Cosmetology: Hair & Nails situations, ask for clarification, and confirm a shared plan.",
+  "reviewed": false,
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Welcome to the salon",
+      "objective": "Greet a client, introduce your role, and confirm their appointment.",
+      "focus": "Use ser for identity and descriptions; estar for location or current state. Spanish subject pronouns are often optional.",
+      "words": [
+        {
+          "es": "el salón",
+          "en": "the salon",
+          "kind": "term"
+        },
+        {
+          "es": "la clienta",
+          "en": "the female client",
+          "kind": "term"
+        },
+        {
+          "es": "la cita",
+          "en": "the appointment",
+          "kind": "term"
+        },
+        {
+          "es": "el nombre",
+          "en": "the name",
+          "kind": "term"
+        },
+        {
+          "es": "la estilista",
+          "en": "the female hairstylist",
+          "kind": "term"
+        },
+        {
+          "es": "la manicurista",
+          "en": "the female nail technician",
+          "kind": "term"
+        },
+        {
+          "es": "el servicio",
+          "en": "the service",
+          "kind": "term"
+        },
+        {
+          "es": "la recepción",
+          "en": "the reception desk",
+          "kind": "term"
+        },
+        {
+          "es": "¿Tienes una cita?",
+          "en": "Do you have an appointment?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Soy la manicurista.",
+          "en": "I am the nail technician.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Greet a client, introduce your role, and confirm their appointment. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Hola, tengo una cita para las uñas. ¿Con quién hablo?",
+      "partnerRole": "a client arriving at the salon",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-1"
+    },
+    {
+      "n": 2,
+      "title": "Find the hair and nail stations",
+      "objective": "Locate the main stations and ask where equipment belongs.",
+      "focus": "Hay means there is or there are. Use está/están to locate a specific person or item.",
+      "words": [
+        {
+          "es": "la silla",
+          "en": "the chair",
+          "kind": "term"
+        },
+        {
+          "es": "la mesa",
+          "en": "the table",
+          "kind": "term"
+        },
+        {
+          "es": "el espejo",
+          "en": "the mirror",
+          "kind": "term"
+        },
+        {
+          "es": "el lavabo",
+          "en": "the washbasin",
+          "kind": "term"
+        },
+        {
+          "es": "el carrito",
+          "en": "the trolley",
+          "kind": "term"
+        },
+        {
+          "es": "la lámpara",
+          "en": "the lamp",
+          "kind": "term"
+        },
+        {
+          "es": "el cajón",
+          "en": "the drawer",
+          "kind": "term"
+        },
+        {
+          "es": "la puerta",
+          "en": "the door",
+          "kind": "term"
+        },
+        {
+          "es": "Hay una silla aquí.",
+          "en": "There is a chair here.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Dónde está el carrito?",
+          "en": "Where is the trolley?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Locate the main stations and ask where equipment belongs. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "¿Me muestras dónde están la mesa de uñas y el lavabo?",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-2"
+    },
+    {
+      "n": 3,
+      "title": "Talk about hair",
+      "objective": "Describe hair texture and ask about the desired length.",
+      "focus": "Tener expresses possession. Tener + noun is also used in expressions such as tener una duda.",
+      "words": [
+        {
+          "es": "el cabello",
+          "en": "the hair",
+          "kind": "term"
+        },
+        {
+          "es": "el largo",
+          "en": "the length",
+          "kind": "term"
+        },
+        {
+          "es": "la raíz",
+          "en": "the root",
+          "kind": "term"
+        },
+        {
+          "es": "la punta",
+          "en": "the end or tip",
+          "kind": "term"
+        },
+        {
+          "es": "el flequillo",
+          "en": "the bangs or fringe",
+          "kind": "term"
+        },
+        {
+          "es": "el rizo",
+          "en": "the curl",
+          "kind": "term"
+        },
+        {
+          "es": "la onda",
+          "en": "the wave",
+          "kind": "term"
+        },
+        {
+          "es": "la textura",
+          "en": "the texture",
+          "kind": "term"
+        },
+        {
+          "es": "Tengo el cabello ondulado.",
+          "en": "I have wavy hair.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Qué largo prefieres?",
+          "en": "What length do you prefer?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Describe hair texture and ask about the desired length. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Cuéntame cómo es tu cabello y qué largo quieres.",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-3"
+    },
+    {
+      "n": 4,
+      "title": "Talk about hands and nails",
+      "objective": "Name hand and nail parts and confirm a shape preference.",
+      "focus": "Estar describes a current state or location. It agrees with the subject: está for one, están for more than one.",
+      "words": [
+        {
+          "es": "la mano",
+          "en": "the hand",
+          "kind": "term"
+        },
+        {
+          "es": "el dedo",
+          "en": "the finger",
+          "kind": "term"
+        },
+        {
+          "es": "la uña",
+          "en": "the nail",
+          "kind": "term"
+        },
+        {
+          "es": "la cutícula",
+          "en": "the cuticle",
+          "kind": "term"
+        },
+        {
+          "es": "la piel",
+          "en": "the skin",
+          "kind": "term"
+        },
+        {
+          "es": "el borde",
+          "en": "the edge",
+          "kind": "term"
+        },
+        {
+          "es": "la forma",
+          "en": "the shape",
+          "kind": "term"
+        },
+        {
+          "es": "el largo",
+          "en": "the length",
+          "kind": "term"
+        },
+        {
+          "es": "¿Esta forma está bien?",
+          "en": "Is this shape okay?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Prefiero las uñas cortas.",
+          "en": "I prefer short nails.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Name hand and nail parts and confirm a shape preference. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "¿Quieres cambiar la forma o el largo de tus uñas?",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-4"
+    },
+    {
+      "n": 5,
+      "title": "Choose colors",
+      "objective": "Choose a shade, compare samples, and ask for another option.",
+      "focus": "Me gusta is used with one thing or an activity; me gustan with plural things. The thing liked determines the verb.",
+      "words": [
+        {
+          "es": "el rojo",
+          "en": "the red",
+          "kind": "term"
+        },
+        {
+          "es": "el rosa",
+          "en": "the pink",
+          "kind": "term"
+        },
+        {
+          "es": "el azul",
+          "en": "the blue",
+          "kind": "term"
+        },
+        {
+          "es": "el blanco",
+          "en": "the white",
+          "kind": "term"
+        },
+        {
+          "es": "el negro",
+          "en": "the black",
+          "kind": "term"
+        },
+        {
+          "es": "el tono",
+          "en": "the shade",
+          "kind": "term"
+        },
+        {
+          "es": "la muestra",
+          "en": "the sample",
+          "kind": "term"
+        },
+        {
+          "es": "el color",
+          "en": "the color",
+          "kind": "term"
+        },
+        {
+          "es": "Me gusta este tono.",
+          "en": "I like this shade.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Tienes otro rosa?",
+          "en": "Do you have another pink?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Choose a shade, compare samples, and ask for another option. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Aquí tienes las muestras. ¿Qué color te gusta más?",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-5"
+    },
+    {
+      "n": 6,
+      "title": "Name everyday hair tools",
+      "objective": "Identify a tool and request it clearly from a classmate.",
+      "focus": "Necesitar can be followed by a noun or an infinitive. The second verb stays in its dictionary form.",
+      "words": [
+        {
+          "es": "el peine",
+          "en": "the comb",
+          "kind": "term"
+        },
+        {
+          "es": "el cepillo",
+          "en": "the brush",
+          "kind": "term"
+        },
+        {
+          "es": "las tijeras",
+          "en": "the scissors",
+          "kind": "term"
+        },
+        {
+          "es": "la pinza",
+          "en": "the clip",
+          "kind": "term"
+        },
+        {
+          "es": "el secador",
+          "en": "the hair dryer",
+          "kind": "term"
+        },
+        {
+          "es": "la toalla",
+          "en": "the towel",
+          "kind": "term"
+        },
+        {
+          "es": "la capa",
+          "en": "the cape",
+          "kind": "term"
+        },
+        {
+          "es": "la botella",
+          "en": "the bottle",
+          "kind": "term"
+        },
+        {
+          "es": "Necesito un peine limpio.",
+          "en": "I need a clean comb.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Me pasas la toalla?",
+          "en": "Can you pass me the towel?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Identify a tool and request it clearly from a classmate. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Estamos preparando la estación. ¿Qué herramienta necesitas?",
+      "partnerRole": "a cosmetology classmate",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-6"
+    },
+    {
+      "n": 7,
+      "title": "Name everyday nail tools",
+      "objective": "Locate nail tools and distinguish a base coat from a finish.",
+      "focus": "Hay means there is or there are. Use está/están to locate a specific person or item.",
+      "words": [
+        {
+          "es": "la lima",
+          "en": "the nail file",
+          "kind": "term"
+        },
+        {
+          "es": "el pulidor",
+          "en": "the nail buffer",
+          "kind": "term"
+        },
+        {
+          "es": "el esmalte",
+          "en": "the nail polish",
+          "kind": "term"
+        },
+        {
+          "es": "el pincel",
+          "en": "the brush",
+          "kind": "term"
+        },
+        {
+          "es": "la base",
+          "en": "the base coat",
+          "kind": "term"
+        },
+        {
+          "es": "el acabado",
+          "en": "the finish",
+          "kind": "term"
+        },
+        {
+          "es": "el algodón",
+          "en": "the cotton",
+          "kind": "term"
+        },
+        {
+          "es": "la bandeja",
+          "en": "the tray",
+          "kind": "term"
+        },
+        {
+          "es": "¿Dónde está la lima?",
+          "en": "Where is the nail file?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero un acabado brillante.",
+          "en": "I want a glossy finish.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Locate nail tools and distinguish a base coat from a finish. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "¿Qué quieres poner en la bandeja antes de empezar?",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-7"
+    },
+    {
+      "n": 8,
+      "title": "Ask what the client wants",
+      "objective": "Ask open questions and confirm a client’s preference before choosing a service.",
+      "focus": "Querer + noun or infinitive expresses a preference. Me gustaría makes a softer request; clarify rather than assume.",
+      "words": [
+        {
+          "es": "la foto",
+          "en": "the photo",
+          "kind": "term"
+        },
+        {
+          "es": "la idea",
+          "en": "the idea",
+          "kind": "term"
+        },
+        {
+          "es": "el cambio",
+          "en": "the change",
+          "kind": "term"
+        },
+        {
+          "es": "el detalle",
+          "en": "the detail",
+          "kind": "term"
+        },
+        {
+          "es": "la preferencia",
+          "en": "the preference",
+          "kind": "term"
+        },
+        {
+          "es": "el estilo",
+          "en": "the style",
+          "kind": "term"
+        },
+        {
+          "es": "la consulta",
+          "en": "the consultation",
+          "kind": "term"
+        },
+        {
+          "es": "la opción",
+          "en": "the option",
+          "kind": "term"
+        },
+        {
+          "es": "¿Qué te gustaría cambiar?",
+          "en": "What would you like to change?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes mostrarme una foto?",
+          "en": "Can you show me a photo?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask open questions and confirm a client’s preference before choosing a service. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Tengo una idea, pero no sé cómo explicarla. ¿Me ayudas?",
+      "partnerRole": "a client describing a new look",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-8"
+    },
+    {
+      "n": 9,
+      "title": "Appointment times and prices",
+      "objective": "Ask for a price and confirm appointment time without assuming a real salon’s rates.",
+      "focus": "Use cuánto for how much, cuántos for how many masculine items, and a qué hora for at what time.",
+      "words": [
+        {
+          "es": "la hora",
+          "en": "the time or hour",
+          "kind": "term"
+        },
+        {
+          "es": "el minuto",
+          "en": "the minute",
+          "kind": "term"
+        },
+        {
+          "es": "el precio",
+          "en": "the price",
+          "kind": "term"
+        },
+        {
+          "es": "el total",
+          "en": "the total",
+          "kind": "term"
+        },
+        {
+          "es": "el pago",
+          "en": "the payment",
+          "kind": "term"
+        },
+        {
+          "es": "la duración",
+          "en": "the duration",
+          "kind": "term"
+        },
+        {
+          "es": "el día",
+          "en": "the day",
+          "kind": "term"
+        },
+        {
+          "es": "el calendario",
+          "en": "the calendar",
+          "kind": "term"
+        },
+        {
+          "es": "¿Cuánto cuesta?",
+          "en": "How much does it cost?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿A qué hora puedes venir?",
+          "en": "What time can you come?",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask for a price and confirm appointment time without assuming a real salon’s rates. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Tengo tiempo mañana por la tarde. ¿A qué hora me puedes atender?",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-9"
+    },
+    {
+      "n": 10,
+      "title": "Keep the consultation comfortable",
+      "objective": "Ask permission, invite a comfort check, and pass a product concern to the instructor.",
+      "focus": "Poder + infinitive expresses ability or a request. Puedo, puedes and puede change o to ue; podemos keeps o.",
+      "words": [
+        {
+          "es": "el permiso",
+          "en": "the permission",
+          "kind": "term"
+        },
+        {
+          "es": "la comodidad",
+          "en": "the comfort",
+          "kind": "term"
+        },
+        {
+          "es": "la pregunta",
+          "en": "the question",
+          "kind": "term"
+        },
+        {
+          "es": "la pausa",
+          "en": "the pause",
+          "kind": "term"
+        },
+        {
+          "es": "el producto",
+          "en": "the product",
+          "kind": "term"
+        },
+        {
+          "es": "la etiqueta",
+          "en": "the label",
+          "kind": "term"
+        },
+        {
+          "es": "la alergia",
+          "en": "the allergy",
+          "kind": "term"
+        },
+        {
+          "es": "la molestia",
+          "en": "the discomfort",
+          "kind": "term"
+        },
+        {
+          "es": "¿Puedo empezar?",
+          "en": "May I start?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Avísame si necesitas una pausa.",
+          "en": "Let me know if you need a break.",
+          "kind": "phrase"
+        },
+        {
+          "es": "¿Puedes repetirlo más despacio?",
+          "en": "Can you repeat it more slowly?",
+          "kind": "phrase"
+        },
+        {
+          "es": "Quiero confirmar que entendí.",
+          "en": "I want to confirm that I understood.",
+          "kind": "phrase"
+        }
+      ],
+      "speaking": "Ask permission, invite a comfort check, and pass a product concern to the instructor. Speak in Spanish; ask for help or slower speech when needed. End by confirming the agreed next step.",
+      "openingLine": "Antes de empezar, ¿qué quieres preguntarme sobre el producto?",
+      "partnerRole": "a salon client, classmate, or salon mentor",
+      "readingTemplate": "seed-es-foundation-cosmetology-lesson-10"
+    }
+  ],
+  "baseModule": "cosmetology",
+  "stage": "foundation"
+}

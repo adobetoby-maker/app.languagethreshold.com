@@ -24,6 +24,7 @@ import { lessonObjectiveId } from "../lib/learning-identity.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
 import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
+import { interestLesson } from "./interests-spanish.ts";
 import { militaryLessonPractice } from "./military-practice.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
@@ -1234,6 +1235,7 @@ function missionFromLesson(
     language,
     language === "English" ? "Spanish" : "English",
   );
+  const interest = interestLesson(module.id, lesson.n, language, "English");
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics =
     spanishBasicsLesson(module.id, lesson.n, language, "English") ??
@@ -1261,16 +1263,22 @@ function missionFromLesson(
     moduleEmoji: module.emoji,
     learnerRole: projectTextForLanguage(module.userRole, language),
     partnerRole:
+      interest?.partnerRole ??
       cleaning?.partnerRole ??
       place?.partnerRole ??
       sound?.partnerRole ??
       basics?.partnerRole ??
       military?.partnerRole ??
       partnerRoleFor(module, language),
-    level:
-      basics &&
-      (module.id.includes("spanish-102") ||
-        (module.id.includes("spanish-conjugation-patterns") && basics.stage === "master"))
+    level: interest
+      ? interest.stage === "foundation"
+        ? "A1"
+        : interest.stage === "master"
+          ? "B1"
+          : "A2"
+      : basics &&
+          (module.id.includes("spanish-102") ||
+            (module.id.includes("spanish-conjugation-patterns") && basics.stage === "master"))
         ? "B1"
         : basics
           ? basics.stage === "foundation"
@@ -1320,6 +1328,7 @@ function missionFromLesson(
       },
     ],
     openingLine:
+      interest?.openingLine ??
       cleaning?.openingLine ??
       place?.openingLine ??
       sound?.openingLine ??

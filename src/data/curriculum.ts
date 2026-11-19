@@ -32,6 +32,7 @@ import {
 } from "./foundation-roofing-curriculum.ts";
 import { MASTER_ROOFING_LESSONS, MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
+import { INTEREST_CURRICULA } from "./interests-spanish.ts";
 import { MILITARY_CURRICULUM } from "./military-curriculum.ts";
 import { MEDICAL_MISSION_LOGISTICS_CURRICULUM } from "./medical-mission-logistics-curriculum.ts";
 import { stageCurriculum } from "./core60-stages.ts";
@@ -4252,6 +4253,7 @@ import { EXTENDED_CURRICULA } from "./curriculum-extended.ts";
 CURRICULA["medical-mission-logistics"] = MEDICAL_MISSION_LOGISTICS_CURRICULUM;
 CURRICULA["place-directions"] = PLACE_CURRICULUM;
 Object.assign(CURRICULA, OR_CLEANING_CURRICULA);
+Object.assign(CURRICULA, INTEREST_CURRICULA);
 CURRICULA["military"] = MILITARY_CURRICULUM;
 CURRICULA["sound-like-a-native"] = SOUND_CURRICULUM;
 CURRICULA["spanish-basics"] = SPANISH_BASICS_CURRICULUM;

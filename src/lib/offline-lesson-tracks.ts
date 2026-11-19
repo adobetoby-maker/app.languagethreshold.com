@@ -1,5 +1,47 @@
 /** Public practice download allowlist, not reviewed curriculum releases. */
 export const OFFLINE_LESSON_TRACKS = {
+  "foundation-dance-team-es-en": {
+    moduleId: "foundation-dance-team",
+    label: "Dance Team Foundation",
+    target: "Spanish",
+    native: "English",
+    lessons: 10,
+  },
+  "dance-team-es-en": {
+    moduleId: "dance-team",
+    label: "Dance Team Core",
+    target: "Spanish",
+    native: "English",
+    lessons: 30,
+  },
+  "master-dance-team-es-en": {
+    moduleId: "master-dance-team",
+    label: "Dance Team Master",
+    target: "Spanish",
+    native: "English",
+    lessons: 20,
+  },
+  "foundation-cosmetology-es-en": {
+    moduleId: "foundation-cosmetology",
+    label: "Cosmetology: Hair & Nails Foundation",
+    target: "Spanish",
+    native: "English",
+    lessons: 10,
+  },
+  "cosmetology-es-en": {
+    moduleId: "cosmetology",
+    label: "Cosmetology: Hair & Nails Core",
+    target: "Spanish",
+    native: "English",
+    lessons: 30,
+  },
+  "master-cosmetology-es-en": {
+    moduleId: "master-cosmetology",
+    label: "Cosmetology: Hair & Nails Master",
+    target: "Spanish",
+    native: "English",
+    lessons: 20,
+  },
   "foundation-japanese-basics-ja-en": {
     moduleId: "foundation-japanese-basics",
     label: "Japanese 101 Foundation",

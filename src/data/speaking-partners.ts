@@ -190,13 +190,7 @@ export const SPEAKING_PARTNERS = [
     "a pharmacist clarifying a prescription and questions",
     "a customer at a pharmacy",
   ],
-  [
-    "teacher",
-    "Teacher",
-    "Education",
-    "a language teacher guiding the chosen topic",
-    "a student",
-  ],
+  ["teacher", "Teacher", "Education", "a language teacher guiding the chosen topic", "a student"],
   ["student", "Student", "Education", "a student asking about the lesson", "a teacher"],
   [
     "parent",
@@ -263,6 +257,10 @@ export function speakingPartner(id: string | undefined) {
   return SPEAKING_PARTNERS.find((r) => r[0] === id) ?? SPEAKING_PARTNERS[0];
 }
 export function suggestedPartnerIds(moduleId: string, category: string): string[] {
+  if (/^(foundation-|master-)?dance-team$/.test(moduleId))
+    return ["coach", "teammate", "teacher", "friend", "parent"];
+  if (/^(foundation-|master-)?cosmetology$/.test(moduleId))
+    return ["customer", "teacher", "coworker", "receptionist", "friend", "supplier"];
   if (/or-evs|or-cleaning/.test(moduleId))
     return [
       "circulating-nurse",

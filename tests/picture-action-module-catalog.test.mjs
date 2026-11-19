@@ -21,8 +21,8 @@ test("every current catalog module has one picture/action profile; stages reuse 
   const base = MODULES.filter(
     (m) => !m.id.startsWith("foundation-") && !m.id.startsWith("master-"),
   );
-  assert.equal(base.length, 74);
-  assert.equal(MODULES.length, 220);
+  assert.equal(base.length, 76);
+  assert.equal(MODULES.length, 226);
   assert.deepEqual(new Set(profiles.modules.map((m) => m.id)), new Set(base.map((m) => basePictureModule(m.id))));
   assert.equal(sceneForModule("foundation-or-cleaning"), "module-or-evs");
   for (const m of profiles.modules) {

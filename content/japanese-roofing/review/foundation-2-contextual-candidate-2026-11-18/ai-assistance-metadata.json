@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-18",
+  "authoring": "Codex authored and source-grounded corrections after two shared read-only CLI critiques",
+  "cliLoggedIn": true,
+  "callsSharedAcrossFoundation1And2": [
+    {
+      "requestedModelAlias": "haiku",
+      "actualModels": [
+        "claude-sonnet-5-5"
+      ],
+      "sessionId": "f8503165-71b3-462c-9ac1-c6907edd1293",
+      "safeMode": true,
+      "permissionMode": "plan",
+      "isError": false,
+      "purpose": "read-only candidate critique"
+    },
+    {
+      "requestedModelAlias": "opus",
+      "actualModels": [
+        "claude-opus-5-5"
+      ],
+      "sessionId": "0a9b9430-7b30-4386-ae2f-30ceecc29095",
+      "safeMode": true,
+      "permissionMode": "plan",
+      "isError": false,
+      "purpose": "read-only candidate critique"
+    }
+  ],
+  "haikuActualCalls": 0,
+  "sonnet55ActualCalls": 1,
+  "opus55ActualCalls": 1,
+  "fableCalls": 0,
+  "qualifiedApproval": false
+}

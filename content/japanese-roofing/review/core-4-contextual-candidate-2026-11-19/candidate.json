@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:4:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-4-source-decision-2026-11-18/packet.json",
+    "sha256": "30f4dd28c3db19c99e60985b9a6f287fa97075777dcf930ef3eb1948f89c4680"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-4-6-draft.json",
+      "sha256": "db0666acc7b9cf7b8da6522e5caa97e0a65d1319341d43b0e35d43983050c4aa"
+    }
+  },
+  "objectiveEnglish": "Partial support only: practice selected source vocabulary for roof parts (ridge, ridge vent, gutter, downspout, fascia, soffit, attic) and three selected source sentences. This is not a full lesson and does not teach installation, drainage, or ventilation decisions.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "この英語を見てください。日本語の目安は「棟（むね）」です。",
+      "targetEnglish": "ridge",
+      "sourceAnchor": "roofing:4:ja-en:card:6",
+      "id": "core-roofing:4:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「雨樋（あまどい）」にあたる英語を思い出してください。",
+      "targetEnglish": "gutter",
+      "sourceAnchor": "roofing:4:ja-en:card:3",
+      "id": "core-roofing:4:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語を選んでください。",
+      "targetEnglish": "downspout",
+      "candidateOptionsEnglish": [
+        "soffit",
+        "downspout",
+        "attic"
+      ],
+      "sourceAnchor": "roofing:4:ja-en:card:4",
+      "id": "core-roofing:4:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "downspout",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「軒天（のきてん）」にあたる英語を入力してください。",
+      "targetEnglish": "soffit",
+      "sourceAnchor": "roofing:4:ja-en:card:9",
+      "id": "core-roofing:4:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "教材の英文を声に出して言ってください。",
+      "targetEnglish": "The attic needs ventilation.",
+      "sourceAnchor": "roofing:4:ja-en:card:15",
+      "id": "core-roofing:4:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「棟換気（棟の換気部材）」にあたる英語を書いてください。",
+      "targetEnglish": "ridge vent",
+      "sourceAnchor": "roofing:4:ja-en:card:7",
+      "id": "core-roofing:4:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "goes along the ridge",
+      "explanationJapanese": "go along は、ここでは「〜に沿って通っている／ある」という位置関係を表します。主語 The ridge vent が単数なので goes になります。",
+      "sourceAnchor": "roofing:4:ja-en:line:2",
+      "id": "core-roofing:4:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "needs ventilation",
+      "explanationJapanese": "need は「〜を必要とする」という動詞です。主語 The attic が単数なので needs になり、後ろに名詞 ventilation（換気）が続きます。",
+      "sourceAnchor": "roofing:4:ja-en:card:15",
+      "id": "core-roofing:4:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "has to run away from the house",
+      "explanationJapanese": "has to は「〜しなければならない」という義務の形で、後ろに動詞の原形 run が続きます。ここでの run は「流れる」、away from は「〜から離れて」です。「逃げる」という熟語の意味ではありません。教材には別の文として The water must drain away from the house. もあり、二つは別々の文として扱います。",
+      "sourceAnchor": "roofing:4:ja-en:line:6",
+      "id": "core-roofing:4:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "ridge",
+      "glossJapanese": "棟（むね）",
+      "senseJapanese": "教材では「屋根の最も高い部分」にあるものとして出てきます。",
+      "sourceAnchor": "roofing:4:ja-en:card:6",
+      "id": "core-roofing:4:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "vent",
+      "glossJapanese": "換気部材（ベント）",
+      "senseJapanese": "この教材では ridge vent と box vent という語の中で使われています。",
+      "sourceAnchor": "roofing:4:ja-en:card:2",
+      "id": "core-roofing:4:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "gutter",
+      "glossJapanese": "雨樋（あまどい）",
+      "senseJapanese": "教材では The gutter is clogged.（雨樋が詰まっている）という文で使われています。",
+      "sourceAnchor": "roofing:4:ja-en:card:3",
+      "id": "core-roofing:4:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "教材の場面で Where does the downspout go? と尋ねる foreman（フォアマン）の役",
+      "partner": "教材の場面で場所を指し示す worker（作業員）の役"
+    },
+    "openingEnglish": "At the highest part of the roof is the ridge.",
+    "closureEnglish": "Where does the downspout go?",
+    "objectivesEnglish": [
+      "Say selected source part names: ridge, fascia, and soffit.",
+      "Say the source sentence The gutter is clogged.",
+      "Ask the source question Where does the downspout go?"
+    ],
+    "wordBankEnglish": [
+      "ridge",
+      "ridge vent",
+      "gutter",
+      "downspout",
+      "fascia",
+      "soffit",
+      "attic"
+    ],
+    "sourceAnchors": [
+      "roofing:4:ja-en:card:3",
+      "roofing:4:ja-en:card:4",
+      "roofing:4:ja-en:card:5",
+      "roofing:4:ja-en:card:6",
+      "roofing:4:ja-en:card:7",
+      "roofing:4:ja-en:card:9",
+      "roofing:4:ja-en:card:10",
+      "roofing:4:ja-en:card:12",
+      "roofing:4:ja-en:card:13",
+      "roofing:4:ja-en:line:1",
+      "roofing:4:ja-en:line:2",
+      "roofing:4:ja-en:line:3",
+      "roofing:4:ja-en:line:4",
+      "roofing:4:ja-en:line:5",
+      "roofing:4:ja-en:line:7"
+    ],
+    "id": "core-roofing:4:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support, proposed core stage IDs with exact legacy roofing source anchors; no identity migration.",
+    "Partial selected communication supplement only; ventilation, drainage, product specifications, fastener suitability and installation decisions require qualified source/trade/dictionary review.",
+    "Foreman and crew lead are distinct source roles; no Japanese organizational hierarchy is inferred.",
+    "Roofing cement is a product term, not a claim about cement composition; source material decisions remain held.",
+    "AI authoring/critique/correction is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

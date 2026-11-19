@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:6:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-6-source-decision-2026-11-18/packet.json",
+    "sha256": "c93eb94ea6384fe624536286ebfbc599ec9687f2db945cbc2de80bd85658fac9"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-4-6-draft.json",
+      "sha256": "db0666acc7b9cf7b8da6522e5caa97e0a65d1319341d43b0e35d43983050c4aa"
+    }
+  },
+  "objectiveEnglish": "Partial support only: practice selected source vocabulary for crew and work-area terms and selected source briefing sentences. This is not a full lesson and does not teach role assignment, hazard identification, or safety decisions.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "この英語を見てください。日本語の目安は「フォアマン（職長）」です。",
+      "targetEnglish": "foreman",
+      "sourceAnchor": "roofing:6:ja-en:card:5",
+      "id": "core-roofing:6:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「クルーリーダー（班長）」にあたる英語を思い出してください。",
+      "targetEnglish": "crew lead",
+      "sourceAnchor": "roofing:6:ja-en:card:1",
+      "id": "core-roofing:6:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語を選んでください。",
+      "targetEnglish": "hazard",
+      "candidateOptionsEnglish": [
+        "hazard",
+        "delivery",
+        "staging area"
+      ],
+      "sourceAnchor": "roofing:6:ja-en:card:9",
+      "id": "core-roofing:6:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "hazard",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「作業区域」にあたる英語を入力してください。",
+      "targetEnglish": "work zone",
+      "sourceAnchor": "roofing:6:ja-en:card:6",
+      "id": "core-roofing:6:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "教材の英文を声に出して言ってください。",
+      "targetEnglish": "Let's review today's roof plan before we start.",
+      "sourceAnchor": "roofing:6:ja-en:card:11",
+      "id": "core-roofing:6:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「はがし（撤去）」にあたる英語を書いてください。",
+      "targetEnglish": "tear-off",
+      "sourceAnchor": "roofing:6:ja-en:card:3",
+      "id": "core-roofing:6:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "is leading the tear-off crew",
+      "explanationJapanese": "lead は「率いる」です。ここでの is leading は「今この瞬間」ではなく、今日の担当や段取りを表す進行形です。Who is leading ...? で「誰が率いることになっているか」を尋ねます。",
+      "sourceAnchor": "roofing:6:ja-en:card:12",
+      "id": "core-roofing:6:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "where you will stage the materials",
+      "explanationJapanese": "Show me の後ろに入った疑問の形なので、語順は will you ではなく you will です。will はこれからのことを表し、stage はここでは「仮置きする」という動詞です。",
+      "sourceAnchor": "roofing:6:ja-en:card:13",
+      "id": "core-roofing:6:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "before we start",
+      "explanationJapanese": "before は「〜の前に」です。後ろに we start（主語 + 動詞）が続き、「私たちが始める前に」という意味になります。",
+      "sourceAnchor": "roofing:6:ja-en:card:16",
+      "id": "core-roofing:6:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "foreman",
+      "glossJapanese": "フォアマン（職長）",
+      "senseJapanese": "教材では、作業開始前に roof plan の確認を呼びかけ、質問をする人として出てきます。日本の現場の役職と同じとは限りません。",
+      "sourceAnchor": "roofing:6:ja-en:card:5",
+      "id": "core-roofing:6:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "crew lead",
+      "glossJapanese": "クルーリーダー（班長）",
+      "senseJapanese": "教材では、foreman が tear-off crew を誰が率いるかを尋ねたときに、crew lead の Luis が手を挙げます。foreman との上下関係は教材に書かれていません。",
+      "sourceAnchor": "roofing:6:ja-en:card:1",
+      "id": "core-roofing:6:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "staging area",
+      "glossJapanese": "仮置き場",
+      "senseJapanese": "資材を仮置きする場所を指す語です。教材には stage the materials（資材を仮置きする）という関連表現があります。",
+      "sourceAnchor": "roofing:6:ja-en:card:2",
+      "id": "core-roofing:6:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "教材の場面で作業開始前の確認を進める foreman（フォアマン）の役",
+      "partner": "教材の場面で集まった crew の一員の役（教材では crew lead の Luis が手を挙げます）"
+    },
+    "openingEnglish": "Let's review today's roof plan before we start.",
+    "closureEnglish": "Any questions before we start?",
+    "objectivesEnglish": [
+      "Open with the source sentence Let's review today's roof plan before we start.",
+      "Ask the source question Who is leading the tear-off crew?",
+      "Say the source sentences Tell me if you see any hazard. and Does everyone understand the plan? as language practice only."
+    ],
+    "wordBankEnglish": [
+      "crew lead",
+      "crew",
+      "foreman",
+      "work zone",
+      "assignment",
+      "roof plan",
+      "hazard",
+      "staging area",
+      "tear-off"
+    ],
+    "sourceAnchors": [
+      "roofing:6:ja-en:card:1",
+      "roofing:6:ja-en:card:2",
+      "roofing:6:ja-en:card:3",
+      "roofing:6:ja-en:card:4",
+      "roofing:6:ja-en:card:5",
+      "roofing:6:ja-en:card:6",
+      "roofing:6:ja-en:card:7",
+      "roofing:6:ja-en:card:8",
+      "roofing:6:ja-en:card:9",
+      "roofing:6:ja-en:card:11",
+      "roofing:6:ja-en:card:12",
+      "roofing:6:ja-en:card:14",
+      "roofing:6:ja-en:card:15",
+      "roofing:6:ja-en:card:16",
+      "roofing:6:ja-en:line:2",
+      "roofing:6:ja-en:line:3",
+      "roofing:6:ja-en:line:4",
+      "roofing:6:ja-en:line:5",
+      "roofing:6:ja-en:line:7",
+      "roofing:6:ja-en:line:8",
+      "roofing:6:ja-en:line:9"
+    ],
+    "id": "core-roofing:6:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support, proposed core stage IDs with exact legacy roofing source anchors; no identity migration.",
+    "Partial selected communication supplement only; ventilation, drainage, product specifications, fastener suitability and installation decisions require qualified source/trade/dictionary review.",
+    "Foreman and crew lead are distinct source roles; no Japanese organizational hierarchy is inferred.",
+    "Roofing cement is a product term, not a claim about cement composition; source material decisions remain held.",
+    "AI authoring/critique/correction is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

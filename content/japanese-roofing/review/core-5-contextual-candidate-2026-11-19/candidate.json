@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:5:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-5-source-decision-2026-11-18/packet.json",
+    "sha256": "889d7cc580bfa5ba3d8602f2be7064f17c4986c56c33d5aca34bc6fa3462da41"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-4-6-draft.json",
+      "sha256": "db0666acc7b9cf7b8da6522e5caa97e0a65d1319341d43b0e35d43983050c4aa"
+    }
+  },
+  "objectiveEnglish": "Partial support only: practice selected source vocabulary for fasteners and materials and four selected source ordering sentences. This is not a full lesson and does not teach which materials a job requires.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "この英語を見てください。日本語の目安は「釘（くぎ）」です。",
+      "targetEnglish": "nail",
+      "sourceAnchor": "roofing:5:ja-en:card:4",
+      "id": "core-roofing:5:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "カタカナで「ルーフィングセメント」と呼ばれる材料名の英語を思い出してください。日本語の「セメント（モルタルなど）」に置き換えず、材料名としてそのまま覚えます。",
+      "targetEnglish": "roofing cement",
+      "sourceAnchor": "roofing:5:ja-en:card:3",
+      "id": "core-roofing:5:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語を選んでください。",
+      "targetEnglish": "staple",
+      "candidateOptionsEnglish": [
+        "staple",
+        "screw",
+        "sealant"
+      ],
+      "sourceAnchor": "roofing:5:ja-en:card:5",
+      "id": "core-roofing:5:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "staple",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「亜鉛めっきの釘」にあたる英語を入力してください。",
+      "targetEnglish": "galvanized nails",
+      "sourceAnchor": "roofing:5:ja-en:card:7",
+      "id": "core-roofing:5:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "教材の英文を声に出して言ってください。",
+      "targetEnglish": "I need two boxes of roofing nails.",
+      "sourceAnchor": "roofing:5:ja-en:card:10",
+      "id": "core-roofing:5:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「シーラント（シーリング材）」にあたる英語を書いてください。",
+      "targetEnglish": "sealant",
+      "sourceAnchor": "roofing:5:ja-en:card:9",
+      "id": "core-roofing:5:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "two boxes of roofing nails",
+      "explanationJapanese": "数 + boxes of + 名詞で「〜を何箱」という数え方になります。box は複数なので boxes になり、of の後ろに数える対象の roofing nails が続きます。",
+      "sourceAnchor": "roofing:5:ja-en:card:10",
+      "id": "core-roofing:5:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "does the job require",
+      "explanationJapanese": "疑問文では does + 主語 + 動詞の原形の語順になるため、require に s は付きません。教材の別の文 which nails the job requires は文の中に入った疑問の形で、does を使わず requires になります。",
+      "sourceAnchor": "roofing:5:ja-en:card:12",
+      "id": "core-roofing:5:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "confirm the order",
+      "explanationJapanese": "confirm は「確認する／確定する」、the order は「注文」です。教材の文では Please を前に付けて、ていねいな依頼にしています。",
+      "sourceAnchor": "roofing:5:ja-en:card:14",
+      "id": "core-roofing:5:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "roofing cement",
+      "glossJapanese": "ルーフィングセメント（材料名）",
+      "senseJapanese": "教材に出てくる材料名です。cement という語を含みますが、モルタルやコンクリート用のセメントという意味に訳さないよう注意します。",
+      "sourceAnchor": "roofing:5:ja-en:card:3",
+      "id": "core-roofing:5:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "box",
+      "glossJapanese": "箱",
+      "senseJapanese": "教材では two boxes of roofing nails のように、注文する数量を数える単位として使われています。",
+      "sourceAnchor": "roofing:5:ja-en:card:8",
+      "id": "core-roofing:5:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "sealant",
+      "glossJapanese": "シーラント（シーリング材）",
+      "senseJapanese": "すき間をふさぐ材料を指す語です。教材では roofing cement と並べて、必要な材料として出てきます。",
+      "sourceAnchor": "roofing:5:ja-en:card:9",
+      "id": "core-roofing:5:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "教材の場面で supplier に電話をかける foreman（フォアマン）の役",
+      "partner": "教材の場面で注文を受ける supplier（資材の供給業者）の役"
+    },
+    "openingEnglish": "I need two boxes of roofing nails.",
+    "closureEnglish": "Please confirm the order.",
+    "objectivesEnglish": [
+      "Say the source sentence I need two boxes of roofing nails.",
+      "Ask the source question Do you have plastic cap nails?",
+      "Ask the source question When can you deliver them? and close with Please confirm the order."
+    ],
+    "wordBankEnglish": [
+      "roofing nails",
+      "plastic cap nails",
+      "roofing cement",
+      "sealant",
+      "box"
+    ],
+    "sourceAnchors": [
+      "roofing:5:ja-en:card:1",
+      "roofing:5:ja-en:card:2",
+      "roofing:5:ja-en:card:3",
+      "roofing:5:ja-en:card:8",
+      "roofing:5:ja-en:card:9",
+      "roofing:5:ja-en:card:10",
+      "roofing:5:ja-en:card:11",
+      "roofing:5:ja-en:card:13",
+      "roofing:5:ja-en:card:14",
+      "roofing:5:ja-en:line:1",
+      "roofing:5:ja-en:line:2",
+      "roofing:5:ja-en:line:3",
+      "roofing:5:ja-en:line:5",
+      "roofing:5:ja-en:line:6",
+      "roofing:5:ja-en:line:8"
+    ],
+    "id": "core-roofing:5:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support, proposed core stage IDs with exact legacy roofing source anchors; no identity migration.",
+    "Partial selected communication supplement only; ventilation, drainage, product specifications, fastener suitability and installation decisions require qualified source/trade/dictionary review.",
+    "Foreman and crew lead are distinct source roles; no Japanese organizational hierarchy is inferred.",
+    "Roofing cement is a product term, not a claim about cement composition; source material decisions remain held.",
+    "AI authoring/critique/correction is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

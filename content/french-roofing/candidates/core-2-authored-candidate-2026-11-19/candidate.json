@@ -1,0 +1,570 @@
+{
+  "lessonId": "core-roofing:2:fr-en",
+  "candidateObjectiveEnglish": "Identify underlayment and plywood and ask where one sample item is.",
+  "grammarExplanationEnglish": "Use \"This is\" + noun to identify an item. Reverse \"is\" and \"this\" to ask \"Is this …?\" Use \"Where is …?\" to ask the location of one item. Material nouns can be article-free: \"This is plywood.\" Use \"the\" for a specific item: \"Where is the plywood?\"",
+  "grammarExplanationFrench": "« This is » + nom identifie un élément. Inversez « is » et « this » pour demander « Is this …? ». « Where is …? » demande où se trouve un élément. Un nom de matériau peut être sans article : « This is plywood. » « The » désigne un élément précis : « Where is the plywood? »",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "la sous-couche",
+      "candidateTargetEnglish": "underlayment",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "la sous-couche",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:2:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "le contreplaqué",
+      "candidateTargetEnglish": "plywood",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le contreplaqué",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:2:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la question anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "Is this underlayment?",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "Est-ce de la sous-couche ?",
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "id": "core-roofing:2:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « Est-ce du contreplaqué ? »",
+      "candidateTargetEnglish": "Is this plywood?",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "Est-ce du contreplaqué ?",
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "id": "core-roofing:2:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « C'est du contreplaqué. »",
+      "candidateTargetEnglish": "This is plywood.",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "C'est du contreplaqué.",
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "id": "core-roofing:2:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately.",
+      "acceptedCandidateAlternatesEnglish": [
+        "It's plywood."
+      ]
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Où est le contreplaqué ? »",
+      "candidateTargetEnglish": "Where is the plywood?",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "Où est le contreplaqué ?",
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "id": "core-roofing:2:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:2:fr-en:form:1",
+      "englishForm": "This is + noun",
+      "meaningFrench": "ceci est / c’est",
+      "candidateExampleEnglish": "This is plywood.",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:8"
+      ],
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "id": "core-roofing:2:fr-en:form:2",
+      "englishForm": "Is this + noun?",
+      "meaningFrench": "est-ce … ?",
+      "candidateExampleEnglish": "Is this underlayment?",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:2"
+      ],
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "id": "core-roofing:2:fr-en:form:3",
+      "englishForm": "Where is + noun?",
+      "meaningFrench": "où est … ?",
+      "candidateExampleEnglish": "Where is the plywood?",
+      "sourceAnchors": [
+        "core-roofing:2:fr-en:card:8"
+      ],
+      "provenance": "New identification/location frame plus source card2 underlayment or card8 plywood; hypothetical sample, not source site data.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member identifying labelled material samples.",
+    "partnerRole": "A coworker holding labelled practice cards.",
+    "candidateOpeningEnglish": "Is this underlayment?",
+    "goalEnglish": "Ask whether a sample is underlayment, identify plywood and ask where the plywood is.",
+    "candidateWordBankEnglish": [
+      "underlayment",
+      "plywood",
+      "This is",
+      "Is this",
+      "Where is the plywood?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "sourceAnchors": [
+      "core-roofing:2:fr-en:card:2",
+      "core-roofing:2:fr-en:card:8"
+    ],
+    "id": "core-roofing:2:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "Hypothetical practice using labelled sample images, not actual site findings.",
+    "partnerCueProvenance": "New hypothetical labelled-card dialogue; identifies samples and location without layer-order or actual product finding.",
+    "objectiveProvenance": "New narrower practice task; full pinned source speaking objective remains unfulfilled pending held terminology/source decisions.",
+    "partnerCuesEnglish": [
+      "Yes. This is underlayment.",
+      "And this card?",
+      "Here is the plywood."
+    ],
+    "expectedSecondTurnEnglish": "This is plywood.",
+    "secondTurnProvenance": "New hypothetical labelled-card response from source plywood term.",
+    "thirdTurnEnglish": "Where is the plywood?"
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-2-source-decision-2026-11-18/packet.json",
+    "sha256": "6fbebfde2bae6ff2d68f113d6633f0225a09999a718e540ec18cb6b5dea3dff8"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:2:fr-en:card:1",
+      "sourceEnglish": "roof deck",
+      "candidateFrench": null,
+      "hold": "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring. Archived speaking asks a supervisor to confirm installation order, while source speaking asks the learner to point out deck, underlayment and edge on a roof plan. Resolve objective parity before authoring a scored speaking scene.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:2:fr-en:card:2",
+      "sourceEnglish": "underlayment",
+      "candidateFrench": "la sous-couche",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:2:fr-en:card:3",
+      "sourceEnglish": "felt paper",
+      "candidateFrench": null,
+      "hold": "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:2:fr-en:card:4",
+      "sourceEnglish": "drip edge",
+      "candidateFrench": null,
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6. Archived speaking asks a supervisor to confirm installation order, while source speaking asks the learner to point out deck, underlayment and edge on a roof plan. Resolve objective parity before authoring a scored speaking scene.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:2:fr-en:card:5",
+      "sourceEnglish": "sheathing",
+      "candidateFrench": null,
+      "hold": "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:2:fr-en:card:6",
+      "sourceEnglish": "eave",
+      "candidateFrench": null,
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:2:fr-en:card:7",
+      "sourceEnglish": "rake",
+      "candidateFrench": null,
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:2:fr-en:card:8",
+      "sourceEnglish": "plywood",
+      "candidateFrench": "le contreplaqué",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:2:fr-en:card:9",
+      "sourceEnglish": "synthetic underlayment",
+      "candidateFrench": null,
+      "hold": "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:2:fr-en:card:10",
+      "sourceEnglish": "Install the drip edge first.",
+      "candidateFrench": null,
+      "hold": "The source commands installing the drip edge first, but edge sequence depends on the approved detail and manufacturer; qualified roofing/source review must decide whether this can remain a teaching example without implying a universal sequence.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:2:fr-en:card:11",
+      "sourceEnglish": "Sweep the deck before underlayment.",
+      "candidateFrench": null,
+      "hold": "Linked structural roof-deck term decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:2:fr-en:card:12",
+      "sourceEnglish": "The deck must be dry and clean.",
+      "candidateFrench": null,
+      "hold": "Linked structural roof-deck term decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:2:fr-en:card:13",
+      "sourceEnglish": "Roll out the underlayment.",
+      "candidateFrench": "Déroulez la sous-couche.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:2:fr-en:card:14",
+      "sourceEnglish": "Where does the drip edge go?",
+      "candidateFrench": null,
+      "hold": "Linked drip-edge term decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:1",
+      "sourceEnglish": "The crew looks at the layers under the shingles.",
+      "candidateFrench": null,
+      "hold": "Linked shingle material/locale decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:2",
+      "sourceEnglish": "At the bottom is the roof deck, which is plywood.",
+      "candidateFrench": null,
+      "hold": "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:3",
+      "sourceEnglish": "The deck has to be dry and clean.",
+      "candidateFrench": null,
+      "hold": "Linked structural roof-deck term decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:4",
+      "sourceEnglish": "The underlayment goes on top, for example felt paper.",
+      "candidateFrench": null,
+      "hold": "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:5",
+      "sourceEnglish": "The foreman asks: Where does the drip edge go?",
+      "candidateFrench": null,
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalRoleDecisionRef": "core-roofing:1:fr-en:reader:2",
+      "internalRoleDecisionNote": "Originating foreman-to-chef-d’équipe role question; no approved equivalence or access context inherited."
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:6",
+      "sourceEnglish": "A worker points to the eave edge and the rake edge.",
+      "candidateFrench": null,
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:2:fr-en:reader:7",
+      "sourceEnglish": "Then the foreman orders: unroll the underlayment.",
+      "candidateFrench": null,
+      "hold": "The source says the foreman orders the crew to unroll underlayment; the archive changes this to asks. Preserve the command force or obtain a source change.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalRoleDecisionRef": "core-roofing:1:fr-en:reader:2",
+      "internalRoleDecisionNote": "Originating foreman-to-chef-d’équipe role question; no approved equivalence or access context inherited."
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:2:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:2:fr-en:card:1",
+      "englishHeadword": "roof deck",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring. Archived speaking asks a supervisor to confirm installation order, while source speaking asks the learner to point out deck, underlayment and edge on a roof plan. Resolve objective parity before authoring a scored speaking scene.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:2:fr-en:card:2",
+      "englishHeadword": "underlayment",
+      "candidateFrenchSense": "la sous-couche",
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:2:fr-en:card:3",
+      "englishHeadword": "felt paper",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:2:fr-en:card:4",
+      "englishHeadword": "drip edge",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6. Archived speaking asks a supervisor to confirm installation order, while source speaking asks the learner to point out deck, underlayment and edge on a roof plan. Resolve objective parity before authoring a scored speaking scene.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:2:fr-en:card:5",
+      "englishHeadword": "sheathing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:2:fr-en:card:6",
+      "englishHeadword": "eave",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:2:fr-en:card:7",
+      "englishHeadword": "rake",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:2:fr-en:card:8",
+      "englishHeadword": "plywood",
+      "candidateFrenchSense": "le contreplaqué",
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:2:fr-en:card:9",
+      "englishHeadword": "synthetic underlayment",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:2:fr-en:card:10",
+      "englishHeadword": "Install the drip edge first.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "The source commands installing the drip edge first, but edge sequence depends on the approved detail and manufacturer; qualified roofing/source review must decide whether this can remain a teaching example without implying a universal sequence.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:2:fr-en:card:11",
+      "englishHeadword": "Sweep the deck before underlayment.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Linked structural roof-deck term decision is propagated into this sentence; no dependent activity uses this face.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:2:fr-en:card:12",
+      "englishHeadword": "The deck must be dry and clean.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Linked structural roof-deck term decision is propagated into this sentence; no dependent activity uses this face.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:2:fr-en:card:13",
+      "englishHeadword": "Roll out the underlayment.",
+      "candidateFrenchSense": "Déroulez la sous-couche.",
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:2:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:2:fr-en:card:14",
+      "englishHeadword": "Where does the drip edge go?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Deck, Underlayment & Edges",
+      "status": "held",
+      "hold": "Linked drip-edge term decision is propagated into this sentence; no dependent activity uses this face.",
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison.",
+    "Bare underlayment/sous-couche is proposed only as a generic sample label. Felt/synthetic product equivalence and whether the term denotes a layer versus product remain unresolved; no type, application or order is inferred. That review is linked to Core2 card3/card9/Reader4."
+  ]
+}

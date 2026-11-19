@@ -1,0 +1,596 @@
+{
+  "lessonId": "core-roofing:1:fr-en",
+  "candidateObjectiveEnglish": "Describe a sample roof as flat or sloped, identify roof-pitch vocabulary and request a pitch check.",
+  "grammarExplanationEnglish": "An adjective can precede a noun: flat roof. After is, it stands alone: The roof is flat. In Is the roof flat or sloped?, is comes before the subject. Roof pitch is a term made of two nouns. Check + object is a short imperative request; before we start places that request in time.",
+  "grammarExplanationFrench": "En anglais, l'adjectif peut précéder le nom : « flat roof ». Après « is », il reste seul : « The roof is flat ». Dans « Is the roof flat or sloped? », « is » précède le sujet. « Roof pitch » est composé de deux noms. « Check » + complément formule une consigne courte ; « before we start » signifie « avant que nous commencions ».",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "le toit plat",
+      "candidateTargetEnglish": "flat roof",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "le toit plat",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "la pente du toit",
+      "candidateTargetEnglish": "roof pitch",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "la pente du toit",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise et indiquez son sens en français.",
+      "candidateTargetEnglish": "This roof is sloped, not flat.",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:reader:3"
+      ],
+      "expectedMeaningFrench": "Ce toit est en pente, pas plat.",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : le toit en pente",
+      "candidateTargetEnglish": "sloped roof",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le toit en pente",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately.",
+      "acceptedCandidateAlternatesEnglish": [
+        "the sloped roof"
+      ]
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Vérifiez la pente du toit avant que nous commencions. »",
+      "candidateTargetEnglish": "Check the roof pitch before we start.",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:15"
+      ],
+      "expectedMeaningFrench": "Vérifiez la pente du toit avant que nous commencions.",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : Le toit est-il plat ou en pente ?",
+      "candidateTargetEnglish": "Is the roof flat or sloped?",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "Le toit est-il plat ou en pente ?",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Is + subject + adjective?",
+      "meaningFrench": "question avec être",
+      "candidateExampleEnglish": "Is the roof flat or sloped?",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:7",
+        "core-roofing:1:fr-en:card:14",
+        "core-roofing:1:fr-en:card:8"
+      ],
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "englishForm": "is …, not …",
+      "meaningFrench": "est …, pas …",
+      "candidateExampleEnglish": "This roof is sloped, not flat.",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:8",
+        "core-roofing:1:fr-en:reader:3"
+      ],
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "englishForm": "check + object",
+      "meaningFrench": "vérifiez + complément",
+      "candidateExampleEnglish": "Check the roof pitch before we start.",
+      "sourceAnchors": [
+        "core-roofing:1:fr-en:card:9",
+        "core-roofing:1:fr-en:card:15"
+      ],
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:1:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member describing the labelled sample diagram.",
+    "partnerRole": "A coworker asking about the labelled sample diagram.",
+    "candidateOpeningEnglish": "This roof is sloped, not flat.",
+    "goalEnglish": "Tell a coworker whether the sample roof is flat or sloped.",
+    "candidateWordBankEnglish": [
+      "flat",
+      "sloped",
+      "This roof is sloped, not flat."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "sourceAnchors": [
+      "core-roofing:1:fr-en:card:14",
+      "core-roofing:1:fr-en:reader:3"
+    ],
+    "id": "core-roofing:1:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical practice using a labelled sample roof diagram, not actual site data.",
+    "partnerCueProvenance": "Exact source card14 question in a hypothetical diagram practice task.",
+    "objectiveProvenance": "New narrower informing task based on source roof-shape rows; full roof-system/material objective remains blocked.",
+    "partnerCuesEnglish": [
+      "Is the roof flat or sloped?"
+    ]
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-1-source-decision-2026-11-18/packet.json",
+    "sha256": "3dc777adfae36cd0bbdbb8be917d5784df379fb77a8032898da55f19ded92060"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:1:fr-en:card:1",
+      "sourceEnglish": "shingle",
+      "candidateFrench": null,
+      "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:1:fr-en:card:2",
+      "sourceEnglish": "tile",
+      "candidateFrench": null,
+      "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:1:fr-en:card:3",
+      "sourceEnglish": "metal panel",
+      "candidateFrench": "le panneau métallique",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:1:fr-en:card:4",
+      "sourceEnglish": "roof deck",
+      "candidateFrench": null,
+      "hold": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:1:fr-en:card:5",
+      "sourceEnglish": "roof",
+      "candidateFrench": "le toit",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:1:fr-en:card:6",
+      "sourceEnglish": "roof system",
+      "candidateFrench": null,
+      "hold": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:1:fr-en:card:7",
+      "sourceEnglish": "flat roof",
+      "candidateFrench": "le toit plat",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:1:fr-en:card:8",
+      "sourceEnglish": "sloped roof",
+      "candidateFrench": "le toit en pente",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:1:fr-en:card:9",
+      "sourceEnglish": "roof pitch",
+      "candidateFrench": "la pente du toit",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:1:fr-en:card:10",
+      "sourceEnglish": "skylight",
+      "candidateFrench": null,
+      "hold": "Select a contextual French skylight term; fenêtre de toit may narrow the type of opening compared with source tragaluz/skylight.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:1:fr-en:card:11",
+      "sourceEnglish": "What material does this roof have?",
+      "candidateFrench": null,
+      "hold": "The source asks what material the roof has; decide whether the archived question about what covers the roof preserves the intended material distinction and card/Reader alignment.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:1:fr-en:card:12",
+      "sourceEnglish": "Today we are installing asphalt shingles.",
+      "candidateFrench": null,
+      "hold": "Linked asphalt-shingle material/locale decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:1:fr-en:card:13",
+      "sourceEnglish": "This roof is metal panel.",
+      "candidateFrench": null,
+      "hold": "Decide whether this metal-panel roof phrase denotes the roof material or a count of panels before selecting a scored French form.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:1:fr-en:card:14",
+      "sourceEnglish": "Is the roof flat or sloped?",
+      "candidateFrench": "Le toit est-il plat ou en pente ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:1:fr-en:card:15",
+      "sourceEnglish": "Check the roof pitch before we start.",
+      "candidateFrench": "Vérifiez la pente du toit avant de commencer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:1",
+      "sourceEnglish": "Today is the first day at the new job site.",
+      "candidateFrench": "Aujourd’hui, c’est le premier jour sur le nouveau chantier.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:2",
+      "sourceEnglish": "The foreman walks the roof with the crew.",
+      "candidateFrench": null,
+      "hold": "The source has a foreman walking the roof with the crew; qualified roofing/source review must retain the attributed scene and decide whether any access or protection context needs a source revision before using it as teaching or audio.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalRoleDecisionRef": "core-roofing:1:fr-en:reader:2",
+      "internalRoleDecisionNote": "Originating foreman-to-chef-d’équipe role question; no approved equivalence or access context inherited."
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:3",
+      "sourceEnglish": "This roof is sloped, not flat.",
+      "candidateFrench": "Ce toit est en pente, pas plat.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:4",
+      "sourceEnglish": "It is a roof system with asphalt shingles.",
+      "candidateFrench": null,
+      "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit. Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context. Archived speaking changes the source task of telling a crew member into asking a lead to confirm a plan. Set the lesson speaking objective and term senses together without silently replacing the source.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:5",
+      "sourceEnglish": "The foreman asks: What material does this roof have?",
+      "candidateFrench": null,
+      "hold": "The source asks what material the roof has; decide whether the archived question about what covers the roof preserves the intended material distinction and card/Reader alignment. Archived speaking changes the source task of telling a crew member into asking a lead to confirm a plan. Set the lesson speaking objective and term senses together without silently replacing the source.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalRoleDecisionRef": "core-roofing:1:fr-en:reader:2",
+      "internalRoleDecisionNote": "Originating foreman-to-chef-d’équipe role question; no approved equivalence or access context inherited."
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:6",
+      "sourceEnglish": "A worker looks at the roof and answers that they are asphalt shingles.",
+      "candidateFrench": null,
+      "hold": "Linked asphalt-shingle material/locale decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:7",
+      "sourceEnglish": "There is also a skylight at the back.",
+      "candidateFrench": null,
+      "hold": "Select a contextual French skylight term; fenêtre de toit may narrow the type of opening compared with source tragaluz/skylight.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:1:fr-en:reader:8",
+      "sourceEnglish": "Check the roof pitch before we start.",
+      "candidateFrench": "Vérifiez la pente du toit avant de commencer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:1:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:1:fr-en:card:1",
+      "englishHeadword": "shingle",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:1:fr-en:card:2",
+      "englishHeadword": "tile",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:1:fr-en:card:3",
+      "englishHeadword": "metal panel",
+      "candidateFrenchSense": "le panneau métallique",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:1:fr-en:card:4",
+      "englishHeadword": "roof deck",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:1:fr-en:card:5",
+      "englishHeadword": "roof",
+      "candidateFrenchSense": "le toit",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:1:fr-en:card:6",
+      "englishHeadword": "roof system",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:1:fr-en:card:7",
+      "englishHeadword": "flat roof",
+      "candidateFrenchSense": "le toit plat",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:1:fr-en:card:8",
+      "englishHeadword": "sloped roof",
+      "candidateFrenchSense": "le toit en pente",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:1:fr-en:card:9",
+      "englishHeadword": "roof pitch",
+      "candidateFrenchSense": "la pente du toit",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:1:fr-en:card:10",
+      "englishHeadword": "skylight",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Select a contextual French skylight term; fenêtre de toit may narrow the type of opening compared with source tragaluz/skylight.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:1:fr-en:card:11",
+      "englishHeadword": "What material does this roof have?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "The source asks what material the roof has; decide whether the archived question about what covers the roof preserves the intended material distinction and card/Reader alignment.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:1:fr-en:card:12",
+      "englishHeadword": "Today we are installing asphalt shingles.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Linked asphalt-shingle material/locale decision is propagated into this sentence; no dependent activity uses this face.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:1:fr-en:card:13",
+      "englishHeadword": "This roof is metal panel.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Name the Roof System",
+      "status": "held",
+      "hold": "Decide whether this metal-panel roof phrase denotes the roof material or a count of panels before selecting a scored French form.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:1:fr-en:card:14",
+      "englishHeadword": "Is the roof flat or sloped?",
+      "candidateFrenchSense": "Le toit est-il plat ou en pente ?",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:1:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:1:fr-en:card:15",
+      "englishHeadword": "Check the roof pitch before we start.",
+      "candidateFrenchSense": "Vérifiez la pente du toit avant de commencer.",
+      "contextEnglish": "Name the Roof System",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison."
+  ]
+}

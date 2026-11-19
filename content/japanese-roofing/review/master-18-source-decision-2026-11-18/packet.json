@@ -1,0 +1,708 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:18:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-16-18-draft.json",
+      "sha256": "98e4983f5cb1af020f7cf968215c3f17e07627fe0ace8262ac51d6c759c00211"
+    }
+  },
+  "sourceEnglishTitle": "Client Texts and Phone Calls: Schedule Changes",
+  "sourceEnglishObjective": "Text a homeowner about a rain delay and handle their call to reschedule, politely and clearly",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time.",
+  "sourceSpanishReaderTitle": "Rain Pushed the Start",
+  "sourceLessonType": "Document",
+  "sourceBlock": "E",
+  "sourceGrammar": {
+    "focus": "Phone and text conventions; conditional politeness",
+    "examples": [
+      {
+        "es": "¿Sería posible empezar el jueves?",
+        "en": "Would it be possible to start on Thursday?"
+      },
+      {
+        "es": "Podríamos llegar a las ocho, si le parece bien.",
+        "en": "We could arrive at eight, if that works for you."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "sonar",
+      "native": "to ring",
+      "forms": {
+        "yo": "sueno",
+        "tú": "suenas",
+        "él_ella_usted": "suena",
+        "nosotros": "sonamos",
+        "ellos_ustedes": "suenan"
+      },
+      "example": {
+        "target": "Una hora después sonó el teléfono.",
+        "native": "An hour later the phone rang."
+      },
+      "note": "Stem change o to ue: suena; preterite: sonó."
+    },
+    {
+      "infinitive": "oír",
+      "native": "to hear",
+      "forms": {
+        "yo": "oigo",
+        "tú": "oyes",
+        "él_ella_usted": "oye",
+        "nosotros": "oímos",
+        "ellos_ustedes": "oyen"
+      },
+      "example": {
+        "target": "Perdón, no le oigo bien.",
+        "native": "Sorry, I can't hear you well."
+      },
+      "note": "Irregular: oigo, oyes, oye; very common on the phone."
+    },
+    {
+      "infinitive": "cortar",
+      "native": "to cut",
+      "forms": {
+        "yo": "corto",
+        "tú": "cortas",
+        "él_ella_usted": "corta",
+        "nosotros": "cortamos",
+        "ellos_ustedes": "cortan"
+      },
+      "example": {
+        "target": "Perdón, se cortó la llamada.",
+        "native": "Sorry, the call dropped."
+      },
+      "note": "Se cortó la llamada means the call dropped."
+    },
+    {
+      "infinitive": "confirmar",
+      "native": "to confirm",
+      "forms": {
+        "yo": "confirmo",
+        "tú": "confirmas",
+        "él_ella_usted": "confirma",
+        "nosotros": "confirmamos",
+        "ellos_ustedes": "confirman"
+      },
+      "example": {
+        "target": "Confirmo el cambio de fecha para el viernes.",
+        "native": "I confirm the date change to Friday."
+      }
+    },
+    {
+      "infinitive": "responder",
+      "native": "to reply",
+      "forms": {
+        "yo": "respondo",
+        "tú": "respondes",
+        "él_ella_usted": "responde",
+        "nosotros": "respondemos",
+        "ellos_ustedes": "responden"
+      },
+      "example": {
+        "target": "El señor Kim respondió: Perfecto.",
+        "native": "Mr. Kim replied: Perfect."
+      },
+      "note": "Preterite: respondí, respondió."
+    }
+  ],
+  "candidateObjective": "雨による延期を施主へ丁寧に伝え、電話で新しい作業日と到着時刻を確認する。",
+  "candidateFocus": "～してもよろしいでしょうか proposes a date politely; ～できます expresses an arrival option. ～でしたら checks the homeowner's availability.",
+  "archivedForms": [
+    {
+      "base": "鳴る",
+      "exampleJa": "一時間後、電話が鳴りました。",
+      "meaningEnglish": "to ring",
+      "exampleEnglish": "An hour later the phone rang.",
+      "sourceInfinitiveSpanish": "sonar"
+    },
+    {
+      "base": "聞こえる",
+      "exampleJa": "すみません、よく聞こえません。",
+      "meaningEnglish": "to hear",
+      "exampleEnglish": "Sorry, I can't hear you well.",
+      "sourceInfinitiveSpanish": "oír"
+    },
+    {
+      "base": "切れる",
+      "exampleJa": "すみません、電話が切れてしまいました。",
+      "meaningEnglish": "to cut",
+      "exampleEnglish": "Sorry, the call dropped.",
+      "sourceInfinitiveSpanish": "cortar"
+    },
+    {
+      "base": "確認する",
+      "exampleJa": "金曜日への日程変更を確認します。",
+      "meaningEnglish": "to confirm",
+      "exampleEnglish": "I confirm the date change to Friday.",
+      "sourceInfinitiveSpanish": "confirmar"
+    },
+    {
+      "base": "返信する",
+      "exampleJa": "キムさんの夫は「分かりました」と返信しました。",
+      "meaningEnglish": "to reply",
+      "exampleEnglish": "Mr. Kim replied: Perfect.",
+      "sourceInfinitiveSpanish": "responder"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "こんにちは、メンドーサ・ルーフィングのロヘリオです。雨のため開始日を変更したいのですが、金曜日に開始してもよろしいでしょうか。八時に到着できます。",
+    "goal": "Answer a homeowner's return call about the rain delay, propose a new day and arrival time politely, recover from the dropped call, and confirm the revised appointment in writing."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:18:ja-en:card:1",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:1",
+      "sourceSpanish": "el mensaje de texto",
+      "sourceEnglish": "the text message",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "テキストメッセージ",
+      "archivedEnglish": "the text message",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:2",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:2",
+      "sourceSpanish": "la llamada",
+      "sourceEnglish": "the phone call",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "電話",
+      "archivedEnglish": "the phone call",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:3",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:3",
+      "sourceSpanish": "el buzón de voz",
+      "sourceEnglish": "the voicemail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "留守番電話",
+      "archivedEnglish": "the voicemail",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:4",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:4",
+      "sourceSpanish": "el número de teléfono",
+      "sourceEnglish": "the phone number",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "電話番号",
+      "archivedEnglish": "the phone number",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:5",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:5",
+      "sourceSpanish": "el retraso por lluvia",
+      "sourceEnglish": "the rain delay",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雨による延期",
+      "archivedEnglish": "the rain delay",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:6",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:6",
+      "sourceSpanish": "el cambio de fecha",
+      "sourceEnglish": "the date change",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "日程変更",
+      "archivedEnglish": "the date change",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:7",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:7",
+      "sourceSpanish": "la nueva fecha",
+      "sourceEnglish": "the new date",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "新しい日付",
+      "archivedEnglish": "the new date",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:8",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:8",
+      "sourceSpanish": "la disponibilidad",
+      "sourceEnglish": "the availability",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "都合",
+      "archivedEnglish": "the availability",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:9",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:9",
+      "sourceSpanish": "la cita",
+      "sourceEnglish": "the appointment",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "約束",
+      "archivedEnglish": "the appointment",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:10",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:10",
+      "sourceSpanish": "el horario de llegada",
+      "sourceEnglish": "the arrival time",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "到着時刻",
+      "archivedEnglish": "the arrival time",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:11",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:11",
+      "sourceSpanish": "la confirmación",
+      "sourceEnglish": "the confirmation",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "確認",
+      "archivedEnglish": "the confirmation",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:12",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:12",
+      "sourceSpanish": "la molestia",
+      "sourceEnglish": "the inconvenience",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ご不便",
+      "archivedEnglish": "the inconvenience",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:13",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:13",
+      "sourceSpanish": "la entrada del garaje",
+      "sourceEnglish": "the driveway",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "私道",
+      "archivedEnglish": "the driveway",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:14",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:14",
+      "sourceSpanish": "el aviso previo",
+      "sourceEnglish": "the advance notice",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "事前連絡",
+      "archivedEnglish": "the advance notice",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:15",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:15",
+      "sourceSpanish": "Buenas tardes, le escribe Rogelio, de Techos Mendoza.",
+      "sourceEnglish": "Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "こんにちは、メンドーサ・ルーフィングのロヘリオです。",
+      "archivedEnglish": "Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:16",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:16",
+      "sourceSpanish": "¿Sería posible empezar el jueves?",
+      "sourceEnglish": "Would it be possible to start on Thursday?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "木曜日に開始してもよろしいでしょうか。",
+      "archivedEnglish": "Would it be possible to start on Thursday?",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:17",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:17",
+      "sourceSpanish": "Podríamos llegar a las ocho, si le parece bien.",
+      "sourceEnglish": "We could arrive at eight, if that works for you.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "よろしければ八時に到着できます。",
+      "archivedEnglish": "We could arrive at eight, if that works for you.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:18",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:18",
+      "sourceSpanish": "Quedo al pendiente de su respuesta.",
+      "sourceEnglish": "I look forward to your reply.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "お返事をお待ちしております。",
+      "archivedEnglish": "I look forward to your reply.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:19",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:19",
+      "sourceSpanish": "¿Con quién tengo el gusto?",
+      "sourceEnglish": "Who am I speaking with?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "どちら様でしょうか。",
+      "archivedEnglish": "Who am I speaking with?",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:20",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:20",
+      "sourceSpanish": "Perdón, se cortó la llamada.",
+      "sourceEnglish": "Sorry, the call dropped.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "すみません、電話が切れてしまいました。",
+      "archivedEnglish": "Sorry, the call dropped.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:card:21",
+      "legacySourceRef": "master-roofing:18:ja-en:cards:21",
+      "sourceSpanish": "Le dejo mi número por si acaso.",
+      "sourceEnglish": "I'll leave you my number just in case.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "念のため、私の電話番号をお伝えします。",
+      "archivedEnglish": "I'll leave you my number just in case.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:18:ja-en:line:1",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:1",
+      "sourceSpanish": "El martes llovió todo el día, así que la cuadrilla no pudo empezar en la casa de la señora Kim.",
+      "sourceEnglish": "On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "火曜日は一日中雨が降り、作業班はキムさんの家で作業を始められませんでした。",
+      "archivedEnglish": "On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:2",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:2",
+      "sourceSpanish": "A las cinco, Rogelio le mandó un mensaje de texto.",
+      "sourceEnglish": "At five, Rogelio sent her a text message.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "五時にロヘリオはキムさんへテキストメッセージを送りました。",
+      "archivedEnglish": "At five, Rogelio sent her a text message.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:3",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:3",
+      "sourceSpanish": "Mensaje: Buenas tardes, le escribe Rogelio, de Techos Mendoza.",
+      "sourceEnglish": "Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "メッセージ「こんにちは、メンドーサ・ルーフィングのロヘリオです。」",
+      "archivedEnglish": "Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:4",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:4",
+      "sourceSpanish": "Mensaje: Debido al retraso por lluvia, no podremos empezar mañana; ¿sería posible empezar el jueves?",
+      "sourceEnglish": "Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "メッセージ「雨による延期のため、明日は開始できません。木曜日に開始してもよろしいでしょうか。」",
+      "archivedEnglish": "Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:5",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:5",
+      "sourceSpanish": "Mensaje: Podríamos llegar a las ocho, si le parece bien, y el material llegaría a la entrada del garaje el miércoles.",
+      "sourceEnglish": "Message: We could arrive at eight, if that works for you, and the material would arrive in the driveway on Wednesday.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "メッセージ「よろしければ八時に到着できます。資材は水曜日に私道へ届く予定です。」",
+      "archivedEnglish": "Message: We could arrive at eight, if that works for you, and the material would arrive in the driveway on Wednesday.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:6",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:6",
+      "sourceSpanish": "Mensaje: Disculpe la molestia; quedo al pendiente de su respuesta.",
+      "sourceEnglish": "Message: Sorry for the inconvenience; I look forward to your reply.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "メッセージ「ご不便をおかけして申し訳ありません。お返事をお待ちしております。」",
+      "archivedEnglish": "Message: Sorry for the inconvenience; I look forward to your reply.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:7",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:7",
+      "sourceSpanish": "Una hora después sonó el teléfono, de un número que Rogelio no conocía.",
+      "sourceEnglish": "An hour later the phone rang, from a number Rogelio didn't know.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一時間後、ロヘリオの知らない番号から電話が鳴りました。",
+      "archivedEnglish": "An hour later the phone rang, from a number Rogelio didn't know.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:8",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: Techos Mendoza, buenas tardes; ¿con quién tengo el gusto?",
+      "sourceEnglish": "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「メンドーサ・ルーフィングです。こんにちは。どちら様でしょうか。」",
+      "archivedEnglish": "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:9",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:9",
+      "sourceSpanish": "Señor Kim: Habla Daniel Kim, el esposo; vi el mensaje, pero el jueves no estamos en casa.",
+      "sourceEnglish": "Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "キムさんの夫「夫のダニエル・キムです。メッセージを見ましたが、木曜日は家にいません。」",
+      "archivedEnglish": "Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:10",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: No se preocupe; ¿cuál sería su disponibilidad el viernes?",
+      "sourceEnglish": "Rogelio: Don't worry; what would your availability be on Friday?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「承知しました。金曜日でしたらご都合はいかがでしょうか。」",
+      "archivedEnglish": "Rogelio: Don't worry; what would your availability be on Friday?",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:11",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:11",
+      "sourceSpanish": "Señor Kim: El viernes sí, pero perdón, no le oigo bien.",
+      "sourceEnglish": "Mr. Kim: Friday works, but sorry, I can't hear you well.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "キムさんの夫「金曜日なら大丈夫です。でも、すみません、よく聞こえません。」",
+      "archivedEnglish": "Mr. Kim: Friday works, but sorry, I can't hear you well.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:12",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:12",
+      "sourceSpanish": "La llamada se cortó, y Rogelio volvió a marcar el número de teléfono, pero le salió el buzón de voz.",
+      "sourceEnglish": "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "電話が切れ、ロヘリオはかけ直しましたが、留守番電話につながりました。",
+      "archivedEnglish": "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:13",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:13",
+      "sourceSpanish": "Rogelio en el buzón de voz: Perdón, se cortó la llamada; entonces la nueva fecha sería el viernes a las ocho.",
+      "sourceEnglish": "Rogelio on the voicemail: Sorry, the call dropped; so the new date would be Friday at eight.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは留守番電話に「すみません、電話が切れてしまいました。新しい日付は金曜日の八時です」と残しました。",
+      "archivedEnglish": "Rogelio on the voicemail: Sorry, the call dropped; so the new date would be Friday at eight.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:14",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Le dejo mi número por si acaso, y le mando la confirmación por mensaje.",
+      "sourceEnglish": "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「念のため、私の電話番号をお伝えします。確認のメッセージも送ります。」",
+      "archivedEnglish": "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:15",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:15",
+      "sourceSpanish": "Esa noche, Rogelio escribió: Confirmo el cambio de fecha para el viernes a las 8:00 a. m.; le daré aviso previo si cambia el horario de llegada.",
+      "sourceEnglish": "That night, Rogelio wrote: I confirm the date change to Friday at 8:00 a.m.; I'll give you advance notice if the arrival time changes.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その夜、ロヘリオは「日程変更を金曜日の午前八時に確認しました。到着時刻が変わる場合は事前にご連絡します」と書きました。",
+      "archivedEnglish": "That night, Rogelio wrote: I confirm the date change to Friday at 8:00 a.m.; I'll give you advance notice if the arrival time changes.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:18:ja-en:line:16",
+      "legacySourceRef": "master-roofing:18:ja-en:reader:16",
+      "sourceSpanish": "El señor Kim respondió: Perfecto, la cita queda confirmada.",
+      "sourceEnglish": "Mr. Kim replied: Perfect, the appointment is confirmed.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "キムさんの夫は「分かりました。約束の日程を確認しました」と返信しました。",
+      "archivedEnglish": "Mr. Kim replied: Perfect, the appointment is confirmed.",
+      "reviewNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the text, phone call, voicemail, and confirmed appointment.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall rain delay, availability, new date, arrival time, and advance notice.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 日程変更 from 到着時刻 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'Would it be possible to start on Thursday?' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Answer the homeowner's call and agree on a new date and time.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write a polite text confirming the delay and revised arrival time.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Preserve the source Tuesday rain, Wednesday material delivery, proposed Thursday start and final Friday eight-o’clock confirmation. Qualified Japanese/source review must check conditional versus confirmed scheduling, driveway/property vocabulary, telephone register and the archived speaking role mismatch (crew member versus source crew lead). Source appointments are scene facts, not verified commitments. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

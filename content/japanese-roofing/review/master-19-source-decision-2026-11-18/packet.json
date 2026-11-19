@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:19:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-19-20-draft.json",
+      "sha256": "9bc4527827f88e145712b18951b859af53117430b239d9cbe3ec4950816186cc"
+    }
+  },
+  "sourceEnglishTitle": "Customer Walkthrough and Warranty",
+  "sourceEnglishObjective": "Walk a homeowner through the finished job and explain what the warranty covers, and under what conditions",
+  "sourceEnglishSpeaking": "You are the crew lead and the AI is the homeowner on the final walkthrough: explain what was done, what each warranty would cover and under what conditions with siempre que and a menos que, and how to reach you.",
+  "sourceSpanishReaderTitle": "What the Warranty Covers",
+  "sourceLessonType": "People",
+  "sourceBlock": "E",
+  "sourceGrammar": {
+    "focus": "Conditional; subjunctive in conditions (siempre que)",
+    "examples": [
+      {
+        "es": "La garantía cubriría cualquier gotera por la instalación.",
+        "en": "The warranty would cover any leak caused by the installation."
+      },
+      {
+        "es": "Está cubierto siempre que no se modifique el techo.",
+        "en": "It's covered as long as the roof isn't modified."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "modificar",
+      "native": "to modify",
+      "forms": {
+        "yo": "modifico",
+        "tú": "modificas",
+        "él_ella_usted": "modifica",
+        "nosotros": "modificamos",
+        "ellos_ustedes": "modifican"
+      },
+      "example": {
+        "target": "Si alguien modifica el techo, la garantía podría no cubrirlo.",
+        "native": "If someone modifies the roof, the warranty might not cover it."
+      },
+      "note": "Subjunctive after siempre que: modifique (c changes to qu)."
+    },
+    {
+      "infinitive": "atender",
+      "native": "to handle, to attend to",
+      "forms": {
+        "yo": "atiendo",
+        "tú": "atiendes",
+        "él_ella_usted": "atiende",
+        "nosotros": "atendemos",
+        "ellos_ustedes": "atienden"
+      },
+      "example": {
+        "target": "Una reclamación de garantía se atiende en pocos días.",
+        "native": "A warranty claim is handled within a few days."
+      },
+      "note": "Stem change e to ie: atiendo, but atendemos."
+    },
+    {
+      "infinitive": "registrar",
+      "native": "to register",
+      "forms": {
+        "yo": "registro",
+        "tú": "registras",
+        "él_ella_usted": "registra",
+        "nosotros": "registramos",
+        "ellos_ustedes": "registran"
+      },
+      "example": {
+        "target": "Yo registro la garantía del producto esta semana.",
+        "native": "I'm registering the product warranty this week."
+      },
+      "note": "Conditional: registraría (I would register)."
+    },
+    {
+      "infinitive": "firmar",
+      "native": "to sign",
+      "forms": {
+        "yo": "firmo",
+        "tú": "firmas",
+        "él_ella_usted": "firma",
+        "nosotros": "firmamos",
+        "ellos_ustedes": "firman"
+      },
+      "example": {
+        "target": "¿Tiene alguna pregunta antes de firmar?",
+        "native": "Do you have any questions before signing?"
+      },
+      "note": "Conditional: firmaría; subjunctive: siempre que firme."
+    },
+    {
+      "infinitive": "incluir",
+      "native": "to include",
+      "forms": {
+        "yo": "incluyo",
+        "tú": "incluyes",
+        "él_ella_usted": "incluye",
+        "nosotros": "incluimos",
+        "ellos_ustedes": "incluyen"
+      },
+      "example": {
+        "target": "La factura final incluye la sub-capa y tres hojas de cubierta.",
+        "native": "The final invoice includes the underlayment and three sheets of deck."
+      },
+      "note": "A y is added in most present forms: incluyo, incluye; conditional: incluiría."
+    }
+  ],
+  "candidateObjective": "完成した屋根を施主と確認し、製品保証と施工保証の範囲と条件を説明する。",
+  "candidateFocus": "～場合 covers a stated condition; ～限り and ～を除き express the stated scope and exclusion. ～でしょうか keeps the final walkthrough polite.",
+  "archivedForms": [
+    {
+      "base": "変更する",
+      "exampleJa": "誰かが屋根を変更した場合、保証の対象外になることがあります。",
+      "meaningEnglish": "to modify",
+      "exampleEnglish": "If someone modifies the roof, the warranty might not cover it.",
+      "sourceInfinitiveSpanish": "modificar"
+    },
+    {
+      "base": "対応する",
+      "exampleJa": "保証請求には数日以内に対応します。",
+      "meaningEnglish": "to handle, to attend to",
+      "exampleEnglish": "A warranty claim is handled within a few days.",
+      "sourceInfinitiveSpanish": "atender"
+    },
+    {
+      "base": "登録する",
+      "exampleJa": "今週、製品保証を登録します。",
+      "meaningEnglish": "to register",
+      "exampleEnglish": "I'm registering the product warranty this week.",
+      "sourceInfinitiveSpanish": "registrar"
+    },
+    {
+      "base": "署名する",
+      "exampleJa": "署名前に何かご質問はありますか。",
+      "meaningEnglish": "to sign",
+      "exampleEnglish": "Do you have any questions before signing?",
+      "sourceInfinitiveSpanish": "firmar"
+    },
+    {
+      "base": "含む",
+      "exampleJa": "最終請求書にはルーフィング材と野地板三枚が含まれます。",
+      "meaningEnglish": "to include",
+      "exampleEnglish": "The final invoice includes the underlayment and three sheets of deck.",
+      "sourceInfinitiveSpanish": "incluir"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "屋根材とルーフィング材を交換しました。メーカーの製品保証と当社の施工保証があります。各保証の対象と条件をご説明し、連絡先をお渡しします。",
+    "goal": "Walk the homeowner through the completed work and the two source-scenario warranties. Explain the stated coverage, exclusions, contact path and final-invoice questions in clear polite Japanese."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:19:ja-en:card:1",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:1",
+      "sourceSpanish": "el recorrido final",
+      "sourceEnglish": "the final walkthrough",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最終立ち会い確認",
+      "archivedEnglish": "the final walkthrough",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:2",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:2",
+      "sourceSpanish": "la factura final",
+      "sourceEnglish": "the final invoice",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "最終請求書",
+      "archivedEnglish": "the final invoice",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:3",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:3",
+      "sourceSpanish": "la garantía del producto",
+      "sourceEnglish": "the product warranty",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "製品保証",
+      "archivedEnglish": "the product warranty",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:4",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:4",
+      "sourceSpanish": "la garantía de instalación",
+      "sourceEnglish": "the installation warranty",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施工保証",
+      "archivedEnglish": "the installation warranty",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:5",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:5",
+      "sourceSpanish": "el certificado",
+      "sourceEnglish": "the certificate",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "保証書",
+      "archivedEnglish": "the certificate",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:6",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:6",
+      "sourceSpanish": "el registro",
+      "sourceEnglish": "the registration",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "登録",
+      "archivedEnglish": "the registration",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:7",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:7",
+      "sourceSpanish": "la cobertura",
+      "sourceEnglish": "the coverage",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "保証範囲",
+      "archivedEnglish": "the coverage",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:8",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:8",
+      "sourceSpanish": "la exclusión",
+      "sourceEnglish": "the exclusion",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "免責事項",
+      "archivedEnglish": "the exclusion",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:9",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:9",
+      "sourceSpanish": "el desgaste normal",
+      "sourceEnglish": "the normal wear",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "通常の摩耗",
+      "archivedEnglish": "the normal wear",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:10",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:10",
+      "sourceSpanish": "el daño por tormenta",
+      "sourceEnglish": "the storm damage",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "暴風雨による損害",
+      "archivedEnglish": "the storm damage",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:11",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:11",
+      "sourceSpanish": "el defecto de instalación",
+      "sourceEnglish": "the installation defect",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施工不良",
+      "archivedEnglish": "the installation defect",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:12",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:12",
+      "sourceSpanish": "la reclamación de garantía",
+      "sourceEnglish": "the warranty claim",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "保証請求",
+      "archivedEnglish": "the warranty claim",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:13",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:13",
+      "sourceSpanish": "el mantenimiento",
+      "sourceEnglish": "the maintenance",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "維持管理",
+      "archivedEnglish": "the maintenance",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:14",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:14",
+      "sourceSpanish": "la tarjeta de presentación",
+      "sourceEnglish": "the business card",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "名刺",
+      "archivedEnglish": "the business card",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:15",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:15",
+      "sourceSpanish": "La garantía cubriría cualquier gotera por la instalación.",
+      "sourceEnglish": "The warranty would cover any leak caused by the installation.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施工が原因の雨漏りは保証の対象になります。",
+      "archivedEnglish": "The warranty would cover any leak caused by the installation.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:16",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:16",
+      "sourceSpanish": "Siempre que no se modifique el techo.",
+      "sourceEnglish": "As long as the roof isn't modified.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根に変更を加えない限りです。",
+      "archivedEnglish": "As long as the roof isn't modified.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:17",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:17",
+      "sourceSpanish": "A menos que haya un defecto de instalación.",
+      "sourceEnglish": "Unless there's an installation defect.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施工不良がある場合を除きます。",
+      "archivedEnglish": "Unless there's an installation defect.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:18",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:18",
+      "sourceSpanish": "Si ve una gotera, llámenos de inmediato.",
+      "sourceEnglish": "If you see a leak, call us right away.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雨漏りを見つけたら、すぐにお電話ください。",
+      "archivedEnglish": "If you see a leak, call us right away.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:19",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:19",
+      "sourceSpanish": "¿Le gustaría que revisáramos el ático juntos?",
+      "sourceEnglish": "Would you like us to check the attic together?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一緒に屋根裏を確認しましょうか。",
+      "archivedEnglish": "Would you like us to check the attic together?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:20",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:20",
+      "sourceSpanish": "Aquí tiene mi tarjeta.",
+      "sourceEnglish": "Here's my card.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "こちらが私の名刺です。",
+      "archivedEnglish": "Here's my card.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:card:21",
+      "legacySourceRef": "master-roofing:19:ja-en:cards:21",
+      "sourceSpanish": "¿Tiene alguna pregunta antes de firmar?",
+      "sourceEnglish": "Do you have any questions before signing?",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "署名前に何かご質問はありますか。",
+      "archivedEnglish": "Do you have any questions before signing?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:19:ja-en:line:1",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:1",
+      "sourceSpanish": "El viernes por la tarde, Rogelio hizo el recorrido final con el señor y la señora Novak.",
+      "sourceEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "金曜日の午後、ロヘリオはノバク夫妻と最終立ち会い確認をしました。",
+      "archivedEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:2",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:2",
+      "sourceSpanish": "Primero caminaron alrededor de la casa y revisaron la canaleta, las bajadas de agua y el patio.",
+      "sourceEnglish": "First they walked around the house and checked the gutter, the downspouts and the yard.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "まず家の周りを歩き、雨どい、竪どい、庭を確認しました。",
+      "archivedEnglish": "First they walked around the house and checked the gutter, the downspouts and the yard.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:3",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: Pasamos el imán dos veces, pero si encuentran un clavo, me avisan.",
+      "sourceEnglish": "Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「磁石を二回かけましたが、釘を見つけたら知らせてください。」",
+      "archivedEnglish": "Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:4",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:4",
+      "sourceSpanish": "Rogelio: Cambiamos todo el techo, la sub-capa y tres hojas de cubierta, y todo está en la factura final.",
+      "sourceEnglish": "Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「屋根材全体、ルーフィング材、野地板三枚を交換しました。すべて最終請求書に載っています。」",
+      "archivedEnglish": "Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:5",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:5",
+      "sourceSpanish": "Señora Novak: ¿Y qué pasa si tenemos una gotera el próximo invierno?",
+      "sourceEnglish": "Mrs. Novak: And what happens if we get a leak next winter?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ノバク夫人「来年の冬に雨漏りしたらどうなりますか。」",
+      "archivedEnglish": "Mrs. Novak: And what happens if we get a leak next winter?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:6",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:6",
+      "sourceSpanish": "Rogelio: Hay dos garantías: la garantía del producto, del fabricante, y la garantía de instalación, de nuestra compañía.",
+      "sourceEnglish": "Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「保証は二つあります。メーカーによる製品保証と、当社による施工保証です。」",
+      "archivedEnglish": "Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:7",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:7",
+      "sourceSpanish": "Rogelio: La garantía cubriría cualquier gotera por la instalación, durante los años que indica el certificado.",
+      "sourceEnglish": "Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「施工が原因の雨漏りは、保証書に記載された年数の間、保証の対象になります。」",
+      "archivedEnglish": "Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:8",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:8",
+      "sourceSpanish": "Rogelio: La cobertura es completa siempre que no se modifique el techo sin avisarnos.",
+      "sourceEnglish": "Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「当社に知らせず屋根に変更を加えない限り、保証範囲はすべて適用されます。」",
+      "archivedEnglish": "Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:9",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:9",
+      "sourceSpanish": "Rogelio: Por ejemplo, si alguien instala una antena o paneles solares, eso podría ser una exclusión.",
+      "sourceEnglish": "Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「例えばアンテナや太陽光パネルを設置すると、免責事項に当たる場合があります。」",
+      "archivedEnglish": "Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:10",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: El desgaste normal no está cubierto, y el daño por tormenta va por su seguro, a menos que haya un defecto de instalación.",
+      "sourceEnglish": "Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「通常の摩耗は対象外です。暴風雨による損害は、施工不良がある場合を除き、保険で扱います。」",
+      "archivedEnglish": "Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:11",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Para la garantía del producto, el registro se hace en línea, y yo se lo dejo listo esta semana.",
+      "sourceEnglish": "Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「製品保証はオンラインで登録します。今週中にこちらで登録します。」",
+      "archivedEnglish": "Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:12",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:12",
+      "sourceSpanish": "Rogelio: ¿Le gustaría que revisáramos el ático juntos?",
+      "sourceEnglish": "Rogelio: Would you like us to check the attic together?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「一緒に屋根裏を確認しましょうか。」",
+      "archivedEnglish": "Rogelio: Would you like us to check the attic together?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:13",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:13",
+      "sourceSpanish": "En el ático todo estaba seco y la ventilación funcionaba bien.",
+      "sourceEnglish": "In the attic everything was dry and the ventilation was working well.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "屋根裏はすべて乾いており、換気も正常に機能していました。",
+      "archivedEnglish": "In the attic everything was dry and the ventilation was working well.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:14",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:14",
+      "sourceSpanish": "Rogelio: Si ve una gotera, llámenos de inmediato, y una reclamación de garantía se atiende en pocos días.",
+      "sourceEnglish": "Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「雨漏りを見つけたら、すぐにお電話ください。保証請求は数日以内に対応します。」",
+      "archivedEnglish": "Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:15",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:15",
+      "sourceSpanish": "Rogelio: Para el mantenimiento, bastaría con limpiar la canaleta dos veces al año y revisar el techo desde el suelo después de una tormenta fuerte.",
+      "sourceEnglish": "Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「維持管理としては、年に二回雨どいを掃除し、大きな暴風雨の後は地上から屋根を確認すれば十分です。」",
+      "archivedEnglish": "Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:ja-en:line:16",
+      "legacySourceRef": "master-roofing:19:ja-en:reader:16",
+      "sourceSpanish": "Rogelio: Aquí tiene mi tarjeta de presentación; ¿tiene alguna pregunta antes de firmar?",
+      "sourceEnglish": "Rogelio: Here's my business card; do you have any questions before signing?",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「こちらが私の名刺です。署名前に何かご質問はありますか。」",
+      "archivedEnglish": "Rogelio: Here's my business card; do you have any questions before signing?",
+      "reviewNote": "Archived wording and exact source meaning require qualified Japanese, roofing, safety, locale and dictionary review before selection; no source instruction is endorsed by this packet.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the finished roof, final invoice, warranty certificate, and business card.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall coverage, exclusion, normal wear, storm damage, and installation defect.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 製品保証 from 施工保証 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'If you see a leak, call us right away' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Explain both warranties and their stated conditions to the homeowner.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Record the completed work, warranty registration, and contact information.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "Current source and archived Japanese remain separate evidence. All faces are held for qualified review of manufacturer versus installer warranty, conditional coverage, modification/exclusion clauses, insurance, registration authority, response timing, attic access and maintenance promises. Source grammar and verbs are pinned; six archived mode labels are not authored activities. No learner/audio selection or progress migration is made.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

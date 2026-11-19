@@ -19,7 +19,7 @@
       "fullReaderLinks": 60,
       "authoredDecks": 3,
       "downloadPacksRegistered": 3,
-      "coverage": "dance-team-coverage.json"
+      "coverage": "dance-coverage.json"
     },
     "cosmetology": {
       "stages": {
@@ -40,10 +40,20 @@
   },
   "humanReviewed": false,
   "validation": {
-    "unitTestsPassed": 2995,
+    "unitTestsPassed": 2996,
     "desktopPhoneFlowsPassed": 12,
     "compactCoreRecheckPassed": 4,
-    "v4SchemaDecoded": true
+    "v4SchemaDecoded": true,
+    "preMainSmoke": {
+      "passed": 106,
+      "failed": 0,
+      "skipped": 21
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "recordingAndCourseTestsPassed": 7,
+    "recordingMissingClips": 0,
+    "v4AudioReady": true
   },
   "recordings": {
     "gameCommandsNewVoiceClips": 96,
@@ -51,7 +61,32 @@
       "Spanish",
       "English"
     ],
-    "lessonAudio": "Web speech service/device voice; bundled V4 HD not yet complete."
+    "lessonAudio": {
+      "version": 1,
+      "targetLanguage": "Spanish",
+      "nativeLanguage": "English",
+      "texts": 2606,
+      "clips": 5212,
+      "requiredClips": 5212,
+      "missingClips": 0,
+      "voices": {
+        "female": "es-US-Chirp3-HD-Aoede",
+        "male": "es-US-Chirp3-HD-Charon"
+      },
+      "provider": "Google Cloud Chirp 3 HD",
+      "language": "es-US",
+      "bytes": 54904032,
+      "totalDurationSeconds": 13726.01,
+      "minimumDurationSeconds": 0.264,
+      "maximumDurationSeconds": 8.976,
+      "validation": "Every required text has a female and male MP3 with ffprobe-validated nonzero duration, successful full ffmpeg decode, and peak above -40 dB. No human listening signoff.",
+      "web": "Public audio files and compiled lookup index",
+      "native": "Merged V4 iPhone recording catalog; prior mappings retained; Watch unchanged",
+      "generatedHumanVoice": false,
+      "synthesizedClips": 3814,
+      "reusedClips": 1398,
+      "reusedAudioSource": "Existing V4 selected-gender recordings, retained without asserting a new synthesis model."
+    }
   },
   "specialistFormalExams": false,
   "customSceneImages": false,
@@ -94,5 +129,6 @@
         "lessons": 20
       }
     ]
-  }
+  },
+  "releaseRequest": "Push both courses to main and add recorded lesson audio"
 }

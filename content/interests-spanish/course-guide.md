@@ -160,7 +160,7 @@ Each course has 10 Foundation, 30 Core and 20 Master lessons. Each lesson contai
 
 ## Availability
 
-Web preview: being finalized. Production and TestFlight have not been updated.
+Web preview: https://language-threshold-p2d8p4879-adobetoby-5572s-projects.vercel.app Production and TestFlight have not been updated.
 The V4-compatible course pack is exported and schema-tested. Its missing HD lesson recordings are listed in v4-audio-readiness.json; the pack is not installed in V4 yet.
 Picture & Action uses shared room scenes with module-specific objects. Its 96 new exact commands have both recorded voices in Spanish and English.
 

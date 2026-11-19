@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:10:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-10-source-audit-2026-11-18/packet.json",
+    "sha256": "b0aaac5618a46809b66ad69ec150ddfb9d6cb166cb16097effdc7bba6ec3fa38"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-7-10-draft.json",
+      "sha256": "a77687f79bc60d725bf692cd0168f9216eceb04d6f0f3f54ffebeb402ed46f10"
+    }
+  },
+  "objectiveEnglish": "Name basic emergency and safety terms, ask for help, and ask what a word means.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を見て、意味を確認しましょう。What does … mean?＝「…はどういう意味ですか。」",
+      "targetEnglish": "What does … mean?",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:9",
+      "id": "foundation-roofing:10:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "定冠詞 the を付けて、「（その）緊急事態」にあたる英語を思い出してください。",
+      "targetEnglish": "the emergency",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:1",
+      "id": "foundation-roofing:10:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語を選んでください。",
+      "targetEnglish": "the hospital",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:8",
+      "candidateOptionsEnglish": [
+        "the hospital",
+        "the ambulance",
+        "the inspection"
+      ],
+      "id": "foundation-roofing:10:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the hospital",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「助けが必要です。」にあたる英文を入力してください。",
+      "targetEnglish": "I need help.",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:10",
+      "id": "foundation-roofing:10:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「英語を話せますか。」にあたる英語を声に出して言ってください。",
+      "targetEnglish": "Do you speak English?",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:12",
+      "id": "foundation-roofing:10:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "定冠詞 the を付けて、「（その）救急車」にあたる英語を書いてください。",
+      "targetEnglish": "the ambulance",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:3",
+      "id": "foundation-roofing:10:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The ambulance goes to the hospital.",
+      "explanationJapanese": "主語が三人称単数（The ambulance）なので、動詞 go に -es が付いて「goes」になります。「goes to ～」は「～へ行く」を表します。",
+      "sourceAnchor": "foundation-roofing:10:ja-en:line:6",
+      "id": "foundation-roofing:10:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Do you speak English?",
+      "explanationJapanese": "「Do you ＋ 動詞の原形 ～?」は、相手に「～しますか」と尋ねる疑問文の形です。",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:12",
+      "id": "foundation-roofing:10:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "What does … mean?",
+      "explanationJapanese": "「What does ＋ 語句 ＋ mean?」は語句の意味を尋ねる定型表現です。does の後ろなので、mean は原形のまま使います。",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:9",
+      "id": "foundation-roofing:10:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "emergency",
+      "glossJapanese": "緊急事態",
+      "senseJapanese": "すぐに対応が必要な事態。",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:1",
+      "id": "foundation-roofing:10:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "accident",
+      "glossJapanese": "事故",
+      "senseJapanese": "予期せずに起こる、望ましくない出来事。",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:2",
+      "id": "foundation-roofing:10:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "ambulance",
+      "glossJapanese": "救急車",
+      "senseJapanese": "けが人や病人を病院へ運ぶための車。",
+      "sourceAnchor": "foundation-roofing:10:ja-en:card:3",
+      "id": "foundation-roofing:10:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "現場で英語が通じるかを確かめ、助けを求め、分からない言葉の意味を尋ねる役です。",
+      "partner": "同僚として、助けを求められたら応じ、言葉の意味を説明する役です。"
+    },
+    "openingEnglish": "Do you speak English?",
+    "objectivesEnglish": [
+      "I need help.",
+      "Today there's a fall protection inspection.",
+      "What does the word caída mean?"
+    ],
+    "wordBankEnglish": [
+      "the emergency",
+      "the accident",
+      "the ambulance",
+      "the construction",
+      "the inspection",
+      "the protection",
+      "the safety",
+      "the hospital",
+      "What does … mean?"
+    ],
+    "closureEnglish": "In construction, safety comes first.",
+    "sourceAnchors": [
+      "foundation-roofing:10:ja-en:card:12",
+      "foundation-roofing:10:ja-en:card:10",
+      "foundation-roofing:10:ja-en:line:2",
+      "foundation-roofing:10:ja-en:line:7",
+      "foundation-roofing:10:ja-en:line:1",
+      "foundation-roofing:10:ja-en:card:1",
+      "foundation-roofing:10:ja-en:card:2",
+      "foundation-roofing:10:ja-en:card:3",
+      "foundation-roofing:10:ja-en:card:4",
+      "foundation-roofing:10:ja-en:card:5",
+      "foundation-roofing:10:ja-en:card:6",
+      "foundation-roofing:10:ja-en:card:7",
+      "foundation-roofing:10:ja-en:card:8",
+      "foundation-roofing:10:ja-en:card:9"
+    ],
+    "id": "foundation-roofing:10:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older source-audit reverse pair label remains provenance only.",
+    "Source emergency number 911 and small-accident/not-emergency classification remain exact source evidence and require source/locale/clinical review; no substitution or severity judgment is made.",
+    "Direct emergency, accident, ambulance and hospital terminology remains teaching vocabulary; factual/domain notes stay internal.",
+    "F10 source Spanish caída in the English sentence remains pinned for source-objective review. Ellipsis template is shown, not typed.",
+    "AI assistance is not qualified language, clinical or roofing approval."
+  ]
+}

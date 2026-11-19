@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-19",
+  "qualifiedApproval": false,
+  "selfCheck": "Exact source targets/anchors, source Hear choices, Japanese question/negative grammar, speaking coverage.",
+  "failedHaikuAttempt": "First call returned malformed tool-call narrative, no candidate and no repo writes; isolated JSON-only retry succeeded.",
+  "haiku": {
+    "safeMode": true,
+    "requestedModel": "claude-haiku-5-5",
+    "actualModelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 10933,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 3349,
+        "webSearchRequests": 0,
+        "costUSD": 0.0061365,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 7774,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3349,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "92bac30c-ee51-442c-9b50-35dbd1c1eda4",
+    "isError": false
+  },
+  "opus": {
+    "safeMode": true,
+    "requestedModel": "claude-opus-5-5",
+    "actualModelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 6674,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 6574,
+        "webSearchRequests": 0,
+        "costUSD": 0.18608000000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4267,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 6574,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "cabfa417-1ea4-4a49-ab55-aaf6f9f2bfb4",
+    "isError": false
+  },
+  "fable": {
+    "safeMode": true,
+    "requestedModel": "claude-fable-5-2",
+    "actualModelUsage": {
+      "claude-fable-5-2": {
+        "inputTokens": 2,
+        "outputTokens": 6770,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 9076,
+        "webSearchRequests": 0,
+        "costUSD": 0.416032,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 3262,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 9076,
+        "canonicalModel": "claude-fable-5-2",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "03a5d047-359e-4ea5-9122-a90ba93ac99c",
+    "isError": false
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:6:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-6-source-audit-2026-11-18/packet.json",
+    "sha256": "4dde88bf9c76d99bf10764c865ab2c5a22d655c8b769891a82c5a9255d9d1b78"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-4-6-draft.json",
+      "sha256": "39ab05d005fe21885e6886478f3a4242e7ec53543cf728d502d58b7b5a80aa7c"
+    }
+  },
+  "objectiveEnglish": "Talk about the work routine (the morning, the day, the week, lunch) and about the crew, using simple present-tense sentences with times.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語を見て意味を確認してください：the crew（作業班）",
+      "targetEnglish": "the crew",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:4",
+      "id": "foundation-roofing:6:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "朝（英語で、the を付けて答えてください）",
+      "targetEnglish": "the morning",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:2",
+      "id": "foundation-roofing:6:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、一致する英文を選んでください。",
+      "targetEnglish": "We eat lunch at twelve.",
+      "candidateOptionsEnglish": [
+        "We eat lunch at twelve.",
+        "We clean up at the end of the day.",
+        "I work on roofs five days a week."
+      ],
+      "sourceAnchor": "foundation-roofing:6:ja-en:line:5",
+      "id": "foundation-roofing:6:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "We eat lunch at twelve.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "どこに住んでいますか？（英語で入力してください）",
+      "targetEnglish": "Where do you live?",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:11",
+      "id": "foundation-roofing:6:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "私は屋根の仕事をしています。（英語で言ってください）",
+      "targetEnglish": "I work on roofs.",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:9",
+      "id": "foundation-roofing:6:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "最後に片付けをします。（英語で書いてください）",
+      "targetEnglish": "We clean up at the end.",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:12",
+      "id": "foundation-roofing:6:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "I work on roofs five days a week.",
+      "explanationJapanese": "「five days a week」は「週に五日」と頻度を表します。「a week」は「一週間につき」の意味です。",
+      "sourceAnchor": "foundation-roofing:6:ja-en:line:1",
+      "id": "foundation-roofing:6:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "We eat lunch at twelve.",
+      "explanationJapanese": "「at + 時刻」で「〜時に」と時間を表します。「eat lunch」のように、lunch は the を付けずに使うのが自然です。",
+      "sourceAnchor": "foundation-roofing:6:ja-en:line:5",
+      "id": "foundation-roofing:6:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "We clean up at the end of the day.",
+      "explanationJapanese": "「at the end of the day」は「一日の終わりに」という意味です。いつもすることは現在形（clean up）で表します。",
+      "sourceAnchor": "foundation-roofing:6:ja-en:line:7",
+      "id": "foundation-roofing:6:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the week",
+      "glossJapanese": "週、一週間",
+      "senseJapanese": "七日間のまとまりを指します。",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:7",
+      "id": "foundation-roofing:6:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the crew",
+      "glossJapanese": "作業班、作業チーム",
+      "senseJapanese": "一緒に仕事をする作業員の集まりを指します。",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:4",
+      "id": "foundation-roofing:6:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the coworker",
+      "glossJapanese": "同僚、仕事仲間",
+      "senseJapanese": "同じ職場や現場で一緒に働く人を指します。",
+      "sourceAnchor": "foundation-roofing:6:ja-en:card:5",
+      "id": "foundation-roofing:6:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Describe your work routine: how many days a week you work, when the crew gets to the jobsite, and what time you eat lunch.",
+      "partner": "Listen and ask what time things happen."
+    },
+    "openingEnglish": "I work on roofs five days a week.",
+    "objectivesEnglish": [
+      "Say when the crew gets to the jobsite.",
+      "Say what time we eat lunch.",
+      "Ask your partner: \"Where do you live?\""
+    ],
+    "wordBankEnglish": [
+      "the crew",
+      "in the morning",
+      "five days a week",
+      "lunch",
+      "at twelve",
+      "at the end of the day"
+    ],
+    "closureEnglish": "We clean up at the end of the day.",
+    "sourceAnchors": [
+      "foundation-roofing:6:ja-en:line:1",
+      "foundation-roofing:6:ja-en:line:2",
+      "foundation-roofing:6:ja-en:line:5",
+      "foundation-roofing:6:ja-en:card:11",
+      "foundation-roofing:6:ja-en:line:7"
+    ],
+    "id": "foundation-roofing:6:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older source-audit reverse pair label remains provenance only.",
+    "Source heat/work-fast assertion and roof-access/material-lowering procedure are not resolved by this supplement.",
+    "F5 motion going to a house is distinguished from future going to + verb. F6 lunch uses the exact natural Reader sentence.",
+    "AI authoring, critique and correction are not qualified language/trade approval."
+  ]
+}

@@ -1,0 +1,567 @@
+{
+  "lessonId": "foundation-roofing:6:fr-en",
+  "candidateObjectiveEnglish": "Describe a crew’s usual workday using English present-simple statements and clock times.",
+  "grammarExplanationEnglish": "Use English present simple for routines: I work, we go up, we clean up. With he, she, it or a singular noun, add -s: The crew gets to the jobsite. Time phrases include five days a week and at six in the morning.",
+  "activities": [
+    {
+      "id": "foundation-roofing:6:fr-en:activity:see",
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais affiché et associez-le à son sens français.",
+      "candidateTargetEnglish": "the crew",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "l'équipe",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "displayEnglish": "the crew"
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:activity:recall",
+      "mode": "recall",
+      "promptFrench": "Rappelez le mot anglais pour « le matin ».",
+      "candidateTargetEnglish": "the morning",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "le matin",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:activity:hear",
+      "mode": "hear",
+      "promptFrench": "Après écoute du texte anglais proposé, reformulez la phrase en français.",
+      "candidateTargetEnglish": "We go up at seven.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:10"
+      ],
+      "expectedMeaningFrench": "On monte à sept heures.",
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "audioScript": null,
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:activity:type",
+      "mode": "type",
+      "promptFrench": "Tapez en anglais le sens de « L'équipe arrive au chantier à six heures du matin. »",
+      "candidateTargetEnglish": "The crew gets to the jobsite at six in the morning.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:line:2"
+      ],
+      "expectedMeaningFrench": "L'équipe arrive au chantier à six heures du matin.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "The crew arrives at the jobsite at six in the morning."
+      ]
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:activity:say",
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Je travaille sur les toits. »",
+      "candidateTargetEnglish": "I work on roofs.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "Je travaille sur les toits.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:activity:write",
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais le sens de « On nettoie à la fin. »",
+      "candidateTargetEnglish": "We clean up at the end.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "On nettoie à la fin.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "I work on roofs.",
+      "meaningFrench": "Je travaille sur les toits.",
+      "candidateExampleEnglish": "I work on roofs five days a week.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:9",
+        "foundation-roofing:6:fr-en:line:1"
+      ],
+      "provenance": "source",
+      "id": "foundation-roofing:6:fr-en:form:1",
+      "reviewed": false
+    },
+    {
+      "englishForm": "We go up at seven.",
+      "meaningFrench": "On monte à sept heures.",
+      "candidateExampleEnglish": "We go up at seven.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:10",
+        "foundation-roofing:6:fr-en:line:3"
+      ],
+      "provenance": "source",
+      "id": "foundation-roofing:6:fr-en:form:2",
+      "reviewed": false
+    },
+    {
+      "englishForm": "We clean up at the end.",
+      "meaningFrench": "On nettoie à la fin.",
+      "candidateExampleEnglish": "We clean up at the end.",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:card:12"
+      ],
+      "provenance": "source",
+      "id": "foundation-roofing:6:fr-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "speaking": {
+    "roles": [
+      "You: a roofer describing a normal workday",
+      "Listener: a crew member or new coworker"
+    ],
+    "opening": {
+      "french": "L'équipe arrive au chantier à six heures du matin.",
+      "provenance": "source",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:line:2"
+      ],
+      "english": "The crew gets to the jobsite at six in the morning."
+    },
+    "goal": "Describe arrival, roof work and end-of-day cleanup using available source rows; midday meal, shingle and old-material lines remain held.",
+    "wordbank": [
+      {
+        "french": "le matin",
+        "english": "the morning",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:2"
+        ]
+      },
+      {
+        "french": "l'après-midi",
+        "english": "the afternoon",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:3"
+        ]
+      },
+      {
+        "french": "l'équipe",
+        "english": "the crew",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:4"
+        ]
+      },
+      {
+        "french": "le collègue",
+        "english": "the coworker",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:5"
+        ]
+      },
+      {
+        "french": "la semaine",
+        "english": "the week",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:7"
+        ]
+      },
+      {
+        "french": "Je travaille sur les toits.",
+        "english": "I work on roofs.",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:9"
+        ]
+      },
+      {
+        "french": "On monte à sept heures.",
+        "english": "We go up at seven.",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:10"
+        ]
+      },
+      {
+        "french": "On nettoie à la fin.",
+        "english": "We clean up at the end.",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:12"
+        ]
+      }
+    ],
+    "closure": {
+      "english": "That is our usual routine.",
+      "provenance": "newly-authored conversational closure",
+      "sourceAnchors": [],
+      "french": "Voilà notre routine habituelle."
+    },
+    "sourceAnchors": [
+      "foundation-roofing:6:fr-en:line:1",
+      "foundation-roofing:6:fr-en:line:2",
+      "foundation-roofing:6:fr-en:line:7"
+    ],
+    "provenance": "Source-anchored English opening and wordbank; newly authored closure.",
+    "id": "foundation-roofing:6:fr-en:speaking:1",
+    "reviewed": false
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/foundation-6-source-decision-2026-11-18/decision.json",
+    "sha256": "e4c1dec9737126932d8d34b69c574c8898963ce45cbca8ad971856a57eeaff0e"
+  },
+  "candidateRows": [
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:1",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:1",
+      "sourceEnglish": "the work, the job",
+      "candidateFrench": null,
+      "hold": "Grouped work/job headword needs contextual sense separation before dictionary selection.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:2",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:2",
+      "sourceEnglish": "the morning",
+      "candidateFrench": "le matin",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:3",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:3",
+      "sourceEnglish": "the afternoon",
+      "candidateFrench": "l'après-midi",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:4",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:4",
+      "sourceEnglish": "the crew",
+      "candidateFrench": "l'équipe",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:5",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:5",
+      "sourceEnglish": "the coworker",
+      "candidateFrench": "le collègue / la collègue",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:6",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:6",
+      "sourceEnglish": "the day",
+      "candidateFrench": null,
+      "hold": "Spanish el día and English the day include a calendar day; archived la journée focuses on a day's span or workday. Choose the card/dictionary sense before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:7",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:7",
+      "sourceEnglish": "the week",
+      "candidateFrench": "la semaine",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:8",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:8",
+      "sourceEnglish": "the lunch",
+      "candidateFrench": null,
+      "hold": "Archived le déjeuner means lunch in France but breakfast in Quebec, Belgium and Switzerland. The course locale and corresponding Reader 5 must be decided together. English-target wording also needs review: lunch is normally article-free; I nail needs its object established from context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:9",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:9",
+      "sourceEnglish": "I work on roofs.",
+      "candidateFrench": "Je travaille sur les toits.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:10",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:10",
+      "sourceEnglish": "We go up at seven.",
+      "candidateFrench": "On monte à sept heures.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:11",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:11",
+      "sourceEnglish": "Where do you live?",
+      "candidateFrench": null,
+      "hold": "Crew tu/vous register remains a course-level decision; align with Foundation5 help request.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:cards:12",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:12",
+      "sourceEnglish": "We clean up at the end.",
+      "candidateFrench": "On nettoie à la fin.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:1",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:1",
+      "sourceEnglish": "I work on roofs five days a week.",
+      "candidateFrench": "Je travaille sur les toits cinq jours par semaine.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:2",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:2",
+      "sourceEnglish": "The crew gets to the jobsite at six in the morning.",
+      "candidateFrench": "L'équipe arrive au chantier à six heures du matin.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:3",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:3",
+      "sourceEnglish": "We go up at seven.",
+      "candidateFrench": "On monte à sept heures.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:4",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:4",
+      "sourceEnglish": "My coworker cuts the shingles and I nail.",
+      "candidateFrench": null,
+      "hold": "Spanish tejas, English shingles and archived bardeaux need a roof-material and locale decision; the Reader specifies cutting and nailing work, so preserve the exact source action. English-target wording also needs review: lunch is normally article-free; I nail needs its object established from context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:5",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:5",
+      "sourceEnglish": "We eat lunch at twelve.",
+      "candidateFrench": null,
+      "hold": "The archive says only that the crew eats at noon; the source explicitly says they eat lunch at twelve. Decide the meal word and regional use with card 8.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:6",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:6",
+      "sourceEnglish": "In the afternoon, the crew brings down the old material.",
+      "candidateFrench": null,
+      "hold": "The archive uses plural old materials for source singular old material. Qualified roofing/French review should decide the mass or plural sense before selecting this line.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:candidate:reader:7",
+      "sourceAnchor": "foundation-roofing:6:fr-en:line:7",
+      "sourceEnglish": "We clean up at the end of the day.",
+      "candidateFrench": "On nettoie à la fin de la journée.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:1",
+      "englishHeadword": "the work, the job",
+      "candidateFrenchSense": null,
+      "contextEnglish": "daily crew routine",
+      "status": "held",
+      "hold": "Grouped work/job headword needs contextual sense separation before dictionary selection.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:2",
+      "englishHeadword": "the morning",
+      "candidateFrenchSense": "le matin",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:3",
+      "englishHeadword": "the afternoon",
+      "candidateFrenchSense": "l'après-midi",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:4",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:4",
+      "englishHeadword": "the crew",
+      "candidateFrenchSense": "l'équipe",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:5",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:5",
+      "englishHeadword": "the coworker",
+      "candidateFrenchSense": "le collègue / la collègue",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "usageNote": "Choose article by the coworker, not by English gender."
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:6",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:6",
+      "englishHeadword": "the day",
+      "candidateFrenchSense": null,
+      "contextEnglish": "daily crew routine",
+      "status": "held",
+      "hold": "Spanish el día and English the day include a calendar day; archived la journée focuses on a day's span or workday. Choose the card/dictionary sense before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:7",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:7",
+      "englishHeadword": "the week",
+      "candidateFrenchSense": "la semaine",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:8",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:8",
+      "englishHeadword": "the lunch",
+      "candidateFrenchSense": null,
+      "contextEnglish": "daily crew routine",
+      "status": "held",
+      "hold": "Archived le déjeuner means lunch in France but breakfast in Quebec, Belgium and Switzerland. The course locale and corresponding Reader 5 must be decided together.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:9",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:9",
+      "englishHeadword": "I work on roofs.",
+      "candidateFrenchSense": "Je travaille sur les toits.",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:10",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:10",
+      "englishHeadword": "We go up at seven.",
+      "candidateFrenchSense": "On monte à sept heures.",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:11",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:11",
+      "englishHeadword": "Where do you live?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "daily crew routine",
+      "status": "held",
+      "hold": "Crew tu/vous register remains a course-level decision; align with Foundation5 help request.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:6:fr-en:dictionary:12",
+      "sourceAnchor": "foundation-roofing:6:fr-en:card:12",
+      "englishHeadword": "We clean up at the end.",
+      "candidateFrenchSense": "On nettoie à la fin.",
+      "contextEnglish": "daily crew routine",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish grammar is provenance only.",
+    "Held source safety, register and regional senses are not selected.",
+    "No recorded audio, progress migration, owner page or runtime registration.",
+    "Calendar jours in line1 and workday journée in line7 are contextual senses; the bare day headword remains held. Source meal article the lunch is preserved only as evidence, not adopted as a usage model."
+  ]
+}

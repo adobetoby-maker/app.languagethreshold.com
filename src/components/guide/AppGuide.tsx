@@ -3033,9 +3033,16 @@ export function Core30Tab() {
   const hasCore30 = Boolean(
     getCurriculum(state.activeModuleId ?? "", state.selectedLanguage, state.nativeLanguage),
   );
+  const hasStartedCourse =
+    Object.values(state.lessonProgress).some((completed) => completed > 0) ||
+    Object.values(state.core30Log).some(
+      (course) => Boolean(course.startDate) || Object.keys(course.lessons ?? {}).length > 0,
+    );
   return (
     <div className="lt-core60-tab mx-auto max-w-2xl space-y-8 pb-12">
-      {state.activeModuleId &&
+      {state.hydrated &&
+        !hasStartedCourse &&
+        state.activeModuleId &&
         !spanishBasicsLesson(state.activeModuleId, 1) &&
         state.selectedLanguage === "Spanish" &&
         state.nativeLanguage === "English" && (

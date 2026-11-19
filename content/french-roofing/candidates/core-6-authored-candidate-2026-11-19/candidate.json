@@ -1,0 +1,644 @@
+{
+  "lessonId": "core-roofing:6:fr-en",
+  "candidateObjectiveEnglish": "Invite a shared plan review, request hazard reports and check group understanding and questions.",
+  "grammarExplanationEnglish": "\"Let’s\" + base verb proposes an action including the speaker. In \"Does everyone understand the plan?\", everyone takes does and understand stays in the base form. \"Tell me if you see any hazard\" uses tell + object followed by an if-clause.",
+  "grammarExplanationFrench": "« Let's » + verbe à la forme de base propose une action commune. Dans « Does everyone understand the plan? », « everyone » prend « does », puis « understand » reste à la forme de base. « Tell me if you see any hazard » emploie « tell » avec « me », puis une proposition avec « if ».",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le terme anglais et son sens français, puis dites le terme anglais à voix haute.",
+      "candidateTargetEnglish": "work zone",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "la zone de travail",
+      "provenance": "Exact source headword from card 6; French from conditionalFrench of card 6.",
+      "id": "core-roofing:6:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le mot anglais pour : le danger.",
+      "candidateTargetEnglish": "hazard",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "le danger",
+      "provenance": "Exact source headword from card 9; French from conditionalFrench of card 9. English is hidden in the prompt.",
+      "id": "core-roofing:6:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateArticleVariantEnglish": "the hazard",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase en anglais, puis donnez son sens en français.",
+      "candidateTargetEnglish": "Does everyone understand the plan?",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:15"
+      ],
+      "expectedMeaningFrench": "Est-ce que tout le monde comprend le plan ?",
+      "provenance": "Exact source phrase from card 15; French from conditionalFrench of card 15.",
+      "id": "core-roofing:6:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « la livraison ».",
+      "candidateTargetEnglish": "delivery",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:10"
+      ],
+      "expectedMeaningFrench": "la livraison",
+      "provenance": "Exact source headword from card 10; French from conditionalFrench of card 10.",
+      "id": "core-roofing:6:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateArticleVariantEnglish": "the delivery",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites à voix haute en anglais : « Des questions avant de commencer ? »",
+      "candidateTargetEnglish": "Any questions before we start?",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:16"
+      ],
+      "expectedMeaningFrench": "Des questions avant de commencer ?",
+      "provenance": "Exact source phrase from card 16; French from conditionalFrench of card 16.",
+      "id": "core-roofing:6:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Passons en revue le plan prévu pour le toit aujourd'hui avant de commencer. »",
+      "candidateTargetEnglish": "Let's review today's roof plan before we start.",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:11"
+      ],
+      "expectedMeaningFrench": "Passons en revue le plan prévu pour le toit aujourd'hui avant de commencer.",
+      "provenance": "Exact source phrase from card 11; French from conditionalFrench of card 11.",
+      "id": "core-roofing:6:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Let's + [base verb] + [noun phrase] + before we start.",
+      "meaningFrench": "forme inclusive en -ons + complément + avant de commencer",
+      "candidateExampleEnglish": "Let's review today's roof plan before we start.",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:11"
+      ],
+      "provenance": "Exact source phrase from card 11, shown as an example of the pattern. The pattern itself is a composition (label).",
+      "id": "core-roofing:6:fr-en:form:1",
+      "reviewed": false,
+      "exampleMeaningFrench": "Passons en revue le plan prévu pour le toit aujourd'hui avant de commencer.",
+      "frenchExampleProvenance": "New generic-plan French support candidate; drawing/work-plan decision remains pending.",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "englishForm": "Does everyone + [base verb] + [noun phrase]?",
+      "meaningFrench": "Est-ce que tout le monde + verbe au présent … ?",
+      "candidateExampleEnglish": "Does everyone understand the plan?",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:15"
+      ],
+      "provenance": "Exact source phrase from card 15, shown as an example of the present-tense pattern. The pattern itself is a composition (label).",
+      "id": "core-roofing:6:fr-en:form:2",
+      "reviewed": false,
+      "exampleMeaningFrench": "Est-ce que tout le monde comprend le plan ?",
+      "frenchExampleProvenance": "New question-form variant preserving source present tense.",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    },
+    {
+      "id": "core-roofing:6:fr-en:form:3",
+      "englishForm": "Tell + object + if-clause",
+      "meaningFrench": "Dites-moi si + proposition",
+      "candidateExampleEnglish": "Tell me if you see any hazard.",
+      "sourceAnchors": [
+        "core-roofing:6:fr-en:card:14"
+      ],
+      "provenance": "Exact English card14 example; grammatical pattern is newly extracted and French support remains candidate.",
+      "reviewed": false,
+      "exampleMeaningFrench": "Dites-moi si vous voyez un danger.",
+      "frenchSupportProvenance": "Unreviewed candidate French support; no selected answer or audio script."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "An untitled person leading a language-practice plan check.",
+    "partnerRole": "A small group responding to the language-practice plan check.",
+    "candidateOpeningEnglish": "Let's review today's roof plan before we start.",
+    "goalEnglish": "Invite a shared plan review, request hazard reporting and check understanding and questions.",
+    "candidateWordBankEnglish": [
+      "Let's review today's roof plan before we start.",
+      "Tell me if you see any hazard.",
+      "Does everyone understand the plan?",
+      "Any questions before we start?"
+    ],
+    "closureEnglish": "Any questions before we start?",
+    "closureProvenance": "Exact source phrase from card 16.",
+    "sourceAnchors": [
+      "core-roofing:6:fr-en:card:11",
+      "core-roofing:6:fr-en:card:14",
+      "core-roofing:6:fr-en:card:15",
+      "core-roofing:6:fr-en:card:16"
+    ],
+    "id": "core-roofing:6:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical group language exchange, not a printed-plan assertion, job role assignment or work authorization.",
+    "partnerCuesEnglish": [
+      "Yes, we understand the plan.",
+      "Please repeat the question."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice replies, not actual comprehension or hazard clearance.",
+    "objectiveProvenance": "New neutral coworker plan-check exchange, not the held morning leadership/staging/assignment brief.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:6:fr-en:card:1",
+      "core-roofing:6:fr-en:card:5",
+      "core-roofing:6:fr-en:card:13"
+    ],
+    "holdReason": "Source morning-brief leadership/staging decisions remain unresolved; practice dialogue is proposed only and not a completed source speaking objective."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-6-source-decision-2026-11-18/packet.json",
+    "sha256": "266b8b230695ac34f44ac2ed4853d090279cf1ba2b386e683f43a8061f47b23d"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:6:fr-en:card:1",
+      "sourceEnglish": "crew lead",
+      "candidateFrench": null,
+      "hold": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:6:fr-en:card:2",
+      "sourceEnglish": "staging area",
+      "candidateFrench": null,
+      "hold": "Source staging area/stage materials is temporary placement for work; archived stockage/entreposer may imply storage. Choose a consistent regional trade expression without inventing a permanent storage instruction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:6:fr-en:card:3",
+      "sourceEnglish": "tear-off",
+      "candidateFrench": null,
+      "hold": "Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:6:fr-en:card:4",
+      "sourceEnglish": "crew",
+      "candidateFrench": "l’équipe",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:6:fr-en:card:5",
+      "sourceEnglish": "foreman",
+      "candidateFrench": null,
+      "hold": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:6:fr-en:card:6",
+      "sourceEnglish": "work zone",
+      "candidateFrench": "la zone de travail",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:6:fr-en:card:7",
+      "sourceEnglish": "assignment",
+      "candidateFrench": "la tâche attribuée",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:6:fr-en:card:8",
+      "sourceEnglish": "roof plan",
+      "candidateFrench": "le plan pour le toit",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "senseDecisionPending": true,
+      "internalSenseNote": "Drawing versus today’s work plan remains a qualified source decision; generic candidate wording does not choose printed drawing."
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:6:fr-en:card:9",
+      "sourceEnglish": "hazard",
+      "candidateFrench": "le danger",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:6:fr-en:card:10",
+      "sourceEnglish": "delivery",
+      "candidateFrench": "la livraison",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:6:fr-en:card:11",
+      "sourceEnglish": "Let's review today's roof plan before we start.",
+      "candidateFrench": "Passons en revue le plan prévu pour le toit aujourd'hui avant de commencer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "senseDecisionPending": true,
+      "internalSenseNote": "Generic plan wording proposed without deciding drawing versus work plan; source qualification pending."
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:6:fr-en:card:12",
+      "sourceEnglish": "Who is leading the tear-off crew?",
+      "candidateFrench": null,
+      "hold": "Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:6:fr-en:card:13",
+      "sourceEnglish": "Show me where you will stage the materials.",
+      "candidateFrench": null,
+      "hold": "Source staging area/stage materials is temporary placement for work; archived stockage/entreposer may imply storage. Choose a consistent regional trade expression without inventing a permanent storage instruction. Source speaking task requires work zones and material staging in a two-minute morning brief. Archived speaking asks lead, staging and hazard but omits an explicit work-zone assignment; author the task only after role and staging wording are settled.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:6:fr-en:card:14",
+      "sourceEnglish": "Tell me if you see any hazard.",
+      "candidateFrench": "Dites-moi si vous voyez un danger.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Preserves source tell me if conditional reporting; no hazard assessment is invented."
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:6:fr-en:card:15",
+      "sourceEnglish": "Does everyone understand the plan?",
+      "candidateFrench": "Est-ce que tout le monde comprend le plan ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Restores source present understanding rather than archived completed past understanding."
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:cards:16",
+      "sourceAnchor": "core-roofing:6:fr-en:card:16",
+      "sourceEnglish": "Any questions before we start?",
+      "candidateFrench": "Des questions avant de commencer ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:1",
+      "sourceEnglish": "It is 7:00 in the morning and the crew gathers.",
+      "candidateFrench": "Il est sept heures du matin et l’équipe se rassemble.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:2",
+      "sourceEnglish": "The foreman says: Let's review today's roof plan before we start.",
+      "candidateFrench": null,
+      "hold": "Linked foreman role decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:3",
+      "sourceEnglish": "The foreman asks: Who is leading the tear-off crew?",
+      "candidateFrench": null,
+      "hold": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew. Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:4",
+      "sourceEnglish": "Luis, the crew lead, raises his hand.",
+      "candidateFrench": null,
+      "hold": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew. Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:5",
+      "sourceEnglish": "Each person has a task in a work zone.",
+      "candidateFrench": "Chaque personne a une tâche dans une zone de travail.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:6",
+      "sourceEnglish": "Show me where you will stage the materials.",
+      "candidateFrench": null,
+      "hold": "Source staging area/stage materials is temporary placement for work; archived stockage/entreposer may imply storage. Choose a consistent regional trade expression without inventing a permanent storage instruction. Source speaking task requires work zones and material staging in a two-minute morning brief. Archived speaking asks lead, staging and hazard but omits an explicit work-zone assignment; author the task only after role and staging wording are settled.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:7",
+      "sourceEnglish": "Tell me if you see any hazard.",
+      "candidateFrench": "Dites-moi si vous voyez un danger.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Preserves source tell me if conditional reporting; no hazard assessment is invented."
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:8",
+      "sourceEnglish": "Does everyone understand the plan?",
+      "candidateFrench": "Est-ce que tout le monde comprend le plan ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Restores source present understanding rather than archived completed past understanding."
+    },
+    {
+      "id": "core-roofing:6:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:6:fr-en:reader:9",
+      "sourceEnglish": "Any questions before we start?",
+      "candidateFrench": "Des questions avant de commencer ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:6:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:6:fr-en:card:1",
+      "englishHeadword": "crew lead",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Morning Crew Brief",
+      "status": "held",
+      "hold": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:6:fr-en:card:2",
+      "englishHeadword": "staging area",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Morning Crew Brief",
+      "status": "held",
+      "hold": "Source staging area/stage materials is temporary placement for work; archived stockage/entreposer may imply storage. Choose a consistent regional trade expression without inventing a permanent storage instruction.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:6:fr-en:card:3",
+      "englishHeadword": "tear-off",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Morning Crew Brief",
+      "status": "held",
+      "hold": "Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:6:fr-en:card:4",
+      "englishHeadword": "crew",
+      "candidateFrenchSense": "l’équipe",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:6:fr-en:card:5",
+      "englishHeadword": "foreman",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Morning Crew Brief",
+      "status": "held",
+      "hold": "Source distinguishes crew lead Luis from foreman. Review chef d’équipe and contremaître roles by locale and employer, and preserve who asks, who answers and who leads the tear-off crew.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:6:fr-en:card:6",
+      "englishHeadword": "work zone",
+      "candidateFrenchSense": "la zone de travail",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:6:fr-en:card:7",
+      "englishHeadword": "assignment",
+      "candidateFrenchSense": "la tâche attribuée",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:6:fr-en:card:8",
+      "englishHeadword": "roof plan",
+      "candidateFrenchSense": "le plan pour le toit",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "senseDecisionPending": true
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:6:fr-en:card:9",
+      "englishHeadword": "hazard",
+      "candidateFrenchSense": "le danger",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:6:fr-en:card:10",
+      "englishHeadword": "delivery",
+      "candidateFrenchSense": "la livraison",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:6:fr-en:card:11",
+      "englishHeadword": "Let's review today's roof plan before we start.",
+      "candidateFrenchSense": "Passons en revue le plan prévu pour le toit aujourd'hui avant de commencer.",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:6:fr-en:card:12",
+      "englishHeadword": "Who is leading the tear-off crew?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Morning Crew Brief",
+      "status": "held",
+      "hold": "Source tear-off/desmontaje identifies roof removal. Decide whether archived dépose de l’ancienne couverture narrows the operation to the covering and whether this fits the source job assignment.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:6:fr-en:card:13",
+      "englishHeadword": "Show me where you will stage the materials.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Morning Crew Brief",
+      "status": "held",
+      "hold": "Source staging area/stage materials is temporary placement for work; archived stockage/entreposer may imply storage. Choose a consistent regional trade expression without inventing a permanent storage instruction. Source speaking task requires work zones and material staging in a two-minute morning brief. Archived speaking asks lead, staging and hazard but omits an explicit work-zone assignment; author the task only after role and staging wording are settled.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:6:fr-en:card:14",
+      "englishHeadword": "Tell me if you see any hazard.",
+      "candidateFrenchSense": "Dites-moi si vous voyez un danger.",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:6:fr-en:card:15",
+      "englishHeadword": "Does everyone understand the plan?",
+      "candidateFrenchSense": "Est-ce que tout le monde comprend le plan ?",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:6:fr-en:dictionary:16",
+      "sourceAnchor": "core-roofing:6:fr-en:card:16",
+      "englishHeadword": "Any questions before we start?",
+      "candidateFrenchSense": "Des questions avant de commencer ?",
+      "contextEnglish": "Morning Crew Brief",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Candidate apostrophe variants require comparison normalization before any future scoring; exact source rows and hashes are preserved unchanged.",
+    "The source morning brief with leadership/staging/assignment remains held. This neutral, unscored coworker exchange does not allocate roles, zones or materials and does not satisfy that full objective.",
+    "Core6 card12 already carries a source role/tear-off hold; no duplicate source packet was rewritten. Plan sense and authoring of the full morning brief remain qualified review dependencies."
+  ]
+}

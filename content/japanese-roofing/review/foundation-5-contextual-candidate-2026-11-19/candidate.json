@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "foundation-roofing:5:ja-en",
+  "identityStatus": "proposal-only; no runtime or saved-progress change",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/foundation-5-source-audit-2026-11-18/packet.json",
+    "sha256": "b981656b92bf99faaebe1b50b2d34e0361b0fbd14886487df99ca6c323201fc5"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/foundation-roofing-curriculum.ts",
+      "sha256": "e626d92a60d2c97be709402bca879b5c136c4c36da5caa4f381e15df5545b87b"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/foundation-roofing.json",
+      "sha256": "4cdad604723ac5200b6cf7af75ae1062e14907d04815ca8da12ee93ebd27c0f8"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/foundation-4-6-draft.json",
+      "sha256": "39ab05d005fe21885e6886478f3a4242e7ec53543cf728d502d58b7b5a80aa7c"
+    }
+  },
+  "objectiveEnglish": "Talk about when things happen (today, tomorrow, early, after that) and where we go (the jobsite, the truck, the house), and ask for help, using short workday sentences.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語を見て意味を確認してください：today（今日）",
+      "targetEnglish": "today",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:1",
+      "id": "foundation-roofing:5:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "現場（英語で、the を付けて答えてください）",
+      "targetEnglish": "the jobsite",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:5",
+      "id": "foundation-roofing:5:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、一致する英語を選んでください。",
+      "targetEnglish": "the truck",
+      "candidateOptionsEnglish": [
+        "the truck",
+        "the house",
+        "the jobsite"
+      ],
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:6",
+      "id": "foundation-roofing:5:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the truck",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "明日（英語で入力してください）",
+      "targetEnglish": "tomorrow",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:2",
+      "id": "foundation-roofing:5:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "手伝ってもらえますか？（英語で言ってください）",
+      "targetEnglish": "Can you help me?",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:10",
+      "id": "foundation-roofing:5:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "始めましょう。（英語で書いてください）",
+      "targetEnglish": "Let's start.",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:12",
+      "id": "foundation-roofing:5:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Today we're going to a new house.",
+      "explanationJapanese": "この文の「going to」は「〜へ行く」という移動を表します。「to」の後に行き先（a new house）が続きます。「to」の後に動詞が続く未来の言い方とは別の使い方です。",
+      "sourceAnchor": "foundation-roofing:5:ja-en:line:1",
+      "id": "foundation-roofing:5:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Can you help me?",
+      "explanationJapanese": "人に手伝いを頼むときの基本表現です。「Can you ...?」で「〜してもらえますか」と頼みます。",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:10",
+      "id": "foundation-roofing:5:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "After that we do the cleanup.",
+      "explanationJapanese": "「After that」は「その後」「それから」という意味で、順番を示します。この文では文頭に置かれています。",
+      "sourceAnchor": "foundation-roofing:5:ja-en:line:6",
+      "id": "foundation-roofing:5:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "early",
+      "glossJapanese": "早く、早い時間に",
+      "senseJapanese": "いつもより早い時間や、朝の早い時間を指します。",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:8",
+      "id": "foundation-roofing:5:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "after, later",
+      "glossJapanese": "〜の後で／後で",
+      "senseJapanese": "after は「〜の後で」と、ある出来事の後であることを表します。later は「後で」と、今より後の時点を表します。",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:4",
+      "id": "foundation-roofing:5:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the house",
+      "glossJapanese": "家、住宅",
+      "senseJapanese": "人が住む建物を指します。この課では仕事で向かう先の家です。",
+      "sourceAnchor": "foundation-roofing:5:ja-en:card:7",
+      "id": "foundation-roofing:5:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Describe the day's plan: where we are going today, how we get to the jobsite, and what we do after that.",
+      "partner": "Listen and ask when and where."
+    },
+    "openingEnglish": "Today we're going to a new house.",
+    "objectivesEnglish": [
+      "Say where we are going today and how we get to the jobsite.",
+      "Ask for help: \"Can you help me?\"",
+      "Say what we do after that."
+    ],
+    "wordBankEnglish": [
+      "today",
+      "early",
+      "the jobsite",
+      "the truck",
+      "Can you help me?",
+      "After that",
+      "tomorrow"
+    ],
+    "closureEnglish": "Tomorrow we're going to start another roof.",
+    "sourceAnchors": [
+      "foundation-roofing:5:ja-en:line:1",
+      "foundation-roofing:5:ja-en:line:2",
+      "foundation-roofing:5:ja-en:card:10",
+      "foundation-roofing:5:ja-en:line:6",
+      "foundation-roofing:5:ja-en:line:7"
+    ],
+    "id": "foundation-roofing:5:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older source-audit reverse pair label remains provenance only.",
+    "Source heat/work-fast assertion and roof-access/material-lowering procedure are not resolved by this supplement.",
+    "F5 motion going to a house is distinguished from future going to + verb. F6 lunch uses the exact natural Reader sentence.",
+    "AI authoring, critique and correction are not qualified language/trade approval."
+  ]
+}

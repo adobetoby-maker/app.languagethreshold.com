@@ -1,0 +1,519 @@
+{
+  "lessonId": "foundation-roofing:8:fr-en",
+  "candidateObjectiveEnglish": "Describe not-yet readiness, non-understanding and absence in English.",
+  "grammarExplanationEnglish": "English never, nobody and nothing express negation without an extra negative: We never work on a wet roof; There's nothing in the wheelbarrow. For standard English, do not say We don't never work or There isn't nothing. Yet goes at the end here: The roof isn't ready yet.",
+  "activities": [
+    {
+      "id": "foundation-roofing:8:fr-en:activity:see",
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais et son équivalent français : nothing, rien.",
+      "candidateTargetEnglish": "nothing",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "rien",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:activity:recall",
+      "mode": "recall",
+      "promptFrench": "Quel mot anglais signifie « jamais » ?",
+      "candidateTargetEnglish": "never",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "jamais",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:activity:hear",
+      "mode": "hear",
+      "promptFrench": "Écoutez le mot anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "nobody",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "personne",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "acceptedCandidateAlternatesFrench": [
+        "aucune personne"
+      ]
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:activity:type",
+      "mode": "type",
+      "promptFrench": "Tapez la phrase anglaise qui signifie « Pas encore. »",
+      "candidateTargetEnglish": "Not yet.",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:10"
+      ],
+      "expectedMeaningFrench": "Pas encore.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:activity:say",
+      "mode": "say",
+      "promptFrench": "Dites à voix haute la phrase anglaise pour « Je ne comprends pas. »",
+      "candidateTargetEnglish": "I don't understand.",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "Je ne comprends pas.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "I do not understand."
+      ]
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:activity:write",
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais la phrase qui signifie « Le toit n'est pas encore prêt. »",
+      "candidateTargetEnglish": "The roof isn't ready yet.",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:line:1"
+      ],
+      "expectedMeaningFrench": "Le toit n'est pas encore prêt.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "The roof is not ready yet.",
+        "The roof is not yet ready."
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "never",
+      "meaningFrench": "jamais",
+      "candidateExampleEnglish": "We never work on a wet roof.",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:1",
+        "foundation-roofing:8:fr-en:line:3"
+      ],
+      "id": "foundation-roofing:8:fr-en:form:1",
+      "reviewed": false,
+      "provenance": "Exact anchored source example.",
+      "tradeReviewNote": "Exact source describes this crew’s stated wet-roof practice; qualified trade review still required, not a universal selected procedure."
+    },
+    {
+      "englishForm": "nobody",
+      "meaningFrench": "personne",
+      "candidateExampleEnglish": "Nobody is on the roof.",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:2"
+      ],
+      "id": "foundation-roofing:8:fr-en:form:2",
+      "reviewed": false,
+      "provenance": "Newly authored example from the anchored negative word.",
+      "senseNoteFrench": "Pronom négatif : aucune personne."
+    },
+    {
+      "englishForm": "nothing",
+      "meaningFrench": "rien",
+      "candidateExampleEnglish": "There's nothing in the wheelbarrow.",
+      "sourceAnchors": [
+        "foundation-roofing:8:fr-en:card:3",
+        "foundation-roofing:8:fr-en:line:4"
+      ],
+      "id": "foundation-roofing:8:fr-en:form:3",
+      "reviewed": false,
+      "provenance": "Exact anchored source example."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member reporting readiness and an empty wheelbarrow.",
+    "partnerRole": "A coworker asking whether the roof is ready and whether anything is in the wheelbarrow.",
+    "candidateOpeningEnglish": "The roof isn't ready yet.",
+    "goalEnglish": "Say the roof is not ready yet and that there is nothing in the wheelbarrow.",
+    "candidateWordBankEnglish": [
+      "not yet",
+      "nothing",
+      "ready",
+      "wheelbarrow"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Newly authored ordinary closure; no clarification or register decision implied.",
+    "sourceAnchors": [
+      "foundation-roofing:8:fr-en:card:3",
+      "foundation-roofing:8:fr-en:card:10",
+      "foundation-roofing:8:fr-en:line:1",
+      "foundation-roofing:8:fr-en:line:4"
+    ],
+    "id": "foundation-roofing:8:fr-en:speaking:1",
+    "reviewed": false,
+    "openingProvenance": "Exact source Reader1.",
+    "partnerCuesEnglish": [
+      "Is the roof ready?",
+      "Is there anything in the wheelbarrow?"
+    ],
+    "partnerCuesProvenance": "Newly authored question transformations from Reader1 and Reader4; not exact source quotations."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/foundation-8-source-decision-2026-11-18/decision.json",
+    "sha256": "6fd8a8ece1b1dc62ede83d7954c03873fd56730330f025cc9639e4ecf3ee85cb"
+  },
+  "candidateRows": [
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:1",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:1",
+      "sourceEnglish": "never",
+      "candidateFrench": "jamais",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:2",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:2",
+      "sourceEnglish": "nobody",
+      "candidateFrench": "personne",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "candidateSenseNoteFrench": "Pronom négatif : aucune personne."
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:3",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:3",
+      "sourceEnglish": "nothing",
+      "candidateFrench": "rien",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:4",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:4",
+      "sourceEnglish": "more",
+      "candidateFrench": null,
+      "hold": "The source unbound 'more' is broader than archived plus de, which means more of a quantity; choose contextual card and dictionary senses before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:5",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:5",
+      "sourceEnglish": "less",
+      "candidateFrench": null,
+      "hold": "The source unbound 'less' is broader than archived moins de, which requires a following quantity; choose contextual card and dictionary senses.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:6",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:6",
+      "sourceEnglish": "another, other",
+      "candidateFrench": null,
+      "hold": "Grouped another/other requires contextual gender, number and determiner choice in French before a single dictionary face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:7",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:7",
+      "sourceEnglish": "still, yet",
+      "candidateFrench": null,
+      "hold": "Source 'still, yet' needs context. Archived encore can mean still or again; yet in the negative phrase is pas encore. Decide isolated card sense and Reader linkage.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:8",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:8",
+      "sourceEnglish": "a little",
+      "candidateFrench": null,
+      "hold": "Source 'a little' is unbound; archived un peu de expects a following noun. The Reader has countable nails, where a few is quelques clous.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:9",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:9",
+      "sourceEnglish": "I don't understand.",
+      "candidateFrench": "Je ne comprends pas.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:10",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:10",
+      "sourceEnglish": "Not yet.",
+      "candidateFrench": "Pas encore.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:11",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:11",
+      "sourceEnglish": "Nobody goes up without a harness.",
+      "candidateFrench": null,
+      "hold": "The source and archived phrase say nobody goes up without a harness. Qualified roofing safety review must distinguish wearing a harness from complete fall-protection authorization before promotion.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:cards:12",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:12",
+      "sourceEnglish": "I need another bundle.",
+      "candidateFrench": null,
+      "hold": "Source bundle and archived paquet need roofing material/packaging sense review, tied to the Reader's bundle of shingles.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:1",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:1",
+      "sourceEnglish": "The roof isn't ready yet.",
+      "candidateFrench": "Le toit n'est pas encore prêt.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:2",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:2",
+      "sourceEnglish": "Nobody goes up without a harness.",
+      "candidateFrench": null,
+      "hold": "The source's harness requirement is retained, but a harness alone is not an approved complete fall-protection procedure; qualified roofing safety review is required.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:3",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:3",
+      "sourceEnglish": "We never work on a wet roof.",
+      "candidateFrench": "On ne travaille jamais sur un toit mouillé.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:4",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:4",
+      "sourceEnglish": "There's nothing in the wheelbarrow.",
+      "candidateFrench": "Il n'y a rien dans la brouette.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:5",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:5",
+      "sourceEnglish": "I need another bundle and a few more nails.",
+      "candidateFrench": null,
+      "hold": "Archived paquet and quelques clous render source bundle and a few more nails. Confirm bundle/shingle trade sense and countable quantity before recording.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:6",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:6",
+      "sourceEnglish": "Today we use fewer shingles than yesterday.",
+      "candidateFrench": null,
+      "hold": "Archived bardeaux narrows source shingles to a material/region-specific term; settle roofing locale and dictionary sense before recording.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:candidate:reader:7",
+      "sourceAnchor": "foundation-roofing:8:fr-en:line:7",
+      "sourceEnglish": "I don't understand, can you speak more slowly?",
+      "candidateFrench": null,
+      "hold": "Propagate course-level tu/vous request register decision from Foundation5; source request retained, French selection held.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:1",
+      "englishHeadword": "never",
+      "candidateFrenchSense": "jamais",
+      "contextEnglish": "negative statements and readiness",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:2",
+      "englishHeadword": "nobody",
+      "candidateFrenchSense": "personne",
+      "contextEnglish": "negative statements and readiness",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "usageNoteFrench": "Pronom négatif : aucune personne."
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:3",
+      "englishHeadword": "nothing",
+      "candidateFrenchSense": "rien",
+      "contextEnglish": "negative statements and readiness",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:4",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:4",
+      "englishHeadword": "more",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "The source unbound 'more' is broader than archived plus de, which means more of a quantity; choose contextual card and dictionary senses before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:5",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:5",
+      "englishHeadword": "less",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "The source unbound 'less' is broader than archived moins de, which requires a following quantity; choose contextual card and dictionary senses.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:6",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:6",
+      "englishHeadword": "another, other",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "Grouped another/other requires contextual gender, number and determiner choice in French before a single dictionary face.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:7",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:7",
+      "englishHeadword": "still, yet",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "Source 'still, yet' needs context. Archived encore can mean still or again; yet in the negative phrase is pas encore. Decide isolated card sense and Reader linkage.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:8",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:8",
+      "englishHeadword": "a little",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "Source 'a little' is unbound; archived un peu de expects a following noun. The Reader has countable nails, where a few is quelques clous.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:9",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:9",
+      "englishHeadword": "I don't understand.",
+      "candidateFrenchSense": "Je ne comprends pas.",
+      "contextEnglish": "negative statements and readiness",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:10",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:10",
+      "englishHeadword": "Not yet.",
+      "candidateFrenchSense": "Pas encore.",
+      "contextEnglish": "negative statements and readiness",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:11",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:11",
+      "englishHeadword": "Nobody goes up without a harness.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "The source and archived phrase say nobody goes up without a harness. Qualified roofing safety review must distinguish wearing a harness from complete fall-protection authorization before promotion.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:8:fr-en:dictionary:12",
+      "sourceAnchor": "foundation-roofing:8:fr-en:card:12",
+      "englishHeadword": "I need another bundle.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "negative statements and readiness",
+      "status": "held",
+      "hold": "Source bundle and archived paquet need roofing material/packaging sense review, tied to the Reader's bundle of shingles.",
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish grammar is provenance only.",
+    "Held source safety, register and regional senses are not selected.",
+    "No recorded audio, progress migration, owner page or runtime registration.",
+    "French vous in interface prompts is a candidate instruction convention, separate from held tu/vous in learner utterances.",
+    "French spoken on and question-form choices remain candidate register decisions; on/nous and est-ce que must receive course-level qualified review before selection.",
+    "Harness/material quantities and tu/vous repair requests remain held. Exact wet-roof source claim is unselected and requires trade review; no universal safety procedure is inferred."
+  ],
+  "grammarExplanationFrench": "Never, nobody et nothing portent déjà la négation en anglais standard. On n'ajoute pas don't devant never dans l'exemple. I don't understand signifie Je ne comprends pas. Dans The roof isn't ready yet, yet se place à la fin et donne le sens de pas encore."
+}

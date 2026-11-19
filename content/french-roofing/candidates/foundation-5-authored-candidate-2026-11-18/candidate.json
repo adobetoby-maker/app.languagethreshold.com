@@ -1,0 +1,587 @@
+{
+  "lessonId": "foundation-roofing:5:fr-en",
+  "candidateObjectiveEnglish": "Talk about the source work plan, timing and cleanup sequence in English; ability/help requests remain held.",
+  "grammarExplanationEnglish": "English be going to + base verb expresses a plan: I’m going to go up. Compare going to a house (movement) with going to start (a plan). In After that we do the cleanup, use do for the action, not make. Ability/help-request practice remains held with the register decision.",
+  "activities": [
+    {
+      "id": "foundation-roofing:5:fr-en:activity:see",
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais affiché et associez-le à son sens français.",
+      "candidateTargetEnglish": "today",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "aujourd'hui",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "displayEnglish": "today"
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:activity:recall",
+      "mode": "recall",
+      "promptFrench": "Rappelez le mot anglais pour « le chantier ».",
+      "candidateTargetEnglish": "the jobsite",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "le chantier",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:activity:hear",
+      "mode": "hear",
+      "promptFrench": "Après écoute du texte anglais proposé, reformulez la phrase en français.",
+      "candidateTargetEnglish": "It's hot.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:11"
+      ],
+      "expectedMeaningFrench": "Il fait chaud.",
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "audioScript": null,
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "sourceAnnotationEnglish": "weather; parenthetical gloss omitted from proposed spoken stimulus"
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:activity:type",
+      "mode": "type",
+      "promptFrench": "Tapez en anglais le sens de « Maintenant, je vais monter sur le toit. »",
+      "candidateTargetEnglish": "Now I'm going to go up on the roof.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:line:3"
+      ],
+      "expectedMeaningFrench": "Maintenant, je vais monter sur le toit.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:activity:say",
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Je vais monter. »",
+      "candidateTargetEnglish": "I'm going to go up.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "Je vais monter.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "acceptedCandidateAlternatesEnglish": [
+        "I'll go up."
+      ]
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:activity:write",
+      "mode": "write",
+      "promptFrench": "Invitez votre collègue à commencer : écrivez en anglais « Commençons. »",
+      "candidateTargetEnglish": "Let's start.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Commençons.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "adaptationNote": "Makes the English source invitation explicit rather than reading on commence as a statement."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "I'm going to go up.",
+      "meaningFrench": "Je vais monter.",
+      "candidateExampleEnglish": "Now I'm going to go up on the roof.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:9",
+        "foundation-roofing:5:fr-en:line:3"
+      ],
+      "provenance": "source",
+      "id": "foundation-roofing:5:fr-en:form:1",
+      "reviewed": false
+    },
+    {
+      "englishForm": "It's hot.",
+      "meaningFrench": "Il fait chaud.",
+      "candidateExampleEnglish": "It's hot.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:11"
+      ],
+      "provenance": "source",
+      "id": "foundation-roofing:5:fr-en:form:2",
+      "reviewed": false,
+      "sourceAnnotationEnglish": "weather"
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:form:3",
+      "englishForm": "we do",
+      "meaningFrench": "on fait",
+      "candidateExampleEnglish": "After that we do the cleanup.",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:line:6"
+      ],
+      "provenance": "source",
+      "reviewed": false,
+      "senseNote": "After that is a complete sequence phrase here; bare after/later remains held."
+    }
+  ],
+  "speaking": {
+    "roles": [
+      "You: a crew member explaining today’s plan",
+      "Partner: a coworker listening to the plan"
+    ],
+    "opening": {
+      "french": "Aujourd'hui, on arrive tôt au chantier.",
+      "provenance": "newly-authored composition from today and source arrival line",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:1",
+        "foundation-roofing:5:fr-en:card:8",
+        "foundation-roofing:5:fr-en:line:2"
+      ],
+      "english": "Today we get to the jobsite early."
+    },
+    "goal": "Explain the source plan and sequence in English; help-request register remains held.",
+    "wordbank": [
+      {
+        "french": "aujourd'hui",
+        "english": "today",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:1"
+        ]
+      },
+      {
+        "french": "demain",
+        "english": "tomorrow",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:2"
+        ]
+      },
+      {
+        "french": "maintenant",
+        "english": "now",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:3"
+        ]
+      },
+      {
+        "french": "le chantier",
+        "english": "the jobsite",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:5"
+        ]
+      },
+      {
+        "french": "le camion",
+        "english": "the truck",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:6"
+        ]
+      },
+      {
+        "french": "la maison",
+        "english": "the house",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:7"
+        ]
+      },
+      {
+        "french": "tôt",
+        "english": "early",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:8"
+        ]
+      },
+      {
+        "french": "Je vais monter.",
+        "english": "I'm going to go up.",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:9"
+        ]
+      },
+      {
+        "french": "Il fait chaud.",
+        "english": "It's hot.",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:11"
+        ],
+        "senseNote": "weather"
+      },
+      {
+        "french": "On commence.",
+        "english": "Let's start.",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:12"
+        ]
+      }
+    ],
+    "closure": {
+      "english": "That is my plan.",
+      "provenance": "newly-authored conversational closure",
+      "sourceAnchors": [],
+      "french": "Voilà mon programme."
+    },
+    "sourceAnchors": [
+      "foundation-roofing:5:fr-en:card:1",
+      "foundation-roofing:5:fr-en:card:8",
+      "foundation-roofing:5:fr-en:line:2"
+    ],
+    "provenance": "Source-anchored English opening and wordbank; newly authored closure.",
+    "id": "foundation-roofing:5:fr-en:speaking:1",
+    "reviewed": false
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/foundation-5-source-decision-2026-11-18/decision.json",
+    "sha256": "258f329cbfa4bb02f6e7d95bb4807508311c5ceef827a10103863d28b4961a12"
+  },
+  "candidateRows": [
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:1",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:1",
+      "sourceEnglish": "today",
+      "candidateFrench": "aujourd'hui",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:2",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:2",
+      "sourceEnglish": "tomorrow",
+      "candidateFrench": "demain",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:3",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:3",
+      "sourceEnglish": "now",
+      "candidateFrench": "maintenant",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:4",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:4",
+      "sourceEnglish": "after, later",
+      "candidateFrench": null,
+      "hold": "English 'after, later' groups two senses. Archived après covers after; private correction proposed après, plus tard. Choose one or split the card and dictionary senses before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:5",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:5",
+      "sourceEnglish": "the jobsite",
+      "candidateFrench": "le chantier",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:6",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:6",
+      "sourceEnglish": "the truck",
+      "candidateFrench": "le camion",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:7",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:7",
+      "sourceEnglish": "the house",
+      "candidateFrench": "la maison",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:8",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:8",
+      "sourceEnglish": "early",
+      "candidateFrench": "tôt",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:9",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:9",
+      "sourceEnglish": "I'm going to go up.",
+      "candidateFrench": "Je vais monter.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:10",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:10",
+      "sourceEnglish": "Can you help me?",
+      "candidateFrench": null,
+      "hold": "English does not specify tu/vous. Archive uses vous; a later private candidate used tu. Set register and locale before selecting the answer or recording.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:11",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:11",
+      "sourceEnglish": "It's hot (weather).",
+      "candidateFrench": "Il fait chaud.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:cards:12",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:12",
+      "sourceEnglish": "Let's start.",
+      "candidateFrench": "On commence.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:1",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:1",
+      "sourceEnglish": "Today we're going to a new house.",
+      "candidateFrench": null,
+      "hold": "New house may mean newly built or a different house; clarify exact source sense before selecting French.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:2",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:2",
+      "sourceEnglish": "We get to the jobsite early in the truck.",
+      "candidateFrench": "On arrive tôt au chantier en camion.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:3",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:3",
+      "sourceEnglish": "Now I'm going to go up on the roof.",
+      "candidateFrench": "Maintenant, je vais monter sur le toit.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:4",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:4",
+      "sourceEnglish": "It's hot, so we work fast.",
+      "candidateFrench": null,
+      "hold": "Exact source links hot weather to working fast. Keep the source anchor visible, but qualified roofing safety review must decide the teaching line before selecting French.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:5",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:5",
+      "sourceEnglish": "Can you help me with the ladder?",
+      "candidateFrench": null,
+      "hold": "Archive uses vous and a private candidate uses tu for the crew request. Decide register and the linked card 10 together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:6",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:6",
+      "sourceEnglish": "After that we do the cleanup.",
+      "candidateFrench": "Après ça, on fait le nettoyage.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:candidate:reader:7",
+      "sourceAnchor": "foundation-roofing:5:fr-en:line:7",
+      "sourceEnglish": "Tomorrow we're going to start another roof.",
+      "candidateFrench": "Demain, on va commencer un autre toit.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:1",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:1",
+      "englishHeadword": "today",
+      "candidateFrenchSense": "aujourd'hui",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:2",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:2",
+      "englishHeadword": "tomorrow",
+      "candidateFrenchSense": "demain",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:3",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:3",
+      "englishHeadword": "now",
+      "candidateFrenchSense": "maintenant",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:4",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:4",
+      "englishHeadword": "after, later",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "held",
+      "hold": "English 'after, later' groups two senses. Archived après covers after; private correction proposed après, plus tard. Choose one or split the card and dictionary senses before scoring.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:5",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:5",
+      "englishHeadword": "the jobsite",
+      "candidateFrenchSense": "le chantier",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:6",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:6",
+      "englishHeadword": "the truck",
+      "candidateFrenchSense": "le camion",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:7",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:7",
+      "englishHeadword": "the house",
+      "candidateFrenchSense": "la maison",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:8",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:8",
+      "englishHeadword": "early",
+      "candidateFrenchSense": "tôt",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:9",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:9",
+      "englishHeadword": "I'm going to go up.",
+      "candidateFrenchSense": "Je vais monter.",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:10",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:10",
+      "englishHeadword": "Can you help me?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "held",
+      "hold": "English does not specify tu/vous. Archive uses vous; a later private candidate used tu. Set register and locale before selecting the answer or recording.",
+      "reviewed": false
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:11",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:11",
+      "englishHeadword": "It's hot (weather).",
+      "candidateFrenchSense": "Il fait chaud.",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "candidateUsageEnglish": "It's hot.",
+      "sourceAnnotationEnglish": "Source parenthetical weather is a sense label, not spoken text."
+    },
+    {
+      "id": "foundation-roofing:5:fr-en:dictionary:12",
+      "sourceAnchor": "foundation-roofing:5:fr-en:card:12",
+      "englishHeadword": "Let's start.",
+      "candidateFrenchSense": "On commence.",
+      "contextEnglish": "jobsite plan and timing; request entries held",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish grammar is provenance only.",
+    "Held source safety, register and regional senses are not selected.",
+    "No recorded audio, progress migration, owner page or runtime registration."
+  ]
+}

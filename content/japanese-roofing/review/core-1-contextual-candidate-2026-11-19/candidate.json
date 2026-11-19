@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:1:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-1-source-audit-2026-11-18/packet.json",
+    "sha256": "5a2c193de98929a54a5bf1aa65901d44374cafd2da0cf10080172e2e0eaafa91"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-1-3-draft.json",
+      "sha256": "ec1dff1ce6f7e948ff078bef0f32fa7841a407d264d7d50b6e6827bc1c8932f5"
+    }
+  },
+  "objectiveEnglish": "Practice a few roof-type terms, one material name, and two short questions about a roof. This supplement covers only selected terminology and descriptions and does not complete the lesson.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「roof」は「屋根（やね）」という意味です。英語の語を見て、意味を確認してください。",
+      "targetEnglish": "roof",
+      "sourceAnchor": "roofing:1:ja-en:card:5",
+      "id": "core-roofing:1:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「平らな屋根（陸屋根・ろくやね）」を表す英語を思い出してください。",
+      "targetEnglish": "flat roof",
+      "sourceAnchor": "roofing:1:ja-en:card:7",
+      "id": "core-roofing:1:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語の語句を選んでください。",
+      "targetEnglish": "skylight",
+      "candidateOptionsEnglish": [
+        "skylight",
+        "roof pitch",
+        "roof system"
+      ],
+      "sourceAnchor": "roofing:1:ja-en:card:10",
+      "id": "core-roofing:1:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "skylight",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「メタルパネル（金属パネル）」を英語で入力してください。",
+      "targetEnglish": "metal panel",
+      "sourceAnchor": "roofing:1:ja-en:card:3",
+      "id": "core-roofing:1:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "次の英文を声に出して読んでください。屋根が平らか、傾斜しているかを尋ねる質問です。",
+      "targetEnglish": "Is the roof flat or sloped?",
+      "sourceAnchor": "roofing:1:ja-en:card:14",
+      "id": "core-roofing:1:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「傾斜のある屋根」を英語で書いてください。",
+      "targetEnglish": "sloped roof",
+      "sourceAnchor": "roofing:1:ja-en:card:8",
+      "id": "core-roofing:1:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "This roof is sloped, not flat.",
+      "explanationJapanese": "「This roof is ～」は「この屋根は～です」と屋根の様子を説明する形です。「～, not …」で「…ではなく～」と対比しています。sloped は「傾斜した」、flat は「平らな」です。",
+      "sourceAnchor": "roofing:1:ja-en:line:3",
+      "id": "core-roofing:1:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "What material does this roof have?",
+      "explanationJapanese": "「What material ～?」は「どんな材料ですか」と材料を尋ねる疑問文の形です。文全体で「この屋根はどんな材料でできていますか」という意味になります。",
+      "sourceAnchor": "roofing:1:ja-en:card:11",
+      "id": "core-roofing:1:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "There is also a skylight at the back.",
+      "explanationJapanese": "「There is ～」は「～があります」と、あるものの存在を説明する形です。also は「～も」、at the back は「後ろ側に」という意味です。",
+      "sourceAnchor": "roofing:1:ja-en:line:7",
+      "id": "core-roofing:1:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "roof pitch",
+      "glossJapanese": "屋根の勾配（こうばい）",
+      "senseJapanese": "屋根面の傾きの度合いを表す言葉です。",
+      "sourceAnchor": "roofing:1:ja-en:card:9",
+      "id": "core-roofing:1:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "skylight",
+      "glossJapanese": "天窓（てんまど）",
+      "senseJapanese": "屋根にある、光を取り入れるための窓です。",
+      "sourceAnchor": "roofing:1:ja-en:card:10",
+      "id": "core-roofing:1:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "roof system",
+      "glossJapanese": "屋根システム（屋根の構成一式）",
+      "senseJapanese": "屋根全体を、いくつかの部分が組み合わさった一つのまとまりとして呼ぶ言葉です。",
+      "sourceAnchor": "roofing:1:ja-en:card:6",
+      "id": "core-roofing:1:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "A new crew member who describes the roof and answers short questions about it.",
+      "partner": "A foreman who asks short questions about the roof."
+    },
+    "openingEnglish": "Today is the first day at the new job site.",
+    "closureEnglish": "There is also a skylight at the back.",
+    "objectivesEnglish": [
+      "Practice part of the roof-type vocabulary, such as flat roof and sloped roof.",
+      "Ask and answer whether the roof is flat or sloped using the sample question and sample sentence.",
+      "Say that there is a skylight using the sample sentence."
+    ],
+    "wordBankEnglish": [
+      "roof",
+      "flat roof",
+      "sloped roof",
+      "skylight",
+      "roof system",
+      "metal panel"
+    ],
+    "sourceAnchors": [
+      "roofing:1:ja-en:line:1",
+      "roofing:1:ja-en:line:3",
+      "roofing:1:ja-en:line:7",
+      "roofing:1:ja-en:card:14",
+      "roofing:1:ja-en:card:5",
+      "roofing:1:ja-en:card:7",
+      "roofing:1:ja-en:card:8",
+      "roofing:1:ja-en:card:10",
+      "roofing:1:ja-en:card:6",
+      "roofing:1:ja-en:card:3"
+    ],
+    "id": "core-roofing:1:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older reverse pair and roofing header retained as source provenance only. Proposed core IDs are not registered.",
+    "Partial supplement: material senses, product suitability, installation sequence, fastening and leak-repair instructions need qualified Japanese/trade/source/dictionary decisions.",
+    "Source odd English remains pinned: Core1 metal-panel sentence and installing versus future mismatch; Core2 layering wording; Core3 joints terminology and installation fragments. No silent source rewrites.",
+    "AI assistance is not qualified approval. Source material claims are held; generic descriptive dictionary senses remain conditional."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

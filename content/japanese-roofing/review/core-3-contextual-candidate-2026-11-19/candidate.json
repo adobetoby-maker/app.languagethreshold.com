@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:3:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-3-source-decision-2026-11-18/packet.json",
+    "sha256": "ba3c1e7be5982f5bf11ea71f6d052c43a513f36d5b84e59a49c37eeec6e3abd8"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-1-3-draft.json",
+      "sha256": "ec1dff1ce6f7e948ff078bef0f32fa7841a407d264d7d50b6e6827bc1c8932f5"
+    }
+  },
+  "objectiveEnglish": "Practice a few terms for roof joints and leak-related parts and one short question about where the valleys are. This supplement covers only selected terminology and descriptions and does not complete the lesson.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「flashing」は「フラッシング（雨水が入らないようにするための部材）」という意味です。英語の語を見て、意味を確認してください。",
+      "targetEnglish": "flashing",
+      "sourceAnchor": "roofing:3:ja-en:card:1",
+      "id": "core-roofing:3:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「屋根の谷（谷部・たにぶ）」を表す英語を思い出してください。",
+      "targetEnglish": "valley",
+      "sourceAnchor": "roofing:3:ja-en:card:3",
+      "id": "core-roofing:3:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた英語の語句を選んでください。",
+      "targetEnglish": "chimney",
+      "candidateOptionsEnglish": [
+        "chimney",
+        "wall",
+        "leak"
+      ],
+      "sourceAnchor": "roofing:3:ja-en:card:5",
+      "id": "core-roofing:3:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "chimney",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「シーラント（すき間をふさぐための材料）」を英語で入力してください。",
+      "targetEnglish": "sealant",
+      "sourceAnchor": "roofing:3:ja-en:card:8",
+      "id": "core-roofing:3:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "次の質問を声に出して読んでください。この屋根の谷がどこにあるかを尋ねる質問です。",
+      "targetEnglish": "Where are the valleys on this roof?",
+      "sourceAnchor": "roofing:3:ja-en:card:13",
+      "id": "core-roofing:3:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「ステップフラッシング（階段状の水切り部材）」を英語で書いてください。",
+      "targetEnglish": "step flashing",
+      "sourceAnchor": "roofing:3:ja-en:card:2",
+      "id": "core-roofing:3:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Water often gets in at the joints of the roof.",
+      "explanationJapanese": "「get in」は「入り込む」という意味です。often は「よく」と頻度を表します。at the joints of the roof は「屋根の接合部（取り合い部）で」という場所を表します。",
+      "sourceAnchor": "roofing:3:ja-en:line:1",
+      "id": "core-roofing:3:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Where are the valleys on this roof?",
+      "explanationJapanese": "「Where are ～?」は「～はどこにありますか」と場所を尋ねる疑問文の形です。valleys が複数形なので are を使います。on this roof は「この屋根で」という意味です。",
+      "sourceAnchor": "roofing:3:ja-en:card:13",
+      "id": "core-roofing:3:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Flashing helps keep the water out.",
+      "explanationJapanese": "「help + 動詞」は「～するのに役立つ」という形です。「keep ～ out」は「～を中に入れない」という意味です。",
+      "sourceAnchor": "roofing:3:ja-en:line:3",
+      "id": "core-roofing:3:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "flashing",
+      "glossJapanese": "フラッシング（雨仕舞いの部材）",
+      "senseJapanese": "屋根の接合部（取り合い部）などで、水が入らないようにするための部材の総称です。",
+      "sourceAnchor": "roofing:3:ja-en:card:1",
+      "id": "core-roofing:3:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "leak",
+      "glossJapanese": "雨漏り（あまもり）",
+      "senseJapanese": "本来は水が入らない場所に、水がしみ込んだり漏れたりすることを指します。",
+      "sourceAnchor": "roofing:3:ja-en:card:7",
+      "id": "core-roofing:3:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "sealant",
+      "glossJapanese": "シーラント（シーリング材）",
+      "senseJapanese": "すき間をふさぐための材料の総称です。",
+      "sourceAnchor": "roofing:3:ja-en:card:8",
+      "id": "core-roofing:3:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "A crew member who names roof joints and asks where the valleys are.",
+      "partner": "A foreman who talks about where water gets in and asks short questions."
+    },
+    "openingEnglish": "Water often gets in at the joints of the roof.",
+    "closureEnglish": "A worker points to the valley at the front.",
+    "objectivesEnglish": [
+      "Practice part of the roof-joint vocabulary, such as flashing and valley.",
+      "Ask where the valleys are on the roof using the sample question.",
+      "Name a place where the roof has joints, such as a valley, a chimney, or a wall, in a short exchange."
+    ],
+    "wordBankEnglish": [
+      "flashing",
+      "step flashing",
+      "valley",
+      "chimney",
+      "wall",
+      "leak"
+    ],
+    "sourceAnchors": [
+      "roofing:3:ja-en:line:1",
+      "roofing:3:ja-en:line:2",
+      "roofing:3:ja-en:line:5",
+      "roofing:3:ja-en:line:6",
+      "roofing:3:ja-en:card:13",
+      "roofing:3:ja-en:card:1",
+      "roofing:3:ja-en:card:2",
+      "roofing:3:ja-en:card:3",
+      "roofing:3:ja-en:card:5",
+      "roofing:3:ja-en:card:6",
+      "roofing:3:ja-en:card:7"
+    ],
+    "id": "core-roofing:3:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; older reverse pair and roofing header retained as source provenance only. Proposed core IDs are not registered.",
+    "Partial supplement: material senses, product suitability, installation sequence, fastening and leak-repair instructions need qualified Japanese/trade/source/dictionary decisions.",
+    "Source odd English remains pinned: Core1 metal-panel sentence and installing versus future mismatch; Core2 layering wording; Core3 joints terminology and installation fragments. No silent source rewrites.",
+    "AI assistance is not qualified approval. Source material claims are held; generic descriptive dictionary senses remain conditional."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

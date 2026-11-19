@@ -1,0 +1,541 @@
+{
+  "schema": 1,
+  "state": "private-audio-scope-unsynthesized",
+  "moduleId": "french-sound-like-a-native",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceFiles": [
+    {
+      "path": "content/french-pronunciation/core-13-15-draft.json",
+      "sha256": "b7a99c4d96b9d353a2ce431e66d69ac54aecacdd5c8f2e64a510654a8ae97cb5"
+    }
+  ],
+  "reviewed": false,
+  "registered": false,
+  "recordingsGenerated": false,
+  "listeningReviewed": false,
+  "includedFields": [
+    "cards[].fr",
+    "reader[].fr",
+    "speaking.opening",
+    "speaking.closure"
+  ],
+  "excludedFields": [
+    "English support",
+    "English practice prompts",
+    "unwritten conversation replies"
+  ],
+  "stageLessons": {
+    "core": [
+      "core-french-sound-like-a-native:13:fr-en",
+      "core-french-sound-like-a-native:14:fr-en",
+      "core-french-sound-like-a-native:15:fr-en"
+    ]
+  },
+  "counts": {
+    "lessons": 3,
+    "placementsByField": {
+      "cards": 30,
+      "reader": 12,
+      "speaking.closure": 3,
+      "speaking.opening": 3
+    },
+    "uniqueExactTexts": 48,
+    "twoVoiceClips": 96,
+    "unicodeCharactersPerVoice": 1388,
+    "projectedBillableCharactersTwoVoices": 2776
+  },
+  "planningRate": {
+    "usdPerMillionCharacters": 30,
+    "source": "https://cloud.google.com/text-to-speech/pricing",
+    "grossTwoVoiceEstimateUSD": 0.0833,
+    "note": "Planning estimate before retakes; actual billing and rate require a fresh check before synthesis."
+  },
+  "exactTextSha256": "467dfe3bdd71533c2bb371fc7f49eb63cf252da007d334dc15561fc1e777d477",
+  "texts": [
+    {
+      "text": "Alex",
+      "sha256": "db74c940d447e877d119df613edd2700c4a84cd1cf08beb7cbc319bcfaeab97a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Alex attend Xavier devant la gare avec deux valises.",
+      "sha256": "e7c8fffd2c45693d9f657ab10e2d580cafb3e47234b97779f4a334fabacf5cdb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Alex confirme l'adresse et ils montent dans le taxi.",
+      "sha256": "4f4ed8e73cc0bf409880f5a86c564c31098b3edcf9a344c08c81d132433f9c9b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Alex et Xavier attendent devant la gare.",
+      "sha256": "c4076f47624e16a0a6f0b23a0bbca88e541c591fc8c05de8956c478a630ca53e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après le spectacle, nous entrons dans le stade pour voir le match.",
+      "sha256": "e163d7afb42e3aa710ee9d3dd8a63e5583273077515c39ec9b447f2e16e87796",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Au marché du livre, je demande un grand sac pour mes achats.",
+      "sha256": "2fa79e357e2976129be03d7f9e4e58fa3ef0f5ff120dcee34f6e3a62aa0d5867",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, Alex et Xavier attendent devant la gare.",
+      "sha256": "d534d72ccfe02278b654af851ac275dd25fcbe70dbc86d6a9b90d6e6aa84d9bc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je viens avec neuf livres à emporter.",
+      "sha256": "35515869596557fb0eb137879facbe05e89eed21c05a53d9a5edd80301cda48d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, la station est-elle près du stade ?",
+      "sha256": "8adb1d9f76abe719f9d4efcf482cc02435f1477eac3f1bbe9f72c528bf68a3b8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Ce sac est neuf.",
+      "sha256": "cc73ec743f9194e992c198a3bf855976fb019ead124c2e4e0825e89db30f0d21",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Ce spectacle a un style spécial.",
+      "sha256": "89e70a057a5b0ce4780cc2e9a20c686f4371e7930624d67e0060ceee789fa49b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai deux adresses sur mon téléphone.",
+      "sha256": "7ac96d815c076f0c850fc7361e6d2a44fa2772b655d782c0db2021efd46cb2b1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends un grand sac.",
+      "sha256": "417b32c78a53030b5c0299fc7c1a924182dbacf6040a0d0df15bc39803c661e6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je repars avec neuf livres dans un sac plus grand.",
+      "sha256": "a0f086a369348841944972ab942ea5c39769b14681a9ce9eaeb106c2dadc499d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je vais au stade après le spectacle.",
+      "sha256": "64396016c44a2a620ddcf26ef71b8ae882791ff7f47073561bc1b683e6feacb7",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je viens avec neuf livres.",
+      "sha256": "30e4fc77043c8762ce860157ddef4ccd6dc314b5d055a6a89f9947a23772cee6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "La station est près du stade.",
+      "sha256": "d5c1f0918798ac4e0e91b08d712d114f36b01eab6697b94e118eabba8a356523",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le groupe a un style spécial que tout le monde remarque.",
+      "sha256": "a491d83f7427fe1d3743a0c6686d080ed73396c5af0b78578323b175d2136c84",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le petit sac est trop plein.",
+      "sha256": "32303171745303a3e06a4b1fbcff8c054a27b2b534236d48024ad9ed61f9ed70",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le taxi arrive dans dix minutes, mais le chauffeur demande l'adresse exacte.",
+      "sha256": "fff8f11fc276fced19f4d011899de716ee3b76767baece2dd4738ecbf7090282",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le taxi arrive dans dix minutes.",
+      "sha256": "a9d307708d677d17d90b74167e40b39e606cb294351fde24bd40d908c151cc0f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le vendeur me dit que ce sac est neuf.",
+      "sha256": "c4e0e3086c76a3832d8a79adabf67ccd90395a38008b9c0d35b2981f94316d91",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le vendeur me donne d'abord un petit sac, mais il est trop plein.",
+      "sha256": "17d6e5f2ff06eab315ebf76237d4d7cfd2b85874dfd15248eaa0ecdeeddee88d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je prends ce grand sac.",
+      "sha256": "1e8e2cb2ead6ef9662b37df219357e336702f2f0bf05e37a56f9afe084b29981",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais au stade après le spectacle.",
+      "sha256": "4e94a4c251aab9e729e41a629813a9c24a6ef4579ebfc901651d2b334ce0929a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, voici l'endroit exact sur la carte.",
+      "sha256": "78d917eb93527ea443dae2eb4e6e06de5002920b4ffafb417f930d166c95fb30",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Nous faisons du sport au stade.",
+      "sha256": "05d625cbc419d520e70a1414b77e09d7484b7acda4650ca714a5b17c5c69762d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous sortons de la station et marchons vers le stade.",
+      "sha256": "70ff51c01de2536fca8fced0cf302f5a2424c8e5ff74128caa6923cfe409ac90",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un spectacle de danse commence avant le match de football.",
+      "sha256": "de8b1d455bab5ea1d90592799dd5e7b66b48e768af3210c7f5b18affafc02514",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Voici l'endroit exact sur la carte.",
+      "sha256": "192b526001db9e92a25d0739a53649e2fa652df0f09755e4ad0d6615bf14ba6c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Xavier",
+      "sha256": "a350091b19d64b70d486e50c1e4b4cacce1b1efc701a255eeba0cd9639301cb5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Xavier montre l'endroit sur la carte de son téléphone.",
+      "sha256": "2793dc753163202de77c10926e329fd5f24fb30d0f29de97fccbfc6296bb37e9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "avec",
+      "sha256": "a96b5cac90bfd6200319f968cdb34c1311a98b19b01a246432e7e2767f17387f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "deux",
+      "sha256": "62007886b7f3c83235bfb71b2d5139a7df5bfbecff06be550c5e45ef9bcb509f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "dix",
+      "sha256": "1828cb7d38ef013910528534e7ca3716e9f2ddde751e15bffceeb0dc43144382",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "exact",
+      "sha256": "fa79d4746c21cd960a17b92db8976ddef95a7e20b590721f8e0fa7847a05e486",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "grand",
+      "sha256": "4361cc01e665e9d5dfa0bbd56f0ec8272a35dd9289b868d8490d606997ad1567",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "neuf",
+      "sha256": "a0ad1f02374f9314a7bee2f6e82e44a2e414e0a635f5966f623f737b368f6814",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "petit",
+      "sha256": "8e3cefcb3c22369aad72eb9c22a0d0292c0640f01dfe2d6eb2827b4e5baa4deb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "sac",
+      "sha256": "162bd1e67d4593bab60331865336ccc51b34e5df74bcde1d751abd9d97445cf6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "spectacle",
+      "sha256": "52cfa9440177ced9b969b54fff2033e899955076f941a141dcd3e24ef0b70a1d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "sport",
+      "sha256": "ec450786e26a5154173545c402bcc03b20e2e0477d6086fa632a55c85bdcdd83",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "spécial",
+      "sha256": "987b4704ec47099d4aafa5d64fe0d74ab02582a5005e6adab813ed62844ddeed",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "stade",
+      "sha256": "ea18b823d6feb6e0b6b772313655109a35539c1f2886c086f68c2fec5345695b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "station",
+      "sha256": "9b4ef3e5b7b4d1759cb8f880e34dbd5ea8c3fcd79ce33b89d7357bf64fcbfc91",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "style",
+      "sha256": "cb86eb2d914d37df6857c3cfe4827b5f770b01a86578120618b0b21572160be8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:15:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "taxi",
+      "sha256": "12796d3d5f4e132385f8af8e281efa211cdb2a05b8450039f037a6573e0bcb3f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:13:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "trop",
+      "sha256": "5bb99c1aa48ec08fb1713f59233a83f4a486044b17be36d58f33920c35fc4fd1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:14:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1948 @@
+{
+  "schema": 1,
+  "state": "private-audio-scope-unsynthesized",
+  "moduleId": "french-sound-like-a-native",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceFiles": [
+    {
+      "path": "content/french-pronunciation/core-19-20-draft.json",
+      "sha256": "27de267ea2cc584b5892031faba643347b6bcb90d715c176a93703a8eec1d6fe"
+    },
+    {
+      "path": "content/french-pronunciation/core-21-23-draft.json",
+      "sha256": "0b4dafb5c47fcaa69fb53ef1d3ee127ce8727f12d2d4192f19b878a5a42cf256"
+    },
+    {
+      "path": "content/french-pronunciation/core-24-26-draft.json",
+      "sha256": "0d8c11bbec2fefd97d33116cb89e356397ebe1cd5eeaa639c6341dc7745da620"
+    },
+    {
+      "path": "content/french-pronunciation/core-27-30-draft.json",
+      "sha256": "950eddf1ba3adc833c554091a10396fbff4e030d649facb4b328814bf53ba8f9"
+    }
+  ],
+  "reviewed": false,
+  "registered": false,
+  "recordingsGenerated": false,
+  "listeningReviewed": false,
+  "includedFields": [
+    "cards[].fr",
+    "reader[].fr",
+    "speaking.opening",
+    "speaking.closure"
+  ],
+  "excludedFields": [
+    "English support",
+    "English practice prompts",
+    "unwritten conversation replies"
+  ],
+  "stageLessons": {
+    "core": [
+      "core-french-sound-like-a-native:19:fr-en",
+      "core-french-sound-like-a-native:20:fr-en",
+      "core-french-sound-like-a-native:21:fr-en",
+      "core-french-sound-like-a-native:22:fr-en",
+      "core-french-sound-like-a-native:23:fr-en",
+      "core-french-sound-like-a-native:24:fr-en",
+      "core-french-sound-like-a-native:25:fr-en",
+      "core-french-sound-like-a-native:26:fr-en",
+      "core-french-sound-like-a-native:27:fr-en",
+      "core-french-sound-like-a-native:28:fr-en",
+      "core-french-sound-like-a-native:29:fr-en",
+      "core-french-sound-like-a-native:30:fr-en"
+    ]
+  },
+  "counts": {
+    "lessons": 12,
+    "placementsByField": {
+      "cards": 120,
+      "reader": 48,
+      "speaking.closure": 12,
+      "speaking.opening": 12
+    },
+    "uniqueExactTexts": 183,
+    "twoVoiceClips": 366,
+    "unicodeCharactersPerVoice": 5555,
+    "projectedBillableCharactersTwoVoices": 11110
+  },
+  "planningRate": {
+    "usdPerMillionCharacters": 30,
+    "source": "https://cloud.google.com/text-to-speech/pricing",
+    "grossTwoVoiceEstimateUSD": 0.3333,
+    "note": "Planning estimate before retakes; actual billing and rate require a fresh check before synthesis."
+  },
+  "exactTextSha256": "e13dddaab17b7bb23f2beb25517d714135ae565370520078b323be9754feafd6",
+  "texts": [
+    {
+      "text": "Ana donne un billet à chacun de ses amis.",
+      "sha256": "eafeaa25900a60513c27c27653fb3d0debf3e8b0b0554381a6813f9b2a6fdd3e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après l'école, Camille retrouve son père dans un café.",
+      "sha256": "5aa394440f13562986994db0be0dba1512d876e4c444fcefc636a3508869b10d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après la réunion, le poète prépare sa lecture de Noël.",
+      "sha256": "5e2728f63ec6aaed5ba8014420fb8be15dcd6f5e7cc3c80121188e6c5ac18188",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après la visite, la sortie est à gauche du grand hall.",
+      "sha256": "2d77419a86f3c57357b67f7a2d3f05d4a8bd3c6d3bdf83560f32ebc1e0e67638",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après la visite, le groupe entre dans un petit café.",
+      "sha256": "a70c703fad8cb0b29f1788e9890b73839bf75102a874783f28668caa3820bd18",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après le cours, nous allons au café.",
+      "sha256": "db87d9c3c9bbbded41629902900608e22adb2bcb22052212e39c0305364cf3bd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après une pause, Zoé annonce l'heure du retour.",
+      "sha256": "362597753ea8089075c222312f766c12fd0b83c600c4e12fec1a72d3e2c893db",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Avant de partir, Camille reprend sa clé sur la table.",
+      "sha256": "4f62326b75e7a99b6b168a582241deef5ae18c1e79635e6e8145b59415a43db6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Avant de partir, elle envoie un message avec l'heure du rendez-vous.",
+      "sha256": "6bb46b0706cf3c538ae819d32283bc05fb84a54b073eb55b3ed7e0c9ee44acf9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Avant de partir, j'envoie un message au groupe.",
+      "sha256": "b88ecf26c4107bf01581cf1c3311b6b6c4dc58e4b8f23dd73a9d8d2b76e56b68",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Avant l'arrivée des amis, Clara vérifie que le globe et la fleur sont bien placés.",
+      "sha256": "9ad0670dae2e6f28ef85a2ba1c692eaa51512139860abbca5005c50a11bbdcfa",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, demain matin, nous allons au marché.",
+      "sha256": "3ffc84a865c7af20de2eecae982583fcd6659916cbcc2d2ac61f37213cb022e8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, j'ai trois billets pour le train de nuit.",
+      "sha256": "916a623f725d09ac0dd348cb81f744717f46b557f800c8ff2098f8d6dafd2c2b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je suis au café après l'école.",
+      "sha256": "ed914778ef486047abd33033fbc2e3c3754769c89fb34496ead7b6c3e1b004f2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je suis prêt pour la promenade.",
+      "sha256": "4467bbc8383cb910ddb76dc7fc8a1152d36266c289c31378832c7480e6c15b3c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, la réunion a lieu au théâtre.",
+      "sha256": "1b41ee6b670b9c8040fd59c6d5289addb107d421d463cd7bbb2cf4f5e6421d48",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, le bureau ferme à cinq heures.",
+      "sha256": "55f9dabd2e48743fb94fe1b9ade997cf95b78574bf9b65af370145d1a1b911c3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, le groupe attend-il devant la grille ?",
+      "sha256": "021fba8aa0722536291f2f9c2e155af30d8b3a4ff947a02de952db6f24d88d5e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, le lieu de la réunion a changé.",
+      "sha256": "2ca29f3263ea3ad27280a99f28c7e2bb97656fbcf6370955914ef095b057178f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, le plan de la classe est sur la table.",
+      "sha256": "1ff75758c89b28ddd9599ef5a32aba00b2c78115245aa6eebd392c3aa0d51b0b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, les horaires sont affichés à l'entrée.",
+      "sha256": "36b3657fb5454c91f634bf9a5ec547afcacc35fa1f7805195bfecb7cdb9888d4",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, tu as une idée pour la visite ?",
+      "sha256": "b140beeb3ba15e9f19ab64aa6d5b3d5a4657c9c8cd19d895c49965b433575d86",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, voici une carte de la ville.",
+      "sha256": "d2195ec0693133dd3523976d7f45a82ae14238b06ba10ee77c7bbbefe874637d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Dans la classe, Clara prépare une petite fête avec ses amis.",
+      "sha256": "32a5e15746bec8daaf6b1c9e4e20bb1330dea02a26619935e6458f4dff45dff3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Demain matin, Zoé et son groupe vont au marché.",
+      "sha256": "91d236a899bcde9bf4827bd0622de8eaba87a167c56f6f675af35b09573efd82",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Demain matin, nous allons au marché.",
+      "sha256": "7c542bb7d78d693f598cc46196f1bfd58d6f7f47604b8461b071d14d0f348aeb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Deux amis entrent dans la salle.",
+      "sha256": "27dad5ae23c105a85819d51555794deef86a352005170524b2edd7f6ce01b26a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Deux amis placent les horaires à l'entrée.",
+      "sha256": "669858371bf416e71766c4a97730c7de300214709cf250e986dbafeae5d9c99f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle a laissé sa clé près de la fenêtre.",
+      "sha256": "3c96919b6f1e75a4614de93121b6ec4074ce5df86c65e59de4334b3033b5f11d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle appelle le groupe pour expliquer le changement de lieu.",
+      "sha256": "d3f9d3d9dfdb5758be391a41a2c9f96dd7b1c287b6113f4e3993c9d324f8e6eb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle garde le reçu d'un autre envoi dans son sac.",
+      "sha256": "8d0067a035c2f13d4c10d94160bbbecfb615bb5e46d0cddf247b9add24a40a2a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle place un globe et une fleur blanche près de la fenêtre.",
+      "sha256": "bd21f602258a1c278359148638ae5bfe9b244bb39692c2edde74d23877c1da15",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Elle vérifie l'adresse avant de parler à l'employé.",
+      "sha256": "e0100353432588f724b576d61fbb5d65b2736cbf29f7bbf60bf3ff98f6a2669c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "En été, Marc prépare une promenade avec Léa.",
+      "sha256": "4ff71f0acda59f647cfdaba13abd068330282ca019233b5ec0be16d1ba4d9e14",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Et moi, je pars demain.",
+      "sha256": "9acc43cffa25d436ed6ad1e64e2dda4b5b37552829df71665c19e495e93d3458",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Hier, Ana a acheté trois billets pour le train de nuit.",
+      "sha256": "b5f8f8357529818ded45030a09cf715a77ca3fab0126b01e3558097e8ed7b861",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Hier, il a parlé du trajet avec Léa.",
+      "sha256": "e8f5a59ff606bf3ea67699356f6c304a72828e7072c2f7a27a192591127747f6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Hier, j'ai acheté les billets.",
+      "sha256": "91e6a253466df6a007895da911527ec516c1777d266b91d4914cb2e820756adb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il est prêt à traverser le pré derrière la maison.",
+      "sha256": "fed2c5b736ac58a037600e3aab6ed1e803b0e7f06d28dc516b8813107b890cfa",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai parlé du trajet avec Léa.",
+      "sha256": "f7b0f9d2ce5e1629ff475b2731efaa8ef0797df36ca0d01be201e344e6b1fe7a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai trois billets pour le train de nuit.",
+      "sha256": "0d8a2e6afb5381a9c359b38fedc830851cb7815fefdf2887bab8a8ca4c1349fa",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'ai une autre idée pour l'entrée.",
+      "sha256": "786877aeed29c0b480a0dc2a7155ad457c908cd8a79fffae882c29913922796a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'appelle le groupe pour expliquer le changement.",
+      "sha256": "76a809da193de163b14ea02bea7b9076cfd8da582bf5c7d1e93f6c1e1fbb1d46",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "J'attends le poète après la réunion.",
+      "sha256": "b1381f4a5cec9969e8b38f5672fe94d4bc80acf7a1d5367c74f2b17aca21c7fc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je cherche l'entrée de la gare.",
+      "sha256": "9d02d68745d0138c4b49bb8ce6d4dfb7bd58d56cf05dead7583008dfc8b26594",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je commande un café avec de la crème avant de rentrer.",
+      "sha256": "83f4d43d509cdf0003f91ee52c20ad988d0f6dce85e415965292dafcb8226b98",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je dépose le colis demain matin.",
+      "sha256": "247a4cab86df881011d480663a30600a9657fdf667a04136582331af4abdcb04",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je fais une pause avant d'annoncer l'heure du retour.",
+      "sha256": "3977d61bbba58dc2c945c1b790964f681e527f8934adeda314fa0f6142a85ed9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je lis le message et vérifie le trajet.",
+      "sha256": "19058d6b4953ec28b5bf044948851911540b3f7863d2606e2529c0b7e9ad0057",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je parlais du sentier, pas du pré.",
+      "sha256": "e846dc18e2ce4f2f66f8ef3a9ad952dbe4925f2a1965eb245bbecbe36681ecb5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je prends un café avec de la crème.",
+      "sha256": "47fc66e2b0b37fd3ee3de577adb2271c472035a98224c3da8fc972c551a37e8c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[10].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je reviens demain matin.",
+      "sha256": "292917543c18fa019bc95ea504edd548fe928fea897f1cc86c96ce19c56aa84c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je suis prêt pour la promenade.",
+      "sha256": "c538fc3c75b1956a9335e5ceb040603c04091e6493c52adf1461863b117f9209",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'agent lui montre l'école près de l'arrêt de bus.",
+      "sha256": "9fc8e0c85eda2ab423e649f65e0f5bacb9372b8b9ef472bdb5bb9ea64106dd85",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'agent trace l'itinéraire le plus court jusqu'à la gare.",
+      "sha256": "cfa0612a9f36041603137438039557089ea1cfe3665dc1e9bbb16107213fb3f1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'heure reste la même, mais l'entrée de la salle est au fond du bâtiment.",
+      "sha256": "2babfb8b71162a92057e94a91ce738c3a23ac88d09cd1d5730502bfc1f405b46",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'heure reste la même, mais l'entrée est différente.",
+      "sha256": "1967b8af8caafd3cd700cdd6961665e188c904a3525c3238fc242f8d7663852d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'école est près de l'arrêt.",
+      "sha256": "0a296d73bf9912f00c702a310bb2ade9c2e92742470a3663f4f6b4e3be69e416",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La clé est près du café.",
+      "sha256": "8c59bd3e975e6c04fcfac74e9c7924861fe553944e8f9827a633c504d7678554",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La réunion a lieu au théâtre.",
+      "sha256": "b38facda55072ad1f4fb75b08769e63b5c1b0f38d815bf3564bb8a13c146c683",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "La réunion avec l'équipe du théâtre commence à dix heures.",
+      "sha256": "da19ba99123ac0f967972ce2c1a94430ff034b292233740ff0c69ab6b4319d66",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "La sortie est à gauche.",
+      "sha256": "7047fdd950777918489359e3ff9c03707af70eec64ff89cffa027cc4707028db",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le bureau ferme bientôt, alors elle reviendra demain matin.",
+      "sha256": "0781f25aea2009a2ed0d22e15181fef86af407f29c96a4759b05ab122145807a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le bureau ferme à cinq heures.",
+      "sha256": "a9a2f4f9d37afb74875f78405df637958040b23180483dd5024421ffa0986249",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le globe est dans la classe.",
+      "sha256": "215f8a8e6ff29c29fd0155c496aded5ec0756f08693b52e545594a32250a1c78",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le groupe attend devant la grille.",
+      "sha256": "f3fa2aa10146c1632cf623cb74b0f79dca8f76e2bceb990fdc8d6f42855f1295",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le groupe reçoit un message : la réunion aura lieu dans une autre salle.",
+      "sha256": "5e06f6022a7a39e113083e983508dacf93808ff075af2b889b8db5c854d7e189",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le groupe se retrouve devant le marché à neuf heures.",
+      "sha256": "7b59d98d9e2b590e27210cb7014176132f7168d31943e28715df6f1273696537",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide marque le plan avec un crayon.",
+      "sha256": "33f90877f24d452a1aad04b8f2e58022ee21e69cf5469dcee20164480fa73dcd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide montre une croix au-dessus de la porte et trace le trajet avec un crayon.",
+      "sha256": "8e208ee8348c394b360ca58a162c44d18943627272371ba429b1d6d2b8e4725c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le lieu de la réunion a changé.",
+      "sha256": "4eca49488c8ef9b44566b6fb01af17a6f52863d54cf7909a0edecf8565caf121",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le musée ouvre à huit heures, mais l'entrée du groupe est à droite.",
+      "sha256": "891ad5a89d6c39a9abbfe7948a228b20cc0923ff58566738ac7fcd3b609e81e1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le musée ouvre à huit heures.",
+      "sha256": "32a5d31df01f35ac0bf3bcc281de169f8d987a3b270c9bbed9bfd9a01a0d8890",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le plan de la classe est sur la table.",
+      "sha256": "cb9c9b1318bf6fa28466c420506c4ab1dd3e369e668d0936472e61489a4d95ed",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le poète arrive à l'aéroport.",
+      "sha256": "d9e1052fd15b5899fb64e0caf463bfe8dcc6e48b02381a57d857f8f7cbeed6f9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le rendez-vous est devant le marché.",
+      "sha256": "77017a3eb5615b4e254a57a5299f700373c9876f71536f24f5e06ca0ffebf554",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le train part à huit heures de la gare centrale.",
+      "sha256": "e9c62d2ab64b5da6daa3384ddde3f74d3ec2724c788f4dee07ebf26c6157cf7f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le train part à huit heures.",
+      "sha256": "44c143c9ca6aef84afe73db105b62c114c96fd3b6e63095f1e476ef74267a33b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les horaires sont affichés à l'entrée.",
+      "sha256": "3bf1bc444f3113c06e3bc523ba083c857b95d6ef6e9941d2444af724e7515745",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les héros arrivent à la fête.",
+      "sha256": "dd08506f16bb127f22c116a99bd07a8080111d60e0ee11ff287ef0e0127967e0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les héros d'une pièce arrivent avec leurs costumes.",
+      "sha256": "acaefca85e0ee8a44eb0bf661e8a044c1fd5298d4157beb5ffe619433949cee4",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les élèves accueillent leurs amis devant l'atelier.",
+      "sha256": "f102cc7389f446cc45e5978f2b9746304d921c7e4a3ca1957833f72f36dd56a5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les élèves attendent devant l'atelier.",
+      "sha256": "cba4d536c4546786500a4ffdfd71103440355c946de12c8266cf212cf4fd9102",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les élèves préparent une fête dans l'atelier de l'école.",
+      "sha256": "ab83d3309e56713fd1dcb535e14f025b4e47243ba3e1898b8d2b5ee709d61dd6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Léa cherche ensuite l'entrée de la gare sur la carte.",
+      "sha256": "09c7ac862a4ef5e010d275c691c9c47c53797cd503cdea84b30b442d5985b760",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Léa et son ami consultent les horaires du musée.",
+      "sha256": "13d9eded2be03952b7a7b641eac47327c19e5a2fe211e31b87e0e29a452c2576",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Merci, j'ai ma clé et mon café.",
+      "sha256": "db3d1214a6d25aa91bd881d823b4ac2ac2a7ed8fafa402399ab69a7e2f36c3f6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, j'ai trouvé le groupe devant la grille.",
+      "sha256": "e9912269cd9caf200fde56e2c628b5f9baea5125c2cb4b23da62d7f5e84c3ebb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, j'attends le poète après la réunion.",
+      "sha256": "f69c72408962b9f2009c24e663c01d3051a1506ad3671eddc8005d4cab275dcc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je reviens demain matin avec le colis.",
+      "sha256": "65bcd194a5042558e58dfb0c176e85f9942cb6d51d30ad575e14c63596721559",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais appeler le groupe pour expliquer le changement.",
+      "sha256": "c7ce88ee74624321e62953f680ab07af629e625c4b917dde01cdd56ff38b292f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vois l'entrée de la gare sur la carte.",
+      "sha256": "3453d5be9875c317fa1cb0dd93afddb4c028cef660a9588dbd7f957c698635ce",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, le globe et la fleur ont leur place.",
+      "sha256": "62a0dbd57e90c116e8dfa65aa1d4a12cd4ec8f464567e4aab0a657619d34f002",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, le groupe a reçu mon message.",
+      "sha256": "fe6c2058118472d512bb8591adf4cd2ce743f120f0bbc201faf97624bd05d9eb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, le train part bien à huit heures.",
+      "sha256": "2bb812a33587313ada8c837b0e3dde47473e7e8ba7320972442ff41914facae0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, les élèves vous attendent devant l'atelier.",
+      "sha256": "f98fd3eb7e95986b805431e16d5a5b0063b5a0047d402504634fb13e3696cf39",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, nous avons une idée pour la visite.",
+      "sha256": "f416479284c83701d9de5effbf418effb0ae60b12ab498284f96ff90759c4eac",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, nous sommes prêts à partir.",
+      "sha256": "ca4f4df20fedbff86132305a6bad5e84bca4a1f72e6c603dccbd9249e3c429de",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Mina vérifie le trajet sur le plan avant de partir.",
+      "sha256": "148a0c5b5f371a3a2747db5fe216ceb3141a264b7110a951fc375c520fa62a81",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Mon père arrive après l'école.",
+      "sha256": "f62a3e36f451d97603729ac24ec73276a1ff31b73ea5a54fd45cfea7721a29bd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nora apporte un colis au bureau de poste.",
+      "sha256": "0ef93c71e49a7edb6f7e6e0f4f06520c86913fc5e350a60ddb0458fbd529e238",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous cherchons une place pour la fête.",
+      "sha256": "18dcc14edc07ab366a7e3f721d17e5e3a9018cade4b13c5541c34f94ed1ebbcf",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous lisons de la poésie à Noël.",
+      "sha256": "8d1f9cb26a025729063c4ec1463ba0f4c34318b14729cb965495f840b6cf2b6d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous traversons le pré en été.",
+      "sha256": "7f4801edce5d8940f2d783412a69d27351471bc8189510f5d87c1f6f2d186bd8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Noël",
+      "sha256": "0b6e6252a41e25e1cfd508799084db4394ffde1caaf4ee96dd08c8a90623a5ad",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quand il parlait du sentier, Léa regardait la carte du pré.",
+      "sha256": "3e52729757a23c2fe81f76dc7d37662f4646bff09907ecd9add191e40a5266c7",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Quel est l'itinéraire le plus court ?",
+      "sha256": "e941dd27d0909f6b2bfe0352f01c8989b35473fefb6f2442d3ea17f578aedfd0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Son ami a une idée pour commencer la visite plus tôt.",
+      "sha256": "9ba2fb45f3007cf6086e81d8cc51d0cde2dcee6a93c6418f4d9bc5314e9c1b87",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Son frère lui dit : « Et moi, je pars demain. »",
+      "sha256": "605e08a27d1e651192f6d6e7d09c2f7ec8fcc67ecd4e6c8322568eb005b85a13",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Son père commande un café avec de la crème.",
+      "sha256": "8efb88e45926ec15f0f2b3436bf9abaef32a84db9a98de137bb1b5f47ea3182d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Tu as une idée pour la visite ?",
+      "sha256": "16ee979204cd5f99a969d925a23738c2b90337d4deea043f2e3445d435f8a90e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un grand groupe attend devant la grille d'une église.",
+      "sha256": "f14cb50af613916f830e03719118b9ce857d419b6d60f9afd1f370717c849481",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un plan posé sur la table indique la place de chaque invité.",
+      "sha256": "f4e09222849db1fbbe81f17fe4e1a9427f0ab4fa6b222f4e8a289d96bbdf384a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un poète arrive de l'aéroport pour lire ses textes.",
+      "sha256": "abcc60180c8490922774996bcd59210d56dd834dda6bd6a712170b190b35881a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une croix est au-dessus de la porte.",
+      "sha256": "e7f043e755c49d094a662d974df8bb40700c52a861df49af575c8db1acf346f2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une fleur blanche est près du globe.",
+      "sha256": "d2de99eeacc5d3e1587eaaba16687faaff73c8532156c2c9f72e3af811d6e87c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Voici l'adresse et le reçu.",
+      "sha256": "169ebcf230ba493720495cc5233449c18e7ea77ced99e28fb6c768f217f6a5f0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Voici une carte de la ville.",
+      "sha256": "e99fcf529e0a2a78d5c2ecf5f001d527fa863529c69024eebc33fe74dc11e0e4",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "adresse",
+      "sha256": "192b69d3e9d9e04f07856bc4dd687f0dc6f539d0b66931b425b0b5c378fb6d57",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "ami",
+      "sha256": "5152cc21067154b896fa141c722693c01a0a71e777b36b563413a48cedac7183",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "amis",
+      "sha256": "e3267d9b185d6ee49e7794b16e1eb563758b132fe1b5a3b117eeda59d7d5688d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "après",
+      "sha256": "e3ea6e68a59faa228352482425956b1b191d5a317c189db3fb7b0d819cb810d2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "arrêt",
+      "sha256": "66a4eed442bd28254baff453ddb766bb55c287a08fa40fdde2b81313ff249c30",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "atelier",
+      "sha256": "f4d65b2483b34a8d50bcf2c9e053077c4dc7c00b65008ce1988ce4eca45741c8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "aéroport",
+      "sha256": "de21b676e8fc605695e7f2bd150e31f7f0fdcb2b1ed1ee9f877895ee55deee7b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "billet",
+      "sha256": "12a80e37cd884e891184f0cda20f777cd281d33dd3c80edf51e24ef83d2fd945",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "blanche",
+      "sha256": "446acc36bce9a33c2e19f0205c0a94b8a35955814b560532b0ecefbf90a6d055",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "bureau",
+      "sha256": "210760fba8185013b53530a17160a0cb03788b5c9e1c1426154eae50b6b562b4",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "café",
+      "sha256": "850f7dc43910ff890f8879c0ed26fe697c93a067ad93a7d50f466a7028a9bf4e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "carte",
+      "sha256": "d2c12420b9815e07b29b1256fdd6e39a94b69ed192009f0c5d7afffc99de44e9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "changement",
+      "sha256": "ec40d87b457cdeedb7f6565a24be58f9dc5ba65fd7fbee71aba9f3714d2e6bfa",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "classe",
+      "sha256": "26dcc255a65ddb63117b93faa0bc3efcd8c4b1301eb07a176eef2de2760e13f8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "clé",
+      "sha256": "51cbcf30514d0802eb5c60a018f384ea3fb9b69307c554ee63ecb43177594de4",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "colis",
+      "sha256": "a10d6eae81dce19356b70d7999d801cf3fe4eabe41c7f7d24d615e9e9c754846",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "crayon",
+      "sha256": "d8b1858e24ae617677d50392c61e0ca351d1ef9bcbe683ba71bd4926df6b8fbe",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "croix",
+      "sha256": "40f4a2fa6cb12ea2aa517fe373e8367318cf7ba5791f1b0d87ed31d194a3f152",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "crème",
+      "sha256": "b45a901f23eefec89104700f757d04d55078a4e7d9917f59f18b2d19114a3d9d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[3].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "demain",
+      "sha256": "8d87f74739c36a01a7800c7c80090b72158250f824c3db7b9a1809f876b64046",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[4].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "entrée",
+      "sha256": "917f771e83f940b557cc73e16e89523f84244609f4467ca3c6f4eed5576d7b35",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[4].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[2].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[6].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "fleur",
+      "sha256": "773d0439dc2a8982b55e1cd3afe989b4852b140dc98b0bde23faf5d043df4a3b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "globe",
+      "sha256": "d2a1fc043243f36ba9b7547fb7a28c60640977946c981d624107400405ee5e14",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "grand",
+      "sha256": "4361cc01e665e9d5dfa0bbd56f0ec8272a35dd9289b868d8490d606997ad1567",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "grille",
+      "sha256": "dc521825cebd59164171b964a14e9769f0ccb9fe6bda02e47cc5830a37905650",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "groupe",
+      "sha256": "a1db1b4edb2c34967454fd97038da9ba7e3e6ce700d9732c3bdd73346c908171",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:19:fr-en",
+          "field": "cards[4].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[5].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "heure",
+      "sha256": "dc80905e9df6dac21816167b50509e5d5ecd551214df76f90717fe1093a166c3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "hier",
+      "sha256": "529cbc8f212773f23d5eceabfdd3e1736c7c063518b43711d03d229866b12d76",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "horaire",
+      "sha256": "efccf4e2f8825de5d00f8f9ae22d97f56d7df9e402ac56c2a5f055945ed5a047",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "horaires",
+      "sha256": "a08f413c8e099e5feca5b4a9f8eb305ea7d036860be3a8b3fee95c26b49050f2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "huit",
+      "sha256": "42761d9a2ec4d85c38aef15699bc18679216a48548d5c854ca300ec0892821dc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "héros",
+      "sha256": "f2faf3569c4d096b7f69014363b0b2974000a66f7cc12b2e7364938d6dcfeb84",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "idée",
+      "sha256": "b56d2baf09dc5db203cd62429ee33ab6542224f95a69196a25ac7c1d1a0ca008",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "itinéraire",
+      "sha256": "60a743a7381aed7dc0c463975b0aa8dc895ea1441c24e8fa0cf689179691158b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "lieu",
+      "sha256": "064768b9e1a5e71a76e083aeeb0baaa82a97851baff3e0df4d4b7c32f4757409",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "marché",
+      "sha256": "4b83139deff2099b81739d693f6f64ea027ad2b01283f0ba9014765f893f1ae1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "matin",
+      "sha256": "f3cce486ea320015c8e0ffae7cfda6bc2c449a8980b1fb4c632703a70a998246",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "message",
+      "sha256": "ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "moi",
+      "sha256": "a4f0e1d1b5eb23e3482a14b4a9d4e8106e83f7887471e4a73c2557ade280bfe5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "musée",
+      "sha256": "f4e582b0d95d572a1fbd509bd3e484249528e96b17c1c2060c29cafbc3f781d1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "nuit",
+      "sha256": "5e1c11f13a007da838a7d58f3506e69aa94f555245dcca8ed318f9d0801cf132",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "parlais",
+      "sha256": "a6ae0d8d2c8afbb673ff7f1f52119007939a9a4c79fc388ff0f43d3dae8134a1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "parlé",
+      "sha256": "7688cde2106f7f68a5e75a35a908a0ea56eef3040f3eda78e2d1559b8dc04845",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "pause",
+      "sha256": "6210c0bf05396716df932f0729df69de0533933e5ad9871fd07b61811c4c28df",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "place",
+      "sha256": "81df63580cc9ff1550c90d918ec234f1834013b800b5321201e88d96e785277c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "plan",
+      "sha256": "64879f7d6b960a01909762d911a32d4582c20010c5641ee90278b644a9e3b525",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:20:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "poète",
+      "sha256": "68a77478f9928960616ece8d5119e240c4fa211df1c2b89a262f0a861cad667e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "poésie",
+      "sha256": "5e57bfa0d706c69868ee80f370670aa06fb62b725ed08a60a3bdd67c8cb491cf",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "pré",
+      "sha256": "f442978be3f9b9197ac378eb170dd89f7793aab68dc522e08bbbfd00272edf6b",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "prêt",
+      "sha256": "c9bb4c5a904c11f8c9a3f70afcf7ef745e11a9c510ee57c36c087e8f4bdba0f3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "père",
+      "sha256": "485ef000344c201d24d44df3cf542f3b490a9fd553f03e396fe2fbd69d2324ee",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "rendez-vous",
+      "sha256": "9568e5de46b6bb47fc2a92df28087da642eab8110973516c81dfdb7610d392da",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:29:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "reçu",
+      "sha256": "6abe3ef284a57540ddca036de112c3f24b41f119b04e558ecc4d2f80d72f1420",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:22:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "réunion",
+      "sha256": "8c85d3fa84b7926e2e0664129cefa7ea17401086243561611c56ee5016908ea1",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "sortie",
+      "sha256": "ab647861f4cbf1bbcf71c969473484fc35f3b8775d84bb4f042d91ad30b7e3df",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:27:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "théâtre",
+      "sha256": "439458f2aaba520f761f213d1f99635547f2f15284a756e4fc06fc77bbf437c8",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "trajet",
+      "sha256": "2628fe4db81faed18297fa7722d449b920a5b03e80256da975593be62478dc19",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:30:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "trois",
+      "sha256": "a69cf3d89f86a8337ed4549d5f5726a7a88faff53fbd1e7fb323cf4b6c8bd865",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:25:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "ville",
+      "sha256": "ea5b9357a96b67d74104232ee36a5db36e4f9485d1660ad167ac9c79b6a04edc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "À Noël, le théâtre organise une soirée de poésie.",
+      "sha256": "e29b36798404469b6554d73a83a466b2ab57b3e865038ae740dbb23d3b305f4c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:26:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "À l'office de tourisme, Léa demande une carte de la ville.",
+      "sha256": "236966e94bf63c073beece59f45d901430f3a788c85eb1ca851da2f384ef9664",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "école",
+      "sha256": "f0f772e182a4941e6fdef31116540b17be18ab0be3290d2d1df760251f859b24",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:21:fr-en",
+          "field": "cards[3].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:23:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "élèves",
+      "sha256": "f76624e78703514abc96db21f1e1b78bfbaf64e6dac073145bc5190c43468825",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:28:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "étais",
+      "sha256": "9a718a01be0bdcef83018a25d08c3849811b574cccd3130ac7dbc29ae92c1d8f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "été",
+      "sha256": "bd010c64132bf5cae8aea89f6762515727dcf68a5dd1de813c87f50a16c4513c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:24:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    }
+  ]
+}

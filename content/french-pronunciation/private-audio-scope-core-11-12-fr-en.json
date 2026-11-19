@@ -1,0 +1,380 @@
+{
+  "schema": 1,
+  "state": "private-audio-scope-unsynthesized",
+  "moduleId": "french-sound-like-a-native",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceFiles": [
+    {
+      "path": "content/french-pronunciation/core-11-12-draft.json",
+      "sha256": "befb85ec6d85a865b78290d1cb03c59a4b0870e5907fee87e98887bdf2b9f21e"
+    }
+  ],
+  "reviewed": false,
+  "registered": false,
+  "recordingsGenerated": false,
+  "listeningReviewed": false,
+  "includedFields": [
+    "cards[].fr",
+    "reader[].fr",
+    "speaking.opening",
+    "speaking.closure"
+  ],
+  "excludedFields": [
+    "English support",
+    "English practice prompts",
+    "unwritten conversation replies"
+  ],
+  "stageLessons": {
+    "core": [
+      "core-french-sound-like-a-native:11:fr-en",
+      "core-french-sound-like-a-native:12:fr-en"
+    ]
+  },
+  "counts": {
+    "lessons": 2,
+    "placementsByField": {
+      "cards": 20,
+      "reader": 8,
+      "speaking.closure": 2,
+      "speaking.opening": 2
+    },
+    "uniqueExactTexts": 32,
+    "twoVoiceClips": 64,
+    "unicodeCharactersPerVoice": 910,
+    "projectedBillableCharactersTwoVoices": 1820
+  },
+  "planningRate": {
+    "usdPerMillionCharacters": 30,
+    "source": "https://cloud.google.com/text-to-speech/pricing",
+    "grossTwoVoiceEstimateUSD": 0.0546,
+    "note": "Planning estimate before retakes; actual billing and rate require a fresh check before synthesis."
+  },
+  "exactTextSha256": "b23f0b393bdde589ad67198812cee46505f9c736f42a58d2eb9985c129112863",
+  "texts": [
+    {
+      "text": "Bonjour, l'homme attend-il dans le hall de l'hôtel ?",
+      "sha256": "8334d2074247416c9a14de89f30ab9507d0920cf8da5f223008ed861920fa132",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Dans le hall, il voit l'affiche d'un film avec un héros célèbre.",
+      "sha256": "903134d574d875c4da1dcd0ad2c39c8913d9fd36086264c7037dc663e817d1cd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Il demande : « Qui a une voiture avec quatre roues en bon état ? »",
+      "sha256": "ba30091664e5c8ead938b5d43966f301f654f1b7e08c2e1e84081ed0ec18b5ea",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'homme attend dans le hall.",
+      "sha256": "ca4b1e884ca725e3113f11e2cd91b935b0d91c4192fa01dbdd90dc372c2bd497",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "L'hôtel ouvre à huit heures.",
+      "sha256": "0c6755b2c1210589225406eb14951f70264117fc270a5775a7524210e407a346",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La roue du vélo est abîmée dans cette rue.",
+      "sha256": "a9e0c04f3a04b715ee37c3c37dd0cefbb8ac201e9d3e11c025ecb9b883628752",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "La roue du vélo est abîmée.",
+      "sha256": "f58e84102724273a248e395a4e372f989fdb4389f728c22fad57151fda59e03a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "La vendeuse lui montre les haricots sur son étal.",
+      "sha256": "69155444259025913468a1dd4f6393448a88c33da79870552b14c0356435dda9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le héros est sur l'affiche.",
+      "sha256": "27a6cd8542553d65d9fd70094435188597536925755051587c213578bac187c3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les haricots sont au marché.",
+      "sha256": "34d68718343c53821d2b3ef270011013472bba05fa637621e7f70a86a7a73e29",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Mais la roue du vélo est abîmée, alors tu appelles ton ami.",
+      "sha256": "a02793c1ff2cfcddb3004f1324aa690d6b3288c6c36a8c896d8a3a8fc62de551",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Merci, je vais au marché chercher des haricots.",
+      "sha256": "33b0678f0fd0c65bb66dcc196b2bfa5a4ee14139c46495049a527712942cbf9d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, tout est prêt pour partir.",
+      "sha256": "6e9aea2b474f028eb9d79749f9ae0e4e03572bdc284185d48540c31f417a8275",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Puis il sort et demande où trouver des haricots pour le dîner.",
+      "sha256": "e9cf621f716ae2e2ed95eb8455c585ccb09c93bb831c4973873b01f2e388bbae",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Qui a quatre roues ?",
+      "sha256": "95610d00a26c17c86ba8b5f846f0f702f036235ea92493d7f83f0a21d0d3657a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Tout est prêt pour partir.",
+      "sha256": "808fb72a8965fb25f79f02e9416df44d2fb509be9487bf3a1bc0f626cc0ec8cf",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Tu regardes la rue sur la carte avant de partir à vélo.",
+      "sha256": "b14e53633ba0f8e56ee21c40a300d16baa3727b897cab4a340cfe5737553bafc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Tu vois la rue sur la carte ?",
+      "sha256": "47a91fecbe6c93ae23ff66f0d834b31f62ffb411e81648730642bf3e4b8134db",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une amie propose sa voiture et tout le monde peut partir.",
+      "sha256": "5bbe193218813c6194e047a863f79a52bc61e2463ccc99760e2538b4a5005dd7",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "hall",
+      "sha256": "3cbaeb57c64020ee4df47e9274d1d0d90f3148a3c14af8190006fa680fb10ebd",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "haricot",
+      "sha256": "ee4d7e2f8e03b782ed6d4bb6efd7d204b4a5d51d8b1cead75211105ca08046e5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "heure",
+      "sha256": "dc80905e9df6dac21816167b50509e5d5ecd551214df76f90717fe1093a166c3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "homme",
+      "sha256": "435f92397c11bfc74c4ce8a27786f9a89c7d245f44b5d04bddc5d40f24487c7d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "héros",
+      "sha256": "f2faf3569c4d096b7f69014363b0b2974000a66f7cc12b2e7364938d6dcfeb84",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "hôtel",
+      "sha256": "f7b73bb480cb1925872a993ba962f7d54927105475bfdd04c9e3e45db5198117",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "quatre",
+      "sha256": "a8dbf0437f641177de58fe8c05cb5e4c70a3eecdb018df2993e9424ec2092bee",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "qui",
+      "sha256": "760176194068f3029466de5c06f1faa6471a566c66eda866e984f0ca6674d96f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "roue",
+      "sha256": "7e3af5674d415e4bb1da6a8628f67051a6196600611cf8d3591a08f5c1552ce2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "rue",
+      "sha256": "1b0460762c0b89da3455ebb7f746785149182bd129f46b0a6ab5146720335003",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "tout",
+      "sha256": "f076b994bfc2fa6c6de92c2e43a8779943e97717abb5b9c62225518daff111a0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "tu",
+      "sha256": "764c4c7b78d6fd3b7bf72e531e81b2304ff57df646d084f9b4bdd51b8e350955",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:12:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "À huit heures, un homme entre dans l'hôtel près du marché.",
+      "sha256": "cac2c29674eeb33546a3063b9efa008b04bd25ecfe73d3b77b404209b2b6f0f0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:11:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    }
+  ]
+}

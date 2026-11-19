@@ -1,0 +1,696 @@
+{
+  "schema": 1,
+  "state": "private-audio-scope-unsynthesized",
+  "moduleId": "french-sound-like-a-native",
+  "pairKey": "French:English",
+  "locale": "fr-FR",
+  "voices": {
+    "female": "fr-FR-Chirp3-HD-Aoede",
+    "male": "fr-FR-Chirp3-HD-Charon"
+  },
+  "sourceFiles": [
+    {
+      "path": "content/french-pronunciation/core-7-10-draft.json",
+      "sha256": "e37f326768e2cdfd3c08b81ec06383be9577730666e690361c6f713048e0509d"
+    }
+  ],
+  "reviewed": false,
+  "registered": false,
+  "recordingsGenerated": false,
+  "listeningReviewed": false,
+  "includedFields": [
+    "cards[].fr",
+    "reader[].fr",
+    "speaking.opening",
+    "speaking.closure"
+  ],
+  "excludedFields": [
+    "English support",
+    "English practice prompts",
+    "unwritten conversation replies"
+  ],
+  "stageLessons": {
+    "core": [
+      "core-french-sound-like-a-native:7:fr-en",
+      "core-french-sound-like-a-native:8:fr-en",
+      "core-french-sound-like-a-native:9:fr-en",
+      "core-french-sound-like-a-native:10:fr-en"
+    ]
+  },
+  "counts": {
+    "lessons": 4,
+    "placementsByField": {
+      "cards": 40,
+      "reader": 16,
+      "speaking.closure": 4,
+      "speaking.opening": 4
+    },
+    "uniqueExactTexts": 63,
+    "twoVoiceClips": 126,
+    "unicodeCharactersPerVoice": 1623,
+    "projectedBillableCharactersTwoVoices": 3246
+  },
+  "planningRate": {
+    "usdPerMillionCharacters": 30,
+    "source": "https://cloud.google.com/text-to-speech/pricing",
+    "grossTwoVoiceEstimateUSD": 0.0974,
+    "note": "Planning estimate before retakes; actual billing and rate require a fresh check before synthesis."
+  },
+  "exactTextSha256": "dc24668390e8623c9b800f266e96b4ae8a1b224b1c05465159fffe1af77514a9",
+  "texts": [
+    {
+      "text": "Après la marche, je mange du riz avec mon ami.",
+      "sha256": "1e2864b6f76171953fa50d970298ebedeb196fd07e9b5b8059f744c046146ba0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Après la visite, ils marchent dans un quartier tranquille.",
+      "sha256": "5d56dcbb61f91c976bd0d14b1b4ee4aa6787d432f603ed0566f0718cf013114e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Aujourd'hui, je vais au zoo avec un ami.",
+      "sha256": "3f72be89d64af536c0eb45dad74b3a4da16f4980f673da83d2052990f9d1ae6e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, je vais payer les billets pour ma famille.",
+      "sha256": "5acf9df7ce64aacd9a043c95db7ec61d27d6ed66d40a3e11b26afd9a38d72139",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, les gens regardent la girafe.",
+      "sha256": "42b0af38b3fc5555b07214e2ae778aacc8a8e40aa1c2163f3d7ab3370dbc1c32",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "Bonjour, où est la salle dans la zone B ?",
+      "sha256": "bd12d47df072866703650dad2088337eecea291f9aa1022e96950834987d11e3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "C'est un joli jour pour visiter le zoo.",
+      "sha256": "0cf5680c2b9c7f48913a6cc81cf3129f2fa5250fb592078156506fdce49422af",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Dans l'entrée, je lis que notre salle est dans la zone B.",
+      "sha256": "f52366734264b4c5144c11680572b1e1e2a08739edbfceb5ec039e4a596f521f",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je lis le journal près de l'entrée.",
+      "sha256": "0948b8498342b365978d444fd020f6b62853dcfd5c94e8f75cbeaed351005220",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je mange du riz après la marche.",
+      "sha256": "b6ac92957923af667efce794fd074f51633453bda82063d888edf8b2231b63d6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je regarde le billet et je confirme l'heure.",
+      "sha256": "a1fbf8da6438cda5f797ac54d43fd7e021a21d89b42d3ae36c0f650961faf9bf",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je vais au lit après le repas.",
+      "sha256": "71cd67c6e80f359ad8212df171e6093c7b4c88a11ab44a1326eecd8f32120447",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Je vais payer les billets.",
+      "sha256": "428b9954b9e971513debb861770312c7e54468b9bb68b3734bb1aecff5fabd64",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "La famille visite la ville.",
+      "sha256": "84f01770586963adfa9e9c1c53c5e321facffad6de6e9ff0d9051138b66e5685",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "La façade est rose.",
+      "sha256": "789f60e53ee2a3535ea3246458e84f013bf5f3bf38f6412701e587fd46d07fe5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[9].fr"
+        }
+      ]
+    },
+    {
+      "text": "La fille a les yeux ouverts.",
+      "sha256": "11bbf682cc3dec5757d635c341f886f177583b767c0793b55d64a4df6d4cb7d9",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "La fille regarde une vitrine avec les yeux grands ouverts.",
+      "sha256": "bbb00939a572e766d3352094cd37cdd80cfc7e1b041ea279526f28525a41f8f5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "La ligne bleue mène au lac.",
+      "sha256": "3b212133202c7237b9be94ce0949ecdd0d8873af0eb9107a68bfa70357230692",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[8].fr"
+        },
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "speaking.opening"
+        }
+      ]
+    },
+    {
+      "text": "La salle est dans la zone B.",
+      "sha256": "a755868f3caf0a8c3128f5b4c48a03a178db1f2880f5148e1ead1e0a7a54678d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le cinéma est derrière la maison.",
+      "sha256": "3afce0dff9c06789399f63ed3ab04b3e9d917d36f9b522e38b25e31b4bdefb43",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le cinéma se trouve derrière une maison à la façade rose.",
+      "sha256": "3117df14a6ade7d420f0d6cf4e89000eab765119f2dda69f11438e91fcc35579",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le guide porte un gilet.",
+      "sha256": "1cc65f305f254d6db979006f145daeb539ea362c8d58f111a80e307847e3a919",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[8].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le lac est au bout de la route.",
+      "sha256": "c9959e2d293963e238c007149ac0c453b1f6f969e0ef098fbcf46fc65dba1fd3",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le quartier est tranquille.",
+      "sha256": "c48d8c17cec09ae79713d43a1a2bae53ca938a88eb371a8fbd3ec66a54c8467d",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    },
+    {
+      "text": "Le soir, je vais au lit en pensant au lac.",
+      "sha256": "2285a77efefb6244ec36423f972a6e5e24b2f52d2eeab161265cddea7481cd4a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les gens regardent la girafe pendant que je prends une photo.",
+      "sha256": "d19a1207689abf158557bad93c3bffe88a73fd75b5f9b2fabb773568669ce74a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Les gens regardent la girafe.",
+      "sha256": "a7b87e9f9af6d57258f76feefad2f10a2532aafab964c53b57830c72b26df675",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[7].fr"
+        }
+      ]
+    },
+    {
+      "text": "Merci, c'est un joli jour au zoo.",
+      "sha256": "5822f5efacfb21640524d183f552d391d99d5848594ac2d958888f07621b6daa",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, j'ai trouvé la salle.",
+      "sha256": "fc34cc083342dfa33cb419abfd152bab5e082c7c0bcad006fe7af4f85f0e014a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Merci, nous allons visiter la ville.",
+      "sha256": "5560197c2df6dcfd6ed209c76216ab557946afaf631f19877efb1665651536d0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Mon ami demande : « Ça commence à six heures ? »",
+      "sha256": "d7caf331eebc1b71e40fa77d7f6f03866d2e02164dcef633e9099db5578bc2a6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Nous suivons une route qui traverse une rue du village.",
+      "sha256": "7a604c5f54f3989cd4f0052dfb35505cd7ce75de2b97c10c8629f9f355051ef5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Oui, le lac est au bout de la route.",
+      "sha256": "71c01331e522d0ccaa56ea2f32e77718dc7e4fc22a44d5f23ab4d34d0ef18bbc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "speaking.closure"
+        }
+      ]
+    },
+    {
+      "text": "Plus tard, je lis un journal près de l'entrée.",
+      "sha256": "f813445b6c9b83bb42a6b7895423e2e56d0fac62eb97846596a0ee672bba70a2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "reader[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Son père va payer les billets pour le musée.",
+      "sha256": "5acbfcbac358cd0d83e67aaa63c7503f789c091b58c6b05b745424cc7b9a8d05",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "reader[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "Un guide en gilet nous montre la girafe.",
+      "sha256": "8afff6d655b16720643f22f2b5150c67ac1fc711aca8d63b00d1b823859da502",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une famille visite la ville un samedi matin.",
+      "sha256": "12ebd555273250e6857635104947c4806fe2be4cb4dd737c229d3ed5dd5e50d6",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "reader[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "Une ligne bleue sur la carte mène au lac.",
+      "sha256": "2f4d17ddd3f1f3449c925be82781e4473779dd9360d067b36dfcb17785f200da",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "reader[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "cinéma",
+      "sha256": "e38136c9c503451d0940b1da90f4176c4fa6cea485ec63f98236179fcc70432e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "famille",
+      "sha256": "abd6a5db86b71e7b626757043b63fcb2e2d5ad9c26bfe91265eb1f44a46f8543",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "façade",
+      "sha256": "284b814b4bf2e308a4c80a150b2e66b7e17a8f33a8251e0421540bd8ef8ebefb",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "fille",
+      "sha256": "23588f83275a3bd8cac1d733c653f8dd69bb6d3d94f8165d95f9443029d9562a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "gens",
+      "sha256": "f5e9190952d18e0c2f967385c44e3edde0cd64215358a404320a18ec400e076a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "gilet",
+      "sha256": "5c2f0d85227c5eb3ced768792567937534cd1294f6673eb03e268acb09617d8c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "girafe",
+      "sha256": "88edae009b37cdab6ac7129ad25457e0a76dcd5a697d73b8bc55584063ab2ad5",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "joli",
+      "sha256": "928eac09cf2e0ee0ef465b587ca2d8f8171001699d7b6be207321e0c7c0cf83e",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "jour",
+      "sha256": "b5977b836b445eafefdfebe5d6463785186ff90d78f03af3864190d729957cf2",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "journal",
+      "sha256": "81dd6b775afcccb6dbb8a25a58ea844271bbefaeea7cb1d91c1687d7450f850c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:9:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "lac",
+      "sha256": "a40d4e73cd6a4ddc99f4c6a425196629c82ce3eac00e3740ee94811eb629a93a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "ligne",
+      "sha256": "fe9d9907da5ee9a793fffe9833635093f8f166c2b9f7f9a2646713ef8054a35c",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "lit",
+      "sha256": "a3c7f8cabebcea5261cb9ffe51a847d6d74fe8c90c76d886d4748c8f74119383",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "maison",
+      "sha256": "ffd73d6baeb4efb7922347d91daf780335701edb022f86e7363073f714d7e8b0",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "payer",
+      "sha256": "8d65fcf7d4880cd5224b36c33e43617cc519fc6514f79759f65fb571649dffab",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "riz",
+      "sha256": "0f3e78a6d912e2736240796f4968808e3b4753de3eabd4b827c55cf32e5eaf16",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[3].fr"
+        }
+      ]
+    },
+    {
+      "text": "rose",
+      "sha256": "618d663af0f1ec88a5a19defa65a2f80d06582a832510b12f475d80870bdb3ab",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "route",
+      "sha256": "8a84e406c08ac9594f47222406598f7598e15c55f8044b04813e28c9dee70976",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "rue",
+      "sha256": "1b0460762c0b89da3455ebb7f746785149182bd129f46b0a6ab5146720335003",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:7:fr-en",
+          "field": "cards[2].fr"
+        }
+      ]
+    },
+    {
+      "text": "salle",
+      "sha256": "16dda1bdc995a95cf9231d0093e6e409179c33cdf9ba6e01b449e42bbfceaf61",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[1].fr"
+        }
+      ]
+    },
+    {
+      "text": "tranquille",
+      "sha256": "bc4ca3478d0055c36aee02766d9e79dc0f0f58cc5d5b39aac2137d8f8e3176ed",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[6].fr"
+        }
+      ]
+    },
+    {
+      "text": "ville",
+      "sha256": "ea5b9357a96b67d74104232ee36a5db36e4f9485d1660ad167ac9c79b6a04edc",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[5].fr"
+        }
+      ]
+    },
+    {
+      "text": "yeux",
+      "sha256": "62f6f9f5f966ab073fa2d34f70c21d7cc6bf90e4454ce4496a38ef9a8d6bc15a",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:10:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "zone",
+      "sha256": "543e33c48b3c23d3b3ef151358533bc206fa0225ba66b89933a795451f016479",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[4].fr"
+        }
+      ]
+    },
+    {
+      "text": "Ça commence à six heures.",
+      "sha256": "b55be65edaf587d885b70cdcb1f603fc2bfd90e86a1a230df46172f79ac99027",
+      "occurrences": [
+        {
+          "lessonId": "core-french-sound-like-a-native:8:fr-en",
+          "field": "cards[10].fr"
+        }
+      ]
+    }
+  ]
+}

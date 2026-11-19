@@ -1,0 +1,746 @@
+{
+  "schema": 1,
+  "kind": "inert-source-review",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stageId": "master-roofing",
+  "lessonId": "master-roofing:20:ja-en",
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-19-20-draft.json",
+      "sha256": "9bc4527827f88e145712b18951b859af53117430b239d9cbe3ec4950816186cc"
+    }
+  },
+  "sourceEnglishTitle": "Full Storm-Repair Day",
+  "sourceEnglishObjective": "Run a full storm-repair day in Spanish, from the morning safety meeting to the written wrap-up",
+  "sourceEnglishSpeaking": "You are the crew lead for a full storm-repair day and the AI plays the crew, the adjuster and the homeowner in turn: run the safety meeting, walk the adjuster, propose the deck repair, handle what goes wrong, make the weather call and give the end-of-day report.",
+  "sourceSpanishReaderTitle": "One Storm, One Long Day",
+  "sourceLessonType": "Capstone",
+  "sourceBlock": "E",
+  "sourceGrammar": {
+    "focus": "Integration of all Master grammar; nothing new",
+    "examples": [
+      {
+        "es": "Encontramos madera podrida y costaría un día más.",
+        "en": "We found rotten wood and it would cost one more day."
+      },
+      {
+        "es": "Si empieza a tronar, todos abajo.",
+        "en": "If it starts to thunder, everyone down."
+      }
+    ]
+  },
+  "sourceVerbExamples": [
+    {
+      "infinitive": "detener",
+      "native": "to stop (something)",
+      "forms": {
+        "yo": "detengo",
+        "tú": "detienes",
+        "él_ella_usted": "detiene",
+        "nosotros": "detenemos",
+        "ellos_ustedes": "detienen"
+      },
+      "example": {
+        "target": "La línea de vida detiene la caída.",
+        "native": "The lifeline stops the fall."
+      },
+      "note": "Conjugated like tener: detengo; preterite: detuvo."
+    },
+    {
+      "infinitive": "pisar",
+      "native": "to step on",
+      "forms": {
+        "yo": "piso",
+        "tú": "pisas",
+        "él_ella_usted": "pisa",
+        "nosotros": "pisamos",
+        "ellos_ustedes": "pisan"
+      },
+      "example": {
+        "target": "Kevin pisó una teja mojada.",
+        "native": "Kevin stepped on a wet shingle."
+      },
+      "note": "Preterite: pisé, pisó."
+    },
+    {
+      "infinitive": "reparar",
+      "native": "to repair",
+      "forms": {
+        "yo": "reparo",
+        "tú": "reparas",
+        "él_ella_usted": "repara",
+        "nosotros": "reparamos",
+        "ellos_ustedes": "reparan"
+      },
+      "example": {
+        "target": "Se repararon dos secciones dañadas.",
+        "native": "Two damaged sections were repaired."
+      },
+      "note": "Passive se with the preterite: se reparó, se repararon."
+    },
+    {
+      "infinitive": "recibir",
+      "native": "to receive, to meet",
+      "forms": {
+        "yo": "recibo",
+        "tú": "recibes",
+        "él_ella_usted": "recibe",
+        "nosotros": "recibimos",
+        "ellos_ustedes": "reciben"
+      },
+      "example": {
+        "target": "Hoy recibimos al ajustador a las 8:30.",
+        "native": "Today we meet the adjuster at 8:30."
+      }
+    },
+    {
+      "infinitive": "tapar",
+      "native": "to cover",
+      "forms": {
+        "yo": "tapo",
+        "tú": "tapas",
+        "él_ella_usted": "tapa",
+        "nosotros": "tapamos",
+        "ellos_ustedes": "tapan"
+      },
+      "example": {
+        "target": "Primero hay que tapar el techo dañado.",
+        "native": "First we have to cover the damaged roof."
+      },
+      "note": "Tú command for speed: tápalo; negative: no lo tapes."
+    }
+  ],
+  "candidateObjective": "朝の作業打ち合わせから終業報告まで、暴風雨後の補修作業を日本語で進める。",
+  "candidateFocus": "まず、次に、午後には and 最後に organize the full-day report. ～たら gives the weather trigger; ～そうになった reports the near fall directly.",
+  "archivedForms": [
+    {
+      "base": "止める",
+      "exampleJa": "親綱が転落を止めます。",
+      "meaningEnglish": "to stop (something)",
+      "exampleEnglish": "The lifeline stops the fall.",
+      "sourceInfinitiveSpanish": "detener"
+    },
+    {
+      "base": "踏む",
+      "exampleJa": "ケビンは濡れたシングル材を踏みました。",
+      "meaningEnglish": "to step on",
+      "exampleEnglish": "Kevin stepped on a wet shingle.",
+      "sourceInfinitiveSpanish": "pisar"
+    },
+    {
+      "base": "補修する",
+      "exampleJa": "損傷した二か所を補修しました。",
+      "meaningEnglish": "to repair",
+      "exampleEnglish": "Two damaged sections were repaired.",
+      "sourceInfinitiveSpanish": "reparar"
+    },
+    {
+      "base": "迎える",
+      "exampleJa": "今日は八時半に損害査定員を迎えます。",
+      "meaningEnglish": "to receive, to meet",
+      "exampleEnglish": "Today we meet the adjuster at 8:30.",
+      "sourceInfinitiveSpanish": "recibir"
+    },
+    {
+      "base": "覆う",
+      "exampleJa": "まず損傷した屋根を覆う必要があります。",
+      "meaningEnglish": "to cover",
+      "exampleEnglish": "First we have to cover the damaged roof.",
+      "sourceInfinitiveSpanish": "tapar"
+    }
+  ],
+  "archivedSpeaking": {
+    "role": "roofing crew member",
+    "opening": "朝の打ち合わせを始めます。まず損傷した屋根を覆い、八時半に損害査定員を迎えます。野地板補修の変更を施主に説明し、天候と終業報告にも対応します。",
+    "goal": "Lead the storm-repair day in Japanese: brief the crew, walk the adjuster through the damage, explain the deck repair and change order, respond to the near-miss and weather, and give an end-of-day report."
+  },
+  "cards": [
+    {
+      "id": "master-roofing:20:ja-en:card:1",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:1",
+      "sourceSpanish": "la charla de seguridad",
+      "sourceEnglish": "the safety talk",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "安全についての打ち合わせ",
+      "archivedEnglish": "the safety talk",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:2",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:2",
+      "sourceSpanish": "la cuadrilla completa",
+      "sourceEnglish": "the whole crew",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業班全員",
+      "archivedEnglish": "the whole crew",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:3",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:3",
+      "sourceSpanish": "el plan del día",
+      "sourceEnglish": "the day's plan",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "一日の作業計画",
+      "archivedEnglish": "the day's plan",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:4",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:4",
+      "sourceSpanish": "la prioridad",
+      "sourceEnglish": "the priority",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "優先事項",
+      "archivedEnglish": "the priority",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:5",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:5",
+      "sourceSpanish": "el techo dañado",
+      "sourceEnglish": "the damaged roof",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "損傷した屋根",
+      "archivedEnglish": "the damaged roof",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:6",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:6",
+      "sourceSpanish": "la reparación de emergencia",
+      "sourceEnglish": "the emergency repair",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "緊急補修",
+      "archivedEnglish": "the emergency repair",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:7",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:7",
+      "sourceSpanish": "el informe del ajustador",
+      "sourceEnglish": "the adjuster's report",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "損害査定員の報告書",
+      "archivedEnglish": "the adjuster's report",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:8",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:8",
+      "sourceSpanish": "la madera nueva",
+      "sourceEnglish": "the new wood",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "新しい木材",
+      "archivedEnglish": "the new wood",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:9",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:9",
+      "sourceSpanish": "el resbalón",
+      "sourceEnglish": "the slip",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "足を滑らせること",
+      "archivedEnglish": "the slip",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:10",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:10",
+      "sourceSpanish": "la lista de verificación",
+      "sourceEnglish": "the checklist",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "確認表",
+      "archivedEnglish": "the checklist",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:11",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:11",
+      "sourceSpanish": "el clima inestable",
+      "sourceEnglish": "the unsettled weather",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "不安定な天候",
+      "archivedEnglish": "the unsettled weather",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:12",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:12",
+      "sourceSpanish": "el cierre del día",
+      "sourceEnglish": "the end-of-day wrap-up",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "終業時のまとめ",
+      "archivedEnglish": "the end-of-day wrap-up",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:13",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:13",
+      "sourceSpanish": "el seguimiento",
+      "sourceEnglish": "the follow-up",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "事後連絡",
+      "archivedEnglish": "the follow-up",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:14",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:14",
+      "sourceSpanish": "la satisfacción del cliente",
+      "sourceEnglish": "the customer satisfaction",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "顧客満足",
+      "archivedEnglish": "the customer satisfaction",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:15",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:15",
+      "sourceSpanish": "Primero la seguridad, luego la velocidad.",
+      "sourceEnglish": "Safety first, then speed.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "安全を第一に、速さはその次です。",
+      "archivedEnglish": "Safety first, then speed.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:16",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:16",
+      "sourceSpanish": "Quiero que cada uno revise su arnés.",
+      "sourceEnglish": "I want each of you to check your harness.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "全員にハーネスを確認してほしいです。",
+      "archivedEnglish": "I want each of you to check your harness.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:17",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:17",
+      "sourceSpanish": "Encontramos madera podrida y costaría un día más.",
+      "sourceEnglish": "We found rotten wood and it would cost one more day.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "腐った木材が見つかり、もう一日かかります。",
+      "archivedEnglish": "We found rotten wood and it would cost one more day.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:18",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:18",
+      "sourceSpanish": "Por poco se cae Kevin.",
+      "sourceEnglish": "Kevin nearly fell.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ケビンは転落しそうになりました。",
+      "archivedEnglish": "Kevin nearly fell.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:19",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:19",
+      "sourceSpanish": "Si empieza a tronar, todos abajo.",
+      "sourceEnglish": "If it starts to thunder, everyone down.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "雷が鳴り始めたら、全員降りてください。",
+      "archivedEnglish": "If it starts to thunder, everyone down.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:20",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:20",
+      "sourceSpanish": "Se repararon dos secciones dañadas.",
+      "sourceEnglish": "Two damaged sections were repaired.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "損傷した二か所を補修しました。",
+      "archivedEnglish": "Two damaged sections were repaired.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:21",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:21",
+      "sourceSpanish": "Señor, ¿le parece bien si le explico el plan?",
+      "sourceEnglish": "Sir, is it all right if I explain the plan to you?",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業計画をご説明してもよろしいでしょうか。",
+      "archivedEnglish": "Sir, is it all right if I explain the plan to you?",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:card:22",
+      "legacySourceRef": "master-roofing:20:ja-en:cards:22",
+      "sourceSpanish": "Buen trabajo, equipo; mañana seguimos.",
+      "sourceEnglish": "Good work, team; tomorrow we keep going.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "皆さん、お疲れさまでした。明日も続けましょう。",
+      "archivedEnglish": "Good work, team; tomorrow we keep going.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    }
+  ],
+  "reader": [
+    {
+      "id": "master-roofing:20:ja-en:line:1",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:1",
+      "sourceSpanish": "A las 6:00 a. m., Rogelio reunió a la cuadrilla completa para la charla de seguridad, después de la tormenta de la noche.",
+      "sourceEnglish": "At 6:00 a.m., Rogelio gathered the whole crew for the safety talk, after the overnight storm.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午前六時、夜間の暴風雨の後、ロヘリオは作業班全員を集めて安全についての打ち合わせをしました。",
+      "archivedEnglish": "At 6:00 a.m., Rogelio gathered the whole crew for the safety talk, after the overnight storm.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:2",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:2",
+      "sourceSpanish": "Rogelio: Primero la seguridad, luego la velocidad; quiero que cada uno revise su arnés antes de subir.",
+      "sourceEnglish": "Rogelio: Safety first, then speed; I want each of you to check your harness before going up.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「安全を第一に、速さはその次です。上がる前に全員ハーネスを確認してください。」",
+      "archivedEnglish": "Rogelio: Safety first, then speed; I want each of you to check your harness before going up.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:3",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:3",
+      "sourceSpanish": "Rogelio: El plan del día tiene tres prioridades: tapar el techo dañado, recibir al ajustador y hacer la reparación de emergencia.",
+      "sourceEnglish": "Rogelio: The day's plan has three priorities: cover the damaged roof, meet the adjuster, and do the emergency repair.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「今日の作業計画には三つの優先事項があります。損傷した屋根を覆い、損害査定員に対応し、緊急補修を行います。」",
+      "archivedEnglish": "Rogelio: The day's plan has three priorities: cover the damaged roof, meet the adjuster, and do the emergency repair.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:4",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:4",
+      "sourceSpanish": "A las 8:30 llegó el ajustador, y juntos contaron los golpes en dos cuadros de prueba.",
+      "sourceEnglish": "At 8:30 the adjuster arrived, and together they counted the hits in two test squares.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "八時半に損害査定員が到着し、二つの試験区画で一緒に損傷箇所を数えました。",
+      "archivedEnglish": "At 8:30 the adjuster arrived, and together they counted the hits in two test squares.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:5",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:5",
+      "sourceSpanish": "Según el informe del ajustador, el lado oeste se cambiaría completo y el lado norte se repararía.",
+      "sourceEnglish": "According to the adjuster's report, the west side would be fully replaced and the north side would be repaired.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "損害査定員の報告書によると、西側は全面交換、北側は補修になりました。",
+      "archivedEnglish": "According to the adjuster's report, the west side would be fully replaced and the north side would be repaired.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:6",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:6",
+      "sourceSpanish": "Al quitar las tejas rotas, la cuadrilla encontró madera podrida cerca de la chimenea.",
+      "sourceEnglish": "While removing the broken shingles, the crew found rotten wood near the chimney.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "壊れたシングル材を外している間、作業班は煙突の近くに腐った木材を見つけました。",
+      "archivedEnglish": "While removing the broken shingles, the crew found rotten wood near the chimney.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:7",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:7",
+      "sourceSpanish": "Rogelio al dueño: Señor, ¿le parece bien si le explico el plan? Encontramos madera podrida y costaría un día más.",
+      "sourceEnglish": "Rogelio to the owner: Sir, is it all right if I explain the plan to you? We found rotten wood and it would cost one more day.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは施主に「作業計画をご説明してもよろしいでしょうか。腐った木材が見つかり、もう一日かかります」と伝えました。",
+      "archivedEnglish": "Rogelio to the owner: Sir, is it all right if I explain the plan to you? We found rotten wood and it would cost one more day.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:8",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:8",
+      "sourceSpanish": "El dueño firmó la orden de cambio, y la cuadrilla puso madera nueva antes del almuerzo.",
+      "sourceEnglish": "The owner signed the change order, and the crew put in new wood before lunch.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "施主は変更指示書に署名し、作業班は昼食前に新しい木材を入れました。",
+      "archivedEnglish": "The owner signed the change order, and the crew put in new wood before lunch.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:9",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:9",
+      "sourceSpanish": "A la una, Kevin pisó una teja mojada y tuvo un resbalón, pero la línea de vida lo detuvo.",
+      "sourceEnglish": "At one, Kevin stepped on a wet shingle and slipped, but the lifeline stopped him.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後一時、ケビンは濡れたシングル材を踏んで足を滑らせましたが、親綱が彼の転落を止めました。",
+      "archivedEnglish": "At one, Kevin stepped on a wet shingle and slipped, but the lifeline stopped him.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:10",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:10",
+      "sourceSpanish": "Rogelio: Por poco se cae Kevin; paramos cinco minutos y revisamos la lista de verificación.",
+      "sourceEnglish": "Rogelio: Kevin nearly fell; we stop for five minutes and go over the checklist.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビンは転落しそうになりました。五分間作業を止め、確認表を見直します。」",
+      "archivedEnglish": "Rogelio: Kevin nearly fell; we stop for five minutes and go over the checklist.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:11",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:11",
+      "sourceSpanish": "Rogelio: Sin la línea de vida, podría haber sido una caída grave.",
+      "sourceEnglish": "Rogelio: Without the lifeline, it could have been a serious fall.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「親綱がなければ、重大な墜落事故になっていたかもしれません。」",
+      "archivedEnglish": "Rogelio: Without the lifeline, it could have been a serious fall.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:12",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:12",
+      "sourceSpanish": "Por la tarde volvió el clima inestable, y Rogelio habló por el radio: Si empieza a tronar, todos abajo.",
+      "sourceEnglish": "In the afternoon the unsettled weather came back, and Rogelio spoke on the radio: If it starts to thunder, everyone down.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "午後には不安定な天候が戻り、ロヘリオは無線で「雷が鳴り始めたら、全員降りてください」と伝えました。",
+      "archivedEnglish": "In the afternoon the unsettled weather came back, and Rogelio spoke on the radio: If it starts to thunder, everyone down.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:13",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:13",
+      "sourceSpanish": "Rogelio: Kevin y Julio, lona en el lado norte; Marcos, junta el material suelto.",
+      "sourceEnglish": "Rogelio: Kevin and Julio, tarp on the north side; Marcos, gather the loose material.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオ「ケビンとフリオは北側に防水シートを掛けて。マルコスは固定されていない資材を集めてください。」",
+      "archivedEnglish": "Rogelio: Kevin and Julio, tarp on the north side; Marcos, gather the loose material.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:14",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:14",
+      "sourceSpanish": "La cuadrilla bajó a tiempo, y la lluvia empezó diez minutos después.",
+      "sourceEnglish": "The crew came down in time, and the rain started ten minutes later.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "作業班は間に合うように降り、その十分後に雨が降り始めました。",
+      "archivedEnglish": "The crew came down in time, and the rain started ten minutes later.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:15",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:15",
+      "sourceSpanish": "En el cierre del día, Rogelio escribió: Se repararon dos secciones dañadas y se reemplazaron cuatro hojas de cubierta.",
+      "sourceEnglish": "At the end-of-day wrap-up, Rogelio wrote: Two damaged sections were repaired and four sheets of deck were replaced.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "終業時のまとめにロヘリオは「損傷した二か所を補修し、野地板四枚を交換した」と書きました。",
+      "archivedEnglish": "At the end-of-day wrap-up, Rogelio wrote: Two damaged sections were repaired and four sheets of deck were replaced.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:16",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:16",
+      "sourceSpanish": "Además, se registró un casi accidente sin lesiones, y queda pendiente el lado oeste para mañana.",
+      "sourceEnglish": "In addition, a near-miss with no injuries was recorded, and the west side is still pending for tomorrow.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "さらに、けが人のいないヒヤリ・ハット事例を記録し、西側の作業は明日まで未完了としました。",
+      "archivedEnglish": "In addition, a near-miss with no injuries was recorded, and the west side is still pending for tomorrow.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:17",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:17",
+      "sourceSpanish": "Luego le mandó un mensaje al dueño para el seguimiento, porque la satisfacción del cliente también es parte del trabajo.",
+      "sourceEnglish": "Then he sent the owner a message as a follow-up, because customer satisfaction is also part of the job.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "その後、ロヘリオは事後連絡として施主へメッセージを送りました。顧客満足も仕事の一部だからです。",
+      "archivedEnglish": "Then he sent the owner a message as a follow-up, because customer satisfaction is also part of the job.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:20:ja-en:line:18",
+      "legacySourceRef": "master-roofing:20:ja-en:reader:18",
+      "sourceSpanish": "Rogelio a la cuadrilla: Buen trabajo, equipo; mañana seguimos.",
+      "sourceEnglish": "Rogelio to the crew: Good work, team; tomorrow we keep going.",
+      "selectedJapanese": null,
+      "candidateJapanese": null,
+      "archivedJapanese": "ロヘリオは作業班に「皆さん、お疲れさまでした。明日も続けましょう」と言いました。",
+      "archivedEnglish": "Rogelio to the crew: Good work, team; tomorrow we keep going.",
+      "reviewNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure.",
+      "reviewed": false
+    }
+  ],
+  "archivedModeLabels": {
+    "see": {
+      "label": "Identify the damaged roof, adjuster, replacement wood, and end-of-day checklist.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "recall": {
+      "label": "Recall the day's priorities, near fall, weather call, and customer follow-up.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "hear": {
+      "label": "Distinguish 損害査定員 from 作業班長 when spoken.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "type": {
+      "label": "Type 'If it starts to thunder, everyone down' in Japanese.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "say": {
+      "label": "Run the morning meeting, adjuster visit, repair change, weather call, and report.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    },
+    "write": {
+      "label": "Write the completed repairs, near-miss record, and tomorrow's open work.",
+      "authoredPromptTargetPair": false,
+      "readyForLearner": false
+    }
+  },
+  "curriculumAdaptationNote": "The storm-repair capstone combines fall protection, a slip arrested by a lifeline, rotten deck repair, signed change order, insurance scope, weather retreat and tarping. Preserve exact source events and quantities; qualified Japanese, roofing, structural, fall-protection, weather, clinical and locale review must settle the source instructions and dictionary senses before selection. Do not treat the scene as an approved work procedure. No selected learner/audio text or progress identity is created.",
+  "audioScript": null,
+  "reviewGates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "dictionarySenses": false,
+    "sourceDecision": false,
+    "audioListening": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "offline": false,
+    "savedProgress": false,
+    "browserAcceptance": false,
+    "v4Acceptance": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "audioRegistered": false
+}

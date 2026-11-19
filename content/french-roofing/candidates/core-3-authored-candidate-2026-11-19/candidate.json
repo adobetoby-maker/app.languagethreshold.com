@@ -1,0 +1,602 @@
+{
+  "lessonId": "core-roofing:3:fr-en",
+  "candidateObjectiveEnglish": "Ask where valleys, flashing and a chimney are shown on a sample diagram.",
+  "grammarExplanationEnglish": "Where starts a direct location question. Use are with plural nouns: Where are the valleys? Use is with a singular noun: Where is the chimney? After Show me where, keep subject then verb: Show me where the flashing goes.",
+  "grammarExplanationFrench": "« Where » commence une question directe de lieu. Employez « are » au pluriel et « is » au singulier : « Where are the valleys? » ; « Where is the chimney? ». Après « Show me where », gardez le sujet avant le verbe : « Show me where the flashing goes ».",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "la noue",
+      "candidateTargetEnglish": "valley",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "la noue",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:3:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "la cheminée",
+      "candidateTargetEnglish": "chimney",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "la cheminée",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:3:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise et indiquez son sens en français.",
+      "candidateTargetEnglish": "Where are the valleys on this roof?",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:13"
+      ],
+      "expectedMeaningFrench": "Où se trouvent les noues sur ce toit ?",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:3:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « le solin ».",
+      "candidateTargetEnglish": "flashing",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "le solin",
+      "provenance": "English source-exact headword; French candidate support.",
+      "id": "core-roofing:3:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately.",
+      "acceptedCandidateAlternatesEnglish": [
+        "the flashing"
+      ]
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Montrez-moi où va le solin. »",
+      "candidateTargetEnglish": "Show me where the flashing goes.",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Montrez-moi où va le solin.",
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:3:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Où est la cheminée ? »",
+      "candidateTargetEnglish": "Where is the chimney?",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:13",
+        "core-roofing:3:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "Où est la cheminée ?",
+      "provenance": "New singular location-question frame from source card13 plus chimney headword card5; no site-location or flashing-placement claim.",
+      "id": "core-roofing:3:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "Show me where + subject + verb",
+      "meaningFrench": "montrez-moi où …",
+      "candidateExampleEnglish": "Show me where the flashing goes.",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:1",
+        "core-roofing:3:fr-en:card:12"
+      ],
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:3:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "englishForm": "Where are + plural noun?",
+      "meaningFrench": "où se trouvent … ?",
+      "candidateExampleEnglish": "Where are the valleys on this roof?",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:3",
+        "core-roofing:3:fr-en:card:13"
+      ],
+      "provenance": "English source-exact; French unreviewed candidate support.",
+      "id": "core-roofing:3:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    },
+    {
+      "englishForm": "Where is + singular noun?",
+      "meaningFrench": "où est … ?",
+      "candidateExampleEnglish": "Where is the chimney?",
+      "sourceAnchors": [
+        "core-roofing:3:fr-en:card:5",
+        "core-roofing:3:fr-en:card:13"
+      ],
+      "provenance": "New singular location-question frame from source card13 plus chimney headword card5; no site-location or flashing-placement claim.",
+      "id": "core-roofing:3:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English provenance is labelled separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A crew member asking about a sample roof diagram.",
+    "partnerRole": "A coworker using the same labelled practice roof diagram.",
+    "candidateOpeningEnglish": "Where are the valleys on this roof?",
+    "goalEnglish": "Ask where the valleys are shown and request the flashing location.",
+    "candidateWordBankEnglish": [
+      "flashing",
+      "valley",
+      "Where are the valleys?",
+      "Show me where the flashing goes."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "sourceAnchors": [
+      "core-roofing:3:fr-en:card:13",
+      "core-roofing:3:fr-en:card:12",
+      "core-roofing:3:fr-en:reader:6"
+    ],
+    "id": "core-roofing:3:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "Hypothetical practice using labelled sample images, not actual site findings.",
+    "partnerCueProvenance": "New hypothetical diagram responses; front-valley cue derives from Reader6, flashing cue indicates a label only, not an installation location.",
+    "objectiveProvenance": "New narrower practice task; full pinned source speaking objective remains unfulfilled pending held terminology/source decisions.",
+    "partnerCuesEnglish": [
+      "One valley is at the front.",
+      "The flashing is marked here."
+    ]
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-3-source-decision-2026-11-18/packet.json",
+    "sha256": "bd12e4c42d62ff88d0e215c3cdfd97f8bb1060eb5e6bb38be36499da4d609f67"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:3:fr-en:card:1",
+      "sourceEnglish": "flashing",
+      "candidateFrench": "le solin",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:3:fr-en:card:2",
+      "sourceEnglish": "step flashing",
+      "candidateFrench": null,
+      "hold": "Confirm the trade and locale sense of step flashing/solin à gradins, including whether the Reader says merely that it is present rather than that it was installed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:3:fr-en:card:3",
+      "sourceEnglish": "valley",
+      "candidateFrench": "la noue",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:3:fr-en:card:4",
+      "sourceEnglish": "ice and water shield",
+      "candidateFrench": null,
+      "hold": "Select a French term for ice and water shield that preserves the product's water/ice role, and decide whether the archived phrase in the valley loses the source's up-the-valley direction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:3:fr-en:card:5",
+      "sourceEnglish": "chimney",
+      "candidateFrench": "la cheminée",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:3:fr-en:card:6",
+      "sourceEnglish": "wall",
+      "candidateFrench": "le mur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:3:fr-en:card:7",
+      "sourceEnglish": "leak",
+      "candidateFrench": "la fuite",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:3:fr-en:card:8",
+      "sourceEnglish": "sealant",
+      "candidateFrench": "le mastic d’étanchéité",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:3:fr-en:card:9",
+      "sourceEnglish": "roofing cement",
+      "candidateFrench": null,
+      "hold": "Resolve roofing cement/cemento plástico: archived ciment de couverture may suggest cement rather than the intended bituminous roofing compound; confirm the product and locale sense.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:3:fr-en:card:10",
+      "sourceEnglish": "Step flashing under each shingle course.",
+      "candidateFrench": null,
+      "hold": "Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:3:fr-en:card:11",
+      "sourceEnglish": "Run ice and water shield up the valley.",
+      "candidateFrench": null,
+      "hold": "Select a French term for ice and water shield that preserves the product's water/ice role, and decide whether the archived phrase in the valley loses the source's up-the-valley direction. Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:3:fr-en:card:12",
+      "sourceEnglish": "Show me where the flashing goes.",
+      "candidateFrench": "Montrez-moi où va le solin.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Imperative location request; removes extra obligation doit from archived wording."
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:3:fr-en:card:13",
+      "sourceEnglish": "Where are the valleys on this roof?",
+      "candidateFrench": "Où se trouvent les noues sur ce toit ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:3:fr-en:card:14",
+      "sourceEnglish": "Seal around the chimney.",
+      "candidateFrench": null,
+      "hold": "Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:3:fr-en:card:15",
+      "sourceEnglish": "Check for leaks at the valley.",
+      "candidateFrench": "Vérifiez s'il y a des fuites au niveau de la noue.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Preserves source at-the-valley scope rather than requiring in-the-valley."
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:1",
+      "sourceEnglish": "Water often gets in at the joints of the roof.",
+      "candidateFrench": "L’eau pénètre souvent aux jonctions de la toiture.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:2",
+      "sourceEnglish": "Those joints are at the valleys, the chimneys, and the walls.",
+      "candidateFrench": null,
+      "hold": "The source places roof joints at valleys, chimneys and walls; archived French near chimneys and along walls changes the spatial relationship. Select a source-aligned sentence.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:3",
+      "sourceEnglish": "Flashing helps keep the water out.",
+      "candidateFrench": "Le solin aide à empêcher l’eau de pénétrer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:4",
+      "sourceEnglish": "Here there is step flashing next to the wall.",
+      "candidateFrench": null,
+      "hold": "Confirm the trade and locale sense of step flashing/solin à gradins, including whether the Reader says merely that it is present rather than that it was installed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:5",
+      "sourceEnglish": "The foreman asks: Where are the valleys on this roof?",
+      "candidateFrench": null,
+      "hold": "Linked foreman versus crew-lead role decision is propagated into this sentence; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalRoleDecisionRef": "core-roofing:1:fr-en:reader:2",
+      "internalRoleDecisionNote": "Originating foreman-to-chef-d’équipe role question; no approved equivalence or access context inherited."
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:6",
+      "sourceEnglish": "A worker points to the valley at the front.",
+      "candidateFrench": "Un membre de l'équipe montre du doigt la noue à l'avant.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "New gender-neutral French paraphrase of worker; exact Spanish female obrera remains in source; role wording requires qualified French confirmation."
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:7",
+      "sourceEnglish": "Show me where the flashing goes.",
+      "candidateFrench": "Montrez-moi où va le solin.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Imperative location request; removes extra obligation doit from archived wording."
+    },
+    {
+      "id": "core-roofing:3:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:3:fr-en:reader:8",
+      "sourceEnglish": "Check for leaks at the valley.",
+      "candidateFrench": "Vérifiez s'il y a des fuites au niveau de la noue.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Preserves source at-the-valley scope rather than requiring in-the-valley."
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:3:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:3:fr-en:card:1",
+      "englishHeadword": "flashing",
+      "candidateFrenchSense": "le solin",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:3:fr-en:card:2",
+      "englishHeadword": "step flashing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Flashing & Valleys",
+      "status": "held",
+      "hold": "Confirm the trade and locale sense of step flashing/solin à gradins, including whether the Reader says merely that it is present rather than that it was installed.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:3:fr-en:card:3",
+      "englishHeadword": "valley",
+      "candidateFrenchSense": "la noue",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:3:fr-en:card:4",
+      "englishHeadword": "ice and water shield",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Flashing & Valleys",
+      "status": "held",
+      "hold": "Select a French term for ice and water shield that preserves the product's water/ice role, and decide whether the archived phrase in the valley loses the source's up-the-valley direction.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:3:fr-en:card:5",
+      "englishHeadword": "chimney",
+      "candidateFrenchSense": "la cheminée",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:3:fr-en:card:6",
+      "englishHeadword": "wall",
+      "candidateFrenchSense": "le mur",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:3:fr-en:card:7",
+      "englishHeadword": "leak",
+      "candidateFrenchSense": "la fuite",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:3:fr-en:card:8",
+      "englishHeadword": "sealant",
+      "candidateFrenchSense": "le mastic d’étanchéité",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:3:fr-en:card:9",
+      "englishHeadword": "roofing cement",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Flashing & Valleys",
+      "status": "held",
+      "hold": "Resolve roofing cement/cemento plástico: archived ciment de couverture may suggest cement rather than the intended bituminous roofing compound; confirm the product and locale sense.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:3:fr-en:card:10",
+      "englishHeadword": "Step flashing under each shingle course.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Flashing & Valleys",
+      "status": "held",
+      "hold": "Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:3:fr-en:card:11",
+      "englishHeadword": "Run ice and water shield up the valley.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Flashing & Valleys",
+      "status": "held",
+      "hold": "Select a French term for ice and water shield that preserves the product's water/ice role, and decide whether the archived phrase in the valley loses the source's up-the-valley direction. Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:3:fr-en:card:12",
+      "englishHeadword": "Show me where the flashing goes.",
+      "candidateFrenchSense": "Montrez-moi où va le solin.",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:3:fr-en:card:13",
+      "englishHeadword": "Where are the valleys on this roof?",
+      "candidateFrenchSense": "Où se trouvent les noues sur ce toit ?",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:3:fr-en:card:14",
+      "englishHeadword": "Seal around the chimney.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Flashing & Valleys",
+      "status": "held",
+      "hold": "Source imperative installation/sealing lines need qualified roofing and product-detail review before use as scored work instructions; preserve the source wording and do not add an unapproved universal method.",
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:3:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:3:fr-en:card:15",
+      "englishHeadword": "Check for leaks at the valley.",
+      "candidateFrenchSense": "Vérifiez s'il y a des fuites au niveau de la noue.",
+      "contextEnglish": "Flashing & Valleys",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison."
+  ]
+}

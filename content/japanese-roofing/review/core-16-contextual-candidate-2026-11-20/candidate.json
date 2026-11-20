@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:16:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-16-source-decision-2026-11-18/packet.json",
+    "sha256": "64dc989f910c7507d09608acee1c78b29c78b0c5d1ef47cd838beb3e12afc2a6"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-16-18-draft.json",
+      "sha256": "ef60bf977985351cfbfead1a89641d9d73440ad2f0e5fa43d33b1578184e9999"
+    }
+  },
+  "objectiveEnglish": "Describe a high-position nail and ask to be shown the nailing strip.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "場面の説明文です。「彼は、ネイリングストリップの外にある、位置が上すぎる釘を見つけます」という意味を確かめながら読みましょう。",
+      "targetEnglish": "He sees a nail that is too high, outside the nailing strip.",
+      "sourceAnchor": "roofing:16:ja-en:line:2",
+      "id": "core-roofing:16:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "シングル上の、釘を打つための帯状の部分（釘打ち帯）は英語で何と言いますか？",
+      "targetEnglish": "nailing strip",
+      "sourceAnchor": "roofing:16:ja-en:card:1",
+      "id": "core-roofing:16:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「その釘は位置が上すぎます」という報告の文を選びましょう。",
+      "targetEnglish": "That nail is too high.",
+      "sourceAnchor": "roofing:16:ja-en:card:11",
+      "candidateOptionsEnglish": [
+        "That nail is too high.",
+        "Show me where the strip is.",
+        "Afterward, Pedro checks each nail more carefully."
+      ],
+      "id": "core-roofing:16:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "That nail is too high.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「打った位置が上すぎる釘」を表す名詞を英語で入力しましょう。",
+      "targetEnglish": "high nail",
+      "sourceAnchor": "roofing:16:ja-en:card:2",
+      "id": "core-roofing:16:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "ストリップの場所を見せてほしいときの表現です。「ストリップがどこにあるか見せてください」と英語で言いましょう。",
+      "targetEnglish": "Show me where the strip is.",
+      "sourceAnchor": "roofing:16:ja-en:card:15",
+      "id": "core-roofing:16:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「釘を打つ範囲」を表す名詞を英語で書きましょう。",
+      "targetEnglish": "nailing zone",
+      "sourceAnchor": "roofing:16:ja-en:card:7",
+      "id": "core-roofing:16:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The foreman checks",
+      "explanationJapanese": "主語が三人称単数（the foreman など）で現在のことを述べるとき、動詞に -s を付けます。check → checks（点検する）。",
+      "sourceAnchor": "roofing:16:ja-en:line:1",
+      "id": "core-roofing:16:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "too high",
+      "explanationJapanese": "「too＋形容詞」で「〜すぎる」。ここでの too high は、釘を打った位置が上すぎるという意味です。打ち込みの深さや釘の頭の浮きのことではありません。",
+      "sourceAnchor": "roofing:16:ja-en:card:11",
+      "id": "core-roofing:16:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Show me where",
+      "explanationJapanese": "「Show me where＋主語＋動詞」で「〜がどこにあるか見せてください」。where のあとは the strip is のように「主語＋動詞」の語順になります。",
+      "sourceAnchor": "roofing:16:ja-en:card:15",
+      "id": "core-roofing:16:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "high nail",
+      "glossJapanese": "位置が上すぎる釘",
+      "senseJapanese": "打った位置が上すぎる釘。この場面では、ネイリングストリップの外にある釘を指します。打ち込みの深さの問題ではありません。",
+      "sourceAnchor": "roofing:16:ja-en:card:2",
+      "id": "core-roofing:16:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "nailing strip",
+      "glossJapanese": "ネイリングストリップ（釘打ち帯）",
+      "senseJapanese": "シングル上の、釘を打つための帯状の部分。",
+      "sourceAnchor": "roofing:16:ja-en:card:1",
+      "id": "core-roofing:16:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "nailing zone",
+      "glossJapanese": "釘を打つ範囲",
+      "senseJapanese": "シングル上で釘を打つ場所を指す言い方。",
+      "sourceAnchor": "roofing:16:ja-en:card:7",
+      "id": "core-roofing:16:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "the person looking at the new course of shingles who reports what they see and asks about the strip",
+      "partner": "a coworker on the same course who listens and shows the strip"
+    },
+    "openingEnglish": "That nail is too high.",
+    "closureEnglish": "Show me where the strip is.",
+    "objectivesEnglish": [
+      "Report an observation about nail position using \"That nail is too high.\"",
+      "Ask to be shown a location using \"Show me where the strip is.\"",
+      "Name what you are looking at using the nouns nailing strip, nailing zone, high nail and shingle."
+    ],
+    "wordBankEnglish": [
+      "nailing strip",
+      "nailing zone",
+      "high nail",
+      "nail",
+      "shingle",
+      "That nail is too high.",
+      "Show me where the strip is."
+    ],
+    "sourceAnchors": [
+      "roofing:16:ja-en:card:1",
+      "roofing:16:ja-en:card:2",
+      "roofing:16:ja-en:card:4",
+      "roofing:16:ja-en:card:5",
+      "roofing:16:ja-en:card:6",
+      "roofing:16:ja-en:card:7",
+      "roofing:16:ja-en:card:10",
+      "roofing:16:ja-en:card:11",
+      "roofing:16:ja-en:card:12",
+      "roofing:16:ja-en:card:15",
+      "roofing:16:ja-en:line:1",
+      "roofing:16:ja-en:line:2",
+      "roofing:16:ja-en:line:3",
+      "roofing:16:ja-en:line:4",
+      "roofing:16:ja-en:line:5",
+      "roofing:16:ja-en:line:7",
+      "roofing:16:ja-en:line:8"
+    ],
+    "id": "core-roofing:16:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing source anchors, no runtime/progress migration.",
+    "Partial selected observation/question/terminology supplement. Nail placement boundaries, four-nail count, pressure/depth settings, flush criterion and adjacent-nail repair remain qualified product/trade/source decisions.",
+    "Core16 high nail is position relative to strip; Core18 overdriven nail is depth. No site/product acceptance criterion is selected.",
+    "Source named foreman/Pedro roles remain provenance; supplemental descriptive roles do not assign product or safety authority.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

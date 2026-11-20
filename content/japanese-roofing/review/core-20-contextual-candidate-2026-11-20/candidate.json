@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:20:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-20-source-decision-2026-11-18/packet.json",
+    "sha256": "3e4c143dcba78d2e52e978b348daf1a130622fcdc9c2cafb3c759bfc333be36d"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-19-20-draft.json",
+      "sha256": "b01a33473c8ed78df24fe70f1e3a8e10878e7a17061fe1614cebaf53ad5d6484"
+    }
+  },
+  "objectiveEnglish": "Name ridge and hip terms, describe progress and request product-instruction confirmation.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「ridge cap」は棟にかぶせる仕上げ部材（棟包み・棟用シングル）の名前です。英語の語句を見て、つづりと意味を確認してください。",
+      "targetEnglish": "ridge cap",
+      "sourceAnchor": "roofing:20:ja-en:card:1",
+      "id": "core-roofing:20:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根の面と面が出合って斜めに下がる稜線「隅棟（すみむね）」を表す英語を、何も見ずに思い出してください。",
+      "targetEnglish": "hip",
+      "sourceAnchor": "roofing:20:ja-en:card:4",
+      "id": "core-roofing:20:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「作業班は屋根の作業をほぼ終えています」という進み具合の説明です。音声を聞いて、聞こえた英文を選んでください。",
+      "targetEnglish": "The crew is almost done with the roof.",
+      "sourceAnchor": "roofing:20:ja-en:line:1",
+      "candidateOptionsEnglish": [
+        "The crew is almost done with the roof.",
+        "The ridge and the hip are still missing.",
+        "The foreman also checks the ridge vent."
+      ],
+      "id": "core-roofing:20:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "The crew is almost done with the roof.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「棟換気（棟の換気部材）」を表す英語を入力してください。",
+      "targetEnglish": "ridge vent",
+      "sourceAnchor": "roofing:20:ja-en:card:5",
+      "id": "core-roofing:20:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「棟包みの製品説明書を確認してください」という依頼を英語で声に出して言ってください。",
+      "targetEnglish": "Check the product instructions for the ridge cap.",
+      "sourceAnchor": "roofing:20:ja-en:card:12",
+      "id": "core-roofing:20:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「棟と隅棟がまだ残っています」という進み具合の説明を英語で書いてください。",
+      "targetEnglish": "The ridge and the hip are still missing.",
+      "sourceAnchor": "roofing:20:ja-en:line:2",
+      "id": "core-roofing:20:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The crew is almost done with the roof.",
+      "explanationJapanese": "「be done with ～」は「～を終えている」という意味です。「almost」を入れると「ほぼ終えている」という進み具合の表現になります。",
+      "sourceAnchor": "roofing:20:ja-en:line:1",
+      "id": "core-roofing:20:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The ridge and the hip are still missing.",
+      "explanationJapanese": "「be still missing」は「まだ足りない・まだ残っている」という意味です。主語が「A and B」で複数なので「are」を使います。",
+      "sourceAnchor": "roofing:20:ja-en:line:2",
+      "id": "core-roofing:20:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "First, check the product instructions for the ridge cap.",
+      "explanationJapanese": "文頭の「First,」は「まず」という順序を表します。「instructions for ～」は「～についての説明書」という意味です。",
+      "sourceAnchor": "roofing:20:ja-en:line:3",
+      "id": "core-roofing:20:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "ridge cap",
+      "glossJapanese": "棟包み・棟用シングル",
+      "senseJapanese": "屋根の棟や隅棟の頂部にかぶせる仕上げ部材の名称。",
+      "sourceAnchor": "roofing:20:ja-en:card:1",
+      "id": "core-roofing:20:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "ridge",
+      "glossJapanese": "棟（むね）",
+      "senseJapanese": "屋根の頂部の稜線を指す語です。",
+      "sourceAnchor": "roofing:20:ja-en:card:3",
+      "id": "core-roofing:20:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "hip",
+      "glossJapanese": "隅棟（すみむね）",
+      "senseJapanese": "屋根の面と面が出合って斜めに下がる外側の稜線。",
+      "sourceAnchor": "roofing:20:ja-en:card:4",
+      "id": "core-roofing:20:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業員役：部材の名前を英語で言い、進み具合の説明文を繰り返す。切り方・留め方・取り付け方の説明はしない。",
+      "partner": "職長役：冒頭のナレーション文（場面説明）を読み、製品説明書の確認を英語で依頼し、締めくくりの文を言う。"
+    },
+    "openingEnglish": "The crew is almost done with the roof.",
+    "closureEnglish": "When you finish, clean the roof.",
+    "objectivesEnglish": [
+      "Name the ridge cap, ridge, hip, and ridge vent in English.",
+      "Describe progress with the source sentence: The ridge and the hip are still missing.",
+      "Say that the product instructions for the ridge cap must be checked first."
+    ],
+    "wordBankEnglish": [
+      "ridge cap",
+      "ridge",
+      "hip",
+      "ridge vent"
+    ],
+    "sourceAnchors": [
+      "roofing:20:ja-en:card:1",
+      "roofing:20:ja-en:card:3",
+      "roofing:20:ja-en:card:4",
+      "roofing:20:ja-en:card:5",
+      "roofing:20:ja-en:card:12",
+      "roofing:20:ja-en:line:1",
+      "roofing:20:ja-en:line:2",
+      "roofing:20:ja-en:line:3",
+      "roofing:20:ja-en:line:8"
+    ],
+    "id": "core-roofing:20:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial terminology/description/request supplement only. Sidewall sequence and ridge-cap cutting/installation/sealing depend on qualified product/source review.",
+    "Core21 full fall-protection, access authorization, anchor approval and clearance objective remains HELD. Incomplete lanyard-short-enough rule excluded; no new safety procedure substituted.",
+    "Approved-anchor request is source language only: this packet does not select or certify an anchor or authorize learner access.",
+    "Source narration is labeled as scene text in speaking roles; source material details remain conditional dictionary candidates.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

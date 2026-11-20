@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:21:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-21-source-decision-2026-11-18/packet.json",
+    "sha256": "808fb68383930ea3464305e5678e154a33185a81cb21a6a72c8a70c0b7e71f4c"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-21-23-draft.json",
+      "sha256": "f6ac0838c706af85fb07f66f665c9e0fa49736cdb5dbeafd2030f22f33831739"
+    }
+  },
+  "objectiveEnglish": "Name selected fall-protection equipment and recognize an anchor-identification request.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「harness」は体に着ける墜落制止用器具（ハーネス）の名前です。英語の語句を見て、つづりと意味を確認してください。",
+      "targetEnglish": "harness",
+      "sourceAnchor": "roofing:21:ja-en:card:1",
+      "id": "core-roofing:21:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根に設ける連結用の固定点「屋根用アンカー」を表す英語を、何も見ずに思い出してください。",
+      "targetEnglish": "roof anchor",
+      "sourceAnchor": "roofing:21:ja-en:card:3",
+      "id": "core-roofing:21:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "ハーネスとアンカーをつなぐ連結部品「ランヤード」の名前です。音声を聞いて、聞こえた語句を選んでください。",
+      "targetEnglish": "lanyard",
+      "sourceAnchor": "roofing:21:ja-en:card:4",
+      "candidateOptionsEnglish": [
+        "lanyard",
+        "buckle",
+        "hard hat"
+      ],
+      "id": "core-roofing:21:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "lanyard",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "頭を守る「保護帽（ヘルメット）」を表す英語を入力してください。",
+      "targetEnglish": "hard hat",
+      "sourceAnchor": "roofing:21:ja-en:card:7",
+      "id": "core-roofing:21:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "職長の依頼「承認されたアンカーを見せてください」を英語で声に出して言ってください。",
+      "targetEnglish": "Show me the approved anchor.",
+      "sourceAnchor": "roofing:21:ja-en:card:12",
+      "id": "core-roofing:21:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「墜落防止（墜落から人を守る対策・装備の総称）」を表す英語を書いてください。",
+      "targetEnglish": "fall protection",
+      "sourceAnchor": "roofing:21:ja-en:card:5",
+      "id": "core-roofing:21:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Before going up",
+      "explanationJapanese": "「Before ＋ 動詞のing形」は「～する前に」という時間の前後関係を表します。ここでは「上がる前に」という意味で、後ろの文の出来事がその前に起こることを示します。",
+      "sourceAnchor": "roofing:21:ja-en:line:1",
+      "id": "core-roofing:21:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Show me the approved anchor.",
+      "explanationJapanese": "「Show me ～」は「～を見せてください」という依頼の形です。「approved」は「承認された」という意味で、名詞「anchor」を前から説明しています。",
+      "sourceAnchor": "roofing:21:ja-en:line:5",
+      "id": "core-roofing:21:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the foreman gathers the crew next to the ladder",
+      "explanationJapanese": "「gathers」は主語が三人称単数（the foreman）のときの現在形で、「集める」という意味です。「next to ～」は「～のそばに」という場所を表します。",
+      "sourceAnchor": "roofing:21:ja-en:line:1",
+      "id": "core-roofing:21:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "tie-off",
+      "glossJapanese": "タイオフ（固定点への連結）",
+      "senseJapanese": "ハーネスのランヤードを固定点（アンカー）に連結することを指す用語。",
+      "sourceAnchor": "roofing:21:ja-en:card:2",
+      "id": "core-roofing:21:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "roof anchor",
+      "glossJapanese": "屋根用アンカー（取付設備）",
+      "senseJapanese": "屋根に設ける、連結用の固定点となる器具の名称。",
+      "sourceAnchor": "roofing:21:ja-en:card:3",
+      "id": "core-roofing:21:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "lanyard",
+      "glossJapanese": "ランヤード",
+      "senseJapanese": "ハーネスと取付設備（アンカー）をつなぐ連結部品の名称。",
+      "sourceAnchor": "roofing:21:ja-en:card:4",
+      "id": "core-roofing:21:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業員役：装備の名前を英語で言い、場面の説明文を繰り返す。",
+      "partner": "職長役：場面の説明文を読み、装備の名前を尋ね、最後にアンカーを見せるよう依頼する。"
+    },
+    "openingEnglish": "Before going up, the foreman gathers the crew next to the ladder.",
+    "closureEnglish": "Show me the approved anchor.",
+    "objectivesEnglish": [
+      "Name the harness, lanyard, buckle, hard hat, and roof anchor in English.",
+      "Repeat the source narration: Before going up, the foreman gathers the crew next to the ladder.",
+      "Recognize the source request Show me the approved anchor."
+    ],
+    "wordBankEnglish": [
+      "harness",
+      "tie-off",
+      "roof anchor",
+      "lanyard",
+      "fall protection",
+      "buckle",
+      "hard hat"
+    ],
+    "sourceAnchors": [
+      "roofing:21:ja-en:card:1",
+      "roofing:21:ja-en:card:2",
+      "roofing:21:ja-en:card:3",
+      "roofing:21:ja-en:card:4",
+      "roofing:21:ja-en:card:5",
+      "roofing:21:ja-en:card:6",
+      "roofing:21:ja-en:card:7",
+      "roofing:21:ja-en:card:12",
+      "roofing:21:ja-en:line:1",
+      "roofing:21:ja-en:line:5"
+    ],
+    "id": "core-roofing:21:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial terminology/description/request supplement only. Sidewall sequence and ridge-cap cutting/installation/sealing depend on qualified product/source review.",
+    "Core21 full fall-protection, access authorization, anchor approval and clearance objective remains HELD. Incomplete lanyard-short-enough rule excluded; no new safety procedure substituted.",
+    "Approved-anchor request is source language only: this packet does not select or certify an anchor or authorize learner access.",
+    "Source narration is labeled as scene text in speaking roles; source material details remain conditional dictionary candidates.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

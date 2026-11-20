@@ -28,8 +28,9 @@ type FilterTab = (typeof FILTER_TABS)[number]["id"];
 interface Props {
   open: boolean;
   onClose: () => void;
+  onSelect?: (id: string | null) => void;
 }
-export function ModulePickerDialog({ open, onClose }: Props) {
+export function ModulePickerDialog({ open, onClose, onSelect }: Props) {
   const { state, dispatch } = useApp();
   const [query, setQuery] = useState("");
   const [filterTab, setFilterTab] = useState<FilterTab>("ALL");
@@ -58,7 +59,8 @@ export function ModulePickerDialog({ open, onClose }: Props) {
       const mod = getModule(id);
       if (mod) toast(`${mod.emoji} ${mod.name} active`);
     }
-    onClose();
+    if (onSelect) onSelect(id);
+    else onClose();
   }
 
   return (

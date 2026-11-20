@@ -63,7 +63,9 @@ test("Core 60 opens from the deeper menu, starts a lesson and returns to course 
   ).toBeVisible();
   await page.getByRole("button", { name: "Lesson details and goal", exact: true }).click();
   await page.getByRole("button", { name: "Course lessons", exact: true }).click();
-  await expect(page.getByRole("button", { name: /Continue Lesson 1/ })).toBeVisible();
+  await expect(page.getByRole("dialog").getByTestId("course-lesson-1")).toBeVisible();
+  await page.getByRole("button", { name: "Back to modules", exact: true }).click();
+  await expect(page.getByRole("dialog", { name: "Select Module" })).toBeVisible();
 });
 
 test("Core 60 without a module offers Spanish 101 and specialty selection", async ({ page }) => {

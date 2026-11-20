@@ -13,7 +13,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ModulePickerDialog } from "./ModulePickerDialog";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { DeviceVoiceHelp } from "./settings/DeviceVoiceHelp";
 import { AppVersion } from "./settings/AppVersion";
@@ -30,7 +29,6 @@ import { Link } from "@tanstack/react-router";
 
 export function TopNav() {
   const { state, dispatch } = useApp();
-  const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   useEffect(() => {
     const open = () => {
@@ -81,7 +79,7 @@ export function TopNav() {
         </DropdownMenu>
 
         <button
-          onClick={() => setModuleDialogOpen(true)}
+          onClick={() => window.dispatchEvent(new Event("lt:course-lessons"))}
           title="Change module"
           className="group order-4 inline-flex w-full items-center justify-center gap-2 rounded-full border border-border/70 bg-card/60 px-4 py-2 transition-all hover:border-gold/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:order-none sm:w-auto sm:px-4"
         >
@@ -97,7 +95,6 @@ export function TopNav() {
           )}
           <ChevronDown className="h-3.5 w-3.5 shrink-0 opacity-60" />
         </button>
-        <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
 
         <div className="flex items-center gap-2">
           <Link

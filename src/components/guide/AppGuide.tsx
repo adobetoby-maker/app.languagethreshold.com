@@ -1480,7 +1480,7 @@ function OwnedLessonRunner({
         goal={lesson.objective}
         active={section}
         opened={SECTIONS.filter(({ id }) => Boolean(wayVisitAt(lessonLog, id))).map(({ id }) => id)}
-        onExit={() => leaveLesson(onExit)}
+        onExit={() => window.dispatchEvent(new Event("lt:course-lessons"))}
         onMore={() => window.dispatchEvent(new Event("lt:lesson-workspace-navigation"))}
         navigation={lessonButtons("top")}
       />
@@ -2421,6 +2421,25 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     }
     return () => window.removeEventListener("lt:v6-lesson-mode", open);
   }, [moduleId, restoreView]);
+
+  const courseLessonOpen = useRef<(n: number) => void>(() => {});
+  courseLessonOpen.current = (n) => openLessonFromPlan(n);
+  useEffect(() => {
+    if (!restoreView) return;
+    const open = (event: Event) => {
+      const detail = (event as CustomEvent<{ moduleId: string; lesson: number }>).detail;
+      if (
+        detail?.moduleId === moduleId &&
+        getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.some(
+          (l) => l.n === detail.lesson,
+        )
+      ) {
+        courseLessonOpen.current(detail.lesson);
+      }
+    };
+    window.addEventListener("lt:choose-course-lesson", open);
+    return () => window.removeEventListener("lt:choose-course-lesson", open);
+  }, [moduleId, restoreView, state.selectedLanguage, state.nativeLanguage]);
 
   if (!curriculum) return null;
   const core30Log = state.core30Log[progressKey];

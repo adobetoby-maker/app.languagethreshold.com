@@ -143,7 +143,10 @@ test("module picker and catalogue alphabetize trades with Foundation, Core, Mast
   };
   await expect(page.locator("main [data-module-id]").first()).toBeVisible();
   await checkOrder(page.locator("main"));
-  await page.getByTitle("Change module").click();
+  await page.getByRole("button", { name: /^Choose course,/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  const backToModules = page.getByRole("button", { name: "Back to modules", exact: true });
+  if (await backToModules.isVisible()) await backToModules.click();
   const picker = page.getByRole("dialog", { name: "Select Module" });
   await expect(picker).toBeVisible();
   await checkOrder(picker);

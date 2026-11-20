@@ -69,7 +69,6 @@ import { useNotes } from "@/state/notes-state";
 import { getModule } from "@/data/modules";
 import { CountUp } from "./CountUp";
 import { cn } from "@/lib/utils";
-import { ModulePickerDialog } from "./ModulePickerDialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -350,7 +349,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
   const mod = getModule(state.activeModuleId);
   const syncedStreak = useSyncedStudyStreak();
   const fiery = syncedStreak > 1;
-  const [moduleDialogOpen, setModuleDialogOpen] = useState(false);
   const [moreSheetOpen, setMoreSheetOpen] = useState(false);
   const [speakingNavOpen, setSpeakingNavOpen] = useState(false);
   useEffect(() => {
@@ -660,7 +658,7 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
 
           {/* Module picker */}
           <button
-            onClick={() => setModuleDialogOpen(true)}
+            onClick={() => window.dispatchEvent(new Event("lt:course-lessons"))}
             title={mod ? mod.name : "Core (Free)"}
             className="flex min-w-0 flex-1 items-center justify-center gap-1 rounded-lg border border-border/60 bg-card/50 px-2.5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80 transition-colors hover:border-gold/50 hover:text-gold-ink"
           >
@@ -1145,8 +1143,6 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-
-      <ModulePickerDialog open={moduleDialogOpen} onClose={() => setModuleDialogOpen(false)} />
     </>
   );
 }

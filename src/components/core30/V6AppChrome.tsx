@@ -13,7 +13,7 @@ import { LESSON_MODES, type LessonModeId } from "./LessonWorkspaceChrome";
 import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
-import { ModulePickerDialog } from "@/components/ModulePickerDialog";
+import { CourseLessonPicker } from "./CourseLessonPicker";
 import { useTutor } from "@/state/tutor-state";
 import { OPEN_LESSON_SPEAK } from "@/lib/lesson-speaking";
 import { browserReturnStorage, readLessonReturn, writeLessonReturn } from "@/lib/lesson-return";
@@ -170,6 +170,11 @@ export function V6AppNavigation() {
       ? lessonContext
       : null;
   const [courses, setCourses] = useState(false);
+  useEffect(() => {
+    const open = () => setCourses(true);
+    window.addEventListener("lt:course-lessons", open);
+    return () => window.removeEventListener("lt:course-lessons", open);
+  }, []);
   const [courseDestination, setCourseDestination] = useState<LessonModeId | null>(null);
   const [mode, setMode] = useState<LessonModeId>("see");
   const landedFor = useRef<string | null>(null);
@@ -319,7 +324,7 @@ export function V6AppNavigation() {
         }
         onSelect={select}
       />
-      <ModulePickerDialog open={courses} onClose={() => setCourses(false)} />
+      {courses && <CourseLessonPicker onClose={() => setCourses(false)} />}
     </>
   );
 }

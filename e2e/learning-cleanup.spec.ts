@@ -201,3 +201,52 @@ test("normal startup replaces saved Speak with Study and preserves progress", as
   await page.goto("/?module=roofing&target=Spanish&native=English");
   await expect(page).toHaveURL(/tab=core30/);
 });
+
+test("course picker returns to lessons before modules", async ({ page }, info) => {
+  await page.goto("/");
+  await seedAppState(page, {
+    onboardingComplete: true,
+    currentTab: "core30",
+    activeModuleId: "roofing",
+    selectedLanguage: "Spanish",
+    nativeLanguage: "English",
+    lessonProgress: { [core30Key("roofing")]: 1 },
+  });
+  await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
+  await page.goto("/?module=roofing&target=Spanish&native=English&tab=core30&lesson=1&way=see");
+  await page.getByRole("button", { name: /^Choose course,/ }).click();
+  const sheet = page.getByRole("dialog");
+  await expect(sheet.getByTestId("course-lesson-2")).toBeVisible();
+  await expect(sheet.getByPlaceholder("Search modules…")).toHaveCount(0);
+  await page.screenshot({ path: `test-results/course-lessons-${info.project.name}.png` });
+  await sheet.getByTestId("course-lesson-2").click();
+  await expect(page).toHaveURL(/lesson=2/);
+  await expect(page.locator(".lt-lesson-workspace-active h3").first()).toHaveText(
+    "Deck, Underlayment & Edges",
+  );
+  await expect(sheet).toHaveCount(0);
+  await page.getByRole("button", { name: /^Choose course,/ }).click();
+  await page.getByRole("button", { name: "Back to modules", exact: true }).click();
+  await expect(page.getByPlaceholder("Search modules…")).toBeVisible();
+  await page.locator('[data-stage-module-id="roofing"]').click();
+  await expect(page.getByRole("dialog").getByTestId("course-lesson-2")).toBeVisible();
+  await page.getByTestId("course-lesson-1").click();
+  await expect(page).toHaveURL(/lesson=1/);
+  await page.getByRole("button", { name: "Lesson details and goal", exact: true }).click();
+  await page.getByRole("button", { name: "Course lessons", exact: true }).click();
+  await expect(page.getByTestId("course-lesson-1")).toBeVisible();
+  await page.getByRole("dialog").getByRole("button", { name: "Close", exact: true }).click();
+  await page.getByRole("button", { name: "Recall it", exact: true }).click();
+  await expect(page.locator(".lt-lesson-workspace-active")).toHaveAttribute(
+    "data-lesson-mode",
+    "recall",
+  );
+  await expect
+    .poll(
+      async () =>
+        (await readAppState(page)).core30Log[core30Key("roofing")]?.lessons["1"]?.wayVisits?.recall,
+    )
+    .toBeTruthy();
+  const after = await readAppState(page);
+  expect(after.lessonProgress[core30Key("roofing")]).toBe(1);
+});

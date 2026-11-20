@@ -97,7 +97,9 @@ async function fixture(run) {
       /** The audio element currently holding a recorded clip. */
       clip: () => c.audio.find((el) => String(el.src ?? "").startsWith("/audio/")),
       session: (id = "a") =>
-        c.sessions.shift()({ data: { session: { user: { id }, access_token: `synthetic-${id}` } } }),
+        c.sessions.shift()({
+          data: { session: { user: { id }, access_token: `synthetic-${id}` } },
+        }),
     });
     m.stopRemoteTTS();
   } finally {
@@ -339,6 +341,74 @@ test("a recording that cannot play is followed by the HD voice, and only then by
     });
     assert.deepEqual(reasons, ["unavailable"]);
     assert.equal(c.utterances.length, 0);
+  }));
+
+test("HD only: a known public recording that fails for a signed-out learner asks for a retry, not a sign-in, and requests nothing else", () =>
+  fixture(async ({ m, c, guest, member, hd, clip }) => {
+    c.play = () => Promise.reject(new Error("synthetic: the clip would not load"));
+    /** One HD-only tap, as the listening plan sends it for a signed-out learner. */
+    const ask = async (text, opts = {}) => {
+      const reasons = [];
+      let heard = 0;
+      const work = m.speakRemote(text, "es-CR", {
+        voiceURI: "device:default",
+        recordedGender: "female",
+        cloudOnly: true,
+        unavailableReason: "sign-in",
+        owner: guest,
+        onPlaybackStart: () => heard++,
+        onend: () => heard++,
+        onerror: (reason) => reasons.push(reason),
+        ...opts,
+      });
+      const asked = clip()?.src ?? null;
+      await work;
+      assert.equal(heard, 0, "nothing was played");
+      return { reasons, asked };
+    };
+    const nothingElseAsked = () => {
+      assert.equal(c.sessions.length, 0, "no session was read");
+      assert.equal(c.requests.length, 0, "no cloud request was made");
+      assert.equal(c.utterances.length, 0, "no device voice was used");
+    };
+
+    // The clip exists and was asked for; it only failed to play. Not a reason to sign in.
+    let result = await ask("conecto");
+    assert.match(result.asked, /^\/audio\/spanish-next\/es-next-[a-f0-9]{20}-female\.mp3$/);
+    assert.deepEqual(result.reasons, ["unavailable"], "try again, or the learner's own choice");
+    nothingElseAsked();
+
+    // With no connection it is reported as that.
+    Object.defineProperty(globalThis.navigator, "onLine", { value: false, configurable: true });
+    try {
+      result = await ask("conecto");
+      assert.deepEqual(result.reasons, ["offline"]);
+    } finally {
+      delete globalThis.navigator.onLine;
+    }
+    nothingElseAsked();
+
+    // A word with no recording still needs the HD cloud voice, and that needs an account.
+    result = await ask(NOT_RECORDED);
+    assert.equal(result.asked, null, "there is no clip to ask for");
+    assert.deepEqual(result.reasons, ["sign-in"]);
+    nothingElseAsked();
+
+    // The same for a signed-out caller that still carries a cloud voice preference.
+    result = await ask("conecto", { voiceURI: hd(), unavailableReason: undefined });
+    assert.match(result.asked, /-female\.mp3$/);
+    assert.deepEqual(result.reasons, ["unavailable"]);
+    result = await ask(NOT_RECORDED, { voiceURI: hd(), unavailableReason: undefined });
+    assert.deepEqual(result.reasons, ["sign-in"]);
+    nothingElseAsked();
+
+    // Signed in while the HD voice is still loading: a failed clip is a failed clip, and an
+    // unrecorded word still says the voice is getting ready.
+    result = await ask("conecto", { owner: member, unavailableReason: "loading" });
+    assert.deepEqual(result.reasons, ["unavailable"]);
+    result = await ask(NOT_RECORDED, { owner: member, unavailableReason: "loading" });
+    assert.deepEqual(result.reasons, ["loading"]);
+    nothingElseAsked();
   }));
 
 test("cancelling a recording drops its callbacks, and an old cancel cannot stop newer playback", () =>

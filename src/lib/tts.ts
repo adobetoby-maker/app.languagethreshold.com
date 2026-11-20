@@ -255,6 +255,16 @@ export async function speakRemote(
         online: typeof navigator === "undefined" || navigator.onLine !== false,
         signedIn: !opts?.owner || Boolean(opts.owner.userId),
       });
+    // A recording that exists but would not load or play is not a missing recording: the
+    // learner is told to check the connection or try again, never to sign in for a clip that
+    // needs no account.
+    const failedRecordingReason = () =>
+      listeningIssueReason({
+        status: null,
+        online: typeof navigator === "undefined" || navigator.onLine !== false,
+        signedIn: true,
+      });
+    let recordingFailed = false;
     if (opts?.cloudOnly && !googleVoice && !recorded) {
       notify(false, noCloudVoiceReason());
       return;
@@ -298,15 +308,17 @@ export async function speakRemote(
       }
       // A missing or unplayable clip follows the existing Google/device fallback.
       source = "device";
+      recordingFailed = true;
       if (opts?.cloudOnly && !googleVoice) {
-        notify(false, noCloudVoiceReason());
+        notify(false, failedRecordingReason());
         return;
       }
     }
     if (googleVoice) {
       if (opts?.owner && !opts.owner.userId) {
         if (opts.cloudOnly) {
-          notify(false, "sign-in");
+          // Text with no recording needs the cloud voice, and that needs an account.
+          notify(false, recordingFailed ? failedRecordingReason() : "sign-in");
           return;
         }
         const heard = await speakOnDevice(

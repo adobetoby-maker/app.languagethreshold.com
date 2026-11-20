@@ -1,14 +1,15 @@
-// The real Listening Drill, battle review, saved-words drawer and Sound Practice components on
-// the real listening hooks and rules. Each test taps what a learner taps and reads what the
+// The real Listening Drill, battle review, saved-words drawer, Sound Practice and Say It card
+// components on the real listening hooks and rules. Each test taps what a learner taps and reads what the
 // audio router was asked to play: the learner's listening voice (recorded HD audio, then the
 // HD voice, never a silent device voice), with playback tied to the item it belongs to.
 import assert from "node:assert/strict";
 import nodeTest from "node:test";
-import { HD_VOICE, loadSurface } from "./helpers/listening-surface.mjs";
+import { fakeTimers, HD_VOICE, loadSurface } from "./helpers/listening-surface.mjs";
 import { DEVICE_DEFAULT_VOICE } from "../src/data/mobile-voice.ts";
 import { soundLesson } from "../src/data/sound-like-a-native.ts";
 
 const test = (name, fn) => nodeTest(name, { timeout: 30_000 }, fn);
+const tick = () => new Promise((r) => setImmediate(r));
 const APP = `
  controls.app={activeModuleId:'roofing',selectedLanguage:'Spanish',nativeLanguage:'English'};
  controls.dispatches=[];
@@ -324,6 +325,176 @@ test("Sound Practice: word anchors are read in the learner's Spanish accent by t
     assert.equal(L.jobs.at(-1).opts.voiceURI, DEVICE_DEFAULT_VOICE);
     host.unmount();
   } finally {
+    for (const [key, descriptor] of saved)
+      if (descriptor) Object.defineProperty(globalThis, key, descriptor);
+      else delete globalThis[key];
+  }
+});
+
+// ─── Say It card (lesson speaking practice) ───────────────────────────────────
+
+const SAY_IT = `
+ export const Dialog='dialog',DialogContent='dialog-content',DialogTitle='dialog-title';
+ controls.recognitions=[];
+ class Recognition{constructor(){controls.recognitions.push(this);this.started=false;this.aborted=false;}start(){this.started=true;}stop(){this.onend?.();}abort(){this.aborted=true;}}
+ export const recognitionConstructor=()=>Recognition;
+`;
+
+test("Say It: Listen and Slow read the model word in the learner's listening voice; the microphone, scoring, My recording and Next are untouched", async () => {
+  const { mod, L, S, host, jsx } = await loadSurface({
+    entry: "src/components/core30/LessonSayItCard.tsx",
+    exports: ["LessonSayItCard"],
+    replace: /^(@\/components\/ui\/dialog|@\/lib\/phone-dictation)$/,
+    standins: SAY_IT,
+  });
+  // The page, the timer behind the microphone, and the learner's own recorder and player.
+  const keys = ["window", "document", "setTimeout", "clearTimeout", "MediaRecorder", "Audio"];
+  const saved = keys.map((key) => [key, Object.getOwnPropertyDescriptor(globalThis, key)]);
+  const clock = fakeTimers();
+  const listeners = new Map();
+  const players = [];
+  globalThis.window = { matchMedia: () => ({ matches: false }) };
+  globalThis.document = {
+    visibilityState: "visible",
+    addEventListener: (type, fn) => listeners.set(type, fn),
+    removeEventListener: (type) => listeners.delete(type),
+    querySelector: () => null,
+  };
+  globalThis.setTimeout = clock.setTimeout;
+  globalThis.clearTimeout = clock.clearTimeout;
+  globalThis.MediaRecorder = class {
+    state = "inactive";
+    mimeType = "audio/webm";
+    start() {
+      this.state = "recording";
+    }
+    stop() {
+      this.state = "inactive";
+      this.ondataavailable?.({ data: new Blob(["the learner's voice"], { type: this.mimeType }) });
+      this.onstop?.();
+    }
+  };
+  globalThis.Audio = class {
+    constructor(src) {
+      this.src = src;
+      players.push(this);
+    }
+    pause() {
+      this.paused = true;
+    }
+    play() {
+      this.playing = true;
+      return Promise.resolve();
+    }
+  };
+  Object.defineProperty(globalThis.navigator, "mediaDevices", {
+    value: { getUserMedia: async () => ({ getTracks: () => [{ stop() {} }] }) },
+    configurable: true,
+  });
+  try {
+    L.speech.voiceURI = HD_VOICE;
+    L.speech.accent = "es-MX";
+    L.speech.gender = "man";
+    L.speech.rate = 0.85;
+    const words = [
+      { es: "manguito rotador", en: "rotator cuff", kind: "term" },
+      { es: "hombro", en: "shoulder", kind: "term" },
+    ];
+    let activity = 0;
+    const card = () =>
+      jsx(mod.LessonSayItCard, {
+        words,
+        language: "Spanish",
+        onActivity: () => activity++,
+        onOpenConversation() {},
+        online: true,
+      });
+    const model = { text: "manguito rotador", locale: "es-MX", gender: "male" };
+    host.render(card());
+    assert.equal(L.jobs.length, 0, "nothing plays until the learner asks");
+
+    // Listen: the learner's speed. Slow: the same word at 0.65 of it, as before.
+    host.click(host.button("Listen"));
+    assertHd(L.jobs[0], { ...model, rate: 0.85 });
+    host.click(host.button("Slow"));
+    assertHd(L.jobs[1], { ...model, rate: 0.85 * 0.65 });
+    assert.equal(L.jobs[0].opts.owner.isCurrent(), false, "the first play gave way");
+    // HD audio that cannot play is reported, and a retry keeps the word and the slow speed.
+    L.jobs[1].opts.onerror("busy");
+    assert.equal(L.issues.at(-1).reason, "busy");
+    L.issues.at(-1).retry();
+    assertHd(L.jobs[2], { ...model, rate: 0.85 * 0.65 });
+
+    // Speaking stops the model, and recognition still listens in the same locale.
+    const playing = L.jobs[2];
+    host.click(host.one("say-word-record"));
+    assert.equal(playing.opts.signal.aborted, true);
+    assert.equal(playing.opts.owner.isCurrent(), false);
+    const recognition = S.controls.recognitions.at(-1);
+    assert.equal(recognition.started, true);
+    assert.equal(recognition.lang, "es-MX");
+    assert.equal(host.button("Listen").props.disabled, true, "no model audio over the microphone");
+    assert.equal(host.button("Slow").props.disabled, true);
+    await tick();
+    recognition.onresult({ results: [{ 0: { transcript: "manguito rotador" } }] });
+    recognition.onend();
+    host.render();
+    assert.match(host.text(host.one("say-word-score")), /100%/, "scoring is unchanged");
+    assert.equal(L.jobs.length, 3, "the microphone and the score never use the listening voice");
+
+    // My recording plays the learner's own audio directly, and stops the model first.
+    host.click(host.button("Listen"));
+    const overRecording = L.jobs.at(-1);
+    host.click(host.button("My recording"));
+    assert.equal(L.jobs.length, 4, "the learner's recording is not routed through the HD voice");
+    assert.equal(players.length, 1);
+    assert.match(players[0].src, /^blob:/);
+    assert.equal(players[0].playing, true);
+    assert.equal(overRecording.opts.signal.aborted, true);
+
+    // Next: the model belongs to its word. It stops, the card resets, and the next word plays.
+    host.click(host.button("Listen"));
+    const previousWord = L.jobs.at(-1);
+    host.click(host.one("say-word-next"));
+    assert.equal(previousWord.opts.signal.aborted, true);
+    assert.equal(previousWord.opts.owner.isCurrent(), false);
+    assert.equal(players[0].paused, true, "the recording stops with the word too");
+    assert.equal(host.text(host.one("say-word-target")), "hombro");
+    assert.equal(host.all("say-word-score").length, 0);
+    host.click(host.button("Listen"));
+    assertHd(L.jobs.at(-1), { ...model, text: "hombro", rate: 0.85 });
+
+    // Leaving the page stops the model, as before.
+    const whenHidden = L.jobs.at(-1);
+    globalThis.document.visibilityState = "hidden";
+    listeners.get("visibilitychange")();
+    assert.equal(whenHidden.opts.signal.aborted, true);
+    globalThis.document.visibilityState = "visible";
+
+    // The learner's own choices and account state are respected.
+    host.unmount();
+    L.speech.source = "device";
+    host.render(card());
+    host.click(host.button("Listen"));
+    assert.equal(L.jobs.at(-1).opts.voiceURI, DEVICE_DEFAULT_VOICE);
+    assert.equal(L.jobs.at(-1).opts.cloudOnly, false);
+    host.unmount();
+    L.speech.source = "hd";
+    L.actor = null;
+    L.speech.voiceURI = DEVICE_DEFAULT_VOICE;
+    host.render(card());
+    host.click(host.button("Slow"));
+    const guest = L.jobs.at(-1);
+    assert.equal(guest.opts.recordedGender, "male", "a public recording needs no account");
+    assert.equal(guest.opts.cloudOnly, true, "and a miss asks instead of using the device voice");
+    assert.equal(guest.opts.unavailableReason, "sign-in");
+    assert.equal(guest.opts.rate, 0.85 * 0.65);
+    assert.equal(guest.opts.owner.userId, "");
+    host.unmount();
+    assert.equal(guest.opts.signal.aborted, true);
+    assert.ok(activity > 0);
+  } finally {
+    delete globalThis.navigator.mediaDevices;
     for (const [key, descriptor] of saved)
       if (descriptor) Object.defineProperty(globalThis, key, descriptor);
       else delete globalThis[key];

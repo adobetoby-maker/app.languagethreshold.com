@@ -5,7 +5,7 @@ import { languageTag } from "@/lib/lesson-words-core";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
 import { speechWordSimilarity, type SpeechWordScore } from "@/lib/speech-word-similarity";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
-import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { useSpeech } from "@/state/speech-state";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
@@ -35,12 +35,16 @@ export function LessonSayItCard({
     [recording, setRecording] = useState<string | null>(null),
     [dockHeight, setDockHeight] = useState(110);
   const word = words[Math.min(index, words.length - 1)];
-  const { accent, voiceURI, rate } = useSpeech();
+  const { accent, rate } = useSpeech();
   const locale =
     accent?.slice(0, 2) === languageTag(language).slice(0, 2) ? accent : languageTag(language);
   const scope = JSON.stringify([language, index, word?.es]);
   const { capture, cancel } = usePracticeLifecycle("say-word:" + scope);
-  const { speak: playModel, stop: stopModel } = useOwnedPlayback("say-word:" + scope);
+  // The model word (Listen, Slow) is read by the learner's listening voice: recorded HD audio
+  // first, then the HD voice, never a device voice in its place unless the learner chose one.
+  // It keeps this word's scope, so Next, Speak, My recording and leaving the page stop it as
+  // before. The learner's own recording and the microphone are separate and unchanged.
+  const { speak: playModel, stop: stopModel } = useListeningSpeaker("say-word:" + scope, language);
   const recognition = useRef<SpeechRecognitionLike | null>(null),
     transcript = useRef(""),
     recorder = useRef<MediaRecorder | null>(null),
@@ -292,18 +296,14 @@ export function LessonSayItCard({
         </div>
         <p className="text-muted-foreground">{word.en}</p>
         <div className="flex gap-2">
-          <button
-            className={button}
-            disabled={listening}
-            onClick={() => playModel(word.es, locale, voiceURI, rate)}
-          >
+          <button className={button} disabled={listening} onClick={() => playModel(word.es)}>
             <Volume2 size={18} />
             Listen
           </button>
           <button
             className={button}
             disabled={listening}
-            onClick={() => playModel(word.es, locale, voiceURI, rate * 0.65)}
+            onClick={() => playModel(word.es, { rate: rate * 0.65 })}
           >
             <Turtle size={18} />
             Slow

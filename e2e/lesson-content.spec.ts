@@ -37,11 +37,9 @@ function dateKey(offsetDays: number): string {
  * dev server can finish loading after the seed is written and drop it, so the seed is written
  * again (up to three times) until the app keeps it.
  */
-async function openModuleCore30(page: Page) {
+async function openModuleCore30(page: Page, moduleId = MODULE) {
   await page.goto("/");
-  await expect(
-    page.getByRole("button", { name: "Study", exact: true }).first(),
-  ).toBeVisible({
+  await expect(page.getByRole("button", { name: "Study", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });
   const startDate = dateKey(0);
@@ -49,25 +47,25 @@ async function openModuleCore30(page: Page) {
     const state = await readAppState(page);
     const log = state.core30Log as Record<string, { startDate?: string }> | undefined;
     return (
-      state.activeModuleId === MODULE &&
+      state.activeModuleId === moduleId &&
       state.currentTab === "core30" &&
-      log?.[core30Key(MODULE)]?.startDate === startDate
+      log?.[core30Key(moduleId)]?.startDate === startDate
     );
   };
   for (let attempt = 0; attempt < 3; attempt++) {
     const previous = await readAppState(page);
     await seedAppState(page, {
-      activeModuleId: MODULE,
+      activeModuleId: moduleId,
       selectedLanguage: "Spanish",
       currentTab: "core30",
       lessonProgress: {
         ...((previous.lessonProgress as object | undefined) ?? {}),
-        [core30Key(MODULE)]: 0,
+        [core30Key(moduleId)]: 0,
       },
-      core30Log: { [core30Key(MODULE)]: { startDate, lessons: {} } },
+      core30Log: { [core30Key(moduleId)]: { startDate, lessons: {} } },
     });
     // Name the module in the address: the app routes a bare Core 30 link to its default module.
-    await page.goto(`/?tab=core30&module=${MODULE}&target=Spanish&native=English`);
+    await page.goto(`/?tab=core30&module=${moduleId}&target=Spanish&native=English`);
     await page.getByTestId("study-options").locator(":scope > summary").click();
     await page
       .getByTestId("core30-plan-card")
@@ -265,4 +263,158 @@ test.describe("Lesson content: Plumber lesson 1", () => {
     await expect(verdict).toHaveText("Not quite");
     await expect(page.getByTestId("answer-feedback-word")).toContainText(wanted);
   });
+});
+
+test("Recall HD recordings, authored forms and wrong-pair retry work in both themes", async ({
+  page,
+}, testInfo) => {
+  test.setTimeout(180_000);
+  // Observe real media playback; do not replace it with a successful mock.
+  await page.addInitScript(() => {
+    const state = window as unknown as {
+      recallAudio: HTMLMediaElement[];
+      deviceSpeechCalls: number;
+    };
+    localStorage.setItem("lt.languageChosen", "1");
+    const profileKey = "lt.profile-device.v1.guest";
+    const profile = JSON.parse(localStorage.getItem(profileKey) ?? "null") ?? {
+      schema: 1,
+      userId: null,
+      data: {},
+    };
+    profile.data = { ...profile.data, onboardingComplete: true, selectedLanguage: "Spanish" };
+    localStorage.setItem(profileKey, JSON.stringify(profile));
+    state.recallAudio = [];
+    state.deviceSpeechCalls = 0;
+    const play = HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play = function () {
+      state.recallAudio.push(this);
+      return play.call(this);
+    };
+    if (window.speechSynthesis)
+      window.speechSynthesis.speak = () => {
+        state.deviceSpeechCalls++;
+      };
+  });
+  let cloudRequests = 0;
+  await page.route("**/api/mission-tts", async (route) => {
+    if (route.request().method() === "POST") cloudRequests++;
+    await route.fulfill({
+      status: 503,
+      json: { error: "Public recordings should not need cloud synthesis" },
+    });
+  });
+  const recordings = JSON.parse(
+    readFileSync(new URL("../src/data/spanish-next-recordings.json", import.meta.url), "utf8"),
+  ).entries;
+  async function expectHD(text: string, gender: "female" | "male", action: () => Promise<unknown>) {
+    const normalized = text
+      .normalize("NFC")
+      .trim()
+      .toLocaleLowerCase("es")
+      .replace(/\s+/g, " ")
+      .replace(/[.!?¿¡,;:]+$/g, "");
+    const filename = recordings[normalized]?.[gender];
+    expect(filename).toBeTruthy();
+    const before = await page.evaluate(
+      () => (window as unknown as { recallAudio: HTMLMediaElement[] }).recallAudio.length,
+    );
+    await action();
+    await expect
+      .poll(() =>
+        page.evaluate(
+          ({ before, filename }) => {
+            const audio = (
+              window as unknown as { recallAudio: HTMLMediaElement[] }
+            ).recallAudio.slice(before);
+            return audio.some(
+              (item) =>
+                item.currentSrc.includes(filename) && item.currentTime > 0.02 && !item.error,
+            );
+          },
+          { before, filename },
+        ),
+      )
+      .toBe(true);
+  }
+  await openModuleCore30(page, "orthopedics");
+  await openLesson1(page);
+  await goSection(page, "recall");
+  const deck = page.getByTestId("lesson-recall-deck");
+  const seen = new Map<string, string>();
+  for (let step = 0; step < 30; step++) {
+    const current = deck.getByTestId("recall-step");
+    if ((await current.getAttribute("data-kind")) !== "card") break;
+    const native = await current.getByTestId("recall-card-text").innerText();
+    await current.getByRole("button", { name: "Flip the card", exact: true }).click();
+    seen.set(await current.getByTestId("recall-card-text").innerText(), native);
+    await current.getByRole("button", { name: "Got it", exact: true }).click();
+  }
+  await expect(deck.getByTestId("recall-step")).toHaveAttribute("data-kind", "match");
+  const targets = deck.locator('[data-testid="match-tile"][lang="es"]');
+  const meanings = deck.locator('[data-testid="match-tile"][lang="en"]');
+  const target = (await targets.allInnerTexts())[0];
+  const nativeTexts = await meanings.allInnerTexts();
+  const correctIndex = nativeTexts.indexOf(seen.get(target)!);
+  expect(correctIndex).toBeGreaterThanOrEqual(0);
+  await expectHD(target, "female", () => targets.first().click());
+  await page.clock.install();
+  await page.clock.pauseAt(Date.now() + 1000);
+  await meanings.nth((correctIndex + 1) % nativeTexts.length).click();
+  await expect(deck.locator('[data-wrong="true"]')).toHaveCount(2);
+  await expect(deck.locator('[data-matched="true"]')).toHaveCount(0);
+  await page.screenshot({ path: testInfo.outputPath("wrong-pair-dark.png"), fullPage: true });
+  await page.clock.resume();
+  await expect(deck.locator('[data-wrong="true"]')).toHaveCount(0);
+  await targets.first().click();
+  await meanings.nth(correctIndex).click();
+  await expect(deck.locator('[data-matched="true"]')).toHaveCount(2);
+  await deck.getByRole("button", { name: "Skip this activity", exact: true }).click();
+  let foundVerb = false;
+  for (let step = 0; step < 40; step++) {
+    const current = deck.getByTestId("recall-step");
+    if ((await current.getAttribute("data-kind")) === "card") {
+      await current.getByRole("button", { name: "Flip the card", exact: true }).click();
+      if (
+        (await current.getByTestId("recall-verb-forms").isVisible()) &&
+        (await current.getByTestId("recall-card-text").innerText()) === "ser"
+      ) {
+        foundVerb = true;
+        break;
+      }
+      await current.getByRole("button", { name: "Got it", exact: true }).click();
+    } else await deck.getByRole("button", { name: "Skip this activity", exact: true }).click();
+  }
+  expect(foundVerb).toBe(true);
+  const rows = deck.getByTestId("recall-verb-form");
+  await expect(rows).toHaveCount(5);
+  for (const text of ["yo", "soy", "tú", "eres", "nosotros", "somos", "son"])
+    await expect(deck.getByTestId("recall-verb-forms")).toContainText(text);
+  const cardId = await deck.getAttribute("data-current-id");
+  await expectHD("soy", "female", () => rows.first().click());
+  await expect(deck).toHaveAttribute("data-current-id", cardId!);
+  await page.screenshot({ path: testInfo.outputPath("verb-card-dark.png"), fullPage: true });
+  await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
+  const settings = page.getByTestId("more-settings");
+  if ((await settings.getAttribute("open")) === null)
+    await settings.locator(":scope > summary").click();
+  const voice = page.getByRole("group", { name: "Listening voice", exact: true });
+  await voice.getByRole("button", { name: "Male", exact: true }).click();
+  await expect(voice.getByRole("button", { name: "Male", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await page.getByRole("button", { name: /Appearance.*Dark/ }).click();
+  await expect(page.locator("html")).not.toHaveClass(/dark/);
+  await page.goBack();
+  await expect(rows.first()).toBeVisible();
+  await expectHD("soy", "male", () => rows.first().click());
+  await expect(deck).toHaveAttribute("data-current-id", cardId!);
+  await page.screenshot({ path: testInfo.outputPath("verb-card-light.png"), fullPage: true });
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { deviceSpeechCalls: number }).deviceSpeechCalls,
+    ),
+  ).toBe(0);
+  expect(cloudRequests).toBe(0);
 });

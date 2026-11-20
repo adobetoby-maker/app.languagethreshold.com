@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:8:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-8-source-decision-2026-11-18/packet.json",
+    "sha256": "ebb0908450f994a7a236df8e48ab39667f7f875481d2fa27419e4a768b93c0b3"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-7-9-draft.json",
+      "sha256": "ee8b5cf7f84737304290cb829d471df26484e25cd32c937fdbcacb63f5e91aaa"
+    }
+  },
+  "objectiveEnglish": "Name selected terms for deck condition and describe or report when the deck feels soft or damaged.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「野地板（屋根材の下に張る下地板）」を表す英語です。日本語の意味と結びつけて確認しましょう。",
+      "targetEnglish": "sheathing",
+      "sourceAnchor": "roofing:8:ja-en:card:1",
+      "id": "core-roofing:8:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「損傷、傷み」は英語で何と言いますか。思い出して答えましょう。",
+      "targetEnglish": "damage",
+      "sourceAnchor": "roofing:8:ja-en:card:3",
+      "id": "core-roofing:8:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「下地が柔らかい、または傷んでいると感じたら教えてください」という意味の英文を聞いて選びましょう。",
+      "targetEnglish": "Tell me if the deck feels soft or damaged.",
+      "sourceAnchor": "roofing:8:ja-en:card:11",
+      "candidateOptionsEnglish": [
+        "The crew removes the shingles from the roof.",
+        "A worker steps on a panel and feels that the wood is rotten.",
+        "Tell me if the deck feels soft or damaged."
+      ],
+      "id": "core-roofing:8:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Tell me if the deck feels soft or damaged.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「合板」を英語で入力しましょう。",
+      "targetEnglish": "plywood",
+      "sourceAnchor": "roofing:8:ja-en:card:8",
+      "id": "core-roofing:8:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「腐った木材」を英語で声に出して言いましょう。",
+      "targetEnglish": "rotten wood",
+      "sourceAnchor": "roofing:8:ja-en:card:4",
+      "id": "core-roofing:8:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「柔らかく感じられる屋根下地」を英語で書きましょう。",
+      "targetEnglish": "soft deck",
+      "sourceAnchor": "roofing:8:ja-en:card:2",
+      "id": "core-roofing:8:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "feels that the wood is rotten",
+      "explanationJapanese": "feel that + 文 で「〜だと感じる」を表します。that のあとに、感じた内容を文の形で続けます。",
+      "sourceAnchor": "roofing:8:ja-en:line:4",
+      "id": "core-roofing:8:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The crew removes the shingles from the roof.",
+      "explanationJapanese": "remove A from B で「BからAを取り除く」という意味です。現在の様子を説明する文で、主語が単数扱いなので removes と -s が付きます。",
+      "sourceAnchor": "roofing:8:ja-en:line:1",
+      "id": "core-roofing:8:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Tell me if the deck feels soft or damaged.",
+      "explanationJapanese": "Tell me if ... は「もし〜なら教えてください」と報告を求める表現です。feel + 形容詞 で「〜に感じられる」を表します。",
+      "sourceAnchor": "roofing:8:ja-en:line:3",
+      "id": "core-roofing:8:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "sheathing",
+      "glossJapanese": "野地板",
+      "senseJapanese": "屋根材の下に張られ、屋根全体を覆う下地板。Core 7 の deck（屋根下地）とほぼ同じ部分を指して使われます。",
+      "sourceAnchor": "roofing:8:ja-en:card:1",
+      "id": "core-roofing:8:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "soft deck",
+      "glossJapanese": "柔らかくなった下地",
+      "senseJapanese": "柔らかく感じられる屋根下地を表す語句です。",
+      "sourceAnchor": "roofing:8:ja-en:card:2",
+      "id": "core-roofing:8:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "rotten wood",
+      "glossJapanese": "腐った木材",
+      "senseJapanese": "腐朽した木材を表す語句です。",
+      "sourceAnchor": "roofing:8:ja-en:card:4",
+      "id": "core-roofing:8:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "報告役（作業員）：職長の依頼に応えて下地の状態を説明し、最後の文で現場の様子を報告する",
+      "partner": "職長役：最初の文を言って報告を求め、説明を聞く"
+    },
+    "openingEnglish": "Tell me if the deck feels soft or damaged.",
+    "closureEnglish": "A worker steps on a panel and feels that the wood is rotten.",
+    "objectivesEnglish": [
+      "Respond to a request to report how the deck feels.",
+      "Describe the condition using \"soft deck\", \"damage\" and \"rotten wood\".",
+      "Report what a worker feels when stepping on a panel."
+    ],
+    "wordBankEnglish": [
+      "soft deck",
+      "damage",
+      "rotten wood",
+      "panel",
+      "Tell me if the deck feels soft or damaged."
+    ],
+    "sourceAnchors": [
+      "roofing:8:ja-en:card:2",
+      "roofing:8:ja-en:card:3",
+      "roofing:8:ja-en:card:4",
+      "roofing:8:ja-en:card:7",
+      "roofing:8:ja-en:card:11",
+      "roofing:8:ja-en:line:3",
+      "roofing:8:ja-en:line:4"
+    ],
+    "id": "core-roofing:8:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs with exact legacy roofing source anchors, no progress migration.",
+    "Partial supplemental vocabulary/check/report language only. Structural assessment, damaged-deck access, removal scope, flashing reuse, tool use, debris/disposal destination and completion criteria remain qualified source/trade decisions.",
+    "Source worker stepping on panel is narrative evidence, not an inspection method; no structural conclusion is selected.",
+    "Shingles are not silently narrowed to asphalt; soft deck does not establish rot cause; magnets do not attract all metals.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

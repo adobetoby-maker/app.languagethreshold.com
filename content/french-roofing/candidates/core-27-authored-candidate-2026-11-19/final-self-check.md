@@ -1,0 +1,3 @@
+# Final source-grounded self-check
+
+Source hashes, exact bilingual anchors, stage-local IDs, held isolation, original objective retention and null/false gates validate independently. Direct debris/repair/measurement/crack/sealant/chimney terms remain contextual candidates. Source exclusion boundaries, clearance authority, structural-deck/sheathing, photo sufficiency, roof-penetration subtype and sealing method remain held. Generic source commands not used by active tasks stay isolated linguistic candidates with explicit open domain gates. English/French speech support and source-versus-new provenance are recorded. Actual CLI safe-mode Haiku5.5 → Opus5.5 → Fable5.2, one shared batch session per model; no AI qualified approval.

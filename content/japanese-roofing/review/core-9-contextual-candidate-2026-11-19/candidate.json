@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:9:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-9-source-decision-2026-11-18/packet.json",
+    "sha256": "c7b22cae58f8bf4b75030d2d626ea21dd0d8b57b4bae218e5a2fe760dbb42111"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-7-9-draft.json",
+      "sha256": "ee8b5cf7f84737304290cb829d471df26484e25cd32c937fdbcacb63f5e91aaa"
+    }
+  },
+  "objectiveEnglish": "Name selected cleanup terms, describe the debris after the tear-off, and ask to be told when the magnet pickup is finished.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「廃材、解体ごみ」を表す英語です。日本語の意味と結びつけて確認しましょう。",
+      "targetEnglish": "debris",
+      "sourceAnchor": "roofing:9:ja-en:card:4",
+      "id": "core-roofing:9:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「磁石」は英語で何と言いますか。思い出して答えましょう。",
+      "targetEnglish": "magnet",
+      "sourceAnchor": "roofing:9:ja-en:card:5",
+      "id": "core-roofing:9:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「磁石での釘集めが終わったら教えてください」という意味の英文を聞いて選びましょう。",
+      "targetEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "sourceAnchor": "roofing:9:ja-en:card:13",
+      "candidateOptionsEnglish": [
+        "After the tear-off there is debris everywhere.",
+        "Tell me when the magnetic nail sweep is finished.",
+        "One worker uses the shovel and another uses the wheelbarrow."
+      ],
+      "id": "core-roofing:9:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「古い釘」を英語で入力しましょう。",
+      "targetEnglish": "old nails",
+      "sourceAnchor": "roofing:9:ja-en:card:2",
+      "id": "core-roofing:9:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「撤去作業のあと、廃材があちこちにあります」を英語で声に出して言いましょう。",
+      "targetEnglish": "After the tear-off there is debris everywhere.",
+      "sourceAnchor": "roofing:9:ja-en:line:1",
+      "id": "core-roofing:9:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「一輪車（手押し車）」を英語で書きましょう。",
+      "targetEnglish": "wheelbarrow",
+      "sourceAnchor": "roofing:9:ja-en:card:7",
+      "id": "core-roofing:9:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "there is debris everywhere",
+      "explanationJapanese": "There is ... は「〜がある」を表します。debris は数えられない名詞なので、複数形にせず is を使います。",
+      "sourceAnchor": "roofing:9:ja-en:line:1",
+      "id": "core-roofing:9:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "One worker uses the shovel and another uses the wheelbarrow.",
+      "explanationJapanese": "One ... and another ... は「一人は〜、もう一人は〜」と、それぞれがしていることを分けて説明する表現です。",
+      "sourceAnchor": "roofing:9:ja-en:line:4",
+      "id": "core-roofing:9:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Tell me when you finish picking up the nails with the magnet.",
+      "explanationJapanese": "Tell me when ... は「〜したら教えてください」と完了の報告を求める表現です。finish + 動詞の -ing 形で「〜し終える」を表します。",
+      "sourceAnchor": "roofing:9:ja-en:line:8",
+      "id": "core-roofing:9:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "debris",
+      "glossJapanese": "廃材、解体ごみ",
+      "senseJapanese": "撤去作業のあとに散らばった屋根材の破片や廃材",
+      "sourceAnchor": "roofing:9:ja-en:card:4",
+      "id": "core-roofing:9:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "magnet",
+      "glossJapanese": "磁石",
+      "senseJapanese": "磁力で鉄製の釘などを引きつける物です。この場面では釘を集める道具として出てきます。",
+      "sourceAnchor": "roofing:9:ja-en:card:5",
+      "id": "core-roofing:9:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "wheelbarrow",
+      "glossJapanese": "一輪車（手押し車）",
+      "senseJapanese": "廃材や材料を載せて運ぶ、車輪が一つの手押し車",
+      "sourceAnchor": "roofing:9:ja-en:card:7",
+      "id": "core-roofing:9:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "職長役：現場の様子を説明し、完了の報告を求める（最初の文と最後の文を言う）",
+      "partner": "作業員役：説明を聞いて、短く応答する"
+    },
+    "openingEnglish": "After the tear-off there is debris everywhere.",
+    "closureEnglish": "Tell me when you finish picking up the nails with the magnet.",
+    "objectivesEnglish": [
+      "Describe the debris after the tear-off.",
+      "Describe which worker uses the shovel and which uses the wheelbarrow.",
+      "Ask to be told when picking up the nails with the magnet is finished."
+    ],
+    "wordBankEnglish": [
+      "debris",
+      "magnet",
+      "shovel",
+      "wheelbarrow",
+      "One worker uses the shovel and another uses the wheelbarrow."
+    ],
+    "sourceAnchors": [
+      "roofing:9:ja-en:card:4",
+      "roofing:9:ja-en:card:5",
+      "roofing:9:ja-en:card:7",
+      "roofing:9:ja-en:card:8",
+      "roofing:9:ja-en:line:1",
+      "roofing:9:ja-en:line:4",
+      "roofing:9:ja-en:line:8"
+    ],
+    "id": "core-roofing:9:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs with exact legacy roofing source anchors, no progress migration.",
+    "Partial supplemental vocabulary/check/report language only. Structural assessment, damaged-deck access, removal scope, flashing reuse, tool use, debris/disposal destination and completion criteria remain qualified source/trade decisions.",
+    "Source worker stepping on panel is narrative evidence, not an inspection method; no structural conclusion is selected.",
+    "Shingles are not silently narrowed to asphalt; soft deck does not establish rot cause; magnets do not attract all metals.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

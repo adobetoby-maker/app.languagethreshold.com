@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:7:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-7-source-decision-2026-11-18/packet.json",
+    "sha256": "6bda0096bcf80f3abf47dea4ef09a49fcdc3d0174f02d3c77aaf52a4094352a4"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "verbs": {
+      "path": "public/lesson-content/es/roofing.json",
+      "sha256": "78b74af8365bbfdf43f9c8c33d417b0ef36c6ebd05abc22f67aa0cb0873d2182"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-7-9-draft.json",
+      "sha256": "ee8b5cf7f84737304290cb829d471df26484e25cd32c937fdbcacb63f5e91aaa"
+    }
+  },
+  "objectiveEnglish": "Name selected tear-off terms and ask whether the listener understands what must be removed.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「古い屋根材をはがして撤去する作業」を表す英語です。日本語の意味と結びつけて確認しましょう。",
+      "targetEnglish": "tear-off",
+      "sourceAnchor": "roofing:7:ja-en:card:1",
+      "id": "core-roofing:7:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「シングル材」を表す英語の複数形を思い出して答えましょう。",
+      "targetEnglish": "shingles",
+      "sourceAnchor": "roofing:7:ja-en:card:2",
+      "id": "core-roofing:7:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「何を撤去しなければならないか、わかりますか」という意味の英文を聞いて選びましょう。",
+      "targetEnglish": "Do you understand what must be removed?",
+      "sourceAnchor": "roofing:7:ja-en:card:14",
+      "candidateOptionsEnglish": [
+        "Is that clear?",
+        "Do you understand what must be removed?",
+        "The foreman explains the scope of work."
+      ],
+      "id": "core-roofing:7:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Do you understand what must be removed?",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「作業範囲」を英語で入力しましょう。",
+      "targetEnglish": "scope of work",
+      "sourceAnchor": "roofing:7:ja-en:card:6",
+      "id": "core-roofing:7:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "説明のあとに「はっきりわかりましたか」と確認する英語を、声に出して言いましょう。",
+      "targetEnglish": "Is that clear?",
+      "sourceAnchor": "roofing:7:ja-en:card:15",
+      "id": "core-roofing:7:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「古い屋根」を英語で書きましょう。",
+      "targetEnglish": "old roof",
+      "sourceAnchor": "roofing:7:ja-en:card:4",
+      "id": "core-roofing:7:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The foreman explains the scope of work.",
+      "explanationJapanese": "主語が三人称単数（The foreman）で現在のことを言うとき、動詞に -s を付けます（explain → explains）。",
+      "sourceAnchor": "roofing:7:ja-en:line:2",
+      "id": "core-roofing:7:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the tear-off of the old roof begins",
+      "explanationJapanese": "A of B で「BのA」を表します（古い屋根の撤去）。主語が単数なので、動詞は begins と -s が付きます。",
+      "sourceAnchor": "roofing:7:ja-en:line:1",
+      "id": "core-roofing:7:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Do you understand what must be removed?",
+      "explanationJapanese": "what must be removed は「何が撤去されなければならないか」という意味で、文の中に入った疑問の形です。must be + 過去分詞で「〜されなければならない」を表します。",
+      "sourceAnchor": "roofing:7:ja-en:line:8",
+      "id": "core-roofing:7:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "tear-off",
+      "glossJapanese": "撤去、はがし作業",
+      "senseJapanese": "既存の古い屋根材をはがして取り除く作業のこと",
+      "sourceAnchor": "roofing:7:ja-en:card:1",
+      "id": "core-roofing:7:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "deck",
+      "glossJapanese": "屋根下地",
+      "senseJapanese": "屋根材を支える板状の面。Core 8 の sheathing（野地板）とほぼ同じ部分を指して使われます。",
+      "sourceAnchor": "roofing:7:ja-en:card:3",
+      "id": "core-roofing:7:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "layer",
+      "glossJapanese": "層",
+      "senseJapanese": "屋根に重ねて施工された材料の一層分",
+      "sourceAnchor": "roofing:7:ja-en:card:5",
+      "id": "core-roofing:7:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "職長役：作業の開始を伝え、理解を確認する質問をする（最初の文と最後の文を言う）",
+      "partner": "作業員役：説明と質問を聞いて、短く応答する"
+    },
+    "openingEnglish": "Today the tear-off of the old roof begins.",
+    "closureEnglish": "Is that clear?",
+    "objectivesEnglish": [
+      "Announce that the tear-off of the old roof begins.",
+      "Ask whether the listener understands what must be removed.",
+      "Check understanding with the short question \"Is that clear?\""
+    ],
+    "wordBankEnglish": [
+      "tear-off",
+      "old roof",
+      "scope of work",
+      "Do you understand what must be removed?",
+      "Is that clear?"
+    ],
+    "sourceAnchors": [
+      "roofing:7:ja-en:card:1",
+      "roofing:7:ja-en:card:4",
+      "roofing:7:ja-en:card:6",
+      "roofing:7:ja-en:card:14",
+      "roofing:7:ja-en:card:15",
+      "roofing:7:ja-en:line:1",
+      "roofing:7:ja-en:line:8",
+      "roofing:7:ja-en:line:9"
+    ],
+    "id": "core-roofing:7:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs with exact legacy roofing source anchors, no progress migration.",
+    "Partial supplemental vocabulary/check/report language only. Structural assessment, damaged-deck access, removal scope, flashing reuse, tool use, debris/disposal destination and completion criteria remain qualified source/trade decisions.",
+    "Source worker stepping on panel is narrative evidence, not an inspection method; no structural conclusion is selected.",
+    "Shingles are not silently narrowed to asphalt; soft deck does not establish rot cause; magnets do not attract all metals.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

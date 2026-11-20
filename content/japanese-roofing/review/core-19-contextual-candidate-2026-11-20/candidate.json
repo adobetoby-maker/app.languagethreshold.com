@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:19:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-19-source-decision-2026-11-18/packet.json",
+    "sha256": "3ae1c1e2b120316a798ddb8a9bdeb0a1a6c002d18d9a72605def7676ae69c500"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-19-20-draft.json",
+      "sha256": "b01a33473c8ed78df24fe70f1e3a8e10878e7a17061fe1614cebaf53ad5d6484"
+    }
+  },
+  "objectiveEnglish": "Name sidewall and flashing terms and describe where the roof meets a wall.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「ステップフラッシング」という部材名を英語で見て、つづりと意味を確認してください。",
+      "targetEnglish": "step flashing",
+      "sourceAnchor": "roofing:19:ja-en:card:1",
+      "id": "core-roofing:19:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根と接する建物の側面の壁「側壁」を表す英語を、何も見ずに思い出してください。",
+      "targetEnglish": "sidewall",
+      "sourceAnchor": "roofing:19:ja-en:card:4",
+      "id": "core-roofing:19:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「ここで屋根が壁と接しています」という場所の説明です。音声を聞いて、聞こえた英文を選んでください。",
+      "targetEnglish": "Here the roof meets the wall.",
+      "sourceAnchor": "roofing:19:ja-en:line:2",
+      "candidateOptionsEnglish": [
+        "Here the roof meets the wall.",
+        "Today the crew is working on the sidewall of the house.",
+        "Show me how the flashing overlaps."
+      ],
+      "id": "core-roofing:19:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Here the roof meets the wall.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "部材どうしの「重なり・重ね」を表す英語を入力してください。",
+      "targetEnglish": "overlap",
+      "sourceAnchor": "roofing:19:ja-en:card:9",
+      "id": "core-roofing:19:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "職長の依頼「水切り板金がどう重なるかを見せてください」を英語で声に出して言ってください。",
+      "targetEnglish": "Show me how the flashing overlaps.",
+      "sourceAnchor": "roofing:19:ja-en:card:14",
+      "id": "core-roofing:19:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「シングルの段（コース）」を表す英語を書いてください。",
+      "targetEnglish": "shingle course",
+      "sourceAnchor": "roofing:19:ja-en:card:3",
+      "id": "core-roofing:19:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Today the crew is working on the sidewall of the house.",
+      "explanationJapanese": "「is working on ～」は「今～の作業をしている」という現在進行形です。「on the sidewall」で作業している場所（側壁）を表します。",
+      "sourceAnchor": "roofing:19:ja-en:line:1",
+      "id": "core-roofing:19:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Here the roof meets the wall.",
+      "explanationJapanese": "「A meets B」は「AがBと接する・取り合う」という意味です。「Here」を文頭に置いて「ここで」と場所を示します。",
+      "sourceAnchor": "roofing:19:ja-en:line:2",
+      "id": "core-roofing:19:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Show me how the flashing overlaps.",
+      "explanationJapanese": "「Show me how ～」は「どのように～するかを見せてください」という依頼の形です。「how」の後ろは「主語＋動詞」（the flashing overlaps）の語順になります。",
+      "sourceAnchor": "roofing:19:ja-en:card:14",
+      "id": "core-roofing:19:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "step flashing",
+      "glossJapanese": "ステップフラッシング（水切り部材）",
+      "senseJapanese": "屋根と壁の取り合い部分に使う、段（コース）ごとの水切り部材の名称。",
+      "sourceAnchor": "roofing:19:ja-en:card:1",
+      "id": "core-roofing:19:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "flashing",
+      "glossJapanese": "水切り・雨押さえ（フラッシング）",
+      "senseJapanese": "屋根と壁などの取り合い部分に使う防水用の部材。",
+      "sourceAnchor": "roofing:19:ja-en:card:5",
+      "id": "core-roofing:19:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "overlap",
+      "glossJapanese": "重なり・重ね",
+      "senseJapanese": "部材の一部が隣の部材に重なっていること。",
+      "sourceAnchor": "roofing:19:ja-en:card:9",
+      "id": "core-roofing:19:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業員役：部材や場所の名前を英語で言い、職長の依頼の英語を聞き取って繰り返す。施工方法や手順の説明はしない。",
+      "partner": "職長役：冒頭と締めくくりのナレーション文（場面説明）を読み、「Show me how the flashing overlaps.」と依頼する。"
+    },
+    "openingEnglish": "Today the crew is working on the sidewall of the house.",
+    "closureEnglish": "The foreman checks each piece before placing the next course of shingles.",
+    "objectivesEnglish": [
+      "Name step flashing, flashing, wall, sidewall, and shingle course in English.",
+      "Describe the work location with the source sentence: Here the roof meets the wall.",
+      "Recognize and repeat the request: Show me how the flashing overlaps."
+    ],
+    "wordBankEnglish": [
+      "step flashing",
+      "wall",
+      "shingle course",
+      "sidewall",
+      "flashing",
+      "overlap"
+    ],
+    "sourceAnchors": [
+      "roofing:19:ja-en:card:1",
+      "roofing:19:ja-en:card:2",
+      "roofing:19:ja-en:card:3",
+      "roofing:19:ja-en:card:4",
+      "roofing:19:ja-en:card:5",
+      "roofing:19:ja-en:card:9",
+      "roofing:19:ja-en:card:14",
+      "roofing:19:ja-en:line:1",
+      "roofing:19:ja-en:line:2",
+      "roofing:19:ja-en:line:7",
+      "roofing:19:ja-en:line:8"
+    ],
+    "id": "core-roofing:19:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial terminology/description/request supplement only. Sidewall sequence and ridge-cap cutting/installation/sealing depend on qualified product/source review.",
+    "Core21 full fall-protection, access authorization, anchor approval and clearance objective remains HELD. Incomplete lanyard-short-enough rule excluded; no new safety procedure substituted.",
+    "Approved-anchor request is source language only: this packet does not select or certify an anchor or authorize learner access.",
+    "Source narration is labeled as scene text in speaking roles; source material details remain conditional dictionary candidates.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

@@ -12,8 +12,7 @@ import {
   type SoundPracticeRecord,
 } from "@/lib/sound-practice-core";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
-import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
-import { useSpeech } from "@/state/speech-state";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { MouthMap } from "./MouthMap";
 
 const button =
@@ -72,10 +71,11 @@ export function SoundPractice({
   const markedRef = useRef(false);
   const recordRef = useRef(record),
     flight = useRef<Run | null>(null);
-  const { accent } = useSpeech();
-  const locale = accent?.startsWith("es-") ? accent : "es-MX";
-  const { speak, stop: stopAudio } = useOwnedPlayback(
-    `${moduleId}:${lessonNumber}:${locale}:${active}`,
+  // Word anchors are read by the learner's listening voice (recorded HD audio, then the HD
+  // voice) in their Spanish accent. Playback belongs to this lesson's lab while it is active.
+  const { speak, stop: stopAudio } = useListeningSpeaker(
+    JSON.stringify(["sound-practice", moduleId, lessonNumber, active]),
+    "Spanish",
   );
   useEffect(() => {
     const next = readSoundPracticeRecord(store.read());
@@ -358,7 +358,7 @@ export function SoundPractice({
             type="button"
             className={button}
             disabled={!!run}
-            onClick={() => speak(units.map((unit) => unit.anchor).join(". "), locale)}
+            onClick={() => speak(units.map((unit) => unit.anchor).join(". "))}
           >
             Hear word row
           </button>
@@ -446,7 +446,7 @@ export function SoundPractice({
               <button
                 type="button"
                 className={button}
-                onClick={() => speak(w.target, locale)}
+                onClick={() => speak(w.target)}
                 aria-label={`Hear ${w.target}`}
               >
                 Hear word

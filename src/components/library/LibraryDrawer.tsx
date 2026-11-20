@@ -21,7 +21,7 @@ import { partitionByFocus } from "@/lib/module-filter";
 import { AddTextModal } from "./AddTextModal";
 import { CultureReadingGenerator } from "./CultureReadingGenerator";
 import type { CefrLevel } from "@/fns/grammar.functions";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 
 const LEVEL_TONE: Record<CefrLevel, string> = {
   A1: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
@@ -80,19 +80,6 @@ function ReadDot({
     </button>
   );
 }
-
-const SPEECH_LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-BR",
-  Pashto: "ps-AF",
-  English: "en-US",
-};
 
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -541,31 +528,28 @@ function FilterChip({
   );
 }
 
-function BattleVocabularySection({
-  focus,
-  moduleName,
+/**
+ * One saved battle word. It is read by the learner's listening voice in the word's own
+ * language (recorded HD audio, then the HD voice); a word saved while learning another
+ * language keeps this device's voice. Playback belongs to this card, so removing the word or
+ * closing the drawer stops it.
+ */
+function SavedWordCard({
+  word: w,
+  onRemove,
 }: {
-  focus: string[] | null;
-  moduleName: string | null;
+  word: SavedVocabWord;
+  onRemove: (id: string) => void;
 }) {
-  const { savedVocab, removeVocabWord } = useMatch();
-  const speakOwned = useOwnedSpeaker();
-  const speak = (word: SavedVocabWord) => speakOwned(word.word, SPEECH_LOCALE[word.language]);
-
-  const { inModule, core } = partitionByFocus(
-    savedVocab,
-    focus,
-    (w) => `${w.word} ${w.definition}`,
-  );
-
-  const renderCard = (w: SavedVocabWord) => (
-    <div key={w.id} className="rounded-xl border border-gold/30 bg-gold/[0.04] p-3">
+  const { speak } = useListeningSpeaker(JSON.stringify(["saved-word", w.id]), w.language);
+  return (
+    <div className="rounded-xl border border-gold/30 bg-gold/[0.04] p-3">
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <span className="truncate font-display text-base italic text-gold">{w.word}</span>
             <button
-              onClick={() => speak(w)}
+              onClick={() => speak(w.word)}
               aria-label={`Pronounce ${w.word}`}
               className="shrink-0 rounded-full border border-gold/40 bg-card/60 p-1 text-gold hover:bg-gold/15"
             >
@@ -582,7 +566,7 @@ function BattleVocabularySection({
           </div>
         </div>
         <button
-          onClick={() => removeVocabWord(w.id)}
+          onClick={() => onRemove(w.id)}
           aria-label={`Remove ${w.word}`}
           className="shrink-0 rounded-full border border-border/60 p-1.5 text-muted-foreground hover:border-red-500/50 hover:text-red-300"
         >
@@ -590,6 +574,26 @@ function BattleVocabularySection({
         </button>
       </div>
     </div>
+  );
+}
+
+function BattleVocabularySection({
+  focus,
+  moduleName,
+}: {
+  focus: string[] | null;
+  moduleName: string | null;
+}) {
+  const { savedVocab, removeVocabWord } = useMatch();
+
+  const { inModule, core } = partitionByFocus(
+    savedVocab,
+    focus,
+    (w) => `${w.word} ${w.definition}`,
+  );
+
+  const renderCard = (w: SavedVocabWord) => (
+    <SavedWordCard key={w.id} word={w} onRemove={removeVocabWord} />
   );
 
   return (

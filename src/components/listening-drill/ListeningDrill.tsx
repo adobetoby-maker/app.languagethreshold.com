@@ -12,30 +12,16 @@ import {
   Ear,
   RotateCcw,
 } from "lucide-react";
-import { useApp, type Language } from "@/state/app-state";
+import { useApp } from "@/state/app-state";
 import { MODULES } from "@/data/modules";
 import { useListeningDrill, type LDLeaderboardKey } from "@/state/listening-drill-state";
 import { generateListeningDrill, type ListeningDrillLevel } from "@/fns/listening-drill.functions";
-import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
-import { useSpeech } from "@/state/speech-state";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 
 const LEVEL_LABELS: Record<ListeningDrillLevel, { name: string; sub: string }> = {
   1: { name: "Level 1", sub: "Easy — 4-7 words, A2" },
   2: { name: "Level 2", sub: "Medium — 7-12 words, B1" },
   3: { name: "Level 3", sub: "Hard — 12-18 words, B2" },
-};
-
-const SPEECH_LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-PT",
-  Pashto: "ps-AF",
-  English: "en-US",
 };
 
 export function ListeningDrill() {
@@ -62,9 +48,17 @@ export function ListeningDrill() {
   const run = ld.state.run;
   const cur = ld.currentQuestion();
   const score = ld.runScore();
-  const { voiceURI } = useSpeech();
-  const { speak: speakOwned, stop: stopOwned } = useOwnedPlayback(
-    JSON.stringify([app.activeModuleId, run?.language, run?.index, cur?.question.phrase, voiceURI]),
+  // Each phrase is read by the learner's listening voice (recorded HD audio, then the HD
+  // voice) in their accent and at their speed. Playback belongs to this question of this run.
+  const { speak: speakPhrase, stop: stopOwned } = useListeningSpeaker(
+    JSON.stringify([
+      "listening-drill",
+      app.activeModuleId,
+      run?.language,
+      run?.index,
+      cur?.question.phrase,
+    ]),
+    run?.language ?? app.selectedLanguage,
   );
 
   // Auto-load next question when index advances.
@@ -82,7 +76,7 @@ export function ListeningDrill() {
     if (!run || !cur) return;
     if (cur.submitted) return;
     if (cur.playCount !== 0) return;
-    speakOwned(cur.question.phrase, SPEECH_LOCALE[run.language], voiceURI);
+    speakPhrase(cur.question.phrase);
     ld.incrementPlays();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [run?.index, cur?.question.phrase, cur?.submitted]);
@@ -99,9 +93,9 @@ export function ListeningDrill() {
 
   const onReplay = useCallback(() => {
     if (!run || !cur) return;
-    speakOwned(cur.question.phrase, SPEECH_LOCALE[run.language], voiceURI);
+    speakPhrase(cur.question.phrase);
     ld.incrementPlays();
-  }, [run, cur, ld, speakOwned, voiceURI]);
+  }, [run, cur, ld, speakPhrase]);
 
   const onAnswer = useCallback(
     (idx: number) => {

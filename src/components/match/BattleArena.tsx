@@ -5,21 +5,7 @@ import { RANK_BADGE, RANK_COLOR, RANK_TITLE, type RankTier } from "@/state/match
 import { celebrate } from "@/lib/confetti";
 import { generateBattleWord, type BattleWord } from "@/fns/battle.functions";
 import { RankBadge } from "./RankBadge";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
-import { useSpeech } from "@/state/speech-state";
-
-const SPEECH_LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-BR",
-  Pashto: "ps-AF",
-  English: "en-US",
-};
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 
 function cefrForRound(round: number): "A1" | "A2" | "B1" | "B2" | "C1" | "C2" {
   if (round <= 2) return "A1";
@@ -100,9 +86,11 @@ export function BattleArena({
   const [phase, setPhase] = useState<Phase>("loading");
   const [data, setData] = useState<RoundData | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const { voiceURI } = useSpeech();
-  const speakOwned = useOwnedSpeaker(
-    JSON.stringify([language, round, phase, data?.word.word, voiceURI]),
+  // The battle word is read by the learner's listening voice (recorded HD audio, then the HD
+  // voice). Playback belongs to this word in this phase of this round.
+  const { speak: speakWord } = useListeningSpeaker(
+    JSON.stringify(["battle", language, round, phase, data?.word.word]),
+    language,
   );
 
   const [playerPick, setPlayerPick] = useState<number | null>(null);
@@ -363,7 +351,7 @@ export function BattleArena({
   };
 
   const speak = () => {
-    if (data) speakOwned(data.word.word, SPEECH_LOCALE[language], voiceURI);
+    if (data) speakWord(data.word.word);
   };
 
   // Background gets slightly darker each round

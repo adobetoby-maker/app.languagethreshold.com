@@ -2,24 +2,10 @@ import { useOverlayHistory } from "@/hooks/use-overlay-history";
 import { useState } from "react";
 import { Volume2, X } from "lucide-react";
 import { toast } from "sonner";
-import { useApp, type Language } from "@/state/app-state";
+import { useApp } from "@/state/app-state";
 import { useMatch } from "@/state/match-state";
 import type { ReviewedWord } from "./BattleArena";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
-import { useSpeech } from "@/state/speech-state";
-
-const SPEECH_LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-BR",
-  Pashto: "ps-AF",
-  English: "en-US",
-};
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 
 interface Props {
   words: ReviewedWord[];
@@ -93,11 +79,15 @@ function WordRow({ word }: { word: ReviewedWord }) {
     (v) => v.word.toLowerCase() === word.word.toLowerCase() && v.language === word.language,
   );
   const [saved, setSaved] = useState(alreadySaved);
-  const { voiceURI } = useSpeech();
-  const speakOwned = useOwnedSpeaker(JSON.stringify([word.word, word.language, voiceURI]));
+  // Read by the learner's listening voice, in the language the word was played in. A word from
+  // another language keeps this device's voice and is never read by a mismatched HD voice.
+  const { speak: speakWord } = useListeningSpeaker(
+    JSON.stringify(["battle-review", word.word, word.language]),
+    word.language,
+  );
 
   const speak = () => {
-    speakOwned(word.word, SPEECH_LOCALE[word.language], voiceURI);
+    speakWord(word.word);
   };
 
   const handleSave = () => {

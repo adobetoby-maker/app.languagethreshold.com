@@ -31,7 +31,7 @@ await build({
         b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
           contents: `
  export const controls={};let slots=[],index=0,pending=[];
- controls.reset=()=>{slots=[];index=0;pending=[];controls.dispatches=[];controls.requests=[];};
+ controls.reset=()=>{slots=[];index=0;pending=[];controls.dispatches=[];controls.requests=[];controls.scopes=[];controls.spoken=[];};
  controls.begin=()=>{index=0;pending=[];};controls.commit=()=>{for(const fn of pending)fn();pending=[];};
  controls.unmount=()=>{for(const slot of slots)slot?.cleanup?.();};
  export const useState=initial=>{const i=index++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return [slots[i],value=>{slots[i]=typeof value==='function'?value(slots[i]):value;}];};
@@ -42,7 +42,10 @@ await build({
  export const generateBattleWord=async input=>{controls.requests.push(input);return {data:{word:'casa',correctDefinition:'house',wrongDefinitions:['car','garden','school']},error:null};};
  export const RANK_BADGE={Bronze:'badge'},RANK_COLOR={Bronze:'gold'},RANK_TITLE={Bronze:'practice'};
  export const RankBadge='badge',Volume2='span';export const celebrate=()=>{};
- export const useSpeech=()=>({voiceURI:null}),useOwnedSpeaker=()=>()=>{};
+ export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}],French:[{code:'fr-FR'}]};
+ const plan=locale=>({mode:'hd',voiceURI:'learner-hd-voice',recordedGender:'female',strict:true,pending:null,locale});
+ export const useSpeech=()=>({accent:'es-CR',rate:0.85,voiceURI:'learner-hd-voice',voiceSettings:{listeningAudioSource:'hd',listeningGender:'woman'},listeningPlan:plan,reportListeningIssue(){},noteListeningPlayed(){}});
+ export const useOwnedPlayback=scope=>{controls.scopes.push(scope);return {speak:(text,locale,voiceURI,rate,events)=>controls.spoken.push({scope,text,locale,voiceURI,rate,cloudOnly:events?.cloudOnly,recordedGender:events?.recordedGender}),stop(){}};};
  export const configureUtterance=()=>{},needsRemoteTTS=()=>false,speakRemote=()=>{};
  `,
         }));
@@ -205,5 +208,33 @@ test("Exit practice cancels pending resolution before the parent unmounts", asyn
     assert.equal(intervals.size, 0);
     drain();
     assert.deepEqual(results, []);
+  });
+});
+
+test("the battle word is read by the learner's listening voice, and its audio belongs to this word, phase and round", async () => {
+  await fixture(({ tree, render, expire }) => {
+    const pronounce = (from) =>
+      nodes(from).find((n) => n.type === "button" && n.props["aria-label"] === "Pronounce word");
+    assert.equal(controls.spoken.length, 0, "nothing is read until the learner asks");
+    pronounce(tree).props.onClick();
+    assert.equal(controls.spoken.length, 1);
+    const said = controls.spoken[0];
+    assert.equal(said.text, "casa");
+    assert.equal(said.locale, "es-CR", "the learner's accent for the battle language");
+    assert.equal(said.voiceURI, "learner-hd-voice");
+    assert.equal(said.cloudOnly, true, "HD only: no silent device voice");
+    assert.equal(said.recordedGender, "female");
+    assert.equal(said.rate, 0.85, "the learner's speed");
+    // The owner of that audio is this word in this phase of this round, in the listening voice.
+    const [kind, owner, locale, voice, source, gender] = JSON.parse(said.scope);
+    assert.equal(kind, "listening");
+    assert.deepEqual(JSON.parse(owner), ["battle", "Spanish", 1, "playing", "casa"]);
+    assert.deepEqual([locale, voice, source, gender], ["es-CR", "learner-hd-voice", "hd", "woman"]);
+    // When the round moves on, the owner changes, so that audio cannot follow into the next phase.
+    expire();
+    render();
+    const next = JSON.parse(JSON.parse(controls.scopes.at(-1))[1]);
+    assert.equal(next[3], "waiting");
+    assert.notEqual(controls.scopes.at(-1), said.scope);
   });
 });

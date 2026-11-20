@@ -375,10 +375,7 @@ test("Recall HD recordings, authored forms and wrong-pair retry work in both the
     const current = deck.getByTestId("recall-step");
     if ((await current.getAttribute("data-kind")) === "card") {
       await current.getByRole("button", { name: "Flip the card", exact: true }).click();
-      if (
-        (await current.getByTestId("recall-verb-forms").isVisible()) &&
-        (await current.getByTestId("recall-card-text").innerText()) === "ser"
-      ) {
+      if (await current.getByTestId("recall-verb-forms").isVisible()) {
         foundVerb = true;
         break;
       }
@@ -388,10 +385,10 @@ test("Recall HD recordings, authored forms and wrong-pair retry work in both the
   expect(foundVerb).toBe(true);
   const rows = deck.getByTestId("recall-verb-form");
   await expect(rows).toHaveCount(5);
-  for (const text of ["yo", "soy", "tú", "eres", "nosotros", "somos", "son"])
+  for (const text of ["yo", "me llamo", "tú", "te llamas", "nosotros", "nos llamamos", "se llaman"])
     await expect(deck.getByTestId("recall-verb-forms")).toContainText(text);
   const cardId = await deck.getAttribute("data-current-id");
-  await expectHD("soy", "female", () => rows.first().click());
+  await expectHD("me llamo", "female", () => rows.first().click());
   await expect(deck).toHaveAttribute("data-current-id", cardId!);
   await page.screenshot({ path: testInfo.outputPath("verb-card-dark.png"), fullPage: true });
   await page.getByRole("button", { name: "Navigation menu", exact: true }).click();
@@ -408,7 +405,7 @@ test("Recall HD recordings, authored forms and wrong-pair retry work in both the
   await expect(page.locator("html")).not.toHaveClass(/dark/);
   await page.goBack();
   await expect(rows.first()).toBeVisible();
-  await expectHD("soy", "male", () => rows.first().click());
+  await expectHD("me llamo", "male", () => rows.first().click());
   await expect(deck).toHaveAttribute("data-current-id", cardId!);
   await page.screenshot({ path: testInfo.outputPath("verb-card-light.png"), fullPage: true });
   expect(

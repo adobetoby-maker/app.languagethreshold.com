@@ -1,0 +1,3 @@
+# Final source-grounded self-check
+
+Current source hashes and exact bilingual anchors, stage IDs, held isolation, full source objective retention and null/false gates independently validate. French speaking support and source-versus-new grammar provenance are explicit. Clinical dizzy versus heat exhaustion and rest verb/noun occurrences are direct unselected terminology proposals, never a diagnosis or treatment selection. Hydration interval, water-break/drink-water source difference, fall-clearance, equipment authority, weather access and response decisions stay internal and held. All three actual CLI models are recorded, one shared batch session per model; AI critique is not qualified review.

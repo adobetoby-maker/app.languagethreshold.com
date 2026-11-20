@@ -1,0 +1,860 @@
+{
+  "lessonId": "core-roofing:24:fr-en",
+  "candidateObjectiveEnglish": "Name heat, shade, water, hydration and sunscreen, and ask How do you feel?",
+  "grammarExplanationEnglish": "Where is the + noun asks for location. Show me the + noun requests an item. How do you feel? uses how + do + you + base verb to ask about feeling.",
+  "grammarExplanationFrench": "« Where is the » + nom demande un emplacement. « Show me the » + nom demande de montrer un élément. « How do you feel? » utilise how + do + you + verbe de base et signifie « Comment vous sentez-vous ? ».",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "heat",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "la chaleur",
+      "provenance": "Archived and conditional French from card 2; generic noun; not reviewed.",
+      "id": "core-roofing:24:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le texte anglais pour « l’ombre »",
+      "candidateTargetEnglish": "shade",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "l’ombre",
+      "provenance": "Archived and conditional French from card 3; generic noun; not reviewed.",
+      "id": "core-roofing:24:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens français.",
+      "candidateTargetEnglish": "water",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "l’eau",
+      "provenance": "Archived and conditional French from card 4; spoken prompt text only; no audio registered; not reviewed.",
+      "id": "core-roofing:24:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « l’hydratation »",
+      "candidateTargetEnglish": "hydration",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "l’hydratation",
+      "provenance": "Archived and conditional French from card 8; generic noun, no hydration schedule; not reviewed.",
+      "id": "core-roofing:24:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « la crème solaire »",
+      "candidateTargetEnglish": "sunscreen",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "la crème solaire",
+      "provenance": "Archived and conditional French from card 9; generic noun; not reviewed.",
+      "id": "core-roofing:24:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Comment vous sentez-vous ? »",
+      "candidateTargetEnglish": "How do you feel?",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:11"
+      ],
+      "expectedMeaningFrench": "Comment vous sentez-vous ?",
+      "provenance": "Exact English from card 11; respectful vous form for source usted; neutral question with no symptom, diagnosis or method assumption; conditional French from card 11; not reviewed.",
+      "id": "core-roofing:24:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:24:fr-en:form:1",
+      "englishForm": "Where is the [noun phrase]?",
+      "meaningFrench": "Où est le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Where is the shade card?",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:3"
+      ],
+      "provenance": "New English/French word-card location question using source shade noun.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:24:fr-en:form:2",
+      "englishForm": "Show me the [noun phrase].",
+      "meaningFrench": "Montrez-moi le/la/l’ + nom.",
+      "candidateExampleEnglish": "Show me the water card.",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:4"
+      ],
+      "provenance": "New English/French vocabulary-card request using source water noun, not a drinking instruction.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:24:fr-en:form:3",
+      "englishForm": "How + do + you + base verb?",
+      "meaningFrench": "Comment ... ? (ici : Comment vous sentez-vous ?)",
+      "candidateExampleEnglish": "How do you feel?",
+      "sourceAnchors": [
+        "core-roofing:24:fr-en:card:11"
+      ],
+      "provenance": "Exact source English How do you feel? from card11; respectful French source-support candidate.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner asking a partner how they feel, then requesting vocabulary cards.",
+    "partnerRole": "A partner answering a wellbeing question and showing vocabulary cards.",
+    "candidateOpeningEnglish": "How do you feel?",
+    "goalEnglish": "Ask How do you feel?, locate the shade card and request the water card.",
+    "candidateWordBankEnglish": [
+      "shade",
+      "water",
+      "card",
+      "How do you feel?",
+      "Where is the shade card?",
+      "Show me the water card.",
+      "Thank you."
+    ],
+    "closureEnglish": "Goodbye.",
+    "closureProvenance": "New ordinary courtesy closing, merged into the last learner turn; not a work instruction or source event.",
+    "sourceAnchors": [
+      "core-roofing:24:fr-en:card:3",
+      "core-roofing:24:fr-en:card:4",
+      "core-roofing:24:fr-en:card:11"
+    ],
+    "practiceContextEnglish": "A classroom pair exercise begins with a wellbeing question, not a greeting. Card A says shade and card B says water.",
+    "partnerCuesEnglish": [
+      "I feel fine, thank you. What are you looking for?",
+      "The shade card is A.",
+      "Here is the water card."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Where is the shade card?",
+      "Show me the water card.",
+      "Thank you. Goodbye."
+    ],
+    "id": "core-roofing:24:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:24:fr-en:card:1",
+      "core-roofing:24:fr-en:card:10",
+      "core-roofing:24:fr-en:card:12",
+      "core-roofing:24:fr-en:card:13",
+      "core-roofing:24:fr-en:card:14",
+      "core-roofing:24:fr-en:card:5",
+      "core-roofing:24:fr-en:card:6",
+      "core-roofing:24:fr-en:card:7",
+      "core-roofing:24:fr-en:reader:2",
+      "core-roofing:24:fr-en:reader:5",
+      "core-roofing:24:fr-en:reader:6",
+      "core-roofing:24:fr-en:reader:7",
+      "core-roofing:24:fr-en:reader:8",
+      "core-roofing:24:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check. This newly composed partner exchange is distinct from Raúl’s original source scene; it is not a diagnosis or response selection.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "How do you feel?"
+      },
+      {
+        "speaker": "partner",
+        "text": "I feel fine, thank you. What are you looking for?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the shade card?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The shade card is A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Show me the water card."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the water card."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you. Goodbye."
+      }
+    ],
+    "goalFrench": "Demandez comment le partenaire se sent, repérez la carte shade et demandez la carte water.",
+    "contextFrench": "L’exercice commence par une question sur le ressenti, pas par une salutation. La carte A porte shade et B porte water.",
+    "partnerCueSupportFrench": [
+      "Je me sens bien, merci. Que cherchez-vous ?",
+      "La carte shade est A.",
+      "Voici la carte water."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Où est la carte shade ?",
+      "Montrez-moi la carte water.",
+      "Merci. Au revoir."
+    ],
+    "scaffoldVocabularyFrench": {
+      "card": "carte",
+      "picture": "image",
+      "show": "montrer",
+      "say": "indiquer/dire"
+    },
+    "closureFrench": "Au revoir.",
+    "candidateOpeningFrench": "Comment vous sentez-vous ?"
+  },
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "core-roofing:24:fr-en:card:5",
+      "candidateFrenchOptions": [
+        "étourdi(e)",
+        "avoir des vertiges",
+        "avoir la tête qui tourne"
+      ],
+      "meaningEnglish": "dizzy (symptom sense)",
+      "reviewQuestion": "English target dizzy is a symptom description. Choose the contextual adjective/construction and locale without changing it to a diagnosis or substituting another Spanish mareado sense.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Mareado",
+      "selectedOption": null
+    },
+    {
+      "sourceAnchor": "core-roofing:24:fr-en:card:6",
+      "candidateFrenchOptions": [
+        "l’épuisement dû à la chaleur",
+        "l’épuisement par la chaleur",
+        "l’épuisement thermique"
+      ],
+      "meaningEnglish": "heat exhaustion (clinical condition, not a symptom)",
+      "reviewQuestion": "Keep heat exhaustion as a named clinical condition, distinct from the symptom dizzy. Qualified occupational-health and locale review must choose the French term. No diagnosis or response is implied.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Agotamiento por calor",
+      "selectedOption": null
+    },
+    {
+      "sourceAnchor": "core-roofing:24:fr-en:card:7",
+      "candidateFrenchOptions": [
+        "se reposer"
+      ],
+      "meaningEnglish": "rest (verb; source Spanish Descansar)",
+      "reviewQuestion": "Source card7 Descansar is a verb, supporting unselected se reposer. Reader9 has a distinct noun rest occurrence proposed separately; neither selects the held response/prevention claim.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Descansar",
+      "selectedOption": null
+    },
+    {
+      "sourceAnchor": "core-roofing:24:fr-en:reader:9",
+      "termSpanEnglish": "rest",
+      "candidateFrenchOptions": [
+        "le repos"
+      ],
+      "meaningEnglish": "rest (noun occurrence in source Reader9 Hydration and rest in the shade)",
+      "reviewQuestion": "Noun occurrence is distinct from Spanish Descansar verb on card7. Direct noun proposal does not approve the held heat-exhaustion prevention claim. Qualified wording/domain review remains open.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "La hidratación y el descanso en la sombra ayudan a evitar el agotamiento por calor.",
+      "selectedOption": null
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-24-source-decision-2026-11-18/packet.json",
+    "sha256": "438da5478c7268ad6e23bf09b3baa3fee8291f7dbd9b9ad5b42cc5ab40103ffd"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:24:fr-en:card:1",
+      "sourceEnglish": "water break",
+      "candidateFrench": null,
+      "hold": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:24:fr-en:card:2",
+      "sourceEnglish": "heat",
+      "candidateFrench": "la chaleur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:24:fr-en:card:3",
+      "sourceEnglish": "shade",
+      "candidateFrench": "l’ombre",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:24:fr-en:card:4",
+      "sourceEnglish": "water",
+      "candidateFrench": "l’eau",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:24:fr-en:card:5",
+      "sourceEnglish": "dizzy",
+      "candidateFrench": null,
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:24:fr-en:card:6",
+      "sourceEnglish": "heat exhaustion",
+      "candidateFrench": null,
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:24:fr-en:card:7",
+      "sourceEnglish": "rest",
+      "candidateFrench": null,
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:24:fr-en:card:8",
+      "sourceEnglish": "hydration",
+      "candidateFrench": "l’hydratation",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:24:fr-en:card:9",
+      "sourceEnglish": "sunscreen",
+      "candidateFrench": "la crème solaire",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:24:fr-en:card:10",
+      "sourceEnglish": "Take a water break every hour.",
+      "candidateFrench": null,
+      "hold": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning. Bilingual source difference: Spanish Tomen agua cada hora says drink water every hour; English adds water break. Qualified source/occupational review must reconcile both without selecting a schedule.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:24:fr-en:card:11",
+      "sourceEnglish": "How do you feel?",
+      "candidateFrench": "Comment vous sentez-vous ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:24:fr-en:card:12",
+      "sourceEnglish": "Are you dizzy?",
+      "candidateFrench": null,
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:24:fr-en:card:13",
+      "sourceEnglish": "Go to the shade and rest.",
+      "candidateFrench": null,
+      "hold": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:24:fr-en:card:14",
+      "sourceEnglish": "Drink water now.",
+      "candidateFrench": null,
+      "hold": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:24:fr-en:card:15",
+      "sourceEnglish": "Tell me if you feel sick.",
+      "candidateFrench": "Dites-moi si vous vous sentez mal.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:1",
+      "sourceEnglish": "It is very hot and the sun beats down on the roof.",
+      "candidateFrench": "Il fait très chaud et le soleil tape sur le toit.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:2",
+      "sourceEnglish": "The foreman says: Take a water break every hour.",
+      "candidateFrench": null,
+      "hold": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning. Bilingual source difference: Spanish Tomen agua cada hora says drink water every hour; English adds water break. Qualified source/occupational review must reconcile both without selecting a schedule.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:3",
+      "sourceEnglish": "But Raúl does not look well, and the foreman walks over.",
+      "candidateFrench": "Mais Raúl n’a pas l’air bien, et le contremaître s’approche.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New source-aligned proposal preserves source and, without added causation."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:4",
+      "sourceEnglish": "The foreman asks him: How do you feel?",
+      "candidateFrench": "Le contremaître lui demande : « Comment vous sentez-vous ? »",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New source-aligned proposal retains explicit foreman subject and respectful wellbeing question."
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:5",
+      "sourceEnglish": "Are you dizzy?",
+      "candidateFrench": null,
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:6",
+      "sourceEnglish": "Raúl answers yes, a little.",
+      "candidateFrench": null,
+      "hold": "Reader6 is the answer to the held Are you dizzy? symptom question; preserve actual answer without a diagnosis or clinical response.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:7",
+      "sourceEnglish": "The foreman tells him: Go to the shade and rest. Drink water now.",
+      "candidateFrench": null,
+      "hold": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:8",
+      "sourceEnglish": "Tell me if you feel sick, and we will follow the site heat plan.",
+      "candidateFrench": null,
+      "hold": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:24:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:24:fr-en:reader:9",
+      "sourceEnglish": "Hydration and rest in the shade help prevent heat exhaustion.",
+      "candidateFrench": null,
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction. The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:24:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:24:fr-en:card:1",
+      "englishHeadword": "water break",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Pausa para tomar agua"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:24:fr-en:card:2",
+      "englishHeadword": "heat",
+      "candidateFrenchSense": "la chaleur",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Calor"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:24:fr-en:card:3",
+      "englishHeadword": "shade",
+      "candidateFrenchSense": "l’ombre",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sombra"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:24:fr-en:card:4",
+      "englishHeadword": "water",
+      "candidateFrenchSense": "l’eau",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Agua"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:24:fr-en:card:5",
+      "englishHeadword": "dizzy",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Mareado"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:24:fr-en:card:6",
+      "englishHeadword": "heat exhaustion",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Agotamiento por calor"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:24:fr-en:card:7",
+      "englishHeadword": "rest",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Descansar"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:24:fr-en:card:8",
+      "englishHeadword": "hydration",
+      "candidateFrenchSense": "l’hydratation",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Hidratación"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:24:fr-en:card:9",
+      "englishHeadword": "sunscreen",
+      "candidateFrenchSense": "la crème solaire",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Protector solar"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:24:fr-en:card:10",
+      "englishHeadword": "Take a water break every hour.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning. Bilingual source difference: Spanish Tomen agua cada hora says drink water every hour; English adds water break. Qualified source/occupational review must reconcile both without selecting a schedule.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tomen agua cada hora."
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:24:fr-en:card:11",
+      "englishHeadword": "How do you feel?",
+      "candidateFrenchSense": "Comment vous sentez-vous ?",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Cómo se siente?"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:24:fr-en:card:12",
+      "englishHeadword": "Are you dizzy?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "Dizzy, heat exhaustion and rest need distinct clinical and grammatical French senses. Archived étourdi, avoir des vertiges, épuisement dû à la chaleur and le repos may not all fit the source term/verb pairs or locale. Raúl says yes, a little, but the scene does not establish a diagnosis; qualified French and occupational-health review must settle the vocabulary and symptom/condition distinction.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Está mareado?"
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:24:fr-en:card:13",
+      "englishHeadword": "Go to the shade and rest.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Vaya a la sombra y descanse."
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:24:fr-en:card:14",
+      "englishHeadword": "Drink water now.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Heat & Water",
+      "status": "held",
+      "hold": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tome agua ahora."
+    },
+    {
+      "id": "core-roofing:24:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:24:fr-en:card:15",
+      "englishHeadword": "Tell me if you feel sick.",
+      "candidateFrenchSense": "Dites-moi si vous vous sentez mal.",
+      "contextEnglish": "Heat & Water",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Avíseme si se siente mal."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a heat/occupational-health/source decision, settle a work method, or select a technical answer.",
+    "Card15 source Tell me if you feel sick / Avíseme si se siente mal is direct respectful reporting language. Reader8 adds the site-plan response, so that full row remains held. English sick here is constrained by source se siente mal to unwell, not automatically nausea. No response, diagnosis or escalation selected.",
+    "Opus read-only critique corrections applied then checked against exact bilingual source; all French remains unreviewed candidate material and original source objectives remain held/incomplete.",
+    "French contremaître for foreman and crème solaire versus other sunscreen formulations remain unselected locale/register proposals. Source usted and French vous carry the respectful register; English you is not marked for that distinction. Shade card / water card are new English noun+noun compounds meaning a vocabulary card bearing that word.",
+    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval."
+  ],
+  "sourceObjectiveEnglish": "Check on crew hydration and heat symptoms",
+  "sourceSpeakingEnglish": "Ask a worker how they feel and direct a water break under the site heat plan.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

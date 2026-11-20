@@ -30,7 +30,7 @@ const FIXTURE = `
  export const useApp=()=>({state:{vocabByLanguage:{},userVocab:[],selectedLanguage:'Spanish'},dispatch(){}});
  export const useFlashcards=()=>({addCard(){},hasCard:()=>false});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}],English:[{code:'en-US'}]};
- export const useListeningSpeaker=(scope,language)=>{R.speakers.push({scope,language});return {speak:text=>R.spoken.push(text),stop(){},locale:'es-CR'};};
+ export const useListeningSpeaker=(scope,language,card)=>{R.speakers.push({scope,language,card});return {speak:text=>R.spoken.push(text),stop(){},locale:'es-CR'};};
 `;
 
 /** Renders an element tree the way React would, keeping each component's state by position/key. */
@@ -359,8 +359,45 @@ test("verb card: the back spells out the authored conjugations, each line is rea
     assert.deepEqual(R.activities, ["study"]);
     // Every kit surface speaks through the learner's listening voice for the lesson language.
     assert.ok(R.speakers.length > 0);
-    for (const speaker of R.speakers)
-      assert.deepEqual(speaker, { scope: "lesson-kit", language: "Spanish" });
+    for (const speaker of R.speakers) {
+      assert.equal(speaker.scope, "lesson-kit");
+      assert.equal(speaker.language, "Spanish");
+    }
+  }));
+
+test("Recall: the card's speaker is told which card it speaks for, so a notice never follows the learner to the next card", () =>
+  fixture(async ({ R, host, mount, elapse }) => {
+    mount({ words: TERMS, verbs: [], mode: "study" });
+    const current = () => host.one("lesson-recall-deck").props["data-current-id"];
+    /** The step the Recall deck's own speaker was given on the latest render (a step id). */
+    const spokenFor = () =>
+      R.speakers.filter((speaker) => typeof speaker.card === "string").at(-1)?.card;
+    const first = current();
+    assert.match(first, /^card:/);
+    assert.equal(spokenFor(), first);
+
+    // Flipping, hearing and reversing the card keep it the same card.
+    host.click(host.one("flashcard"));
+    assert.equal(spokenFor(), first);
+    host.click(host.all(undefined).find((el) => /^Play Spanish audio: /.test(el.props["aria-label"] ?? "")));
+    assert.equal(R.spoken.length, 1);
+    assert.equal(spokenFor(), first);
+
+    // Got it: the deck moves on, and so does what its speaker speaks for.
+    elapse(300);
+    host.click(host.button("Got it"));
+    const second = current();
+    assert.notEqual(second, first);
+    assert.equal(spokenFor(), second, "the next card is a new card to the speaker");
+
+    // Again on the new card re-queues it: another step is showing, and the speaker follows.
+    elapse(300);
+    host.click(host.button("Again"));
+    assert.notEqual(current(), second);
+    assert.equal(spokenFor(), current());
+    // The matching break inside the deck speaks for its own round.
+    assert.equal(host.one("recall-step").props["data-kind"], "match");
+    assert.equal(R.speakers.at(-1).card, 0, "the match step's speaker is told its round");
   }));
 
 test("a plain vocabulary card has no conjugation list, and an unknown lesson language falls back safely", () =>

@@ -24,7 +24,7 @@ await build({
         b.onResolve(
           {
             filter:
-              /^(test-controls|react|lucide-react|@\/state\/(app|match|speech)-state|@\/hooks\/use-owned-speaker|@\/lib\/(confetti|voices|tts)|@\/fns\/battle.functions|\.\/RankBadge)$/,
+              /^(test-controls|react|lucide-react|@\/state\/(app|auth|match|speech)-state|@\/hooks\/use-owned-speaker|@\/lib\/(confetti|voices|tts)|@\/fns\/battle.functions|\.\/RankBadge)$/,
           },
           () => ({ path: "controls", namespace: "fixture" }),
         );
@@ -39,12 +39,14 @@ await build({
  export const useEffect=(fn,deps)=>{const i=index++,old=slots[i];if(!old||!deps||deps.some((v,j)=>v!==old.deps?.[j]))pending.push(()=>{old?.cleanup?.();slots[i]={deps,cleanup:fn()};});};
  export const useMemo=(fn,deps)=>{const i=index++,old=slots[i];if(!old||!deps||deps.some((v,j)=>v!==old.deps?.[j]))slots[i]={deps,value:fn()};return slots[i].value;};export const useCallback=(fn,deps)=>useMemo(()=>fn,deps);
  export const useApp=()=>({dispatch:action=>controls.dispatches.push(action)});
+ // The listening speaker leases its HD notice to the signed-in learner.
+ export const useAuth=()=>({user:{id:'learner'},isCurrentUser:id=>id==='learner'});
  export const generateBattleWord=async input=>{controls.requests.push(input);return {data:{word:'casa',correctDefinition:'house',wrongDefinitions:['car','garden','school']},error:null};};
  export const RANK_BADGE={Bronze:'badge'},RANK_COLOR={Bronze:'gold'},RANK_TITLE={Bronze:'practice'};
  export const RankBadge='badge',Volume2='span';export const celebrate=()=>{};
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'}],French:[{code:'fr-FR'}]};
  const plan=locale=>({mode:'hd',voiceURI:'learner-hd-voice',recordedGender:'female',strict:true,pending:null,locale});
- export const useSpeech=()=>({accent:'es-CR',rate:0.85,voiceURI:'learner-hd-voice',voiceSettings:{listeningAudioSource:'hd',listeningGender:'woman'},listeningPlan:plan,reportListeningIssue(){},noteListeningPlayed(){}});
+ export const useSpeech=()=>({accent:'es-CR',rate:0.85,voiceURI:'learner-hd-voice',voiceChoice:0,voiceSettings:{listeningAudioSource:'hd',listeningGender:'woman'},listeningPlan:plan,reportListeningIssue:()=>()=>{},noteListeningPlayed(){}});
  export const useOwnedPlayback=scope=>{controls.scopes.push(scope);return {speak:(text,locale,voiceURI,rate,events)=>controls.spoken.push({scope,text,locale,voiceURI,rate,cloudOnly:events?.cloudOnly,recordedGender:events?.recordedGender}),stop(){}};};
  export const configureUtterance=()=>{},needsRemoteTTS=()=>false,speakRemote=()=>{};
  `,
@@ -225,11 +227,14 @@ test("the battle word is read by the learner's listening voice, and its audio be
     assert.equal(said.cloudOnly, true, "HD only: no silent device voice");
     assert.equal(said.recordedGender, "female");
     assert.equal(said.rate, 0.85, "the learner's speed");
-    // The owner of that audio is this word in this phase of this round, in the listening voice.
-    const [kind, owner, locale, voice, source, gender] = JSON.parse(said.scope);
+    // The owner of that audio is this word in this phase of this round, under the learner's
+    // own voice choices: accent, picked voice, HD or device, and gender. The resolved voice
+    // itself is not part of it, so a voice list that finishes loading cuts nothing off.
+    const [kind, owner, locale, choice, source, gender] = JSON.parse(said.scope);
     assert.equal(kind, "listening");
     assert.deepEqual(JSON.parse(owner), ["battle", "Spanish", 1, "playing", "casa"]);
-    assert.deepEqual([locale, voice, source, gender], ["es-CR", "learner-hd-voice", "hd", "woman"]);
+    assert.deepEqual([locale, choice, source, gender], ["es-CR", 0, "hd", "woman"]);
+    assert.doesNotMatch(said.scope, /learner-hd-voice/);
     // When the round moves on, the owner changes, so that audio cannot follow into the next phase.
     expire();
     render();

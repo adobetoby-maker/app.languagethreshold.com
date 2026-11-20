@@ -12,6 +12,7 @@ import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { useApp, type Language } from "@/state/app-state";
 import { useLibrary } from "@/state/library-state";
 import { useSpeech } from "@/state/speech-state";
+import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
 import { getAvailableModuleLessons } from "@/data/module-starters";
 import { getCurriculum, type LessonWord } from "@/data/curriculum";
 import {
@@ -110,6 +111,9 @@ export function LessonReader({
 
   // Stop any passage audio when the learner leaves the lesson.
   useEffect(() => () => stop(), [stop]);
+  // A passage that could not play in HD belongs to this lesson: another lesson withdraws its
+  // notice, so a retry never reads the old passage.
+  useReadingNoticeScope(`${moduleId}:${lessonNumber ?? ""}:${language}`);
 
   const lessonPassage = useMemo(
     () => authoredLessonReading(moduleId, lessonNumber, language, state.nativeLanguage),

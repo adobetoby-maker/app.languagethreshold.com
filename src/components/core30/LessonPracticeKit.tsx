@@ -144,12 +144,17 @@ const panel = "rounded-xl border border-border/50 bg-card/30 p-4";
  * Every tap on a target-language word in the kit (match tiles, cards, verb forms, study rows,
  * listening, typing and writing) is read by the learner's chosen listening voice: recorded HD
  * audio first, then the HD voice. A device voice is used only when the learner chose it.
+ *
+ * `card` is what the mode shows right now. Moving on from it withdraws a standing "could not
+ * play in HD" notice, so its retry never reads out the previous card; audio that is already
+ * playing is left alone. Modes that speak the next word as they advance leave it out.
  */
-function useTargetSpeaker(): (text: string) => void {
+function useTargetSpeaker(card?: string | number | null): (text: string) => void {
   const { target } = useKitLanguages();
   const { speak } = useListeningSpeaker(
     "lesson-kit",
     Object.hasOwn(ACCENTS_BY_LANGUAGE, target) ? target : SPANISH,
+    card,
   );
   return useCallback((text: string) => speak(text), [speak]);
 }
@@ -273,10 +278,10 @@ function StudyMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
 // ─── 2. Flashcards ────────────────────────────────────────────────────────────
 
 function FlashcardsMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
-  const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
   const [direction, setDirection] = useState<LessonCardDirection>("native-to-target");
   const [queue, setQueue] = useState<number[]>(() => shuffle(words.map((_, i) => i)));
+  const speak = useTargetSpeaker(queue[0] ?? null);
   const [flipped, setFlipped] = useState(false);
   const total = words.length;
   const finished = queue.length === 0;
@@ -416,12 +421,12 @@ function RecallSequence({
   onComplete: () => void;
 }) {
   const { target, native } = useKitLanguages();
-  const speak = useTargetSpeaker();
   const sequence = useMemo(
     () => buildLessonRecall(words, verbs, target, pattern, native),
     [words, verbs, target, pattern, native],
   );
   const [queue, setQueue] = useState(() => sequence);
+  const speak = useTargetSpeaker(queue[0]?.id ?? null);
   const [revealed, setRevealed] = useState(false);
   const [skipped, setSkipped] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
@@ -666,11 +671,11 @@ function MatchMode({
   onComplete: () => void;
   maxPairs?: number;
 }) {
-  const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
   const terms = useMemo(() => words.filter((w) => w.kind === "term"), [words]);
   const [rounds, setRounds] = useState(() => splitRounds(shuffle(terms), maxPairs));
   const [roundIndex, setRoundIndex] = useState(0);
+  const speak = useTargetSpeaker(roundIndex);
   const [tiles, setTiles] = useState<MatchTile[]>(() =>
     rounds[0] ? buildMatchTiles(rounds[0]) : [],
   );
@@ -817,13 +822,15 @@ function ListenMode({
   onComplete: () => void;
   contextual?: boolean;
 }) {
-  const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
   const [order, setOrder] = useState<LessonWord[]>(() => shuffle(words));
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  // The card is the run, not the word: Next speaks the upcoming word before it is shown, and
+  // that newer word already takes the place of an older notice.
+  const speak = useTargetSpeaker(finished ? "score" : "run");
 
   const current = order[index];
   const options = useMemo(
@@ -960,7 +967,6 @@ function ListenMode({
 // ─── 5. Type it ───────────────────────────────────────────────────────────────
 
 function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
-  const speak = useTargetSpeaker();
   const { target, exactSpelling } = useKitLanguages();
   const specialChars = SPECIAL_CHARS_BY_LANGUAGE[target] ?? [];
   const [order, setOrder] = useState<LessonWord[]>(() => shuffle(words));
@@ -969,6 +975,7 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
   const [result, setResult] = useState<"right" | "wrong" | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const speak = useTargetSpeaker(finished ? null : index);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const current = order[index];
@@ -1222,7 +1229,6 @@ function WritingWorkspace({
 }
 
 function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
-  const speak = useTargetSpeaker();
   const { target, native } = useKitLanguages();
   const readInk = useHandwritingReader(target);
   const online = useOnline();
@@ -1254,6 +1260,7 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
   const index = stage === "copy" ? copyIndex : answerIndex;
   const word = list[index];
   const finished = stage === "copy" ? copyFinished : answerFinished;
+  const speak = useTargetSpeaker(finished ? null : `${stage}:${index}`);
 
   /** A fresh pad: clears the writing. Used by Start over and when moving to another word. */
   const resetStep = () => {

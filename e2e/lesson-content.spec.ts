@@ -415,3 +415,193 @@ test("Recall HD recordings, authored forms and wrong-pair retry work in both the
   ).toBe(0);
   expect(cloudRequests).toBe(0);
 });
+
+test("Recall verb-form matching marks both wrong tiles with red and an error mark, clears them together and can be retried", async ({
+  page,
+}, testInfo) => {
+  test.setTimeout(180_000);
+  await openModuleCore30(page);
+  await openLesson1(page);
+  await goSection(page, "recall");
+  const deck = page.getByTestId("lesson-recall-deck");
+  await expect(deck).toBeVisible();
+  const round = deck.getByTestId("lesson-verb-game-round");
+  const prompts = round.getByTestId("verb-match-prompt");
+  const answers = round.getByTestId("verb-match-answer");
+  // Walk the deck to its "Match the verb forms" break: cards are flipped and graded, the word
+  // match and the choose-the-form round are skipped.
+  for (let step = 0; step < 120; step++) {
+    const current = deck.getByTestId("recall-step");
+    const kind = await current.getAttribute("data-kind");
+    if (kind === "verb-game" && (await prompts.count()) > 0) break;
+    if (kind === "card") {
+      await current.getByRole("button", { name: "Flip the card", exact: true }).click();
+      await current.getByRole("button", { name: "Got it", exact: true }).click();
+    } else await deck.getByRole("button", { name: "Skip this activity", exact: true }).click();
+  }
+  await expect(
+    deck.getByRole("heading", { name: "Match the verb forms", exact: true }),
+  ).toBeVisible();
+  const status = round.getByRole("status");
+  const wrong = round.locator('[data-wrong="true"]');
+  const marks = round.getByTestId("verb-match-wrong-mark");
+
+  // Each answer on the board belongs to a different verb, so for the first prompt's verb every
+  // answer that is not one of its own authored forms is a wrong one.
+  const promptText = await prompts.first().innerText();
+  const infinitive = promptText.split(" · ")[1];
+  const verb = LESSON_1.verbs.find((candidate) => candidate.infinitive === infinitive);
+  expect(verb, `${infinitive} is one of the lesson's verbs`).toBeTruthy();
+  const own = new Set(Object.values(verb!.forms));
+  const answerTexts = await answers.allInnerTexts();
+  const right = answerTexts.findIndex((text) => own.has(text));
+  const misses = answerTexts.flatMap((text, at) => (own.has(text) ? [] : [at]));
+  expect(right).toBeGreaterThanOrEqual(0);
+  expect(misses.length).toBeGreaterThanOrEqual(2);
+
+  // Hold the clock so the red feedback stays up while it is checked.
+  await page.clock.install();
+  await page.clock.pauseAt(Date.now() + 1000);
+  await prompts.first().click();
+  await expect(prompts.first()).toHaveAttribute("aria-pressed", "true");
+  await answers.nth(misses[0]).click();
+  await expect(wrong).toHaveCount(2);
+  await expect(prompts.first()).toHaveAttribute("data-wrong", "true");
+  await expect(answers.nth(misses[0])).toHaveAttribute("data-wrong", "true");
+  await expect(marks).toHaveCount(2);
+  await expect(prompts.first().getByTestId("verb-match-wrong-mark")).toBeVisible();
+  await expect(answers.nth(misses[0]).getByTestId("verb-match-wrong-mark")).toBeVisible();
+  await expect(status).toHaveText("Not a match. Try again.");
+  await expect(prompts.first()).toHaveAttribute("aria-pressed", "true");
+  await expect(round.locator("button:disabled")).toHaveCount(0);
+  // Red, not the picked prompt's gold: both wrong tiles share one fill, unlike an untouched tile.
+  const fill = (index: number, list = answers) =>
+    list.nth(index).evaluate((element) => getComputedStyle(element).backgroundColor);
+  expect(await fill(0, prompts)).toBe(await fill(misses[0]));
+  expect(await fill(misses[0])).not.toBe(await fill(right));
+  await page.screenshot({ path: testInfo.outputPath("verb-match-wrong.png"), fullPage: true });
+
+  // A second wrong answer straight away: that pair is the one marked, and still only two tiles.
+  await answers.nth(misses[1]).click();
+  await expect(wrong).toHaveCount(2);
+  await expect(answers.nth(misses[1])).toHaveAttribute("data-wrong", "true");
+  await expect(answers.nth(misses[0])).toHaveAttribute("data-wrong", "false");
+  await expect(marks).toHaveCount(2);
+
+  // The red clears by itself: nothing is picked or marked, and nothing was matched.
+  await page.clock.resume();
+  await expect(wrong).toHaveCount(0);
+  await expect(marks).toHaveCount(0);
+  await expect(status).toHaveText("");
+  await expect(prompts.first()).toHaveAttribute("aria-pressed", "false");
+  await expect(round.locator("button:disabled")).toHaveCount(0);
+
+  // Retry: the same prompt with its own form matches, and the round goes on.
+  await prompts.first().click();
+  await answers.nth(right).click();
+  await expect(status).toContainText("Matched.");
+  await expect(prompts.first()).toBeDisabled();
+  await expect(answers.nth(right)).toBeDisabled();
+  await expect(round).toContainText("1 of");
+});
+
+test("Say It: a 'could not play in HD' notice leaves when the microphone opens or the word changes, and still works for its own word", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const w = window as unknown as { deviceSpeech: string[]; microphoneOpen: boolean };
+    localStorage.setItem("lt.languageChosen", "1");
+    w.deviceSpeech = [];
+    w.microphoneOpen = false;
+    if (window.speechSynthesis)
+      window.speechSynthesis.speak = (utterance) => {
+        w.deviceSpeech.push(utterance.text);
+      };
+    class Recognition {
+      onend?: () => void;
+      start() {
+        w.microphoneOpen = true;
+      }
+      stop() {
+        w.microphoneOpen = false;
+        this.onend?.();
+      }
+      abort() {
+        w.microphoneOpen = false;
+      }
+    }
+    Object.defineProperty(window, "SpeechRecognition", { value: Recognition, configurable: true });
+  });
+  // The reviewed recordings cannot be fetched and there is no HD voice: every Listen is a miss.
+  let audioRequests = 0;
+  await page.route("**/audio/**", (route) => {
+    audioRequests++;
+    return route.abort();
+  });
+  await page.route("**/api/mission-tts**", (route) =>
+    route.fulfill({ status: 503, json: { error: "HD voice unavailable in this test" } }),
+  );
+  await page.goto("/");
+  await seedAppState(page, {
+    onboardingComplete: true,
+    currentTab: "core30",
+    activeModuleId: "orthopedics",
+    selectedLanguage: "Spanish",
+    nativeLanguage: "English",
+    lessonProgress: { [core30Key("orthopedics")]: 1 },
+  });
+  await page.goto(
+    "/?module=orthopedics&target=Spanish&native=English&tab=core30&lesson=10&way=say",
+  );
+  const target = page.getByTestId("say-word-target");
+  await expect(target).toHaveText("manguito rotador");
+  const listen = page.getByRole("button", { name: "Listen", exact: true });
+  const notice = page
+    .locator("[data-sonner-toast]")
+    .filter({ has: page.getByRole("button", { name: "Use device voice", exact: true }) });
+  const deviceSpeech = () =>
+    page.evaluate(() => (window as unknown as { deviceSpeech: string[] }).deviceSpeech);
+
+  // The microphone opens while a notice is on screen: the notice goes, and nothing plays.
+  // (A notice stays up for twelve seconds by itself, so "goes" means within a moment.)
+  await listen.click();
+  await expect(notice).toHaveCount(1);
+  const requestsBefore = audioRequests;
+  await page.getByTestId("say-word-record").click();
+  await expect(notice).toHaveCount(0, { timeout: 3000 });
+  await expect(listen).toBeDisabled();
+  const microphoneOpen = () =>
+    page.evaluate(() => (window as unknown as { microphoneOpen: boolean }).microphoneOpen);
+  expect(await microphoneOpen()).toBe(true);
+  await page.waitForTimeout(700);
+  expect(audioRequests).toBe(requestsBefore);
+  expect(await deviceSpeech()).toEqual([]);
+  expect(await microphoneOpen()).toBe(true);
+  // The learner finishes speaking.
+  await page.getByTestId("say-word-record").click();
+  await expect(listen).toBeEnabled();
+
+  // The next word: the notice for the previous one does not follow.
+  await listen.click();
+  await expect(notice).toHaveCount(1);
+  await page.getByTestId("say-word-next").click();
+  await expect(target).toHaveText("hombro");
+  await expect(notice).toHaveCount(0, { timeout: 3000 });
+  expect(await deviceSpeech()).toEqual([]);
+
+  // For the word on screen the notice works. A second miss keeps one notice up...
+  await listen.click();
+  await expect(notice).toHaveCount(1);
+  await listen.click();
+  await page.waitForTimeout(700);
+  await expect(notice).toHaveCount(1);
+  // ...Try again, still a miss here, tells the learner again instead of leaving nothing...
+  await notice.getByRole("button", { name: "Try again", exact: true }).click();
+  await page.waitForTimeout(700);
+  await expect(notice).toHaveCount(1);
+  expect(await deviceSpeech()).toEqual([]);
+  // ...and Use device voice reads the word with this device's voice, by the learner's choice.
+  await notice.getByRole("button", { name: "Use device voice", exact: true }).click();
+  await expect.poll(deviceSpeech).toEqual(["hombro"]);
+  await expect(notice).toHaveCount(0, { timeout: 3000 });
+});

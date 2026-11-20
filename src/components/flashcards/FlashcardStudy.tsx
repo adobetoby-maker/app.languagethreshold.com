@@ -49,9 +49,11 @@ export function FlashcardStudy({
   // learner's listening choice: recorded HD audio, then the HD voice, and a notice instead of
   // a device voice when HD audio cannot play. The HD choice is saved per learning language, so
   // a native-language back (My Vocab) is read by this device's voice and is never called HD.
+  // The notice for a back that could not play belongs to its card: grading moves on from it.
   const { speak: speakListening } = useListeningSpeaker(
     JSON.stringify(["flashcard-study", backLanguage]),
     backLanguage,
+    current?.key ?? null,
   );
   const speak = useCallback((text: string) => speakListening(text), [speakListening]);
 

@@ -18,6 +18,7 @@ import { useApp } from "@/state/app-state";
 import { useLibrary } from "@/state/library-state";
 import { useNotes } from "@/state/notes-state";
 import { useSpeech } from "@/state/speech-state";
+import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
 import { useTutor } from "@/state/tutor-state";
 import { AnnotatedSentence } from "./AnnotatedSentence";
 import { FuriganaText, type FuriganaScript } from "./FuriganaText";
@@ -562,6 +563,10 @@ export function ParallelReader() {
   useEffect(() => {
     setChapterIndex(0);
   }, [selected.id]);
+
+  // A sentence or passage that could not play in HD belongs to this text and chapter: opening
+  // another one withdraws its notice, so a retry never reads the old text over the new one.
+  useReadingNoticeScope(`${selected.id}:${safeChapterIndex}`);
 
   const readerLocationRef = useRef(`${selected.id}:${safeChapterIndex}`);
   const currentSourceContext = tutor.contextFor(selected.id);

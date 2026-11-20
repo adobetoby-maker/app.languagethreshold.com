@@ -9,6 +9,7 @@ import { resolve, join } from "node:path";
 import { createLearnerDeviceStore, learnerDeviceKey } from "../src/lib/learner-device-store.ts";
 import { encodeGoogleVoicePreference } from "../src/data/mission-tts.ts";
 import { DEVICE_DEFAULT_VOICE } from "../src/data/mobile-voice.ts";
+import { listeningNoticeId } from "../src/lib/listening-audio.ts";
 
 const test = (name, fn) => nodeTest(name, { timeout: 30_000 }, fn);
 const tick = () => new Promise((r) => setImmediate(r));
@@ -46,7 +47,7 @@ const FIXTURE = `
  export const needsRemoteTTS=()=>controls.remote,hasRecordedListeningAudio=(text,locale,gender)=>controls.recorded(text,locale,gender),stopRemoteTTS=()=>controls.stops++;
  export const speakRemote=(text,locale,opts)=>{controls.jobs.push({text,locale,opts});return Promise.resolve();};
  export const getMissionTtsCapabilities=(accent,signal)=>controls.catalog(accent,signal);
- export const toast=Object.assign((title,opts)=>{controls.notices.push({title,...opts});},{dismiss:id=>controls.dismissed.push(id)});
+ export const toast=Object.assign((title,opts)=>{controls.notices.push({title,...opts});},{dismiss:id=>{controls.dismissed.push(id);}});
 `;
 
 async function fixture(run) {
@@ -308,10 +309,23 @@ test("HD audio that cannot play is reported with a retry; the device voice plays
     v = render();
     assert.equal(v.listeningFallback, false);
     assert.equal(v.listening.strict, true);
-    assert.ok(c.dismissed.includes("listening-hd-unavailable"));
     v.speakSentence("Conectan los cables.", 5);
     drain();
     assert.equal(c.jobs[4].opts.cloudOnly, true);
+    // Each notice was used once: pressing its buttons again does nothing more.
+    const jobs = c.jobs.length;
+    for (const used of c.notices) {
+      used.action.onClick();
+      used.cancel.onClick();
+    }
+    drain();
+    assert.equal(c.jobs.length, jobs, "a used notice does nothing more");
+    assert.equal(render().listeningFallback, false);
+    // And each was its own toast.
+    assert.deepEqual(
+      c.notices.map((n) => n.id),
+      [listeningNoticeId(1), listeningNoticeId(2)],
+    );
   }));
 
 test("a passage stops at the sentence that could not play in HD and resumes from it", () =>
@@ -362,7 +376,7 @@ test("stopping, switching language or leaving cancels playback and silences late
     assert.equal(c.notices.length, 0, "a stopped playback reports nothing");
     assert.equal(c.jobs[0].opts.owner.isCurrent(), false);
 
-    // A standing notice and the device fill-in do not survive a language switch.
+    // The device fill-in does not survive a language switch.
     v.speakSentence("Otra frase.", 1);
     drain();
     c.jobs[1].opts.onerror("unavailable");
@@ -373,11 +387,26 @@ test("stopping, switching language or leaving cancels playback and silences late
     props.language = "French";
     v = await settle();
     assert.equal(v.listeningFallback, false);
-    assert.ok(c.dismissed.includes("listening-hd-unavailable"));
     assert.equal(c.jobs.at(-1).opts.owner.isCurrent(), false);
+    // Nor does a notice that is still standing: it leaves, and its buttons do nothing.
+    props.language = "Spanish";
+    v = await settle();
+    v.speakSentence("Una frase más.", 2);
+    drain();
+    c.jobs.at(-1).opts.onerror("unavailable");
+    const standing = c.notices.at(-1);
+    props.language = "French";
+    v = await settle();
+    assert.ok(c.dismissed.includes(standing.id), "the notice left with the language");
+    let jobs = c.jobs.length;
+    standing.cancel.onClick();
+    standing.action.onClick();
+    drain();
+    assert.equal(c.jobs.length, jobs);
+    assert.equal(render().listeningFallback, false);
 
     // After the account subtree is gone, an old notice button does nothing.
-    const jobs = c.jobs.length;
+    jobs = c.jobs.length;
     c.unmount();
     staleRetry();
     drain();
@@ -519,4 +548,266 @@ test("the resolved HD voice is remembered for the same accent and gender, so sav
     v = await settle();
     assert.equal(v.voiceURI, DEVICE_DEFAULT_VOICE);
     assert.equal(savedFor("a").hdVoiceByLang.Spanish, undefined);
+  }));
+
+// ─── The notice belongs to the playback that raised it ────────────────────────
+
+const PASSAGE = [
+  { text: "Uno.", index: 0 },
+  { text: "Dos.", index: 1 },
+  { text: "Tres.", index: 2 },
+];
+
+test("a notice's buttons work once, each notice is its own toast, and a newer miss takes the older one's place", () =>
+  fixture(async ({ c, settle, drain, render }) => {
+    c.catalog = async () => CATALOG;
+    const v = await settle();
+    v.speakSentence("Conecto la tierra.", 0);
+    drain();
+    c.jobs[0].opts.onerror("offline");
+    const first = c.notices.at(-1);
+
+    // Try again, pressed twice (a double tap, or a saved handler): one retry.
+    first.action.onClick();
+    first.action.onClick();
+    first.cancel.onClick();
+    drain();
+    assert.equal(c.jobs.length, 2, "one press, one retry");
+    assert.equal(render().listeningFallback, false, "a used notice cannot switch voices");
+
+    // The retry fails too: a new notice, in its own toast.
+    c.jobs[1].opts.onerror("offline");
+    const second = c.notices.at(-1);
+    assert.deepEqual([first.id, second.id], [listeningNoticeId(1), listeningNoticeId(2)]);
+    assert.equal(c.dismissed.includes(second.id), false, "the new notice stays on screen");
+
+    // A newer miss replaces the standing notice: the older one leaves and is dead.
+    render().speakSentence("Otra frase.", 1);
+    drain();
+    assert.ok(c.dismissed.includes(second.id), "starting other reading withdrew it");
+    c.jobs.at(-1).opts.onerror("busy");
+    const third = c.notices.at(-1);
+    assert.equal(third.id, listeningNoticeId(3));
+    assert.equal(c.dismissed.includes(third.id), false, "withdrawing one never takes down the next");
+    const jobs = c.jobs.length;
+    second.cancel.onClick();
+    second.action.onClick();
+    drain();
+    assert.equal(c.jobs.length, jobs, "the replaced notice does nothing");
+    assert.equal(render().listeningFallback, false);
+    third.action.onClick();
+    drain();
+    assert.equal(c.jobs.at(-1).text, "Otra frase.", "the standing notice retries its own text");
+  }));
+
+test("reading that was stopped, replaced, left for another text, or followed by audio takes its notice with it", () =>
+  fixture(async ({ c, settle, drain, render, utterances }) => {
+    c.catalog = async () => CATALOG;
+    await settle();
+    /** A passage stops at a sentence that cannot play in HD; returns the notice for it. */
+    const failing = () => {
+      render().speakSentences(PASSAGE);
+      drain();
+      c.jobs.at(-1).opts.onend("hd");
+      c.jobs.at(-1).opts.onerror("offline");
+      return c.notices.at(-1);
+    };
+    /** Both saved buttons are pressed: nothing may be read and the device voice stays off. */
+    const assertDead = (notice, why) => {
+      const jobs = c.jobs.length;
+      const spoken = utterances.length;
+      notice.cancel.onClick();
+      notice.action.onClick();
+      drain();
+      assert.equal(c.jobs.length, jobs, `${why}: nothing is read`);
+      assert.equal(utterances.length, spoken, `${why}: not by this device's voice either`);
+      const v = render();
+      assert.equal(v.listeningFallback, false, `${why}: the device voice is not switched on`);
+      assert.equal(v.playing, false);
+      assert.equal(v.activeSentenceIndex, -1, `${why}: no sentence is lit up`);
+      assert.ok(c.dismissed.includes(notice.id), `${why}: the notice left the screen`);
+    };
+
+    // In place, the notice still resumes the passage (the working case).
+    let notice = failing();
+    notice.action.onClick();
+    drain();
+    assert.equal(c.jobs.at(-1).text, "Dos.");
+    render().stop();
+
+    // Stop.
+    notice = failing();
+    render().stop();
+    assertDead(notice, "after Stop");
+
+    // The Reader opens another text or chapter (what useReadingNoticeScope calls).
+    notice = failing();
+    render().forgetReadingNotice();
+    assertDead(notice, "after another text");
+    render().forgetReadingNotice();
+
+    // Other reading starts: a word from the same page.
+    notice = failing();
+    render().speakWord("billete");
+    assert.ok(c.dismissed.includes(notice.id), "a newer request withdrew the passage's notice");
+    drain();
+    const word = c.jobs.at(-1);
+    assert.equal(word.text, "billete");
+    {
+      const jobs = c.jobs.length;
+      notice.cancel.onClick();
+      notice.action.onClick();
+      drain();
+      assert.equal(c.jobs.length, jobs, "the old passage does not restart over the word");
+      assert.equal(word.opts.owner.isCurrent(), true, "and the word keeps playing");
+      assert.equal(render().listeningFallback, false);
+    }
+    word.opts.onend("hd");
+
+    // Audio that plays anywhere clears the notice, and its buttons with it.
+    notice = failing();
+    render().noteListeningPlayed("recording");
+    assertDead(notice, "after other audio played");
+
+    // A new voice choice or accent starts strict again.
+    notice = failing();
+    render().setVoiceSettings({ speakingGender: "man" });
+    assertDead(notice, "after a voice setting changed");
+    notice = failing();
+    render().setAccent("es-MX");
+    assertDead(notice, "after the accent changed");
+  }));
+
+test("another learner, or an app that has gone, never acts on a saved notice", () =>
+  fixture(async ({ c, settle, drain, render, signIn, utterances }) => {
+    c.catalog = async () => CATALOG;
+    await settle();
+    render().speakSentences(PASSAGE);
+    drain();
+    c.jobs.at(-1).opts.onerror("offline");
+    let notice = c.notices.at(-1);
+    // Another account is now the current one on this device.
+    c.actor = "b";
+    let jobs = c.jobs.length;
+    notice.cancel.onClick();
+    notice.action.onClick();
+    drain();
+    assert.equal(c.jobs.length, jobs);
+    assert.equal(utterances.length, 0);
+    c.actor = "a";
+    assert.equal(render().listeningFallback, false, "the first learner's choice is untouched");
+
+    render().speakSentences(PASSAGE);
+    drain();
+    c.jobs.at(-1).opts.onerror("offline");
+    notice = c.notices.at(-1);
+    c.unmount();
+    assert.ok(c.dismissed.includes(notice.id), "the notice left with the app");
+    jobs = c.jobs.length;
+    notice.cancel.onClick();
+    notice.action.onClick();
+    drain();
+    assert.equal(c.jobs.length, jobs);
+    assert.equal(utterances.length, 0);
+    signIn("a");
+    assert.equal((await settle()).listeningFallback, false);
+  }));
+
+test("a surface's notice is the surface's: its own check decides, and stopping the Reader does not take it", () =>
+  fixture(async ({ c, settle, drain, render }) => {
+    c.catalog = async () => CATALOG;
+    const v = await settle();
+    const retried = [];
+    let owned = true;
+    const raise = (reason = "offline") => ({
+      withdraw: v.reportListeningIssue(reason, () => retried.push(reason), () => owned),
+      notice: c.notices.at(-1),
+    });
+
+    // The surface no longer owns the request when it fails: nothing is shown.
+    owned = false;
+    const before = c.notices.length;
+    const nothing = v.reportListeningIssue("offline", () => retried.push("unowned"), () => owned);
+    assert.equal(c.notices.length, before, "no notice for a request nobody is waiting for");
+    nothing();
+    assert.deepEqual(c.dismissed, []);
+
+    // Owned: both buttons work for it, once.
+    owned = true;
+    let { notice } = raise("busy");
+    notice.cancel.onClick();
+    assert.deepEqual(retried, ["busy"]);
+    assert.equal(render().listeningFallback, true);
+    render().noteListeningPlayed("hd");
+    assert.equal(render().listeningFallback, false);
+
+    // The surface moved on (stop, next card, left) after the notice was shown.
+    ({ notice } = raise());
+    owned = false;
+    notice.cancel.onClick();
+    notice.action.onClick();
+    assert.deepEqual(retried, ["busy"], "no retry for a surface that moved on");
+    assert.equal(render().listeningFallback, false, "and no switch to this device's voice");
+
+    // Withdrawing takes down that notice only, never a newer one.
+    owned = true;
+    const older = raise();
+    const newer = raise();
+    assert.ok(c.dismissed.includes(older.notice.id), "one notice at a time");
+    older.withdraw();
+    assert.equal(c.dismissed.includes(newer.notice.id), false, "a late withdrawal leaves the newer notice");
+    newer.notice.action.onClick();
+    assert.deepEqual(retried, ["busy", "offline"]);
+
+    // The Reader's Stop is about reading; a surface's notice stays the surface's.
+    const surface = raise();
+    render().stop();
+    render().forgetReadingNotice();
+    assert.equal(c.dismissed.includes(surface.notice.id), false);
+    surface.notice.action.onClick();
+    assert.deepEqual(retried, ["busy", "offline", "offline"]);
+    surface.withdraw();
+    drain();
+  }));
+
+test("only the learner's own voice pick counts as a voice choice; a voice that finished resolving does not", () =>
+  fixture(async ({ c, settle, render }) => {
+    // The voice list is slow: a tap can come before it.
+    let deliver;
+    c.catalog = () => new Promise((resolve) => (deliver = () => resolve(CATALOG)));
+    let v = await settle();
+    assert.equal(v.voiceURI, null, "still resolving");
+    assert.equal(v.voiceChoice, 0);
+    deliver();
+    v = await settle();
+    assert.equal(v.voiceURI, AOEDE);
+    assert.equal(v.voiceChoice, 0, "resolving is not a choice");
+
+    // The learner picks another voice, and the same one again.
+    v.setVoiceURI(CHARON);
+    v = render();
+    assert.equal(v.voiceURI, CHARON);
+    assert.equal(v.voiceChoice, 1);
+    v.setVoiceURI(CHARON);
+    assert.equal(render().voiceChoice, 1, "the same voice again is no change");
+
+    // A new listening gender re-resolves the voice: the gender is the choice, not the voice.
+    c.catalog = async () => CATALOG;
+    v.setVoiceSettings({ listeningGender: "man" });
+    assert.equal(render().voiceURI, null);
+    v = await settle();
+    assert.equal(v.voiceURI, CHARON);
+    assert.equal(v.voiceChoice, 1);
+
+    // Filling in a voice that has not resolved yet replaces nothing.
+    c.catalog = () => new Promise(() => {});
+    v.setVoiceSettings({ listeningGender: "woman" });
+    v = render();
+    assert.equal(v.voiceURI, null);
+    v.setVoiceURI(AOEDE);
+    v = render();
+    assert.equal(v.voiceURI, AOEDE);
+    assert.equal(v.voiceChoice, 1);
+    v.setVoiceURI(DEVICE_DEFAULT_VOICE);
+    assert.equal(render().voiceChoice, 2, "replacing a settled voice is a choice");
   }));

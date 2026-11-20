@@ -8,17 +8,23 @@ import { mkdtempSync, rmSync } from "node:fs";
 import { resolve, join } from "node:path";
 import { encodeGoogleVoicePreference } from "../src/data/mission-tts.ts";
 import { DEVICE_DEFAULT_VOICE } from "../src/data/mobile-voice.ts";
+import { NOTICE_STANDIN } from "./helpers/listening-surface.mjs";
 
 const test = (name, fn) => nodeTest(name, { timeout: 30_000 }, fn);
 const AOEDE = encodeGoogleVoicePreference({
   name: "es-US-Chirp3-HD-Aoede",
   languageCodes: ["es-US"],
 });
+const CHARON = encodeGoogleVoicePreference({
+  name: "es-US-Chirp3-HD-Charon",
+  languageCodes: ["es-US"],
+});
 
 const FIXTURE = `
  import { planListening } from './src/lib/listening-audio.ts';
+ ${NOTICE_STANDIN}
  export const controls={actor:'a',host:null,jobs:[],issues:[],played:[],planned:[],
-  speech:{accent:'es-CR',rate:1,voiceURI:null,source:'hd',gender:'woman',fallback:false}};
+  speech:{accent:'es-CR',rate:1,voiceURI:null,voiceChoice:0,source:'hd',gender:'woman',fallback:false}};
  const changed=(a,b)=>!a||a.length!==b.length||a.some((v,i)=>v!==b[i]);
  export function useRef(initial){const h=controls.host,i=h.cursor++;if(!(i in h.slots))h.slots[i]={current:initial};return h.slots[i];}
  export function useCallback(fn,deps){const h=controls.host,i=h.cursor++,old=h.slots[i];if(!old||changed(old.deps,deps))h.slots[i]={deps,fn};return h.slots[i].fn;}
@@ -27,9 +33,10 @@ const FIXTURE = `
  export const useAuth=()=>({user:controls.actor?{id:controls.actor}:null,isCurrentUser});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'},{code:'es-MX'}],French:[{code:'fr-FR'}],English:[{code:'en-US'}],Chinese:[{code:'zh-CN'}]};
  const listeningPlan=locale=>{const s=controls.speech;controls.planned.push(locale);return planListening({locale:locale??s.accent,learningLocale:s.accent,source:s.source,gender:s.gender,voiceURI:s.voiceURI,signedIn:controls.actor!==null,deviceFallback:s.fallback});};
- const reportListeningIssue=(reason,retry)=>controls.issues.push({reason,retry});
+ // The provider's notice, by its own rules: see NOTICE_STANDIN.
+ const reportListeningIssue=(reason,retry,isCurrent)=>standInNotice(controls.speech,controls.issues,reason,retry,isCurrent);
  const noteListeningPlayed=source=>controls.played.push(source);
- export const useSpeech=()=>{const s=controls.speech;return {accent:s.accent,rate:s.rate,voiceURI:s.voiceURI,voiceSettings:{listeningAudioSource:s.source,listeningGender:s.gender},listeningPlan,reportListeningIssue,noteListeningPlayed};};
+ export const useSpeech=()=>{const s=controls.speech;return {accent:s.accent,rate:s.rate,voiceURI:s.voiceURI,voiceChoice:s.voiceChoice,voiceSettings:{listeningAudioSource:s.source,listeningGender:s.gender},listeningPlan,reportListeningIssue,noteListeningPlayed};};
  export const speakRemote=(text,locale,opts)=>{controls.jobs.push({text,locale,opts});return Promise.resolve();};
 `;
 
@@ -66,10 +73,10 @@ async function fixture(run) {
     const m = await import(outfile),
       c = m.controls;
     const host = () => ({ slots: [], effects: [], cursor: 0 });
-    const render = (h, scope, language) => {
+    const render = (h, scope, language, card) => {
       c.host = h;
       h.cursor = 0;
-      const speaker = m.useListeningSpeaker(scope, language);
+      const speaker = m.useListeningSpeaker(scope, language, card);
       for (const f of h.effects.splice(0)) f();
       return speaker;
     };
@@ -181,15 +188,15 @@ test("HD audio that cannot play is reported once per tap with a retry that follo
     assert.equal(c.issues[0].reason, "busy");
 
     // "Try again": the same word, still HD only.
-    c.issues[0].retry();
+    assert.equal(c.issues[0].tryAgain(), true);
     assert.equal(c.jobs.length, 2);
     assert.equal(c.jobs[1].text, "conectamos");
     assert.equal(c.jobs[1].opts.cloudOnly, true);
     c.jobs[1].opts.onerror("busy");
 
     // "Use device voice": the provider flips the policy, then the retry reads it as it is now.
-    c.speech.fallback = true;
-    c.issues[1].retry();
+    assert.equal(c.issues[1].useDeviceVoice(), true);
+    assert.equal(c.speech.fallback, true);
     assert.equal(c.jobs.length, 3);
     assert.equal(c.jobs[2].text, "conectamos");
     assert.equal(c.jobs[2].opts.cloudOnly, false);
@@ -224,12 +231,14 @@ test("playback belongs to its surface: leaving, another learner or a new voice e
     matchSpeaker.speak("tarde");
     assert.equal(c.jobs.length, before);
     cardJob.opts.onerror("offline");
-    const retry = c.issues.at(-1).retry;
+    const notice = c.issues.at(-1);
+    assert.equal(notice.standing, true);
 
     // The voice changes (Settings): the playing word stops; the new voice is used next.
     c.speech.gender = "man";
     const fresh = render(card, "card", "Spanish");
     assert.equal(cardJob.opts.signal.aborted, true);
+    assert.equal(notice.standing, false, "a notice from before the change is withdrawn");
     cardSpeaker.speak("viejo");
     assert.equal(c.jobs.length, before, "a speaker from before the change is ignored");
     fresh.speak("conecta");
@@ -239,12 +248,198 @@ test("playback belongs to its surface: leaving, another learner or a new voice e
     c.actor = "b";
     const jobs = c.jobs.length;
     fresh.speak("otro");
-    retry();
+    notice.retry();
     assert.equal(c.jobs.length, jobs);
     assert.equal(c.jobs.at(-1).opts.owner.isCurrent(), false);
     unmount(card);
-    retry();
+    notice.retry();
     assert.equal(c.jobs.length, jobs);
+  }));
+
+test("a notice belongs to the request that raised it: the same word may be retried, at the same speed", () =>
+  fixture(async ({ c, host, render }) => {
+    c.speech.voiceURI = AOEDE;
+    const card = host();
+    const speaker = render(card, "say-word:1", "Spanish");
+    speaker.speak("manguito rotador", { rate: 0.55 });
+    c.jobs[0].opts.onerror("busy");
+    const first = c.issues.at(-1);
+    assert.equal(first.standing, true);
+    // A re-render of the same card (a score appearing, a timer) leaves the notice alone.
+    render(card, "say-word:1", "Spanish");
+    render(card, "say-word:1", "Spanish");
+    assert.equal(first.standing, true);
+    assert.equal(first.tryAgain(), true);
+    assert.equal(c.jobs.length, 2);
+    assert.equal(c.jobs[1].text, "manguito rotador");
+    assert.equal(c.jobs[1].opts.rate, 0.55, "the slow speed is kept");
+    assert.equal(c.jobs[1].opts.cloudOnly, true);
+    assert.equal(first.tryAgain(), false, "a notice is used once");
+    assert.equal(c.jobs.length, 2);
+
+    c.jobs[1].opts.onerror("offline");
+    const second = c.issues.at(-1);
+    assert.equal(second.useDeviceVoice(), true);
+    assert.equal(c.speech.fallback, true, "the learner's own choice is taken");
+    assert.equal(c.jobs.length, 3);
+    assert.equal(c.jobs[2].text, "manguito rotador");
+    assert.equal(c.jobs[2].opts.rate, 0.55);
+    assert.equal(c.jobs[2].opts.cloudOnly, false);
+  }));
+
+test("stop, a newer word, another scope or card, another learner and leaving each withdraw the notice: its saved buttons play nothing and switch nothing", () =>
+  fixture(async ({ c, host, render, unmount }) => {
+    c.speech.voiceURI = AOEDE;
+    /** A word that cannot play in HD on a fresh surface; returns the surface and its notice. */
+    const failing = (scope = "say-word:1", card) => {
+      const surface = host();
+      const speaker = render(surface, scope, "Spanish", card);
+      speaker.speak("manguito rotador", { rate: 0.55 });
+      c.jobs.at(-1).opts.onerror("offline");
+      const notice = c.issues.at(-1);
+      assert.equal(notice.standing, true);
+      return { surface, speaker, notice };
+    };
+    /** Both saved buttons are pressed; nothing may play and the device voice stays off. */
+    const assertDead = (notice, why) => {
+      const jobs = c.jobs.length;
+      assert.equal(notice.standing, false, `${why}: the notice is withdrawn`);
+      assert.equal(notice.useDeviceVoice(), false, `${why}: Use device voice does nothing`);
+      assert.equal(notice.tryAgain(), false, `${why}: Try again does nothing`);
+      assert.equal(c.jobs.length, jobs, `${why}: nothing is played`);
+      assert.equal(c.speech.fallback, false, `${why}: the device voice is not switched on`);
+    };
+
+    // Stop: what the Say It card does when the microphone opens.
+    let { speaker, notice } = failing();
+    speaker.stop();
+    assertDead(notice, "after stop");
+
+    // A newer word on the same surface: the notice is about the latest request only.
+    let surface;
+    ({ surface, speaker, notice } = failing());
+    speaker.speak("hombro");
+    const newer = c.jobs.at(-1);
+    assertDead(notice, "after a newer word");
+    assert.equal(newer.opts.signal.aborted, false, "the newer word keeps playing");
+    newer.opts.onerror("offline");
+    assert.equal(c.issues.at(-1).tryAgain(), true);
+    assert.equal(c.jobs.at(-1).text, "hombro", "its own notice retries the newer word");
+
+    // Another scope: the next word of Say It, the next question of a drill.
+    ({ surface, notice } = failing("say-word:1"));
+    render(surface, "say-word:2", "Spanish");
+    assertDead(notice, "after the scope changed");
+
+    // Another card inside one scope (a deck): the notice goes, the audio is left alone.
+    ({ surface, notice } = failing("lesson-kit", "card:conectar"));
+    render(surface, "lesson-kit", "Spanish", "card:conectar");
+    assert.equal(notice.standing, true, "the same card keeps its notice");
+    const next = render(surface, "lesson-kit", "Spanish", "card:medir");
+    assertDead(notice, "after the card changed");
+    // A word that is still playing when the card changes is not cut off by it.
+    next.speak("medir");
+    const overCardChange = c.jobs.at(-1);
+    render(surface, "lesson-kit", "Spanish", "card:cortar");
+    assert.equal(overCardChange.opts.signal.aborted, false);
+    assert.equal(overCardChange.opts.owner.isCurrent(), true);
+
+    // Another learner on this device.
+    ({ notice } = failing());
+    c.actor = "b";
+    {
+      const jobs = c.jobs.length;
+      assert.equal(
+        notice.useDeviceVoice(),
+        false,
+        "another learner: Use device voice does nothing",
+      );
+      assert.equal(notice.tryAgain(), false);
+      assert.equal(c.jobs.length, jobs);
+      assert.equal(c.speech.fallback, false);
+    }
+    c.actor = "a";
+
+    // Leaving the surface.
+    ({ surface, notice } = failing());
+    unmount(surface);
+    assertDead(notice, "after leaving");
+  }));
+
+test("a voice that only finished resolving never cuts off a word that is playing; the learner's own voice pick still does", () =>
+  fixture(async ({ c, host, render }) => {
+    // First visit: the HD voice list is still loading when the learner taps a recorded word.
+    c.speech.voiceURI = null;
+    const kit = host();
+    let speaker = render(kit, "lesson-kit", "Spanish");
+    speaker.speak("conecto");
+    const recording = c.jobs.at(-1);
+    assert.equal(recording.opts.recordedGender, "female", "the reviewed recording may play");
+    assert.equal(recording.opts.unavailableReason, "loading");
+
+    // The voice list arrives. Nothing the learner chose has changed: the word plays on.
+    c.speech.voiceURI = AOEDE;
+    speaker = render(kit, "lesson-kit", "Spanish");
+    assert.equal(recording.opts.signal.aborted, false, "the playing recording is not cut off");
+    assert.equal(recording.opts.owner.isCurrent(), true);
+    // The next tap uses the resolved HD voice.
+    speaker.speak("conectas");
+    assert.equal(c.jobs.at(-1).opts.voiceURI, AOEDE);
+    assert.equal(c.jobs.at(-1).opts.unavailableReason, undefined);
+
+    // The provider losing or regaining its voices mid-word is the same: metadata, not a choice.
+    const overRefresh = c.jobs.at(-1);
+    c.speech.voiceURI = DEVICE_DEFAULT_VOICE;
+    render(kit, "lesson-kit", "Spanish");
+    c.speech.voiceURI = AOEDE;
+    speaker = render(kit, "lesson-kit", "Spanish");
+    assert.equal(overRefresh.opts.signal.aborted, false);
+    assert.equal(overRefresh.opts.owner.isCurrent(), true);
+
+    // "The HD voice is getting ready": that notice must still work once the voice is ready.
+    c.speech.voiceURI = null;
+    speaker = render(kit, "lesson-kit", "Spanish");
+    speaker.speak("palabra sin grabación");
+    c.jobs.at(-1).opts.onerror("loading");
+    const gettingReady = c.issues.at(-1);
+    c.speech.voiceURI = AOEDE;
+    render(kit, "lesson-kit", "Spanish");
+    assert.equal(gettingReady.standing, true, "the notice stays for the retry it promises");
+    assert.equal(gettingReady.tryAgain(), true);
+    assert.equal(c.jobs.at(-1).text, "palabra sin grabación");
+    assert.equal(
+      c.jobs.at(-1).opts.voiceURI,
+      AOEDE,
+      "the retry is read by the voice that is now ready",
+    );
+
+    // The learner picks another voice: that is a choice, and it ends the word that is playing.
+    const before = c.jobs.at(-1);
+    const stale = speaker;
+    c.speech.voiceURI = CHARON;
+    c.speech.voiceChoice += 1;
+    speaker = render(kit, "lesson-kit", "Spanish");
+    assert.equal(before.opts.signal.aborted, true, "a picked voice ends the old voice's word");
+    assert.equal(before.opts.owner.isCurrent(), false);
+    const jobs = c.jobs.length;
+    stale.speak("viejo");
+    assert.equal(c.jobs.length, jobs, "a speaker from before the pick is ignored");
+    speaker.speak("conecta");
+    assert.equal(c.jobs.at(-1).opts.voiceURI, CHARON);
+
+    // So do the other choices: HD or device, and the accent.
+    for (const change of [
+      () => (c.speech.source = "device"),
+      () => (c.speech.accent = "es-MX"),
+      () => (c.speech.gender = "man"),
+    ]) {
+      speaker.speak("conectamos");
+      const playing = c.jobs.at(-1);
+      change();
+      speaker = render(kit, "lesson-kit", "Spanish");
+      assert.equal(playing.opts.signal.aborted, true);
+      assert.equal(playing.opts.owner.isCurrent(), false);
+    }
   }));
 
 test("multilingual: a surface in another language never borrows the selected language's HD voice", () =>

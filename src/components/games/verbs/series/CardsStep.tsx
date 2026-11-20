@@ -14,8 +14,14 @@ const RATINGS: { rating: CardRating; label: string; hint: string }[] = [
 ];
 
 /** Cards: front infinitive + person + English, back the form + example. Again brings a card back. */
-export function CardsStep(p: { items: SeriesItem[]; speak?: (text: string) => void; onFinish(run: StepRun): void }) {
-  const { items, speak, onFinish } = p;
+export function CardsStep(p: {
+  items: SeriesItem[];
+  speak?: (text: string) => void;
+  /** Told which card is showing (null when the step leaves), so what was said about one card's audio does not follow to the next. */
+  onCard?: (key: string | null) => void;
+  onFinish(run: StepRun): void;
+}) {
+  const { items, speak, onCard, onFinish } = p;
   const reduced = useReducedMotion();
   const byKey = useMemo(() => new Map(items.map((i) => [i.key, i])), [items]);
   const [cards, setCards] = useState(() => startCards(items));
@@ -73,6 +79,10 @@ export function CardsStep(p: { items: SeriesItem[]; speak?: (text: string) => vo
   useEffect(() => {
     cardRef.current?.focus({ preventScroll: true });
   }, [key]);
+  useEffect(() => {
+    onCard?.(key ?? null);
+    return () => onCard?.(null);
+  }, [key, onCard]);
 
   if (!current) return null;
   return (

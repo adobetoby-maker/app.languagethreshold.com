@@ -1,15 +1,23 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { XCircle } from "lucide-react";
 import type { LessonVerb } from "@/lib/lesson-content-core";
 import type { SpanishPattern } from "@/data/spanish-basics";
 import { useSpeech } from "@/state/speech-state";
-import { shuffle } from "@/lib/lesson-practice";
+import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
+import { MATCH_MISMATCH_MS, shuffle } from "@/lib/lesson-practice";
 import {
+  clearPairMismatch,
+  EMPTY_PAIR_BOARD,
   gameRoundItems,
   GAME_LETTERS,
   gameAnswer,
   lessonGameBank,
   maskedAnswer,
+  pairTileState,
+  tapPairAnswer,
+  tapPairPrompt,
   type LessonGameItem,
+  type PairBoard,
 } from "@/lib/lesson-verb-games";
 
 type Game = "meanings" | "matching" | "hangman" | "choice" | "typing";
@@ -20,8 +28,24 @@ const games: [Game, string][] = [
   ["choice", "Choose the form"],
   ["typing", "Type the form"],
 ];
-const button =
-  "min-h-11 rounded-lg border border-border bg-background px-3 py-2 text-foreground disabled:opacity-50 aria-pressed:bg-gold aria-pressed:text-background";
+const buttonShape = "min-h-11 rounded-lg border px-3 py-2 text-foreground disabled:opacity-50";
+const buttonTone = "border-border bg-background aria-pressed:bg-gold aria-pressed:text-background";
+const button = `${buttonShape} ${buttonTone}`;
+/** A matching tile. Its colours come from its state: the usual tone, or red for a wrong pair. */
+const pairTile = `${buttonShape} relative min-w-0 w-full whitespace-normal break-words px-2 text-sm sm:px-3 sm:text-base`;
+/** The word-match red. It replaces the picked prompt's gold, so BOTH tiles of a wrong pair show it. */
+const pairTileWrong = "border-red-500/60 bg-red-500/10";
+
+/** Colour is not the only signal: a wrong tile also carries this mark. */
+function WrongMark() {
+  return (
+    <XCircle
+      data-testid="verb-match-wrong-mark"
+      className="pointer-events-none absolute right-1 top-1 h-3.5 w-3.5 text-red-500"
+      aria-hidden="true"
+    />
+  );
+}
 export function LessonVerbGames({
   verbs,
   language,
@@ -96,8 +120,15 @@ export function GameRound({
   const [feedback, setFeedback] = useState("");
   const [answer, setAnswer] = useState("");
   const [guesses, setGuesses] = useState<string[]>([]);
-  const [selected, setSelected] = useState<string | null>(null);
-  const [matched, setMatched] = useState<string[]>([]);
+  const [pairs, setPairs] = useState<PairBoard>(EMPTY_PAIR_BOARD);
+  const { matched } = pairs;
+  const mismatchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(
+    () => () => {
+      if (mismatchTimer.current) clearTimeout(mismatchTimer.current);
+    },
+    [],
+  );
   const right = useMemo(() => shuffle(items), [items]);
   const current = items[index];
   const choices = useMemo(
@@ -117,6 +148,34 @@ export function GameRound({
   const boardStart = Math.floor(Math.min(matched.length, items.length - 1) / 4) * 4;
   const board = items.slice(boardStart, boardStart + 4);
   const finished = matching ? matched.length === items.length : !current;
+  // An answer that could not be read aloud in HD belongs to its question: the next question
+  // and leaving the round withdraw its notice.
+  useReadingNoticeScope(matching ? null : index);
+  function pickAnswer(item: LessonGameItem) {
+    const result = tapPairAnswer(pairs, item.id);
+    if (result.outcome === "ignored") return;
+    if (result.outcome === "needs-prompt") {
+      setFeedback("Choose a prompt first.");
+      return;
+    }
+    setPairs(result.board);
+    if (result.outcome === "matched") {
+      setFeedback("Matched. " + item.answer);
+      speakSentence(item.answer, 0);
+      return;
+    }
+    const miss = result.board.wrong;
+    if (!miss) return;
+    setFeedback("");
+    // Both tiles show red, then clear together so the learner can try them again. The timer
+    // names its own miss: one left over from an earlier miss, or from a miss the learner has
+    // already tapped past, cannot clear a newer one.
+    if (mismatchTimer.current) clearTimeout(mismatchTimer.current);
+    mismatchTimer.current = setTimeout(
+      () => setPairs((latest) => clearPairMismatch(latest, miss.serial)),
+      MATCH_MISMATCH_MS,
+    );
+  }
   function check(value: string) {
     if (!current) return;
     const subjects =
@@ -167,53 +226,55 @@ export function GameRound({
           </p>
           <div className="grid min-w-0 grid-cols-2 gap-2 sm:gap-3">
             <div className="grid min-w-0 gap-2">
-              {board.map((v) => (
-                <button
-                  type="button"
-                  key={v.id}
-                  className={`${button} min-w-0 w-full whitespace-normal break-words px-2 text-sm sm:px-3 sm:text-base`}
-                  aria-pressed={selected === v.id}
-                  disabled={matched.includes(v.id)}
-                  onClick={() => setSelected(v.id)}
-                >
-                  {v.prompt.split("/").map((part, index, parts) => (
-                    <span key={index}>
-                      {part}
-                      {index < parts.length - 1 && (
-                        <>
-                          /<wbr />
-                        </>
-                      )}
-                    </span>
-                  ))}
-                </button>
-              ))}
+              {board.map((v) => {
+                const state = pairTileState(pairs, v.id, "prompt");
+                return (
+                  <button
+                    type="button"
+                    key={v.id}
+                    data-testid="verb-match-prompt"
+                    data-wrong={state === "wrong" ? "true" : "false"}
+                    className={`${pairTile} ${state === "wrong" ? pairTileWrong : buttonTone}`}
+                    // The picked prompt stays picked (pressed) while both tiles show red.
+                    aria-pressed={pairs.selected === v.id}
+                    disabled={state === "matched"}
+                    onClick={() => setPairs(tapPairPrompt(pairs, v.id).board)}
+                  >
+                    {v.prompt.split("/").map((part, index, parts) => (
+                      <span key={index}>
+                        {part}
+                        {index < parts.length - 1 && (
+                          <>
+                            /<wbr />
+                          </>
+                        )}
+                      </span>
+                    ))}
+                    {state === "wrong" && <WrongMark />}
+                  </button>
+                );
+              })}
             </div>
             <div className="grid min-w-0 gap-2">
               {right
                 .filter((v) => board.some((b) => b.id === v.id))
-                .map((v) => (
-                  <button
-                    type="button"
-                    key={v.id}
-                    className={`${button} min-w-0 w-full whitespace-normal break-words px-2 text-sm sm:px-3 sm:text-base`}
-                    disabled={matched.includes(v.id)}
-                    onClick={() => {
-                      if (!selected) {
-                        setFeedback("Choose a prompt first.");
-                        return;
-                      }
-                      if (selected === v.id) {
-                        setMatched((m) => [...m, v.id]);
-                        setSelected(null);
-                        setFeedback("Matched. " + v.answer);
-                        speakSentence(v.answer, 0);
-                      } else setFeedback("Try another pair.");
-                    }}
-                  >
-                    {v.answer}
-                  </button>
-                ))}
+                .map((v) => {
+                  const state = pairTileState(pairs, v.id, "answer");
+                  return (
+                    <button
+                      type="button"
+                      key={v.id}
+                      data-testid="verb-match-answer"
+                      data-wrong={state === "wrong" ? "true" : "false"}
+                      className={`${pairTile} ${state === "wrong" ? pairTileWrong : buttonTone}`}
+                      disabled={state === "matched"}
+                      onClick={() => pickAnswer(v)}
+                    >
+                      {v.answer}
+                      {state === "wrong" && <WrongMark />}
+                    </button>
+                  );
+                })}
             </div>
           </div>
         </>
@@ -330,8 +391,9 @@ export function GameRound({
           )}
         </>
       )}
+      {/* Colour is not the only signal: the miss is also said here, and announced. */}
       <p role="status" className="min-h-6">
-        {feedback}
+        {matching && pairs.wrong ? "Not a match. Try again." : feedback}
       </p>
       {!finished && onSkip && (
         <button

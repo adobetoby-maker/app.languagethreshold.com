@@ -1,0 +1,828 @@
+{
+  "lessonId": "core-roofing:27:fr-en",
+  "candidateObjectiveEnglish": "Name crack and chimney, produce sealant vocabulary and ask What have you already checked?",
+  "grammarExplanationEnglish": "What have you already checked? is a present-perfect question about earlier checking; it does not state a result. This is a/an + count noun identifies an item. Is this a/an + count noun asks for identification.",
+  "grammarExplanationFrench": "« What have you already checked? » pose une question au present perfect sur une vérification antérieure sans en donner le résultat. « This is a/an » + nom dénombrable identifie un élément. « Is this a/an » + nom dénombrable pose une question d’identification.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le terme anglais « crack » et donnez son sens en français.",
+      "candidateTargetEnglish": "crack",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "la fissure",
+      "provenance": "Source card 6 (crack). Archived French is a candidate. Prompt is new French composition.",
+      "id": "core-roofing:27:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le terme anglais pour « la cheminée ».",
+      "candidateTargetEnglish": "chimney",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "la cheminée",
+      "provenance": "Source card 9 (chimney). Archived French is a candidate. Prompt is new French composition.",
+      "id": "core-roofing:27:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la question anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "What have you already checked?",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:14",
+        "core-roofing:27:fr-en:reader:3"
+      ],
+      "expectedMeaningFrench": "Qu’avez-vous déjà vérifié ?",
+      "provenance": "Exact source English card14, with Reader3 context; the present-perfect grammar explanation is new composition. No audio selected. Listening instruction newly composed in French; no selected recording.",
+      "id": "core-roofing:27:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais le terme pour « le produit d’étanchéité ».",
+      "candidateTargetEnglish": "sealant",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "le produit d’étanchéité",
+      "provenance": "Source card 5 (sealant). Archived French is a candidate. Prompt is new French composition. No sealing instruction is selected.",
+      "id": "core-roofing:27:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « C’est une fissure. »",
+      "candidateTargetEnglish": "This is a crack.",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "C’est une fissure.",
+      "provenance": "New English/French identification sentence using exact source crack noun; no leak or component diagnosis.",
+      "id": "core-roofing:27:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Qu’avez-vous déjà vérifié ? »",
+      "candidateTargetEnglish": "What have you already checked?",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "Qu’avez-vous déjà vérifié ?",
+      "provenance": "Exact source English card14; French source-support candidate and newly composed writing instruction. No inspection answer selected.",
+      "id": "core-roofing:27:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:27:fr-en:form:1",
+      "englishForm": "What + have + you + already + past participle?",
+      "meaningFrench": "Qu’avez-vous déjà + participe passé ?",
+      "candidateExampleEnglish": "What have you already checked?",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:14"
+      ],
+      "provenance": "Example What have you already checked? is exact source card14; the present-perfect pattern notation and grammar explanation are new compositions.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:27:fr-en:form:2",
+      "englishForm": "This is a/an [count noun].",
+      "meaningFrench": "C’est un/une + nom dénombrable.",
+      "candidateExampleEnglish": "This is a chimney.",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:9"
+      ],
+      "provenance": "New English/French grammar composition using exact unheld source vocabulary.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:27:fr-en:form:3",
+      "englishForm": "Is this a/an [count noun]?",
+      "meaningFrench": "Est-ce un/une + nom dénombrable ?",
+      "candidateExampleEnglish": "Is this a crack?",
+      "sourceAnchors": [
+        "core-roofing:27:fr-en:card:6"
+      ],
+      "provenance": "New English/French grammar composition using exact unheld source vocabulary.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner naming vocabulary pictures.",
+    "partnerRole": "A partner showing picture cards.",
+    "candidateOpeningEnglish": "Is this a crack?",
+    "goalEnglish": "Identify crack and chimney pictures and read sealant from a word card.",
+    "candidateWordBankEnglish": [
+      "crack",
+      "chimney",
+      "sealant",
+      "Is this a crack?",
+      "This is a chimney."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New composition. Closure is merged into the final expected learner turn, not a separate closing turn.",
+    "sourceAnchors": [
+      "core-roofing:27:fr-en:card:5",
+      "core-roofing:27:fr-en:card:6",
+      "core-roofing:27:fr-en:card:9"
+    ],
+    "practiceContextEnglish": "Picture A shows a crack, B a chimney; word card C says sealant. The partner shows A then B.",
+    "partnerCuesEnglish": [
+      "Yes. What is this?",
+      "What term is on word card C?",
+      "Repeat the word for picture A."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "This is a chimney.",
+      "Sealant.",
+      "Crack. Thank you."
+    ],
+    "goalFrench": "Identifiez les images de fissure et de cheminée, puis lisez sealant sur une carte de vocabulaire.",
+    "contextFrench": "L’image A représente une fissure, B une cheminée ; la carte C porte le terme anglais sealant. Le partenaire montre A puis B.",
+    "partnerCueSupportFrench": [
+      "Oui. Qu’est-ce que c’est ?",
+      "Quel terme figure sur la carte C ?",
+      "Répétez le mot correspondant à l’image A."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "C’est une cheminée.",
+      "Produit d’étanchéité.",
+      "Fissure. Merci."
+    ],
+    "candidateOpeningFrench": "Est-ce une fissure ?",
+    "provenance": "New English/French vocabulary exchange with picture/word cards; no actual site finding, control/repair instruction or technical result.",
+    "id": "core-roofing:27:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:27:fr-en:card:1",
+      "core-roofing:27:fr-en:card:10",
+      "core-roofing:27:fr-en:card:11",
+      "core-roofing:27:fr-en:card:12",
+      "core-roofing:27:fr-en:card:13",
+      "core-roofing:27:fr-en:card:15",
+      "core-roofing:27:fr-en:card:2",
+      "core-roofing:27:fr-en:card:3",
+      "core-roofing:27:fr-en:card:4",
+      "core-roofing:27:fr-en:card:7",
+      "core-roofing:27:fr-en:card:8",
+      "core-roofing:27:fr-en:reader:1",
+      "core-roofing:27:fr-en:reader:2",
+      "core-roofing:27:fr-en:reader:4",
+      "core-roofing:27:fr-en:reader:5",
+      "core-roofing:27:fr-en:reader:6",
+      "core-roofing:27:fr-en:reader:7",
+      "core-roofing:27:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this a crack?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What is this?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This is a chimney."
+      },
+      {
+        "speaker": "partner",
+        "text": "What term is on word card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Sealant."
+      },
+      {
+        "speaker": "partner",
+        "text": "Repeat the word for picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Crack. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture card": "carte-image",
+      "word card": "carte de vocabulaire",
+      "show": "montrer",
+      "say": "indiquer/dire",
+      "repeat": "répéter"
+    }
+  },
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "core-roofing:27:fr-en:card:4",
+      "candidateFrenchOptions": [
+        "la traversée de toiture"
+      ],
+      "meaningEnglish": "penetration (roof penetration)",
+      "reviewQuestion": "Confirm the roof-specific dictionary sense for penetration. Dependent penetration commands and the Reader row remain held. Not selected here.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Penetración"
+    },
+    {
+      "sourceAnchor": "core-roofing:27:fr-en:card:1",
+      "candidateFrenchOptions": [
+        "l’évent"
+      ],
+      "meaningEnglish": "vent (source subtype: ridge or box ventilation)",
+      "reviewQuestion": "Source English is bare vent; source Spanish Ventilación (de caballete / de caja) carries ridge/box subtype. Keep that bilingual distinction before any qualified French selection.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Ventilación (de caballete / de caja)"
+    },
+    {
+      "sourceAnchor": "core-roofing:27:fr-en:card:8",
+      "candidateFrenchOptions": [
+        "le puits de lumière"
+      ],
+      "meaningEnglish": "skylight",
+      "reviewQuestion": "Confirm skylight versus roof-window terminology for this source context. Not selected here.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Tragaluz"
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-27-source-decision-2026-11-18/packet.json",
+    "sha256": "bea524ea810e72c08ab873621081f09ed84daeb6dba4cd76210c90dabd5d82a3"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:27:fr-en:card:1",
+      "sourceEnglish": "vent",
+      "candidateFrench": null,
+      "hold": "The source Spanish vent term specifies ridge or box ventilation, while archived l’évent is generic. Confirm whether a French lesson face must preserve the subtype and how solin/tapajuntas around a vent is named for the selected roof assembly.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:27:fr-en:card:2",
+      "sourceEnglish": "pipe boot",
+      "candidateFrench": null,
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:27:fr-en:card:3",
+      "sourceEnglish": "flashing",
+      "candidateFrench": null,
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:27:fr-en:card:4",
+      "sourceEnglish": "penetration",
+      "candidateFrench": null,
+      "hold": "Roof penetration/traversée de toiture versus generic penetration sense and dependent walk-through wording require qualified French/trade/source review; no inspection or access procedure selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:27:fr-en:card:5",
+      "sourceEnglish": "sealant",
+      "candidateFrench": "le produit d’étanchéité",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as an unreviewed contextual proposal; not qualified approval."
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:27:fr-en:card:6",
+      "sourceEnglish": "crack",
+      "candidateFrench": "la fissure",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as an unreviewed contextual proposal; not qualified approval."
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:27:fr-en:card:7",
+      "sourceEnglish": "leak",
+      "candidateFrench": null,
+      "hold": "The source gotera/leak is a possible water-entry outcome from a crack, not proof of a present leak. Confirm fuite versus toiture-specific infiltration sense; confirm skylight/puits de lumière versus roof-window terminology in this source context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:27:fr-en:card:8",
+      "sourceEnglish": "skylight",
+      "candidateFrench": null,
+      "hold": "The source gotera/leak is a possible water-entry outcome from a crack, not proof of a present leak. Confirm fuite versus toiture-specific infiltration sense; confirm skylight/puits de lumière versus roof-window terminology in this source context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:27:fr-en:card:9",
+      "sourceEnglish": "chimney",
+      "candidateFrench": "la cheminée",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as an unreviewed contextual proposal; not qualified approval."
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:27:fr-en:card:10",
+      "sourceEnglish": "Check the flashing around this vent.",
+      "candidateFrench": null,
+      "hold": "The source Spanish vent term specifies ridge or box ventilation, while archived l’évent is generic. Confirm whether a French lesson face must preserve the subtype and how solin/tapajuntas around a vent is named for the selected roof assembly.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:27:fr-en:card:11",
+      "sourceEnglish": "Take a photo of the flashing around each penetration.",
+      "candidateFrench": null,
+      "hold": "The source requires a photo of flashing around each penetration. Confirm the inspection/documentation scope for the selected job; archived speaking additionally asks what was photographed and for approval of flashing/fastener details, which is not in the source speaking objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:27:fr-en:card:12",
+      "sourceEnglish": "Walk each penetration with me.",
+      "candidateFrench": null,
+      "hold": "Roof penetration/traversée de toiture versus generic penetration sense and dependent walk-through wording require qualified French/trade/source review; no inspection or access procedure selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:27:fr-en:card:13",
+      "sourceEnglish": "Is the pipe boot cracked?",
+      "candidateFrench": null,
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:27:fr-en:card:14",
+      "sourceEnglish": "What have you already checked?",
+      "candidateFrench": "Qu’avez-vous déjà vérifié ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as an unreviewed contextual proposal; not qualified approval."
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:27:fr-en:card:15",
+      "sourceEnglish": "Seal the exposed nails.",
+      "candidateFrench": null,
+      "hold": "The source commands sealing exposed nails without identifying product or repair method. Confirm product-specific treatment and whether archived réalisez l’étanchéité preserves the intended action before selecting a scored sealing work instruction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:1",
+      "sourceEnglish": "Before finishing, the foreman wants to check everything that goes through the roof.",
+      "candidateFrench": null,
+      "hold": "Roof penetration/traversée de toiture versus generic penetration sense and dependent walk-through wording require qualified French/trade/source review; no inspection or access procedure selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:2",
+      "sourceEnglish": "Let's walk each penetration together.",
+      "candidateFrench": null,
+      "hold": "Roof penetration/traversée de toiture versus generic penetration sense and dependent walk-through wording require qualified French/trade/source review; no inspection or access procedure selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:3",
+      "sourceEnglish": "He asks the crew lead: What have you already checked?",
+      "candidateFrench": "Il demande au chef d’équipe : « Qu’avez-vous déjà vérifié ? »",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as an unreviewed contextual proposal; not qualified approval."
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:4",
+      "sourceEnglish": "Check the flashing around this vent.",
+      "candidateFrench": null,
+      "hold": "The source Spanish vent term specifies ridge or box ventilation, while archived l’évent is generic. Confirm whether a French lesson face must preserve the subtype and how solin/tapajuntas around a vent is named for the selected roof assembly.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:5",
+      "sourceEnglish": "Is the pipe boot cracked?",
+      "candidateFrench": null,
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:6",
+      "sourceEnglish": "If there is a crack, water can cause a leak.",
+      "candidateFrench": null,
+      "hold": "The source gotera/leak is a possible water-entry outcome from a crack, not proof of a present leak. Confirm fuite versus toiture-specific infiltration sense; confirm skylight/puits de lumière versus roof-window terminology in this source context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:7",
+      "sourceEnglish": "Take a photo of the flashing around each penetration.",
+      "candidateFrench": null,
+      "hold": "The source requires a photo of flashing around each penetration. Confirm the inspection/documentation scope for the selected job; archived speaking additionally asks what was photographed and for approval of flashing/fastener details, which is not in the source speaking objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:27:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:27:fr-en:reader:8",
+      "sourceEnglish": "Seal the exposed nails.",
+      "candidateFrench": null,
+      "hold": "The source commands sealing exposed nails without identifying product or repair method. Confirm product-specific treatment and whether archived réalisez l’étanchéité preserves the intended action before selecting a scored sealing work instruction.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:27:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:27:fr-en:card:1",
+      "englishHeadword": "vent",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "The source Spanish vent term specifies ridge or box ventilation, while archived l’évent is generic. Confirm whether a French lesson face must preserve the subtype and how solin/tapajuntas around a vent is named for the selected roof assembly.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Ventilación (de caballete / de caja)"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:27:fr-en:card:2",
+      "englishHeadword": "pipe boot",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tapajuntas para tubo"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:27:fr-en:card:3",
+      "englishHeadword": "flashing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tapajuntas / Flashing"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:27:fr-en:card:4",
+      "englishHeadword": "penetration",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "Roof penetration/traversée de toiture versus generic penetration sense and dependent walk-through wording require qualified French/trade/source review; no inspection or access procedure selected.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Penetración"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:27:fr-en:card:5",
+      "englishHeadword": "sealant",
+      "candidateFrenchSense": "le produit d’étanchéité",
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sellador",
+      "qualifiedFrenchOptions": [
+        "produit d’étanchéité",
+        "mastic (d’étanchéité)"
+      ],
+      "optionStatus": "Unselected contextual dictionary candidates; not approved product equivalences."
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:27:fr-en:card:6",
+      "englishHeadword": "crack",
+      "candidateFrenchSense": "la fissure",
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Grieta"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:27:fr-en:card:7",
+      "englishHeadword": "leak",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "The source gotera/leak is a possible water-entry outcome from a crack, not proof of a present leak. Confirm fuite versus toiture-specific infiltration sense; confirm skylight/puits de lumière versus roof-window terminology in this source context.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Gotera"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:27:fr-en:card:8",
+      "englishHeadword": "skylight",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "The source gotera/leak is a possible water-entry outcome from a crack, not proof of a present leak. Confirm fuite versus toiture-specific infiltration sense; confirm skylight/puits de lumière versus roof-window terminology in this source context.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tragaluz"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:27:fr-en:card:9",
+      "englishHeadword": "chimney",
+      "candidateFrenchSense": "la cheminée",
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Chimenea"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:27:fr-en:card:10",
+      "englishHeadword": "Check the flashing around this vent.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "The source Spanish vent term specifies ridge or box ventilation, while archived l’évent is generic. Confirm whether a French lesson face must preserve the subtype and how solin/tapajuntas around a vent is named for the selected roof assembly.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revisen el tapajuntas alrededor de esta ventilación."
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:27:fr-en:card:11",
+      "englishHeadword": "Take a photo of the flashing around each penetration.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "The source requires a photo of flashing around each penetration. Confirm the inspection/documentation scope for the selected job; archived speaking additionally asks what was photographed and for approval of flashing/fastener details, which is not in the source speaking objective.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tomen una foto del tapajuntas alrededor de cada penetración."
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:27:fr-en:card:12",
+      "englishHeadword": "Walk each penetration with me.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "Roof penetration/traversée de toiture versus generic penetration sense and dependent walk-through wording require qualified French/trade/source review; no inspection or access procedure selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Recorramos cada penetración juntos."
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:27:fr-en:card:13",
+      "englishHeadword": "Is the pipe boot cracked?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "Pipe boot, flashing and cracked boot are material/detail-specific; archived manchon d’étanchéité and solin need qualified French/roofing terminology and the exact cracked-part referent before scoring.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿El tapajuntas para tubo está agrietado?"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:27:fr-en:card:14",
+      "englishHeadword": "What have you already checked?",
+      "candidateFrenchSense": "Qu’avez-vous déjà vérifié ?",
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Qué han revisado ya?"
+    },
+    {
+      "id": "core-roofing:27:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:27:fr-en:card:15",
+      "englishHeadword": "Seal the exposed nails.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Inspect Vents & Flashing",
+      "status": "held",
+      "hold": "The source commands sealing exposed nails without identifying product or repair method. Confirm product-specific treatment and whether archived réalisez l’étanchéité preserves the intended action before selecting a scored sealing work instruction.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sellen los clavos expuestos."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a penetration-inspection/source decision, settle a work method, or select a technical answer.",
+    "Opus read-only critique corrections source-checked: quote provenance, exact noun/article practice, cue alignment and specific held technical senses. No source work objective completed or safety/domain answer selected.",
+    "Sealant source Sellador is taught directly as a term, with unreviewed produit d’étanchéité support; mastic (d’étanchéité) is an additional qualified dictionary option, not selected. This batch avoids forcing the English material noun into a French mass-noun pattern. No product or sealing treatment selected. Foreman/crew-lead and vent/skylight French locale choices remain unselected.",
+    "Final Fable corrections source-checked: no hidden article/key restriction, exact bilingual terminology origins retained, speaking cue/answer alignment and English/French support corrected. Full exact source work objective remains held/incomplete; AI critique is not qualified approval."
+  ],
+  "sourceObjectiveEnglish": "Check roof penetrations with the lead",
+  "sourceSpeakingEnglish": "Walk each penetration and ask the lead what has been checked.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

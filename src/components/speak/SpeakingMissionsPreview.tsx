@@ -386,8 +386,7 @@ export function SpeakingMissionsPreview({
         Voice: {partnerVersion === "woman" ? "Female" : "Male"} · {voiceRegionLabel}
       </p>
       <p className="mt-1 text-muted-foreground">
-        Conversation uses Google Chirp 3 HD voices. Choose the voice gender in Settings → Voices &
-        audio.
+        Conversation uses HD voices. Choose the voice gender in Settings → Voices & audio.
       </p>
       <button
         type="button"
@@ -1883,7 +1882,7 @@ export function SpeakingMissionsPreview({
               <div className="mt-4 rounded-xl border border-border bg-card p-3 text-sm">
                 <p className="font-semibold">
                   {partnerAudioSource === "google"
-                    ? "Standard Google voice"
+                    ? "HD voice"
                     : partnerAudioSource === "device"
                       ? "Device fallback"
                       : "Text only"}{" "}
@@ -1908,7 +1907,7 @@ export function SpeakingMissionsPreview({
                 )}
                 {!partnerAudioReady && (
                   <p role="status" className="mt-2">
-                    Google audio is unavailable. Choose device fallback or text only in Settings to
+                    HD audio is unavailable. Choose device fallback or text only in Settings to
                     continue.
                   </p>
                 )}

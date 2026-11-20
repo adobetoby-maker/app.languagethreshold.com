@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Volume2 } from "lucide-react";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import type { LessonReviewController } from "@/hooks/use-lesson-review";
 import { SrsRatingButtons } from "@/components/flashcards/SrsRatingButtons";
 import { useApp } from "@/state/app-state";
-import { useSpeech } from "@/state/speech-state";
 
 export function LessonReviewCards({
   review,
@@ -17,15 +16,10 @@ export function LessonReviewCards({
 }) {
   const { state } = useApp();
   const [flipped, setFlipped] = useState(false);
-  const { accent, voiceURI } = useSpeech();
-  const speak = useOwnedSpeaker(
-    JSON.stringify([
-      "lesson-review",
-      state.selectedLanguage,
-      review.currentCard?.id,
-      accent,
-      voiceURI,
-    ]),
+  // Read by the learner's listening voice (recorded HD audio, then the HD voice).
+  const { speak } = useListeningSpeaker(
+    JSON.stringify(["lesson-review", state.selectedLanguage, review.currentCard?.id]),
+    state.selectedLanguage,
   );
   const card = review.currentCard;
   const round = review.round;
@@ -94,7 +88,7 @@ export function LessonReviewCards({
           </button>
           <button
             type="button"
-            onClick={() => speak(card.word, accent, voiceURI)}
+            onClick={() => speak(card.word)}
             className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-4 text-sm"
           >
             <Volume2 className="h-4 w-4" /> Pronounce

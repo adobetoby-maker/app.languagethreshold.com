@@ -23,7 +23,17 @@ import type { Language } from "./app-state";
 import { decodeGoogleVoicePreference } from "@/data/mission-tts";
 import { DEVICE_DEFAULT_VOICE } from "@/data/mobile-voice";
 import { configureUtterance } from "@/lib/voices";
-import { needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
+import { hasRecordedListeningAudio, needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
+import {
+  LISTENING_NOTICE_ID,
+  listeningIssueCopy,
+  planListening,
+  rememberedHdVoice,
+  type ListeningIssueReason,
+  type ListeningPlan,
+  type ListeningPlaybackSource,
+  type RememberedHdVoice,
+} from "@/lib/listening-audio";
 
 export type SpeechMode = "word" | "sentence" | "paragraph";
 
@@ -93,6 +103,18 @@ interface SpeechCtx {
   voiceSettings: StandardVoiceSettings;
   setVoiceSettings: (patch: Partial<StandardVoiceSettings>) => void;
 
+  // Listening route: HD voice (recorded audio, then the HD cloud voice) or this device's voice.
+  /** The route for the learner's accent, for labels. */
+  listening: ListeningPlan;
+  /** The route right now for a locale of the language being learned (defaults to the accent). */
+  listeningPlan: (locale?: string) => ListeningPlan;
+  /** True while the learner has let this device's voice fill in for unavailable HD audio. */
+  listeningFallback: boolean;
+  /** HD audio could not play: say so, and offer a retry or this device's voice. */
+  reportListeningIssue: (reason: ListeningIssueReason | undefined, retry: () => void) => void;
+  /** Audio became audible: clear a standing notice; HD playing again ends the device fill-in. */
+  noteListeningPlayed: (source?: ListeningPlaybackSource) => void;
+
   // Last clicked word (from WordCard)
   lastWord: string | null;
   setLastWord: (w: string) => void;
@@ -126,6 +148,7 @@ interface SavedSpeech {
   voiceByLang?: Record<string, string>;
   accentByLang?: Record<string, string>;
   standardVoicesByLang?: Record<string, StandardVoiceSettings>;
+  hdVoiceByLang?: Record<string, RememberedHdVoice>;
 }
 const RECENT_WORDS_CAP = 20;
 
@@ -175,6 +198,16 @@ export function SpeechProvider({
   const [voiceURI, setVoiceURIState] = useState<string | null>(null);
   const [voiceSettings, setVoiceSettingsState] = useState(DEFAULT_STANDARD_VOICES);
   const [settingsHydrated, setSettingsHydrated] = useState(false);
+  const voiceSettingsRef = useRef(voiceSettings);
+  voiceSettingsRef.current = voiceSettings;
+  // "Use device voice" on an HD notice: this device's voice fills in until HD audio plays
+  // again. Never saved; a reload, another account, language or voice setting starts strict.
+  const [listeningFallback, setListeningFallbackState] = useState(false);
+  const listeningFallbackRef = useRef(false);
+  const setListeningFallback = useCallback((allowed: boolean) => {
+    listeningFallbackRef.current = allowed;
+    setListeningFallbackState(allowed);
+  }, []);
   const voiceLanguageRef = useRef(language);
   const [lastWord, setLastWordState] = useState<string | null>(null);
   const [recentWords, setRecentWords] = useState<string[]>([]);
@@ -269,6 +302,8 @@ export function SpeechProvider({
       window.speechSynthesis.cancel();
     }
     stopRemoteTTS();
+    setListeningFallback(false);
+    toast.dismiss(LISTENING_NOTICE_ID);
     setPlaying(false);
     setCurrent(null);
     setActiveSentenceIndex(-1);
@@ -302,13 +337,24 @@ export function SpeechProvider({
   const setVoiceSettings = useCallback(
     (patch: Partial<StandardVoiceSettings>) => {
       stop();
+      // A new voice choice starts strict again: nothing fills in unless the learner says so.
+      setListeningFallback(false);
+      toast.dismiss(LISTENING_NOTICE_ID);
+      // A new listening gender drops the previous gender's voice at once, so a quick tap is
+      // never read by it while the new voice resolves. Speaking-only changes keep the voice.
+      if (
+        patch.listeningGender !== undefined &&
+        patch.listeningGender !== voiceSettingsRef.current.listeningGender
+      )
+        setVoiceURIState((current) => (decodeGoogleVoicePreference(current) ? null : current));
       setVoiceSettingsState((current) => readStandardVoiceSettings({ ...current, ...patch }));
     },
-    [stop],
+    [stop, setListeningFallback],
   );
 
-  // Standard Google listening voice on every platform, with an honest device fallback
-  // for signed-out learners or an unavailable provider. The account subtree owns this request.
+  // Standard Google listening voice on every platform. Signed-out learners and an unavailable
+  // provider get no cloud voice; what plays then is decided by planListening (recorded audio,
+  // an honest notice, or the device voice the learner chose). The account subtree owns this request.
   useEffect(() => {
     if (!settingsHydrated) return;
     const controller = new AbortController();
@@ -316,18 +362,36 @@ export function SpeechProvider({
       setVoiceURIState(DEVICE_DEFAULT_VOICE);
       return () => controller.abort();
     }
+    const gender = voiceSettings.listeningGender;
+    // The voice resolved earlier for this accent and gender is usable at once, and offline:
+    // recorded and saved clips keep playing while the voice list cannot be fetched.
+    const remembered = rememberedHdVoice(device.read(), language, accent, gender);
+    if (remembered) setVoiceURIState(remembered);
     const refresh = () => {
       getMissionTtsCapabilities(accent, controller.signal)
         .then((capabilities) => {
           if (controller.signal.aborted || !isCurrentUser(actor)) return;
           const voice = capabilities.ready
-            ? standardGoogleVoice(capabilities.voices, accent, voiceSettings.listeningGender)
+            ? standardGoogleVoice(capabilities.voices, accent, gender)
             : null;
-          setVoiceURIState(voice ? encodeGoogleVoicePreference(voice) : DEVICE_DEFAULT_VOICE);
+          const resolved = voice ? encodeGoogleVoicePreference(voice) : null;
+          setVoiceURIState(resolved ?? DEVICE_DEFAULT_VOICE);
+          // Remember it for this language only while the accent really belongs to it (a
+          // language switch can run this once more with the previous accent).
+          if (!accentsForLanguage.some((option) => option.code === accent)) return;
+          try {
+            const prev = (device.read() as SavedSpeech | null) ?? {};
+            const hdVoiceByLang = { ...(prev.hdVoiceByLang ?? {}) };
+            if (resolved) hdVoiceByLang[language] = { accent, gender, voiceURI: resolved };
+            else delete hdVoiceByLang[language];
+            device.write({ ...prev, hdVoiceByLang });
+          } catch {
+            /* ignore */
+          }
         })
         .catch(() => {
           if (!controller.signal.aborted && isCurrentUser(actor))
-            setVoiceURIState(DEVICE_DEFAULT_VOICE);
+            setVoiceURIState(remembered ?? DEVICE_DEFAULT_VOICE);
         });
     };
     refresh();
@@ -338,7 +402,16 @@ export function SpeechProvider({
       if (typeof window !== "undefined" && window.removeEventListener)
         window.removeEventListener("online", refresh);
     };
-  }, [actor, accent, voiceSettings.listeningGender, settingsHydrated, isCurrentUser]);
+  }, [
+    actor,
+    accent,
+    voiceSettings.listeningGender,
+    settingsHydrated,
+    isCurrentUser,
+    device,
+    language,
+    accentsForLanguage,
+  ]);
 
   const setRate = useCallback((n: number) => {
     setRateState(n);
@@ -346,6 +419,8 @@ export function SpeechProvider({
   const setAccent = useCallback(
     (c: string) => {
       setAccentState(c);
+      setListeningFallback(false);
+      toast.dismiss(LISTENING_NOTICE_ID);
       // A prior voice selection must not silently keep a Spain accent after
       // the learner switches to Costa Rica, Mexico, or another locale.
       setVoiceURIState((current) =>
@@ -360,7 +435,7 @@ export function SpeechProvider({
         /* ignore */
       }
     },
-    [language, device],
+    [language, device, setListeningFallback],
   );
   const setVoiceURI = useCallback((uri: string | null) => setVoiceURIState(uri), []);
   const setLastWord = useCallback((w: string) => {
@@ -372,6 +447,100 @@ export function SpeechProvider({
       return [trimmed, ...deduped].slice(0, RECENT_WORDS_CAP);
     });
   }, []);
+
+  // Read at call time so a retry started from the notice uses the policy as it is now.
+  const listeningInputsRef = useRef({
+    locale: accent,
+    source: voiceSettings.listeningAudioSource,
+    gender: voiceSettings.listeningGender,
+    voiceURI,
+    signedIn: actor !== null,
+  });
+  listeningInputsRef.current = {
+    locale: accent,
+    source: voiceSettings.listeningAudioSource,
+    gender: voiceSettings.listeningGender,
+    voiceURI,
+    signedIn: actor !== null,
+  };
+  const listeningPlan = useCallback(
+    (locale?: string) =>
+      planListening({
+        ...listeningInputsRef.current,
+        locale: locale ?? listeningInputsRef.current.locale,
+        // The learner's real account state and choice apply to any requested locale; the HD
+        // choice itself covers the language being learned.
+        learningLocale: listeningInputsRef.current.locale,
+        deviceFallback: listeningFallbackRef.current,
+      }),
+    [],
+  );
+  const listening = useMemo(
+    () =>
+      planListening({
+        locale: accent,
+        source: voiceSettings.listeningAudioSource,
+        gender: voiceSettings.listeningGender,
+        voiceURI,
+        signedIn: actor !== null,
+        deviceFallback: listeningFallback,
+      }),
+    [
+      accent,
+      voiceSettings.listeningAudioSource,
+      voiceSettings.listeningGender,
+      voiceURI,
+      actor,
+      listeningFallback,
+    ],
+  );
+
+  const reportListeningIssue = useCallback(
+    (reason: ListeningIssueReason | undefined, retry: () => void) => {
+      if (!ownsPlayback()) return;
+      const issue = reason ?? "unavailable";
+      const copy = listeningIssueCopy(issue);
+      toast(copy.title, {
+        id: LISTENING_NOTICE_ID,
+        description: copy.description,
+        duration: 12000,
+        // On a phone the practice controls sit at the bottom; keep the notice off them.
+        ...(typeof window !== "undefined" && window.matchMedia?.("(max-width: 600px)").matches
+          ? { position: "top-center" as const }
+          : {}),
+        action: {
+          label: "Try again",
+          onClick: () => {
+            if (ownsPlayback()) retry();
+          },
+        },
+        // Nothing but the learner's own choice puts a device voice in place of HD audio.
+        ...(issue === "loading"
+          ? {}
+          : {
+              cancel: {
+                label: "Use device voice",
+                onClick: () => {
+                  if (!ownsPlayback()) return;
+                  setListeningFallback(true);
+                  retry();
+                },
+              },
+            }),
+      });
+    },
+    [ownsPlayback, setListeningFallback],
+  );
+
+  const noteListeningPlayed = useCallback(
+    (source?: ListeningPlaybackSource) => {
+      if (!ownsPlayback()) return;
+      toast.dismiss(LISTENING_NOTICE_ID);
+      // The HD voice is answering again: stop letting the device voice fill in.
+      if (source === "hd" && listeningFallbackRef.current) setListeningFallback(false);
+    },
+    [ownsPlayback, setListeningFallback],
+  );
 
   const incListened = useCallback(() => {
     if (!ownsPlayback()) return;
@@ -388,7 +557,14 @@ export function SpeechProvider({
   }, [hasAchievement, onAchievement, onXp, ownsPlayback]);
 
   const speakOne = useCallback(
-    (text: string, sentenceIndex: number, mode: SpeechMode, onEnd?: () => void) => {
+    (
+      text: string,
+      sentenceIndex: number,
+      mode: SpeechMode,
+      onEnd?: () => void,
+      /** HD audio could not play and nothing else was played: stop here and offer a retry. */
+      onUnavailable?: (reason: ListeningIssueReason) => void,
+    ) => {
       const epoch = playbackEpochRef.current;
       const valid = () =>
         ownsPlayback() && epoch === playbackEpochRef.current && !cancelledRef.current;
@@ -400,22 +576,46 @@ export function SpeechProvider({
         if (heard && sentenceIndex >= 0) incListened();
         onEnd?.();
       };
-      if (needsRemoteTTS(accent, voiceURI)) {
+      const plan = listeningPlan(accent);
+      // HD routes go through the shared router (recorded audio, then the HD voice), which also
+      // reports an HD-only miss. Once a signed-out learner has allowed the device voice, the
+      // device path is left only for a recording that really exists.
+      const routed =
+        plan.strict ||
+        plan.mode === "hd" ||
+        (plan.recordedGender !== null &&
+          hasRecordedListeningAudio(text, accent, plan.recordedGender)) ||
+        needsRemoteTTS(accent, plan.voiceURI);
+      if (routed) {
         setPlaying(true);
         setCurrent({ mode, sentenceIndex, text });
         if (sentenceIndex >= 0) setActiveSentenceIndex(sentenceIndex);
         void speakRemote(text, accent, {
           rate,
-          voiceURI,
+          voiceURI: plan.voiceURI,
+          cloudOnly: plan.strict,
+          recordedGender: plan.recordedGender ?? undefined,
+          unavailableReason: plan.pending ?? undefined,
           owner: { userId: actor ?? "", isCurrent: valid },
+          onPlaybackStart: (source) => {
+            if (valid()) noteListeningPlayed(source);
+          },
           onend: () => finish(true),
-          onerror: () => finish(false),
+          onerror: (reason) => {
+            if (!plan.strict || !onUnavailable) {
+              finish(false);
+              return;
+            }
+            if (settled || !valid()) return;
+            settled = true;
+            onUnavailable(reason ?? "unavailable");
+          },
         });
         return;
       }
       if (!window.speechSynthesis) return;
       const u = new SpeechSynthesisUtterance(text);
-      configureUtterance(u, accent, voiceURI);
+      configureUtterance(u, accent, plan.voiceURI);
       u.rate = rate;
       u.onstart = () => {
         if (!valid() || settled) return;
@@ -431,8 +631,18 @@ export function SpeechProvider({
         finish(false);
       }
     },
-    [accent, rate, voiceURI, incListened, ownsPlayback, actor],
+    [accent, rate, incListened, ownsPlayback, actor, listeningPlan, noteListeningPlayed],
   );
+
+  // Retries started from the notice call the newest controls, never a stale closure.
+  const controlsRef = useRef<{
+    speakWord: (word?: string) => void;
+    speakSentence: (text: string, sentenceIndex: number) => void;
+    speakSentences: (
+      sentences: { text: string; index: number }[],
+      onMove?: (i: number) => void,
+    ) => void;
+  } | null>(null);
 
   const speakWord = useCallback(
     (word?: string) => {
@@ -450,13 +660,17 @@ export function SpeechProvider({
       timerRef.current = setTimeout(() => {
         timerRef.current = null;
         if (!ownsPlayback() || epoch !== playbackEpochRef.current || cancelledRef.current) return;
-        speakOne(target, -1, "word", () => {
+        const reset = () => {
           setPlaying(false);
           setCurrent(null);
+        };
+        speakOne(target, -1, "word", reset, (reason) => {
+          reset();
+          reportListeningIssue(reason, () => controlsRef.current?.speakWord(target));
         });
       }, 30);
     },
-    [lastWord, speakOne, stop, ownsPlayback],
+    [lastWord, speakOne, stop, ownsPlayback, reportListeningIssue],
   );
 
   const speakSentence = useCallback(
@@ -468,14 +682,20 @@ export function SpeechProvider({
       timerRef.current = setTimeout(() => {
         timerRef.current = null;
         if (!ownsPlayback() || epoch !== playbackEpochRef.current || cancelledRef.current) return;
-        speakOne(text, sentenceIndex, "sentence", () => {
+        const reset = () => {
           setPlaying(false);
           setCurrent(null);
           setActiveSentenceIndex(-1);
+        };
+        speakOne(text, sentenceIndex, "sentence", reset, (reason) => {
+          reset();
+          reportListeningIssue(reason, () =>
+            controlsRef.current?.speakSentence(text, sentenceIndex),
+          );
         });
       }, 30);
     },
-    [speakOne, stop, ownsPlayback],
+    [speakOne, stop, ownsPlayback, reportListeningIssue],
   );
 
   const speakSentences = useCallback(
@@ -499,7 +719,13 @@ export function SpeechProvider({
         }
         onMove?.(item.index);
         if (!valid()) return;
-        speakOne(item.text, item.index, "paragraph", next);
+        speakOne(item.text, item.index, "paragraph", next, (reason) => {
+          // Do not run on through the passage in silence: stop at the sentence that could
+          // not play in HD, and resume from it when the learner retries.
+          const rest = [item, ...queueRef.current];
+          stop();
+          reportListeningIssue(reason, () => controlsRef.current?.speakSentences(rest, onMove));
+        });
       };
 
       timerRef.current = setTimeout(() => {
@@ -507,8 +733,9 @@ export function SpeechProvider({
         next();
       }, 30);
     },
-    [speakOne, stop, ownsPlayback],
+    [speakOne, stop, ownsPlayback, reportListeningIssue],
   );
+  controlsRef.current = { speakWord, speakSentence, speakSentences };
 
   const value = useMemo(
     () => ({
@@ -522,6 +749,11 @@ export function SpeechProvider({
       settingsHydrated,
       voiceSettings,
       setVoiceSettings,
+      listening,
+      listeningPlan,
+      listeningFallback,
+      reportListeningIssue,
+      noteListeningPlayed,
       lastWord,
       setLastWord,
       recentWords,
@@ -545,6 +777,11 @@ export function SpeechProvider({
       settingsHydrated,
       voiceSettings,
       setVoiceSettings,
+      listening,
+      listeningPlan,
+      listeningFallback,
+      reportListeningIssue,
+      noteListeningPlayed,
       lastWord,
       setLastWord,
       recentWords,

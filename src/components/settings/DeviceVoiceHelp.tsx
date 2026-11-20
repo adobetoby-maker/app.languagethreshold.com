@@ -45,9 +45,9 @@ export function DeviceVoiceHelp() {
       </summary>
       <div className="space-y-3 pt-2 text-xs leading-relaxed text-muted-foreground">
         <p>
-          Standard Google voices do not need a download. For offline fallback, download a voice for
-          your learning language in your device settings. The app uses the best available installed
-          voice.
+          HD voices do not need a download. To use the Device voice option, or to listen offline,
+          download a voice for your learning language in your device settings. The app uses the best
+          available installed voice.
         </p>
         {guides.map((guide) => (
           <details key={guide.device} className="rounded-lg border border-border/40 p-3">
@@ -71,7 +71,7 @@ export function DeviceVoiceHelp() {
         ))}
         <p>
           After the download finishes, reopen the app or browser. Some browsers expose only a subset
-          of installed voices. Device fallback may sound different from the standard Google voices.
+          of installed voices. A device voice may sound different from the HD voices.
         </p>
       </div>
     </details>

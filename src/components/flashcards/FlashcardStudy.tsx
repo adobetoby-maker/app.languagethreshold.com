@@ -3,20 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Volume2, X, RotateCcw } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
 import { updateSM2, sortByDue } from "@/state/sm2";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
-
-const LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-BR",
-  Pashto: "ps-AF",
-  English: "en-US",
-};
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 
 export interface StudyCard {
   key: string; // stable id within the block (the English word)
@@ -58,13 +45,15 @@ export function FlashcardStudy({
   const total = cards.length;
   const current = queue[0];
   const done = queue.length === 0;
-  const speakOwned = useOwnedSpeaker(backLanguage);
-  const speak = useCallback(
-    (text: string) => {
-      speakOwned(text, LOCALE[backLanguage] ?? "es-CR");
-    },
-    [backLanguage, speakOwned],
+  // The back face is read in its own language. In the language being learned it follows the
+  // learner's listening choice: recorded HD audio, then the HD voice, and a notice instead of
+  // a device voice when HD audio cannot play. The HD choice is saved per learning language, so
+  // a native-language back (My Vocab) is read by this device's voice and is never called HD.
+  const { speak: speakListening } = useListeningSpeaker(
+    JSON.stringify(["flashcard-study", backLanguage]),
+    backLanguage,
   );
+  const speak = useCallback((text: string) => speakListening(text), [speakListening]);
 
   useEffect(() => {
     if (flipped && current) speak(current.back);

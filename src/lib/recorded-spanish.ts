@@ -52,3 +52,16 @@ export function recordedSpanishPath(
   return gender ? (spanishRecordingPath(recordings as SpanishRecordings, text, gender)
     ?? nativeSpanishRecordingPath(nativeRecordings as SpanishRecordings, text, gender, locale)) : null;
 }
+
+/** The same public recordings, chosen by accent and voice gender: no cloud voice or account needed.
+ * Latin American accents only; a Spain accent is never served these clips.
+ */
+export function recordedSpanishPathForGender(
+  text: string,
+  gender: "female" | "male",
+  locale: string,
+): string | null {
+  if (!/^es(?:-|$)/i.test(locale) || /^es-ES/i.test(locale)) return null;
+  return spanishRecordingPath(recordings as SpanishRecordings, text, gender)
+    ?? nativeSpanishRecordingPath(nativeRecordings as SpanishRecordings, text, gender, locale);
+}

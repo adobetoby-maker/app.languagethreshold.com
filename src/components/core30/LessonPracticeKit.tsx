@@ -34,14 +34,14 @@ import { HandwritingPad, type HandwritingPadHandle } from "@/components/core30/H
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { VerbPractice } from "@/components/core30/VerbPractice";
 import { GameRound } from "@/components/core30/LessonVerbGames";
-import { advanceLessonRecall, buildLessonRecall } from "@/lib/lesson-recall";
+import { advanceLessonRecall, buildLessonRecall, recallFormLines } from "@/lib/lesson-recall";
 import type { SpanishPattern } from "@/data/spanish-basics";
 import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
-import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { ACCENTS_BY_LANGUAGE } from "@/state/speech-state";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { lessonCardFaces, type LessonCardDirection } from "@/lib/lesson-card-direction";
 import type { LessonWord } from "@/data/curriculum";
 import type { LessonVerb } from "@/lib/lesson-content-core";
@@ -49,12 +49,19 @@ import {
   advanceDeck,
   buildListenOptions,
   buildMatchTiles,
+  clearMatchMismatch,
+  EMPTY_MATCH_BOARD,
   groupByKind,
+  MATCH_MISMATCH_MS,
+  matchTileState,
   shuffle,
   splitRounds,
+  tapMatchTile,
   vocabKey,
   wordsToAdd,
+  type MatchBoard,
   type MatchTile,
+  type MatchTileState,
 } from "@/lib/lesson-practice";
 import {
   isCorrectTypedAnswer,
@@ -131,22 +138,20 @@ const ghostBtn =
   "inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-xl border border-border/50 bg-card/30 px-4 py-2 text-sm font-semibold text-foreground transition-all duration-200 hover:border-gold/40 hover:bg-gold/5 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50";
 const panel = "rounded-xl border border-border/50 bg-card/30 p-4";
 
-// ─── Target-language speech (reuses the app's tts.ts + voices.ts path) ────────
+// ─── Target-language speech (the learner's listening voice from Settings) ─────
 
+/**
+ * Every tap on a target-language word in the kit (match tiles, cards, verb forms, study rows,
+ * listening, typing and writing) is read by the learner's chosen listening voice: recorded HD
+ * audio first, then the HD voice. A device voice is used only when the learner chose it.
+ */
 function useTargetSpeaker(): (text: string) => void {
   const { target } = useKitLanguages();
-  const { accent } = useSpeech();
-  const accents = ACCENTS_BY_LANGUAGE[target as Language] ?? ACCENTS_BY_LANGUAGE[SPANISH];
-  const defaultLocale = accents[0].code;
-  // The learner's chosen accent applies when it belongs to this language (es-MX for Spanish);
-  // otherwise the language's first accent is used.
-  const locale =
-    accent && accent.toLowerCase().startsWith(defaultLocale.slice(0, 2).toLowerCase())
-      ? accent
-      : defaultLocale;
-
-  const speakOwned = useOwnedSpeaker(locale);
-  return useCallback((text: string) => speakOwned(text, locale), [locale, speakOwned]);
+  const { speak } = useListeningSpeaker(
+    "lesson-kit",
+    Object.hasOwn(ACCENTS_BY_LANGUAGE, target) ? target : SPANISH,
+  );
+  return useCallback((text: string) => speak(text), [speak]);
 }
 
 function SpeakButton({
@@ -452,6 +457,7 @@ function RecallSequence({
   };
   const faces = current?.kind === "card" ? lessonCardFaces(current.word, direction) : null;
   const face = revealed ? faces?.back : faces?.front;
+  const formLines = current?.kind === "card" ? recallFormLines(current) : [];
   if (!sequence.length) return <p role="status">No lesson cards are available yet.</p>;
   return (
     <section
@@ -508,42 +514,68 @@ function RecallSequence({
               {direction === "native-to-target" ? `${native} → ${target}` : `${target} → ${native}`}
             </button>
           </div>
-          <button
-            type="button"
-            data-testid="flashcard"
-            aria-disabled={transitioning}
-            aria-label={revealed ? "Show the front of the card" : "Flip the card"}
-            onClick={() => {
-              if (transitioning) return;
-              setRevealed((value) => !value);
-              pauseGrading();
-            }}
-            className="flex min-h-64 max-h-[55dvh] w-full flex-col items-center gap-5 overflow-y-auto rounded-3xl border border-border bg-card px-5 py-8 text-center"
-          >
-            <span className="text-sm text-muted-foreground">
-              {face?.role === "target" ? target : native}
-            </span>
-            <span
-              data-testid="recall-card-text"
-              lang={languageTag(face?.role === "target" ? target : native)}
-              className="my-auto break-words font-serif text-3xl leading-snug"
+          {/* One card: the face flips on tap as before. On the back, a verb's authored
+              conjugations keep their table (person on the left, form on the right), and each
+              row can be tapped to hear that form. */}
+          <div className="flex min-h-64 max-h-[55dvh] w-full flex-col overflow-y-auto rounded-3xl border border-border bg-card text-center text-foreground">
+            <button
+              type="button"
+              data-testid="flashcard"
+              aria-disabled={transitioning}
+              aria-label={revealed ? "Show the front of the card" : "Flip the card"}
+              onClick={() => {
+                if (transitioning) return;
+                setRevealed((value) => !value);
+                pauseGrading();
+              }}
+              className="flex w-full flex-1 cursor-pointer flex-col items-center gap-5 rounded-3xl px-5 py-8 text-center"
             >
-              {face?.text}
-            </span>
-            {revealed && current.word.note && (
-              <span className="text-sm text-muted-foreground">{current.word.note}</span>
-            )}
-            {revealed && current.forms.length > 0 && (
-              <span className="grid w-full gap-2 border-t border-border pt-4 text-left text-base">
-                {current.forms.map((form) => (
-                  <span key={form.id} className="flex flex-wrap justify-between gap-x-4 gap-y-1">
-                    <span className="text-muted-foreground">{form.prompt.split(" · ")[0]}</span>
-                    <span lang={languageTag(target)}>{form.answer}</span>
-                  </span>
-                ))}
+              <span className="text-sm text-muted-foreground">
+                {face?.role === "target" ? target : native}
               </span>
+              <span
+                data-testid="recall-card-text"
+                lang={languageTag(face?.role === "target" ? target : native)}
+                className="my-auto break-words font-serif text-3xl leading-snug"
+              >
+                {face?.text}
+              </span>
+              {revealed && current.word.note && (
+                <span className="text-sm text-muted-foreground">{current.word.note}</span>
+              )}
+            </button>
+            {revealed && formLines.length > 0 && (
+              <ul
+                data-testid="recall-verb-forms"
+                aria-label={`Forms of ${current.word.es}`}
+                className="grid w-full border-t border-border px-3 pb-3 pt-3 text-left text-base"
+              >
+                {formLines.map((line) => (
+                  <li key={line.id}>
+                    {/* Read out as the whole line ("yo conecto"); the authored form is spoken. */}
+                    <button
+                      type="button"
+                      data-testid="recall-verb-form"
+                      onClick={() => speak(line.form)}
+                      aria-label={`${line.text}, play ${target} audio`}
+                      className="flex min-h-11 w-full cursor-pointer flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-xl px-2 py-1 text-left transition-colors duration-200 hover:bg-gold/10 active:bg-gold/15"
+                    >
+                      <span data-testid="recall-verb-person" className="text-muted-foreground">
+                        {line.subject}
+                      </span>
+                      <span
+                        data-testid="recall-verb-answer"
+                        lang={languageTag(target)}
+                        className="text-foreground"
+                      >
+                        {line.form}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
             )}
-          </button>
+          </div>
           <div data-testid="lesson-cards-grading" className="flex items-center gap-2">
             <SpeakButton text={current.word.es} speak={speak} />
             <button
@@ -618,6 +650,13 @@ function RecallSequence({
 
 // ─── 3. Memory match ──────────────────────────────────────────────────────────
 
+const MATCH_TILE_STYLE: Record<MatchTileState, string> = {
+  matched: "pointer-events-none border-border/20 bg-transparent opacity-25",
+  wrong: "border-red-500/60 bg-red-500/10",
+  selected: "border-gold bg-gold/20",
+  idle: "border-border/50 bg-card/30 hover:border-gold/40",
+};
+
 function MatchMode({
   words,
   onComplete,
@@ -635,11 +674,9 @@ function MatchMode({
   const [tiles, setTiles] = useState<MatchTile[]>(() =>
     rounds[0] ? buildMatchTiles(rounds[0]) : [],
   );
-  const [selected, setSelected] = useState<string | null>(null);
-  const [matched, setMatched] = useState<Set<number>>(new Set());
-  const [wrong, setWrong] = useState<string[]>([]);
+  const [board, setBoard] = useState<MatchBoard>(EMPTY_MATCH_BOARD);
   const [finished, setFinished] = useState(false);
-  const [mistakes, setMistakes] = useState(0);
+  const { matched, mistakes } = board;
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(
@@ -650,7 +687,7 @@ function MatchMode({
   );
 
   const round = rounds[roundIndex] ?? [];
-  const roundDone = round.length > 0 && matched.size === round.length;
+  const roundDone = round.length > 0 && matched.length === round.length;
   const lastRound = roundIndex >= rounds.length - 1;
 
   if (terms.length < 2) {
@@ -662,47 +699,28 @@ function MatchMode({
   }
 
   const tap = (tile: MatchTile) => {
-    if (wrong.length > 0 || matched.has(tile.pairId) || roundDone) return;
-    if (tile.side === "es") speak(tile.text);
-    if (selected === null) {
-      setSelected(tile.id);
-      return;
-    }
-    if (selected === tile.id) {
-      setSelected(null);
-      return;
-    }
-    const first = tiles.find((t) => t.id === selected);
-    if (!first || first.side === tile.side) {
-      setSelected(tile.id);
-      return;
-    }
-    if (first.pairId === tile.pairId) {
-      const next = new Set(matched);
-      next.add(tile.pairId);
-      setMatched(next);
-      setSelected(null);
-      if (next.size === round.length && lastRound) {
+    const result = tapMatchTile(board, tiles, tile);
+    if (result.outcome === "ignored") return;
+    if (result.speak) speak(result.speak);
+    setBoard(result.board);
+    if (result.outcome === "matched") {
+      if (result.board.matched.length === round.length && lastRound) {
         setFinished(true);
         onComplete();
       }
       return;
     }
-    setMistakes((m) => m + 1);
-    setWrong([first.id, tile.id]);
-    timer.current = setTimeout(() => {
-      setWrong([]);
-      setSelected(null);
-    }, 600);
+    if (result.outcome === "mismatch") {
+      // Both tiles show red, then clear together so the learner can try them again.
+      timer.current = setTimeout(() => setBoard(clearMatchMismatch), MATCH_MISMATCH_MS);
+    }
   };
 
   const nextRound = () => {
     const next = roundIndex + 1;
     setRoundIndex(next);
     setTiles(buildMatchTiles(rounds[next]));
-    setMatched(new Set());
-    setSelected(null);
-    setWrong([]);
+    setBoard((previous) => ({ ...EMPTY_MATCH_BOARD, mistakes: previous.mistakes }));
   };
 
   const restart = () => {
@@ -710,16 +728,13 @@ function MatchMode({
     setRounds(nextRounds);
     setRoundIndex(0);
     setTiles(buildMatchTiles(nextRounds[0]));
-    setMatched(new Set());
-    setSelected(null);
-    setWrong([]);
-    setMistakes(0);
+    setBoard(EMPTY_MATCH_BOARD);
     setFinished(false);
   };
 
   const totalPairs = terms.length;
   const donePairs =
-    rounds.slice(0, roundIndex).reduce((sum, r) => sum + r.length, 0) + matched.size;
+    rounds.slice(0, roundIndex).reduce((sum, r) => sum + r.length, 0) + matched.length;
 
   return (
     <div className="space-y-3">
@@ -735,15 +750,18 @@ function MatchMode({
 
       <div className="grid grid-cols-2 gap-2">
         {tiles.map((tile) => {
-          const isMatched = matched.has(tile.pairId);
-          const isSelected = selected === tile.id;
-          const isWrong = wrong.includes(tile.id);
+          const tileState = matchTileState(board, tile);
+          const isMatched = tileState === "matched";
+          const isWrong = tileState === "wrong";
+          // The first tile stays the selection (pressed) while both show red.
+          const isSelected = board.selected === tile.id;
           return (
             <button
               key={tile.id}
               type="button"
               data-testid="match-tile"
               data-matched={isMatched ? "true" : "false"}
+              data-wrong={isWrong ? "true" : "false"}
               disabled={isMatched}
               aria-pressed={isSelected}
               onClick={() => tap(tile)}
@@ -751,13 +769,8 @@ function MatchMode({
               className={cn(
                 "min-h-[56px] cursor-pointer break-words rounded-xl border px-2 py-2 text-sm font-semibold transition-all duration-200 active:scale-[0.97]",
                 tile.side === "es" ? "text-gold" : "text-foreground",
-                isMatched && "pointer-events-none border-border/20 bg-transparent opacity-25",
-                !isMatched && isSelected && "border-gold bg-gold/20",
-                !isMatched && isWrong && "border-red-500/60 bg-red-500/10",
-                !isMatched &&
-                  !isSelected &&
-                  !isWrong &&
-                  "border-border/50 bg-card/30 hover:border-gold/40",
+                // Red wins over the selection highlight, so BOTH tiles of a wrong pair show it.
+                MATCH_TILE_STYLE[tileState],
               )}
             >
               {tile.text}
@@ -765,6 +778,10 @@ function MatchMode({
           );
         })}
       </div>
+      {/* Colour is not the only signal: the miss is also announced. */}
+      <span className="sr-only" aria-live="polite">
+        {board.wrong.length > 0 ? "Not a match. Try again." : ""}
+      </span>
 
       {roundDone && !lastRound && (
         <button type="button" className={cn(primaryBtn, "w-full")} onClick={nextRound}>

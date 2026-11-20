@@ -26,6 +26,43 @@ export type RecallItem =
     };
 const key = (text: string) => text.normalize("NFC").trim().toLocaleLowerCase();
 
+/** One conjugation on the back of a verb card, spelled out with its subject. */
+export interface RecallFormLine {
+  id: string;
+  /** The subject as authored for the form ("yo", "él / ella / usted"). */
+  subject: string;
+  /** The authored form, unchanged ("conecto"). This is what is read aloud. */
+  form: string;
+  /** The full line the learner reads ("yo conecto"). */
+  text: string;
+}
+
+/**
+ * The authored conjugations of a verb card, each written out with its subject:
+ * conectar → yo conecto, tú conectas, él / ella / usted conecta, nosotros conectamos,
+ * ellos / ustedes conectan. Forms come only from the lesson's authored verbs or pattern;
+ * a card without authored forms has no lines, and nothing is ever generated.
+ */
+export function recallFormLines(card: Pick<RecallCard, "forms">): RecallFormLine[] {
+  return card.forms.flatMap((item) => {
+    const form = item.answer.trim();
+    if (!form) return [];
+    const subject = item.prompt.includes(" · ") ? item.prompt.split(" · ")[0].trim() : "";
+    // A form that already carries its subject is shown as authored, not doubled.
+    const carriesSubject = subject
+      .split(" / ")
+      .some((part) => part && key(form).startsWith(`${key(part)} `));
+    return [
+      {
+        id: item.id,
+        subject,
+        form,
+        text: subject && !carriesSubject ? `${subject} ${form}` : form,
+      },
+    ];
+  });
+}
+
 /** One authored deck; games use only this lesson and matching revisits cards already seen. */
 export function buildLessonRecall(
   words: readonly LessonWord[],

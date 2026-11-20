@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:25:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-25-source-decision-2026-11-18/packet.json",
+    "sha256": "0fcdbb2766ed2f17b37da75a3ba3509d91f7182f1807791b6cfa8d72099f4bc0"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-24-26-draft.json",
+      "sha256": "81375e82aaf0b1fce1956eb8c5b3efda62a3d990789d20c904ae4d267a4179fc"
+    }
+  },
+  "objectiveEnglish": "Name ground-crew and debris terms and describe falling-debris risk in source language.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語を見て、次の意味を確認してください：地上で作業する班（地上作業員）",
+      "targetEnglish": "ground crew",
+      "sourceAnchor": "roofing:25:ja-en:card:1",
+      "id": "core-roofing:25:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "はがした屋根材などの破片・がれき。英語を思い出してください。",
+      "targetEnglish": "debris",
+      "sourceAnchor": "roofing:25:ja-en:card:2",
+      "id": "core-roofing:25:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「がれきを下へ落とすための筒（ダストシュート）」を表す語を選びましょう",
+      "targetEnglish": "chute",
+      "candidateOptionsEnglish": [
+        "cone",
+        "chute",
+        "danger"
+      ],
+      "sourceAnchor": "roofing:25:ja-en:card:7",
+      "id": "core-roofing:25:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "chute",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "工事現場でかぶる保護帽（作業用ヘルメット）。英語で入力してください。",
+      "targetEnglish": "hard hat",
+      "sourceAnchor": "roofing:25:ja-en:card:4",
+      "id": "core-roofing:25:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「がれきは屋根から落ちて、下にいる人にけがをさせることがあります」を英語で言いましょう",
+      "targetEnglish": "Debris can fall from the roof and hurt someone below.",
+      "sourceAnchor": "roofing:25:ja-en:line:2",
+      "id": "core-roofing:25:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「注意を促すために張るテープ（警戒テープ）」を英語で書きましょう",
+      "targetEnglish": "warning tape",
+      "sourceAnchor": "roofing:25:ja-en:card:5",
+      "id": "core-roofing:25:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Debris can fall from the roof",
+      "explanationJapanese": "can は「〜することがある・〜しうる」という可能性を表す助動詞です。後ろには動詞の原形（fall）を置きます。",
+      "sourceAnchor": "roofing:25:ja-en:line:2",
+      "id": "core-roofing:25:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "clear of falling debris",
+      "explanationJapanese": "ここでの clear of は「〜から離れて」という位置関係を表します。falling は fall の現在分詞で、形容詞のように debris を修飾し「落ちてくるがれき」という意味になります。",
+      "sourceAnchor": "roofing:25:ja-en:line:6",
+      "id": "core-roofing:25:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "even if you are wearing a hard hat",
+      "explanationJapanese": "even if は「たとえ〜でも」を表します。are wearing は現在進行形で、「身につけている」状態を表します。",
+      "sourceAnchor": "roofing:25:ja-en:line:5",
+      "id": "core-roofing:25:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "danger",
+      "glossJapanese": "危険",
+      "senseJapanese": "けがや事故が起こりうる状態。標識や声かけでも使われる語",
+      "sourceAnchor": "roofing:25:ja-en:card:6",
+      "id": "core-roofing:25:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "cone",
+      "glossJapanese": "コーン（カラーコーン）",
+      "senseJapanese": "注意を促すために地面に置く円すい形の標識",
+      "sourceAnchor": "roofing:25:ja-en:card:8",
+      "id": "core-roofing:25:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "tear-off",
+      "glossJapanese": "既存屋根材の撤去（はがし作業）",
+      "senseJapanese": "古い屋根材をはがして取り除く作業",
+      "sourceAnchor": "roofing:25:ja-en:card:9",
+      "id": "core-roofing:25:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業員役：出典の声かけ表現を言い、用語と、がれきの落下を説明する出典の文を英語で言う",
+      "partner": "練習相手役：学習者の言った用語と文を聞き、日本語の意味を確認する"
+    },
+    "openingEnglish": "Heads up! Debris coming down!",
+    "closureEnglish": "Debris can fall from the roof and hurt someone below.",
+    "objectivesEnglish": [
+      "Say the English terms ground crew, debris and hard hat.",
+      "Say the English terms warning tape, chute, cone and danger.",
+      "Say the source warning call and the source sentence describing how debris can fall and hurt someone below."
+    ],
+    "wordBankEnglish": [
+      "ground crew",
+      "debris",
+      "hard hat",
+      "warning tape",
+      "chute",
+      "cone",
+      "danger"
+    ],
+    "sourceAnchors": [
+      "roofing:25:ja-en:card:1",
+      "roofing:25:ja-en:card:2",
+      "roofing:25:ja-en:card:4",
+      "roofing:25:ja-en:card:5",
+      "roofing:25:ja-en:card:6",
+      "roofing:25:ja-en:card:7",
+      "roofing:25:ja-en:card:8",
+      "roofing:25:ja-en:card:15",
+      "roofing:25:ja-en:line:2"
+    ],
+    "id": "core-roofing:25:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terms/source description/question supplement. Exclusion boundary, warning timing and clear authorization remain held; no safety certification is inferred from clear.",
+    "Repair authorization, structural assessment, documentation/photo sufficiency and covered-area verification remain qualified source/trade decisions. A source photo record is not proof of adequate repair.",
+    "Vent/pipe-boot/flashing/crack terms are contextual; exposed-nail sealing method remains held. Narration and source speaker roles are marked in speaking.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

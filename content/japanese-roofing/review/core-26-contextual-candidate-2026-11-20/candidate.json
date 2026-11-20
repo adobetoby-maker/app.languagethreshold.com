@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:26:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-26-source-decision-2026-11-18/packet.json",
+    "sha256": "ef797a3f19be87dcaa54a2050673d0665242a3a1ca81403caaf7cc24ff7bb30a"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-24-26-draft.json",
+      "sha256": "81375e82aaf0b1fce1956eb8c5b3efda62a3d990789d20c904ae4d267a4179fc"
+    }
+  },
+  "objectiveEnglish": "Name repair-documentation terms and ask about the size of a repaired section.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語を見て、次の意味を確認してください：修理箇所を写した写真",
+      "targetEnglish": "repair photo",
+      "sourceAnchor": "roofing:26:ja-en:card:1",
+      "id": "core-roofing:26:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根材の下にある屋根下地の面（全体）。英語を思い出してください。",
+      "targetEnglish": "deck",
+      "sourceAnchor": "roofing:26:ja-en:card:2",
+      "id": "core-roofing:26:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「傷みや損傷が見つかった場所」を表す語句を選びましょう",
+      "targetEnglish": "damaged area",
+      "candidateOptionsEnglish": [
+        "covered area",
+        "plywood",
+        "damaged area"
+      ],
+      "sourceAnchor": "roofing:26:ja-en:card:7",
+      "id": "core-roofing:26:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "damaged area",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "屋根下地に張る板材（野地板）。英語で入力してください。",
+      "targetEnglish": "sheathing",
+      "sourceAnchor": "roofing:26:ja-en:card:8",
+      "id": "core-roofing:26:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「作業員がその部分を測り、寸法を伝えます」を英語で言いましょう",
+      "targetEnglish": "A worker measures the section and gives the measurement.",
+      "sourceAnchor": "roofing:26:ja-en:line:6",
+      "id": "core-roofing:26:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「測って得た寸法・測定値」を英語で書きましょう",
+      "targetEnglish": "measurement",
+      "sourceAnchor": "roofing:26:ja-en:card:9",
+      "id": "core-roofing:26:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "How big is the repaired section?",
+      "explanationJapanese": "How big is 〜? は「〜はどのくらいの大きさですか」と大きさをたずねる形です。repaired は repair の過去分詞で、「修理された」という意味で section を修飾します。",
+      "sourceAnchor": "roofing:26:ja-en:line:5",
+      "id": "core-roofing:26:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "measures the section and gives the measurement",
+      "explanationJapanese": "measure は動詞「測る」、measurement は名詞「寸法・測定値」です。主語が三人称単数（A worker）なので、動詞に -s が付きます。",
+      "sourceAnchor": "roofing:26:ja-en:line:6",
+      "id": "core-roofing:26:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The repair photo is the record of what stays in the covered area",
+      "explanationJapanese": "is the record of 〜 は「〜の記録である」という意味です。what は先行詞を含む関係代名詞で、「〜するもの」（= the thing that）を表します。",
+      "sourceAnchor": "roofing:26:ja-en:line:9",
+      "id": "core-roofing:26:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "repair",
+      "glossJapanese": "修理",
+      "senseJapanese": "傷んだ部分を直すこと。また、その直した箇所",
+      "sourceAnchor": "roofing:26:ja-en:card:4",
+      "id": "core-roofing:26:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "plywood",
+      "glossJapanese": "合板",
+      "senseJapanese": "薄い木の板を何層も貼り合わせてつくった板材",
+      "sourceAnchor": "roofing:26:ja-en:card:5",
+      "id": "core-roofing:26:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "damaged area",
+      "glossJapanese": "損傷箇所",
+      "senseJapanese": "傷みや損傷が見つかった場所",
+      "sourceAnchor": "roofing:26:ja-en:card:7",
+      "id": "core-roofing:26:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業員役：用語を英語で言い、最後に出典の説明文（作業員が測って寸法を伝える）を英語で言う",
+      "partner": "現場監督役：出典どおり、修理した部分の大きさをたずねる質問で会話を始める"
+    },
+    "openingEnglish": "How big is the repaired section?",
+    "closureEnglish": "A worker measures the section and gives the measurement.",
+    "objectivesEnglish": [
+      "Name the repair photo, the deck and the sheathing in English.",
+      "Name the damaged area, plywood and repair in English.",
+      "Understand the source question about the size of the repaired section and say the source sentence about measuring and giving the measurement."
+    ],
+    "wordBankEnglish": [
+      "repair photo",
+      "deck",
+      "sheathing",
+      "plywood",
+      "damaged area",
+      "repair",
+      "measurement"
+    ],
+    "sourceAnchors": [
+      "roofing:26:ja-en:card:1",
+      "roofing:26:ja-en:card:2",
+      "roofing:26:ja-en:card:4",
+      "roofing:26:ja-en:card:5",
+      "roofing:26:ja-en:card:7",
+      "roofing:26:ja-en:card:8",
+      "roofing:26:ja-en:card:9",
+      "roofing:26:ja-en:card:14",
+      "roofing:26:ja-en:line:5",
+      "roofing:26:ja-en:line:6"
+    ],
+    "id": "core-roofing:26:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terms/source description/question supplement. Exclusion boundary, warning timing and clear authorization remain held; no safety certification is inferred from clear.",
+    "Repair authorization, structural assessment, documentation/photo sufficiency and covered-area verification remain qualified source/trade decisions. A source photo record is not proof of adequate repair.",
+    "Vent/pipe-boot/flashing/crack terms are contextual; exposed-nail sealing method remains held. Narration and source speaker roles are marked in speaking.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

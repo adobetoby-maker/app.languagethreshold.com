@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:13:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-13-source-decision-2026-11-18/packet.json",
+    "sha256": "36a54a9c2cd8119c2ac7d488bb356fd7418a3bda4d24831e5a164fc4baa73e10"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-13-15-draft.json",
+      "sha256": "5c03a21e6efe798b23dfee50780a0cdddbaf82205f91c9954aef36ee8c2e5322"
+    }
+  },
+  "objectiveEnglish": "Name roof-edge terms and ask about the relationship between drip edge and underlayment.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "屋根の端に取り付ける部材を表す次の英語を見て、日本語で意味を言ってください。",
+      "targetEnglish": "drip edge",
+      "sourceAnchor": "roofing:13:ja-en:card:1",
+      "id": "core-roofing:13:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根の下端の「軒・軒先」を英語で何と言いますか。思い出して答えてください。",
+      "targetEnglish": "eave",
+      "sourceAnchor": "roofing:13:ja-en:card:2",
+      "id": "core-roofing:13:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「施工者は答える前にメーカーの説明書を確認する」という内容の文を選んでください。",
+      "targetEnglish": "The installers check the manufacturer's instructions before answering.",
+      "sourceAnchor": "roofing:13:ja-en:line:5",
+      "candidateOptionsEnglish": [
+        "Today the crew is going to install the drip edge.",
+        "Before starting, the foreman talks to the installers.",
+        "The installers check the manufacturer's instructions before answering."
+      ],
+      "id": "core-roofing:13:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "The installers check the manufacturer's instructions before answering.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「順序・順番」を表す英単語を入力してください。",
+      "targetEnglish": "sequence",
+      "sourceAnchor": "roofing:13:ja-en:card:6",
+      "id": "core-roofing:13:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "水切りは下葺き材の下に入るのか、上に重なるのかを、英語で質問してください。",
+      "targetEnglish": "Does the drip edge go under or over the underlayment?",
+      "sourceAnchor": "roofing:13:ja-en:card:11",
+      "id": "core-roofing:13:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "屋根の端と端が出会う「角・隅」を表す英単語を書いてください。",
+      "targetEnglish": "corner",
+      "sourceAnchor": "roofing:13:ja-en:card:8",
+      "id": "core-roofing:13:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Does the drip edge go under or over the underlayment?",
+      "explanationJapanese": "Does ＋ 主語 ＋ 動詞の原形で始まる疑問文です。under or over は「下か上か」と二つのうちどちらかを尋ねる形です。",
+      "sourceAnchor": "roofing:13:ja-en:line:4",
+      "id": "core-roofing:13:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Today the crew is going to install the drip edge.",
+      "explanationJapanese": "be going to ＋ 動詞の原形で、これからの予定を述べる文です。主語 the crew は一つのまとまりとして is を取ります。",
+      "sourceAnchor": "roofing:13:ja-en:line:1",
+      "id": "core-roofing:13:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Before starting, the foreman talks to the installers.",
+      "explanationJapanese": "Before ＋ 動詞の -ing 形で「〜する前に」を表します。主語が三人称単数なので、動詞は talks と s が付きます。",
+      "sourceAnchor": "roofing:13:ja-en:line:2",
+      "id": "core-roofing:13:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "drip edge",
+      "glossJapanese": "水切り（ドリップエッジ）",
+      "senseJapanese": "軒先やけらばの端に取り付け、雨水を屋根の外へ切って流す部材",
+      "sourceAnchor": "roofing:13:ja-en:card:1",
+      "id": "core-roofing:13:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "eave",
+      "glossJapanese": "軒・軒先（のきさき）",
+      "senseJapanese": "屋根の下端側で、外壁より外へ張り出している部分とその先端",
+      "sourceAnchor": "roofing:13:ja-en:card:2",
+      "id": "core-roofing:13:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "rake",
+      "glossJapanese": "けらば",
+      "senseJapanese": "切妻屋根の妻側にある、傾斜に沿った屋根の端",
+      "sourceAnchor": "roofing:13:ja-en:card:3",
+      "id": "core-roofing:13:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "水切りと下葺き材の上下関係について、英語で質問して確認する役",
+      "partner": "施工者役。答える前にメーカーの説明書を確認することを英語で伝える役"
+    },
+    "openingEnglish": "Before starting, the foreman talks to the installers.",
+    "closureEnglish": "The installers check the manufacturer's instructions before answering.",
+    "objectivesEnglish": [
+      "Name drip edge, eave, rake, and corner in English.",
+      "Ask whether the drip edge goes under or over the underlayment.",
+      "Say that the installers check the manufacturer's instructions before answering."
+    ],
+    "wordBankEnglish": [
+      "drip edge",
+      "eave",
+      "rake",
+      "underlayment",
+      "corner"
+    ],
+    "sourceAnchors": [
+      "roofing:13:ja-en:card:1",
+      "roofing:13:ja-en:card:2",
+      "roofing:13:ja-en:card:3",
+      "roofing:13:ja-en:card:4",
+      "roofing:13:ja-en:card:8",
+      "roofing:13:ja-en:card:11",
+      "roofing:13:ja-en:line:2",
+      "roofing:13:ja-en:line:4",
+      "roofing:13:ja-en:line:5"
+    ],
+    "id": "core-roofing:13:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terminology/question/description supplement. Drip-edge order and under/over answer, six-inch overlap, cap-fastener method and membrane cut/peel/press/adhesive procedure remain qualified product/trade/source review decisions.",
+    "Membrane/backing-paper/valley and eave/rake senses are contextual candidates; product impermeability and installation suitability are not selected.",
+    "Source manufacturer instructions phrase is retained exactly; no product specification or measurement is invented.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

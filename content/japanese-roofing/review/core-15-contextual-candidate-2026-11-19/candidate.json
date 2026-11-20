@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:15:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-15-source-decision-2026-11-18/packet.json",
+    "sha256": "ae30cdcdae83584b0d3fec8f1706aa1bdb028bad0e72b2469eb13ac3b839d195"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-13-15-draft.json",
+      "sha256": "5c03a21e6efe798b23dfee50780a0cdddbaf82205f91c9954aef36ee8c2e5322"
+    }
+  },
+  "objectiveEnglish": "Name valley and membrane terms, describe a leak possibility and ask about coverage.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "二つの屋根面が出会う部分を表す次の英語を見て、日本語で意味を言ってください。",
+      "targetEnglish": "valley",
+      "sourceAnchor": "roofing:15:ja-en:card:1",
+      "id": "core-roofing:15:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「雨漏り・水漏れ」を英語で何と言いますか。思い出して答えてください。",
+      "targetEnglish": "leak",
+      "sourceAnchor": "roofing:15:ja-en:card:7",
+      "id": "core-roofing:15:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「谷部の雨漏りは家を傷めることがある」という内容の文を選んでください。",
+      "targetEnglish": "A leak in the valley can damage the house.",
+      "sourceAnchor": "roofing:15:ja-en:line:7",
+      "candidateOptionsEnglish": [
+        "The valley is a place where water runs with force.",
+        "That is why the crew adds extra protection.",
+        "A leak in the valley can damage the house."
+      ],
+      "id": "core-roofing:15:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "A leak in the valley can damage the house.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "この屋根の場面の「防水膜・シート状の層」を表す英単語を入力してください。",
+      "targetEnglish": "membrane",
+      "sourceAnchor": "roofing:15:ja-en:card:3",
+      "id": "core-roofing:15:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "谷部が端から端まで完全に覆われているかどうかを、英語で質問してください。",
+      "targetEnglish": "Is the valley covered all the way?",
+      "sourceAnchor": "roofing:15:ja-en:card:15",
+      "id": "core-roofing:15:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "粘着面を覆って保護している「剥離紙」を英語で書いてください。",
+      "targetEnglish": "backing paper",
+      "sourceAnchor": "roofing:15:ja-en:card:5",
+      "id": "core-roofing:15:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The valley is a place where water runs with force.",
+      "explanationJapanese": "a place where 〜 で「〜する場所」を表します。where 以下が place を説明する関係副詞の節です。",
+      "sourceAnchor": "roofing:15:ja-en:line:1",
+      "id": "core-roofing:15:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "A leak in the valley can damage the house.",
+      "explanationJapanese": "can ＋ 動詞の原形で「〜することがある・〜しうる」という可能性を表します。in the valley は leak の場所を示します。",
+      "sourceAnchor": "roofing:15:ja-en:line:7",
+      "id": "core-roofing:15:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Is the valley covered all the way?",
+      "explanationJapanese": "Is ＋ 主語 ＋ 過去分詞（covered）で「〜は覆われていますか」と状態を尋ねる疑問文です。all the way は「端から端まで・完全に」の意味です。",
+      "sourceAnchor": "roofing:15:ja-en:card:15",
+      "id": "core-roofing:15:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "valley",
+      "glossJapanese": "谷・谷部",
+      "senseJapanese": "二つの屋根面が交わって、くぼみになっている部分",
+      "sourceAnchor": "roofing:15:ja-en:card:1",
+      "id": "core-roofing:15:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "membrane",
+      "glossJapanese": "防水シート・防水膜",
+      "senseJapanese": "この場面では、屋根の防水に用いる薄いシート状の層を指します。",
+      "sourceAnchor": "roofing:15:ja-en:card:3",
+      "id": "core-roofing:15:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "backing paper",
+      "glossJapanese": "剥離紙（はくりし）",
+      "senseJapanese": "粘着面を覆って保護している紙",
+      "sourceAnchor": "roofing:15:ja-en:card:5",
+      "id": "core-roofing:15:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "谷部が端まで覆われているかどうかを、英語で質問して確認する役",
+      "partner": "谷部では水が強く流れることや、雨漏りの影響を英語で述べる役"
+    },
+    "openingEnglish": "The valley is a place where water runs with force.",
+    "closureEnglish": "Is the valley covered all the way?",
+    "objectivesEnglish": [
+      "Name valley, membrane, backing paper, and leak in English.",
+      "Say that a leak in the valley can damage the house.",
+      "Ask whether the valley is covered all the way."
+    ],
+    "wordBankEnglish": [
+      "valley",
+      "membrane",
+      "adhesive",
+      "backing paper",
+      "leak"
+    ],
+    "sourceAnchors": [
+      "roofing:15:ja-en:card:1",
+      "roofing:15:ja-en:card:3",
+      "roofing:15:ja-en:card:4",
+      "roofing:15:ja-en:card:5",
+      "roofing:15:ja-en:card:7",
+      "roofing:15:ja-en:card:15",
+      "roofing:15:ja-en:line:1",
+      "roofing:15:ja-en:line:7"
+    ],
+    "id": "core-roofing:15:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terminology/question/description supplement. Drip-edge order and under/over answer, six-inch overlap, cap-fastener method and membrane cut/peel/press/adhesive procedure remain qualified product/trade/source review decisions.",
+    "Membrane/backing-paper/valley and eave/rake senses are contextual candidates; product impermeability and installation suitability are not selected.",
+    "Source manufacturer instructions phrase is retained exactly; no product specification or measurement is invented.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

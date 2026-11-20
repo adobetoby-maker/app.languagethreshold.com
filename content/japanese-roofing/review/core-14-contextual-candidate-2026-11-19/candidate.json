@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:14:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-14-source-decision-2026-11-18/packet.json",
+    "sha256": "7a097a0b8dad354c6300ca62a94ab9cbd316ac273e61260eadfde55e12068fc9"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-13-15-draft.json",
+      "sha256": "5c03a21e6efe798b23dfee50780a0cdddbaf82205f91c9954aef36ee8c2e5322"
+    }
+  },
+  "objectiveEnglish": "Name selected underlayment terms, ask about overlap and describe a measurement check.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "屋根材の下に敷く層を表す次の英語を見て、日本語で意味を言ってください。",
+      "targetEnglish": "underlayment",
+      "sourceAnchor": "roofing:14:ja-en:card:1",
+      "id": "core-roofing:14:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "シートどうしの「重なり・重ね代」を英語で何と言いますか。思い出して答えてください。",
+      "targetEnglish": "overlap",
+      "sourceAnchor": "roofing:14:ja-en:card:2",
+      "id": "core-roofing:14:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「作業員が重なりをもう一度測る」という内容の文を選んでください。",
+      "targetEnglish": "A worker measures the overlap again.",
+      "sourceAnchor": "roofing:14:ja-en:line:8",
+      "candidateOptionsEnglish": [
+        "Yesterday the crew cleaned the deck.",
+        "Today they start on the underlayment.",
+        "A worker measures the overlap again."
+      ],
+      "id": "core-roofing:14:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "A worker measures the overlap again.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "シートの表面にできる「しわ」を表す英単語を入力してください。",
+      "targetEnglish": "wrinkle",
+      "sourceAnchor": "roofing:14:ja-en:card:7",
+      "id": "core-roofing:14:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "重なりが正しいかどうかを、英語で質問してください。",
+      "targetEnglish": "Is the overlap correct?",
+      "sourceAnchor": "roofing:14:ja-en:card:13",
+      "id": "core-roofing:14:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「メーカー（製造元）の説明書・指示」を英語で書いてください。",
+      "targetEnglish": "manufacturer instructions",
+      "sourceAnchor": "roofing:14:ja-en:card:9",
+      "id": "core-roofing:14:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Is the overlap correct?",
+      "explanationJapanese": "be 動詞を文頭に置いた疑問文です。Is ＋ 主語 ＋ 形容詞で「〜は…ですか」と状態を確認します。",
+      "sourceAnchor": "roofing:14:ja-en:line:7",
+      "id": "core-roofing:14:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Yesterday the crew cleaned the deck.",
+      "explanationJapanese": "過去形の文です。規則動詞 clean に -ed を付けて cleaned とし、Yesterday（昨日）で時を示します。",
+      "sourceAnchor": "roofing:14:ja-en:line:1",
+      "id": "core-roofing:14:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "A worker measures the overlap again.",
+      "explanationJapanese": "主語が三人称単数なので、動詞は measures と s が付きます。again は「もう一度」の意味で文末に置かれています。",
+      "sourceAnchor": "roofing:14:ja-en:line:8",
+      "id": "core-roofing:14:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "underlayment",
+      "glossJapanese": "下葺き材（ルーフィング）",
+      "senseJapanese": "屋根材の下に敷くシート状の層",
+      "sourceAnchor": "roofing:14:ja-en:card:1",
+      "id": "core-roofing:14:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "overlap",
+      "glossJapanese": "重なり・重ね代（かさねしろ）",
+      "senseJapanese": "隣り合う材料どうしが重なっている部分。その幅は重ね代・重ね幅と呼ばれる",
+      "sourceAnchor": "roofing:14:ja-en:card:2",
+      "id": "core-roofing:14:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "wrinkle",
+      "glossJapanese": "しわ",
+      "senseJapanese": "シートの表面が寄って、波打ったり折れたりしている状態",
+      "sourceAnchor": "roofing:14:ja-en:card:7",
+      "id": "core-roofing:14:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "下葺き材の重なりが正しいかどうかを、英語で質問して確認する役",
+      "partner": "作業員役。重なりをもう一度測ることを英語で伝える役"
+    },
+    "openingEnglish": "Today they start on the underlayment.",
+    "closureEnglish": "A worker measures the overlap again.",
+    "objectivesEnglish": [
+      "Name underlayment, overlap, roll, and wrinkle in English.",
+      "Ask whether the overlap is correct.",
+      "Say that a worker measures the overlap again."
+    ],
+    "wordBankEnglish": [
+      "underlayment",
+      "overlap",
+      "roll",
+      "felt paper",
+      "wrinkle",
+      "manufacturer instructions"
+    ],
+    "sourceAnchors": [
+      "roofing:14:ja-en:card:1",
+      "roofing:14:ja-en:card:2",
+      "roofing:14:ja-en:card:4",
+      "roofing:14:ja-en:card:5",
+      "roofing:14:ja-en:card:7",
+      "roofing:14:ja-en:card:9",
+      "roofing:14:ja-en:card:13",
+      "roofing:14:ja-en:line:2",
+      "roofing:14:ja-en:line:7",
+      "roofing:14:ja-en:line:8"
+    ],
+    "id": "core-roofing:14:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terminology/question/description supplement. Drip-edge order and under/over answer, six-inch overlap, cap-fastener method and membrane cut/peel/press/adhesive procedure remain qualified product/trade/source review decisions.",
+    "Membrane/backing-paper/valley and eave/rake senses are contextual candidates; product impermeability and installation suitability are not selected.",
+    "Source manufacturer instructions phrase is retained exactly; no product specification or measurement is invented.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

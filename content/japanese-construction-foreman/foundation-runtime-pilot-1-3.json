@@ -1,0 +1,492 @@
+{
+  "target": "Japanese",
+  "native": "English",
+  "module": "foundation-construction-foreman",
+  "stage": "foundation",
+  "reviewed": false,
+  "state": "private-pilot-draft",
+  "sourceSha256": "d615822646bf94c386633b2bdc113ac1c7d0cdb310549181874d74aba5996df5",
+  "lessons": [
+    {
+      "n": 1,
+      "title": "Sounds and Greetings",
+      "objective": "Say jobsite words clearly and greet your crew and coworkers in Japanese.",
+      "focus": "Use polite greetings and です for self-introduction. Read hiragana in おはようございます, katakana in ヘルメット, and the reading of jobsite kanji such as 現場 (げんば).",
+      "words": [
+        {
+          "en": "the hard hat",
+          "es": "ヘルメット",
+          "kind": "term",
+          "note": "Katakana marks this borrowed word; also called 安全帽."
+        },
+        {
+          "en": "the safety vest",
+          "es": "安全ベスト",
+          "kind": "term",
+          "reading": "あんぜんベスト"
+        },
+        {
+          "en": "the boss",
+          "es": "親方",
+          "kind": "term",
+          "reading": "おやかた",
+          "note": "親方 is a trade master or crew boss; 職長 is the designated site foreman."
+        },
+        {
+          "en": "the wrench",
+          "es": "レンチ",
+          "kind": "term",
+          "note": "General wrench; スパナ is an open-end wrench."
+        },
+        {
+          "en": "the wheelbarrow",
+          "es": "一輪車",
+          "kind": "term",
+          "reading": "いちりんしゃ",
+          "note": "On site often ネコ or ネコ車 (ねこぐるま); 一輪車 alone can also mean a unicycle."
+        },
+        {
+          "en": "the hammer",
+          "es": "金槌",
+          "kind": "term",
+          "reading": "かなづち",
+          "note": "かなづち: づ is pronounced zu."
+        },
+        {
+          "en": "the ladder",
+          "es": "はしご",
+          "kind": "term",
+          "reading": "はしご",
+          "note": "Common word for a portable ladder."
+        },
+        {
+          "en": "the scaffold",
+          "es": "足場",
+          "kind": "term",
+          "reading": "あしば"
+        },
+        {
+          "en": "the truck",
+          "es": "トラック",
+          "kind": "term"
+        },
+        {
+          "en": "the jobsite",
+          "es": "現場",
+          "kind": "term",
+          "reading": "げんば"
+        },
+        {
+          "en": "Good morning, everyone!",
+          "es": "みなさん、おはようございます！",
+          "kind": "phrase"
+        },
+        {
+          "en": "My name is Carlos.",
+          "es": "私はカルロスです。",
+          "kind": "phrase"
+        },
+        {
+          "en": "Nice to meet you.",
+          "es": "はじめまして。",
+          "kind": "phrase"
+        },
+        {
+          "en": "How are you?",
+          "es": "調子はどうですか？",
+          "kind": "phrase",
+          "note": "Natural for checking how a coworker is doing; お元気ですか fits someone you have not seen in a while."
+        },
+        {
+          "en": "How do you say \"hard hat\" in Japanese?",
+          "es": "「hard hat」は日本語で何と言いますか？",
+          "kind": "phrase"
+        },
+        {
+          "en": "See you tomorrow.",
+          "es": "また明日。",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Greeting the crew at the jobsite",
+        "target": [
+          "みなさん、おはようございます！",
+          "はじめまして。私はカルロスです。",
+          "調子はどうですか？",
+          "「hard hat」は日本語で何と言いますか？",
+          "一輪車はあそこにあります。",
+          "トラックは現場の前にあります。",
+          "また明日。"
+        ],
+        "native": [
+          "Good morning, everyone!",
+          "Nice to meet you. My name is Carlos.",
+          "How are you doing?",
+          "How do you say “hard hat” in Japanese?",
+          "The wheelbarrow is over there.",
+          "The truck is in front of the jobsite.",
+          "See you tomorrow."
+        ]
+      },
+      "speaking": "Greet a crew member, say your name, and ask how to say a tool in Japanese, then repeat the tool name clearly.",
+      "openingLine": "おはようございます。はじめまして、田中です。お名前は？",
+      "partnerRole": "A crew member who greets you, asks your name, and answers your question about how to say a tool name in Japanese.",
+      "checks": [
+        {
+          "prompt": "みなさん、____！",
+          "hint": "Good morning, everyone.",
+          "answer": "おはようございます",
+          "explanation": "おはようございます is a polite morning greeting; the written よう has a long vowel."
+        },
+        {
+          "prompt": "はじめまして。私は____です。",
+          "hint": "My name is Carlos.",
+          "answer": "カルロス",
+          "explanation": "私は ... です introduces your name politely; は is pronounced wa."
+        },
+        {
+          "prompt": "また____。",
+          "hint": "See you tomorrow.",
+          "answer": "明日",
+          "explanation": "また明日 means see you tomorrow; 明日 is read あした here.",
+          "acceptedAnswers": [
+            "明日",
+            "あした"
+          ]
+        }
+      ],
+      "sourceTitle": "Sounds and Greetings",
+      "sourceObjective": "Say jobsite words clearly and greet your crew and coworkers in Spanish."
+    },
+    {
+      "n": 2,
+      "title": "Numbers, Time and Measurements",
+      "objective": "Give start times, counts and lengths in feet and inches for boards, bags and concrete.",
+      "focus": "Read US site measurements in feet, inches, pounds, and cubic yards. Use 時 for clock time, 時間 for duration, 枚 for flat boards, 袋 for bags, and 個 for blocks. The full 0–1,000 number patterns come in later practice.",
+      "words": [
+        {
+          "en": "the foot (length)",
+          "es": "フィート",
+          "kind": "term"
+        },
+        {
+          "en": "the inch",
+          "es": "インチ",
+          "kind": "term"
+        },
+        {
+          "en": "the yard (measure)",
+          "es": "ヤード",
+          "kind": "term",
+          "note": "A length unit; ready-mix volume uses 立方ヤード (cubic yards) on this US site."
+        },
+        {
+          "en": "the pound",
+          "es": "ポンド",
+          "kind": "term"
+        },
+        {
+          "en": "the hour",
+          "es": "時間",
+          "kind": "term",
+          "reading": "じかん",
+          "note": "時間 measures duration; 7時 means seven o’clock."
+        },
+        {
+          "en": "the minute",
+          "es": "分",
+          "kind": "term",
+          "reading": "ふん",
+          "note": "Read いっぷん, さんぷん, じゅっぷん for 1, 3, 10 minutes."
+        },
+        {
+          "en": "the tape measure",
+          "es": "メジャー",
+          "kind": "term",
+          "note": "Common jobsite term; 巻き尺 (まきじゃく) is also used."
+        },
+        {
+          "en": "the board",
+          "es": "板",
+          "kind": "term",
+          "reading": "いた"
+        },
+        {
+          "en": "the bag of cement",
+          "es": "セメント袋",
+          "kind": "term",
+          "reading": "セメントぶくろ",
+          "note": "One bag is ひとふくろ, not いちふくろ."
+        },
+        {
+          "en": "noon",
+          "es": "正午",
+          "kind": "term",
+          "reading": "しょうご"
+        },
+        {
+          "en": "We start at 7 in the morning.",
+          "es": "午前7時に始めます。",
+          "kind": "phrase",
+          "note": "7時 is しちじ; 4時 is よじ and 9時 is くじ."
+        },
+        {
+          "en": "That's 20 boards, 8 feet long.",
+          "es": "8フィートの板が20枚です。",
+          "kind": "phrase",
+          "note": "20枚 is read にじゅうまい; 枚 counts flat boards."
+        },
+        {
+          "en": "The wall measures 10 feet 6 inches.",
+          "es": "壁の長さは10フィート6インチです。",
+          "kind": "phrase"
+        },
+        {
+          "en": "The truck is bringing 9 yards of concrete.",
+          "es": "トラックは生コンを9立方ヤード運んできます。",
+          "kind": "phrase",
+          "note": "Means nine cubic yards of ready-mix on this US site; 生コン is ready-mix."
+        },
+        {
+          "en": "Each bag weighs 94 pounds, according to the label.",
+          "es": "ラベルによると、セメントは1袋94ポンドです。",
+          "kind": "phrase"
+        },
+        {
+          "en": "That's 250 blocks for this wall.",
+          "es": "この壁用のブロックは250個です。",
+          "kind": "phrase"
+        }
+      ],
+      "reading": {
+        "title": "Start times, counts and lengths",
+        "target": [
+          "おはようございます。今日は何時に始めますか？",
+          "午前7時に始めて、午後4時に終わります。",
+          "8フィートの板が20枚です。",
+          "メジャーで壁の長さを測ってください。",
+          "壁の高さは8フィート2インチです。",
+          "生コンは9立方ヤード、午後2時に届きます。",
+          "セメントは1袋94ポンドです。ラベルを確認してください。"
+        ],
+        "native": [
+          "Good morning. What time do we start today?",
+          "We start at 7 a.m. and finish at 4 p.m.",
+          "That is 20 boards, 8 feet long.",
+          "Please measure the wall length with the tape measure.",
+          "The wall is 8 feet 2 inches high.",
+          "Nine cubic yards of ready-mix concrete arrive at 2 p.m.",
+          "Each cement bag is 94 pounds. Please check the label."
+        ]
+      },
+      "speaking": "Tell a crew member what time the crew starts and stops, then read the length of 3 boards in feet and inches.",
+      "openingLine": "おはようございます。今日は何時に始めますか？",
+      "partnerRole": "A crew member who asks what time the crew starts and stops, then asks for the length of the boards in feet and inches.",
+      "checks": [
+        {
+          "prompt": "午前____に始めて、午後4時に終わります。",
+          "hint": "We start at 7 a.m. and finish at 4 p.m.",
+          "answer": "7時",
+          "explanation": "7時 is 7 o’clock; 7時間 means seven hours.",
+          "acceptedAnswers": [
+            "7時",
+            "７時",
+            "七時",
+            "しちじ"
+          ]
+        },
+        {
+          "prompt": "8フィートの板が____です。",
+          "hint": "That is 20 boards, 8 feet long.",
+          "answer": "20枚",
+          "explanation": "枚 counts flat boards; 本 is used for long lumber.",
+          "acceptedAnswers": [
+            "20枚",
+            "２０枚",
+            "二十枚",
+            "にじゅうまい"
+          ]
+        },
+        {
+          "prompt": "セメントは1袋____です。ラベルを確認してください。",
+          "hint": "Each cement bag is 94 pounds. Please check the label.",
+          "answer": "94ポンド",
+          "explanation": "94ポンド is the labeled bag weight; check the label before using it.",
+          "acceptedAnswers": [
+            "94ポンド",
+            "９４ポンド",
+            "九十四ポンド"
+          ]
+        }
+      ],
+      "sourceTitle": "Numbers, Time and Measurements",
+      "sourceObjective": "Give start times, counts and lengths in feet and inches for boards, bags and concrete."
+    },
+    {
+      "n": 3,
+      "title": "Identity and Condition",
+      "objective": "Say who people are on site and describe what is broken, loose, level or dry.",
+      "focus": "Use です to identify people and ～ている for a resulting condition. あります marks where things are. A wall is checked for 垂直 (plumb); 水平 describes a level floor or top.",
+      "words": [
+        {
+          "en": "the carpenter",
+          "es": "大工",
+          "kind": "term",
+          "reading": "だいく"
+        },
+        {
+          "en": "the electrician",
+          "es": "電気工事士",
+          "kind": "term",
+          "reading": "でんきこうじし",
+          "note": "Licensed trade title; crews may say 電工 (でんこう)."
+        },
+        {
+          "en": "the concrete",
+          "es": "コンクリート",
+          "kind": "term"
+        },
+        {
+          "en": "broken",
+          "es": "壊れている",
+          "kind": "term",
+          "reading": "こわれている"
+        },
+        {
+          "en": "loose",
+          "es": "ゆるんでいる",
+          "kind": "term",
+          "note": "From ゆるむ, to work loose; ゆるい is the plain adjective (足場がゆるい)."
+        },
+        {
+          "en": "level",
+          "es": "水平",
+          "kind": "term",
+          "reading": "すいへい",
+          "note": "Level for a floor or top; a wall is 垂直 (plumb)."
+        },
+        {
+          "en": "dry",
+          "es": "乾いている",
+          "kind": "term",
+          "reading": "かわいている"
+        },
+        {
+          "en": "wet, not set yet (concrete)",
+          "es": "固まっていない",
+          "kind": "term",
+          "reading": "かたまっていない"
+        },
+        {
+          "en": "clean",
+          "es": "きれい",
+          "kind": "term",
+          "note": "きれい is a な-adjective; also means pretty."
+        },
+        {
+          "en": "open",
+          "es": "開いている",
+          "kind": "term",
+          "reading": "あいている"
+        },
+        {
+          "en": "closed",
+          "es": "閉まっている",
+          "kind": "term",
+          "reading": "しまっている"
+        },
+        {
+          "en": "I'm the foreman on this job.",
+          "es": "私はこの現場の職長です。",
+          "kind": "phrase"
+        },
+        {
+          "en": "He's a carpenter and she's an electrician.",
+          "es": "田中さんは大工で、鈴木さんは電気工事士です。",
+          "kind": "phrase",
+          "note": "Japanese normally uses names rather than 彼/彼女 for coworkers present."
+        },
+        {
+          "en": "The scaffold is loose here.",
+          "es": "ここの足場はゆるんでいます。",
+          "kind": "phrase"
+        },
+        {
+          "en": "The concrete is still wet.",
+          "es": "コンクリートはまだ固まっていません。",
+          "kind": "phrase"
+        },
+        {
+          "en": "The tools are in the truck.",
+          "es": "道具はトラックの中にあります。",
+          "kind": "phrase"
+        },
+        {
+          "en": "Is the wall level?",
+          "es": "壁は垂直ですか？",
+          "kind": "phrase",
+          "note": "The English source says level; on a wall the check is plumb (垂直). 水平 is for a floor or top."
+        }
+      ],
+      "reading": {
+        "title": "Who is on the crew and what condition the site is in",
+        "target": [
+          "私はこの現場の職長です。",
+          "田中さんは大工で、鈴木さんは電気工事士です。",
+          "ここの足場はゆるんでいます。",
+          "コンクリートはまだ固まっていません。",
+          "道具はトラックの中にあります。",
+          "壁は垂直ですか？",
+          "この板は乾いていますか？"
+        ],
+        "native": [
+          "I'm the foreman on this job.",
+          "He's a carpenter and she's an electrician.",
+          "The scaffold is loose here.",
+          "The concrete is still wet.",
+          "The tools are in the truck.",
+          "Is the wall plumb?",
+          "Is this board dry?"
+        ]
+      },
+      "speaking": "Describe the site to a crew member: say who each worker is, and say whether the scaffold is loose, the wall is plumb (垂直), and the concrete is still wet, using ～ている for a condition that has changed.",
+      "openingLine": "職長さん、今日は誰が来ていますか？",
+      "partnerRole": "A crew member who asks who each worker is, then asks about the condition of the scaffold, the wall and the concrete.",
+      "checks": [
+        {
+          "prompt": "私はこの現場の____です。",
+          "hint": "I am the foreman on this job.",
+          "answer": "職長",
+          "explanation": "職長 identifies the designated foreman role; 親方 can mean a trade master or crew boss.",
+          "acceptedAnswers": [
+            "職長",
+            "しょくちょう"
+          ]
+        },
+        {
+          "prompt": "ここの足場は____。",
+          "hint": "The scaffold is loose here.",
+          "answer": "ゆるんでいます",
+          "explanation": "ゆるんでいます describes a connection that has come loose. Keep the crew off the scaffold until the designated competent person inspects it.",
+          "acceptedAnswers": [
+            "ゆるんでいます",
+            "緩んでいます"
+          ]
+        },
+        {
+          "prompt": "壁は____ですか？",
+          "hint": "Is the wall plumb?",
+          "answer": "垂直",
+          "explanation": "A wall is checked for 垂直 (plumb); a floor can be 水平 (level).",
+          "acceptedAnswers": [
+            "垂直",
+            "すいちょく"
+          ]
+        }
+      ],
+      "sourceTitle": "Ser and Estar",
+      "sourceObjective": "Say who people are on site and describe what is broken, loose, level or dry."
+    }
+  ]
+}

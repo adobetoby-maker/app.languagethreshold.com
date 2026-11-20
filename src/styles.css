@@ -3004,3 +3004,36 @@ body:has(.lt-native-speak) .lt-speaking-navigation {
 .lt-native-speak[data-keyboard="true"] .lt-native-reply-dock {
   padding-bottom: calc(5px + env(safe-area-inset-bottom));
 }
+
+/* Say It keeps the word result compact and navigation above the fixed study dock. */
+.lt-say-word-navigation {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 760px;
+  z-index: 45;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--background);
+}
+main:has(.lt-say-word-card) { padding-bottom: calc(190px + env(safe-area-inset-bottom)) !important; }
+.lt-v6-app .lt-lesson-workspace-active[data-lesson-mode="say"] > .lt-lesson-workspace-header,
+.lt-v6-app [data-testid="lesson-section-say"] > header,
+.lt-v6-app [data-testid="lesson-section-say"] > [data-testid="lesson-next-section"] {
+  display: none;
+}
+.lt-v6-app [data-testid="lesson-section-say"] { padding: 0; border: 0; background: transparent; }
+.lt-say-word-context { font-size: 14px; }
+
+.lt-v6-app:has(.lt-say-word-card) [aria-label="Install mobile app"] { display: none; }
+.lt-say-word-card [data-testid="say-word-target"] { font-family: ui-serif, Georgia, serif; font-size: 28px; line-height: 1.15; font-weight: 500; }
+.lt-say-word-card [data-testid="say-word-score"] strong { font-size: 24px; line-height: 1.15; font-weight: 600; }
+.lt-say-word-card [data-testid="say-word-score"] span { font-size: 10px; line-height: 12px; white-space: nowrap; }
+@media (max-height: 700px) {
+  .lt-say-word-card [data-testid="say-word-target"] { font-size: 26px; }
+  .lt-say-word-card { padding: 12px; }
+}

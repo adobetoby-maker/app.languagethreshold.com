@@ -250,3 +250,96 @@ test("course picker returns to lessons before modules", async ({ page }, info) =
   const after = await readAppState(page);
   expect(after.lessonProgress[core30Key("roofing")]).toBe(1);
 });
+
+test("Say It gives partial credit and keeps Next on the same app screen", async ({
+  page,
+  isMobile,
+}, info) => {
+  await page.addInitScript(() => {
+    const w = window as unknown as Record<string, any>;
+    class Recognition {
+      lang = "";
+      continuous = false;
+      interimResults = true;
+      onstart: any;
+      onresult: any;
+      onend: any;
+      onerror: any;
+      constructor() {
+        w.__sayRecognition = this;
+      }
+      start() {
+        w.__sayRecognition = this;
+        queueMicrotask(() => this.onstart?.());
+      }
+      stop() {
+        queueMicrotask(() => this.onend?.());
+      }
+      abort() {}
+    }
+    class Recorder {
+      state = "inactive";
+      mimeType = "audio/webm";
+      ondataavailable: any;
+      onstop: any;
+      start() {
+        this.state = "recording";
+      }
+      stop() {
+        this.state = "inactive";
+        this.ondataavailable?.({ data: new Blob(["test recording"], { type: this.mimeType }) });
+        this.onstop?.();
+      }
+    }
+    Object.defineProperty(window, "SpeechRecognition", { value: Recognition, configurable: true });
+    Object.defineProperty(window, "MediaRecorder", { value: Recorder, configurable: true });
+    Object.defineProperty(navigator, "mediaDevices", {
+      value: { getUserMedia: async () => ({ getTracks: () => [{ stop() {} }] }) },
+      configurable: true,
+    });
+    w.__sayResult = (text: string) => {
+      const r = w.__sayRecognition;
+      const listener = r.onresult;
+      w.__sayLate = () =>
+        listener?.({ resultIndex: 0, results: [{ 0: { transcript: text }, isFinal: true }] });
+      w.__sayLate();
+      r.onend?.();
+    };
+  });
+  await page.goto("/");
+  await seedAppState(page, {
+    onboardingComplete: true,
+    currentTab: "core30",
+    activeModuleId: "orthopedics",
+    selectedLanguage: "Spanish",
+    nativeLanguage: "English",
+    lessonProgress: { [core30Key("orthopedics")]: 1 },
+  });
+  await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
+  await page.goto(
+    "/?module=orthopedics&target=Spanish&native=English&tab=core30&lesson=10&way=say",
+  );
+  await expect(page.getByTestId("say-word-target")).toHaveText("manguito rotador");
+  await expect(page.getByTestId("lesson-say-go")).toBeVisible();
+  await page.getByTestId("say-word-record").click();
+  await page.evaluate(() => (window as any).__sayResult("manguito rotador"));
+  await expect(page.getByTestId("say-word-score")).toContainText("100%");
+  if (!isMobile)
+    await expect(page.getByRole("button", { name: "My recording", exact: true })).toBeVisible();
+  const next = page.getByTestId("say-word-next");
+  await expect(next).toBeInViewport();
+  await page.getByTestId("say-word-record").click();
+  await page.evaluate(() => (window as any).__sayResult("mangito rotador"));
+  await expect(page.getByTestId("say-word-score")).toContainText("83%");
+  await expect(page.getByText("Keep practicing", { exact: true })).toBeVisible();
+  await expect(next).toBeInViewport();
+  const card = await page.locator(".lt-say-word-card").boundingBox(),
+    nav = await next.boundingBox();
+  expect(card!.y + card!.height).toBeLessThanOrEqual(nav!.y + 3);
+  await page.screenshot({ path: `test-results/say-it-compact-${info.project.name}.png` });
+  await next.click();
+  await expect(page.getByTestId("say-word-target")).toHaveText("hombro");
+  await page.evaluate(() => (window as any).__sayLate());
+  await expect(page.getByTestId("say-word-score")).toHaveCount(0);
+  expect((await readAppState(page)).lessonProgress[core30Key("orthopedics")]).toBe(1);
+});

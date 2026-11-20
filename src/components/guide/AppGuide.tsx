@@ -1710,6 +1710,7 @@ function OwnedLessonRunner({
             words={words}
             language={state.selectedLanguage}
             onOpen={goSay}
+            onActivity={() => recordStepOpened(speakStep)}
           />
         )}
         {section === "say" && nextButton}

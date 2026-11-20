@@ -102,6 +102,90 @@ export function buildMatchTiles(
   return shuffle(tiles, random);
 }
 
+/** How long both mismatched tiles stay red before they can be tried again. */
+export const MATCH_MISMATCH_MS = 600;
+
+/** One matching round as the learner sees it. */
+export interface MatchBoard {
+  /** The tile tapped first, waiting for its partner. */
+  selected: string | null;
+  /** `pairId`s already matched in this round. */
+  matched: readonly number[];
+  /** Both tiles of a wrong pair while the red feedback shows; empty otherwise. */
+  wrong: readonly string[];
+  mistakes: number;
+}
+
+export const EMPTY_MATCH_BOARD: MatchBoard = {
+  selected: null,
+  matched: [],
+  wrong: [],
+  mistakes: 0,
+};
+
+export type MatchTapOutcome = "ignored" | "selected" | "deselected" | "matched" | "mismatch";
+
+export interface MatchTapResult {
+  board: MatchBoard;
+  outcome: MatchTapOutcome;
+  /** Target-language text to read aloud for this tap, or null. */
+  speak: string | null;
+}
+
+/**
+ * The rules of one tap on a matching tile.
+ * A wrong pair marks BOTH tiles red and counts one mistake; taps are ignored until
+ * `clearMatchMismatch` runs, and then both tiles are free to be tried again.
+ */
+export function tapMatchTile(
+  board: MatchBoard,
+  tiles: readonly MatchTile[],
+  tile: MatchTile,
+): MatchTapResult {
+  const pairs = new Set(tiles.map((item) => item.pairId)).size;
+  const roundDone = pairs > 0 && board.matched.length === pairs;
+  if (board.wrong.length > 0 || board.matched.includes(tile.pairId) || roundDone)
+    return { board, outcome: "ignored", speak: null };
+  // Every accepted tap on a target-language tile is read aloud, whatever it leads to.
+  const speak = tile.side === "es" ? tile.text : null;
+  if (board.selected === null)
+    return { board: { ...board, selected: tile.id }, outcome: "selected", speak };
+  if (board.selected === tile.id)
+    return { board: { ...board, selected: null }, outcome: "deselected", speak };
+  const first = tiles.find((item) => item.id === board.selected);
+  // Two tiles from the same column cannot pair: the newer one becomes the selection.
+  if (!first || first.side === tile.side)
+    return { board: { ...board, selected: tile.id }, outcome: "selected", speak };
+  if (first.pairId === tile.pairId)
+    return {
+      board: { ...board, selected: null, matched: [...board.matched, tile.pairId] },
+      outcome: "matched",
+      speak,
+    };
+  return {
+    board: { ...board, wrong: [first.id, tile.id], mistakes: board.mistakes + 1 },
+    outcome: "mismatch",
+    speak,
+  };
+}
+
+export type MatchTileState = "matched" | "wrong" | "selected" | "idle";
+
+/**
+ * How one tile is shown. "wrong" (red) outranks "selected", so the tile tapped first turns
+ * red together with the second one instead of keeping its selection highlight.
+ */
+export function matchTileState(board: MatchBoard, tile: MatchTile): MatchTileState {
+  if (board.matched.includes(tile.pairId)) return "matched";
+  if (board.wrong.includes(tile.id)) return "wrong";
+  return board.selected === tile.id ? "selected" : "idle";
+}
+
+/** End of the red feedback: nothing is selected or marked, so the same tiles can be retried. */
+export function clearMatchMismatch(board: MatchBoard): MatchBoard {
+  return board.wrong.length === 0 ? board : { ...board, wrong: [], selected: null };
+}
+
 /**
  * Four-option (or fewer if the lesson is tiny) multiple choice of English
  * answers. Distractors come from the same lesson, distinct from the answer's

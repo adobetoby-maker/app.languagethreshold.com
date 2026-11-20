@@ -19,7 +19,7 @@ import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { getMissionArea } from "@/data/missionary-content";
@@ -662,8 +662,6 @@ export function FieldPrepMode() {
                 key={m.id}
                 message={m}
                 name={scenario?.investigatorName ?? "Investigator"}
-                locale={locale}
-                voiceURI={voiceURI}
                 language={state.selectedLanguage}
                 onWordTap={(word, sentence, x, y) => {
                   speakAloud(word);
@@ -917,19 +915,20 @@ function ScenarioCard({ scenario, onClick }: { scenario: RoleplayScenario; onCli
 function InvestigatorBubble({
   message,
   name,
-  locale,
-  voiceURI,
   language,
   onWordTap,
 }: {
   message: FieldPrepMessage;
   name: string;
-  locale: string;
-  voiceURI?: string | null;
   language: string;
   onWordTap: (word: string, sentence: string, x: number, y: number) => void;
 }) {
-  const speakOwned = useOwnedSpeaker(JSON.stringify([message.id, locale, voiceURI]));
+  // "Listen again" replays this message in the learner's listening voice (recorded HD audio,
+  // then the HD voice) with their accent and speed. The replay belongs to this message.
+  const { speak: listenAgain } = useListeningSpeaker(
+    JSON.stringify(["field-prep", message.id]),
+    language,
+  );
   return (
     <div className="flex gap-2.5">
       <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gold/30 bg-gold/8 font-mono text-[11px] text-gold/80">
@@ -948,9 +947,7 @@ function InvestigatorBubble({
         </div>
         {message.content && (
           <button
-            onClick={() =>
-              speakOwned(message.content.replace(/[*_`~#[\]]/g, "").trim(), locale, voiceURI)
-            }
+            onClick={() => listenAgain(message.content.replace(/[*_`~#[\]]/g, "").trim())}
             className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 font-mono text-[9px] text-muted-foreground/50 hover:text-gold"
           >
             <Volume2 className="h-3 w-3" />

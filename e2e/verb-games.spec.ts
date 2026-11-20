@@ -945,7 +945,8 @@ test.describe("pattern series", { tag: "@dev-only" }, () => {
   });
 
   test("Listen without working audio: the form is shown to read, and passing it unlocks Type it", async ({ page }) => {
-    // TTS stubbed to fail: no device voices, every utterance errors, server voices are down.
+    // TTS stubbed to fail: no device voices, every utterance errors, server voices are down,
+    // and the recorded HD clips (public files that need no account) cannot be fetched either.
     await page.addInitScript(() => {
       const synth = window.speechSynthesis;
       if (!synth) return;
@@ -955,6 +956,7 @@ test.describe("pattern series", { tag: "@dev-only" }, () => {
       };
     });
     await page.route(/\/api\/(mission-)?tts/, (route) => route.fulfill({ status: 503, body: "" }));
+    await page.route(/\/audio\/.+\.mp3(\?.*)?$/, (route) => route.abort());
     await openSeries(page, "es.present.go-yo", ["pick", "match", "cards"]);
     await expect(page.getByTestId("series-step-type")).toBeDisabled();
     await page.getByTestId("series-start-listen").click();

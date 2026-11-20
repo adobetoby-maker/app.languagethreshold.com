@@ -14,7 +14,6 @@ import {
   type FlashcardCategory,
 } from "@/state/flashcard-state";
 import { nextSectionSelection } from "@/state/section-selection";
-import { useSpeech } from "@/state/speech-state";
 import { useServerFn } from "@tanstack/react-start";
 import { getCategoryBlocks } from "@/lib/flashcard-blocks";
 import { translatePhrases } from "@/fns/phrase-translate.functions";
@@ -28,7 +27,7 @@ import { flashcardUsageExample } from "@/lib/flashcard-usage";
 import { authoredModuleDeck } from "@/lib/authored-module-deck";
 import { generateModuleDeck } from "@/fns/module-deck.functions";
 import { getCuratedModulePairs } from "@/data/curated-module-pairs";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import { getJapaneseConjugation, type JapaneseConjugationSet } from "@/data/japanese-conjugations";
 import { languageCode, languageTag } from "@/lib/lesson-words-core";
@@ -77,7 +76,6 @@ export function FlashcardsStudio() {
   } = useFlashcards();
   const lists = useCardLists(appState.selectedLanguage, appState.nativeLanguage);
   const library = useLibrary();
-  const { accent, voiceURI } = useSpeech();
   const language = appState.selectedLanguage;
   const moduleId = appState.activeModuleId;
   const moduleName = getModule(moduleId)?.name ?? "Module";
@@ -466,8 +464,10 @@ export function FlashcardsStudio() {
   const frontLanguage = targetFirst ? language : appState.nativeLanguage;
   const backLanguage = targetFirst ? appState.nativeLanguage : language;
   useEffect(() => setFlipped(false), [current?.id]);
-  const speakOwned = useOwnedSpeaker(
-    JSON.stringify([language, moduleId, current?.id, accent, voiceURI]),
+  // Read by the learner's listening voice (recorded HD audio, then the HD voice).
+  const { speak: speakListening } = useListeningSpeaker(
+    JSON.stringify(["flashcards-studio", language, moduleId, current?.id]),
+    language,
   );
 
   const nextUp = useMemo(() => {
@@ -568,7 +568,7 @@ export function FlashcardsStudio() {
   }, [current, flipped, grade]);
 
   function speak(word: string) {
-    speakOwned(word, accent, voiceURI);
+    speakListening(word);
   }
 
   return (

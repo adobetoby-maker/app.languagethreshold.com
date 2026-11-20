@@ -1,6 +1,25 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useAuth } from "@/state/auth-state";
 import { speakRemote } from "@/lib/tts";
+import type {
+  ListeningIssueReason,
+  ListeningPlaybackSource,
+  RecordingGender,
+} from "@/lib/listening-audio";
+
+/** Optional per-playback routing and callbacks; every callback is dropped once ownership is lost. */
+export interface OwnedSpeakEvents {
+  /** Told when this playback fails; with `cloudOnly`, also why HD audio could not play. */
+  onerror?: (reason?: ListeningIssueReason) => void;
+  /** HD only: never substitute a device voice. */
+  cloudOnly?: boolean;
+  /** Allow the public recording for this accent and voice gender without a cloud voice. */
+  recordedGender?: RecordingGender;
+  /** Why no cloud voice is selected yet, reported when HD-only finds no recording either. */
+  unavailableReason?: ListeningIssueReason;
+  /** Told what produced the sound once it is audible. */
+  onstart?: (source?: ListeningPlaybackSource) => void;
+}
 
 /** Component-owned playback. Cleanup cannot cancel another surface's newer generation. */
 export function useOwnedSpeaker(scope?: string) {
@@ -47,7 +66,7 @@ export function useOwnedPlayback(
       voiceURI?: string | null,
       rate = 0.9,
       /** Optional: told when this playback fails (no voice, a speech error, a failed fetch). */
-      events?: { onerror?: () => void; cloudOnly?: boolean },
+      events?: OwnedSpeakEvents,
     ) => {
       if (
         !mounted.current ||
@@ -66,6 +85,9 @@ export function useOwnedPlayback(
         signal: controller.signal,
         onerror: events?.onerror,
         cloudOnly: events?.cloudOnly,
+        recordedGender: events?.recordedGender,
+        unavailableReason: events?.unavailableReason,
+        onPlaybackStart: events?.onstart,
         owner: {
           userId: actor ?? "",
           isCurrent: () =>

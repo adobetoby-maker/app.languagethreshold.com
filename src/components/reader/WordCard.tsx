@@ -11,25 +11,12 @@ import { lookupWord } from "@/fns/word-lookup.functions";
 import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
 import { useApp, type Language } from "@/state/app-state";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { FuriganaText } from "./FuriganaText";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { dismissLearningHint } from "@/lib/learning-guidance";
 import { tutorLessonThread, type TutorLessonReference } from "@/lib/lesson-tutor-context";
 import { lessonWordCard } from "@/lib/lesson-word-card";
-
-const LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-BR",
-  Pashto: "ps-AF",
-  English: "en-US",
-};
 
 const CARD_W_DEFAULT = 380;
 const CARD_W_CJK = 340;
@@ -111,11 +98,16 @@ export function WordCard({
   const lookup = useServerFn(lookupWord);
   useOverlayHistory(true, onClose);
   const cache = useWordCardCache();
-  const { setLastWord, accent, voiceURI } = useSpeech();
+  const { setLastWord } = useSpeech();
   const tutor = useTutor();
   const { state, dispatch } = useApp();
   const lookupKey = wordCardCacheKey(request, state.nativeLanguage);
-  const speakOwned = useOwnedSpeaker(JSON.stringify([lookupKey, accent, voiceURI]));
+  // The tapped word is read by the learner's listening voice: recorded HD audio, then the
+  // HD voice; a device voice only when that is the learner's choice.
+  const { speak: speakListening } = useListeningSpeaker(
+    JSON.stringify(["word-card", lookupKey]),
+    request.language,
+  );
   const [lookupState, setLookupState] = useState(() => {
     const cached = cache.get(lookupKey);
     return {
@@ -313,8 +305,7 @@ export function WordCard({
   ]);
 
   const speak = () => {
-    const text = card?.headword ?? request.word;
-    speakOwned(text, accent || LOCALE[request.language], voiceURI);
+    speakListening(card?.headword ?? request.word);
   };
 
   return (

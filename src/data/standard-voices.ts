@@ -5,13 +5,18 @@ import {
 } from "./mission-tts.ts";
 
 export type SpeakingAudioSource = "google" | "device" | "text";
+/** What reads lesson words aloud: the HD voice, or the voice installed on this device. */
+export type ListeningAudioSource = "hd" | "device";
 export interface StandardVoiceSettings {
   listeningGender: MissionPartnerVersion;
+  /** HD is the standard; only an explicit learner choice selects the device voice. */
+  listeningAudioSource: ListeningAudioSource;
   speakingGender: MissionPartnerVersion;
   speakingAudioSource: SpeakingAudioSource;
 }
 export const DEFAULT_STANDARD_VOICES: StandardVoiceSettings = {
   listeningGender: "woman",
+  listeningAudioSource: "hd",
   speakingGender: "woman",
   speakingAudioSource: "google",
 };
@@ -19,6 +24,7 @@ export function readStandardVoiceSettings(value: unknown): StandardVoiceSettings
   const v = value as Partial<StandardVoiceSettings> | null;
   return {
     listeningGender: v?.listeningGender === "man" ? "man" : "woman",
+    listeningAudioSource: v?.listeningAudioSource === "device" ? "device" : "hd",
     speakingGender: v?.speakingGender === "man" ? "man" : "woman",
     speakingAudioSource:
       v?.speakingAudioSource === "device" || v?.speakingAudioSource === "text"

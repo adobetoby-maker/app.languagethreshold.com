@@ -40,15 +40,38 @@ test("standard defaults are Google female and listening/speaking preferences are
   assert.deepEqual(readStandardVoiceSettings(null), DEFAULT_STANDARD_VOICES);
   assert.deepEqual(readStandardVoiceSettings({ listeningGender: "man" }), {
     listeningGender: "man",
+    listeningAudioSource: "hd",
     speakingGender: "woman",
     speakingAudioSource: "google",
   });
   assert.deepEqual(
     readStandardVoiceSettings({ speakingGender: "man", speakingAudioSource: "text" }),
-    { listeningGender: "woman", speakingGender: "man", speakingAudioSource: "text" },
+    {
+      listeningGender: "woman",
+      listeningAudioSource: "hd",
+      speakingGender: "man",
+      speakingAudioSource: "text",
+    },
   );
   assert.deepEqual(
     readStandardVoiceSettings({ listeningGender: "bad", speakingAudioSource: "bad" }),
     DEFAULT_STANDARD_VOICES,
+  );
+});
+test("HD is the listening standard; only an explicit saved choice selects the device voice", () => {
+  assert.equal(DEFAULT_STANDARD_VOICES.listeningAudioSource, "hd");
+  // Settings saved before the choice existed, and anything unrecognised, stay on HD.
+  for (const saved of [null, {}, { listeningAudioSource: "google" }, { listeningAudioSource: 1 }])
+    assert.equal(readStandardVoiceSettings(saved).listeningAudioSource, "hd");
+  const device = readStandardVoiceSettings({
+    listeningAudioSource: "device",
+    listeningGender: "man",
+  });
+  assert.equal(device.listeningAudioSource, "device");
+  // The listening choice never changes the conversation partner's audio, or the reverse.
+  assert.equal(device.speakingAudioSource, "google");
+  assert.equal(
+    readStandardVoiceSettings({ speakingAudioSource: "device" }).listeningAudioSource,
+    "hd",
   );
 });

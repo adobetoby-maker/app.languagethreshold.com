@@ -33,44 +33,35 @@ function text(n) {
   if (typeof n === "object") return text(n.props?.children);
   return String(n);
 }
-for (const [name, file] of [
-  ["FieldPrepMode", files[0]],
-  ["ModuleFieldPrep", files[1]],
-])
-  test(`actual ${name} rejects late streams, scopes microphone callbacks and auto-sends once outside replayable updaters`, async () => {
-    const dir = mkdtempSync(resolve("node_modules/.cache/field-lifecycle-"));
-    const previous = Object.fromEntries(
-      ["window", "localStorage", "fetch"].map((k) => [
-        k,
-        Object.getOwnPropertyDescriptor(globalThis, k),
-      ]),
-    );
-    try {
-      const outfile = join(dir, "component.mjs");
-      await build({
-        stdin: {
-          contents: `export {${name}} from './${file}';export {c} from 'fixture';`,
-          resolveDir: process.cwd(),
-        },
-        outfile,
-        bundle: true,
-        platform: "node",
-        format: "esm",
-        external: ["react/jsx-runtime"],
-        logLevel: "silent",
-        plugins: [
-          {
-            name: "field-fixture",
-            setup(b) {
-              b.onResolve(
-                {
-                  filter:
-                    /^(fixture|react|lucide-react|sonner|react-markdown|rehype-raw|@\/state\/(app|auth|speech|ai-gate)-state|@\/lib\/(tts|utils|lt-analytics)|@\/hooks\/use-field-prep-analytics|@\/components\/reader\/(ClickableText|WordCard)|@\/data\/(roleplay-scenarios|practice-scenarios|missionary-content)|\.\/(MissionBanner|PostSessionFeedback))$/,
-                },
-                () => ({ path: "fixture", namespace: "fixture" }),
-              );
-              b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
-                contents: `
+/** Bundles the real component with the fixture and imports it. */
+async function load(name, file, dir) {
+  const outfile = join(dir, "component.mjs");
+  await build({
+    stdin: {
+      contents: `export {${name}} from './${file}';export {c} from 'fixture';`,
+      resolveDir: process.cwd(),
+    },
+    outfile,
+    bundle: true,
+    platform: "node",
+    format: "esm",
+    external: ["react/jsx-runtime"],
+    logLevel: "silent",
+    plugins: [
+      {
+        name: "field-fixture",
+        setup(b) {
+          b.onResolve(
+            {
+              filter:
+                /^(fixture|react|lucide-react|sonner|react-markdown|rehype-raw|@\/state\/(app|auth|speech|ai-gate)-state|@\/lib\/(tts|utils|lt-analytics)|@\/hooks\/use-field-prep-analytics|@\/components\/reader\/(ClickableText|WordCard)|@\/data\/(roleplay-scenarios|practice-scenarios|missionary-content)|\.\/(MissionBanner|PostSessionFeedback))$/,
+            },
+            () => ({ path: "fixture", namespace: "fixture" }),
+          );
+          b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
+            resolveDir: process.cwd(),
+            contents: `
+ import { planListening } from './src/lib/listening-audio.ts';
  export const c={actor:'a',state:{selectedLanguage:'Spanish',activeModuleId:'roofing',level:'A2',moduleAssignments:{}},slots:[],cursor:0,effects:[],dispatches:[],writes:0,audio:[],errors:[]};
  const changed=(a,b)=>!a||a.some((v,i)=>v!==b[i]);
  export function useRef(initial){const i=c.cursor++;if(!(i in c.slots))c.slots[i]={current:initial};return c.slots[i];}
@@ -78,7 +69,12 @@ for (const [name, file] of [
  export function useCallback(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||changed(old.deps,deps))c.slots[i]={fn,deps};return c.slots[i].fn;}
  export function useEffect(fn,deps){const i=c.cursor++,old=c.slots[i];if(!old||!deps||changed(old.deps,deps))c.effects.push(()=>{old?.cleanup?.();c.slots[i]={deps,cleanup:fn()};});}
  const isCurrentUser=id=>c.actor===id;export const useAuth=()=>({user:c.actor?{id:c.actor}:null,isCurrentUser});
- export const useApp=()=>({state:c.state,dispatch:a=>c.dispatches.push(a)}),useSpeech=()=>({voiceURI:null}),useAiGate=()=>({gated:fn=>fn()});
+ export const useApp=()=>({state:c.state,dispatch:a=>c.dispatches.push(a)}),useAiGate=()=>({gated:fn=>fn()});
+ export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'},{code:'es-MX'}],English:[{code:'en-US'}]};
+ c.issues=[];c.listening={voiceURI:null,source:'hd',gender:'woman',accent:'es-CR',rate:1};
+ const listeningPlan=locale=>planListening({locale:locale??c.listening.accent,learningLocale:c.listening.accent,source:c.listening.source,gender:c.listening.gender,voiceURI:c.listening.voiceURI,signedIn:c.actor!==null,deviceFallback:false});
+ const reportListeningIssue=(reason,retry)=>{c.issues.push({reason,retry});},noteListeningPlayed=()=>{};
+ export const useSpeech=()=>({voiceURI:null,accent:c.listening.accent,rate:c.listening.rate,voiceSettings:{listeningAudioSource:c.listening.source,listeningGender:c.listening.gender},listeningPlan,reportListeningIssue,noteListeningPlayed});
  export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return Promise.resolve();};
  export const toast={error:(...args)=>c.errors.push(args)},cn=(...args)=>args.filter(Boolean).join(' ');
  export const FIELD_PREP_ANALYTICS_ENABLED=false,useFieldPrepAnalytics=()=>({appEvent:()=>{},fieldPrepSession:()=>{}});
@@ -89,12 +85,34 @@ for (const [name, file] of [
  export default function Placeholder(){return null;}
  ${icons.map((n) => `export const ${n}='span';`).join("\n")}
  `,
-              }));
-            },
-          },
-        ],
-      });
-      const mod = await import(outfile),
+          }));
+        },
+      },
+    ],
+  });
+  return import(outfile);
+}
+
+/** Browser globals the components touch; put back after each test. */
+const GLOBALS = ["window", "localStorage", "fetch"];
+const saveGlobals = () =>
+  Object.fromEntries(GLOBALS.map((k) => [k, Object.getOwnPropertyDescriptor(globalThis, k)]));
+function restoreGlobals(previous) {
+  for (const [k, d] of Object.entries(previous)) {
+    if (d) Object.defineProperty(globalThis, k, d);
+    else delete globalThis[k];
+  }
+}
+
+for (const [name, file] of [
+  ["FieldPrepMode", files[0]],
+  ["ModuleFieldPrep", files[1]],
+])
+  test(`actual ${name} rejects late streams, scopes microphone callbacks and auto-sends once outside replayable updaters`, async () => {
+    const dir = mkdtempSync(resolve("node_modules/.cache/field-lifecycle-"));
+    const previous = saveGlobals();
+    try {
+      const mod = await load(name, file, dir),
         { c } = mod;
       const requests = [],
         recognitions = [];
@@ -282,10 +300,163 @@ for (const [name, file] of [
       assert.equal(c.errors.length, 0);
       unmount();
     } finally {
-      for (const [k, d] of Object.entries(previous)) {
-        if (d) Object.defineProperty(globalThis, k, d);
-        else delete globalThis[k];
-      }
+      restoreGlobals(previous);
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+// "Listen again" under a partner message is target-language listening practice: it goes through
+// the learner's listening voice. The partner's own reply playback above is unchanged.
+for (const [name, file, bubbleName] of [
+  ["FieldPrepMode", files[0], "InvestigatorBubble"],
+  ["ModuleFieldPrep", files[1], "PartnerBubble"],
+])
+  test(`actual ${name} replays a partner message in the learner's listening voice, owned by that message`, async () => {
+    const dir = mkdtempSync(resolve("node_modules/.cache/field-lifecycle-"));
+    const previous = saveGlobals();
+    try {
+      const mod = await load(name, file, dir),
+        { c } = mod;
+      const requests = [];
+      globalThis.window = {
+        SpeechRecognition: class {
+          start() {}
+          abort() {}
+        },
+      };
+      globalThis.localStorage = { getItem: () => null, setItem: () => {} };
+      globalThis.fetch = (url, opts) =>
+        new Promise((resolve) => requests.push({ url, opts, resolve }));
+      const render = () => {
+        c.cursor = 0;
+        const tree = mod[name]({ moduleGroup: "trades" });
+        for (const f of c.effects.splice(0)) f();
+        return tree;
+      };
+      // The bubble is its own component: it gets its own hook slots, like a mounted child.
+      const child = { slots: [], effects: [] };
+      const inChild = (work) => {
+        const parent = { slots: c.slots, cursor: c.cursor, effects: c.effects };
+        Object.assign(c, { slots: child.slots, cursor: 0, effects: child.effects });
+        try {
+          return work();
+        } finally {
+          child.slots = c.slots;
+          Object.assign(c, parent);
+        }
+      };
+      const renderBubble = (element) =>
+        inChild(() => {
+          const out = element.type(element.props);
+          for (const f of c.effects.splice(0)) f();
+          return out;
+        });
+      const unmountBubble = () =>
+        inChild(() => {
+          for (const s of c.slots) s?.cleanup?.();
+          c.slots = [];
+        });
+      const listenAgain = (out) =>
+        nodes(out).find((n) => n.type === "button" && text(n).trim() === "Listen again");
+
+      // A scenario with one streamed partner reply.
+      let tree = render();
+      nodes(tree)
+        .find((n) => n.props?.scenario && n.props.onClick)
+        .props.onClick();
+      await tick();
+      let index = 0;
+      const chunks = [
+        `data: ${JSON.stringify({ choices: [{ delta: { content: "**Buenos** días, ¿cómo está?" } }] })}\n`,
+        `data: [DONE]\n`,
+      ];
+      requests[0].resolve({
+        ok: true,
+        body: {
+          getReader: () => ({
+            read: async () =>
+              index < chunks.length
+                ? { done: false, value: new TextEncoder().encode(chunks[index++]) }
+                : { done: true },
+            cancel: async () => {},
+          }),
+        },
+      });
+      await tick();
+      tree = render();
+      const replyPlayback = c.audio.length;
+      assert.equal(replyPlayback, 1, "the partner's reply still plays through its own path");
+      assert.equal(c.audio[0].opts.cloudOnly, undefined, "which this change leaves as it was");
+
+      const bubble = nodes(tree).find(
+        (n) => typeof n.type === "function" && n.type.name === bubbleName,
+      );
+      assert.ok(bubble, "the partner message is shown");
+      assert.equal(bubble.props.language, "Spanish");
+      assert.equal("voiceURI" in bubble.props, false, "the replay no longer takes a raw voice");
+      assert.equal("locale" in bubble.props, false);
+
+      // Signed in with the HD voice resolved: HD only, the learner's accent, gender and speed.
+      const HD = "google:es-US:es-US-Chirp3-HD-Charon";
+      Object.assign(c.listening, { voiceURI: HD, gender: "man", accent: "es-MX", rate: 0.85 });
+      listenAgain(renderBubble(bubble)).props.onClick();
+      assert.equal(c.audio.length, replyPlayback + 1);
+      const replay = c.audio.at(-1);
+      assert.equal(replay.text, "Buenos días, ¿cómo está?", "markdown marks are not read out");
+      assert.equal(replay.locale, "es-MX");
+      assert.equal(replay.opts.voiceURI, HD);
+      assert.equal(replay.opts.cloudOnly, true, "HD only: no silent device voice");
+      assert.equal(replay.opts.recordedGender, "male");
+      assert.equal(replay.opts.rate, 0.85);
+      assert.equal(replay.opts.owner.userId, "a");
+      assert.equal(replay.opts.owner.isCurrent(), true);
+      // An HD miss is reported with a retry of the same message.
+      replay.opts.onerror("offline");
+      assert.equal(c.issues.length, 1);
+      assert.equal(c.issues[0].reason, "offline");
+      c.issues[0].retry();
+      assert.equal(c.audio.at(-1).text, replay.text);
+      assert.equal(c.audio.at(-1).opts.cloudOnly, true);
+
+      // The learner's Device voice choice is respected.
+      c.listening.source = "device";
+      listenAgain(renderBubble(bubble)).props.onClick();
+      assert.equal(c.audio.at(-1).opts.cloudOnly, false);
+      assert.equal(c.audio.at(-1).opts.recordedGender, undefined);
+      assert.equal(c.audio.at(-1).opts.voiceURI, "device:default");
+      c.listening.source = "hd";
+
+      // Signed out: a recording may play without an account; a miss asks, it does not swap voices.
+      unmountBubble();
+      c.actor = null;
+      c.listening.voiceURI = "device:default";
+      listenAgain(renderBubble(bubble)).props.onClick();
+      const guest = c.audio.at(-1);
+      assert.equal(guest.opts.owner.userId, "");
+      assert.equal(guest.opts.recordedGender, "male");
+      assert.equal(guest.opts.cloudOnly, true);
+      assert.equal(guest.opts.unavailableReason, "sign-in");
+
+      // The replay belongs to its message: when the message leaves, it stops, and its speaker
+      // and pending retry do nothing afterwards.
+      unmountBubble();
+      c.actor = "a";
+      c.listening.voiceURI = HD;
+      const again = listenAgain(renderBubble(bubble));
+      again.props.onClick();
+      const owned = c.audio.at(-1);
+      assert.equal(owned.opts.owner.isCurrent(), true);
+      unmountBubble();
+      assert.equal(owned.opts.signal.aborted, true);
+      assert.equal(owned.opts.owner.isCurrent(), false);
+      const count = c.audio.length;
+      again.props.onClick();
+      c.issues[0].retry();
+      assert.equal(c.audio.length, count, "nothing plays for a message that is gone");
+      assert.equal(c.errors.length, 0);
+      for (const s of c.slots) s?.cleanup?.();
+    } finally {
+      restoreGlobals(previous);
       rmSync(dir, { recursive: true, force: true });
     }
   });

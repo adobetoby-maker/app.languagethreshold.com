@@ -42,3 +42,8 @@ export function recordedFrenchPath(
   if (!Number.isSafeInteger(clip.bytes) || clip.bytes < 500 || !/^[a-f0-9]{64}$/.test(clip.sha256)) return null;
   return `/audio/french-101/${clip.name}`;
 }
+
+/** The recorded voice for a gender, so a public clip can be found without a cloud voice selection. */
+export function recordedFrenchVoice(gender: Gender, manifest: Manifest = pilot as Manifest): string | null {
+  return manifest.voices?.[gender] ?? null;
+}

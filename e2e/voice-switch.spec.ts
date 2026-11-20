@@ -296,7 +296,7 @@ test("signed-in Google previews use the curated pair and keep listening separate
   await page.goto(appUrl({ tab: "reader" }));
   await openSettings(page);
   const settings = page.getByRole("region", { name: "Voice settings", exact: true });
-  await expect(settings.getByRole("status")).toContainText("Google voices are ready");
+  await expect(settings.getByRole("status")).toContainText("HD voices are ready");
   const savedListeningVoice = () =>
     page.evaluate(
       (id) =>

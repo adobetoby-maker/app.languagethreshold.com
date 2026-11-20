@@ -1,7 +1,7 @@
 // Built by TAC — 2026-10-22
 import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { ArrowLeft, ArrowRight, Check, Lock, RotateCcw } from "lucide-react";
-import { useOwnedSpeaker } from "@/hooks/use-owned-speaker";
+import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { recordSeriesStep, seriesMastered, seriesProgress, sourceFilterFor, stepUnlocked, type VerbDeviceState } from "@/lib/verb-games/device";
 import { familyById } from "@/lib/verb-games/families";
 import { MATCH_SIZE, SERIES_STEPS, seriesItems, seriesSlots, type SeriesStep } from "@/lib/verb-games/series";
@@ -65,14 +65,31 @@ export function VerbSeries(p: {
   const rootRef = useRef<HTMLElement>(null);
   const resultRef = useRef<HTMLHeadingElement>(null);
 
-  const speech = useSpeech();
-  const speakOwned = useOwnedSpeaker("verb-series");
-  const { accent, voiceURI, rate } = speech;
+  // Forms are read by the learner's listening voice: recorded HD audio first, then the HD
+  // voice, and never a device voice in its place unless the learner chose one.
+  const { rate, listeningPlan } = useSpeech();
+  const { speak: speakListening, locale } = useListeningSpeaker("verb-series", "Spanish");
+  const listeningMode = listeningPlan(locale).mode;
   const speak = useCallback(
-    (text: string, onFail?: () => void) => speakOwned(text, accent, voiceURI, Math.min(rate, 0.9), { onerror: onFail }),
-    [speakOwned, accent, voiceURI, rate],
+    (text: string, onFail?: () => void) =>
+      speakListening(text, {
+        rate: Math.min(rate, 0.9),
+        onerror: () => {
+          const plan = listeningPlan(locale);
+          // HD audio that could not play is put to the learner (retry, or this device's voice),
+          // and a voice that is still loading is ready a moment later. Listen keeps listening in
+          // both cases, and reads instead only when nothing on this device could play the form.
+          if (plan.strict && (plan.pending === "loading" || !noVoiceFor(locale, null))) return;
+          onFail?.();
+        },
+      }),
+    [speakListening, rate, listeningPlan, locale],
   );
-  const audioMissing = useCallback(() => noVoiceFor(accent, voiceURI), [accent, voiceURI]);
+  // Recorded and HD audio need no installed voice; only the device route can be missing one.
+  const audioMissing = useCallback(
+    () => listeningMode === "device" && noVoiceFor(locale, null),
+    [listeningMode, locale],
+  );
 
   const examples = useMemo(() => {
     const seen = new Set<string>();

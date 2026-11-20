@@ -73,8 +73,8 @@ test("actual SpeechProvider cancels queued text, rejects old actor callbacks, an
  export const createContext=()=>({Provider:'provider'}),useContext=()=>null,jsx=(type,props)=>({type,props}),jsxs=jsx;
  const isCurrentUser=id=>id===controls.actor;export const useAuth=()=>({user:controls.actor?{id:controls.actor}:null,isCurrentUser});
  export const useLearnerDeviceStore=kind=>controls.stores[kind];export const configureUtterance=()=>{};
- export const needsRemoteTTS=()=>controls.remote,speakRemote=(text,locale,opts)=>{controls.remoteJobs.push({text,opts});return Promise.resolve();},stopRemoteTTS=()=>controls.stops++;
- export const toast=()=>controls.toasts++;
+ export const needsRemoteTTS=()=>controls.remote,speakRemote=(text,locale,opts)=>{controls.remoteJobs.push({text,opts});return Promise.resolve();},stopRemoteTTS=()=>controls.stops++,hasRecordedListeningAudio=()=>false;
+ export const toast=Object.assign(()=>controls.toasts++,{dismiss(){}});
  `,
             }));
           },
@@ -104,7 +104,10 @@ test("actual SpeechProvider cancels queued text, rejects old actor callbacks, an
       };
     };
     setStores("a");
-    c.stores.speech.write({ listenedCount: 9 });
+    c.stores.speech.write({
+      listenedCount: 9,
+      standardVoicesByLang: { Spanish: { listeningAudioSource: "device" } },
+    });
     let xp = 0,
       achievements = 0;
     const props = {

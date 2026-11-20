@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { Volume2 } from "lucide-react";
 import { useSpeech } from "@/state/speech-state";
+import { useApp } from "@/state/app-state";
 import { useAuth } from "@/state/auth-state";
 import { useSiteVoice } from "@/hooks/use-site-voice";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { DEVICE_DEFAULT_VOICE } from "@/data/mobile-voice";
+import { encodeGoogleVoicePreference, MISSION_TTS_SPEEDS } from "@/data/mission-tts";
 import {
-  encodeGoogleVoicePreference,
-  MISSION_TTS_SPEEDS,
-  type MissionPartnerVersion,
-} from "@/data/mission-tts";
-import { DEFAULT_STANDARD_VOICES, standardGoogleVoice } from "@/data/standard-voices";
+  DEFAULT_STANDARD_VOICES,
+  standardGoogleVoice,
+  type ListeningAudioSource,
+} from "@/data/standard-voices";
+import {
+  hdListeningSupported,
+  listeningIssueCopy,
+  listeningNowUsing,
+  listeningStatus,
+} from "@/lib/listening-audio";
 
 const SAMPLES: Record<string, string> = {
   es: "Hola. Vamos a practicar juntos. Escucha con calma y repite cuando estés listo.",
@@ -33,33 +40,64 @@ export function VoiceSettings() {
     rate,
     setRate,
     stop,
+    listening,
+    listeningPlan,
   } = useSpeech();
+  const { state } = useApp();
   const { session } = useAuth();
   const { googleVoices, googleReady, mounted } = useSiteVoice();
   const scope = JSON.stringify([accent, voiceSettings, rate]);
   const preview = useOwnedPlayback(scope);
   const [error, setError] = useState("");
   const cloud = Boolean(session && googleReady);
+  const hdSupported = hdListeningSupported(accent);
   const listen = standardGoogleVoice(googleVoices, accent, voiceSettings.listeningGender);
   const speaking = standardGoogleVoice(googleVoices, accent, voiceSettings.speakingGender);
-  function testVoice(gender: MissionPartnerVersion, speakingPreview = false) {
+  const sample = SAMPLES[accent.split("-")[0]] ?? "Hello";
+  const deviceError =
+    "The voice could not play. Check your connection and audio output, then try again.";
+  /** Plays what lessons play. With the HD voice chosen, a device voice never stands in. */
+  function testListening() {
     setError("");
     stop();
-    const voice = standardGoogleVoice(googleVoices, accent, gender);
-    const device = speakingPreview && voiceSettings.speakingAudioSource === "device";
+    const plan = listeningPlan(accent);
+    // Signed in or not: while HD is the choice, the test plays HD audio or says why it cannot.
+    const hdOnly = plan.mode !== "device";
+    // The voice for the gender shown as selected right now, straight from the voice list.
+    const voiceURI =
+      hdOnly && cloud && listen ? encodeGoogleVoicePreference(listen) : plan.voiceURI;
+    preview.speak(sample, accent, voiceURI, rate, {
+      cloudOnly: hdOnly,
+      recordedGender: plan.recordedGender ?? undefined,
+      unavailableReason: plan.pending ?? undefined,
+      onerror: (reason) => {
+        const copy = listeningIssueCopy(reason ?? "unavailable");
+        setError(hdOnly ? `${copy.title}. ${copy.description}` : deviceError);
+      },
+    });
+  }
+  function testSpeaking() {
+    setError("");
+    stop();
+    const device = voiceSettings.speakingAudioSource === "device";
+    const hd = cloud && speaking && !device;
     preview.speak(
-      SAMPLES[accent.split("-")[0]] ?? "Hello",
+      sample,
       accent,
-      cloud && voice && !device ? encodeGoogleVoicePreference(voice) : DEVICE_DEFAULT_VOICE,
+      hd ? encodeGoogleVoicePreference(speaking) : DEVICE_DEFAULT_VOICE,
       rate,
       {
-        onerror: () =>
-          setError(
-            "The voice could not play. Check your connection and audio output, then try again.",
-          ),
+        // Conversation replies never fall back to a device voice, so neither does their test.
+        cloudOnly: Boolean(hd),
+        onerror: (reason) => {
+          const copy = listeningIssueCopy(reason ?? "unavailable");
+          setError(hd ? `${copy.title}. ${copy.description}` : deviceError);
+        },
       },
     );
   }
+  // What is in effect, so a device voice is never shown as the HD choice.
+  const listeningSource: ListeningAudioSource = listening.mode === "device" ? "device" : "hd";
   const selectClass =
     "min-h-11 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground";
   return (
@@ -71,28 +109,28 @@ export function VoiceSettings() {
       <div>
         <h3 className="text-lg font-semibold">Voices & audio</h3>
         <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-          Clear Google voices are the standard. Female is selected by default. Change voices here;
-          lessons keep these choices.
+          HD voices are the standard, and Female is selected by default. Change voices here; lessons
+          keep these choices.
         </p>
       </div>
       <p
         role="status"
         className="rounded-lg border border-border bg-background p-3 text-sm leading-relaxed"
       >
-        {!mounted
-          ? "Checking audio…"
-          : !session
-            ? "Sign in to hear the standard Google voices. Until then, listening and voice tests use this device’s voice, which may sound different."
-            : !googleReady
-              ? "Google audio is temporarily unavailable. Listening uses a device voice when possible; choose Device voice under Speaking audio for conversation playback."
-              : "Google voices are ready. Internet access is required for new Google audio; supported cached listening clips can replay offline."}
+        {listeningStatus({
+          mounted,
+          signedIn: Boolean(session),
+          cloudReady: googleReady,
+          hdSupported,
+          language: state.selectedLanguage,
+        })}
       </p>
       {(
         [
           [
             "listeningGender",
             "Listening voice",
-            "Reader, word definitions, cards, games and listening activities.",
+            "Reader, word definitions, cards, matching, verb forms, games and listening activities.",
           ],
           [
             "speakingGender",
@@ -104,6 +142,44 @@ export function VoiceSettings() {
         <fieldset key={key}>
           <legend className="text-sm font-semibold">{label}</legend>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+          {key === "listeningGender" && (
+            <>
+              <div
+                role="group"
+                aria-label="Listening audio"
+                data-testid="listening-audio-source"
+                className="mt-2 grid grid-cols-2 gap-2"
+              >
+                {(
+                  [
+                    ["hd", "HD voice", "Recommended"],
+                    ["device", "Device voice", "Works offline"],
+                  ] as const
+                ).map(([source, name, note]) => (
+                  <button
+                    key={source}
+                    type="button"
+                    aria-pressed={listeningSource === source}
+                    disabled={source === "hd" && !hdSupported}
+                    onClick={() => {
+                      preview.stop();
+                      setError("");
+                      setVoiceSettings({ listeningAudioSource: source });
+                    }}
+                    className={`flex min-h-14 flex-col items-center justify-center rounded-lg border-2 px-3 py-1 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${listeningSource === source ? "border-gold bg-gold text-midnight" : "border-border bg-background text-foreground hover:border-gold"}`}
+                  >
+                    <span>{name}</span> <span className="text-xs font-medium">{note}</span>
+                  </button>
+                ))}
+              </div>
+              <p
+                data-testid="listening-now-using"
+                className="mt-2 text-sm leading-relaxed text-foreground"
+              >
+                {listeningNowUsing(listening, voiceSettings.listeningGender)}
+              </p>
+            </>
+          )}
           <div className="mt-2 grid grid-cols-2 gap-2">
             {(["woman", "man"] as const).map((gender) => (
               <button
@@ -123,7 +199,7 @@ export function VoiceSettings() {
           </div>
           <button
             type="button"
-            onClick={() => testVoice(voiceSettings[key], key === "speakingGender")}
+            onClick={key === "speakingGender" ? testSpeaking : testListening}
             disabled={
               key === "speakingGender" &&
               (voiceSettings.speakingAudioSource === "text" ||
@@ -199,7 +275,7 @@ export function VoiceSettings() {
             })
           }
         >
-          <option value="google">Google voice · Standard</option>
+          <option value="google">HD voice · Standard</option>
           <option value="device">Device voice · Offline fallback</option>
           <option value="text">Text only · No spoken replies</option>
         </select>
@@ -207,8 +283,8 @@ export function VoiceSettings() {
 
       <p className="text-sm leading-relaxed text-muted-foreground">
         Saved for this learner and language on this device. Prerecorded clips, videos and existing
-        audio files keep their original voices. Device fallback cannot guarantee the selected male
-        or female voice.
+        audio files keep their original voices. A device voice cannot guarantee the selected male or
+        female voice.
       </p>
       {error && (
         <p role="alert" className="text-sm text-destructive">

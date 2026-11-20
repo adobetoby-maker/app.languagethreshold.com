@@ -5,11 +5,16 @@ import {
   answerVariants,
   buildListenOptions,
   buildMatchTiles,
+  clearMatchMismatch,
+  EMPTY_MATCH_BOARD,
   groupByKind,
   isCorrectAnswer,
+  MATCH_MISMATCH_MS,
+  matchTileState,
   normalizeAnswer,
   shuffle,
   splitRounds,
+  tapMatchTile,
   wordsToAdd,
 } from "../src/lib/lesson-practice.ts";
 import { ROOFING_LESSON_WORDS } from "../src/data/roofing-lesson-words.ts";
@@ -154,4 +159,101 @@ test("real roofing lessons: every word is answerable and listen options build fo
     const rounds = splitRounds(terms);
     assert.equal(rounds.flat().length, terms.length, `lesson ${n} rounds cover all terms`);
   }
+});
+
+// ─── Matching: red feedback on both tiles, then retryable ─────────────────────
+
+const matchRound = [word("to connect", "conectar"), word("cable", "el cable"), word("panel", "el panel")];
+const matchTiles = buildMatchTiles(matchRound, seeded(5));
+const tileOf = (pairId, side) => matchTiles.find((t) => t.pairId === pairId && t.side === side);
+/** Plays taps in order and returns every step. */
+const play = (taps, board = EMPTY_MATCH_BOARD) =>
+  taps.reduce(
+    (steps, tile) => [...steps, tapMatchTile(steps.at(-1)?.board ?? board, matchTiles, tile)],
+    [],
+  );
+
+test("a wrong pair marks BOTH tiles red, counts one miss and matches nothing", () => {
+  const [first, second] = play([tileOf(0, "es"), tileOf(1, "en")]);
+  assert.equal(first.outcome, "selected");
+  assert.equal(second.outcome, "mismatch");
+  assert.deepEqual([...second.board.wrong].sort(), [tileOf(0, "es").id, tileOf(1, "en").id].sort());
+  assert.equal(second.board.wrong.length, 2, "both tiles, not only the second one");
+  assert.equal(second.board.mistakes, 1);
+  assert.deepEqual(second.board.matched, []);
+  // Shown red on both: the first tile's selection highlight does not hide its red.
+  assert.equal(second.board.selected, tileOf(0, "es").id);
+  assert.equal(matchTileState(second.board, tileOf(0, "es")), "wrong");
+  assert.equal(matchTileState(second.board, tileOf(1, "en")), "wrong");
+  for (const tile of matchTiles.filter((t) => !second.board.wrong.includes(t.id)))
+    assert.equal(matchTileState(second.board, tile), "idle", "no other tile is marked");
+  assert.equal(matchTileState(first.board, tileOf(0, "es")), "selected");
+  // The same holds whichever column is tapped first.
+  const reversed = play([tileOf(2, "en"), tileOf(0, "es")]).at(-1);
+  assert.equal(reversed.outcome, "mismatch");
+  assert.deepEqual([...reversed.board.wrong].sort(), [tileOf(2, "en").id, tileOf(0, "es").id].sort());
+});
+
+test("taps wait while the red shows; afterwards the same tiles are free and can be matched", () => {
+  const wrong = play([tileOf(0, "es"), tileOf(1, "en")]).at(-1).board;
+  for (const tile of matchTiles) {
+    const ignored = tapMatchTile(wrong, matchTiles, tile);
+    assert.equal(ignored.outcome, "ignored");
+    assert.equal(ignored.board, wrong, "nothing changes during the feedback");
+    assert.equal(ignored.speak, null);
+  }
+  assert.ok(MATCH_MISMATCH_MS >= 400 && MATCH_MISMATCH_MS <= 1500, "long enough to see, short enough to retry");
+
+  const cleared = clearMatchMismatch(wrong);
+  for (const tile of matchTiles)
+    assert.equal(matchTileState(cleared, tile), "idle", "every tile is back to normal");
+  assert.deepEqual(cleared.wrong, []);
+  assert.equal(cleared.selected, null);
+  assert.equal(cleared.mistakes, 1, "the miss stays counted");
+  assert.deepEqual(cleared.matched, []);
+  assert.equal(clearMatchMismatch(cleared), cleared);
+
+  // Retry: the two tiles that were wrong each match their real partner.
+  const retry = play([tileOf(0, "es"), tileOf(0, "en"), tileOf(1, "en"), tileOf(1, "es")], cleared);
+  assert.deepEqual(retry.map((step) => step.outcome), ["selected", "matched", "selected", "matched"]);
+  assert.deepEqual([...retry.at(-1).board.matched].sort(), [0, 1]);
+  assert.equal(retry.at(-1).board.mistakes, 1);
+  assert.equal(retry.at(-1).board.selected, null);
+});
+
+test("a repeated miss on the same pair is shown again, never stuck or silently accepted", () => {
+  let board = EMPTY_MATCH_BOARD;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    board = play([tileOf(0, "es"), tileOf(2, "en")], board).at(-1).board;
+    assert.equal(board.wrong.length, 2);
+    assert.equal(board.mistakes, attempt);
+    board = clearMatchMismatch(board);
+  }
+  assert.deepEqual(board.matched, []);
+});
+
+test("matching selection rules and what is read aloud", () => {
+  // Every accepted tap on a target-language tile is read; native-language tiles are not.
+  assert.equal(tapMatchTile(EMPTY_MATCH_BOARD, matchTiles, tileOf(0, "es")).speak, "conectar");
+  assert.equal(tapMatchTile(EMPTY_MATCH_BOARD, matchTiles, tileOf(0, "en")).speak, null);
+  const steps = play([tileOf(0, "en"), tileOf(1, "es")]);
+  assert.equal(steps[1].outcome, "mismatch");
+  assert.equal(steps[1].speak, "el cable", "the tapped word is still read on a miss");
+  // Tapping the selected tile again clears it; another tile in the same column replaces it.
+  const again = play([tileOf(0, "es"), tileOf(0, "es")]);
+  assert.equal(again[1].outcome, "deselected");
+  assert.equal(again[1].board.selected, null);
+  const sameColumn = play([tileOf(0, "es"), tileOf(1, "es")]);
+  assert.equal(sameColumn[1].outcome, "selected");
+  assert.equal(sameColumn[1].board.selected, tileOf(1, "es").id);
+  assert.equal(sameColumn[1].board.mistakes, 0);
+  // Matched tiles and a finished round take no more taps.
+  const done = play(matchRound.flatMap((_, pairId) => [tileOf(pairId, "es"), tileOf(pairId, "en")]));
+  assert.equal(done.at(-1).board.matched.length, matchRound.length);
+  assert.equal(done.at(-1).board.mistakes, 0);
+  for (const tile of matchTiles)
+    assert.equal(tapMatchTile(done.at(-1).board, matchTiles, tile).outcome, "ignored");
+  const partial = play([tileOf(0, "es"), tileOf(0, "en")]).at(-1).board;
+  assert.equal(tapMatchTile(partial, matchTiles, tileOf(0, "es")).outcome, "ignored");
+  assert.equal(tapMatchTile(partial, matchTiles, tileOf(1, "es")).outcome, "selected");
 });

@@ -1,11 +1,17 @@
-import { recordedSpanishPath } from "./recorded-spanish";
-import { recordedJapanesePath } from "./recorded-japanese";
-import { recordedFrenchPath } from "./recorded-french";
+import { recordedPathForGender, recordedPathForVoice } from "./recorded-audio";
+import {
+  listeningIssueReason,
+  type ListeningIssueReason,
+  type ListeningPlaybackSource,
+  type RecordingGender,
+} from "./listening-audio";
 import { prepareBrowserPlayback } from "./browser-audio-session";
 // Site-wide TTS routing. A learner-selected Google Cloud voice follows them
 // across Reader, cards, games, listening drills, Speak, and specialty modules.
-// Device speech remains the no-cost fallback. Pashto keeps the ElevenLabs
-// fallback when neither a Google preference nor an on-device voice exists.
+// Public recorded audio plays first and never needs an account. Device speech is the
+// no-cost fallback unless the caller asked for HD only (`cloudOnly`), in which case the
+// caller is told why HD audio could not play. Pashto keeps the ElevenLabs fallback when
+// neither a Google preference nor an on-device voice exists.
 
 import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
 import { isIosDevice } from "@/lib/pwa-install";
@@ -22,7 +28,7 @@ const REMOTE_TTS_BY_FAMILY: Record<string, string> = {
 let shared: HTMLAudioElement | null = null;
 let generation = 0;
 let cancelPlayback: (() => void) | null = null;
-let warnedAboutMobileFallback = false;
+let warnedAboutDeviceFallback = false;
 const VOICE_WAIT_TOAST_ID = "tts-voice-wait";
 /** Waits shorter than this stay silent; longer ones tell the learner the voice is coming. */
 const VOICE_WAIT_TOAST_AFTER_MS = 1500;
@@ -44,12 +50,35 @@ function selectedGoogleVoice(locale: string, preferredVoiceURI?: string | null) 
   return decodeGoogleVoicePreference(preferredVoiceURI ?? null);
 }
 
+/** Why an HD request failed, in the learner-facing categories of listening-audio.ts. */
+function hdFailureReason(error: unknown, owner?: SpeakingRequestOwner): ListeningIssueReason {
+  return listeningIssueReason({
+    status: httpHint(error).status,
+    online: typeof navigator === "undefined" || navigator.onLine !== false,
+    signedIn: !owner || Boolean(owner.userId),
+    network: error instanceof TypeError,
+    needsSignIn: error instanceof Error && /^Sign in\b/.test(error.message),
+  });
+}
+
 /** True when playback should use a selected server voice or needs the Pashto fallback. */
 export function needsRemoteTTS(locale: string, preferredVoiceURI?: string | null): boolean {
   if (selectedGoogleVoice(locale, preferredVoiceURI)) return true;
   const family = languageFamily(locale);
   if (!(family in REMOTE_TTS_BY_FAMILY)) return false;
   return getVoicesForLocale(locale).length === 0;
+}
+
+/**
+ * True when public recorded audio exists for this text, accent and voice gender. Lets a
+ * surface keep its own device-speech path unless a recording will really play.
+ */
+export function hasRecordedListeningAudio(
+  text: string,
+  locale: string,
+  gender: RecordingGender,
+): boolean {
+  return recordedPathForGender(text, locale, gender) !== null;
 }
 
 function stopRoutedPlayback(): void {
@@ -150,24 +179,35 @@ function speakOnDevice(
 }
 
 /**
- * Play through the selected Google voice, or the Pashto fallback. Google
- * failures fall back to an installed device voice so learning remains usable.
+ * Play through recorded audio, the selected Google voice, or the Pashto fallback. Google
+ * failures fall back to an installed device voice so learning remains usable, unless the
+ * caller set `cloudOnly`: then nothing else is played and `onerror` receives the reason.
  */
 export async function speakRemote(
   text: string,
   locale: string,
   opts?: {
     rate?: number;
-    onend?: () => void;
-    onerror?: () => void;
+    /** Told what produced the sound, so only HD audio is ever described as HD. */
+    onend?: (source?: ListeningPlaybackSource) => void;
+    /** With `cloudOnly`, told why HD audio could not play. */
+    onerror?: (reason?: ListeningIssueReason) => void;
     voiceURI?: string | null;
     usage?: "learning" | "mission";
     signal?: AbortSignal;
     owner?: SpeakingRequestOwner;
     /** Protected QA listening text must never fall back to a remote provider. */
     deviceOnly?: boolean;
+    /** HD only: never substitute a device voice. */
     cloudOnly?: boolean;
-    onPlaybackStart?: () => void;
+    /**
+     * Public recorded audio for this accent and voice gender may play even when no cloud
+     * voice is selected (signed out, offline, voices still loading).
+     */
+    recordedGender?: RecordingGender;
+    /** Why no cloud voice is selected, reported when `cloudOnly` finds no recording either. */
+    unavailableReason?: ListeningIssueReason;
+    onPlaybackStart?: (source?: ListeningPlaybackSource) => void;
   },
 ): Promise<void> {
   if (opts?.signal?.aborted || (opts?.owner && !opts.owner.isCurrent())) return;
@@ -182,72 +222,103 @@ export async function speakRemote(
   opts?.signal?.addEventListener("abort", abortOwned, { once: true });
   try {
     let started = false;
+    let source: ListeningPlaybackSource = "device";
     const notifyStart = () => {
       if (current() && !started) {
         started = true;
-        opts?.onPlaybackStart?.();
+        opts?.onPlaybackStart?.(source);
       }
     };
     let notified = false;
-    const notify = (heard = true) => {
+    const notify = (heard = true, reason?: ListeningIssueReason) => {
       if (!current() || notified) return;
       notified = true;
-      if (heard) opts?.onend?.();
-      else opts?.onerror?.();
+      if (heard) opts?.onend?.(source);
+      else opts?.onerror?.(reason);
     };
     const rate = opts?.rate ?? 1;
     const googleVoice = opts?.deviceOnly ? null : selectedGoogleVoice(locale, opts?.voiceURI);
-    if (opts?.cloudOnly && !googleVoice) {
-      notify(false);
+    // A recording made by the selected cloud voice, or (when the caller allows it) the public
+    // recording for this accent and gender. Neither lookup needs an account.
+    const recorded =
+      opts?.deviceOnly || opts?.usage === "mission"
+        ? null
+        : googleVoice
+          ? recordedPathForVoice(text, googleVoice.voiceName, googleVoice.languageCode)
+          : opts?.recordedGender
+            ? recordedPathForGender(text, locale, opts.recordedGender)
+            : null;
+    const noCloudVoiceReason = () =>
+      opts?.unavailableReason ??
+      listeningIssueReason({
+        status: null,
+        online: typeof navigator === "undefined" || navigator.onLine !== false,
+        signedIn: !opts?.owner || Boolean(opts.owner.userId),
+      });
+    // A recording that exists but would not load or play is not a missing recording: the
+    // learner is told to check the connection or try again, never to sign in for a clip that
+    // needs no account.
+    const failedRecordingReason = () =>
+      listeningIssueReason({
+        status: null,
+        online: typeof navigator === "undefined" || navigator.onLine !== false,
+        signedIn: true,
+      });
+    let recordingFailed = false;
+    if (opts?.cloudOnly && !googleVoice && !recorded) {
+      notify(false, noCloudVoiceReason());
       return;
     }
-    if (googleVoice && opts?.usage !== "mission") {
-      const recorded = recordedJapanesePath(text, googleVoice.voiceName, googleVoice.languageCode)
-        ?? recordedFrenchPath(text, googleVoice.voiceName, googleVoice.languageCode)
-        ?? recordedSpanishPath(text, googleVoice.voiceName, googleVoice.languageCode);
-      if (!current()) return;
-      if (recorded) {
-        const el = audioEl();
-        el.src = recorded;
-        el.playbackRate = Math.max(0.5, Math.min(2, rate));
-        prepareBrowserPlayback();
-        el.onplaying = notifyStart;
-        const heard = await new Promise<boolean | null>((resolve) => {
-          let settled = false;
-          const done = (result: boolean | null) => {
-            if (settled) return;
-            settled = true;
-            if (ownsGeneration()) {
-              cancelPlayback = null;
-              el.onplaying = null;
-              el.onended = null;
-              el.onerror = null;
-              el.removeAttribute("src");
-              el.load();
-            }
-            resolve(current() ? result : null);
-          };
-          cancelPlayback = () => done(null);
-          el.onended = () => done(true);
-          el.onerror = () => done(false);
-          try {
-            el.play().catch(() => done(false));
-          } catch {
-            done(false);
+    if (!current()) return;
+    if (recorded) {
+      source = "recording";
+      const el = audioEl();
+      el.src = recorded;
+      el.playbackRate = Math.max(0.5, Math.min(2, rate));
+      prepareBrowserPlayback();
+      el.onplaying = notifyStart;
+      const heard = await new Promise<boolean | null>((resolve) => {
+        let settled = false;
+        const done = (result: boolean | null) => {
+          if (settled) return;
+          settled = true;
+          if (ownsGeneration()) {
+            cancelPlayback = null;
+            el.onplaying = null;
+            el.onended = null;
+            el.onerror = null;
+            el.removeAttribute("src");
+            el.load();
           }
-        });
-        if (heard === null) return;
-        if (heard) {
-          notify();
-          return;
+          resolve(current() ? result : null);
+        };
+        cancelPlayback = () => done(null);
+        el.onended = () => done(true);
+        el.onerror = () => done(false);
+        try {
+          el.play().catch(() => done(false));
+        } catch {
+          done(false);
         }
-        // A missing or unplayable clip follows the existing Google/device fallback.
+      });
+      if (heard === null) return;
+      if (heard) {
+        notify();
+        return;
+      }
+      // A missing or unplayable clip follows the existing Google/device fallback.
+      source = "device";
+      recordingFailed = true;
+      if (opts?.cloudOnly && !googleVoice) {
+        notify(false, failedRecordingReason());
+        return;
       }
     }
     if (googleVoice) {
       if (opts?.owner && !opts.owner.userId) {
         if (opts.cloudOnly) {
-          notify(false);
+          // Text with no recording needs the cloud voice, and that needs an account.
+          notify(false, recordingFailed ? failedRecordingReason() : "sign-in");
           return;
         }
         const heard = await speakOnDevice(
@@ -265,6 +336,7 @@ export async function speakRemote(
       let retried = false;
       for (;;) {
         try {
+          source = "hd";
           await speakMissionTts({
             text,
             voiceName: googleVoice.voiceName,
@@ -308,18 +380,20 @@ export async function speakRemote(
             continue;
           }
           if (opts?.cloudOnly) {
-            notify(false);
+            notify(false, hdFailureReason(error, opts.owner));
             return;
           }
-          if (
-            !warnedAboutMobileFallback &&
-            typeof navigator !== "undefined" &&
-            isIosDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)
-          ) {
-            warnedAboutMobileFallback = true;
-            toast.warning("Clear voice unavailable", {
-              description:
-                "Using this phone's voice for now. Check your connection or open Voice to choose a downloaded voice.",
+          source = "device";
+          // Say so once: a device voice must never stand in for the HD voice unannounced.
+          if (!warnedAboutDeviceFallback && typeof navigator !== "undefined") {
+            warnedAboutDeviceFallback = true;
+            const phone = isIosDevice(
+              navigator.userAgent,
+              navigator.platform,
+              navigator.maxTouchPoints,
+            );
+            toast.warning("HD voice unavailable", {
+              description: `Using this ${phone ? "phone" : "device"}’s voice for now. Check your connection, or open Settings → Voices & audio.`,
               duration: 7000,
             });
           }

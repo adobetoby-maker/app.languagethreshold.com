@@ -58,7 +58,7 @@ const gaEvents = (page: Page) =>
   );
 
 async function openCore30(page: Page) {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });

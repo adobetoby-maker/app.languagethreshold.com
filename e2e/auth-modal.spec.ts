@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 // Sign-in offers Google and email only. Apple was removed because it is not set up.
 test("sign-in modal offers Google and email, not Apple", async ({ page, isMobile }) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });

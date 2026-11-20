@@ -75,9 +75,7 @@ async function openCore30(
     await page.waitForLoadState("load");
     await page.waitForTimeout(4000);
   } else {
-    await expect(
-      page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
-    ).toBeVisible({
+    await expect(page.getByRole("button", { name: "Study", exact: true }).first()).toBeVisible({
       timeout: 60_000,
     });
   }

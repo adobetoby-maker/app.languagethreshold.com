@@ -24,7 +24,7 @@ function today(): string {
 /** Opens the Core 30 tab of the Roofing module with the plan started today (copied from core30-plan.spec.ts). */
 async function openCore30(page: Page) {
   const startDate = today();
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });
@@ -68,7 +68,7 @@ async function openCore30(page: Page) {
  */
 async function openKitMode(page: Page, mode: "write" | "type") {
   const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
-  if (mode === "type" && await workspace.isVisible()) {
+  if (mode === "type" && (await workspace.isVisible())) {
     await workspace.getByRole("button", { name: "Back to lesson", exact: true }).click();
   }
   const kit = page.getByTestId("practice-kit");
@@ -125,11 +125,13 @@ async function drawStroke(page: Page, pad: Locator, touch: boolean) {
     await page.mouse.up();
   }
   await expect(canvas).toHaveAttribute("data-ink", "true");
-  expect(await page.evaluate(() => ({
-    page: window.scrollY,
-    lesson: document.querySelector("main")?.scrollTop ?? 0,
-    workspace: document.querySelector('[data-testid="writing-workspace-body"]')?.scrollTop ?? 0,
-  }))).toEqual(scrollBefore);
+  expect(
+    await page.evaluate(() => ({
+      page: window.scrollY,
+      lesson: document.querySelector("main")?.scrollTop ?? 0,
+      workspace: document.querySelector('[data-testid="writing-workspace-body"]')?.scrollTop ?? 0,
+    })),
+  ).toEqual(scrollBefore);
 }
 
 /** The seroval body TanStack Start returns for the handwriting reader: { text, error }. */
@@ -199,14 +201,24 @@ for (const size of [
   { width: 375, height: 667, largeText: true },
   { width: 430, height: 932, largeText: false },
 ]) {
-  test(`writing fields do not overlap at ${size.width} wide${size.largeText ? " with larger text" : ""}`, async ({ page, isMobile }) => {
+  test(`writing fields do not overlap at ${size.width} wide${size.largeText ? " with larger text" : ""}`, async ({
+    page,
+    isMobile,
+  }) => {
     test.skip(!isMobile, "Responsive phone layout check");
     await page.setViewportSize({ width: size.width, height: size.height });
     const work = await openWriteMode(page);
     if (size.largeText) await page.addStyleTag({ content: "html { font-size: 20px !important; }" });
     const workspace = page.getByRole("dialog", { name: "Writing practice", exact: true });
-    expect(await workspace.getByRole("combobox", { name: "Writing activity" }).evaluate((el) => parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(16);
-    const header = [workspace.getByRole("combobox", { name: "Writing activity" }), workspace.getByRole("button", { name: "Back to lesson", exact: true })];
+    expect(
+      await workspace
+        .getByRole("combobox", { name: "Writing activity" })
+        .evaluate((el) => parseFloat(getComputedStyle(el).fontSize)),
+    ).toBeGreaterThanOrEqual(16);
+    const header = [
+      workspace.getByRole("combobox", { name: "Writing activity" }),
+      workspace.getByRole("button", { name: "Back to lesson", exact: true }),
+    ];
     const modes = [work.getByTestId("write-stage-copy"), work.getByTestId("write-stage-answer")];
     for (const pair of [header, modes]) {
       const boxes = await Promise.all(pair.map((control) => control.boundingBox()));
@@ -226,12 +238,19 @@ for (const size of [
     const overflow = await workspace.evaluate((el) => el.scrollWidth - el.clientWidth);
     expect(overflow).toBeLessThanOrEqual(1);
     await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("response");
-    await expect(workspace.getByRole("region", { name: "Handwritten lesson response" })).toBeVisible();
-    expect(await workspace.evaluate((el) => el.scrollWidth - el.clientWidth)).toBeLessThanOrEqual(1);
+    await expect(
+      workspace.getByRole("region", { name: "Handwritten lesson response" }),
+    ).toBeVisible();
+    expect(await workspace.evaluate((el) => el.scrollWidth - el.clientWidth)).toBeLessThanOrEqual(
+      1,
+    );
   });
 }
 
-test("fixed writing workspace keeps pad and lesson steady on a short phone", async ({ page, isMobile }) => {
+test("fixed writing workspace keeps pad and lesson steady on a short phone", async ({
+  page,
+  isMobile,
+}) => {
   test.skip(!isMobile, "Touch regression uses the phone project");
   await page.setViewportSize({ width: 390, height: 667 });
   const work = await openWriteMode(page);
@@ -244,7 +263,10 @@ test("fixed writing workspace keeps pad and lesson steady on a short phone", asy
   expect(check!.y + check!.height).toBeLessThanOrEqual(667);
   await drawStroke(page, work.getByTestId("handwriting-pad"), true);
   await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("response");
-  const response = workspace.getByRole("region", { name: "Handwritten lesson response", exact: true });
+  const response = workspace.getByRole("region", {
+    name: "Handwritten lesson response",
+    exact: true,
+  });
   await drawStroke(page, response.getByTestId("handwriting-pad"), true);
   await workspace.getByRole("combobox", { name: "Writing activity" }).selectOption("words");
   await expect(pad).toHaveAttribute("data-ink", "true");
@@ -252,7 +274,10 @@ test("fixed writing workspace keeps pad and lesson steady on a short phone", asy
   await work.getByRole("button", { name: "Matches", exact: true }).click();
   await expect(work.getByText(`2 of ${TERMS.length} · copy`)).toBeVisible();
   const after = await pad.boundingBox();
-  expect(Math.abs(after!.y - before!.y), `pad before=${before!.y}, after=${after!.y}`).toBeLessThanOrEqual(1);
+  expect(
+    Math.abs(after!.y - before!.y),
+    `pad before=${before!.y}, after=${after!.y}`,
+  ).toBeLessThanOrEqual(1);
   await expect(pad).toHaveAttribute("data-ink", "false");
   await workspace.getByRole("button", { name: "Back to lesson", exact: true }).click();
   await expect(page.getByRole("dialog", { name: "Writing practice" })).toHaveCount(0);

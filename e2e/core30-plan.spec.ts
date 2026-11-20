@@ -56,7 +56,7 @@ async function openCore30(
   language: string = "Spanish",
 ) {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible({
+  await expect(page.getByRole("button", { name: "Study", exact: true })).toBeVisible({
     timeout: 60_000,
   });
   const seeded = async () => {
@@ -1001,11 +1001,11 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
   });
 });
 
-test("V4 app opens Speak with a persistent Study switch and keeps setup in menus", async ({
-  page,
-}, info) => {
+test("V4 app opens Study and keeps Speak available with setup in menus", async ({ page }, info) => {
   await openCore30(page, STARTED_TODAY);
   await page.goto("/");
+  await expect(page).toHaveURL(/tab=core30/);
+  await page.getByRole("button", { name: "Speak", exact: true }).click();
   await expect(
     page.getByRole("region", { name: "Free conversation practice", exact: true }),
   ).toBeVisible();

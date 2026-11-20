@@ -185,6 +185,7 @@ function UrlModuleBridge() {
     const moduleId = params.get("module");
     const coreLink = moduleId === "core";
     const tab = appTab(params.get("tab"));
+    if (!tab && state.currentTab === "speak") dispatch({ type: "SET_TAB", payload: "core30" });
     const linkedModule = getModule(moduleId);
     const targetLanguage =
       linkedModule?.learnDirection === "en-target" ? "English" : linkedModule?.languages?.[0];

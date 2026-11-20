@@ -45,7 +45,7 @@ async function openSettings(page: Page) {
 }
 
 async function openReader(page: Page): Promise<void> {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   const ready = page.getByRole("button", { name: "billete", exact: true }).first();
   for (let attempt = 0; attempt < 3; attempt++) {
     await seedAppState(page, {

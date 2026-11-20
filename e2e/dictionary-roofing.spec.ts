@@ -4,7 +4,7 @@ import { appUrl, seedAppState } from "./app-state.ts";
 // The Roofing chip in the Dictionary must list the roofing terms and crew
 // phrases for Spanish even when the Roofing module is not the active module.
 test("dictionary: Roofing chip lists entries without the Roofing module", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });

@@ -348,7 +348,7 @@ const initialState: AppState = {
   selectedLanguage: "Spanish",
   nativeLanguage: "English",
   darkMode: true,
-  currentTab: "reader",
+  currentTab: "core30",
   xp: 0,
   streak: 0,
   lastActiveDate: null,

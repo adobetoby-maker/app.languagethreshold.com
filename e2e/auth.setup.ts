@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-// Runs the first-run flow once (pick Spanish, open Speak) and saves the
+// Runs the first-run flow once (pick Spanish, open Study) and saves the
 // browser state so every other test opens the app already past onboarding.
 test("complete first-run onboarding", async ({ page }) => {
   await page.goto("/");
@@ -8,7 +8,8 @@ test("complete first-run onboarding", async ({ page }) => {
   const overlay = page.locator("div.fixed.inset-0.z-\\[100\\]");
   await overlay.getByRole("button", { name: /^\s*Spanish/ }).click();
   await expect(page.getByText("What are you learning?")).toHaveCount(0);
-  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/tab=core30/);
+  await expect(page.getByRole("button", { name: "Study", exact: true })).toBeVisible();
   // The language choice and the onboarding flag are written just after the overlay closes
   // (LanguageFirstStep stores lt.languageChosen on a short timer). Saving the state before both
   // land made every later spec open on the first-run picker, intermittently.

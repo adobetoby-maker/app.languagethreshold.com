@@ -1,3 +1,4 @@
+import { defaultLearningEntryTab } from "@/lib/app-navigation";
 import { useEffect, useRef, useState } from "react";
 import { BookOpen, ChevronDown, Copy, CircleEllipsis, Sparkles } from "lucide-react";
 import { V4StudyActivity, V4StudySpeakBar } from "./V4StudyChrome";
@@ -189,31 +190,34 @@ export function V6AppNavigation() {
       return;
     }
     landedFor.current = identity;
-    const params = new URLSearchParams(entryQuery.current);
-    // Assignments, login returns, and explicit tool links keep their intended destination.
-    if (
-      ![
-        "tab",
-        "lesson",
-        "panel",
-        "module",
-        "code",
-        "error",
-        "token_hash",
-        "type",
-        "session_id",
-        "checkout",
-        "payment",
-      ].some((key) => params.has(key))
-    ) {
-      dispatch({ type: "SET_TAB", payload: "speak" });
-    }
+    const startupTab = defaultLearningEntryTab(entryQuery.current);
+    if (startupTab) dispatch({ type: "SET_TAB", payload: startupTab });
   }, [state.hydrated, loading, user, profileReadyUserId, dispatch]);
   useEffect(() => {
     const update = (event: Event) => setMode((event as CustomEvent<LessonModeId>).detail);
     window.addEventListener("lt:v6-mode-changed", update);
     return () => window.removeEventListener("lt:v6-mode-changed", update);
   }, []);
+  const resumeTab = useRef(state.currentTab);
+  resumeTab.current = state.currentTab;
+  useEffect(() => {
+    const installed =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (navigator as Navigator & { standalone?: boolean }).standalone === true;
+    if (!installed) return;
+    let backgroundedAt: number | null = null;
+    const resume = () => {
+      if (document.visibilityState === "hidden") backgroundedAt = Date.now();
+      else if (backgroundedAt !== null) {
+        const away = Date.now() - backgroundedAt;
+        backgroundedAt = null;
+        if (away >= 30_000 && resumeTab.current === "speak")
+          dispatch({ type: "SET_TAB", payload: "core30" });
+      }
+    };
+    document.addEventListener("visibilitychange", resume);
+    return () => document.removeEventListener("visibilitychange", resume);
+  }, [dispatch]);
   const currentSelect = useRef<(destination: V6Destination) => void>(() => {});
   currentSelect.current = select;
   useEffect(() => {

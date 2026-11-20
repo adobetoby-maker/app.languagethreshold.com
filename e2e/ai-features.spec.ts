@@ -37,7 +37,7 @@ async function expectAiSuccess(response: Response) {
 
 async function openApp(page: Page) {
   // Onboarding is already done: auth.setup.ts saved the state.
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });

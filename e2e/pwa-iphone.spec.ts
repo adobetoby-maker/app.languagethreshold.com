@@ -4,7 +4,7 @@ import { expect, test, type Page } from "@playwright/test";
 // service worker work, and that the main flows are usable by touch at phone size.
 
 async function openApp(page: Page) {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });
@@ -31,7 +31,7 @@ test.describe("install readiness", () => {
     expect(res.status()).toBe(200);
     const manifest = await res.json();
     expect(manifest.display).toBe("standalone");
-    expect(manifest.start_url).toBe("/");
+    expect(manifest.start_url).toBe("/?tab=core30");
     expect(manifest.icons.length).toBeGreaterThan(0);
     for (const icon of manifest.icons as { src: string }[]) {
       expect((await request.get(icon.src)).status(), icon.src).toBe(200);

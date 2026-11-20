@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { APP_TABS, appTab, appNavigationLocation } from "../src/lib/app-navigation.ts";
+import { APP_TABS, appTab, appNavigationLocation, defaultLearningEntryTab } from "../src/lib/app-navigation.ts";
 const context = {
   ready: true,
   moduleId: "roofing",
@@ -123,4 +123,9 @@ test("speaking return selection survives only its current tab and learning pair"
   assert.equal(params(appNavigationLocation(current, {...context, tab: "speak"})).get("mission"), "public-mission");
   for (const next of [{...context, tab: "reader"}, {...context, tab:"speak", moduleId:"landscaper"}, {...context, tab:"speak", target:"French"}])
     assert.equal(params(appNavigationLocation(current, next)).has("mission"), false);
+});
+
+test("ordinary launches choose Study while explicit learning, speaking and auth routes survive", () => {
+  for (const search of ["", "?module=foundation-spanish-basics&target=Spanish&native=English", "?utm_source=home"]) assert.equal(defaultLearningEntryTab(search), "core30");
+  for (const search of ["?tab=speak", "?tab=reader", "?tab=core30&lesson=12", "?token_hash=return&type=magiclink", "?code=auth-return", "?panel=settings"]) assert.equal(defaultLearningEntryTab(search), null);
 });

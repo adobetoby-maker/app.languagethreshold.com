@@ -45,7 +45,7 @@ async function openStage(
 ) {
   await page.goto("/");
   await expect(
-    page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+    page.getByRole("button", { name: "Study", exact: true }).first(),
   ).toBeVisible({
     timeout: 60_000,
   });
@@ -247,7 +247,7 @@ test.describe("Core 30 page of a module with a published Foundation and Master (
   }) => {
     await page.goto("/");
     await expect(
-      page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+      page.getByRole("button", { name: "Study", exact: true }).first(),
     ).toBeVisible({
       timeout: 60_000,
     });
@@ -315,7 +315,7 @@ async function openFixtureStage(
   }, core60Fixture());
   await page.goto("/");
   await expect(
-    page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+    page.getByRole("button", { name: "Study", exact: true }).first(),
   ).toBeVisible({
     timeout: 60_000,
   });

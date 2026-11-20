@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { appUrl, readAppState, seedAppState } from "./app-state";
 
 async function openSiteTutor(page: import("@playwright/test").Page, isMobile: boolean) {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
   await seedAppState(page, {
     activeModuleId: "roofing",

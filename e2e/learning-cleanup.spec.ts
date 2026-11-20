@@ -5,7 +5,7 @@ import { lessonPositionKey } from "../src/lib/lesson-drafts";
 test("Continue is first and resumes the saved step without rewriting mastery", async ({
   page,
 }, info) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
   const log = { lessons: { "1": { masteredAt: "2026-10-20T12:00:00Z", visits: {} } } };
   await seedAppState(page, {
@@ -65,7 +65,7 @@ test("compact preferences retain accent and appearance controls", async ({ page,
 });
 
 test("new lesson entry ignores a resume from another language", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
   await seedAppState(page, {
     activeModuleId: "roofing",
@@ -91,7 +91,7 @@ test("started Core 60 overview puts next lesson in one compact button", async ({
   page,
   isMobile,
 }) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
   const log = { startDate: new Date().toISOString().slice(0, 10), lessons: {} };
   await seedAppState(page, {
@@ -146,7 +146,10 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
   await page.screenshot({ path: "test-results/core60-recall-menu-iphone.png" });
   await recallMenu.getByTestId("lesson-recall-flashcards").click();
   await expect(page.getByTestId("flashcard")).toBeVisible();
-  await expect(recallMenu.getByTestId("lesson-recall-flashcards")).toHaveAttribute("aria-current", "true");
+  await expect(recallMenu.getByTestId("lesson-recall-flashcards")).toHaveAttribute(
+    "aria-current",
+    "true",
+  );
   await recallMenu.getByTestId("lesson-recall-match").click();
   await expect(page.getByTestId("match-tile").first()).toBeVisible();
   await recallMenu.getByTestId("lesson-recall-study").click();
@@ -176,4 +179,25 @@ test("phone Core 60 lesson gives the screen to practice and opens navigation on 
   const after = await readAppState(page);
   expect(after.lessonProgress).toEqual(before.lessonProgress);
   expect(JSON.stringify(after.core30Log)).not.toContain("masteredAt");
+});
+
+test("normal startup replaces saved Speak with Study and preserves progress", async ({ page }) => {
+  await page.goto("/");
+  await seedAppState(page, {
+    onboardingComplete: true,
+    currentTab: "speak",
+    activeModuleId: "roofing",
+    lessonProgress: { [core30Key("roofing")]: 3 },
+    selectedLanguage: "Spanish",
+    nativeLanguage: "English",
+  });
+  await page.evaluate(() => localStorage.setItem("lt.languageChosen", "1"));
+  await page.goto("/");
+  await expect(page).toHaveURL(/tab=core30/);
+  const restored = await readAppState(page);
+  expect(restored.lessonProgress[core30Key("roofing")]).toBe(3);
+  await page.goto("/?module=roofing&target=Spanish&native=English&tab=speak");
+  await expect(page).toHaveURL(/tab=speak/);
+  await page.goto("/?module=roofing&target=Spanish&native=English");
+  await expect(page).toHaveURL(/tab=core30/);
 });

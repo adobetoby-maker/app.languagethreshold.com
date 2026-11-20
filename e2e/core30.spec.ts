@@ -3,7 +3,7 @@ import { appUrl, currentTab, readAppState, seedAppState } from "./app-state.ts";
 
 async function openWithModule(page: Page, moduleId: string | null) {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "Speaking menu", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Study", exact: true })).toBeVisible();
   await seedAppState(page, { activeModuleId: moduleId, currentTab: "guide" });
   await page.goto(appUrl({ tab: "guide", module: moduleId }));
   await expect(page.getByRole("button", { name: "Navigation menu", exact: true })).toBeVisible();

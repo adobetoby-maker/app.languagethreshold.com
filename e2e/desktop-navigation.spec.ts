@@ -5,7 +5,7 @@ test("one desktop menu retains tools and utilities; phone navigation stays famil
   page,
   isMobile,
 }, info) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible();
   const log = { lessons: { "1": { masteredAt: "2026-10-20T12:00:00Z", visits: {} } } };
   await seedAppState(page, {
@@ -186,10 +186,7 @@ test("device voice setup instructions are reachable in desktop and phone setting
   await page.goto(appUrl({ tab: "reader" }));
   if (isMobile) await page.getByRole("button", { name: "App settings", exact: true }).click();
   else await page.getByRole("button", { name: "Learning settings", exact: true }).click();
-  await page
-    .getByText("Offline voice help", { exact: true })
-    .filter({ visible: true })
-    .click();
+  await page.getByText("Offline voice help", { exact: true }).filter({ visible: true }).click();
   await page.getByText("iPhone / iPad", { exact: true }).filter({ visible: true }).click();
   await expect(
     page.getByText(/Open Settings → Accessibility → Read & Speak → Voices/),

@@ -26,7 +26,7 @@ test("manifest declares a stable standalone install identity and required icons"
   const manifest = JSON.parse(await readFile("public/manifest.webmanifest", "utf8"));
 
   assert.equal(manifest.id, "/");
-  assert.equal(manifest.start_url, "/");
+  assert.equal(manifest.start_url, "/?tab=core30");
   assert.equal(manifest.scope, "/");
   assert.equal(manifest.display, "standalone");
   assert.equal(manifest.prefer_related_applications, false);

@@ -27,7 +27,7 @@ const mastered = (count: number) => ({
 test("checkpoint crosses Foundation/Core boundary, reuses history, resumes and continues once", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60000,
   });
@@ -137,7 +137,8 @@ test("checkpoint crosses Foundation/Core boundary, reuses history, resumes and c
   expect(snapshot.review.completed["12"]).toBeGreaterThan(1);
   expect(snapshot.cards[existingId].reviewHistory[0]).toEqual(history[0]);
   const same = Object.values(snapshot.cards).filter(
-    (c: FlashcardEntry) => c.moduleId === "roofing" && c.word === source.es && c.translation === source.en,
+    (c: FlashcardEntry) =>
+      c.moduleId === "roofing" && c.word === source.es && c.translation === source.en,
   );
   expect(same).toHaveLength(1);
   // No future roofing lesson 3+ cards were seeded by this checkpoint.

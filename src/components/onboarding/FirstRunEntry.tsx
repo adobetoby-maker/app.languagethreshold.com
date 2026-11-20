@@ -3,7 +3,7 @@ import { useApp } from "@/state/app-state";
 import { LanguageFirstStep, hasChosenLanguage } from "./LanguageFirstStep";
 import { directLearningEntry } from "@/lib/direct-learning-entry";
 
-/** Choose language once, then enter the same speaking-first app as returning learners. */
+/** Choose language once, then enter the same study-first app as returning learners. */
 export function FirstRunEntry() {
   const { state, dispatch } = useApp();
   const [languageChosen, setLanguageChosen] = useState(() => hasChosenLanguage());
@@ -22,7 +22,7 @@ export function FirstRunEntry() {
       onChosen={() => setLanguageChosen(true)}
       onDismiss={() => {
         dispatch({ type: "COMPLETE_ONBOARDING" });
-        dispatch({ type: "SET_TAB", payload: "speak" });
+        dispatch({ type: "SET_TAB", payload: "core30" });
       }}
     />
   );

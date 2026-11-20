@@ -83,3 +83,10 @@ export function appNavigationLocation(
   params.set("tab", context.tab);
   return url.pathname + url.search + url.hash;
 }
+
+/** Plain launches open Study; intentional tools, assignments and auth returns retain their route. */
+export function defaultLearningEntryTab(search: string): AppTab | null {
+  const params = new URLSearchParams(search);
+  return ["tab", "lesson", "panel", "code", "error", "token_hash", "type", "session_id", "checkout", "payment"]
+    .some((key) => params.has(key)) ? null : "core30";
+}

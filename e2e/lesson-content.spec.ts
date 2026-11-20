@@ -40,7 +40,7 @@ function dateKey(offsetDays: number): string {
 async function openModuleCore30(page: Page) {
   await page.goto("/");
   await expect(
-    page.getByRole("button", { name: "Speaking menu", exact: true }).first(),
+    page.getByRole("button", { name: "Study", exact: true }).first(),
   ).toBeVisible({
     timeout: 60_000,
   });

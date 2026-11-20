@@ -108,7 +108,7 @@ async function openQuiz(page: Page, initialReply: QuizReply) {
     });
   });
 
-  await page.goto("/");
+  await page.goto("/?tab=reader");
   await expect(page.getByRole("button", { name: "billete", exact: true }).first()).toBeVisible({
     timeout: 60_000,
   });

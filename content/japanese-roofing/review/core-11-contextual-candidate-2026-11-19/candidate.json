@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:11:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-11-source-decision-2026-11-18/packet.json",
+    "sha256": "cc0fd68e71105978c62e4de9469b881e258cdd884d1c66415191f561d5c6434c"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-10-12-draft.json",
+      "sha256": "3656b886a0b2072b1b6adad6418248cf641d3f41861bcb563d2ebb2a7bcafc38"
+    }
+  },
+  "objectiveEnglish": "Name selected layout tools and roof terms, ask whether a line is straight and locate a measurement on a plan.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "屋根の下端にあたる「軒先」を表す英単語を確認しましょう。",
+      "targetEnglish": "eave",
+      "sourceAnchor": "roofing:11:ja-en:card:4",
+      "id": "core-roofing:11:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "長さを測るときに使う「巻き尺」は、英語で何と言いますか。",
+      "targetEnglish": "tape measure",
+      "sourceAnchor": "roofing:11:ja-en:card:5",
+      "id": "core-roofing:11:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "線を打つための道具の名前が流れます。聞こえた英語を候補から選びましょう。",
+      "targetEnglish": "chalk line",
+      "candidateOptionsEnglish": [
+        "chalk line",
+        "starter strip",
+        "overhang"
+      ],
+      "sourceAnchor": "roofing:11:ja-en:card:1",
+      "id": "core-roofing:11:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "chalk line",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "測って得られた「寸法・測定値」を表す英単語を入力しましょう。",
+      "targetEnglish": "measurement",
+      "sourceAnchor": "roofing:11:ja-en:card:6",
+      "id": "core-roofing:11:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "チョークで打った線について「その線はまっすぐですか」と尋ねる質問を、声に出して言いましょう。",
+      "targetEnglish": "Is the line straight?",
+      "sourceAnchor": "roofing:11:ja-en:card:11",
+      "id": "core-roofing:11:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "屋根材の「最初の段」を表す英語を書きましょう。",
+      "targetEnglish": "first course",
+      "sourceAnchor": "roofing:11:ja-en:card:2",
+      "id": "core-roofing:11:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Is the line straight?",
+      "explanationJapanese": "be 動詞を文頭に置くと、状態を確認する質問になります。ここでの the line は、チョークで打った線を指しています。",
+      "sourceAnchor": "roofing:11:ja-en:line:5",
+      "id": "core-roofing:11:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The foreman checks the measurement again.",
+      "explanationJapanese": "checks は三人称単数の現在形で、場面で起きていることを説明する文です。again は「もう一度」を表します。",
+      "sourceAnchor": "roofing:11:ja-en:line:6",
+      "id": "core-roofing:11:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "is on the job plan",
+      "explanationJapanese": "ここでの is on ～ は「～に記載されている」という意味です。寸法が作業の図面（プラン）に書かれていることを述べています。",
+      "sourceAnchor": "roofing:11:ja-en:line:9",
+      "id": "core-roofing:11:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "chalk line",
+      "glossJapanese": "チョークライン",
+      "senseJapanese": "チョークの粉を付けた糸の道具と、その糸を張ってはじいて付けた線の両方を指します。どちらの意味かは文脈で判断します。",
+      "sourceAnchor": "roofing:11:ja-en:card:1",
+      "id": "core-roofing:11:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "starter strip",
+      "glossJapanese": "スターター材",
+      "senseJapanese": "屋根材の施工で使う材料の名称です。段を表す first course（最初の段）とは別の用語なので、区別して覚えましょう。",
+      "sourceAnchor": "roofing:11:ja-en:card:3",
+      "id": "core-roofing:11:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "overhang",
+      "glossJapanese": "出（端から外へ出る部分）",
+      "senseJapanese": "端から外へ出ている部分、またはその長さ。教材の文では、その寸法は作業の図面に記載されていると述べています。",
+      "sourceAnchor": "roofing:11:ja-en:card:8",
+      "id": "core-roofing:11:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "道具や部位の名前を英語で言い、線がまっすぐかを質問する人",
+      "partner": "場面を述べ、用語について質問を受けて、寸法が図面に記載されていることを伝える人"
+    },
+    "openingEnglish": "First, the foreman takes out the tape measure.",
+    "closureEnglish": "The overhang measurement is on the job plan.",
+    "objectivesEnglish": [
+      "Name layout tools and roof-edge terms from the word bank.",
+      "Ask whether the line is straight.",
+      "Describe that the overhang measurement is on the job plan."
+    ],
+    "wordBankEnglish": [
+      "chalk line",
+      "first course",
+      "starter strip",
+      "eave",
+      "tape measure",
+      "measurement",
+      "straight",
+      "overhang"
+    ],
+    "sourceAnchors": [
+      "roofing:11:ja-en:line:1",
+      "roofing:11:ja-en:line:5",
+      "roofing:11:ja-en:line:9",
+      "roofing:11:ja-en:card:1",
+      "roofing:11:ja-en:card:2",
+      "roofing:11:ja-en:card:3",
+      "roofing:11:ja-en:card:4",
+      "roofing:11:ja-en:card:5",
+      "roofing:11:ja-en:card:6",
+      "roofing:11:ja-en:card:7",
+      "roofing:11:ja-en:card:8",
+      "roofing:11:ja-en:card:11"
+    ],
+    "id": "core-roofing:11:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected description/terminology/question supplement. Weather stop-work, tarping/tie-down, layout placement, overhang values, six-inch stagger and product specifications require qualified source/trade/locale decisions.",
+    "Tarp noun/verb, chalk-line tool/mark, starter strip/first course, overhang sense and stagger verb/noun are contextual dictionary candidates, not product specifications.",
+    "Core11 source marks points on plan remains ambiguous and unused; no silent source correction.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:12:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-12-source-decision-2026-11-18/packet.json",
+    "sha256": "1e1cb911f524385bbb25ad8d70a16dcd7c36b79986d4f23bf295f62be780e09d"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-10-12-draft.json",
+      "sha256": "3656b886a0b2072b1b6adad6418248cf641d3f41861bcb563d2ebb2a7bcafc38"
+    }
+  },
+  "objectiveEnglish": "Ask about a job-specific stagger and request specification confirmation.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "屋根材を横一列に並べた「段」を表す英単語を確認しましょう。",
+      "targetEnglish": "course",
+      "sourceAnchor": "roofing:12:ja-en:card:3",
+      "id": "core-roofing:12:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根材どうしの「継ぎ目」は、英語で何と言いますか。",
+      "targetEnglish": "joint",
+      "sourceAnchor": "roofing:12:ja-en:card:1",
+      "id": "core-roofing:12:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "継ぎ目の並べ方に関する単語が流れます。聞こえた英語を候補から選びましょう。",
+      "targetEnglish": "stagger",
+      "candidateOptionsEnglish": [
+        "stagger",
+        "align",
+        "cut"
+      ],
+      "sourceAnchor": "roofing:12:ja-en:card:2",
+      "id": "core-roofing:12:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "stagger",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "作業の「仕様」を表す英単語を入力しましょう。",
+      "targetEnglish": "specification",
+      "sourceAnchor": "roofing:12:ja-en:card:8",
+      "id": "core-roofing:12:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「この作業のずらし幅はどれくらいですか」と尋ねる質問を、声に出して言いましょう。",
+      "targetEnglish": "What is the stagger for this job?",
+      "sourceAnchor": "roofing:12:ja-en:card:12",
+      "id": "core-roofing:12:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「作業の仕様を確認してください」と丁寧に依頼する英文を書きましょう。",
+      "targetEnglish": "Please confirm the job specification.",
+      "sourceAnchor": "roofing:12:ja-en:card:13",
+      "id": "core-roofing:12:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "What is the stagger for this job?",
+      "explanationJapanese": "What is ～? は内容や数値を尋ねる質問の形です。ここでの stagger は名詞で「ずらし幅」を表し、for this job で「この作業の」と限定しています。",
+      "sourceAnchor": "roofing:12:ja-en:line:6",
+      "id": "core-roofing:12:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Please confirm the job specification.",
+      "explanationJapanese": "Please を付けると丁寧な依頼になります。confirm は「確認する」で、仕様がはっきりしないときに確かめてもらう表現です。",
+      "sourceAnchor": "roofing:12:ja-en:line:7",
+      "id": "core-roofing:12:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "But every job is different.",
+      "explanationJapanese": "every ＋ 単数名詞は「どの～も」を表し、動詞は is になります。「作業ごとに違う」という状況を述べる文です。",
+      "sourceAnchor": "roofing:12:ja-en:line:5",
+      "id": "core-roofing:12:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "stagger",
+      "glossJapanese": "ずらす／ずらし幅",
+      "senseJapanese": "動詞では「（継ぎ目などを）ずらす」、名詞では「ずらし幅」を表します。the stagger for this job は名詞の使い方です。",
+      "sourceAnchor": "roofing:12:ja-en:card:2",
+      "id": "core-roofing:12:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "course",
+      "glossJapanese": "段（横一列）",
+      "senseJapanese": "屋根材を横一列に並べた一段分。first course は「最初の段」、next course は「次の段」を表します。",
+      "sourceAnchor": "roofing:12:ja-en:card:3",
+      "id": "core-roofing:12:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "specification",
+      "glossJapanese": "仕様",
+      "senseJapanese": "その作業について決められた内容。job specification で「作業の仕様」。作業ごとに異なるので、質問して確認する対象になります。",
+      "sourceAnchor": "roofing:12:ja-en:card:8",
+      "id": "core-roofing:12:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "ずらし幅を質問し、作業の仕様の確認を依頼する人",
+      "partner": "場面を述べ、質問を受けて「作業ごとに違う」ことを伝える人"
+    },
+    "openingEnglish": "The crew already has the first course of asphalt shingles.",
+    "closureEnglish": "Please confirm the job specification.",
+    "objectivesEnglish": [
+      "Ask what the stagger is for this job.",
+      "Say that every job is different.",
+      "Ask for confirmation of the job specification."
+    ],
+    "wordBankEnglish": [
+      "joint",
+      "stagger",
+      "course",
+      "shingle",
+      "pattern",
+      "specification"
+    ],
+    "sourceAnchors": [
+      "roofing:12:ja-en:line:1",
+      "roofing:12:ja-en:line:5",
+      "roofing:12:ja-en:line:6",
+      "roofing:12:ja-en:line:7",
+      "roofing:12:ja-en:card:1",
+      "roofing:12:ja-en:card:2",
+      "roofing:12:ja-en:card:3",
+      "roofing:12:ja-en:card:4",
+      "roofing:12:ja-en:card:5",
+      "roofing:12:ja-en:card:8",
+      "roofing:12:ja-en:card:12",
+      "roofing:12:ja-en:card:13"
+    ],
+    "id": "core-roofing:12:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core stage IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected description/terminology/question supplement. Weather stop-work, tarping/tie-down, layout placement, overhang values, six-inch stagger and product specifications require qualified source/trade/locale decisions.",
+    "Tarp noun/verb, chalk-line tool/mark, starter strip/first course, overhang sense and stagger verb/noun are contextual dictionary candidates, not product specifications.",
+    "Core11 source marks points on plan remains ambiguous and unused; no silent source correction.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

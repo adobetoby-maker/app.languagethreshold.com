@@ -1,0 +1,718 @@
+{
+  "lessonId": "core-roofing:15:fr-en",
+  "candidateObjectiveEnglish": "Name membrane items and ask identification and width questions.",
+  "grammarExplanationEnglish": "\"Is this the\" + noun asks for identification. \"This is the\" + noun identifies a labelled item. \"What is the width?\" asks for a dimension.",
+  "grammarExplanationFrench": "« Is this the » + nom pose une question d’identification. « This is the » + nom identifie un objet étiqueté. « What is the width? » demande la largeur.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le mot anglais et son sens français.",
+      "candidateTargetEnglish": "membrane",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "la membrane",
+      "provenance": "Exact source English from card:3; French sense from its candidateFrench.",
+      "id": "core-roofing:15:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le mot anglais pour « l’adhésif ».",
+      "candidateTargetEnglish": "adhesive",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "l’adhésif",
+      "provenance": "Exact source English from card:4; French sense from its candidateFrench.",
+      "id": "core-roofing:15:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le mot anglais et donnez son sens français.",
+      "candidateTargetEnglish": "backing paper",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "le papier protecteur",
+      "provenance": "Exact source English from card:5; French sense from its candidateFrench.",
+      "id": "core-roofing:15:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le mot anglais pour « la largeur ».",
+      "candidateTargetEnglish": "width",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "la largeur",
+      "provenance": "Exact source English from card:6; French sense from its candidateFrench. No dimension given.",
+      "id": "core-roofing:15:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Est-ce la membrane ? »",
+      "candidateTargetEnglish": "Is this the membrane?",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "Est-ce la membrane ?",
+      "provenance": "New identification question using source membrane noun.",
+      "id": "core-roofing:15:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Quelle est la largeur ? »",
+      "candidateTargetEnglish": "What is the width?",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "Quelle est la largeur ?",
+      "provenance": "New width question from source noun; no measurement supplied.",
+      "id": "core-roofing:15:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:15:fr-en:form:1",
+      "englishForm": "Is this the [noun]?",
+      "meaningFrench": "Est-ce le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Is this the backing paper?",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:5"
+      ],
+      "provenance": "New ordinary grammar composition from source headword; not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "id": "core-roofing:15:fr-en:form:2",
+      "englishForm": "This is the [noun].",
+      "meaningFrench": "C’est le/la/l’ + nom.",
+      "candidateExampleEnglish": "This is the adhesive.",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:4"
+      ],
+      "provenance": "New ordinary grammar composition from source headword; not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "id": "core-roofing:15:fr-en:form:3",
+      "englishForm": "What is the width?",
+      "meaningFrench": "Quelle est la largeur ?",
+      "candidateExampleEnglish": "What is the width?",
+      "sourceAnchors": [
+        "core-roofing:15:fr-en:card:6"
+      ],
+      "provenance": "New ordinary grammar composition from source headword; not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker identifying and asking about labelled items.",
+    "partnerRole": "Another coworker showing word cards.",
+    "candidateOpeningEnglish": "Is this the backing paper?",
+    "goalEnglish": "Ask whether a word card says backing paper, read adhesive and membrane labels, and ask a width question.",
+    "candidateWordBankEnglish": [
+      "membrane",
+      "adhesive",
+      "backing paper",
+      "Is this the backing paper?",
+      "Adhesive.",
+      "Membrane.",
+      "What is the width?",
+      "This is the adhesive."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:15:fr-en:card:3",
+      "core-roofing:15:fr-en:card:4",
+      "core-roofing:15:fr-en:card:5",
+      "core-roofing:15:fr-en:card:6"
+    ],
+    "partnerCuesEnglish": [
+      "Yes. What does card B say?",
+      "What does card A say?",
+      "What dimension do you want to ask about?"
+    ],
+    "partnerCuesProvenance": "New hypothetical label-reading cues, not product selection or a handling method.",
+    "id": "core-roofing:15:fr-en:speaking:1",
+    "reviewed": false,
+    "expectedLearnerTurnsEnglish": [
+      "Adhesive.",
+      "Membrane.",
+      "What is the width?"
+    ],
+    "heldDecisionRefs": [
+      "core-roofing:15:fr-en:card:1",
+      "core-roofing:15:fr-en:card:2",
+      "core-roofing:15:fr-en:card:12",
+      "core-roofing:15:fr-en:card:13",
+      "core-roofing:15:fr-en:card:14",
+      "core-roofing:15:fr-en:card:15",
+      "core-roofing:15:fr-en:card:11"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "practiceContextEnglish": "Card A says membrane. Card B says adhesive. Card C says backing paper.",
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the backing paper?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What does card B say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Adhesive."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does card A say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Membrane."
+      },
+      {
+        "speaker": "partner",
+        "text": "What dimension do you want to ask about?"
+      },
+      {
+        "speaker": "learner",
+        "text": "What is the width?"
+      }
+    ],
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-15-source-decision-2026-11-18/packet.json",
+    "sha256": "9f86be8fb49d4c9f88a2384e875994dab30502b403a1e2bc7bf73db431c44a91"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:15:fr-en:card:1",
+      "sourceEnglish": "valley",
+      "candidateFrench": null,
+      "hold": "Confirm regional roofing sense of limahoya/valley and French noue with a qualified trade reviewer; the source speaks about water flow at the valley, not a generic roof edge.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:15:fr-en:card:2",
+      "sourceEnglish": "ice and water shield",
+      "candidateFrench": null,
+      "hold": "The source names an ice-and-water shield in the English row but Spanish says membrana impermeable. Archived French specifies water-and-ice protection. Confirm product and membrane scope before scoring or recording a placement command.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:15:fr-en:card:3",
+      "sourceEnglish": "membrane",
+      "candidateFrench": "la membrane",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "linkedProductDecisionRef": "core-roofing:15:fr-en:card:2"
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:15:fr-en:card:4",
+      "sourceEnglish": "adhesive",
+      "candidateFrench": "l’adhésif",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:15:fr-en:card:5",
+      "sourceEnglish": "backing paper",
+      "candidateFrench": "le papier protecteur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:15:fr-en:card:6",
+      "sourceEnglish": "width",
+      "candidateFrench": "la largeur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:15:fr-en:card:7",
+      "sourceEnglish": "leak",
+      "candidateFrench": null,
+      "hold": "Spanish gotera and English leak may mean a roof leak, water ingress or a dripping point. Archived fuite may be broad; choose the contextual dictionary sense.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:15:fr-en:card:8",
+      "sourceEnglish": "flashing",
+      "candidateFrench": null,
+      "hold": "Flashing/tapajuntas and asphalt shingle/teja asfáltica require contextual trade senses. Archived solin and generic bardeau may omit the asphalt modifier or vary by region.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:15:fr-en:card:9",
+      "sourceEnglish": "shingle",
+      "candidateFrench": null,
+      "hold": "Flashing/tapajuntas and asphalt shingle/teja asfáltica require contextual trade senses. Archived solin and generic bardeau may omit the asphalt modifier or vary by region.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:15:fr-en:card:10",
+      "sourceEnglish": "Run ice and water shield up the valley.",
+      "candidateFrench": null,
+      "hold": "The source names an ice-and-water shield in the English row but Spanish says membrana impermeable. Archived French specifies water-and-ice protection. Confirm product and membrane scope before scoring or recording a placement command.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:15:fr-en:card:11",
+      "sourceEnglish": "Show me the valley protection before it is covered.",
+      "candidateFrench": null,
+      "hold": "Linked valley/leak/product coverage decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:15:fr-en:card:12",
+      "sourceEnglish": "Peel off the backing paper.",
+      "candidateFrench": null,
+      "hold": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:15:fr-en:card:13",
+      "sourceEnglish": "Press it down flat.",
+      "candidateFrench": null,
+      "hold": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:15:fr-en:card:14",
+      "sourceEnglish": "Cut the membrane to length.",
+      "candidateFrench": null,
+      "hold": "The source says cut membrane to length, but does not state a measured length or width. Keep archived bonne longueur conditional until plan/product detail is checked.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:15:fr-en:card:15",
+      "sourceEnglish": "Is the valley covered all the way?",
+      "candidateFrench": null,
+      "hold": "The source asks whether the entire valley is covered and to show protection before covering it. Archived entièrement protégée could imply protection quality rather than complete coverage; align the question and speaking objective with the source. Archived speaking also adds the product sheet and approved details.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:1",
+      "sourceEnglish": "The valley is a place where water runs with force.",
+      "candidateFrench": null,
+      "hold": "Linked valley/leak/product coverage decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:2",
+      "sourceEnglish": "That is why the crew adds extra protection.",
+      "candidateFrench": null,
+      "hold": "Linked valley/leak/product coverage decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:3",
+      "sourceEnglish": "Cut the membrane to length.",
+      "candidateFrench": null,
+      "hold": "The source says cut membrane to length, but does not state a measured length or width. Keep archived bonne longueur conditional until plan/product detail is checked.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:4",
+      "sourceEnglish": "Peel the backing paper off the adhesive.",
+      "candidateFrench": null,
+      "hold": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:5",
+      "sourceEnglish": "Run the ice and water shield up the valley.",
+      "candidateFrench": null,
+      "hold": "The source names an ice-and-water shield in the English row but Spanish says membrana impermeable. Archived French specifies water-and-ice protection. Confirm product and membrane scope before scoring or recording a placement command.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:6",
+      "sourceEnglish": "Press it down flat against the deck.",
+      "candidateFrench": null,
+      "hold": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:7",
+      "sourceEnglish": "A leak in the valley can damage the house.",
+      "candidateFrench": null,
+      "hold": "Linked valley/leak/product coverage decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:8",
+      "sourceEnglish": "The foreman asks: Is the valley covered all the way?",
+      "candidateFrench": null,
+      "hold": "Confirm regional roofing sense of limahoya/valley and French noue with a qualified trade reviewer; the source speaks about water flow at the valley, not a generic roof edge. The source asks whether the entire valley is covered and to show protection before covering it. Archived entièrement protégée could imply protection quality rather than complete coverage; align the question and speaking objective with the source. Archived speaking also adds the product sheet and approved details.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:15:fr-en:reader:9",
+      "sourceEnglish": "Show me the valley protection before it is covered.",
+      "candidateFrench": null,
+      "hold": "The source asks whether the entire valley is covered and to show protection before covering it. Archived entièrement protégée could imply protection quality rather than complete coverage; align the question and speaking objective with the source. Archived speaking also adds the product sheet and approved details.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:15:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:15:fr-en:card:1",
+      "englishHeadword": "valley",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "Confirm regional roofing sense of limahoya/valley and French noue with a qualified trade reviewer; the source speaks about water flow at the valley, not a generic roof edge.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:15:fr-en:card:2",
+      "englishHeadword": "ice and water shield",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "The source names an ice-and-water shield in the English row but Spanish says membrana impermeable. Archived French specifies water-and-ice protection. Confirm product and membrane scope before scoring or recording a placement command.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:15:fr-en:card:3",
+      "englishHeadword": "membrane",
+      "candidateFrenchSense": "la membrane",
+      "contextEnglish": "Valley Protection",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "candidateSenseScope": "Generic membrane category only, not the held ice-and-water product or protection scope.",
+      "linkedProductDecisionRef": "core-roofing:15:fr-en:card:2"
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:15:fr-en:card:4",
+      "englishHeadword": "adhesive",
+      "candidateFrenchSense": "l’adhésif",
+      "contextEnglish": "Valley Protection",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "qualifiedSenseReviewPending": true,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:15:fr-en:card:5",
+      "englishHeadword": "backing paper",
+      "candidateFrenchSense": "le papier protecteur",
+      "contextEnglish": "Valley Protection",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateAlternativeFrenchForReview": "le papier de protection",
+      "internalSenseNote": "English source says paper; film is not silently substituted.",
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:15:fr-en:card:6",
+      "englishHeadword": "width",
+      "candidateFrenchSense": "la largeur",
+      "contextEnglish": "Valley Protection",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:15:fr-en:card:7",
+      "englishHeadword": "leak",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "Spanish gotera and English leak may mean a roof leak, water ingress or a dripping point. Archived fuite may be broad; choose the contextual dictionary sense.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:15:fr-en:card:8",
+      "englishHeadword": "flashing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "Flashing/tapajuntas and asphalt shingle/teja asfáltica require contextual trade senses. Archived solin and generic bardeau may omit the asphalt modifier or vary by region.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:15:fr-en:card:9",
+      "englishHeadword": "shingle",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "Flashing/tapajuntas and asphalt shingle/teja asfáltica require contextual trade senses. Archived solin and generic bardeau may omit the asphalt modifier or vary by region.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:15:fr-en:card:10",
+      "englishHeadword": "Run ice and water shield up the valley.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "The source names an ice-and-water shield in the English row but Spanish says membrana impermeable. Archived French specifies water-and-ice protection. Confirm product and membrane scope before scoring or recording a placement command.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:15:fr-en:card:11",
+      "englishHeadword": "Show me the valley protection before it is covered.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "Linked valley/leak/product coverage decision propagated; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:15:fr-en:card:12",
+      "englishHeadword": "Peel off the backing paper.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:15:fr-en:card:13",
+      "englishHeadword": "Press it down flat.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:15:fr-en:card:14",
+      "englishHeadword": "Cut the membrane to length.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "The source says cut membrane to length, but does not state a measured length or width. Keep archived bonne longueur conditional until plan/product detail is checked.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:15:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:15:fr-en:card:15",
+      "englishHeadword": "Is the valley covered all the way?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Valley Protection",
+      "status": "held",
+      "hold": "The source asks whether the entire valley is covered and to show protection before covering it. Archived entièrement protégée could imply protection quality rather than complete coverage; align the question and speaking objective with the source. Archived speaking also adds the product sheet and approved details.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "No width value or method is supplied. Generic membrane category is not a selection of an ice-and-water-shield product. Backing paper is retained as paper; any film or adhesive-face alternative requires source and product confirmation.",
+    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review."
+  ]
+}

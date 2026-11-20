@@ -1,0 +1,678 @@
+{
+  "lessonId": "core-roofing:13:fr-en",
+  "candidateObjectiveEnglish": "Use edge, corner, sequence and install vocabulary; ask clarification questions and make polite requests.",
+  "grammarExplanationEnglish": "\"Can you\" + base verb asks for an action. \"Which\" + noun + \"do you mean?\" asks for clarification. \"Please\" + base verb makes a polite request.",
+  "grammarExplanationFrench": "« Can you » + verbe de base formule une demande. « Which » + nom + « do you mean? » demande une précision. « Please » + verbe formule une demande polie.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le mot anglais et son sens français.",
+      "candidateTargetEnglish": "edge",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "le bord",
+      "provenance": "Exact source English from card:5; French sense from its candidateFrench.",
+      "id": "core-roofing:13:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le mot anglais pour « la séquence ».",
+      "candidateTargetEnglish": "sequence",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "la séquence",
+      "provenance": "Exact source English from card:6; French sense from its candidateFrench.",
+      "id": "core-roofing:13:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le mot anglais et donnez son sens français.",
+      "candidateTargetEnglish": "install",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "poser",
+      "provenance": "Exact source English from card:9; French sense from its candidateFrench.",
+      "id": "core-roofing:13:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le terme anglais pour « le coin ».",
+      "candidateTargetEnglish": "corner",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le coin",
+      "provenance": "Exact source English from card:8; French sense from its candidateFrench.",
+      "id": "core-roofing:13:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « De quel bord parlez-vous ? »",
+      "candidateTargetEnglish": "Which edge do you mean?",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "De quel bord parlez-vous ?",
+      "provenance": "New clarification question from source edge noun, no placement detail.",
+      "id": "core-roofing:13:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Montrez-moi le coin, s’il vous plaît. »",
+      "candidateTargetEnglish": "Please show me the corner.",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "Montrez-moi le coin, s’il vous plaît.",
+      "provenance": "New polite request from source corner noun, not a cutting instruction.",
+      "id": "core-roofing:13:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:13:fr-en:form:1",
+      "englishForm": "Can you + base verb?",
+      "meaningFrench": "Pouvez-vous + infinitif ?",
+      "candidateExampleEnglish": "Can you show me the edge?",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:5"
+      ],
+      "provenance": "New ordinary grammar composition from source headword; not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "id": "core-roofing:13:fr-en:form:2",
+      "englishForm": "Which + noun + do you mean?",
+      "meaningFrench": "De quel/quelle + nom parlez-vous ?",
+      "candidateExampleEnglish": "Which corner do you mean?",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:8"
+      ],
+      "provenance": "New ordinary grammar composition from source headword; not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    },
+    {
+      "id": "core-roofing:13:fr-en:form:3",
+      "englishForm": "Please + base verb + object.",
+      "meaningFrench": "Impératif + complément + s’il vous plaît.",
+      "candidateExampleEnglish": "Please show me the corner.",
+      "sourceAnchors": [
+        "core-roofing:13:fr-en:card:8"
+      ],
+      "provenance": "New ordinary grammar composition from source headword; not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker asking to be shown a labelled edge and clarifying a corner.",
+    "partnerRole": "Another coworker showing labels on the same diagram.",
+    "candidateOpeningEnglish": "Which corner do you mean?",
+    "goalEnglish": "Ask which corner is meant and ask to see the edge.",
+    "candidateWordBankEnglish": [
+      "corner",
+      "edge",
+      "Which corner do you mean?",
+      "Can you show me the edge?",
+      "Corner C1.",
+      "Edge E1."
+    ],
+    "closureEnglish": "Thank you, that is clear.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:13:fr-en:card:5",
+      "core-roofing:13:fr-en:card:8"
+    ],
+    "partnerCuesEnglish": [
+      "Corner C1.",
+      "Which edge do you mean?",
+      "Here is edge E1."
+    ],
+    "partnerCuesProvenance": "New hypothetical labelled-diagram cues, no installation or corner-cutting detail.",
+    "id": "core-roofing:13:fr-en:speaking:1",
+    "reviewed": false,
+    "heldDecisionRefs": [
+      "core-roofing:13:fr-en:card:1",
+      "core-roofing:13:fr-en:card:10",
+      "core-roofing:13:fr-en:card:11",
+      "core-roofing:13:fr-en:card:14",
+      "core-roofing:13:fr-en:card:12",
+      "core-roofing:13:fr-en:card:13"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "practiceContextEnglish": "On a hypothetical sketch, corners are labelled C1 and C2 and edges E1 and E2. The partner first mentions a corner without naming its label.",
+    "expectedLearnerTurnsEnglish": [
+      "Can you show me the edge?",
+      "Edge E1.",
+      "Thank you, that is clear."
+    ],
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "partner",
+        "text": "Please look at the corner."
+      },
+      {
+        "speaker": "learner",
+        "text": "Which corner do you mean?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Corner C1."
+      },
+      {
+        "speaker": "learner",
+        "text": "Can you show me the edge?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Which edge do you mean?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Edge E1."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is edge E1."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you, that is clear."
+      }
+    ],
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods.",
+    "partnerLeadInEnglish": "Please look at the corner."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-13-source-decision-2026-11-18/packet.json",
+    "sha256": "dc4543f6e03028f5b412895c8616c99ec474d7c4bc8153393e17d182961af2b9"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:13:fr-en:card:1",
+      "sourceEnglish": "drip edge",
+      "candidateFrench": null,
+      "hold": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:13:fr-en:card:2",
+      "sourceEnglish": "eave",
+      "candidateFrench": null,
+      "hold": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:13:fr-en:card:3",
+      "sourceEnglish": "rake",
+      "candidateFrench": null,
+      "hold": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:13:fr-en:card:4",
+      "sourceEnglish": "underlayment",
+      "candidateFrench": null,
+      "hold": "Sub-capa/fieltro and underlayment may name different materials across roof systems. Archived sous-couche is generic; choose the source and product-specific dictionary sense before scoring the under/over question.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:13:fr-en:card:5",
+      "sourceEnglish": "edge",
+      "candidateFrench": "le bord",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:13:fr-en:card:6",
+      "sourceEnglish": "sequence",
+      "candidateFrench": "la séquence",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:13:fr-en:card:7",
+      "sourceEnglish": "overlap",
+      "candidateFrench": "le recouvrement",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "linkedOverlapDecisionRef": "core-roofing:14:fr-en:card:2",
+      "internalSenseNote": "Generic physical overlap noun only; no product, approved width or installation detail is selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:13:fr-en:card:8",
+      "sourceEnglish": "corner",
+      "candidateFrench": "le coin",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:13:fr-en:card:9",
+      "sourceEnglish": "install",
+      "candidateFrench": "poser",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:13:fr-en:card:10",
+      "sourceEnglish": "Install the drip edge first.",
+      "candidateFrench": null,
+      "hold": "The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:13:fr-en:card:11",
+      "sourceEnglish": "Does the drip edge go under or over the underlayment?",
+      "candidateFrench": null,
+      "hold": "Sub-capa/fieltro and underlayment may name different materials across roof systems. Archived sous-couche is generic; choose the source and product-specific dictionary sense before scoring the under/over question. The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:13:fr-en:card:12",
+      "sourceEnglish": "Start the drip edge at the eave.",
+      "candidateFrench": null,
+      "hold": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan. The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:13:fr-en:card:13",
+      "sourceEnglish": "Cut the drip edge at the corner.",
+      "candidateFrench": null,
+      "hold": "Cutting drip edge at the corner is this source scene's instruction, not a general cut detail. Confirm the actual approved product and corner detail before a scored imperative or audio script.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:13:fr-en:card:14",
+      "sourceEnglish": "Explain the drip-edge sequence for this roof.",
+      "candidateFrench": null,
+      "hold": "The source speaking ask is to have the installer explain the approved sequence; archived speaking adds a request to show manufacturer instructions. Keep the extra ask as domain evidence and maintain the exact source objective in scored modes until reviewed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:1",
+      "sourceEnglish": "Today the crew is going to install the drip edge.",
+      "candidateFrench": null,
+      "hold": "Linked drip-edge product decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:2",
+      "sourceEnglish": "Before starting, the foreman talks to the installers.",
+      "candidateFrench": null,
+      "hold": "Linked foreman/installer role decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:3",
+      "sourceEnglish": "Explain the drip-edge sequence for this roof.",
+      "candidateFrench": null,
+      "hold": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries. The source speaking ask is to have the installer explain the approved sequence; archived speaking adds a request to show manufacturer instructions. Keep the extra ask as domain evidence and maintain the exact source objective in scored modes until reviewed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:4",
+      "sourceEnglish": "Does the drip edge go under or over the underlayment?",
+      "candidateFrench": null,
+      "hold": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries. Sub-capa/fieltro and underlayment may name different materials across roof systems. Archived sous-couche is generic; choose the source and product-specific dictionary sense before scoring the under/over question. The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:5",
+      "sourceEnglish": "The installers check the manufacturer's instructions before answering.",
+      "candidateFrench": null,
+      "hold": "Installers versus roofers/poseurs role wording requires qualified source/French/trade review; source manufacturer-check predicate is preserved in English.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:6",
+      "sourceEnglish": "According to the plan, start the drip edge at the eave.",
+      "candidateFrench": null,
+      "hold": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan. The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:13:fr-en:reader:7",
+      "sourceEnglish": "Cut the drip edge at the corner.",
+      "candidateFrench": null,
+      "hold": "Cutting drip edge at the corner is this source scene's instruction, not a general cut detail. Confirm the actual approved product and corner detail before a scored imperative or audio script.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:13:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:13:fr-en:card:1",
+      "englishHeadword": "drip edge",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:13:fr-en:card:2",
+      "englishHeadword": "eave",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:13:fr-en:card:3",
+      "englishHeadword": "rake",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:13:fr-en:card:4",
+      "englishHeadword": "underlayment",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Sub-capa/fieltro and underlayment may name different materials across roof systems. Archived sous-couche is generic; choose the source and product-specific dictionary sense before scoring the under/over question.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:13:fr-en:card:5",
+      "englishHeadword": "edge",
+      "candidateFrenchSense": "le bord",
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:13:fr-en:card:6",
+      "englishHeadword": "sequence",
+      "candidateFrenchSense": "la séquence",
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "candidateSenseOptionsFrench": [
+        "la séquence",
+        "l’ordre des étapes"
+      ],
+      "senseReviewPending": true
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:13:fr-en:card:7",
+      "englishHeadword": "overlap",
+      "candidateFrenchSense": "le recouvrement",
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "candidateSenseScope": "Generic physical overlap noun only; no product, approved width or installation detail is selected.",
+      "linkedOverlapDecisionRef": "core-roofing:14:fr-en:card:2"
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:13:fr-en:card:8",
+      "englishHeadword": "corner",
+      "candidateFrenchSense": "le coin",
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:13:fr-en:card:9",
+      "englishHeadword": "install",
+      "candidateFrenchSense": "poser",
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "genericSenseOnly": true,
+      "scopeNote": "Standalone vocabulary/label practice only; held installation/product/measurement context is not selected."
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:13:fr-en:card:10",
+      "englishHeadword": "Install the drip edge first.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:13:fr-en:card:11",
+      "englishHeadword": "Does the drip edge go under or over the underlayment?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Sub-capa/fieltro and underlayment may name different materials across roof systems. Archived sous-couche is generic; choose the source and product-specific dictionary sense before scoring the under/over question. The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:13:fr-en:card:12",
+      "englishHeadword": "Start the drip edge at the eave.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan. The source card says install drip edge first, while the Reader asks under versus over underlayment and requires checking manufacturer instructions; the Reader 6 eave command is explicitly according to the plan. Do not promote an unconditional construction sequence without qualified roof-system and plan review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:13:fr-en:card:13",
+      "englishHeadword": "Cut the drip edge at the corner.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "Cutting drip edge at the corner is this source scene's instruction, not a general cut detail. Confirm the actual approved product and corner detail before a scored imperative or audio script.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:13:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:13:fr-en:card:14",
+      "englishHeadword": "Explain the drip-edge sequence for this roof.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Drip Edge Sequence",
+      "status": "held",
+      "hold": "The source speaking ask is to have the installer explain the approved sequence; archived speaking adds a request to show manufacturer instructions. Keep the extra ask as domain evidence and maintain the exact source objective in scored modes until reviewed.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review."
+  ]
+}

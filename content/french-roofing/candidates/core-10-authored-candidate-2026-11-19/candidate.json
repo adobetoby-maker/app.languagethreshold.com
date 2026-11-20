@@ -1,0 +1,678 @@
+{
+  "lessonId": "core-roofing:10:fr-en",
+  "candidateObjectiveEnglish": "Report windy conditions and an unfinished section, then repeat the report for confirmation.",
+  "grammarExplanationEnglish": "Use \"It is\" with time or a weather adjective: \"It is 4:00 in the afternoon and it is windy.\" \"There is\" introduces one thing: \"There is an unfinished section at the back.\" \"To\" + base verb can express purpose: \"We repeat the plan to confirm.\"",
+  "grammarExplanationFrench": "« It is » sert ici à donner l’heure ou à décrire le temps. « There is » introduit un élément : « There is an unfinished section at the back ». « To » + verbe de base peut exprimer le but : « We repeat the plan to confirm ».",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Voyez l’anglais et le français, puis lisez la phrase à voix haute.",
+      "candidateTargetEnglish": "It is 4:00 in the afternoon and it is windy.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:reader:1"
+      ],
+      "expectedMeaningFrench": "Il est seize heures et il y a du vent.",
+      "provenance": "Exact source reader:1. Not held. Archived French is reused as the candidateFrench value.",
+      "id": "core-roofing:10:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Dites en anglais : « Il y a une partie inachevée à l'arrière. »",
+      "candidateTargetEnglish": "There is an unfinished section at the back.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:reader:3"
+      ],
+      "expectedMeaningFrench": "Il y a une partie inachevée à l'arrière.",
+      "provenance": "Target is exact source reader:3. The French prompt is a new composition. Not held.",
+      "id": "core-roofing:10:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez l’anglais et donnez le sens en français.",
+      "candidateTargetEnglish": "Repeat the plan to confirm.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:card:14",
+        "core-roofing:10:fr-en:reader:9"
+      ],
+      "expectedMeaningFrench": "Répétez le plan pour confirmer.",
+      "provenance": "Exact source card:14 and reader:9. Not held. Readback language only.",
+      "id": "core-roofing:10:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:10:fr-en:card:9",
+        "core-roofing:10:fr-en:card:11",
+        "core-roofing:10:fr-en:card:12"
+      ],
+      "holdReason": "Readback phrase is authored, but the source tarp-plan content is not approved; no executable work plan is selected.",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le terme anglais qui signifie « le vent ».",
+      "candidateTargetEnglish": "wind",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "le vent",
+      "provenance": "English source-exact headword; candidate French support.",
+      "id": "core-roofing:10:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Il y a du vent. »",
+      "candidateTargetEnglish": "It is windy.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:reader:1"
+      ],
+      "expectedMeaningFrench": "Il y a du vent.",
+      "provenance": "New shortened composition from exact source reader:1. Not held.",
+      "id": "core-roofing:10:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Nous répétons le plan pour confirmer. »",
+      "candidateTargetEnglish": "We repeat the plan to confirm.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "Nous répétons le plan pour confirmer.",
+      "provenance": "Exact English repetir verb example at sourceVerbExamples[4]; card14 is the related imperative, not the exact verb-example anchor.",
+      "id": "core-roofing:10:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "sourceVerbExampleIndex": 4,
+      "sourceVerbExampleExactEnglish": "We repeat the plan to confirm.",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:10:fr-en:card:9",
+        "core-roofing:10:fr-en:card:11",
+        "core-roofing:10:fr-en:card:12"
+      ],
+      "holdReason": "Readback phrase is authored, but the source tarp-plan content is not approved; no executable work plan is selected.",
+      "relatedCardAnchor": "core-roofing:10:fr-en:card:14",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "exactSourceReference": {
+        "packetPath": "content/french-roofing/review/core-10-source-decision-2026-11-18/packet.json",
+        "packetSha256": "7549f587f8a89f626ddaa2f285f206f53f2e66661f4098bd0e5b01282292fdad",
+        "jsonPointer": "/sourceVerbExamples/4",
+        "sourceEnglish": "We repeat the plan to confirm."
+      },
+      "sourceAnchorRoles": {
+        "core-roofing:10:fr-en:card:14": "related imperative, not the exact declarative verb example"
+      }
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:10:fr-en:form:1",
+      "englishForm": "It is + time / weather adjective",
+      "meaningFrench": "il est + heure / il y a du vent dans cet exemple",
+      "candidateExampleEnglish": "It is 4:00 in the afternoon and it is windy.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:reader:1"
+      ],
+      "provenance": "Exact English Reader1; French candidate support.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "englishForm": "there is + singular noun phrase",
+      "meaningFrench": "il y a + nom",
+      "candidateExampleEnglish": "There is an unfinished section at the back.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:reader:3"
+      ],
+      "provenance": "Exact source reader:3. Not held.",
+      "id": "core-roofing:10:fr-en:form:2",
+      "reviewed": false,
+      "exampleMeaningFrench": "Il y a une partie inachevée à l'arrière.",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "englishForm": "verb + to + base verb (purpose)",
+      "meaningFrench": "verbe + pour + infinitif (but)",
+      "candidateExampleEnglish": "We repeat the plan to confirm.",
+      "sourceAnchors": [
+        "core-roofing:10:fr-en:card:14"
+      ],
+      "provenance": "Exact English repetir verb example at sourceVerbExamples[4]; card14 is the related imperative, not the exact verb-example anchor.",
+      "id": "core-roofing:10:fr-en:form:3",
+      "reviewed": false,
+      "sourceVerbExampleIndex": 4,
+      "sourceVerbExampleExactEnglish": "We repeat the plan to confirm.",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:10:fr-en:card:9",
+        "core-roofing:10:fr-en:card:11",
+        "core-roofing:10:fr-en:card:12"
+      ],
+      "holdReason": "Readback phrase is authored, but the source tarp-plan content is not approved; no executable work plan is selected.",
+      "relatedCardAnchor": "core-roofing:10:fr-en:card:14",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "exactSourceReference": {
+        "packetPath": "content/french-roofing/review/core-10-source-decision-2026-11-18/packet.json",
+        "packetSha256": "7549f587f8a89f626ddaa2f285f206f53f2e66661f4098bd0e5b01282292fdad",
+        "jsonPointer": "/sourceVerbExamples/4",
+        "sourceEnglish": "We repeat the plan to confirm."
+      },
+      "sourceAnchorRoles": {
+        "core-roofing:10:fr-en:card:14": "related imperative, not the exact declarative verb example"
+      }
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker reporting the wind and an unfinished section.",
+    "partnerRole": "Another coworker asking for the report to be repeated.",
+    "candidateOpeningEnglish": "It is 4:00 in the afternoon and it is windy.",
+    "goalEnglish": "Report the wind and the unfinished section at the back, then repeat those facts.",
+    "candidateWordBankEnglish": [
+      "windy",
+      "unfinished section",
+      "at the back",
+      "repeat",
+      "report"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "sourceAnchors": [
+      "core-roofing:10:fr-en:reader:1",
+      "core-roofing:10:fr-en:reader:3",
+      "core-roofing:10:fr-en:card:14"
+    ],
+    "id": "core-roofing:10:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCuesEnglish": [
+      "Is it windy?",
+      "Which section is unfinished?",
+      "Please repeat your report."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
+    "scenarioProvenance": "New bounded language exchange; no work-method, actual weather forecast or installation measurement is approved.",
+    "heldDependent": true,
+    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "heldDecisionRefs": [
+      "core-roofing:10:fr-en:card:9",
+      "core-roofing:10:fr-en:card:11",
+      "core-roofing:10:fr-en:card:12"
+    ],
+    "objectiveProvenance": "New narrower weather/status report-and-repeat exchange, not the held tarp-plan objective."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-10-source-decision-2026-11-18/packet.json",
+    "sha256": "7549f587f8a89f626ddaa2f285f206f53f2e66661f4098bd0e5b01282292fdad"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:10:fr-en:card:1",
+      "sourceEnglish": "tarp",
+      "candidateFrench": "la bâche",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:10:fr-en:card:2",
+      "sourceEnglish": "unfinished section",
+      "candidateFrench": "la partie inachevée",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:10:fr-en:card:3",
+      "sourceEnglish": "weather",
+      "candidateFrench": "la météo",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:10:fr-en:card:4",
+      "sourceEnglish": "rain",
+      "candidateFrench": "la pluie",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:10:fr-en:card:5",
+      "sourceEnglish": "wind",
+      "candidateFrench": "le vent",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:10:fr-en:card:6",
+      "sourceEnglish": "forecast",
+      "candidateFrench": "les prévisions météorologiques",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:10:fr-en:card:7",
+      "sourceEnglish": "rope",
+      "candidateFrench": "la corde",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:10:fr-en:card:8",
+      "sourceEnglish": "leak",
+      "candidateFrench": null,
+      "hold": "Spanish gotera is a roof leak or drip; archived French la fuite is broader. Confirm the roofing dictionary sense before selecting a scored face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:10:fr-en:card:9",
+      "sourceEnglish": "Tarp anything you can't finish today.",
+      "candidateFrench": null,
+      "hold": "The source orders covering an unfinished section in this windy 4:00 scene. The archived French paraphrases tarp as protect with a tarp and could read as universal high-wind work instruction. Keep the scene-specific source meaning and approved site-weather/fall-protection decision distinct before scoring. Source speaking asks which section needs a tarp and for the crew to repeat the plan. Archived speaking adds consultation about weather and working at height. Keep that domain-review note separate from the source learner objective until the approved plan is established.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:10:fr-en:card:10",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "candidateFrench": null,
+      "hold": "Site-weather trigger and descent context require qualified review. Source is explicitly conditional if the weather changes, not unconditional; exact condition stays visible in sourceEnglish.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:10:fr-en:card:11",
+      "sourceEnglish": "Cover this section before we leave.",
+      "candidateFrench": null,
+      "hold": "Source cover-this-section command in a windy scene needs site-specific weather/fall-protection and scope review; no general tarping method is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:10:fr-en:card:12",
+      "sourceEnglish": "Tie down the tarp well.",
+      "candidateFrench": null,
+      "hold": "Source amarren/tie down the tarp with rope implies securing by tying. Archived fixez bien is broader; select a French form that preserves rope tie-down semantics after qualified trade and safety review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:10:fr-en:card:13",
+      "sourceEnglish": "Rain is coming tonight.",
+      "candidateFrench": null,
+      "hold": "Tonight may include overnight rain; archived ce soir can mean this evening. Check source time scope and a natural French forecast expression together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:10:fr-en:card:14",
+      "sourceEnglish": "Repeat the plan to confirm.",
+      "candidateFrench": "Répétez le plan pour confirmer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:1",
+      "sourceEnglish": "It is 4:00 in the afternoon and it is windy.",
+      "candidateFrench": "Il est seize heures et il y a du vent.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:2",
+      "sourceEnglish": "The weather forecast says it will rain tonight.",
+      "candidateFrench": null,
+      "hold": "Tonight may include overnight rain; archived ce soir can mean this evening. Check source time scope and a natural French forecast expression together.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:3",
+      "sourceEnglish": "There is an unfinished section at the back.",
+      "candidateFrench": "Il y a une partie inachevée à l'arrière.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Aligns existential there is with unfinished-section headword."
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:4",
+      "sourceEnglish": "Rain can wet the open deck.",
+      "candidateFrench": null,
+      "hold": "Open deck names the exposed structural roof deck. Archived support de couverture exposé may denote a broader substrate; align with Core 1/7 deck terminology.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:5",
+      "sourceEnglish": "Cover this section before we leave.",
+      "candidateFrench": null,
+      "hold": "Source cover-this-section command in a windy scene needs site-specific weather/fall-protection and scope review; no general tarping method is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:6",
+      "sourceEnglish": "Tarp anything you can't finish today.",
+      "candidateFrench": null,
+      "hold": "The source orders covering an unfinished section in this windy 4:00 scene. The archived French paraphrases tarp as protect with a tarp and could read as universal high-wind work instruction. Keep the scene-specific source meaning and approved site-weather/fall-protection decision distinct before scoring.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:7",
+      "sourceEnglish": "Tie the tarp down well with the rope.",
+      "candidateFrench": null,
+      "hold": "Source amarren/tie down the tarp with rope implies securing by tying. Archived fixez bien is broader; select a French form that preserves rope tie-down semantics after qualified trade and safety review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:8",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "candidateFrench": null,
+      "hold": "Site-weather trigger and descent context require qualified review. Source is explicitly conditional if the weather changes, not unconditional; exact condition stays visible in sourceEnglish.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:10:fr-en:reader:9",
+      "sourceEnglish": "Repeat the plan to confirm.",
+      "candidateFrench": "Répétez le plan pour confirmer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:10:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:10:fr-en:card:1",
+      "englishHeadword": "tarp",
+      "candidateFrenchSense": "la bâche",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:10:fr-en:card:2",
+      "englishHeadword": "unfinished section",
+      "candidateFrenchSense": "la partie inachevée",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:10:fr-en:card:3",
+      "englishHeadword": "weather",
+      "candidateFrenchSense": "la météo",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:10:fr-en:card:4",
+      "englishHeadword": "rain",
+      "candidateFrenchSense": "la pluie",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:10:fr-en:card:5",
+      "englishHeadword": "wind",
+      "candidateFrenchSense": "le vent",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:10:fr-en:card:6",
+      "englishHeadword": "forecast",
+      "candidateFrenchSense": "les prévisions météorologiques",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "internalSenseNote": "Generic weather-forecast noun only; time scope and natural forecast-expression decision remain open in card13/Reader2."
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:10:fr-en:card:7",
+      "englishHeadword": "rope",
+      "candidateFrenchSense": "la corde",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:10:fr-en:card:8",
+      "englishHeadword": "leak",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "held",
+      "hold": "Spanish gotera is a roof leak or drip; archived French la fuite is broader. Confirm the roofing dictionary sense before selecting a scored face.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:10:fr-en:card:9",
+      "englishHeadword": "Tarp anything you can't finish today.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "held",
+      "hold": "The source orders covering an unfinished section in this windy 4:00 scene. The archived French paraphrases tarp as protect with a tarp and could read as universal high-wind work instruction. Keep the scene-specific source meaning and approved site-weather/fall-protection decision distinct before scoring. Source speaking asks which section needs a tarp and for the crew to repeat the plan. Archived speaking adds consultation about weather and working at height. Keep that domain-review note separate from the source learner objective until the approved plan is established.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:10:fr-en:card:10",
+      "englishHeadword": "Stop work and come down if the weather changes.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "held",
+      "hold": "Site-weather trigger and descent context require qualified review. Source is explicitly conditional if the weather changes, not unconditional; exact condition stays visible in sourceEnglish.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:10:fr-en:card:11",
+      "englishHeadword": "Cover this section before we leave.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "held",
+      "hold": "Source cover-this-section command in a windy scene needs site-specific weather/fall-protection and scope review; no general tarping method is selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:10:fr-en:card:12",
+      "englishHeadword": "Tie down the tarp well.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "held",
+      "hold": "Source amarren/tie down the tarp with rope implies securing by tying. Archived fixez bien is broader; select a French form that preserves rope tie-down semantics after qualified trade and safety review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:10:fr-en:card:13",
+      "englishHeadword": "Rain is coming tonight.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "held",
+      "hold": "Tonight may include overnight rain; archived ce soir can mean this evening. Check source time scope and a natural French forecast expression together.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:10:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:10:fr-en:card:14",
+      "englishHeadword": "Repeat the plan to confirm.",
+      "candidateFrenchSense": "Répétez le plan pour confirmer.",
+      "contextEnglish": "Tarp the Unfinished Roof",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Exact repeating verb example is independently validated from pinned sourceVerbExamples[4], despite the models not receiving that source array. It is not relabelled as invented text."
+  ]
+}

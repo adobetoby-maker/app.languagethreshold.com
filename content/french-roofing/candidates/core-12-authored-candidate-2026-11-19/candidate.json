@@ -1,0 +1,663 @@
+{
+  "lessonId": "core-roofing:12:fr-en",
+  "candidateObjectiveEnglish": "Ask what the stagger is for this job and say that the joints must not line up.",
+  "grammarExplanationEnglish": "\"Must not\" + base verb states a negative requirement: \"The joints must not line up.\" \"What is the stagger for this job?\" asks for a job detail without giving a value. \"Each\" or \"every\" + singular noun takes a singular verb: \"Each new course needs a pattern\"; \"Every job is different.\"",
+  "grammarExplanationFrench": "« Must not » + verbe de base exprime une obligation négative. « What is the stagger for this job? » demande un détail sans donner de valeur. « Each » et « every » sont suivis d’un nom singulier et d’un verbe singulier dans « Each new course needs a pattern » et « Every job is different ». « Must not » exprime ici une interdiction, pas une absence de nécessité.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Voyez la phrase en anglais et en français, puis lisez-la à voix haute.",
+      "candidateTargetEnglish": "The joints must not line up.",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:11",
+        "core-roofing:12:fr-en:reader:3"
+      ],
+      "expectedMeaningFrench": "Les joints ne doivent pas être alignés.",
+      "provenance": "Exact source card:11 and reader:3. Not held. General rule only, with no stagger value.",
+      "id": "core-roofing:12:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Dites en anglais : « Quel est le décalage pour ce chantier ? »",
+      "candidateTargetEnglish": "What is the stagger for this job?",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Quel est le décalage pour ce chantier ?",
+      "provenance": "Exact source card:12 generic question. Not held. It does not answer or supply a stagger value.",
+      "id": "core-roofing:12:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:12:fr-en:card:10",
+        "core-roofing:12:fr-en:card:8"
+      ],
+      "holdReason": "Job-offset noun/measure and specification senses remain pending; no value is selected."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez l’anglais et donnez le sens en français.",
+      "candidateTargetEnglish": "Check the joints on the next course.",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "Vérifiez les joints du rang suivant.",
+      "provenance": "Exact English card14; Reader8 has additional Meanwhile and is related, not exact.",
+      "id": "core-roofing:12:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : le décalage.",
+      "candidateTargetEnglish": "stagger",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "le décalage",
+      "provenance": "Exact source card:2 term. Not held. Used as the joint-offset action or measure, not a pattern name.",
+      "id": "core-roofing:12:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:12:fr-en:card:10",
+        "core-roofing:12:fr-en:card:8"
+      ],
+      "holdReason": "Job-offset noun/measure and specification senses remain pending; no value is selected."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Maintenant, chaque nouveau rang nécessite un motif de pose. »",
+      "candidateTargetEnglish": "Now each new course needs a pattern.",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:reader:2"
+      ],
+      "expectedMeaningFrench": "Maintenant, chaque nouveau rang nécessite un motif de pose.",
+      "provenance": "Exact source reader:2. Not held. Gives no cut pattern and no stagger value.",
+      "id": "core-roofing:12:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Chaque chantier est différent. »",
+      "candidateTargetEnglish": "Every job is different.",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:reader:5"
+      ],
+      "expectedMeaningFrench": "Chaque chantier est différent.",
+      "provenance": "New standalone composition deleting source Reader5 discourse connector But; no held six-inch quote is required.",
+      "id": "core-roofing:12:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "must not + base verb (negative requirement)",
+      "meaningFrench": "interdiction : ne doivent pas + infinitif",
+      "candidateExampleEnglish": "The joints must not line up.",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:11",
+        "core-roofing:12:fr-en:reader:3"
+      ],
+      "provenance": "Exact source card:11 and reader:3. Not held.",
+      "id": "core-roofing:12:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "exampleMeaningFrench": "Les joints ne doivent pas être alignés."
+    },
+    {
+      "englishForm": "What is the + noun + for + this job?",
+      "meaningFrench": "Quel + nom + est prévu pour ce chantier ?",
+      "candidateExampleEnglish": "What is the stagger for this job?",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:12",
+        "core-roofing:12:fr-en:reader:6"
+      ],
+      "provenance": "Exact generic source question. It is not answered with any value.",
+      "id": "core-roofing:12:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:12:fr-en:card:10",
+        "core-roofing:12:fr-en:card:8"
+      ],
+      "holdReason": "Job-offset noun/measure and specification senses remain pending; no value is selected."
+    },
+    {
+      "englishForm": "verb + object + on + noun phrase (location)",
+      "meaningFrench": "Vérifiez + éléments + du rang concerné",
+      "candidateExampleEnglish": "Check the joints on the next course.",
+      "sourceAnchors": [
+        "core-roofing:12:fr-en:card:14"
+      ],
+      "provenance": "Exact source card:14. Not held.",
+      "id": "core-roofing:12:fr-en:form:3",
+      "reviewed": false,
+      "exampleMeaningFrench": "Vérifiez les joints du rang suivant.",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker asking a source job-detail question.",
+    "partnerRole": "Another coworker asking for the job-detail question and source rule to be repeated.",
+    "candidateOpeningEnglish": "What is the stagger for this job?",
+    "goalEnglish": "Ask what the job’s stagger is and say that the joints must not line up.",
+    "candidateWordBankEnglish": [
+      "stagger",
+      "joint",
+      "course",
+      "pattern",
+      "line up",
+      "must not",
+      "job",
+      "check",
+      "each"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "sourceAnchors": [
+      "core-roofing:12:fr-en:card:2",
+      "core-roofing:12:fr-en:card:11",
+      "core-roofing:12:fr-en:card:12",
+      "core-roofing:12:fr-en:card:14"
+    ],
+    "id": "core-roofing:12:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCuesEnglish": [
+      "Ask about the stagger for this job.",
+      "What must the joints not do?",
+      "Please repeat your question."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
+    "scenarioProvenance": "New job-detail language exchange, not an approved stagger measurement, cut pattern or actual specification.",
+    "heldDependent": true,
+    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "heldDecisionRefs": [
+      "core-roofing:12:fr-en:card:4",
+      "core-roofing:12:fr-en:card:8",
+      "core-roofing:12:fr-en:card:10",
+      "core-roofing:12:fr-en:card:13"
+    ],
+    "expectedLearnerSecondTurnEnglish": "The joints must not line up."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-12-source-decision-2026-11-18/packet.json",
+    "sha256": "da57958ae143644279e0b667870c0023aef1f0ac636ff2a00a0bb8dfbc1e921b"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:12:fr-en:card:1",
+      "sourceEnglish": "joint",
+      "candidateFrench": "le joint",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:12:fr-en:card:2",
+      "sourceEnglish": "stagger",
+      "candidateFrench": "le décalage",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "senseDecisionPending": true,
+      "senseScope": "Noun means the job’s joint offset; verb/action and numerical value remain separate qualified decisions."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:12:fr-en:card:3",
+      "sourceEnglish": "course",
+      "candidateFrench": "le rang",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:12:fr-en:card:4",
+      "sourceEnglish": "shingle",
+      "candidateFrench": null,
+      "hold": "The source explicitly specifies asphalt shingles. Archived card bardeau omits asphalt while Reader includes bardeaux d’asphalte; choose a consistent regional material term before scored cards and speech.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:12:fr-en:card:5",
+      "sourceEnglish": "pattern",
+      "candidateFrench": "le motif de pose",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:12:fr-en:card:6",
+      "sourceEnglish": "inch",
+      "candidateFrench": "le pouce",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:12:fr-en:card:7",
+      "sourceEnglish": "align",
+      "candidateFrench": "aligner",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:12:fr-en:card:8",
+      "sourceEnglish": "specification",
+      "candidateFrench": null,
+      "hold": "Specification wording and source foreman/office authority need qualified review. Source Reader8 meanwhile activity is retained; no before-work stop or new lead authority is imposed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalLegacyQuestionNote": "Legacy review question says before work and lead/office; those workflow assertions are not selected as source teaching content."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:12:fr-en:card:9",
+      "sourceEnglish": "cut",
+      "candidateFrench": "couper",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:12:fr-en:card:10",
+      "sourceEnglish": "Stagger the joints six inches.",
+      "candidateFrench": null,
+      "hold": "Six inches is quoted as the guide's example, not a universal installation specification. The card is a bare imperative; ensure its context, audio and six authored modes cannot present it as the actual job requirement. Keep stagger as the joint-offset action and the job-specific offset measure, not a generic pattern name. Align noun/verb forms and measurement units across cards, Reader, speaking and modes. Source speaking asks for the guide's six-inch phrase followed by confirmation from the lead. Archived speaking adds manufacturer instructions; keep this as a separate domain note unless qualified source review approves its place in the lesson.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:12:fr-en:card:11",
+      "sourceEnglish": "The joints must not line up.",
+      "candidateFrench": "Les joints ne doivent pas être alignés.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:12:fr-en:card:12",
+      "sourceEnglish": "What is the stagger for this job?",
+      "candidateFrench": "Quel est le décalage pour ce chantier ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Removes extra planned est prévu from bare source what is question."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:12:fr-en:card:13",
+      "sourceEnglish": "Please confirm the job specification.",
+      "candidateFrench": null,
+      "hold": "Specification wording and source foreman/office authority need qualified review. Source Reader8 meanwhile activity is retained; no before-work stop or new lead authority is imposed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalLegacyQuestionNote": "Legacy review question says before work and lead/office; those workflow assertions are not selected as source teaching content."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:12:fr-en:card:14",
+      "sourceEnglish": "Check the joints on the next course.",
+      "candidateFrench": "Vérifiez les joints du rang suivant.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:1",
+      "sourceEnglish": "The crew already has the first course of asphalt shingles.",
+      "candidateFrench": null,
+      "hold": "Linked asphalt-shingle product/material decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:2",
+      "sourceEnglish": "Now each new course needs a pattern.",
+      "candidateFrench": "Maintenant, chaque nouveau rang nécessite un motif de pose.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Preserves needs a pattern rather than adding must follow."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:3",
+      "sourceEnglish": "The joints must not line up.",
+      "candidateFrench": "Les joints ne doivent pas être alignés.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:4",
+      "sourceEnglish": "The guide says: stagger the joints six inches.",
+      "candidateFrench": null,
+      "hold": "Six inches is quoted as the guide's example, not a universal installation specification. The card is a bare imperative; ensure its context, audio and six authored modes cannot present it as the actual job requirement. Keep stagger as the joint-offset action and the job-specific offset measure, not a generic pattern name. Align noun/verb forms and measurement units across cards, Reader, speaking and modes. Source speaking asks for the guide's six-inch phrase followed by confirmation from the lead. Archived speaking adds manufacturer instructions; keep this as a separate domain note unless qualified source review approves its place in the lesson.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:5",
+      "sourceEnglish": "But every job is different.",
+      "candidateFrench": "Mais chaque chantier est différent.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:6",
+      "sourceEnglish": "A worker asks: What is the stagger for this job?",
+      "candidateFrench": "Quel est le décalage pour ce chantier ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalCorrectionNote": "Removes extra planned est prévu from bare source what is question."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:7",
+      "sourceEnglish": "The foreman calls the office: Please confirm the job specification.",
+      "candidateFrench": null,
+      "hold": "Specification wording and source foreman/office authority need qualified review. Source Reader8 meanwhile activity is retained; no before-work stop or new lead authority is imposed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "internalLegacyQuestionNote": "Legacy review question says before work and lead/office; those workflow assertions are not selected as source teaching content."
+    },
+    {
+      "id": "core-roofing:12:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:12:fr-en:reader:8",
+      "sourceEnglish": "Meanwhile, check the joints on the next course.",
+      "candidateFrench": "Pendant ce temps, vérifiez les joints du rang suivant.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:12:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:12:fr-en:card:1",
+      "englishHeadword": "joint",
+      "candidateFrenchSense": "le joint",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:12:fr-en:card:2",
+      "englishHeadword": "stagger",
+      "candidateFrenchSense": "le décalage",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "senseDecisionPending": true,
+      "linkedStaggerDecisionRef": "core-roofing:12:fr-en:card:10"
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:12:fr-en:card:3",
+      "englishHeadword": "course",
+      "candidateFrenchSense": "le rang",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:12:fr-en:card:4",
+      "englishHeadword": "shingle",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Joint Stagger",
+      "status": "held",
+      "hold": "The source explicitly specifies asphalt shingles. Archived card bardeau omits asphalt while Reader includes bardeaux d’asphalte; choose a consistent regional material term before scored cards and speech.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:12:fr-en:card:5",
+      "englishHeadword": "pattern",
+      "candidateFrenchSense": "le motif de pose",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:12:fr-en:card:6",
+      "englishHeadword": "inch",
+      "candidateFrenchSense": "le pouce",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:12:fr-en:card:7",
+      "englishHeadword": "align",
+      "candidateFrenchSense": "aligner",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:12:fr-en:card:8",
+      "englishHeadword": "specification",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Joint Stagger",
+      "status": "held",
+      "hold": "Specification wording and source foreman/office authority need qualified review. Source Reader8 meanwhile activity is retained; no before-work stop or new lead authority is imposed.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:12:fr-en:card:9",
+      "englishHeadword": "cut",
+      "candidateFrenchSense": "couper",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:12:fr-en:card:10",
+      "englishHeadword": "Stagger the joints six inches.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Joint Stagger",
+      "status": "held",
+      "hold": "Six inches is quoted as the guide's example, not a universal installation specification. The card is a bare imperative; ensure its context, audio and six authored modes cannot present it as the actual job requirement. Keep stagger as the joint-offset action and the job-specific offset measure, not a generic pattern name. Align noun/verb forms and measurement units across cards, Reader, speaking and modes. Source speaking asks for the guide's six-inch phrase followed by confirmation from the lead. Archived speaking adds manufacturer instructions; keep this as a separate domain note unless qualified source review approves its place in the lesson.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:12:fr-en:card:11",
+      "englishHeadword": "The joints must not line up.",
+      "candidateFrenchSense": "Les joints ne doivent pas être alignés.",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:12:fr-en:card:12",
+      "englishHeadword": "What is the stagger for this job?",
+      "candidateFrenchSense": "Quel est le décalage pour ce chantier ?",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "localeReviewPending": true,
+      "linkedLocaleDecisionRef": "core-roofing:12:fr-en:card:8"
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:12:fr-en:card:13",
+      "englishHeadword": "Please confirm the job specification.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Joint Stagger",
+      "status": "held",
+      "hold": "Specification wording and source foreman/office authority need qualified review. Source Reader8 meanwhile activity is retained; no before-work stop or new lead authority is imposed.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "localeReviewPending": true,
+      "linkedLocaleDecisionRef": "core-roofing:12:fr-en:card:8"
+    },
+    {
+      "id": "core-roofing:12:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:12:fr-en:card:14",
+      "englishHeadword": "Check the joints on the next course.",
+      "candidateFrenchSense": "Vérifiez les joints du rang suivant.",
+      "contextEnglish": "Joint Stagger",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "No six-inch target, cut pattern or actual job offset is authored as an answer. Negative joint-alignment language remains direct source grammar evidence pending trade/source review.",
+    "Common chantier wording is an unselected candidate, not a locale qualification. Specification/requirement/authority distinctions and job-value confirmation remain held; this supplement does not narrow or waive the source review question."
+  ]
+}

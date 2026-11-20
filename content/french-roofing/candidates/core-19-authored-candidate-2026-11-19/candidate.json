@@ -1,0 +1,740 @@
+{
+  "lessonId": "core-roofing:19:fr-en",
+  "candidateObjectiveEnglish": "Use wall in identification statements, questions and a location request.",
+  "grammarExplanationEnglish": "This is the + noun identifies an item. Is this the + noun asks for identification. Where is the + noun asks for location.",
+  "grammarExplanationFrench": "« This is the » + nom identifie un élément. « Is this the » + nom pose une question d’identification. « Where is the » + nom demande un emplacement.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais « wall » et choisissez son sens français.",
+      "candidateTargetEnglish": "wall",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "le mur",
+      "provenance": "new: prompt composed. exact: target 'wall' from card:2 sourceEnglish. French 'le mur' from card:2 source packet conditionalFrench (copied to candidateRows.candidateFrench).",
+      "id": "core-roofing:19:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le mot anglais pour « le mur ».",
+      "candidateTargetEnglish": "wall",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "le mur",
+      "provenance": "Exact source English headword card:2; candidate French support. French prompt newly composed; English stimulus/source or transformation identified above.",
+      "id": "core-roofing:19:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens français.",
+      "candidateTargetEnglish": "This is the wall.",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "C’est le mur.",
+      "provenance": "new: prompt, English target and French meaning composed from card:2 'wall'. Audio not registered; audioScript null. French prompt newly composed; English stimulus/source or transformation identified above.",
+      "id": "core-roofing:19:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "acceptedFrenchSupportStatus": "Unreviewed sense proposals; no scoring registered; locale alternatives require qualified review.",
+      "candidateEnglishAlternatives": [
+        "It is the wall."
+      ]
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le groupe anglais avec l’article défini pour « le mur ».",
+      "candidateTargetEnglish": "the wall",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "le mur",
+      "provenance": "New article+noun phrase from exact source wall noun; French candidate support.",
+      "id": "core-roofing:19:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : Est-ce le mur ?",
+      "candidateTargetEnglish": "Is this the wall?",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "Est-ce le mur ?",
+      "provenance": "new: prompt, English target and French meaning composed from card:2 'wall'.",
+      "id": "core-roofing:19:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "candidateEnglishAlternatives": [
+        "Is it the wall?"
+      ]
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Où est le mur ? »",
+      "candidateTargetEnglish": "Where is the wall?",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "Où est le mur ?",
+      "provenance": "New English/French location question using source wall noun, no roof/wall detail selected.",
+      "id": "core-roofing:19:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "This is the + noun",
+      "meaningFrench": "Nommer un élément présent : C’est le/la/l’ + nom.",
+      "candidateExampleEnglish": "This is the wall.",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "provenance": "new: example composed. 'wall' from card:2.",
+      "id": "core-roofing:19:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    },
+    {
+      "englishForm": "Is this the + noun?",
+      "meaningFrench": "Demander confirmation : Est-ce le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Is this the wall?",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "provenance": "new: example composed. 'wall' from card:2.",
+      "id": "core-roofing:19:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    },
+    {
+      "englishForm": "Where is the [noun]?",
+      "meaningFrench": "Où est le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Where is the wall?",
+      "sourceAnchors": [
+        "core-roofing:19:fr-en:card:2"
+      ],
+      "provenance": "New English/French location question using exact source noun.",
+      "id": "core-roofing:19:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner identifying walls in pictures.",
+    "partnerRole": "A partner showing picture cards.",
+    "candidateOpeningEnglish": "Is this the wall?",
+    "goalEnglish": "Identify the wall picture and ask where it is.",
+    "candidateWordBankEnglish": [
+      "wall",
+      "Is this the wall?",
+      "Where is the wall?",
+      "This is the wall."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "sourceAnchors": [
+      "core-roofing:19:fr-en:card:2"
+    ],
+    "practiceContextEnglish": "Picture A shows a wall; picture B shows a roof. The partner holds up picture B for the opening question. After the second partner cue, the partner holds up picture A.",
+    "partnerCuesEnglish": [
+      "No.",
+      "The wall is in picture A.",
+      "Please repeat the word wall."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Where is the wall?",
+      "This is the wall.",
+      "Wall."
+    ],
+    "id": "core-roofing:19:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:19:fr-en:card:1",
+      "core-roofing:19:fr-en:card:10",
+      "core-roofing:19:fr-en:card:11",
+      "core-roofing:19:fr-en:card:12",
+      "core-roofing:19:fr-en:card:13",
+      "core-roofing:19:fr-en:card:14",
+      "core-roofing:19:fr-en:card:3",
+      "core-roofing:19:fr-en:card:4",
+      "core-roofing:19:fr-en:card:5",
+      "core-roofing:19:fr-en:card:6",
+      "core-roofing:19:fr-en:card:7",
+      "core-roofing:19:fr-en:card:8",
+      "core-roofing:19:fr-en:card:9",
+      "core-roofing:19:fr-en:reader:1",
+      "core-roofing:19:fr-en:reader:3",
+      "core-roofing:19:fr-en:reader:4",
+      "core-roofing:19:fr-en:reader:5",
+      "core-roofing:19:fr-en:reader:6",
+      "core-roofing:19:fr-en:reader:7",
+      "core-roofing:19:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the wall?"
+      },
+      {
+        "speaker": "partner",
+        "text": "No."
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the wall?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The wall is in picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "This is the wall."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the word wall."
+      },
+      {
+        "speaker": "learner",
+        "text": "Wall."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "partnerCueSupportFrench": [
+      "Non.",
+      "Le mur est sur l’image A.",
+      "Répétez le mot wall, s’il vous plaît."
+    ]
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-19-source-decision-2026-11-18/packet.json",
+    "sha256": "0d34d7c43865d7ee26cadebc1c777b7f3c5df3037fedb6b69a322446bbcf39fa"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:19:fr-en:card:1",
+      "sourceEnglish": "step flashing",
+      "candidateFrench": null,
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:19:fr-en:card:2",
+      "sourceEnglish": "wall",
+      "candidateFrench": "le mur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:19:fr-en:card:3",
+      "sourceEnglish": "shingle course",
+      "candidateFrench": null,
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:19:fr-en:card:4",
+      "sourceEnglish": "sidewall",
+      "candidateFrench": null,
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:19:fr-en:card:5",
+      "sourceEnglish": "flashing",
+      "candidateFrench": null,
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:19:fr-en:card:6",
+      "sourceEnglish": "siding",
+      "candidateFrench": null,
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:19:fr-en:card:7",
+      "sourceEnglish": "sealant",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:19:fr-en:card:8",
+      "sourceEnglish": "bend",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:19:fr-en:card:9",
+      "sourceEnglish": "overlap",
+      "candidateFrench": null,
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:19:fr-en:card:10",
+      "sourceEnglish": "Step flashing under each shingle course.",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:19:fr-en:card:11",
+      "sourceEnglish": "Install one piece per course.",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:19:fr-en:card:12",
+      "sourceEnglish": "Bend the flashing against the wall.",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:19:fr-en:card:13",
+      "sourceEnglish": "Describe the sidewall flashing sequence.",
+      "candidateFrench": null,
+      "hold": "Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:19:fr-en:card:14",
+      "sourceEnglish": "Show me how the flashing overlaps.",
+      "candidateFrench": null,
+      "hold": "Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:1",
+      "sourceEnglish": "Today the crew is working on the sidewall of the house.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:2",
+      "sourceEnglish": "Here the roof meets the wall.",
+      "candidateFrench": "À cet endroit, le toit rejoint le mur.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:3",
+      "sourceEnglish": "The foreman asks the installers: Explain the sidewall flashing sequence.",
+      "candidateFrench": null,
+      "hold": "Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:4",
+      "sourceEnglish": "They answer: step flashing under each course.",
+      "candidateFrench": null,
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:5",
+      "sourceEnglish": "Install one piece per course.",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:6",
+      "sourceEnglish": "Bend the flashing against the wall.",
+      "candidateFrench": null,
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:7",
+      "sourceEnglish": "Show me how the flashing overlaps.",
+      "candidateFrench": null,
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:19:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:19:fr-en:reader:8",
+      "sourceEnglish": "The foreman checks each piece before placing the next course of shingles.",
+      "candidateFrench": null,
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:19:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:19:fr-en:card:1",
+      "englishHeadword": "step flashing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tapajuntas escalonado"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:19:fr-en:card:2",
+      "englishHeadword": "wall",
+      "candidateFrenchSense": "le mur",
+      "contextEnglish": "Step Flashing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Pared"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:19:fr-en:card:3",
+      "englishHeadword": "shingle course",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Hilera de tejas"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:19:fr-en:card:4",
+      "englishHeadword": "sidewall",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Pared lateral"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:19:fr-en:card:5",
+      "englishHeadword": "flashing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tapajuntas / Flashing"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:19:fr-en:card:6",
+      "englishHeadword": "siding",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revestimiento de pared"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:19:fr-en:card:7",
+      "englishHeadword": "sealant",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sellador"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:19:fr-en:card:8",
+      "englishHeadword": "bend",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Doblar"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:19:fr-en:card:9",
+      "englishHeadword": "overlap",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Step flashing, generic flashing and overlap need distinct French trade senses. Archived solin à gradins and solin may fit a regional product but the approved wall/roof detail and overlap are unspecified. Resolve senses with the qualified roofer and dictionary reviewer. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Traslape"
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:19:fr-en:card:10",
+      "englishHeadword": "Step flashing under each shingle course.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tapajuntas escalonado debajo de cada hilera."
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:19:fr-en:card:11",
+      "englishHeadword": "Install one piece per course.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Instalen una pieza por cada hilera."
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:19:fr-en:card:12",
+      "englishHeadword": "Bend the flashing against the wall.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "The source gives under-each-course, one-piece-per-course and bending instructions, but manufacturer and approved wall/roof detail are not specified. Sealant use and bend method likewise depend on product. No scored or audio construction command should be selected until qualified detail and safety review. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Doblen el tapajuntas contra la pared."
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:19:fr-en:card:13",
+      "englishHeadword": "Describe the sidewall flashing sequence.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Expliquen la secuencia del tapajuntas de la pared lateral."
+    },
+    {
+      "id": "core-roofing:19:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:19:fr-en:card:14",
+      "englishHeadword": "Show me how the flashing overlaps.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Step Flashing",
+      "status": "held",
+      "hold": "Source card 10 is a fragment about step flashing under each course; archived French converts it to an imperative. Source speaking asks the installer to describe the sequence, whereas archived speaking adds a request to show approved detail/overlap. Preserve exact source meaning and keep additions as review evidence. Dependent flashing/sidewall/course/overlap senses and approved wall-roof detail remain unresolved wherever present; clearing one reason does not clear dependent terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Muéstrenme cómo se traslapa el tapajuntas."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Source card13/English speaking use Describe while Reader3 uses Explain. Difference retained for qualified source-objective review, not silently resolved.",
+    "Exact original source objective remains held/incomplete. New lexical exercises do not replace its technical objective; qualified decisions remain separate.",
+    "Roof French toit versus toiture across source Reader candidates remains a contextual French choice, not a single selected dictionary equivalence. Source vocabulary bend remains held by the pinned product/detail decision; cut in Core20 is supported by explicit Spanish infinitive Cortar and remains bare verb practice only."
+  ],
+  "sourceObjectiveEnglish": "Coordinate sidewall flashing one course at a time",
+  "sourceSpeakingEnglish": "Ask the installer to describe the sidewall flashing sequence.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

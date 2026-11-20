@@ -1,0 +1,742 @@
+{
+  "lessonId": "core-roofing:20:fr-en",
+  "candidateObjectiveEnglish": "Name ridge and nail, produce cut as a base-form verb, and form identification questions.",
+  "grammarExplanationEnglish": "This is the + noun identifies an item. Is this a + singular noun asks for identification. Is this the + noun asks about a specific known item. A/an introduces one item; the refers to an identified item.",
+  "grammarExplanationFrench": "« This is the » + nom identifie un élément. « Is this a » + nom singulier pose une question d’identification. « Is this the » + nom vise un élément identifié. A/an correspond à un/une ; the à le/la/l’/les.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais « ridge » et choisissez son sens français.",
+      "candidateTargetEnglish": "ridge",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "le faîtage",
+      "provenance": "new: prompt composed. exact: target 'ridge' from card:3 sourceEnglish. French 'le faîtage' from card:3 source packet conditionalFrench (copied to candidateRows.candidateFrench).",
+      "id": "core-roofing:20:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le verbe anglais (forme de base) pour « couper ».",
+      "candidateTargetEnglish": "cut",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "couper",
+      "provenance": "new: prompt composed; bare infinitive vocabulary only, not a command. exact: target 'cut' from card:6 sourceEnglish; French 'couper' from card:6 source packet conditionalFrench (copied to candidateRows.candidateFrench). French prompt newly composed; English stimulus/source or transformation identified above.",
+      "id": "core-roofing:20:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens français.",
+      "candidateTargetEnglish": "nail",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "le clou",
+      "provenance": "Exact source English headword card9; French support from candidateRows.candidateFrench. French prompt newly composed; English stimulus/source or transformation identified above.",
+      "id": "core-roofing:20:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "acceptedFrenchSupportStatus": "Unreviewed sense proposals; no scoring registered; locale alternatives require qualified review."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : le clou.",
+      "candidateTargetEnglish": "nail",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "le clou",
+      "provenance": "new: prompt composed. exact: target 'nail' from card:9 sourceEnglish; French 'le clou' from card:9 source packet conditionalFrench (copied to candidateRows.candidateFrench).",
+      "id": "core-roofing:20:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Est-ce un clou ? »",
+      "candidateTargetEnglish": "Is this a nail?",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "Est-ce un clou ?",
+      "provenance": "New English/French identification question using source nail noun.",
+      "id": "core-roofing:20:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "candidateEnglishAlternatives": [
+        "Is it a nail?"
+      ]
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Est-ce le faîtage ? »",
+      "candidateTargetEnglish": "Is this the ridge?",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "Est-ce le faîtage ?",
+      "provenance": "New English/French identification question using source ridge noun; no installation detail.",
+      "id": "core-roofing:20:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "candidateEnglishAlternatives": [
+        "Is it the ridge?"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:20:fr-en:form:1",
+      "englishForm": "This is the [noun].",
+      "meaningFrench": "C’est le/la/l’ + nom.",
+      "candidateExampleEnglish": "This is the ridge.",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:3"
+      ],
+      "provenance": "New English/French grammar composition using exact source vocabulary.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    },
+    {
+      "id": "core-roofing:20:fr-en:form:2",
+      "englishForm": "Is this a [singular noun]?",
+      "meaningFrench": "Est-ce un/une + nom singulier ?",
+      "candidateExampleEnglish": "Is this a nail?",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:9"
+      ],
+      "provenance": "New English/French grammar composition using exact source vocabulary.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    },
+    {
+      "id": "core-roofing:20:fr-en:form:3",
+      "englishForm": "Is this the [noun]?",
+      "meaningFrench": "Est-ce le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Is this the ridge?",
+      "sourceAnchors": [
+        "core-roofing:20:fr-en:card:3"
+      ],
+      "provenance": "New English/French identification grammar from source ridge noun.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner reading picture and word cards.",
+    "partnerRole": "A partner showing cards.",
+    "candidateOpeningEnglish": "Is this a nail?",
+    "goalEnglish": "Identify the nail and ridge pictures and repeat ridge.",
+    "candidateWordBankEnglish": [
+      "nail",
+      "ridge",
+      "Is this a nail?",
+      "Is this the ridge?",
+      "This is the ridge."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "sourceAnchors": [
+      "core-roofing:20:fr-en:card:3",
+      "core-roofing:20:fr-en:card:9"
+    ],
+    "practiceContextEnglish": "Picture A shows a nail and picture B a roof ridge. The partner holds up A, then B for the second question.",
+    "partnerCuesEnglish": [
+      "Yes.",
+      "Yes. Please name it.",
+      "Please repeat the word ridge."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Is this the ridge?",
+      "This is the ridge.",
+      "Ridge."
+    ],
+    "id": "core-roofing:20:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:20:fr-en:card:1",
+      "core-roofing:20:fr-en:card:10",
+      "core-roofing:20:fr-en:card:11",
+      "core-roofing:20:fr-en:card:12",
+      "core-roofing:20:fr-en:card:13",
+      "core-roofing:20:fr-en:card:14",
+      "core-roofing:20:fr-en:card:2",
+      "core-roofing:20:fr-en:card:4",
+      "core-roofing:20:fr-en:card:5",
+      "core-roofing:20:fr-en:card:8",
+      "core-roofing:20:fr-en:reader:2",
+      "core-roofing:20:fr-en:reader:3",
+      "core-roofing:20:fr-en:reader:4",
+      "core-roofing:20:fr-en:reader:5",
+      "core-roofing:20:fr-en:reader:6",
+      "core-roofing:20:fr-en:reader:7",
+      "core-roofing:20:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this a nail?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes."
+      },
+      {
+        "speaker": "learner",
+        "text": "Is this the ridge?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. Please name it."
+      },
+      {
+        "speaker": "learner",
+        "text": "This is the ridge."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the word ridge."
+      },
+      {
+        "speaker": "learner",
+        "text": "Ridge."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "partnerCueSupportFrench": [
+      "Oui.",
+      "Oui. Nommez-le, s’il vous plaît.",
+      "Répétez le mot ridge, s’il vous plaît."
+    ]
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-20-source-decision-2026-11-18/packet.json",
+    "sha256": "8c83ed4d8c194d817bb607f56a5ed7a229f898a6122477489445fc6f094eeb19"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:20:fr-en:card:1",
+      "sourceEnglish": "ridge cap",
+      "candidateFrench": null,
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:20:fr-en:card:2",
+      "sourceEnglish": "starter shingle",
+      "candidateFrench": null,
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:20:fr-en:card:3",
+      "sourceEnglish": "ridge",
+      "candidateFrench": "le faîtage",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:20:fr-en:card:4",
+      "sourceEnglish": "hip",
+      "candidateFrench": null,
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:20:fr-en:card:5",
+      "sourceEnglish": "ridge vent",
+      "candidateFrench": null,
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:20:fr-en:card:6",
+      "sourceEnglish": "cut",
+      "candidateFrench": "couper",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:20:fr-en:card:7",
+      "sourceEnglish": "finish",
+      "candidateFrench": "la finition",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:20:fr-en:card:8",
+      "sourceEnglish": "sealant",
+      "candidateFrench": null,
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:20:fr-en:card:9",
+      "sourceEnglish": "nail",
+      "candidateFrench": "le clou",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:20:fr-en:card:10",
+      "sourceEnglish": "Cut the ridge caps from a starter shingle.",
+      "candidateFrench": null,
+      "hold": "Source card 10 unconditionally commands cutting ridge caps from a starter shingle, but Reader 4 allows that only if the chosen product permits it. The archived French card retains the unqualified command while its Reader has the condition. Resolve whether to revise the source card and dependent mode/audio text together; do not teach the unqualified command as universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:20:fr-en:card:11",
+      "sourceEnglish": "Install the ridge caps along the ridge.",
+      "candidateFrench": null,
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:20:fr-en:card:12",
+      "sourceEnglish": "Check the product instructions for the ridge cap.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:20:fr-en:card:13",
+      "sourceEnglish": "Seal the last cap.",
+      "candidateFrench": null,
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:20:fr-en:card:14",
+      "sourceEnglish": "Clean the roof when you finish.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:1",
+      "sourceEnglish": "The crew is almost done with the roof.",
+      "candidateFrench": "L’équipe a presque terminé la toiture.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:2",
+      "sourceEnglish": "The ridge and the hip are still missing.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:3",
+      "sourceEnglish": "First, check the product instructions for the ridge cap.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:4",
+      "sourceEnglish": "Cut the ridge caps from a starter shingle, if the product allows it.",
+      "candidateFrench": null,
+      "hold": "Source card 10 unconditionally commands cutting ridge caps from a starter shingle, but Reader 4 allows that only if the chosen product permits it. The archived French card retains the unqualified command while its Reader has the condition. Resolve whether to revise the source card and dependent mode/audio text together; do not teach the unqualified command as universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:5",
+      "sourceEnglish": "Install the ridge caps along the ridge.",
+      "candidateFrench": null,
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:6",
+      "sourceEnglish": "The foreman also checks the ridge vent.",
+      "candidateFrench": null,
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology. Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:7",
+      "sourceEnglish": "Seal the last cap.",
+      "candidateFrench": null,
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:20:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:20:fr-en:reader:8",
+      "sourceEnglish": "When you finish, clean the roof.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:20:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:20:fr-en:card:1",
+      "englishHeadword": "ridge cap",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Caballete"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:20:fr-en:card:2",
+      "englishHeadword": "starter shingle",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Teja inicial"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:20:fr-en:card:3",
+      "englishHeadword": "ridge",
+      "candidateFrenchSense": "le faîtage",
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Cumbrera"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:20:fr-en:card:4",
+      "englishHeadword": "hip",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Limatesa"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:20:fr-en:card:5",
+      "englishHeadword": "ridge vent",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Ventilación de caballete"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:20:fr-en:card:6",
+      "englishHeadword": "cut",
+      "candidateFrenchSense": "couper",
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Cortar"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:20:fr-en:card:7",
+      "englishHeadword": "finish",
+      "candidateFrenchSense": "la finition",
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Acabado"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:20:fr-en:card:8",
+      "englishHeadword": "sealant",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sellador"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:20:fr-en:card:9",
+      "englishHeadword": "nail",
+      "candidateFrenchSense": "le clou",
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Clavo"
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:20:fr-en:card:10",
+      "englishHeadword": "Cut the ridge caps from a starter shingle.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Source card 10 unconditionally commands cutting ridge caps from a starter shingle, but Reader 4 allows that only if the chosen product permits it. The archived French card retains the unqualified command while its Reader has the condition. Resolve whether to revise the source card and dependent mode/audio text together; do not teach the unqualified command as universal.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Corten los caballetes de una teja inicial."
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:20:fr-en:card:11",
+      "englishHeadword": "Install the ridge caps along the ridge.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Instalen los caballetes a lo largo de la cumbrera."
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:20:fr-en:card:12",
+      "englishHeadword": "Check the product instructions for the ridge cap.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revisen las instrucciones del producto para el caballete."
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:20:fr-en:card:13",
+      "englishHeadword": "Seal the last cap.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sellen el último caballete."
+    },
+    {
+      "id": "core-roofing:20:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:20:fr-en:card:14",
+      "englishHeadword": "Clean the roof when you finish.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ridge Caps & Finish",
+      "status": "held",
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Limpien el techo cuando terminen."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Exact original source objective remains held/incomplete. New lexical exercises do not replace its technical objective; qualified decisions remain separate.",
+    "Final bilingual source check rejects AI noun/verb conjecture: source card7 is Spanish Acabado / English finish, card9 Clavo / nail (noun), card6 Cortar / cut (infinitive). Source Reader when you finish uses a distinct verb occurrence. Acabado supports a noun candidate; its precise French finition sense remains unreviewed. No activity relies on a settled finish product or method. Earlier Opus-derived noun/verb hold is superseded by exact bilingual source evidence.",
+    "Ridge Cumbrera candidate faîtage versus faîte needs contextual French/trade review; no ridge-cap or ridge-vent compound sense is selected from this generic noun."
+  ],
+  "sourceObjectiveEnglish": "Discuss ridge-cap preparation and finish work",
+  "sourceSpeakingEnglish": "Give the guide's ridge-cap instruction and verify the chosen product's method.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

@@ -1,0 +1,757 @@
+{
+  "lessonId": "core-roofing:21:fr-en",
+  "candidateObjectiveEnglish": "Identify harness, buckle, hard hat and fall protection vocabulary, and form identification/location questions.",
+  "grammarExplanationEnglish": "Use 'This is a' or 'This is the' plus a noun to name an item in a picture. Use 'Is this the' plus a noun to ask for confirmation. Use 'Where is the' plus a noun to ask where a named item is. A/an introduces one item; the refers to a specific identified item.",
+  "grammarExplanationFrench": "Pour nommer un objet sur une image, utilisez « This is a + nom » ou « This is the + nom ». Pour demander confirmation, utilisez « Is this the + nom ? ». Pour demander où se trouve un objet nommé, utilisez « Where is the + nom ? ». A/an correspond à un/une pour introduire un élément ; the correspond à le/la/l’/les pour un élément identifié.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Lisez le mot anglais « harness » et choisissez son sens français.",
+      "candidateTargetEnglish": "harness",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "le harnais",
+      "provenance": "new: prompt composed. exact: target 'harness' from card:1 sourceEnglish. French 'le harnais' is a candidate from Haiku proposal copied to candidateRows.candidateFrench card:1, pending dictionary review.",
+      "id": "core-roofing:21:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le mot anglais pour « la boucle du harnais ».",
+      "candidateTargetEnglish": "buckle",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:6",
+        "core-roofing:21:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "la boucle du harnais",
+      "provenance": "new: prompt composed. exact: target 'buckle' from card:6 sourceEnglish. French 'la boucle' is a candidate from Haiku proposal copied to candidateRows.candidateFrench card:6, pending dictionary review. French prompt newly composed; English stimulus/source or transformation identified above. Newly composed harness context disambiguates buckle from generic loop; exact source row6 remains buckle.",
+      "id": "core-roofing:21:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens français.",
+      "candidateTargetEnglish": "hard hat",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "le casque de chantier",
+      "provenance": "new: prompt composed. exact: target 'hard hat' from card:7 sourceEnglish. French is a candidate from Haiku proposal copied to candidateRows.candidateFrench card:7, pending dictionary review. Audio not registered; audioScript null. French prompt newly composed; English stimulus/source or transformation identified above.",
+      "id": "core-roofing:21:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "acceptedFrenchSupportStatus": "Unreviewed sense proposals; no scoring registered; locale alternatives require qualified review."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : la protection contre les chutes.",
+      "candidateTargetEnglish": "fall protection",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "la protection contre les chutes",
+      "provenance": "new: prompt composed. exact: target 'fall protection' from card:5 sourceEnglish. French is a candidate from Haiku proposal copied to candidateRows.candidateFrench card:5, pending dictionary review. Noun only; no safety command.",
+      "id": "core-roofing:21:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « C’est un harnais. »",
+      "candidateTargetEnglish": "This is a harness.",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "C’est un harnais.",
+      "provenance": "new: prompt, English target and French meaning composed from card:1 'harness'. Identification only.",
+      "id": "core-roofing:21:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "candidateEnglishAlternatives": [
+        "It is a harness."
+      ]
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : Est-ce la boucle ?",
+      "candidateTargetEnglish": "Is this the buckle?",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "Est-ce la boucle ?",
+      "provenance": "new: prompt, English target and French meaning composed from card:6 'buckle'. Identification question only.",
+      "id": "core-roofing:21:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "qualifiedSenseReviewPending": true,
+      "candidateEnglishAlternatives": [
+        "Is it the buckle?"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "This is a + noun",
+      "meaningFrench": "Nommer un objet : C’est un/une + nom.",
+      "candidateExampleEnglish": "This is a harness.",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:1"
+      ],
+      "provenance": "new: example composed from card:1 'harness'.",
+      "id": "core-roofing:21:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    },
+    {
+      "englishForm": "Is this the + noun?",
+      "meaningFrench": "Demander confirmation : Est-ce le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Is this the buckle?",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:6"
+      ],
+      "provenance": "new: example composed from card:6 'buckle'.",
+      "id": "core-roofing:21:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    },
+    {
+      "englishForm": "Where is the + noun?",
+      "meaningFrench": "Demander où se trouve un objet nommé : Où est le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Where is the hard hat?",
+      "sourceAnchors": [
+        "core-roofing:21:fr-en:card:7"
+      ],
+      "provenance": "New English/French location question using source hard-hat noun; not an access or wearing instruction.",
+      "id": "core-roofing:21:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed newly composed French grammar support; not selected or qualified-reviewed."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner naming equipment picture cards.",
+    "partnerRole": "A partner showing practice picture cards.",
+    "candidateOpeningEnglish": "Is this the harness?",
+    "goalEnglish": "Identify harness and buckle pictures and ask where the hard-hat picture is.",
+    "candidateWordBankEnglish": [
+      "harness",
+      "buckle",
+      "hard hat",
+      "Is this the harness?",
+      "The buckle.",
+      "Where is the hard hat?",
+      "The hard hat."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "sourceAnchors": [
+      "core-roofing:21:fr-en:card:1",
+      "core-roofing:21:fr-en:card:6",
+      "core-roofing:21:fr-en:card:7"
+    ],
+    "practiceContextEnglish": "Picture A shows a harness, B a buckle and C a hard hat. The partner holds up picture A. After the last partner cue, the partner holds up picture C.",
+    "partnerCuesEnglish": [
+      "Yes. What is in picture B?",
+      "What are you looking for?",
+      "The hard hat is in picture C."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The buckle.",
+      "Where is the hard hat?",
+      "The hard hat."
+    ],
+    "id": "core-roofing:21:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:21:fr-en:card:10",
+      "core-roofing:21:fr-en:card:11",
+      "core-roofing:21:fr-en:card:12",
+      "core-roofing:21:fr-en:card:13",
+      "core-roofing:21:fr-en:card:14",
+      "core-roofing:21:fr-en:card:2",
+      "core-roofing:21:fr-en:card:3",
+      "core-roofing:21:fr-en:card:4",
+      "core-roofing:21:fr-en:card:8",
+      "core-roofing:21:fr-en:card:9",
+      "core-roofing:21:fr-en:reader:1",
+      "core-roofing:21:fr-en:reader:2",
+      "core-roofing:21:fr-en:reader:3",
+      "core-roofing:21:fr-en:reader:4",
+      "core-roofing:21:fr-en:reader:5",
+      "core-roofing:21:fr-en:reader:6",
+      "core-roofing:21:fr-en:reader:7",
+      "core-roofing:21:fr-en:reader:8",
+      "core-roofing:21:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the harness?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What is in picture B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The buckle."
+      },
+      {
+        "speaker": "partner",
+        "text": "What are you looking for?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the hard hat?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The hard hat is in picture C."
+      },
+      {
+        "speaker": "learner",
+        "text": "The hard hat."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "partnerCueSupportFrench": [
+      "Oui. Qu’y a-t-il sur l’image B ?",
+      "Que cherchez-vous ?",
+      "Le casque de chantier est sur l’image C."
+    ]
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-21-source-safety-decision-2026-11-18/packet.json",
+    "sha256": "b5d18cfa2763d3482fef11f16bd3d5d3deba828340cb641beeb65e82f03b2212"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:21:fr-en:card:1",
+      "sourceEnglish": "harness",
+      "candidateFrench": "le harnais",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:21:fr-en:card:2",
+      "sourceEnglish": "tie-off",
+      "candidateFrench": null,
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:21:fr-en:card:3",
+      "sourceEnglish": "roof anchor",
+      "candidateFrench": null,
+      "hold": "Roof anchor/ancla/anclaje, approved-anchor meaning and approval authority require qualified source/fall-protection review; no connection or clearance answer selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:21:fr-en:card:4",
+      "sourceEnglish": "lanyard",
+      "candidateFrench": null,
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:21:fr-en:card:5",
+      "sourceEnglish": "fall protection",
+      "candidateFrench": "la protection contre les chutes",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:21:fr-en:card:6",
+      "sourceEnglish": "buckle",
+      "candidateFrench": "la boucle",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:21:fr-en:card:7",
+      "sourceEnglish": "hard hat",
+      "candidateFrench": "le casque de chantier",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:21:fr-en:card:8",
+      "sourceEnglish": "fall hazard",
+      "candidateFrench": null,
+      "hold": "Confirm fall-hazard terminology and source `ancla` versus `anclaje` before selecting a French dictionary face. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:21:fr-en:card:9",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "candidateFrench": null,
+      "hold": "Tie-off, approved anchor and access sequence must use one source-approved meaning; do not score or voice conflicting commands. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:21:fr-en:card:10",
+      "sourceEnglish": "Use the roof anchor — don't freelance.",
+      "candidateFrench": null,
+      "hold": "Confirm fall-hazard terminology and source `ancla` versus `anclaje` before selecting a French dictionary face. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review. Source idiom don’t freelance also requires qualified source/register rendering; do not convert it into an invented work rule.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:21:fr-en:card:11",
+      "sourceEnglish": "Lanyard short enough you won't hit the ground.",
+      "candidateFrench": null,
+      "hold": "The source says a lanyard short enough to prevent ground contact; qualified fall-protection review and source correction must decide whether this is an acceptable teaching claim. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:21:fr-en:card:12",
+      "sourceEnglish": "Show me the approved anchor.",
+      "candidateFrench": null,
+      "hold": "Roof anchor/ancla/anclaje, approved-anchor meaning and approval authority require qualified source/fall-protection review; no connection or clearance answer selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:21:fr-en:card:13",
+      "sourceEnglish": "Check your harness before you climb.",
+      "candidateFrench": null,
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:21:fr-en:card:14",
+      "sourceEnglish": "Nobody goes up without a harness.",
+      "candidateFrench": null,
+      "hold": "The source treats wearing a harness as the access condition. A qualified trade review must decide whether the scene states the site-specific protection requirement correctly. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:1",
+      "sourceEnglish": "Before going up, the foreman gathers the crew next to the ladder.",
+      "candidateFrench": null,
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:2",
+      "sourceEnglish": "Nobody goes up without a harness, because there is a fall hazard at the edge of the roof.",
+      "candidateFrench": null,
+      "hold": "The source treats wearing a harness as the access condition. A qualified trade review must decide whether the scene states the site-specific protection requirement correctly. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:3",
+      "sourceEnglish": "Check your harness before you climb: the buckle, the lanyard, and the straps.",
+      "candidateFrench": null,
+      "hold": " Safety check/wearing command remains unselected pending qualified source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:4",
+      "sourceEnglish": "Tie your harness off before you go up on the roof.",
+      "candidateFrench": null,
+      "hold": "Tie-off, approved anchor and access sequence must use one source-approved meaning; do not score or voice conflicting commands. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:5",
+      "sourceEnglish": "Show me the approved anchor.",
+      "candidateFrench": null,
+      "hold": "Roof anchor/ancla/anclaje, approved-anchor meaning and approval authority require qualified source/fall-protection review; no connection or clearance answer selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:6",
+      "sourceEnglish": "If you don't see a roof anchor, don't go up and tell me.",
+      "candidateFrench": null,
+      "hold": "Tie-off, approved anchor and access sequence must use one source-approved meaning; do not score or voice conflicting commands. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:7",
+      "sourceEnglish": "Put on your hard hat too.",
+      "candidateFrench": null,
+      "hold": " Safety check/wearing command remains unselected pending qualified source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:8",
+      "sourceEnglish": "Fall protection only works if each person uses it correctly.",
+      "candidateFrench": null,
+      "hold": "The source's correct-use and thumbs-up claims need qualified review; an acknowledgement is not silently converted into a verified protection-system check. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:21:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:21:fr-en:reader:9",
+      "sourceEnglish": "After tying off, each person gives a thumbs up to let the foreman know.",
+      "candidateFrench": null,
+      "hold": "The source's correct-use and thumbs-up claims need qualified review; an acknowledgement is not silently converted into a verified protection-system check. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:21:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:21:fr-en:card:1",
+      "englishHeadword": "harness",
+      "candidateFrenchSense": "le harnais",
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Arnés"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:21:fr-en:card:2",
+      "englishHeadword": "tie-off",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Anclarse"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:21:fr-en:card:3",
+      "englishHeadword": "roof anchor",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "Roof anchor/ancla/anclaje, approved-anchor meaning and approval authority require qualified source/fall-protection review; no connection or clearance answer selected.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Anclaje de techo"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:21:fr-en:card:4",
+      "englishHeadword": "lanyard",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Eslinga"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:21:fr-en:card:5",
+      "englishHeadword": "fall protection",
+      "candidateFrenchSense": "la protection contre les chutes",
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Protección contra caídas"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:21:fr-en:card:6",
+      "englishHeadword": "buckle",
+      "candidateFrenchSense": "la boucle",
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Hebilla"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:21:fr-en:card:7",
+      "englishHeadword": "hard hat",
+      "candidateFrenchSense": "le casque de chantier",
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Casco"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:21:fr-en:card:8",
+      "englishHeadword": "fall hazard",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "Confirm fall-hazard terminology and source `ancla` versus `anclaje` before selecting a French dictionary face. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Riesgo de caída"
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:21:fr-en:card:9",
+      "englishHeadword": "Tie off before you go on the roof.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "Tie-off, approved anchor and access sequence must use one source-approved meaning; do not score or voice conflicting commands. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Anclen el arnés antes de subir al techo."
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:21:fr-en:card:10",
+      "englishHeadword": "Use the roof anchor — don't freelance.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "Confirm fall-hazard terminology and source `ancla` versus `anclaje` before selecting a French dictionary face. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review. Source idiom don’t freelance also requires qualified source/register rendering; do not convert it into an invented work rule.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Usen el ancla de techo — nada de improvisar."
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:21:fr-en:card:11",
+      "englishHeadword": "Lanyard short enough you won't hit the ground.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "The source says a lanyard short enough to prevent ground contact; qualified fall-protection review and source correction must decide whether this is an acceptable teaching claim. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "La cuerda de vida corta — que no toquen el suelo si caen."
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:21:fr-en:card:12",
+      "englishHeadword": "Show me the approved anchor.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "Roof anchor/ancla/anclaje, approved-anchor meaning and approval authority require qualified source/fall-protection review; no connection or clearance answer selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Muéstrenme el anclaje aprobado."
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:21:fr-en:card:13",
+      "englishHeadword": "Check your harness before you climb.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": " Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revisen su arnés antes de subir."
+    },
+    {
+      "id": "core-roofing:21:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:21:fr-en:card:14",
+      "englishHeadword": "Nobody goes up without a harness.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Tie-Off Before Access",
+      "status": "held",
+      "hold": "The source treats wearing a harness as the access condition. A qualified trade review must decide whether the scene states the site-specific protection requirement correctly. Equipment noun/source role or safety-command context remains unselected pending qualified French/source/fall-protection review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Nadie sube sin arnés."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Hard hat French casque de chantier versus casque de sécurité is an open locale/register dictionary choice. Fall protection noun type task does not assert a harness equals a sufficient protection system.",
+    "Exact original source objective remains held/incomplete. New lexical exercises do not replace its technical objective; qualified decisions remain separate.",
+    "Fall protection noun candidate protection contre les chutes versus antichute usage and hard hat casque de chantier versus casque de sécurité remain qualified locale/dictionary questions. No type task equates a harness with sufficient protection."
+  ],
+  "sourceObjectiveEnglish": "Give a clear fall-protection instruction",
+  "sourceSpeakingEnglish": "Tell the crew to tie off before roof access and ask them to point to the approved anchor.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:18:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-18-source-decision-2026-11-18/packet.json",
+    "sha256": "5785a490842e674b5aeaedf030523873944c5e5cca5cc950a982964d9d7edcca"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-16-18-draft.json",
+      "sha256": "ef60bf977985351cfbfead1a89641d9d73440ad2f0e5fa43d33b1578184e9999"
+    }
+  },
+  "objectiveEnglish": "Describe nails that look overdriven and name the equipment being checked.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "場面の説明文です。「現場監督は屋根の上を歩き、釘打ち機の音を聞きます」という意味を確かめながら読みましょう。",
+      "targetEnglish": "The foreman walks the roof and listens to the nail gun.",
+      "sourceAnchor": "roofing:18:ja-en:line:1",
+      "id": "core-roofing:18:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "空気を圧縮して送り出す機械「コンプレッサー」は英語で何と言いますか？",
+      "targetEnglish": "compressor",
+      "sourceAnchor": "roofing:18:ja-en:card:5",
+      "id": "core-roofing:18:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「作業員がコンプレッサーとホースを点検します」という説明の文を選びましょう。",
+      "targetEnglish": "A worker checks the compressor and the hose.",
+      "sourceAnchor": "roofing:18:ja-en:line:5",
+      "candidateOptionsEnglish": [
+        "A worker checks the compressor and the hose.",
+        "Some nails look overdriven.",
+        "The foreman walks the roof and listens to the nail gun."
+      ],
+      "id": "core-roofing:18:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "A worker checks the compressor and the hose.",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "空気を送る管「ホース」を英語で入力しましょう。",
+      "targetEnglish": "hose",
+      "sourceAnchor": "roofing:18:ja-en:card:8",
+      "id": "core-roofing:18:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "見て気づいたことを伝える表現です。「いくつかの釘は打ち込みすぎに見えます」と英語で言いましょう。",
+      "targetEnglish": "Some nails look overdriven.",
+      "sourceAnchor": "roofing:18:ja-en:line:2",
+      "id": "core-roofing:18:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「釘の頭」を表す名詞を英語で書きましょう。",
+      "targetEnglish": "nail head",
+      "sourceAnchor": "roofing:18:ja-en:card:7",
+      "id": "core-roofing:18:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "look overdriven",
+      "explanationJapanese": "「look＋形容詞（過去分詞）」で「〜に見える」。断定せずに、見た様子を伝える言い方です。",
+      "sourceAnchor": "roofing:18:ja-en:line:2",
+      "id": "core-roofing:18:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "checks the compressor and the hose",
+      "explanationJapanese": "主語が a worker（三人称単数）なので check に -s が付きます。「the A and the B」で、点検するものを二つ並べています。",
+      "sourceAnchor": "roofing:18:ja-en:line:5",
+      "id": "core-roofing:18:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "listens to the nail gun",
+      "explanationJapanese": "「listen to＋名詞」で「〜（の音）を聞く」。listen のあとには to が必要です。",
+      "sourceAnchor": "roofing:18:ja-en:line:1",
+      "id": "core-roofing:18:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "overdriven nail",
+      "glossJapanese": "打ち込みすぎた釘",
+      "senseJapanese": "深く打ち込まれすぎた釘。打ち込みの深さについての言葉で、位置を表す high nail（位置が上すぎる釘）とは別の意味です。",
+      "sourceAnchor": "roofing:18:ja-en:card:1",
+      "id": "core-roofing:18:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "compressor",
+      "glossJapanese": "コンプレッサー",
+      "senseJapanese": "空気を圧縮して送り出す機械。",
+      "sourceAnchor": "roofing:18:ja-en:card:5",
+      "id": "core-roofing:18:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "hose",
+      "glossJapanese": "ホース",
+      "senseJapanese": "空気を送るための管。",
+      "sourceAnchor": "roofing:18:ja-en:card:8",
+      "id": "core-roofing:18:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "a crew member who describes what they see on the roof",
+      "partner": "a listener who asks what is happening on the roof"
+    },
+    "openingEnglish": "Some nails look overdriven.",
+    "closureEnglish": "A worker checks the compressor and the hose.",
+    "objectivesEnglish": [
+      "Report an observation about the nails using \"Some nails look overdriven.\"",
+      "Describe what a coworker is doing using \"A worker checks the compressor and the hose.\"",
+      "Name the equipment and parts using the nouns nail gun, compressor, hose, nail head and depth."
+    ],
+    "wordBankEnglish": [
+      "overdriven nail",
+      "nail gun",
+      "compressor",
+      "hose",
+      "nail head",
+      "depth",
+      "shingle",
+      "Some nails look overdriven.",
+      "A worker checks the compressor and the hose."
+    ],
+    "sourceAnchors": [
+      "roofing:18:ja-en:card:1",
+      "roofing:18:ja-en:card:2",
+      "roofing:18:ja-en:card:3",
+      "roofing:18:ja-en:card:5",
+      "roofing:18:ja-en:card:6",
+      "roofing:18:ja-en:card:7",
+      "roofing:18:ja-en:card:8",
+      "roofing:18:ja-en:card:13",
+      "roofing:18:ja-en:card:15",
+      "roofing:18:ja-en:line:1",
+      "roofing:18:ja-en:line:2",
+      "roofing:18:ja-en:line:4",
+      "roofing:18:ja-en:line:5",
+      "roofing:18:ja-en:line:7",
+      "roofing:18:ja-en:line:9"
+    ],
+    "id": "core-roofing:18:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing source anchors, no runtime/progress migration.",
+    "Partial selected observation/question/terminology supplement. Nail placement boundaries, four-nail count, pressure/depth settings, flush criterion and adjacent-nail repair remain qualified product/trade/source decisions.",
+    "Core16 high nail is position relative to strip; Core18 overdriven nail is depth. No site/product acceptance criterion is selected.",
+    "Source named foreman/Pedro roles remain provenance; supplemental descriptive roles do not assign product or safety authority.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

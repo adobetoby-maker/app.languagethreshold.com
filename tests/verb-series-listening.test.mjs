@@ -111,8 +111,7 @@ test("HD audio that cannot play is put to the learner; Listen keeps listening wh
     assert.equal(reading(host), false);
 
     // "Use device voice": the same form again, HD first and then this device's voice.
-    L.speech.fallback = true;
-    L.issues[0].retry();
+    assert.equal(L.issues[0].useDeviceVoice(), true);
     const retried = L.jobs.at(-1);
     assert.equal(retried.text, L.jobs[0].text);
     assert.equal(retried.opts.cloudOnly, false);
@@ -164,19 +163,43 @@ test("a voice that is still loading never switches Listen to reading; once ready
     assert.ok(listening(host), "still listening while the HD voice resolves");
     assert.equal(L.issues.at(-1).reason, "loading", "the learner is told it is getting ready");
 
-    // The HD voice resolves: the earlier request can no longer play late, and the next
-    // Replay (or the notice's Try again) is read by the HD voice.
+    // The HD voice resolves. Nothing is replayed by itself, the notice still stands for the
+    // retry it promised, and that retry (like Replay) is read by the HD voice.
+    const notice = L.issues.at(-1);
+    const before = L.jobs.length;
     L.speech.voiceURI = HD_VOICE;
     host.render();
-    assert.equal(early.opts.signal.aborted, true);
-    assert.equal(early.opts.owner.isCurrent(), false);
-    host.click(host.one("series-replay"));
+    assert.equal(L.jobs.length, before, "the form is not read twice when the voice arrives");
+    assert.equal(notice.standing, true);
+    assert.equal(notice.tryAgain(), true);
     const ready = L.jobs.at(-1);
     assert.equal(ready.text, early.text);
     assert.equal(ready.opts.voiceURI, HD_VOICE);
     assert.equal(ready.opts.cloudOnly, true);
     assert.equal(ready.opts.unavailableReason, undefined);
+    host.click(host.one("series-replay"));
+    assert.equal(L.jobs.at(-1).opts.voiceURI, HD_VOICE);
+    assert.equal(ready.opts.signal.aborted, true, "Replay takes over from the retry");
     assert.ok(listening(host));
+  }));
+
+test("a recorded form that is already playing is not cut off when the HD voice list finishes loading", () =>
+  fixture(async ({ L, host, startListen }) => {
+    L.speech.voiceURI = null;
+    startListen();
+    const recording = L.jobs[0];
+    assert.equal(recording.opts.recordedGender, "female", "the reviewed recording plays first");
+    recording.opts.onPlaybackStart("recording");
+    L.speech.voiceURI = HD_VOICE;
+    host.render();
+    assert.equal(recording.opts.signal.aborted, false, "the form plays to its end");
+    assert.equal(recording.opts.owner.isCurrent(), true);
+    assert.equal(L.jobs.length, 1, "and is not started a second time");
+    assert.ok(listening(host));
+    // The learner's own choice of another voice still ends it.
+    L.speech.gender = "man";
+    host.render();
+    assert.equal(recording.opts.signal.aborted, true);
   }));
 
 test("the Device voice choice keeps the existing rule: no installed voice means reading after a short wait", () =>
@@ -207,13 +230,17 @@ test("playback belongs to the series: leaving it or another learner stops the fo
     const job = L.jobs[0];
     assert.equal(job.opts.owner.isCurrent(), true);
     job.opts.onerror("busy");
-    const retry = L.issues[0].retry;
+    const notice = L.issues[0];
     host.unmount();
     assert.equal(job.opts.signal.aborted, true);
     assert.equal(job.opts.owner.isCurrent(), false);
     const jobs = L.jobs.length;
-    retry();
+    assert.equal(notice.standing, false, "the notice left with the series");
+    assert.equal(notice.useDeviceVoice(), false);
+    assert.equal(notice.tryAgain(), false);
+    notice.retry();
     assert.equal(L.jobs.length, jobs, "a retry from the series that was left does nothing");
+    assert.equal(L.speech.fallback, false);
 
     startListen();
     const mine = L.jobs.at(-1);
@@ -237,4 +264,51 @@ test("Cards: Hear it reads the form through the same listening voice", () =>
     assert.equal(L.jobs[0].opts.cloudOnly, true);
     assert.equal(L.jobs[0].opts.voiceURI, HD_VOICE);
     assert.equal(L.jobs[0].opts.recordedGender, "female");
+  }));
+
+test("Cards: a 'could not play in HD' notice belongs to its card and does not follow the learner to the next one", () =>
+  fixture(async ({ L, host, mount }) => {
+    L.speech.voiceURI = HD_VOICE;
+    mount();
+    host.click(host.one("series-start-cards"));
+    const flip = () =>
+      host.click(
+        host.where((el) => el.type === "button" && /Tap or press Space/.test(host.text(el)))[0],
+      );
+    const rate = (rating) => host.click(host.where((el) => el.props["data-rating"] === rating)[0]);
+    flip();
+    const first = host.text(host.one("series-card-form"));
+    host.click(host.one("series-card-hear"));
+    L.jobs.at(-1).opts.onerror("offline");
+    const notice = L.issues.at(-1);
+    assert.equal(notice.standing, true);
+    // The same card, looked at again: its notice is still about what is on screen.
+    host.render();
+    assert.equal(notice.standing, true);
+
+    // Rated: the next card is showing. The saved buttons read nothing and switch nothing.
+    rate("good");
+    assert.equal(host.one("series-card").props["data-side"], "front", "a new card");
+    const jobs = L.jobs.length;
+    assert.equal(notice.standing, false, "the notice left with its card");
+    assert.equal(notice.useDeviceVoice(), false);
+    assert.equal(notice.tryAgain(), false);
+    assert.equal(L.jobs.length, jobs, "the previous form is never read over the next card");
+    assert.equal(L.speech.fallback, false);
+
+    // On the card that is showing, its own notice works.
+    flip();
+    const second = host.text(host.one("series-card-form"));
+    assert.notEqual(second, first);
+    host.click(host.one("series-card-hear"));
+    L.jobs.at(-1).opts.onerror("offline");
+    assert.equal(L.issues.at(-1).tryAgain(), true);
+    assert.equal(L.jobs.at(-1).text, second);
+    // Leaving the step takes the notice with it.
+    L.jobs.at(-1).opts.onerror("offline");
+    const last = L.issues.at(-1);
+    host.click(host.one("series-step-pick"));
+    assert.equal(last.standing, false);
+    assert.equal(last.useDeviceVoice(), false);
+    assert.equal(L.speech.fallback, false);
   }));

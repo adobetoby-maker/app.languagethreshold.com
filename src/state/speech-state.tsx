@@ -25,8 +25,8 @@ import { DEVICE_DEFAULT_VOICE } from "@/data/mobile-voice";
 import { configureUtterance } from "@/lib/voices";
 import { hasRecordedListeningAudio, needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
 import {
-  LISTENING_NOTICE_ID,
   listeningIssueCopy,
+  listeningNoticeId,
   planListening,
   rememberedHdVoice,
   type ListeningIssueReason,
@@ -99,6 +99,12 @@ interface SpeechCtx {
   accentsForLanguage: AccentOption[];
   voiceURI: string | null;
   setVoiceURI: (uri: string | null) => void;
+  /**
+   * Counts the learner's own voice picks. A voice that only finished resolving (the voice list
+   * loaded, the connection came back) leaves it unchanged, so audio that is already playing is
+   * not cut off for it.
+   */
+  voiceChoice: number;
   settingsHydrated: boolean;
   voiceSettings: StandardVoiceSettings;
   setVoiceSettings: (patch: Partial<StandardVoiceSettings>) => void;
@@ -110,10 +116,24 @@ interface SpeechCtx {
   listeningPlan: (locale?: string) => ListeningPlan;
   /** True while the learner has let this device's voice fill in for unavailable HD audio. */
   listeningFallback: boolean;
-  /** HD audio could not play: say so, and offer a retry or this device's voice. */
-  reportListeningIssue: (reason: ListeningIssueReason | undefined, retry: () => void) => void;
+  /**
+   * HD audio could not play: say so, and offer a retry or this device's voice.
+   * The notice belongs to the playback that failed. Its buttons work once, and only while
+   * `isCurrent` holds and it is still the standing notice; after that neither the retry nor
+   * the switch to this device's voice happens. Returns a function that withdraws the notice.
+   */
+  reportListeningIssue: (
+    reason: ListeningIssueReason | undefined,
+    retry: () => void,
+    isCurrent: () => boolean,
+  ) => () => void;
   /** Audio became audible: clear a standing notice; HD playing again ends the device fill-in. */
   noteListeningPlayed: (source?: ListeningPlaybackSource) => void;
+  /**
+   * Withdraws the standing notice about reading (word, sentence, passage) that could not play
+   * in HD. For a surface that now shows something else; playback itself is not touched.
+   */
+  forgetReadingNotice: () => void;
 
   // Last clicked word (from WordCard)
   lastWord: string | null;
@@ -182,13 +202,31 @@ export function SpeechProvider({
       (actor === null || isCurrentUser(actor)),
     [actor, isCurrentUser],
   );
+  // The standing "HD voice could not play this" notice, by serial (0: none). A notice's buttons
+  // work once, and only while it is still the standing notice for the playback that raised it.
+  const noticeSerialRef = useRef(0);
+  const standingNoticeRef = useRef(0);
+  const dismissListeningNotice = useCallback(() => {
+    const serial = standingNoticeRef.current;
+    standingNoticeRef.current = 0;
+    if (serial) toast.dismiss(listeningNoticeId(serial));
+  }, []);
+  // Withdraws the notice raised by this provider's own reading (word, sentence, passage).
+  const readingNoticeRef = useRef<(() => void) | null>(null);
+  const forgetReadingNotice = useCallback(() => {
+    const withdraw = readingNoticeRef.current;
+    readingNoticeRef.current = null;
+    withdraw?.();
+  }, []);
   const invalidatePlayback = useCallback(() => {
     playbackEpochRef.current += 1;
     cancelledRef.current = true;
     queueRef.current = [];
     if (timerRef.current !== null) clearTimeout(timerRef.current);
     timerRef.current = null;
-  }, []);
+    // Reading that was stopped or replaced has nothing left to retry.
+    forgetReadingNotice();
+  }, [forgetReadingNotice]);
   const device = useLearnerDeviceStore("speech");
   const recentDevice = useLearnerDeviceStore("heardWords");
   const [historyHydrated, setHistoryHydrated] = useState(false);
@@ -196,6 +234,9 @@ export function SpeechProvider({
   const [rate, setRateState] = useState(1);
   const [accent, setAccentState] = useState(accentsForLanguage[0].code);
   const [voiceURI, setVoiceURIState] = useState<string | null>(null);
+  const voiceURIRef = useRef(voiceURI);
+  voiceURIRef.current = voiceURI;
+  const [voiceChoice, setVoiceChoice] = useState(0);
   const [voiceSettings, setVoiceSettingsState] = useState(DEFAULT_STANDARD_VOICES);
   const [settingsHydrated, setSettingsHydrated] = useState(false);
   const voiceSettingsRef = useRef(voiceSettings);
@@ -303,7 +344,7 @@ export function SpeechProvider({
     }
     stopRemoteTTS();
     setListeningFallback(false);
-    toast.dismiss(LISTENING_NOTICE_ID);
+    dismissListeningNotice();
     setPlaying(false);
     setCurrent(null);
     setActiveSentenceIndex(-1);
@@ -316,12 +357,14 @@ export function SpeechProvider({
     return () => {
       mountedRef.current = false;
       invalidatePlayback();
+      // A notice never outlives the account it was raised for.
+      dismissListeningNotice();
       if (typeof window !== "undefined" && window.speechSynthesis) {
         window.speechSynthesis.cancel();
       }
       stopRemoteTTS();
     };
-  }, [invalidatePlayback]);
+  }, [invalidatePlayback, dismissListeningNotice]);
 
   const stop = useCallback(() => {
     invalidatePlayback();
@@ -339,7 +382,7 @@ export function SpeechProvider({
       stop();
       // A new voice choice starts strict again: nothing fills in unless the learner says so.
       setListeningFallback(false);
-      toast.dismiss(LISTENING_NOTICE_ID);
+      dismissListeningNotice();
       // A new listening gender drops the previous gender's voice at once, so a quick tap is
       // never read by it while the new voice resolves. Speaking-only changes keep the voice.
       if (
@@ -349,7 +392,7 @@ export function SpeechProvider({
         setVoiceURIState((current) => (decodeGoogleVoicePreference(current) ? null : current));
       setVoiceSettingsState((current) => readStandardVoiceSettings({ ...current, ...patch }));
     },
-    [stop, setListeningFallback],
+    [stop, setListeningFallback, dismissListeningNotice],
   );
 
   // Standard Google listening voice on every platform. Signed-out learners and an unavailable
@@ -420,7 +463,7 @@ export function SpeechProvider({
     (c: string) => {
       setAccentState(c);
       setListeningFallback(false);
-      toast.dismiss(LISTENING_NOTICE_ID);
+      dismissListeningNotice();
       // A prior voice selection must not silently keep a Spain accent after
       // the learner switches to Costa Rica, Mexico, or another locale.
       setVoiceURIState((current) =>
@@ -435,9 +478,15 @@ export function SpeechProvider({
         /* ignore */
       }
     },
-    [language, device, setListeningFallback],
+    [language, device, setListeningFallback, dismissListeningNotice],
   );
-  const setVoiceURI = useCallback((uri: string | null) => setVoiceURIState(uri), []);
+  const setVoiceURI = useCallback((uri: string | null) => {
+    // Replacing a settled voice is the learner's own pick. Filling in a voice that had not
+    // resolved yet is not a different voice for audio that is already playing.
+    if (voiceURIRef.current !== null && uri !== voiceURIRef.current)
+      setVoiceChoice((count) => count + 1);
+    setVoiceURIState(uri);
+  }, []);
   const setLastWord = useCallback((w: string) => {
     setLastWordState(w);
     const trimmed = w.trim();
@@ -496,12 +545,25 @@ export function SpeechProvider({
   );
 
   const reportListeningIssue = useCallback(
-    (reason: ListeningIssueReason | undefined, retry: () => void) => {
-      if (!ownsPlayback()) return;
+    (reason: ListeningIssueReason | undefined, retry: () => void, isCurrent: () => boolean) => {
+      // The playback that failed must still be this learner's, and still what its surface asked
+      // for: not stopped, not replaced, not left behind for another card, text or page.
+      const owned = () => ownsPlayback() && isCurrent();
+      if (!owned()) return () => {};
+      // One notice at a time: the newer miss takes the older one's place.
+      dismissListeningNotice();
+      const serial = ++noticeSerialRef.current;
+      standingNoticeRef.current = serial;
+      /** Takes the notice. True once, while it is still standing and still owned. */
+      const claim = () => {
+        if (standingNoticeRef.current !== serial) return false;
+        standingNoticeRef.current = 0;
+        return owned();
+      };
       const issue = reason ?? "unavailable";
       const copy = listeningIssueCopy(issue);
       toast(copy.title, {
-        id: LISTENING_NOTICE_ID,
+        id: listeningNoticeId(serial),
         description: copy.description,
         duration: 12000,
         // On a phone the practice controls sit at the bottom; keep the notice off them.
@@ -511,35 +573,54 @@ export function SpeechProvider({
         action: {
           label: "Try again",
           onClick: () => {
-            if (ownsPlayback()) retry();
+            if (claim()) retry();
           },
         },
-        // Nothing but the learner's own choice puts a device voice in place of HD audio.
+        // Nothing but the learner's own choice puts a device voice in place of HD audio, and
+        // only for playback that is still theirs: a notice that has been withdrawn changes
+        // nothing and plays nothing.
         ...(issue === "loading"
           ? {}
           : {
               cancel: {
                 label: "Use device voice",
                 onClick: () => {
-                  if (!ownsPlayback()) return;
+                  if (!claim()) return;
                   setListeningFallback(true);
                   retry();
                 },
               },
             }),
       });
+      return () => {
+        if (standingNoticeRef.current === serial) dismissListeningNotice();
+      };
     },
-    [ownsPlayback, setListeningFallback],
+    [ownsPlayback, setListeningFallback, dismissListeningNotice],
+  );
+
+  /** A notice for this provider's own reading: gone with the next stop, start or text. */
+  const reportReadingIssue = useCallback(
+    (reason: ListeningIssueReason, retry: () => void) => {
+      const epoch = playbackEpochRef.current;
+      forgetReadingNotice();
+      readingNoticeRef.current = reportListeningIssue(
+        reason,
+        retry,
+        () => epoch === playbackEpochRef.current,
+      );
+    },
+    [reportListeningIssue, forgetReadingNotice],
   );
 
   const noteListeningPlayed = useCallback(
     (source?: ListeningPlaybackSource) => {
       if (!ownsPlayback()) return;
-      toast.dismiss(LISTENING_NOTICE_ID);
+      dismissListeningNotice();
       // The HD voice is answering again: stop letting the device voice fill in.
       if (source === "hd" && listeningFallbackRef.current) setListeningFallback(false);
     },
-    [ownsPlayback, setListeningFallback],
+    [ownsPlayback, setListeningFallback, dismissListeningNotice],
   );
 
   const incListened = useCallback(() => {
@@ -666,11 +747,11 @@ export function SpeechProvider({
         };
         speakOne(target, -1, "word", reset, (reason) => {
           reset();
-          reportListeningIssue(reason, () => controlsRef.current?.speakWord(target));
+          reportReadingIssue(reason, () => controlsRef.current?.speakWord(target));
         });
       }, 30);
     },
-    [lastWord, speakOne, stop, ownsPlayback, reportListeningIssue],
+    [lastWord, speakOne, stop, ownsPlayback, reportReadingIssue],
   );
 
   const speakSentence = useCallback(
@@ -689,13 +770,11 @@ export function SpeechProvider({
         };
         speakOne(text, sentenceIndex, "sentence", reset, (reason) => {
           reset();
-          reportListeningIssue(reason, () =>
-            controlsRef.current?.speakSentence(text, sentenceIndex),
-          );
+          reportReadingIssue(reason, () => controlsRef.current?.speakSentence(text, sentenceIndex));
         });
       }, 30);
     },
-    [speakOne, stop, ownsPlayback, reportListeningIssue],
+    [speakOne, stop, ownsPlayback, reportReadingIssue],
   );
 
   const speakSentences = useCallback(
@@ -724,7 +803,7 @@ export function SpeechProvider({
           // not play in HD, and resume from it when the learner retries.
           const rest = [item, ...queueRef.current];
           stop();
-          reportListeningIssue(reason, () => controlsRef.current?.speakSentences(rest, onMove));
+          reportReadingIssue(reason, () => controlsRef.current?.speakSentences(rest, onMove));
         });
       };
 
@@ -733,7 +812,7 @@ export function SpeechProvider({
         next();
       }, 30);
     },
-    [speakOne, stop, ownsPlayback, reportListeningIssue],
+    [speakOne, stop, ownsPlayback, reportReadingIssue],
   );
   controlsRef.current = { speakWord, speakSentence, speakSentences };
 
@@ -746,6 +825,7 @@ export function SpeechProvider({
       accentsForLanguage,
       voiceURI,
       setVoiceURI,
+      voiceChoice,
       settingsHydrated,
       voiceSettings,
       setVoiceSettings,
@@ -754,6 +834,7 @@ export function SpeechProvider({
       listeningFallback,
       reportListeningIssue,
       noteListeningPlayed,
+      forgetReadingNotice,
       lastWord,
       setLastWord,
       recentWords,
@@ -774,6 +855,7 @@ export function SpeechProvider({
       accentsForLanguage,
       voiceURI,
       setVoiceURI,
+      voiceChoice,
       settingsHydrated,
       voiceSettings,
       setVoiceSettings,
@@ -782,6 +864,7 @@ export function SpeechProvider({
       listeningFallback,
       reportListeningIssue,
       noteListeningPlayed,
+      forgetReadingNotice,
       lastWord,
       setLastWord,
       recentWords,

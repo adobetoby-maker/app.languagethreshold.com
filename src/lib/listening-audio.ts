@@ -38,6 +38,12 @@ export const recordingGender = (gender: MissionPartnerVersion): RecordingGender 
 /** One notice at a time: a newer miss replaces the older one. */
 export const LISTENING_NOTICE_ID = "listening-hd-unavailable";
 
+/**
+ * Each notice is its own toast. Withdrawing one and raising the next are then independent, so
+ * a notice raised straight after another was withdrawn is never taken down with it.
+ */
+export const listeningNoticeId = (serial: number): string => `${LISTENING_NOTICE_ID}:${serial}`;
+
 /** The HD voice last resolved for a language, valid only for the same accent and gender. */
 export interface RememberedHdVoice {
   accent: string;

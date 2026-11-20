@@ -68,7 +68,11 @@ export function VerbSeries(p: {
   // Forms are read by the learner's listening voice: recorded HD audio first, then the HD
   // voice, and never a device voice in its place unless the learner chose one.
   const { rate, listeningPlan } = useSpeech();
-  const { speak: speakListening, locale } = useListeningSpeaker("verb-series", "Spanish");
+  // The card the Cards step is showing. A notice about a card's audio goes with that card.
+  // (Listen does not report its form: it reads the next one as it advances, and that newer
+  // request already takes the place of an older notice.)
+  const [card, setCard] = useState<string | null>(null);
+  const { speak: speakListening, locale } = useListeningSpeaker("verb-series", "Spanish", card);
   const listeningMode = listeningPlan(locale).mode;
   const speak = useCallback(
     (text: string, onFail?: () => void) =>
@@ -288,7 +292,7 @@ export function VerbSeries(p: {
                 />
               )}
               {view.kind === "play" && view.step === "match" && <MatchStep key={view.run} data={data} source={source} family={family} seed={view.seed} onFinish={onFinish} />}
-              {view.kind === "play" && view.step === "cards" && <CardsStep key={view.run} items={items} speak={speak} onFinish={onFinish} />}
+              {view.kind === "play" && view.step === "cards" && <CardsStep key={view.run} items={items} speak={speak} onCard={setCard} onFinish={onFinish} />}
               {view.kind === "play" && view.step === "type" && <TypeStep key={view.run} items={items} onFinish={onFinish} />}
               {view.kind === "result" && (
                 <ResultPanel

@@ -24,25 +24,70 @@ const REACT = `
  export const Fragment='fragment',jsx=(type,props,key)=>({type,props:props??{},key}),jsxs=jsx;
 `;
 
+/**
+ * The provider's "could not play in HD" notice as a stand-in, with the provider's own rules
+ * (tests/listening-provider.test.mjs holds the real one to them): one standing notice, and
+ * buttons that work once, only while the playback that raised it still owns it.
+ * `tryAgain()` and `useDeviceVoice()` are the learner pressing the buttons; they say whether
+ * anything happened. A notice its surface withdrew is no longer `standing`.
+ */
+export const NOTICE_STANDIN = `
+ function standInNotice(speech,issues,reason,retry,isCurrent){
+  const owned=()=>typeof isCurrent!=='function'||isCurrent();
+  if(!owned())return ()=>{};
+  for(const older of issues)older.standing=false;
+  const notice={reason,retry,standing:true};
+  const claim=()=>{if(!notice.standing)return false;notice.standing=false;return owned();};
+  notice.tryAgain=()=>{if(!claim())return false;retry();return true;};
+  notice.useDeviceVoice=()=>{if(!claim())return false;speech.fallback=true;retry();return true;};
+  issues.push(notice);
+  return ()=>{notice.standing=false;};
+ }
+`;
+
 /** The account, the speech context, the audio router and the device's voices, set by the test. */
 const LISTENING = `
  import { planListening } from './src/lib/listening-audio.ts';
- export const L={actor:'a',jobs:[],issues:[],played:[],voices:[{voiceURI:'installed',lang:'es-MX'}],voiceListeners:new Set(),
-  speech:{accent:'es-CR',rate:1,voiceURI:null,source:'hd',gender:'woman',fallback:false}};
+ ${NOTICE_STANDIN}
+ export const L={actor:'a',jobs:[],issues:[],played:[],read:[],forgotten:0,voices:[{voiceURI:'installed',lang:'es-MX'}],voiceListeners:new Set(),
+  speech:{accent:'es-CR',rate:1,voiceURI:null,voiceChoice:0,source:'hd',gender:'woman',fallback:false}};
  const isCurrentUser=id=>L.actor===id;
  export const useAuth=()=>({user:L.actor?{id:L.actor}:null,isCurrentUser});
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'},{code:'es-MX'}],French:[{code:'fr-FR'}],English:[{code:'en-US'}],Japanese:[{code:'ja-JP'}],Chinese:[{code:'zh-CN'}]};
  const listeningPlan=locale=>{const s=L.speech;return planListening({locale:locale??s.accent,learningLocale:s.accent,source:s.source,gender:s.gender,voiceURI:s.voiceURI,signedIn:L.actor!==null,deviceFallback:s.fallback});};
  // Stable identities, like the real provider's callbacks: a re-render alone never replays audio.
- const reportListeningIssue=(reason,retry)=>{L.issues.push({reason,retry});};
+ const reportListeningIssue=(reason,retry,isCurrent)=>standInNotice(L.speech,L.issues,reason,retry,isCurrent);
  const noteListeningPlayed=source=>{L.played.push(source);};
- export const useSpeech=()=>{const s=L.speech;return {accent:s.accent,rate:s.rate,voiceURI:s.voiceURI,voiceSettings:{listeningAudioSource:s.source,listeningGender:s.gender},listeningPlan,reportListeningIssue,noteListeningPlayed};};
+ const speakSentence=(text,index)=>{L.read.push({text,index});},forgetReadingNotice=()=>{L.forgotten++;};
+ export const useSpeech=()=>{const s=L.speech;return {accent:s.accent,rate:s.rate,voiceURI:s.voiceURI,voiceChoice:s.voiceChoice,voiceSettings:{listeningAudioSource:s.source,listeningGender:s.gender},listeningPlan,reportListeningIssue,noteListeningPlayed,speakSentence,forgetReadingNotice};};
  export const speakRemote=(text,locale,opts)=>{L.jobs.push({text,locale,opts});return Promise.resolve();};
  export const getVoicesForLocale=()=>L.voices,subscribeVoices=cb=>{L.voiceListeners.add(cb);return()=>L.voiceListeners.delete(cb);};
 `;
 
 const SHARED =
   /^(listening-surface|react|react\/jsx-runtime|lucide-react|@\/state\/(auth|speech)-state|@\/lib\/(tts|voices))$/;
+
+/**
+ * The same boundaries with the REAL speech provider inside them. The account, the audio
+ * router, the voice list, the learner's device storage and the toast are stand-ins; the
+ * provider, its notice and the listening hooks are the app's own. A notice is whatever the
+ * provider handed to the toast, so its buttons are the real handlers.
+ */
+const PROVIDER = `
+ export const L={actor:'a',jobs:[],notices:[],dismissed:[],stops:0,saved:{},stores:{},voices:[{voiceURI:'installed',lang:'es-MX'}],voiceListeners:new Set(),
+  catalog:()=>Promise.reject(new Error('no catalog'))};
+ const isCurrentUser=id=>L.actor===id;
+ export const useAuth=()=>({user:L.actor?{id:L.actor}:null,isCurrentUser});
+ export const useLearnerDeviceStore=kind=>L.stores[kind]??(L.stores[kind]={read:()=>L.saved[kind]??null,write:value=>{L.saved[kind]=value;}});
+ export const speakRemote=(text,locale,opts)=>{L.jobs.push({text,locale,opts});return Promise.resolve();};
+ export const stopRemoteTTS=()=>{L.stops++;},needsRemoteTTS=()=>false,hasRecordedListeningAudio=()=>false;
+ export const getVoicesForLocale=()=>L.voices,subscribeVoices=cb=>{L.voiceListeners.add(cb);return()=>L.voiceListeners.delete(cb);},configureUtterance=()=>{};
+ export const getMissionTtsCapabilities=(accent,signal)=>L.catalog(accent,signal);
+ export const toast=Object.assign((title,options)=>{L.notices.push({title,...options});},{dismiss:id=>{L.dismissed.push(id);},warning(){},message(){},error(){}});
+`;
+
+const SHARED_WITH_PROVIDER =
+  /^(listening-surface|react|react\/jsx-runtime|lucide-react|sonner|@\/state\/auth-state|@\/hooks\/use-learner-device-store|@\/lib\/(tts|voices|mission-tts))$/;
 
 /** Every icon the given files import, as plain host elements. */
 function icons(files) {
@@ -169,14 +214,26 @@ function createHost(R) {
  * Bundles `exports` from `entry` and hands back the module with a host to render it.
  * `standins` is the source of a module that replaces every import matched by `replace`
  * (the component's own data and state); the shared stand-ins above are always in place.
+ * With `provider: true` the speech context is the real SpeechProvider (exported too, with
+ * `useSpeech`), for a test that needs the provider's own notice and its real buttons.
  */
-export async function loadSurface({ entry, exports, files = [entry], replace, standins = "" }) {
+export async function loadSurface({
+  entry,
+  exports,
+  files = [entry],
+  replace,
+  standins = "",
+  provider = false,
+}) {
   const dir = mkdtempSync(resolve("node_modules/.cache/listening-surface-"));
   try {
     const outfile = join(dir, "surface.mjs");
+    const speech = provider
+      ? "export {SpeechProvider,useSpeech} from './src/state/speech-state';"
+      : "";
     await build({
       stdin: {
-        contents: `export {${exports.join(",")}} from './${entry}';export {R,L,jsx} from 'listening-surface';export * as S from 'surface-standins';`,
+        contents: `export {${exports.join(",")}} from './${entry}';export {R,L,jsx} from 'listening-surface';export * as S from 'surface-standins';${speech}`,
         resolveDir: process.cwd(),
       },
       outfile,
@@ -189,7 +246,10 @@ export async function loadSurface({ entry, exports, files = [entry], replace, st
         {
           name: "listening-surface",
           setup(b) {
-            b.onResolve({ filter: SHARED }, () => ({ path: "shared", namespace: "surface" }));
+            b.onResolve({ filter: provider ? SHARED_WITH_PROVIDER : SHARED }, () => ({
+              path: "shared",
+              namespace: "surface",
+            }));
             b.onResolve({ filter: /^surface-standins$/ }, () => ({
               path: "own",
               namespace: "surface",
@@ -197,7 +257,7 @@ export async function loadSurface({ entry, exports, files = [entry], replace, st
             if (replace)
               b.onResolve({ filter: replace }, () => ({ path: "own", namespace: "surface" }));
             b.onLoad({ filter: /^shared$/, namespace: "surface" }, () => ({
-              contents: `${REACT}\n${LISTENING}\n${icons(files)}`,
+              contents: `${REACT}\n${provider ? PROVIDER : LISTENING}\n${icons(files)}`,
               resolveDir: process.cwd(),
             }));
             b.onLoad({ filter: /^own$/, namespace: "surface" }, () => ({

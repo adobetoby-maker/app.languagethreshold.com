@@ -73,7 +73,7 @@ async function load(name, file, dir) {
  export const ACCENTS_BY_LANGUAGE={Spanish:[{code:'es-CR'},{code:'es-MX'}],English:[{code:'en-US'}]};
  c.issues=[];c.listening={voiceURI:null,source:'hd',gender:'woman',accent:'es-CR',rate:1};
  const listeningPlan=locale=>planListening({locale:locale??c.listening.accent,learningLocale:c.listening.accent,source:c.listening.source,gender:c.listening.gender,voiceURI:c.listening.voiceURI,signedIn:c.actor!==null,deviceFallback:false});
- const reportListeningIssue=(reason,retry)=>{c.issues.push({reason,retry});},noteListeningPlayed=()=>{};
+ const reportListeningIssue=(reason,retry,isCurrent)=>{c.issues.push({reason,retry,isCurrent});return ()=>{};},noteListeningPlayed=()=>{};
  export const useSpeech=()=>({voiceURI:null,accent:c.listening.accent,rate:c.listening.rate,voiceSettings:{listeningAudioSource:c.listening.source,listeningGender:c.listening.gender},listeningPlan,reportListeningIssue,noteListeningPlayed});
  export const speakRemote=(text,locale,opts)=>{c.audio.push({text,locale,opts});return Promise.resolve();};
  export const toast={error:(...args)=>c.errors.push(args)},cn=(...args)=>args.filter(Boolean).join(' ');

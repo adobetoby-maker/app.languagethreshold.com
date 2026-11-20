@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:22:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-22-source-decision-2026-11-18/packet.json",
+    "sha256": "13f754ec96224ae9cb5a8600634f01b075ee3c23d71a48ebe530f1ebc2173521"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-21-23-draft.json",
+      "sha256": "f6ac0838c706af85fb07f66f665c9e0fa49736cdb5dbeafd2030f22f33831739"
+    }
+  },
+  "objectiveEnglish": "Name selected fall-protection components, describe a lifeline concern and ask for the source inspection role.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "屋根で器具をつなぐ「取り付け点（アンカー）」を表す英語を見て確認してください。",
+      "targetEnglish": "anchor",
+      "sourceAnchor": "roofing:22:ja-en:card:1",
+      "id": "core-roofing:22:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "体に着ける「ハーネス」を表す英語を思い出してください。",
+      "targetEnglish": "harness",
+      "sourceAnchor": "roofing:22:ja-en:card:4",
+      "id": "core-roofing:22:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「その担当者はどこにいますか」と尋ねている英文を選んでください。",
+      "targetEnglish": "Where is the competent person?",
+      "candidateOptionsEnglish": [
+        "Where is the competent person?",
+        "He stops and tells the foreman.",
+        "While they work on the roof, a worker sees something wrong with the lifeline."
+      ],
+      "sourceAnchor": "roofing:22:ja-en:card:12",
+      "id": "core-roofing:22:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Where is the competent person?",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「命綱」にあたる英語を入力してください。",
+      "targetEnglish": "lifeline",
+      "sourceAnchor": "roofing:22:ja-en:card:2",
+      "id": "core-roofing:22:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「彼は手を止めて、職長に伝えます」を英語で言ってください。",
+      "targetEnglish": "He stops and tells the foreman.",
+      "sourceAnchor": "roofing:22:ja-en:line:2",
+      "id": "core-roofing:22:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「ランヤード」を英語のつづりで書いてください。",
+      "targetEnglish": "lanyard",
+      "sourceAnchor": "roofing:22:ja-en:card:5",
+      "id": "core-roofing:22:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "sees something wrong with the lifeline",
+      "explanationJapanese": "「something wrong with ...」は「…に何かおかしいところがある」という意味です。気づいたことをそのまま描写する言い方です。",
+      "sourceAnchor": "roofing:22:ja-en:line:1",
+      "id": "core-roofing:22:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "stops and tells the foreman",
+      "explanationJapanese": "主語が He なので、動詞に -s が付きます（stops, tells）。「tell＋人」で「（人）に伝える」という意味です。",
+      "sourceAnchor": "roofing:22:ja-en:line:2",
+      "id": "core-roofing:22:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Where is the competent person?",
+      "explanationJapanese": "「Where is ...?」は「…はどこにいますか」と居場所を尋ねる疑問文です。",
+      "sourceAnchor": "roofing:22:ja-en:line:4",
+      "id": "core-roofing:22:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "anchor",
+      "glossJapanese": "アンカー（取り付け点）",
+      "senseJapanese": "屋根で命綱などの器具をつなぐ取り付け点。",
+      "sourceAnchor": "roofing:22:ja-en:card:1",
+      "id": "core-roofing:22:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "competent person",
+      "glossJapanese": "コンピテント・パーソン（この課で点検を行う人）",
+      "senseJapanese": "この課の文では、職長が居場所を尋ね、点検を行ってシステムの落下距離を確認する人。資格や免許を持つ人を自動的に意味する語ではありません。",
+      "sourceAnchor": "roofing:22:ja-en:card:6",
+      "id": "core-roofing:22:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "fall distance",
+      "glossJapanese": "落下距離",
+      "senseJapanese": "この課の文では、担当者が確認する「システムの落下距離」。下に必要な空間の合計（クリアランス）と同じ意味ではありません。",
+      "sourceAnchor": "roofing:22:ja-en:card:3",
+      "id": "core-roofing:22:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Worker who sees something wrong with the lifeline and tells the foreman",
+      "partner": "Foreman who sets the scene with the opening line, listens to the report, and closes by asking the closure question"
+    },
+    "openingEnglish": "While they work on the roof, a worker sees something wrong with the lifeline.",
+    "closureEnglish": "Where is the competent person?",
+    "objectivesEnglish": [
+      "Tell the foreman that you see something wrong with the lifeline.",
+      "Name the equipment you mean, using anchor, lifeline, harness, or lanyard.",
+      "Show that you understand the foreman's question \"Where is the competent person?\" by repeating it back."
+    ],
+    "wordBankEnglish": [
+      "anchor",
+      "lifeline",
+      "harness",
+      "lanyard",
+      "rope",
+      "competent person",
+      "foreman",
+      "something wrong",
+      "stops",
+      "tells"
+    ],
+    "sourceAnchors": [
+      "roofing:22:ja-en:card:1",
+      "roofing:22:ja-en:card:2",
+      "roofing:22:ja-en:card:4",
+      "roofing:22:ja-en:card:5",
+      "roofing:22:ja-en:card:6",
+      "roofing:22:ja-en:card:8",
+      "roofing:22:ja-en:card:12",
+      "roofing:22:ja-en:line:1",
+      "roofing:22:ja-en:line:2",
+      "roofing:22:ja-en:line:4"
+    ],
+    "id": "core-roofing:22:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terms/description/question/report supplement. Anchor safety/setup/clearance, competent-person jurisdiction/authority, weather response trigger, hourly breaks and clinical/site heat-plan response remain qualified source/domain review holds.",
+    "Competent person is not automatically a certificate or Japanese legal role. Fall distance is not a substitute for total clearance calculation. Lifeline type is not inferred as horizontal.",
+    "Dizzy, heat exhaustion (熱疲労), and rest are taught directly. No symptom-to-diagnosis rule or universal hydration/rest schedule is invented.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

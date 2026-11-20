@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:24:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-24-source-decision-2026-11-18/packet.json",
+    "sha256": "da6177119283d854916d08889093923355563991fcf0a6c2060eec761f4e9b25"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-24-26-draft.json",
+      "sha256": "81375e82aaf0b1fce1956eb8c5b3efda62a3d990789d20c904ae4d267a4179fc"
+    }
+  },
+  "objectiveEnglish": "Name heat exhaustion, dizziness and rest, and ask or recognize questions about how someone feels.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「熱疲労」を表す英語を見て確認してください。",
+      "targetEnglish": "heat exhaustion",
+      "sourceAnchor": "roofing:24:ja-en:card:6",
+      "id": "core-roofing:24:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「めまいがする」を表す英語を思い出してください。",
+      "targetEnglish": "dizzy",
+      "sourceAnchor": "roofing:24:ja-en:card:5",
+      "id": "core-roofing:24:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「めまいがしますか」と尋ねている英文を選んでください。",
+      "targetEnglish": "Are you dizzy?",
+      "candidateOptionsEnglish": [
+        "How do you feel?",
+        "Are you dizzy?",
+        "Tell me if you feel sick."
+      ],
+      "sourceAnchor": "roofing:24:ja-en:card:12",
+      "id": "core-roofing:24:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Are you dizzy?",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「休む」にあたる英語を入力してください。",
+      "targetEnglish": "rest",
+      "sourceAnchor": "roofing:24:ja-en:card:7",
+      "id": "core-roofing:24:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「気分はどうですか」と英語で尋ねてください。",
+      "targetEnglish": "How do you feel?",
+      "sourceAnchor": "roofing:24:ja-en:card:11",
+      "id": "core-roofing:24:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「気分が悪くなったら私に教えてください」を英語で書いてください。",
+      "targetEnglish": "Tell me if you feel sick.",
+      "sourceAnchor": "roofing:24:ja-en:card:15",
+      "id": "core-roofing:24:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "How do you feel?",
+      "explanationJapanese": "「How do you feel?」は「気分はどうですか」と、相手の感じ方を尋ねる疑問文です。",
+      "sourceAnchor": "roofing:24:ja-en:line:4",
+      "id": "core-roofing:24:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Are you dizzy?",
+      "explanationJapanese": "「Are you＋形容詞?」で、相手の今の状態を尋ねます。答えは Yes か No で始めます。",
+      "sourceAnchor": "roofing:24:ja-en:line:5",
+      "id": "core-roofing:24:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Raúl does not look well",
+      "explanationJapanese": "「look well」は「元気そうに見える」。「does not look well」は「具合がよくなさそうに見える」という、見た様子の描写です。",
+      "sourceAnchor": "roofing:24:ja-en:line:3",
+      "id": "core-roofing:24:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "dizzy",
+      "glossJapanese": "めまいがする・くらくらする",
+      "senseJapanese": "頭がくらくらする感じを表す形容詞。この課では、相手に尋ねる質問の中で使われます。",
+      "sourceAnchor": "roofing:24:ja-en:card:5",
+      "id": "core-roofing:24:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "heat exhaustion",
+      "glossJapanese": "熱疲労",
+      "senseJapanese": "暑さによる体の不調を指す用語。この課の文では、水分補給と日陰での休息がその予防に役立つと述べられています。",
+      "sourceAnchor": "roofing:24:ja-en:card:6",
+      "id": "core-roofing:24:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "rest",
+      "glossJapanese": "休む・休息",
+      "senseJapanese": "体を休めること。動詞（休む）にも名詞（休息）にも使い、この課では「日陰での休息」という形でも出てきます。",
+      "sourceAnchor": "roofing:24:ja-en:card:7",
+      "id": "core-roofing:24:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Worker who answers the foreman's questions about how he feels",
+      "partner": "Foreman who asks the opening question, asks whether the worker is dizzy, and says the closure line"
+    },
+    "openingEnglish": "How do you feel?",
+    "closureEnglish": "Tell me if you feel sick.",
+    "objectivesEnglish": [
+      "Recognize the question How do you feel? and the source response yes, a little.",
+      "Answer the question \"Are you dizzy?\" with \"yes, a little\".",
+      "Say the terms dizzy, rest, and heat exhaustion clearly so the partner understands which word you mean."
+    ],
+    "wordBankEnglish": [
+      "dizzy",
+      "heat exhaustion",
+      "rest",
+      "heat",
+      "shade",
+      "hot",
+      "feel",
+      "sick",
+      "yes",
+      "a little"
+    ],
+    "sourceAnchors": [
+      "roofing:24:ja-en:card:2",
+      "roofing:24:ja-en:card:3",
+      "roofing:24:ja-en:card:5",
+      "roofing:24:ja-en:card:6",
+      "roofing:24:ja-en:card:7",
+      "roofing:24:ja-en:card:11",
+      "roofing:24:ja-en:card:12",
+      "roofing:24:ja-en:card:15",
+      "roofing:24:ja-en:line:1",
+      "roofing:24:ja-en:line:4",
+      "roofing:24:ja-en:line:5",
+      "roofing:24:ja-en:line:6"
+    ],
+    "id": "core-roofing:24:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terms/description/question/report supplement. Anchor safety/setup/clearance, competent-person jurisdiction/authority, weather response trigger, hourly breaks and clinical/site heat-plan response remain qualified source/domain review holds.",
+    "Competent person is not automatically a certificate or Japanese legal role. Fall distance is not a substitute for total clearance calculation. Lifeline type is not inferred as horizontal.",
+    "Dizzy, heat exhaustion (熱疲労), and rest are taught directly. No symptom-to-diagnosis rule or universal hydration/rest schedule is invented.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

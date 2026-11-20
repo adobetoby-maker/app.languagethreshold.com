@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:23:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-23-source-decision-2026-11-18/packet.json",
+    "sha256": "2ebd270b2521c7b125bffde1702efaba6dc59c33a4b069e3871ba519929e55b4"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-21-23-draft.json",
+      "sha256": "f6ac0838c706af85fb07f66f665c9e0fa49736cdb5dbeafd2030f22f33831739"
+    }
+  },
+  "objectiveEnglish": "Describe morning dew, a slippery roof and a change in wind and clouds.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "朝、屋根につく「露」を表す英語を見て確認してください。",
+      "targetEnglish": "dew",
+      "sourceAnchor": "roofing:23:ja-en:card:1",
+      "id": "core-roofing:23:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「嵐」を表す英語を思い出してください。",
+      "targetEnglish": "storm",
+      "sourceAnchor": "roofing:23:ja-en:card:8",
+      "id": "core-roofing:23:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「風」を表す英語を選んでください。",
+      "targetEnglish": "wind",
+      "candidateOptionsEnglish": [
+        "wind",
+        "wet",
+        "rain"
+      ],
+      "sourceAnchor": "roofing:23:ja-en:card:7",
+      "id": "core-roofing:23:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "wind",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「稲妻」にあたる英語を入力してください。",
+      "targetEnglish": "lightning",
+      "sourceAnchor": "roofing:23:ja-en:card:3",
+      "id": "core-roofing:23:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「朝の6時30分で、屋根にはまだ露が残っています」を英語で言ってください。",
+      "targetEnglish": "It is 6:30 in the morning and there is still dew on the roof.",
+      "sourceAnchor": "roofing:23:ja-en:line:1",
+      "id": "core-roofing:23:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「その後、風が強まり、空に暗い雲が現れます」を英語で書いてください。",
+      "targetEnglish": "Later, the wind picks up and dark clouds appear in the sky.",
+      "sourceAnchor": "roofing:23:ja-en:line:5",
+      "id": "core-roofing:23:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "there is still dew on the roof",
+      "explanationJapanese": "「there is ...」は「…がある」という意味です。「still」は「まだ」で、状態が続いていることを表します。",
+      "sourceAnchor": "roofing:23:ja-en:line:1",
+      "id": "core-roofing:23:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the wind picks up",
+      "explanationJapanese": "「pick up」は、風について使うと「強まる」という意味です。主語が the wind なので picks と -s が付きます。",
+      "sourceAnchor": "roofing:23:ja-en:line:5",
+      "id": "core-roofing:23:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the dew makes the roof slippery",
+      "explanationJapanese": "「make＋物＋形容詞」で「（物）を…の状態にする」という意味です。ここでは「露が屋根を滑りやすくする」という描写です。",
+      "sourceAnchor": "roofing:23:ja-en:line:3",
+      "id": "core-roofing:23:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "dew",
+      "glossJapanese": "露",
+      "senseJapanese": "朝、屋根などの表面につく水滴。この課では、朝6時30分の屋根にまだ残っているものとして出てきます。",
+      "sourceAnchor": "roofing:23:ja-en:card:1",
+      "id": "core-roofing:23:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "footing",
+      "glossJapanese": "足元・足の置き場所",
+      "senseJapanese": "足を置く場所と、そこでの足元の安定。",
+      "sourceAnchor": "roofing:23:ja-en:card:2",
+      "id": "core-roofing:23:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "slippery",
+      "glossJapanese": "滑りやすい",
+      "senseJapanese": "表面が滑りやすい様子。この課では、露で屋根が滑りやすくなる様子を表します。",
+      "sourceAnchor": "roofing:23:ja-en:card:4",
+      "id": "core-roofing:23:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Worker who describes the morning dew and the changing sky to the foreman",
+      "partner": "Foreman who listens and asks what the worker sees"
+    },
+    "openingEnglish": "It is 6:30 in the morning and there is still dew on the roof.",
+    "closureEnglish": "Later, the wind picks up and dark clouds appear in the sky.",
+    "objectivesEnglish": [
+      "Describe that there is still dew on the roof in the morning.",
+      "Say that the dew makes the roof slippery.",
+      "Report that the wind picks up and dark clouds appear in the sky."
+    ],
+    "wordBankEnglish": [
+      "dew",
+      "roof",
+      "morning",
+      "still",
+      "wet",
+      "slippery",
+      "wind",
+      "picks up",
+      "dark clouds",
+      "sky"
+    ],
+    "sourceAnchors": [
+      "roofing:23:ja-en:card:1",
+      "roofing:23:ja-en:card:4",
+      "roofing:23:ja-en:card:5",
+      "roofing:23:ja-en:card:7",
+      "roofing:23:ja-en:line:1",
+      "roofing:23:ja-en:line:3",
+      "roofing:23:ja-en:line:5"
+    ],
+    "id": "core-roofing:23:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terms/description/question/report supplement. Anchor safety/setup/clearance, competent-person jurisdiction/authority, weather response trigger, hourly breaks and clinical/site heat-plan response remain qualified source/domain review holds.",
+    "Competent person is not automatically a certificate or Japanese legal role. Fall distance is not a substitute for total clearance calculation. Lifeline type is not inferred as horizontal.",
+    "Dizzy, heat exhaustion (熱疲労), and rest are taught directly. No symptom-to-diagnosis rule or universal hydration/rest schedule is invented.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

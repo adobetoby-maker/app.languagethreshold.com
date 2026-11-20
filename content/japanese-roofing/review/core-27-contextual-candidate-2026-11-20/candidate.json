@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:27:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-27-source-decision-2026-11-18/packet.json",
+    "sha256": "2c9015a08952289474a09a47dec2c3199b34ea6ac42886a7b4e48bb1c55eef49"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "objectiveEnglish": "Name roof-penetration terms and ask about a pipe-boot crack.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語を見て、次の意味を確認してください：屋根に付いている換気口",
+      "targetEnglish": "vent",
+      "sourceAnchor": "roofing:27:ja-en:card:1",
+      "id": "core-roofing:27:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根を貫く配管のまわりをふさぐ防水カバー。英語を思い出してください。",
+      "targetEnglish": "pipe boot",
+      "sourceAnchor": "roofing:27:ja-en:card:2",
+      "id": "core-roofing:27:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「パイプブーツはひび割れていますか」という意味の質問を選びましょう",
+      "targetEnglish": "Is the pipe boot cracked?",
+      "candidateOptionsEnglish": [
+        "What have you already checked?",
+        "Is the pipe boot cracked?",
+        "Check the flashing around this vent."
+      ],
+      "sourceAnchor": "roofing:27:ja-en:card:13",
+      "id": "core-roofing:27:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "Is the pipe boot cracked?",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "屋根から突き出ている煙突。英語で入力してください。",
+      "targetEnglish": "chimney",
+      "sourceAnchor": "roofing:27:ja-en:card:9",
+      "id": "core-roofing:27:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「ひび割れがあると、水が雨漏りを引き起こすことがあります」を英語で言いましょう",
+      "targetEnglish": "If there is a crack, water can cause a leak.",
+      "sourceAnchor": "roofing:27:ja-en:line:6",
+      "id": "core-roofing:27:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「雨漏り」を英語で書きましょう",
+      "targetEnglish": "leak",
+      "sourceAnchor": "roofing:27:ja-en:card:7",
+      "id": "core-roofing:27:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Let's walk each penetration together",
+      "explanationJapanese": "Let's は「〜しましょう」と誘う表現で、動詞の原形が続きます。ここでの walk は目的語をとる他動詞で、「一つずつ見て回る」という意味です。each の後ろは単数名詞です。",
+      "sourceAnchor": "roofing:27:ja-en:line:2",
+      "id": "core-roofing:27:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "If there is a crack, water can cause a leak",
+      "explanationJapanese": "If 〜 は「もし〜なら」という条件を表します。can は「〜することがある」という可能性を表し、cause は「〜を引き起こす」という意味です。",
+      "sourceAnchor": "roofing:27:ja-en:line:6",
+      "id": "core-roofing:27:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "What have you already checked?",
+      "explanationJapanese": "have + 過去分詞（checked）は現在完了形で、「すでに〜した」ことをたずねます。already は「すでに」を表します。",
+      "sourceAnchor": "roofing:27:ja-en:line:3",
+      "id": "core-roofing:27:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "flashing",
+      "glossJapanese": "水切り（フラッシング）",
+      "senseJapanese": "貫通部や取り合い部のまわりで、水の浸入を防ぐための部材。金属製とは限らない",
+      "sourceAnchor": "roofing:27:ja-en:card:3",
+      "id": "core-roofing:27:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "penetration",
+      "glossJapanese": "貫通部",
+      "senseJapanese": "配管や換気口など、屋根を貫いているものがある箇所",
+      "sourceAnchor": "roofing:27:ja-en:card:4",
+      "id": "core-roofing:27:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "crack",
+      "glossJapanese": "ひび割れ",
+      "senseJapanese": "材料にできた細い割れ目",
+      "sourceAnchor": "roofing:27:ja-en:card:6",
+      "id": "core-roofing:27:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "作業班のリーダー役：用語を英語で言い、最後にひび割れと雨漏りの関係を説明する出典の文を英語で言う",
+      "partner": "現場監督役：出典どおり、貫通部を一緒に見て回ろうと声をかけて会話を始める"
+    },
+    "openingEnglish": "Let's walk each penetration together.",
+    "closureEnglish": "If there is a crack, water can cause a leak.",
+    "objectivesEnglish": [
+      "Name the vent, the pipe boot and the chimney in English.",
+      "Name flashing, a penetration, a crack and a leak in English.",
+      "Understand the source opening line and say the source sentence about a crack and a leak."
+    ],
+    "wordBankEnglish": [
+      "vent",
+      "pipe boot",
+      "flashing",
+      "penetration",
+      "crack",
+      "leak",
+      "chimney"
+    ],
+    "sourceAnchors": [
+      "roofing:27:ja-en:card:1",
+      "roofing:27:ja-en:card:2",
+      "roofing:27:ja-en:card:3",
+      "roofing:27:ja-en:card:4",
+      "roofing:27:ja-en:card:6",
+      "roofing:27:ja-en:card:7",
+      "roofing:27:ja-en:card:9",
+      "roofing:27:ja-en:line:2",
+      "roofing:27:ja-en:line:6"
+    ],
+    "id": "core-roofing:27:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing anchors; no progress migration.",
+    "Partial selected terms/source description/question supplement. Exclusion boundary, warning timing and clear authorization remain held; no safety certification is inferred from clear.",
+    "Repair authorization, structural assessment, documentation/photo sufficiency and covered-area verification remain qualified source/trade decisions. A source photo record is not proof of adequate repair.",
+    "Vent/pipe-boot/flashing/crack terms are contextual; exposed-nail sealing method remains held. Narration and source speaker roles are marked in speaking.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

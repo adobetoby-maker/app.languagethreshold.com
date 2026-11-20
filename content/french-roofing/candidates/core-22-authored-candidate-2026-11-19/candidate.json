@@ -1,0 +1,783 @@
+{
+  "lessonId": "core-roofing:22:fr-en",
+  "candidateObjectiveEnglish": "Name harness, rope and inspection; ask for and locate word/picture cards.",
+  "grammarExplanationEnglish": "Where is the + noun asks for location. Show me the + noun requests an item. The card says + word reports the printed word.",
+  "grammarExplanationFrench": "« Where is the » + nom demande un emplacement. « Show me the » + nom demande de montrer un élément. « The card says » + mot indique le mot imprimé.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "harness",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "le harnais",
+      "provenance": "Archived and conditional French from card 4; generic noun only; not reviewed.",
+      "id": "core-roofing:22:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le texte anglais pour « la corde »",
+      "candidateTargetEnglish": "rope",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "la corde",
+      "provenance": "Archived and conditional French from card 8; generic noun only; not reviewed.",
+      "id": "core-roofing:22:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens français.",
+      "candidateTargetEnglish": "inspection",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "l’inspection",
+      "provenance": "Archived and conditional French from card 7; spoken prompt text only; no audio registered; not reviewed.",
+      "id": "core-roofing:22:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « Où est la corde ? »",
+      "candidateTargetEnglish": "Where is the rope?",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "Où est la corde ?",
+      "provenance": "New English and French composition: where-pattern from form 1 with generic noun from card 8; not a quoted source sentence.",
+      "id": "core-roofing:22:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Montrez-moi le harnais. »",
+      "candidateTargetEnglish": "Show me the harness.",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "Montrez-moi le harnais.",
+      "provenance": "New English and French composition: show-me pattern from form 2 with generic noun from card 4; not a quoted source sentence.",
+      "id": "core-roofing:22:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : La carte indique « inspection ».",
+      "candidateTargetEnglish": "The card says \"inspection\".",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "La carte indique « inspection ».",
+      "provenance": "New English/French card-reading sentence using exact source inspection noun; no inspection finding.",
+      "id": "core-roofing:22:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "assessmentFocus": "Construct an English reporting sentence; inspection is the supplied printed word, not a hidden recall answer."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:22:fr-en:form:1",
+      "englishForm": "Where is [noun phrase or named card]?",
+      "meaningFrench": "Où est le/la/l’ + nom ?",
+      "candidateExampleEnglish": "Where is the rope?",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:8"
+      ],
+      "provenance": "New English/French grammar composition from exact source vocabulary. The ordinary location-question frame parallels held card12, but the defined competent-person role is excluded; labelled card names omit the article.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:22:fr-en:form:2",
+      "englishForm": "Show me the [noun].",
+      "meaningFrench": "Montrez-moi le/la/l’ + nom.",
+      "candidateExampleEnglish": "Show me the harness.",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:4"
+      ],
+      "provenance": "New English/French grammar composition from exact source vocabulary.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:22:fr-en:form:3",
+      "englishForm": "The card says \"[printed word]\".",
+      "meaningFrench": "La carte indique + mot.",
+      "candidateExampleEnglish": "The card says \"inspection\".",
+      "sourceAnchors": [
+        "core-roofing:22:fr-en:card:7"
+      ],
+      "provenance": "New English/French grammar composition from exact source vocabulary.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner asking for vocabulary cards.",
+    "partnerRole": "A partner showing word and picture cards.",
+    "candidateOpeningEnglish": "Where is the rope?",
+    "goalEnglish": "Locate rope and harness picture cards and read the word on card C.",
+    "candidateWordBankEnglish": [
+      "rope",
+      "harness",
+      "inspection",
+      "Where is the rope?",
+      "Show me the harness.",
+      "Where is card C?",
+      "The card says \"inspection\"."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, merged into the last learner turn; not a work instruction or source event.",
+    "sourceAnchors": [
+      "core-roofing:22:fr-en:card:4",
+      "core-roofing:22:fr-en:card:7",
+      "core-roofing:22:fr-en:card:8"
+    ],
+    "practiceContextEnglish": "Picture A shows a rope, picture B a harness; word card C says inspection.",
+    "partnerCuesEnglish": [
+      "The rope is in picture A.",
+      "Here is the harness in picture B.",
+      "Card C is here. What does it say?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Show me the harness.",
+      "Where is card C?",
+      "The card says \"inspection\". Thank you."
+    ],
+    "id": "core-roofing:22:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:22:fr-en:card:1",
+      "core-roofing:22:fr-en:card:10",
+      "core-roofing:22:fr-en:card:11",
+      "core-roofing:22:fr-en:card:12",
+      "core-roofing:22:fr-en:card:13",
+      "core-roofing:22:fr-en:card:14",
+      "core-roofing:22:fr-en:card:2",
+      "core-roofing:22:fr-en:card:3",
+      "core-roofing:22:fr-en:card:5",
+      "core-roofing:22:fr-en:card:6",
+      "core-roofing:22:fr-en:reader:1",
+      "core-roofing:22:fr-en:reader:2",
+      "core-roofing:22:fr-en:reader:3",
+      "core-roofing:22:fr-en:reader:4",
+      "core-roofing:22:fr-en:reader:5",
+      "core-roofing:22:fr-en:reader:6",
+      "core-roofing:22:fr-en:reader:7",
+      "core-roofing:22:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where is the rope?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The rope is in picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Show me the harness."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the harness in picture B."
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is card C?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Card C is here. What does it say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The card says \"inspection\". Thank you."
+      }
+    ],
+    "goalFrench": "Repérez les cartes-images corde et harnais, puis lisez le mot sur la carte C.",
+    "contextFrench": "La carte-image A montre une corde, B un harnais ; la carte C porte le mot inspection.",
+    "partnerCueSupportFrench": [
+      "La corde est sur l’image A.",
+      "Voici le harnais sur l’image B.",
+      "La carte C est ici. Qu’indique-t-elle ?"
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Montrez-moi le harnais.",
+      "Où est la carte C ?",
+      "La carte indique « inspection ». Merci."
+    ],
+    "scaffoldVocabularyFrench": {
+      "card": "carte",
+      "picture": "image",
+      "show": "montrer",
+      "say": "indiquer/dire"
+    },
+    "closureFrench": "Merci.",
+    "candidateOpeningFrench": "Où est la corde ?"
+  },
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "core-roofing:22:fr-en:card:3",
+      "candidateFrenchOptions": [
+        "la distance de chute",
+        "la hauteur de chute",
+        "la distance libre de chute"
+      ],
+      "meaningEnglish": "fall distance",
+      "reviewQuestion": "Spanish distancia de caída means the fall distance of the system in the source. Does the archived distance libre de chute mean fall clearance instead? Keep all options unselected until qualified fall-protection and dictionary review.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Distancia de caída",
+      "optionNotes": [
+        {
+          "option": "la distance de chute",
+          "origin": "New literal French candidate from source distancia de caída; qualified technical sense pending."
+        },
+        {
+          "option": "la hauteur de chute",
+          "origin": "Haiku proposal; dimension/sense equivalence not assumed."
+        },
+        {
+          "option": "la distance libre de chute",
+          "origin": "Archived French evidence; possible clearance conflation remains held, not an accepted synonym."
+        }
+      ],
+      "selectedOption": null
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-22-source-decision-2026-11-18/packet.json",
+    "sha256": "8dd544792024279d2807611d861580b9fef672662f3709c7a2ef7c6dd86e600e"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:22:fr-en:card:1",
+      "sourceEnglish": "anchor",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:22:fr-en:card:2",
+      "sourceEnglish": "lifeline",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:22:fr-en:card:3",
+      "sourceEnglish": "fall distance",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:22:fr-en:card:4",
+      "sourceEnglish": "harness",
+      "candidateFrench": "le harnais",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:22:fr-en:card:5",
+      "sourceEnglish": "lanyard",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:22:fr-en:card:6",
+      "sourceEnglish": "competent person",
+      "candidateFrench": null,
+      "hold": "Competent person is a defined site role. Archived personne compétente is only conditional until the applicable jurisdiction, designation, inspection authority and clearance wording are confirmed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:22:fr-en:card:7",
+      "sourceEnglish": "inspection",
+      "candidateFrench": "l’inspection",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:22:fr-en:card:8",
+      "sourceEnglish": "rope",
+      "candidateFrench": "la corde",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:22:fr-en:card:9",
+      "sourceEnglish": "stop work",
+      "candidateFrench": "arrêter le travail",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source packet conditionalFrench copied as unreviewed contextual candidate; no qualified approval or selection."
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:22:fr-en:card:10",
+      "sourceEnglish": "Use the roof anchor — don't freelance.",
+      "candidateFrench": null,
+      "hold": "The source says use the roof anchor without stating it is approved, and declares the anchor unsafe before the inspection. Archived French adds approuvé to card 10 and softens unsafe to semble dangereux in card 11/Reader 3. Preserve the source claims as evidence; a qualified safety/source reviewer must decide the approved site-specific wording before selection. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:22:fr-en:card:11",
+      "sourceEnglish": "Stop work. The anchor is not safe.",
+      "candidateFrench": null,
+      "hold": "The source says use the roof anchor without stating it is approved, and declares the anchor unsafe before the inspection. Archived French adds approuvé to card 10 and softens unsafe to semble dangereux in card 11/Reader 3. Preserve the source claims as evidence; a qualified safety/source reviewer must decide the approved site-specific wording before selection. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:22:fr-en:card:12",
+      "sourceEnglish": "Where is the competent person?",
+      "candidateFrench": null,
+      "hold": "Defined competent-person role and jurisdiction/inspection authority remain unresolved.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:22:fr-en:card:13",
+      "sourceEnglish": "Check the lifeline for damage.",
+      "candidateFrench": null,
+      "hold": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:22:fr-en:card:14",
+      "sourceEnglish": "Confirm the anchor setup before we continue.",
+      "candidateFrench": null,
+      "hold": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio. Archived speaking adds checking equipment, fall clearance and the rescue plan beyond the source's stop-work and competent-person setup confirmation. Keep these as internal domain review notes, not learner script or authoritative site procedure. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:1",
+      "sourceEnglish": "While they work on the roof, a worker sees something wrong with the lifeline.",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:2",
+      "sourceEnglish": "He stops and tells the foreman.",
+      "candidateFrench": null,
+      "hold": "Reader2 is dependent on the unresolved lifeline/defect/stop-work source scene; no safe-return conclusion selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:3",
+      "sourceEnglish": "The foreman says: Stop work. The anchor is not safe.",
+      "candidateFrench": null,
+      "hold": "The source says use the roof anchor without stating it is approved, and declares the anchor unsafe before the inspection. Archived French adds approuvé to card 10 and softens unsafe to semble dangereux in card 11/Reader 3. Preserve the source claims as evidence; a qualified safety/source reviewer must decide the approved site-specific wording before selection.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:4",
+      "sourceEnglish": "The foreman asks: Where is the competent person?",
+      "candidateFrench": null,
+      "hold": "Competent person is a defined site role. Archived personne compétente is only conditional until the applicable jurisdiction, designation, inspection authority and clearance wording are confirmed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:5",
+      "sourceEnglish": "Check whether the lifeline has any damage.",
+      "candidateFrench": null,
+      "hold": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:6",
+      "sourceEnglish": "The competent person does the inspection and confirms the fall distance of the system.",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers. Competent person is a defined site role. Archived personne compétente is only conditional until the applicable jurisdiction, designation, inspection authority and clearance wording are confirmed.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:7",
+      "sourceEnglish": "Confirm the anchor setup before we continue.",
+      "candidateFrench": null,
+      "hold": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio. Archived speaking adds checking equipment, fall clearance and the rescue plan beyond the source's stop-work and competent-person setup confirmation. Keep these as internal domain review notes, not learner script or authoritative site procedure.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:22:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:22:fr-en:reader:8",
+      "sourceEnglish": "A harness is no use if the anchor or the lanyard fails.",
+      "candidateFrench": null,
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:22:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:22:fr-en:card:1",
+      "englishHeadword": "anchor",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Anclaje"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:22:fr-en:card:2",
+      "englishHeadword": "lifeline",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Línea de vida"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:22:fr-en:card:3",
+      "englishHeadword": "fall distance",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Distancia de caída"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:22:fr-en:card:4",
+      "englishHeadword": "harness",
+      "candidateFrenchSense": "le harnais",
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Arnés"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:22:fr-en:card:5",
+      "englishHeadword": "lanyard",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Archived French Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Eslinga"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:22:fr-en:card:6",
+      "englishHeadword": "competent person",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "Competent person is a defined site role. Archived personne compétente is only conditional until the applicable jurisdiction, designation, inspection authority and clearance wording are confirmed.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Persona competente"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:22:fr-en:card:7",
+      "englishHeadword": "inspection",
+      "candidateFrenchSense": "l’inspection",
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Inspección"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:22:fr-en:card:8",
+      "englishHeadword": "rope",
+      "candidateFrenchSense": "la corde",
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Cuerda"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:22:fr-en:card:9",
+      "englishHeadword": "stop work",
+      "candidateFrenchSense": "arrêter le travail",
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Detener el trabajo"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:22:fr-en:card:10",
+      "englishHeadword": "Use the roof anchor — don't freelance.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "The source says use the roof anchor without stating it is approved, and declares the anchor unsafe before the inspection. Archived French adds approuvé to card 10 and softens unsafe to semble dangereux in card 11/Reader 3. Preserve the source claims as evidence; a qualified safety/source reviewer must decide the approved site-specific wording before selection. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Usen el ancla de techo — nada de improvisar."
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:22:fr-en:card:11",
+      "englishHeadword": "Stop work. The anchor is not safe.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "The source says use the roof anchor without stating it is approved, and declares the anchor unsafe before the inspection. Archived French adds approuvé to card 10 and softens unsafe to semble dangereux in card 11/Reader 3. Preserve the source claims as evidence; a qualified safety/source reviewer must decide the approved site-specific wording before selection. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Detengan el trabajo. El anclaje no es seguro."
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:22:fr-en:card:12",
+      "englishHeadword": "Where is the competent person?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "Defined competent-person role and jurisdiction/inspection authority remain unresolved.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Dónde está la persona competente?"
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:22:fr-en:card:13",
+      "englishHeadword": "Check the lifeline for damage.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revisen si la línea de vida tiene daños."
+    },
+    {
+      "id": "core-roofing:22:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:22:fr-en:card:14",
+      "englishHeadword": "Confirm the anchor setup before we continue.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Anchor & Lifeline Check",
+      "status": "held",
+      "hold": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio. Archived speaking adds checking equipment, fall clearance and the rescue plan beyond the source's stop-work and competent-person setup confirmation. Keep these as internal domain review notes, not learner script or authoritative site procedure. Source anclaje versus ancla de techo anchor/anchorage distinction remains open.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Confirmen la instalación del anclaje antes de continuar."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a fall-protection/source decision, settle a work method, or select a technical answer.",
+    "Generic rope/la corde is not selected as a lifeline or corde d’assurance. Stop work source Detener el trabajo is verbal, not French arrêt de travail sick-leave noun. Defined authority and return-to-work remain held. Source Reader1 they versus Reader2 He referents retained, not rewritten.",
+    "Opus read-only critique corrections applied then checked against exact bilingual source; all French remains unreviewed candidate material and original source objectives remain held/incomplete.",
+    "Exact bilingual anchors retain anclaje in cards1/11/14 versus ancla de techo card10 for qualified anchor/anchorage review. Inspection noun versus vérification/contrôle equipment-check register remains qualified review. Card13 and Reader5 have distinct exact English source strings; validator checks each independently, not harmonized.",
+    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval."
+  ],
+  "sourceObjectiveEnglish": "Raise a concern about the anchor or lifeline",
+  "sourceSpeakingEnglish": "Stop work and ask the competent person to confirm the site-specific setup.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

@@ -1,0 +1,638 @@
+{
+  "lessonId": "core-roofing:11:fr-en",
+  "candidateObjectiveEnglish": "Ask whether a line is straight and check a measurement with the tape measure.",
+  "grammarExplanationEnglish": "Use a base verb without a subject for an imperative: \"Check the measurement.\" Put is before the subject in a yes/no question: \"Is the line straight?\" Then can introduce another instruction: \"Measure with the tape measure. Then check the measurement.\"",
+  "grammarExplanationFrench": "L’impératif anglais emploie le verbe à la forme de base, sans sujet : « Check the measurement ». Une question avec « be » inverse le verbe et le sujet : « Is the line straight? ». « Then » introduit ici une autre consigne : « Measure with the tape measure. Then check the measurement. »",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Lisez le terme anglais et son sens français.",
+      "candidateTargetEnglish": "tape measure",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "le ruban à mesurer",
+      "provenance": "English source-exact tool headword; candidate French support.",
+      "id": "core-roofing:11:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Rappelez le terme anglais qui signifie « la mesure ».",
+      "candidateTargetEnglish": "measurement",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "la mesure",
+      "provenance": "English source-exact headword; candidate French support.",
+      "id": "core-roofing:11:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la question anglaise et donnez son sens en français.",
+      "candidateTargetEnglish": "Is the line straight?",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:11"
+      ],
+      "expectedMeaningFrench": "La ligne est-elle droite ?",
+      "provenance": "Exact generic card11 English question in new drawn-line practice context, not the held Reader5 chalk-line scene.",
+      "id": "core-roofing:11:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:11:fr-en:card:1"
+      ],
+      "holdReason": "French line support is proposed for a new generic line context; original source chalk-line referent is not approved."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le terme anglais qui signifie « droit » pour une ligne.",
+      "candidateTargetEnglish": "straight",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "droit",
+      "provenance": "Exact source geometry adjective; French support context is a line.",
+      "id": "core-roofing:11:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Vérifiez la mesure. »",
+      "candidateTargetEnglish": "Check the measurement.",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "Vérifiez la mesure.",
+      "provenance": "New composition from exact source card:6 and the source verb check. Reader:6 is a foreman-role passage and is not active, so it is not used as an anchor.",
+      "id": "core-roofing:11:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Mesurez avec le ruban à mesurer. Puis vérifiez la mesure. »",
+      "candidateTargetEnglish": "Measure with the tape measure. Then check the measurement.",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:6",
+        "core-roofing:11:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "Mesurez avec le ruban à mesurer. Puis vérifiez la mesure.",
+      "provenance": "New sequence composed from source tool/measurement vocabulary; no site mark, dimension or edge reference is supplied.",
+      "id": "core-roofing:11:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    }
+  ],
+  "forms": [
+    {
+      "englishForm": "imperative (base verb + object)",
+      "meaningFrench": "impératif (forme vous)",
+      "candidateExampleEnglish": "Check the measurement.",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:6"
+      ],
+      "provenance": "New imperative from measurement vocabulary and ordinary check verb; no claim that again is an unheld source token.",
+      "id": "core-roofing:11:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    },
+    {
+      "englishForm": "be + subject + adjective? (yes/no question)",
+      "meaningFrench": "question anglaise avec be avant le sujet",
+      "candidateExampleEnglish": "Is the line straight?",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:11"
+      ],
+      "provenance": "Exact generic English card11 question in new line-description context; held chalk-line Reader5 is not an anchor.",
+      "id": "core-roofing:11:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately.",
+      "exampleMeaningFrench": "La ligne est-elle droite ?",
+      "heldDependent": true,
+      "heldDecisionRefs": [
+        "core-roofing:11:fr-en:card:1"
+      ],
+      "holdReason": "French line support is proposed for a new generic line context; original source chalk-line referent is not approved."
+    },
+    {
+      "englishForm": "Then + imperative (sequence of steps)",
+      "meaningFrench": "puis + impératif (ordre des étapes)",
+      "candidateExampleEnglish": "Measure with the tape measure. Then check the measurement.",
+      "sourceAnchors": [
+        "core-roofing:11:fr-en:card:5",
+        "core-roofing:11:fr-en:card:6"
+      ],
+      "provenance": "New composition. Chalk-line, first-course, starter-strip and overhang content is not used.",
+      "id": "core-roofing:11:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed candidate French support. Exact English source or new composition is labelled separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A coworker naming a measuring tool and checking a line description.",
+    "partnerRole": "Another coworker asking about the tool and a labelled example line.",
+    "candidateOpeningEnglish": "This is a tape measure.",
+    "goalEnglish": "Name the tape measure, ask if the line is straight and request a measurement check.",
+    "candidateWordBankEnglish": [
+      "tape measure",
+      "measurement",
+      "straight",
+      "line",
+      "check"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "sourceAnchors": [
+      "core-roofing:11:fr-en:card:5",
+      "core-roofing:11:fr-en:card:6",
+      "core-roofing:11:fr-en:card:7",
+      "core-roofing:11:fr-en:card:11"
+    ],
+    "id": "core-roofing:11:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCuesEnglish": [
+      "What would you like to check?",
+      "What do you want me to do?",
+      "Please repeat that."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
+    "scenarioProvenance": "New generic drawn-line and measuring-tool language practice, not chalk-line layout or actual measurement.",
+    "heldDependent": true,
+    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "heldDecisionRefs": [
+      "core-roofing:11:fr-en:card:1",
+      "core-roofing:11:fr-en:card:2",
+      "core-roofing:11:fr-en:card:3",
+      "core-roofing:11:fr-en:card:8"
+    ],
+    "objectiveProvenance": "Narrower language task; first-course/chalk/starter/overhang objective remains held.",
+    "openingProvenance": "New identification composition from source card5.",
+    "expectedLearnerTurnsEnglish": [
+      "Is the line straight?",
+      "Please check the measurement.",
+      "Please check the measurement."
+    ]
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-11-source-decision-2026-11-18/packet.json",
+    "sha256": "8a1c5c95521ee21d88eccf3ace87b64f5af75703325e634ebf0525eb8d034374"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:11:fr-en:card:1",
+      "sourceEnglish": "chalk line",
+      "candidateFrench": null,
+      "hold": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:11:fr-en:card:2",
+      "sourceEnglish": "first course",
+      "candidateFrench": null,
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:11:fr-en:card:3",
+      "sourceEnglish": "starter strip",
+      "candidateFrench": null,
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:11:fr-en:card:4",
+      "sourceEnglish": "eave",
+      "candidateFrench": null,
+      "hold": "Linked eave/overhang locale and layout start-point decision requires qualified trade/source review; no approved location or dimension selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:11:fr-en:card:5",
+      "sourceEnglish": "tape measure",
+      "candidateFrench": "le ruban à mesurer",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:11:fr-en:card:6",
+      "sourceEnglish": "measurement",
+      "candidateFrench": "la mesure",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:11:fr-en:card:7",
+      "sourceEnglish": "straight",
+      "candidateFrench": "droit",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:11:fr-en:card:8",
+      "sourceEnglish": "overhang",
+      "candidateFrench": null,
+      "hold": "The foreman marks points on the plan and the overhang measurement is on the job plan. Confirm whether the intended points are physical marks on a drawing or site layout marks made according to it; do not invent a numeric overhang or universal placement dimension. Source overhang is roof eave projection in this job plan; archived débord may be broader. Confirm the French dictionary sense and the approved plan/product detail before using as an installation command.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:11:fr-en:card:9",
+      "sourceEnglish": "Run a chalk line for the first course.",
+      "candidateFrench": null,
+      "hold": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use. Source speaking asks only to show a worker where to run the first-course chalk line. Archived speaking adds the overhang measurement and approved product method. Keep extra process questions separate from this direct learner objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:11:fr-en:card:10",
+      "sourceEnglish": "Start here at the eave.",
+      "candidateFrench": null,
+      "hold": "Linked eave/overhang locale and layout start-point decision requires qualified trade/source review; no approved location or dimension selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:11:fr-en:card:11",
+      "sourceEnglish": "Is the line straight?",
+      "candidateFrench": "La ligne est-elle droite ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "linkedChalkLineDecisionRef": "core-roofing:11:fr-en:card:1",
+      "senseDecisionPending": true,
+      "internalContextNote": "Generic line question in this supplement; original snapped-chalk-line context remains held."
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:11:fr-en:card:12",
+      "sourceEnglish": "Measure from the edge.",
+      "candidateFrench": "Mesurez à partir du bord.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:11:fr-en:card:13",
+      "sourceEnglish": "Put the starter strip along the eave.",
+      "candidateFrench": null,
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:1",
+      "sourceEnglish": "First, the foreman takes out the tape measure.",
+      "candidateFrench": null,
+      "hold": "Linked foreman versus crew-lead role decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:2",
+      "sourceEnglish": "He measures from the edge of the eave and marks the points on the plan.",
+      "candidateFrench": null,
+      "hold": "The foreman marks points on the plan and the overhang measurement is on the job plan. Confirm whether the intended points are physical marks on a drawing or site layout marks made according to it; do not invent a numeric overhang or universal placement dimension.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:3",
+      "sourceEnglish": "Then he says: Run a chalk line for the first course.",
+      "candidateFrench": null,
+      "hold": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use. Source speaking asks only to show a worker where to run the first-course chalk line. Archived speaking adds the overhang measurement and approved product method. Keep extra process questions separate from this direct learner objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:4",
+      "sourceEnglish": "Two workers stretch the line and snap it.",
+      "candidateFrench": null,
+      "hold": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:5",
+      "sourceEnglish": "Is the line straight?",
+      "candidateFrench": null,
+      "hold": "Reader line refers to the held snapped chalk line in Reader3/4. Generic card11 question remains a separate candidate language example.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:6",
+      "sourceEnglish": "The foreman checks the measurement again.",
+      "candidateFrench": null,
+      "hold": "Linked foreman versus crew-lead role decision propagated; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:7",
+      "sourceEnglish": "Start here at the eave.",
+      "candidateFrench": null,
+      "hold": "Linked eave/overhang locale and layout start-point decision requires qualified trade/source review; no approved location or dimension selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:8",
+      "sourceEnglish": "Put the starter strip along the eave.",
+      "candidateFrench": null,
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row. Source speaking asks only to show a worker where to run the first-course chalk line. Archived speaking adds the overhang measurement and approved product method. Keep extra process questions separate from this direct learner objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:11:fr-en:reader:9",
+      "sourceEnglish": "The overhang measurement is on the job plan.",
+      "candidateFrench": null,
+      "hold": "The foreman marks points on the plan and the overhang measurement is on the job plan. Confirm whether the intended points are physical marks on a drawing or site layout marks made according to it; do not invent a numeric overhang or universal placement dimension. Source overhang is roof eave projection in this job plan; archived débord may be broader. Confirm the French dictionary sense and the approved plan/product detail before using as an installation command.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:11:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:11:fr-en:card:1",
+      "englishHeadword": "chalk line",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:11:fr-en:card:2",
+      "englishHeadword": "first course",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:11:fr-en:card:3",
+      "englishHeadword": "starter strip",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:11:fr-en:card:4",
+      "englishHeadword": "eave",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "Linked eave/overhang locale and layout start-point decision requires qualified trade/source review; no approved location or dimension selected.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:11:fr-en:card:5",
+      "englishHeadword": "tape measure",
+      "candidateFrenchSense": "le ruban à mesurer",
+      "contextEnglish": "First-Course Layout",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "candidateLocaleAlternativesFrench": [
+        "le ruban à mesurer",
+        "le mètre ruban"
+      ],
+      "localeReviewPending": true
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:11:fr-en:card:6",
+      "englishHeadword": "measurement",
+      "candidateFrenchSense": "la mesure",
+      "contextEnglish": "First-Course Layout",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:11:fr-en:card:7",
+      "englishHeadword": "straight",
+      "candidateFrenchSense": "droit",
+      "contextEnglish": "First-Course Layout",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:11:fr-en:card:8",
+      "englishHeadword": "overhang",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "The foreman marks points on the plan and the overhang measurement is on the job plan. Confirm whether the intended points are physical marks on a drawing or site layout marks made according to it; do not invent a numeric overhang or universal placement dimension. Source overhang is roof eave projection in this job plan; archived débord may be broader. Confirm the French dictionary sense and the approved plan/product detail before using as an installation command.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:11:fr-en:card:9",
+      "englishHeadword": "Run a chalk line for the first course.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "The source uses a chalk line (línea de tiza) and describes workers stretching and snapping it. Archived cordeau traceur may not explicitly distinguish chalk from another line-marking system. Confirm French trade and regional sense before scored/audio use. Source speaking asks only to show a worker where to run the first-course chalk line. Archived speaking adds the overhang measurement and approved product method. Keep extra process questions separate from this direct learner objective.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:11:fr-en:card:10",
+      "englishHeadword": "Start here at the eave.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "Linked eave/overhang locale and layout start-point decision requires qualified trade/source review; no approved location or dimension selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:11:fr-en:card:11",
+      "englishHeadword": "Is the line straight?",
+      "candidateFrenchSense": "La ligne est-elle droite ?",
+      "contextEnglish": "First-Course Layout",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "linkedChalkLineDecisionRef": "core-roofing:11:fr-en:card:1",
+      "senseDecisionPending": true
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:11:fr-en:card:12",
+      "englishHeadword": "Measure from the edge.",
+      "candidateFrenchSense": "Mesurez à partir du bord.",
+      "contextEnglish": "First-Course Layout",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    },
+    {
+      "id": "core-roofing:11:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:11:fr-en:card:13",
+      "englishHeadword": "Put the starter strip along the eave.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "First-Course Layout",
+      "status": "held",
+      "hold": "First course and starter strip are distinct source concepts. Archived premier rang and bande de départ must be checked against the approved roof product and regional terminology; do not collapse the strip into a generic first row.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Measure/check/again examples are new grammatical compositions from source tool/measurement language; they do not specify a measurement, eave position, chalk-line method or overhang.",
+    "Check/then examples are explicitly new English compositions from ordinary grammar plus source tool/measurement nouns; they do not claim the held foreman/again wording is an approved source frame. The held source role subject and chalk-layout method are not inherited."
+  ]
+}

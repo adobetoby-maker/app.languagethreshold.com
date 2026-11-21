@@ -37,7 +37,16 @@ test("historical shared-only constructor ignores a real generated verb change; c
       "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c",
     );
     await build({
-      stdin: { contents: source, resolveDir: resolve("src/lib"), loader: "ts" },
+      // The retained source predates pair-scoped curricula; it is built against today's
+      // getCurriculum, which takes the pair the snapshot was asked for.
+      stdin: {
+        contents: source.replace(
+          "getCurriculum(moduleId);",
+          "getCurriculum(moduleId, target, native);",
+        ),
+        resolveDir: resolve("src/lib"),
+        loader: "ts",
+      },
       outfile: join(dir, "old.mjs"),
       bundle: true,
       format: "esm",
@@ -157,6 +166,11 @@ test("wrong instruction pairs and absent language files cannot borrow generated 
     ["French", "English"],
   ]) {
     const snapshot = currentLessonReviewSnapshot("roofing", target, native);
+    if (target === "French") {
+      // A target the module was not written for has no lesson snapshot at all.
+      assert.equal(snapshot, null);
+      continue;
+    }
     assert.equal(snapshot.generatedMaterial.sourcePath, null);
     assert.ok(snapshot.lessons.every((l) => l.verbs.length === 0 && l.words.length === 0));
   }

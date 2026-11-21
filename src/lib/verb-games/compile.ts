@@ -1,9 +1,12 @@
+// es-verbs morphology plugin (src/lib/verb-games/morphology.ts): this compile classifies Spanish
+// present-tense forms; a pack reaches it only when its dictionary.morphology names es-verbs.
 // Built by TAC — 2026-10-20
 // Verb Games: pure pattern compiler. Lesson verbs + dictionary profiles + core list in,
 // PatternData + review items + review report markdown out. No file writes, no runtime AI.
 
 import { createHash } from "node:crypto";
-import type { VerbProfile } from "../../components/dictionary/types.ts";
+import { profileForm, type VerbProfile } from "../../components/dictionary/types.ts";
+import { COMPILED_PROFILE_SLOTS } from "./morphology.ts";
 import type { LessonVerb } from "../lesson-content-core.ts";
 import { explainIrregular, formFamilies, formIssues, splitForm } from "./classify.ts";
 import { englishForm, primaryGloss } from "./english.ts";
@@ -95,14 +98,13 @@ function lessonForms(verb: LessonVerb): Record<Person, string> {
 
 /** The five profile forms in PERSONS order. Only `full` is read; labels and notes are ignored. */
 function profileForms(profile: VerbProfile): Record<Person, string> {
-  const full = (form: { full?: string } | undefined): string => norm(form?.full ?? "");
-  return {
-    yo: full(profile.phase1?.presentYo),
-    tú: full(profile.phase1?.presentTu),
-    él_ella_usted: full(profile.phase1?.presentEl),
-    nosotros: full(profile.phase2?.presentNosotros),
-    ellos_ustedes: full(profile.phase2?.presentEllos),
-  };
+  // Each person's present form, read from the slot the morphology plugin names for it.
+  return Object.fromEntries(
+    PERSONS.map((person) => [
+      person,
+      norm(profileForm(profile, COMPILED_PROFILE_SLOTS[person])?.full ?? ""),
+    ]),
+  ) as Record<Person, string>;
 }
 
 /** The example with its single matching form token replaced by "___", or null. */
@@ -379,14 +381,15 @@ function compileVerb(
   if (ov.exclude !== undefined) return exclude(`override: ${ov.exclude}`);
 
   // Reviewed form corrections replace the profile form and every lesson form for that person.
-  const lessonFormsOf = (ref: LessonRef): Record<Person, string> => ({ ...ref.forms, ...ov.forms });
+  const lessonFormsOf = (ref: LessonRef): Record<Person, string> =>
+    ({ ...ref.forms, ...ov.forms }) as Record<Person, string>;
 
   // 1. Forms. With a profile, a disagreeing lesson is resolved per person (R2); otherwise lesson
   // forms must agree across modules.
   let full: Record<Person, string>;
   let status: VerbEntry["status"];
   if (profile) {
-    const prof: Record<Person, string> = { ...profileForms(profile), ...ov.forms };
+    const prof = { ...profileForms(profile), ...ov.forms } as Record<Person, string>;
     const missing = PERSONS.find((p) => !prof[p]);
     if (missing) return exclude(`missing ${missing}`);
     const lessonValues = {} as Record<Person, string[]>;

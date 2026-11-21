@@ -33,8 +33,9 @@ const PAYWALL_SEEN_KEY = "lt.paywallSeen";
 
 /** Shown to a signed-out learner on a Foundation tab: an account is free, the paid trial is not. */
 function FoundationSignInPrompt({ moduleId }: { moduleId: string }) {
+  const { state } = useApp();
   const [authOpen, setAuthOpen] = useState(false);
-  const lessons = getCurriculum(moduleId)?.lessons ?? [];
+  const lessons = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons ?? [];
   return (
     <div
       data-testid="foundation-signin-prompt"

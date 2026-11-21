@@ -25,9 +25,16 @@ import {
   type LessonContentLesson,
 } from "./lesson-content-core.ts";
 import { cleanLessonWords } from "./lesson-words-core.ts";
-import { requirePackFor } from "../data/language-packs/registry.ts";
+import {
+  historicalCoursePair,
+  packFor,
+  requirePackFor,
+  workplaceCoursePack,
+} from "../data/language-packs/registry.ts";
+import { appData } from "../data/language-packs/app-data.ts";
+import { nativeLanguageName } from "../data/languages.ts";
 import { contentRulesFor } from "../data/language-packs/content-rules.ts";
-import { NOTE_FINAL_RULE, PASSAGE_QUALITY_RULES, REGION_RULE } from "./lesson-content-prompt.ts";
+import { NOTE_FINAL_RULE, passageQualityRules, regionRule } from "./lesson-content-prompt.ts";
 import {
   CORE60_STAGE_FILE_VERSION,
   stageModuleId,
@@ -103,35 +110,62 @@ export interface Core60Pair {
   nativeLanguage: string;
 }
 
-/** The languages that have hand-authored unit tables, spines and prompts (see FOUNDATION_UNITS). */
-export type GeneratorLanguage = "Spanish" | "English";
+/**
+ * A generator profile id: a language's app file names the profile its stages are written with
+ * (src/data/language-packs/app/<code>.json generator). Each profile is authored per pair: its unit
+ * table, grammar spine, register and safety wording, term shape and checks (GENERATOR_PROFILES).
+ */
+export type GeneratorProfileId = "es-trades" | "en-workplace";
+
+/** The generator profile of a pair's target language, or null when it has none (fail closed). */
+export function generatorProfileId(pair: Core60Pair): GeneratorProfileId | null {
+  const pack = packFor(pair.language);
+  const id = pack ? appData(pack).generator : null;
+  return id && Object.hasOwn(FOUNDATION_UNITS, id) ? (id as GeneratorProfileId) : null;
+}
 
 export function foundationUnitsFor(pair: Core60Pair): readonly FoundationUnit[] {
-  assertGeneratorProfile(pair);
-  return FOUNDATION_UNITS[pair.language];
+  return FOUNDATION_UNITS[requireProfileId(pair)];
 }
 
 export function masterSpineFor(pair: Core60Pair) {
-  assertGeneratorProfile(pair);
-  return MASTER_GRAMMAR_SPINE[pair.language];
+  return MASTER_GRAMMAR_SPINE[requireProfileId(pair)];
 }
 
 /** Fails loudly for a pair whose language has no authored generator profile, never falls back. */
-export function assertGeneratorProfile(pair: Core60Pair): asserts pair is Core60Pair & { language: GeneratorLanguage } {
-  if (!Object.hasOwn(FOUNDATION_UNITS, pair.language)) {
-    throw new Error(`No Core 60 generator profile for ${pair.language}; add one before generating it`);
-  }
+export function assertGeneratorProfile(pair: Core60Pair): void {
+  requireProfileId(pair);
+}
+
+function requireProfileId(pair: Core60Pair): GeneratorProfileId {
+  const id = generatorProfileId(pair);
+  if (!id) throw new Error(`No Core 60 generator profile for ${pair.language}; add one before generating it`);
+  return id;
+}
+
+function profileOf(language: string): GeneratorProfile {
+  const pack = packFor(language);
+  const id = pack ? appData(pack).generator : null;
+  const profile = id ? GENERATOR_PROFILES[id as GeneratorProfileId] : undefined;
+  if (!profile) throw new Error(`No Core 60 generator profile for ${language}; add one before generating it`);
+  return profile;
 }
 
 /**
- * The one pair a trade's stages are written in, mirroring scripts/build-lesson-content.mts:
- * English target / Spanish native for the English-for-work modules (learnDirection "en-target"),
- * Spanish target / English native for every other module that supports Spanish for English
- * speakers. `supportsSpanish` is moduleSupportsLearningPair(module, "Spanish", "English").
+ * The one pair a trade's stages are written in, mirroring scripts/build-lesson-content.mts: the
+ * workplace course and its default native for the English-for-work modules (learnDirection
+ * "en-target"), the historical course pair for every other module that supports it. `supported`
+ * is moduleSupportsLearningPair(module, historical target, historical native).
  */
-export function core60PairFor(module: GeneratorModule, supportsSpanish: boolean): Core60Pair | null {
-  if (module.learnDirection === "en-target") return { language: "English", nativeLanguage: "Spanish" };
-  if (supportsSpanish) return { language: "Spanish", nativeLanguage: "English" };
+export function core60PairFor(module: GeneratorModule, supported: boolean): Core60Pair | null {
+  if (module.learnDirection === "en-target") {
+    const pack = workplaceCoursePack();
+    return { language: pack.name, nativeLanguage: nativeLanguageName(pack.native.default) ?? "" };
+  }
+  if (supported) {
+    const pair = historicalCoursePair();
+    return { language: pair.target, nativeLanguage: pair.native };
+  }
   return null;
 }
 
@@ -144,8 +178,8 @@ export interface FoundationUnit {
 }
 
 /** F1-F10: the same ten topics for every trade, taught with the trade's own words. */
-export const FOUNDATION_UNITS: Record<GeneratorLanguage, readonly FoundationUnit[]> = {
-  Spanish: [
+export const FOUNDATION_UNITS: Record<GeneratorProfileId, readonly FoundationUnit[]> = {
+  "es-trades": [
     { title: "Sounds and Greetings", topic: "the five vowels, ch, j, ll, rr and the written accent; greetings" },
     { title: "Numbers, Time and Measurements", topic: "numbers 0 to 1,000, clock time, and the measurements and quantities of this work" },
     { title: "Ser and Estar", topic: "ser for what something is, estar for its condition or location" },
@@ -157,7 +191,7 @@ export const FOUNDATION_UNITS: Record<GeneratorLanguage, readonly FoundationUnit
     { title: "Polite Requests and Commands", topic: "¿Puede…? and usted commands for everyday verbs" },
     { title: "Words You Already Know and Getting Help", topic: "cognates (-ción, -dad, -ente) and survival phrases" },
   ],
-  English: [
+  "en-workplace": [
     { title: "Sounds and Greetings", topic: "English vowels, th, r, v and b, word stress; greetings" },
     { title: "Numbers, Time and Measurements", topic: "numbers 0 to 1,000, clock time, and the measurements and quantities of this work" },
     { title: "To Be", topic: "am, is, are for who someone is, a condition and a location" },
@@ -227,8 +261,8 @@ export function masterBlockOf(n: number): MasterBlockSpec {
 }
 
 /** The B1 to B2 grammar spine, one focus per lesson (Roofing Master 20's, for Spanish). */
-export const MASTER_GRAMMAR_SPINE: Record<Core60Pair["language"], readonly string[]> = {
-  Spanish: [
+export const MASTER_GRAMMAR_SPINE: Record<GeneratorProfileId, readonly string[]> = {
+  "es-trades": [
     "Connectors for sequence and cause (primero, luego, porque, por eso)",
     "Impersonal se; si + present for general truths",
     "Commands with object pronouns (revísalo, no lo toques)",
@@ -250,7 +284,7 @@ export const MASTER_GRAMMAR_SPINE: Record<Core60Pair["language"], readonly strin
     "Conditional; subjunctive in conditions (siempre que)",
     "Capstone: integrating the Master 20 grammar",
   ],
-  English: [
+  "en-workplace": [
     "Connectors for sequence and cause (first, then, because, so)",
     "The passive for general rules; the zero conditional (if + present)",
     "Commands with object pronouns (check it, don't touch it)",
@@ -304,37 +338,20 @@ export function stageHeadline(ctx: StageContext): string {
 
 // ─── Shared prompt rules ─────────────────────────────────────────────────────
 
-/** Spanish-target variety: neutral Latin-American Spanish, never vosotros (checked by vosotrosForms). */
-export const SPANISH_VARIETY_RULE =
+/** es-trades variety: neutral Latin-American Spanish, never vosotros (checked by vosotrosForms). */
+export const ES_TRADES_VARIETY_RULE =
   'Variety: neutral Latin-American Spanish only. Plural "you" is ALWAYS ustedes (ustedes revisan, revisen, les digo): never vosotros / vosotras, never a vosotros verb form (-áis, -éis, -ís: revisáis, tenéis, vivís, sois) and never the object pronoun "os". Unless the module is a travel zone set in Spain, scenes are set in the Americas or the US and use the terms used in the Americas (el celular, not el móvil; el video, not el vídeo; la computadora, not el ordenador; manejar, not conducir a car; el carro or el auto, not el coche).';
 
 function registerRules(ctx: StageContext): string {
-  if (ctx.pair.language === "Spanish") {
-    return [
-      "Spanish register: Mexican / US Spanish as working people in the United States actually say it on this job, including a common loanword only when it is standard job usage (breaker, troca).",
-      "A lead speaking to a crew uses the plural ustedes command (revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted, or tú between coworkers when the lesson calls for it. Mark formal / informal in a word's note when it matters.",
-      "Write ¿ and ¡ properly. Never coin a word-for-word phrase: use the term people in this work really say; if unsure, pick a different, safer term.",
-      "Grammar that native reviewers check: agreement for people (a woman is la electricista, la clienta, la enfermera; a man el electricista); the personal a before a person or people as the direct object (cubrir a mis pacientes, llamar al supervisor); a negative after antes de / sin (antes de tocar nada); measurements with de (el pulso es de 72); and no English calques (say what people say, not a translated slogan).",
-      REGION_RULE,
-      SPANISH_VARIETY_RULE,
-      "Units: never mix metric and imperial in one sentence; US jobs measure in feet, inches and pounds (10 pies y 6 pulgadas), medicine in mg and mL. Electrical: a live wire is energizado or con corriente (not prendido); you measure el voltaje.",
-    ].join(" ");
-  }
-  return [
-    "English register: plain, current American English as used at work in the United States (short, direct, polite). The learner's native language is Spanish (neutral Latin American Spanish): every native-language text, gloss and note is written in that Spanish, with ¿ and ¡.",
-    "Never coin a literal phrase: use the word people in this work really say.",
-  ].join(" ");
+  const pack = requirePackFor(ctx.pair.language);
+  return profileOf(ctx.pair.language)
+    .registerRules.map((rule) => (rule === "{regionRule}" ? regionRule(pack) : rule))
+    .join(" ");
 }
 
 function safetyRules(ctx: StageContext): string {
-  const examples =
-    ctx.pair.language === "Spanish"
-      ? MEDICAL(ctx)
-        ? "según la orden del médico, según el protocolo del hospital, la etiqueta dice, según la política"
-        : "según el fabricante, según el plano, según el código local, la etiqueta dice, el inspector pide"
-      : MEDICAL(ctx)
-        ? "per the provider's order, per hospital protocol, the label says, per policy"
-        : "per the manufacturer, per the plans, per local code, the label says";
+  const profile = profileOf(ctx.pair.language);
+  const examples = MEDICAL(ctx) ? profile.safetyExamples.medical : profile.safetyExamples.trade;
   return [
     "Safety: never present a specific dose, setting, code section, rating or specification as a universal fact. When a number of that kind appears, the SAME sentence names its source (" +
       examples +
@@ -347,16 +364,100 @@ function safetyRules(ctx: StageContext): string {
 }
 
 function wordRules(ctx: StageContext, limits: ContentLimits): string {
-  const spanish = ctx.pair.language === "Spanish";
   return [
     `WORDS per lesson: ${limits.minTerms} to ${limits.maxTerms} terms and ${limits.minPhrases} to ${limits.maxPhrases} phrases.`,
-    spanish
-      ? 'A term is a noun or a short noun phrase of at most 4 words written WITH its definite article (target "el interruptor", native "the switch"; plural only when the thing is normally plural, "los guantes" / "the gloves"), or, when the lesson calls for it, an adjective, adverb, question word or short expression without an article ("seguro" / "safe", "¿dónde?" / "where").'
-      : 'A term is a noun or a short noun phrase of at most 4 words written WITH "the" (target "the switch", native "el interruptor"), or, when the lesson calls for it, an adjective, adverb, question word or short expression without an article ("safe" / "seguro").',
+    profileOf(ctx.pair.language).termRule,
     "A phrase is ONE sentence or question of at most 12 words that the learner would actually SAY in this work, ending with . ? or !",
     `No duplicates in a lesson, and never repeat a term or a phrase from another lesson of this stage. Numbers are digits and identical on both sides. A note (at most 120 characters, written in ${ctx.pair.nativeLanguage}) only when a usage, register or pronunciation tip really helps. ${NOTE_FINAL_RULE}`,
   ].join(" ");
 }
+
+// ─── Generator profiles ──────────────────────────────────────────────────────
+
+/** What one generator profile authors: prompt wording and the checks that read the language. */
+export interface GeneratorProfile {
+  id: GeneratorProfileId;
+  registerRules: readonly string[];
+  safetyExamples: { medical: string; trade: string };
+  termRule: string;
+  /** The hint a retry shows for an unattributed dose or specification. */
+  attributionHint: string;
+  /** Leading articles of the target and native sides (termKey, termHead). */
+  targetArticles: ReadonlySet<string>;
+  nativeArticles: ReadonlySet<string>;
+  /** Function-word markers of the target and native languages (a note's language). */
+  targetMarkers: RegExp;
+  nativeMarkers: RegExp;
+  /** Which side carries ¿ ¡ (the side written in a language with inverted punctuation). */
+  invertedMarksSide: "target" | "native";
+  /** Head word of a term: first word after the article, or last before a preposition. */
+  headWord: "first" | "last";
+  /** Plural and gender forms of a head word. */
+  headInflection: "romance" | "english";
+  /** A verb-like head (infinitive ending) that the passage may inflect; null: none. */
+  verbLikeHead: RegExp | null;
+  /** Reject vosotros forms in the passage and verbs (the variety forbids them). */
+  rejectVosotros: boolean;
+}
+
+const ES_ARTICLES = new Set(["el", "la", "los", "las", "un", "una", "unos", "unas", "lo"]);
+const EN_ARTICLES = new Set(["the", "a", "an"]);
+const ES_MARKERS = /\b(es|muy|verbo|los|las|para|del|cuando|la|el|que|con|se|una|un|en|por|pero|este|esta|tiene|significa|también|usted|decir|dice)\b/gi;
+const EN_MARKERS = /\b(the|and|with|is|are|use|used|say|says|when|means|for|this|to|of|in|it|not|formal|informal|also|only|you|that|takes|take|word|words|noun|nouns|verb|verbs|feminine|masculine|plural|singular|agree|agrees|adjective|adjectives|before|after|like|or|an)\b/gi;
+
+export const GENERATOR_PROFILES: Record<GeneratorProfileId, GeneratorProfile> = {
+  "es-trades": {
+    id: "es-trades",
+    registerRules: [
+      "Spanish register: Mexican / US Spanish as working people in the United States actually say it on this job, including a common loanword only when it is standard job usage (breaker, troca).",
+      "A lead speaking to a crew uses the plural ustedes command (revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted, or tú between coworkers when the lesson calls for it. Mark formal / informal in a word's note when it matters.",
+      "Write ¿ and ¡ properly. Never coin a word-for-word phrase: use the term people in this work really say; if unsure, pick a different, safer term.",
+      "Grammar that native reviewers check: agreement for people (a woman is la electricista, la clienta, la enfermera; a man el electricista); the personal a before a person or people as the direct object (cubrir a mis pacientes, llamar al supervisor); a negative after antes de / sin (antes de tocar nada); measurements with de (el pulso es de 72); and no English calques (say what people say, not a translated slogan).",
+      "{regionRule}",
+      ES_TRADES_VARIETY_RULE,
+      "Units: never mix metric and imperial in one sentence; US jobs measure in feet, inches and pounds (10 pies y 6 pulgadas), medicine in mg and mL. Electrical: a live wire is energizado or con corriente (not prendido); you measure el voltaje.",
+    ],
+    safetyExamples: {
+      medical: "según la orden del médico, según el protocolo del hospital, la etiqueta dice, según la política",
+      trade: "según el fabricante, según el plano, según el código local, la etiqueta dice, el inspector pide",
+    },
+    termRule:
+      'A term is a noun or a short noun phrase of at most 4 words written WITH its definite article (target "el interruptor", native "the switch"; plural only when the thing is normally plural, "los guantes" / "the gloves"), or, when the lesson calls for it, an adjective, adverb, question word or short expression without an article ("seguro" / "safe", "¿dónde?" / "where").',
+    attributionHint: "según la orden / el protocolo / el fabricante / el plano",
+    targetArticles: ES_ARTICLES,
+    nativeArticles: EN_ARTICLES,
+    targetMarkers: ES_MARKERS,
+    nativeMarkers: EN_MARKERS,
+    invertedMarksSide: "target",
+    headWord: "first",
+    headInflection: "romance",
+    verbLikeHead: /(ar|er|ir)$/,
+    rejectVosotros: true,
+  },
+  "en-workplace": {
+    id: "en-workplace",
+    registerRules: [
+      "English register: plain, current American English as used at work in the United States (short, direct, polite). The learner's native language is Spanish (neutral Latin American Spanish): every native-language text, gloss and note is written in that Spanish, with ¿ and ¡.",
+      "Never coin a literal phrase: use the word people in this work really say.",
+    ],
+    safetyExamples: {
+      medical: "per the provider's order, per hospital protocol, the label says, per policy",
+      trade: "per the manufacturer, per the plans, per local code, the label says",
+    },
+    termRule:
+      'A term is a noun or a short noun phrase of at most 4 words written WITH "the" (target "the switch", native "el interruptor"), or, when the lesson calls for it, an adjective, adverb, question word or short expression without an article ("safe" / "seguro").',
+    attributionHint: "per the order / protocol / manufacturer / plans",
+    targetArticles: EN_ARTICLES,
+    nativeArticles: ES_ARTICLES,
+    targetMarkers: EN_MARKERS,
+    nativeMarkers: ES_MARKERS,
+    invertedMarksSide: "native",
+    headWord: "last",
+    headInflection: "english",
+    verbLikeHead: null,
+    rejectVosotros: false,
+  },
+};
 
 // ─── Reference lessons (Roofing, hand-written) ───────────────────────────────
 
@@ -827,7 +928,6 @@ export function stageContentRequest(
 ): ApiRequest {
   const limits = contentLimitsFor(stageId(ctx));
   const master = ctx.stage === "master";
-  const spanish = ctx.pair.language === "Spanish";
   const pack = requirePackFor(ctx.pair.language);
   const keys = modelFormKeys(pack).join(", ");
   const rules = contentRulesFor(pack);
@@ -840,7 +940,7 @@ Level: ${level}
 
 PASSAGE: ${limits.minSentences} to ${limits.maxSentences} sentences forming ONE coherent, realistic scene of THIS lesson (its title, objective${master ? ", grammar focus and scene" : " and focus"}), with named people, a place and a purpose. A short title (2 to 6 words) in ${ctx.pair.language}. Every ${ctx.pair.language} sentence has exactly one ${ctx.pair.nativeLanguage} sentence at the same position: translate sentence by sentence, never merge or split. Each sentence ends with . ? or ! . No quotation marks and no dialogue dashes anywhere: a speaker's line is written "Name: sentence." (one sentence per line) or reported with a colon. Numbers are digits, identical on both sides; never convert units.
 VOCABULARY IN THE PASSAGE: use EVERY term of the lesson's word list, written as in the list with the same head noun (plural or gender agreement is fine, the article may change), and at least ${Math.max(limits.minPhrasesUsed, master ? 3 : 2)} of its phrases word for word. Spread the terms over the scene: each term sits in a sentence that says something about it (what someone does with it, where it is, why it matters). Never pack three or more terms into a bare list ("Marta revisa la protección, la capacidad y la cantidad." is rejected). Check this before you answer.
-PASSAGE RULES: ${PASSAGE_QUALITY_RULES.filter((rule) => rule !== REGION_RULE).join(" ")}
+PASSAGE RULES: ${passageQualityRules(pack).filter((rule) => rule !== regionRule(pack)).join(" ")}
 
 VERBS: ${limits.minVerbs === limits.maxVerbs ? `exactly ${limits.minVerbs}` : `${limits.minVerbs} to ${limits.maxVerbs}`} verbs this lesson actually needs${master ? "" : " (the unit's own verbs first: for example ser and estar in a ser / estar unit)"}, used in the passage. For each: "infinitive" (the ${pack.name} dictionary form${pack.grammar.reflexivePronouns.length > 0 ? ", a reflexive verb keeps its pronoun" : ""}), "native" (the meaning in ${ctx.pair.nativeLanguage}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; ${pack.grammar.verbForms.includesSubject ? "each form with its subject pronoun" : "the bare verb form with no pronoun"}${pack.grammar.reflexivePronouns.length > 0 ? ", except the reflexive pronoun for reflexive verbs" : ""}${rules.distinctForms ? `. All ${modelFormKeys(pack).length} forms differ` : ""}${rules.endings.map(([at, , , text]) => `; the ${modelFormKeys(pack)[at]} form ${text}`).join("")}${rules.mustDiffer.map(([, , text]) => `; ${text}`).join("")}. Mark stem changes in the note), "example" (one short sentence from this scene in the PRESENT tense or a command that uses one form of the verb, with its ${ctx.pair.nativeLanguage} translation) and an optional short "note" written in ${ctx.pair.nativeLanguage} (never in ${ctx.pair.language}). ${NOTE_FINAL_RULE}
 
@@ -1191,20 +1291,15 @@ export function assembleStageFile(
 
 // ─── Generator checks (beyond validateStageFile) ─────────────────────────────
 
-const SPANISH_ARTICLES = new Set(["el", "la", "los", "las", "un", "una", "unos", "unas", "lo"]);
-const ENGLISH_ARTICLES = new Set(["the", "a", "an"]);
 const BANNED_REVEAL = /complicat|surpris|unannounced|twist/i;
-const SPANISH_MARKERS = /\b(es|muy|verbo|los|las|para|del|cuando|la|el|que|con|se|una|un|en|por|pero|este|esta|tiene|significa|también|usted|decir|dice)\b/gi;
-const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|used|say|says|when|means|for|this|to|of|in|it|not|formal|informal|also|only|you|that|takes|take|word|words|noun|nouns|verb|verbs|feminine|masculine|plural|singular|agree|agrees|adjective|adjectives|before|after|like|or|an)\b/gi;
 const count = (text: string, pattern: RegExp) => (text.match(pattern) ?? []).length;
 const digits = (text: string) => (text.match(/\d+/g) ?? []).join(",");
 const ENDS = /[.?!…]["'”’»)\]]*$/;
 
 /** A note (word or verb) must be written in the learner's native language. */
-export function noteInWrongLanguage(note: string, nativeLanguage: string): boolean {
-  const es = count(note, SPANISH_MARKERS);
-  const en = count(note, ENGLISH_MARKERS);
-  return nativeLanguage === "English" ? es >= 2 && en === 0 : en >= 2 && es === 0;
+export function noteInWrongLanguage(note: string, pair: Core60Pair): boolean {
+  const profile = profileOf(pair.language);
+  return count(note, profile.targetMarkers) >= 2 && count(note, profile.nativeMarkers) === 0;
 }
 
 function invertedMarks(text: string): string | null {
@@ -1217,12 +1312,13 @@ function invertedMarks(text: string): string | null {
 
 /** Key used for "unique across the stage": target without its article, plus the native side. */
 function termKey(word: LessonWord, language: string): string {
-  const articles = language === "Spanish" ? SPANISH_ARTICLES : ENGLISH_ARTICLES;
-  const strip = (text: string, set: Set<string>) =>
+  const profile = profileOf(language);
+  const articles = profile.targetArticles;
+  const strip = (text: string, set: ReadonlySet<string>) =>
     wordsOf(text)
       .filter((w, i) => !(i === 0 && set.has(w)))
       .join(" ");
-  const native = language === "Spanish" ? ENGLISH_ARTICLES : SPANISH_ARTICLES;
+  const native = profile.nativeArticles;
   return `${strip(word.es, articles)}|${strip(word.en, native)}`;
 }
 
@@ -1235,20 +1331,20 @@ const foldTitle = (title: string) =>
 /** Per-lesson word checks shared by the Foundation and every Master block. */
 function checkLessonWords(lesson: Core60StageLesson, ctx: StageContext, errors: string[]) {
   const where = `lesson ${lesson.n} (${lesson.title})`;
-  const spanishTarget = ctx.pair.language === "Spanish";
+  const invertedOnTarget = profileOf(ctx.pair.language).invertedMarksSide === "target";
   for (const word of lesson.words) {
     const label = `${where} ${word.kind} "${word.es}"`;
     if (digits(word.es) !== digits(word.en)) errors.push(`${label}: numbers differ between the two sides`);
-    const spanishSide = spanishTarget ? word.es : word.en;
-    const mark = invertedMarks(spanishSide);
-    if (mark) errors.push(`${label}: ${mark} in the Spanish text "${spanishSide}"`);
+    const invertedSide = invertedOnTarget ? word.es : word.en;
+    const mark = invertedMarks(invertedSide);
+    if (mark) errors.push(`${label}: ${mark} in "${invertedSide}"`);
     if (word.kind === "phrase") {
       if (!ENDS.test(word.es)) errors.push(`${label}: a phrase is one sentence ending with . ? or !`);
       if (wordsOf(word.es).length > 12) errors.push(`${label}: a phrase has at most 12 words`);
     } else if (wordsOf(word.es).length > 5) {
       errors.push(`${label}: a term has at most 4 words (plus its article)`);
     }
-    if (word.note && noteInWrongLanguage(word.note, ctx.pair.nativeLanguage)) {
+    if (word.note && noteInWrongLanguage(word.note, ctx.pair)) {
       errors.push(`${label}: the note must be written in ${ctx.pair.nativeLanguage}: ${word.note}`);
     }
     for (const issue of unattributedSpecs([word.es], ctx)) errors.push(`${label}: ${issue}`);
@@ -1328,8 +1424,9 @@ export function stageGeneratorErrors(
       const label = `${where} grammar example ${e + 1}`;
       if (!ENDS.test(example.es) || !ENDS.test(example.en)) errors.push(`${label}: each side ends with . ? or !`);
       if (digits(example.es) !== digits(example.en)) errors.push(`${label}: numbers differ between the two sides`);
-      const spanishSide = ctx.pair.language === "Spanish" ? example.es : example.en;
-      const mark = invertedMarks(spanishSide);
+      const invertedSide =
+        profileOf(ctx.pair.language).invertedMarksSide === "target" ? example.es : example.en;
+      const mark = invertedMarks(invertedSide);
       if (mark) errors.push(`${label}: ${mark}`);
       for (const issue of unattributedSpecs([example.es], ctx)) errors.push(`${label}: ${issue}`);
     }
@@ -1446,7 +1543,7 @@ function headForms(word: string, language: string): Set<string> {
   const forms = new Set([word, `${word}s`, `${word}es`]);
   if (word.endsWith("s")) forms.add(word.slice(0, -1));
   if (word.endsWith("es")) forms.add(word.slice(0, -2));
-  if (language === "Spanish") {
+  if (profileOf(language).headInflection === "romance") {
     if (word.endsWith("z")) forms.add(`${word.slice(0, -1)}ces`);
     if (word.endsWith("ces")) forms.add(`${word.slice(0, -3)}z`);
     for (const [a, b] of [["o", "a"], ["a", "o"], ["os", "as"], ["as", "os"], ["o", "as"], ["a", "os"]] as const) {
@@ -1460,15 +1557,16 @@ function headForms(word: string, language: string): Set<string> {
 }
 
 /**
- * The head word of a term: Spanish leads with it ("la pistola de clavos" → pistola), English ends
- * with it ("the nail gun" → gun). Articles are skipped; an alternate after "/" or "(" is ignored.
+ * The head word of a term, by the profile: first after the article ("la pistola de clavos" →
+ * pistola) or last before a preposition ("the nail gun" → gun). Articles are skipped; an alternate
+ * after "/" or "(" is ignored.
  */
 export function termHead(term: string, language: string): string | null {
   const first = term.split(/[/(]/)[0] ?? term;
-  const articles = language === "Spanish" ? SPANISH_ARTICLES : ENGLISH_ARTICLES;
-  const words = wordsOf(first).filter((w) => !articles.has(w));
+  const profile = profileOf(language);
+  const words = wordsOf(first).filter((w) => !profile.targetArticles.has(w));
   if (words.length === 0) return null;
-  if (language === "Spanish") return words[0];
+  if (profile.headWord === "first") return words[0];
   const stop = new Set(["of", "for", "to", "in", "on", "and", "or", "with"]);
   const ofAt = words.findIndex((w) => stop.has(w));
   return ofAt > 0 ? words[ofAt - 1] : words[words.length - 1];
@@ -1481,7 +1579,8 @@ export function termHeadUsed(term: string, passageWords: readonly string[], lang
   const forms = headForms(head, language);
   if (passageWords.some((w) => forms.has(w))) return true;
   // A verb-like term (escalonar) or a very short head may be inflected: accept the stem.
-  if (language === "Spanish" && /(ar|er|ir)$/.test(head) && head.length > 4) {
+  const verbLike = profileOf(language).verbLikeHead;
+  if (verbLike && verbLike.test(head) && head.length > 4) {
     const stem = stemOf(head);
     return passageWords.some((w) => w.startsWith(stem));
   }
@@ -1526,7 +1625,7 @@ export function unattributedSpecs(sentences: readonly string[], ctx: StageContex
     if (!ATTRIBUTION.test(sentence))
       out.push(
         `"${sentence}" states a dose or specification as a universal fact; attribute it (${
-          ctx.pair.language === "Spanish" ? "según la orden / el protocolo / el fabricante / el plano" : "per the order / protocol / manufacturer / plans"
+          profileOf(ctx.pair.language).attributionHint
         })`,
       );
   });
@@ -1611,7 +1710,7 @@ export function stageContentErrors(
       `these terms do not appear in the passage (their head word must appear as a whole word): ${missing.join(", ")}. Use every term`,
     );
   errors.push(...unattributedSpecs(content.passage.target, ctx));
-  if (ctx.pair.language === "Spanish") {
+  if (profileOf(ctx.pair.language).rejectVosotros) {
     content.passage.target.forEach((sentence, i) => {
       const forms = vosotrosForms(sentence);
       if (forms.length > 0)

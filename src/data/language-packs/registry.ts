@@ -15,6 +15,7 @@
 // build keeps that language's legacy adapter, so a normal learner never sees draft content or rules.
 
 import { isQaBuild } from "../../lib/qa-build.ts";
+import { appCodesWith, withAppCorrections } from "./app-data.ts";
 import { BUNDLED_PACKS } from "./bundled.ts";
 import { legacyPacks } from "./legacy.ts";
 import packIndex from "./packs.json" with { type: "json" };
@@ -56,9 +57,9 @@ export function availabilityVisible(availability: Availability, qa = isQaBuild()
 }
 
 const QA = isQaBuild();
-const BUNDLED: readonly LanguagePack[] = BUNDLED_PACKS.map(assertPack).filter((pack) =>
-  availabilityVisible(pack.status.availability, QA),
-);
+const BUNDLED: readonly LanguagePack[] = BUNDLED_PACKS.map(assertPack)
+  .filter((pack) => availabilityVisible(pack.status.availability, QA))
+  .map(withAppCorrections);
 const BUNDLED_CODES = new Set(BUNDLED.map((pack) => pack.code));
 
 /** Every registered pack: visible bundled packs and legacy adapters, sorted by English name. */
@@ -139,4 +140,34 @@ export function voiceUnavailableLabel(pack: LanguagePack): string {
 export function remoteFallbackPack(code: string | null | undefined): LanguagePack | null {
   const pack = code ? BY_CODE.get(code) : undefined;
   return pack?.speech.remoteFallback ? pack : null;
+}
+
+function soleAppPack(flag: "historicalCourse" | "workplaceCourse"): LanguagePack {
+  const [code] = appCodesWith(flag);
+  return getPack(code);
+}
+
+/**
+ * The PWA's first course (its app file sets historicalCourse): modules written before packs are
+ * authored in it, and stored state from before a language setting existed means it. Read it here;
+ * never name it.
+ */
+export function historicalCoursePack(): LanguagePack {
+  return soleAppPack("historicalCourse");
+}
+
+/** The language learnDirection "en-target" (English for Work) modules teach. */
+export function workplaceCoursePack(): LanguagePack {
+  return soleAppPack("workplaceCourse");
+}
+
+/**
+ * The learning pair of records that carry none (team module assignments, core30Log entries and
+ * profiles stored before a language setting existed): the historical course and its default native,
+ * as stored names ("Spanish", "English").
+ */
+export function historicalCoursePair(): { target: string; native: string } {
+  const pack = historicalCoursePack();
+  const native = packFor(pack.native.default);
+  return { target: pack.name, native: native?.name ?? pack.native.names[pack.native.default] ?? "" };
 }

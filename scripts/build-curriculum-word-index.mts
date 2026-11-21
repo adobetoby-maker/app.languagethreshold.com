@@ -3,7 +3,7 @@ import { writeFileSync } from "node:fs";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { getCurriculum } from "../src/data/curriculum.ts";
 import { PACKS } from "../src/data/language-packs/registry.ts";
-import { SPANISH_AUTHORED_PAIR, authoredWordsPairForModule, deckNativeLanguage } from "../src/lib/lesson-words-core.ts";
+import { historicalAuthoredPair, authoredWordsPairForModule, deckNativeLanguage } from "../src/lib/lesson-words-core.ts";
 // Public authored term pairs only. Never scrape private/generated learner content.
 const rows: {
   es: string;
@@ -24,7 +24,7 @@ for (const pack of Object.values(PACKS)) {
     if (!native || !moduleSupportsLearningPair(module, target as never, native as never)) continue;
     const authored = authoredWordsPairForModule(module);
     if (authored.language !== target || authored.nativeLanguage !== native) continue;
-    for (const lesson of getCurriculum(module.id)?.lessons ?? []) {
+    for (const lesson of getCurriculum(module.id, target, native)?.lessons ?? []) {
       for (const word of lesson.words ?? []) {
         if (word.kind !== "term" || !word.es.trim() || !word.en.trim()) continue;
         rows.push({
@@ -46,8 +46,8 @@ for (const word of dictWords) {
   rows.push({
     es: word.word,
     en: word.english,
-    target: SPANISH_AUTHORED_PAIR.language,
-    native: SPANISH_AUTHORED_PAIR.nativeLanguage,
+    target: historicalAuthoredPair().language,
+    native: historicalAuthoredPair().nativeLanguage,
     moduleId: "app-dictionary",
     moduleName: "App dictionary",
     lesson: 0,

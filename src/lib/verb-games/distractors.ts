@@ -1,3 +1,5 @@
+// es-verbs morphology plugin (src/lib/verb-games/morphology.ts): Spanish present-tense endings and
+// stem changes. Reached only through a pack whose dictionary.morphology names es-verbs.
 // Built by TAC — 2026-10-20
 // Verb Games: tempting wrong answers for a frame. Pure and seeded; no runtime AI.
 

@@ -15,13 +15,13 @@ const languages = [
 ];
 
 test("every published module has a lesson plan and field material for cards", async () => {
-  const [{ MODULES }, { getCurriculum }, { MODULE_DECKS }] = await Promise.all([
+  const [{ MODULES }, { authoredCurriculum }, { MODULE_DECKS }] = await Promise.all([
     loadModule("src/data/modules.ts"),
     loadModule("src/data/curriculum.ts"),
     loadModule("src/data/deck-modules.ts"),
   ]);
   for (const module of MODULES) {
-    const curriculum = getCurriculum(module.id);
+    const curriculum = authoredCurriculum(module.id);
     assert.ok(curriculum?.lessons.length, `${module.id} has no lesson plan`);
     assert.ok(module.vocabFocus.length, `${module.id} has no field vocabulary`);
     assert.ok(module.challengePrompts.length, `${module.id} has no field scenarios`);

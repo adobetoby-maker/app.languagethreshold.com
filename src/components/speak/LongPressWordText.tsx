@@ -70,10 +70,11 @@ function tokenizeWords(text: string, language?: string | null): WordToken[] {
 
   return text.split(/(\s+)/).map((token) => {
     if (!token || /^\s+$/u.test(token)) return { text: token, word: null };
-    // With a language, its pack strips punctuation and elision (French l'eau -> eau).
+    // With a language, its pack strips punctuation and elision (French l'eau -> eau); without one,
+    // only leading and trailing punctuation of any script is removed (no language's rules).
     const word = language
       ? cleanTapWord(token, language)
-      : token.replace(/^[¿¡«"'([]+|[.,;:!?»"')\]]+$/g, "");
+      : token.replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, "");
     return { text: token, word: word || null };
   });
 }

@@ -53,7 +53,8 @@ test("invalid references are dropped; an unknown target is left for /exams to re
   assert.equal(url.searchParams.has("org"), false);
   assert.equal(url.searchParams.has("attempt"), false);
   assert.equal(url.searchParams.has("target"), false);
-  assert.equal(url.searchParams.get("native"), "English");
+  // No default pair: an unknown target and native are both left for /exams to ask about.
+  assert.equal(url.searchParams.has("native"), false);
 });
 test("ordinary app/private routes neither redirect to Exams nor lose their destination", () => {
   for (const current of [

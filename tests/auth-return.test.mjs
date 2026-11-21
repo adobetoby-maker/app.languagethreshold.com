@@ -184,7 +184,8 @@ test("OAuth targets stay on the current origin and preserve only the existing in
     authenticationRedirectUrl(
       "https://owned-preview.invalid/exams?returnTo=https://outside.invalid#access_token=secret",
     ),
-    "https://owned-preview.invalid/exams?target=Spanish&native=English",
+    // No pair in the link: /exams asks for it (never a default Spanish exam).
+    "https://owned-preview.invalid/exams?",
   );
   assert.equal(
     authenticationRedirectUrl("https://owned-preview.invalid/pricing"),

@@ -6,10 +6,19 @@ import { italianDictWords } from "./italianWordData";
 import { italianVerbProfiles } from "./italianVerbProfiles";
 import { coreItalianWords } from "./coreItalian";
 import japaneseWordData from "./japaneseWordData.json";
-import type { WordCategory, DictWord, VerbProfile } from "./types";
+import {
+  verbProfilesFromAuthored,
+  type DictWord,
+  type VerbFormSlot,
+  type VerbProfile,
+  type VerbProfilePhase,
+  type WordCategory,
+} from "./types";
+import { appData } from "@/data/language-packs/app-data";
+import { useCatalogDictionary } from "./use-catalog-dictionary";
 import { MorphDisplay } from "./MorphDisplay";
 import { useApp, type Language } from "@/state/app-state";
-import { packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { PACKS, packFor, type LanguagePack } from "@/data/language-packs/registry";
 import { foldMarks, normalizeKey } from "@/lib/language-pack-text";
 import { useFlashcards } from "@/state/flashcard-state";
 import { MODULE_DECKS } from "@/data/deck-modules";
@@ -35,35 +44,100 @@ function roofingWordsFor(language: string): DictWord[] {
   });
 }
 
-// ─── Per-language dataset + label config ───────────────────────────────────────
+// ─── Dictionary datasets ─────────────────────────────────────────────────────
 
-interface DictionaryLanguageConfig {
+interface DictionaryDataset {
   words: DictWord[];
   profiles: Record<string, VerbProfile>;
   /** Sample sentence for the AI phrase lookup box; a dataset without one has no phrase lookup. */
   phraseExample?: string;
-  /** The dataset is glossed in English only, so it is offered only to English-native learners. */
-  englishGlossOnly?: boolean;
-  /** Overrides the key-derived field label ("presentYo" -> "Present Yo") with a
-   * label that matches this language's actual grammatical terms. */
-  fieldLabels?: Record<string, string>;
+  /** Set when the dataset is glossed in one native language only; it is offered only with that native. */
+  glossOnly?: string;
+  /** Label of each profile slot in this dataset's language. */
+  slotLabels: Partial<Record<VerbFormSlot, string>>;
 }
 
-const ITALIAN_FIELD_LABELS: Record<string, string> = {
-  imperativeFormal: "Imperativo formale (Lei)",
-  imperativeInformal: "Imperativo informale (tu)",
-  presentYo: "Presente (io)",
-  presentTu: "Presente (tu)",
-  presentEl: "Presente (lui/lei)",
-  gerund: "Gerundio",
-  pastParticiple: "Participio passato",
-  presentNosotros: "Presente (noi)",
-  presentEllos: "Presente (loro)",
-  subjunctiveEl: "Congiuntivo (lui/lei)",
-  subjunctiveTu: "Congiuntivo (tu)",
-  preteriteYo: "Passato remoto (io)",
-  preteriteEl: "Passato remoto (lui/lei)",
+// The Spanish dataset's labels are the ones its learners have always seen (from the generated field
+// names); the Italian dataset names its own tenses.
+const MEDICAL_TRADES_SLOT_LABELS: Partial<Record<VerbFormSlot, string>> = {
+  "imperative.formal": "Imperative Formal",
+  "imperative.informal": "Imperative Informal",
+  "present.1s": "Present Yo",
+  "present.2s": "Present Tu",
+  "present.3s": "Present El",
+  gerund: "Gerund",
+  "past-participle": "Past Participle",
+  "present.1p": "Present Nosotros",
+  "present.3p": "Present Ellos",
+  "subjunctive.3s": "Subjunctive El",
+  "subjunctive.2s": "Subjunctive Tu",
+  "past.1s": "Preterite Yo",
+  "past.3s": "Preterite El",
 };
+
+const ITALIAN_SLOT_LABELS: Partial<Record<VerbFormSlot, string>> = {
+  "imperative.formal": "Imperativo formale (Lei)",
+  "imperative.informal": "Imperativo informale (tu)",
+  "present.1s": "Presente (io)",
+  "present.2s": "Presente (tu)",
+  "present.3s": "Presente (lui/lei)",
+  gerund: "Gerundio",
+  "past-participle": "Participio passato",
+  "present.1p": "Presente (noi)",
+  "present.3p": "Presente (loro)",
+  "subjunctive.3s": "Congiuntivo (lui/lei)",
+  "subjunctive.2s": "Congiuntivo (tu)",
+  "past.1s": "Passato remoto (io)",
+  "past.3s": "Passato remoto (lui/lei)",
+};
+
+/**
+ * Bundled datasets, by the id a language's app file names (app/<code>.json dictionary). Each
+ * dataset is built on first use. A language with none and a catalog gets its catalog dictionary;
+ * any other language shows "not yet available".
+ */
+const DICTIONARY_DATASETS: Record<string, () => DictionaryDataset> = {
+  "spanish-medical-trades": () => ({
+    words: dictWords,
+    profiles: verbProfilesFromAuthored(verbProfiles),
+    phraseExample: "El médico examina al paciente...",
+    slotLabels: MEDICAL_TRADES_SLOT_LABELS,
+  }),
+  "italian-core": () => ({
+    words: mergeWithCore(italianDictWords, coreItalianWords),
+    profiles: verbProfilesFromAuthored(italianVerbProfiles),
+    phraseExample: "Il medico esamina il paziente...",
+    slotLabels: ITALIAN_SLOT_LABELS,
+  }),
+  "japanese-core": () => ({
+    words: japaneseWordData as DictWord[],
+    profiles: {},
+    glossOnly: "English",
+    slotLabels: {},
+  }),
+};
+
+const datasetCache = new Map<string, DictionaryDataset>();
+
+/** The dataset a language's app file names, built once. */
+function datasetFor(pack: LanguagePack | null): DictionaryDataset | null {
+  const id = pack ? appData(pack).dictionary : null;
+  const build = id ? DICTIONARY_DATASETS[id] : undefined;
+  if (!id || !build) return null;
+  let dataset = datasetCache.get(id);
+  if (!dataset) datasetCache.set(id, (dataset = build()));
+  return dataset;
+}
+
+/** A neutral label for a slot a dataset does not name ("Present · 1st singular"). */
+function neutralSlotLabel(slot: VerbFormSlot): string {
+  const [tense, person] = slot.split(".");
+  const title = tense.replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
+  if (!person) return title;
+  const ordinal = { "1": "1st", "2": "2nd", "3": "3rd" }[person[0]] ?? person[0];
+  const number = person[1] === "p" ? "plural" : person[1] === "s" ? "singular" : person.slice(1);
+  return /^\d/.test(person) ? `${title} · ${ordinal} ${number}` : `${title} · ${person}`;
+}
 
 /** Merge module dictionary with Core frequency set. Core entries win on
  *  headword collision so the statistical foundation always surfaces under
@@ -79,32 +153,12 @@ function mergeWithCore(moduleWords: DictWord[], coreWords: DictWord[]): DictWord
   return Array.from(byLemma.values());
 }
 
-/** Bundled datasets, keyed by language-pack code. A language with no entry shows "not yet available". */
-const DICTIONARY_LANGUAGES: Record<string, DictionaryLanguageConfig> = {
-  es: {
-    words: dictWords,
-    profiles: verbProfiles,
-    phraseExample: "El médico examina al paciente...",
-  },
-  it: {
-    words: mergeWithCore(italianDictWords, coreItalianWords),
-    profiles: italianVerbProfiles,
-    phraseExample: "Il medico esamina il paziente...",
-    fieldLabels: ITALIAN_FIELD_LABELS,
-  },
-  ja: {
-    words: japaneseWordData as DictWord[],
-    profiles: {},
-    englishGlossOnly: true,
-  },
-};
-
 /** "A and B" for the languages whose dataset carries verb profiles. */
 function conjugationLanguageNames(): string {
-  const names = Object.entries(DICTIONARY_LANGUAGES)
-    .filter(([, config]) => Object.keys(config.profiles).length > 0)
-    .map(([code]) => packFor(code)?.name)
-    .filter((name): name is string => Boolean(name));
+  const names = PACKS.filter((pack) => {
+    const dataset = datasetFor(pack);
+    return Boolean(dataset && Object.keys(dataset.profiles).length > 0);
+  }).map((pack) => pack.name);
   return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names.join("");
 }
 
@@ -130,22 +184,16 @@ const CATEGORY_CHIPS: { key: CategoryFilter; label: string }[] = [
 // ─── Verb phase section ───────────────────────────────────────────────────────
 
 function VerbPhaseSection({
-  phase,
-  forms,
+  phase: forms,
   open,
   onToggle,
-  fieldLabels,
+  slotLabels,
 }: {
-  phase: "phase1" | "phase2" | "phase3";
-  forms: VerbProfile[typeof phase];
+  phase: VerbProfilePhase;
   open: boolean;
   onToggle: () => void;
-  fieldLabels?: Record<string, string>;
+  slotLabels: Partial<Record<VerbFormSlot, string>>;
 }) {
-  const entries = useMemo(() => {
-    const f = forms as Record<string, unknown>;
-    return Object.entries(f).filter(([k]) => k !== "label" && k !== "hint");
-  }, [forms]);
 
   return (
     <div className="border-t border-border/30 last:rounded-b-lg overflow-hidden">
@@ -168,17 +216,8 @@ function VerbPhaseSection({
 
       {open && (
         <div className="grid grid-cols-2 gap-1.5 px-3 pb-3 pt-1 sm:grid-cols-3">
-          {entries.map(([key, val]) => {
-            const form = val as {
-              full: string;
-              stem: string;
-              ending: string;
-              irregular?: boolean;
-              irregularNote?: string;
-            };
-            const label =
-              fieldLabels?.[key] ??
-              key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
+          {forms.forms.map(({ slot: key, form }) => {
+            const label = slotLabels[key] ?? neutralSlotLabel(key);
             return (
               <div
                 key={key}
@@ -202,14 +241,14 @@ function VerbPhaseSection({
 function WordCard({
   word,
   profiles,
-  fieldLabels,
+  slotLabels,
 }: {
   word: DictWord;
   profiles: Record<string, VerbProfile>;
-  fieldLabels?: Record<string, string>;
+  slotLabels: Partial<Record<VerbFormSlot, string>>;
 }) {
   const [expanded, setExpanded] = useState(false);
-  const [openPhase, setOpenPhase] = useState<"phase1" | "phase2" | "phase3" | null>(null);
+  const [openPhase, setOpenPhase] = useState<number | null>(null);
   const { state, dispatch } = useApp();
   const { addCard, hasCard } = useFlashcards();
   const saved = hasCard(state.selectedLanguage, word.word);
@@ -242,7 +281,7 @@ function WordCard({
   const profile: VerbProfile | undefined =
     word.verbProfile ?? (word.verbProfileId ? profiles[word.verbProfileId] : undefined);
 
-  function togglePhase(p: "phase1" | "phase2" | "phase3") {
+  function togglePhase(p: number) {
     setOpenPhase((prev) => (prev === p ? null : p));
   }
 
@@ -351,14 +390,13 @@ function WordCard({
                   {profile.irregularType ? ` · ${profile.irregularType}` : ""}
                 </span>
               </div>
-              {(["phase1", "phase2", "phase3"] as const).map((p) => (
+              {profile.phases.map((phase, p) => (
                 <VerbPhaseSection
                   key={p}
-                  phase={p}
-                  forms={profile[p]}
+                  phase={phase}
                   open={openPhase === p}
                   onToggle={() => togglePhase(p)}
-                  fieldLabels={fieldLabels}
+                  slotLabels={slotLabels}
                 />
               ))}
               {profile.clinicalNote && (
@@ -465,9 +503,13 @@ function PhraseEngine({ noun, example }: { noun: string; example: string }) {
 export function DictionaryTab() {
   const { state } = useApp();
   const pack = packFor(state.selectedLanguage);
-  const rawConfig = pack ? DICTIONARY_LANGUAGES[pack.code] : undefined;
+  const catalogDictionary = useCatalogDictionary(pack);
+  const rawConfig = datasetFor(pack) ?? catalogDictionary;
+  // A dataset glossed in one native language only is not offered with another native.
   const config =
-    rawConfig?.englishGlossOnly && state.nativeLanguage !== "English" ? undefined : rawConfig;
+    rawConfig && (!rawConfig.glossOnly || rawConfig.glossOnly === state.nativeLanguage)
+      ? rawConfig
+      : null;
   // The Roofing chip is offered whenever the language has roofing entries, so they must not
   // depend on the active module (they were empty unless the Roofing module was selected).
   const roofingWords = useMemo(
@@ -602,7 +644,7 @@ export function DictionaryTab() {
                   key={word.id}
                   word={word}
                   profiles={profiles}
-                  fieldLabels={config.fieldLabels}
+                  slotLabels={config.slotLabels}
                 />
               ))}
             </div>

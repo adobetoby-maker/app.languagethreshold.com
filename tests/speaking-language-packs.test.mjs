@@ -23,9 +23,10 @@ test("the speaking gate reads the pack and one review flag named from it", () =>
 });
 
 test("mission languages come from the registry and keep their pack's variety tag as locale", () => {
+  // Registry order differs between a normal and a QA build; the set does not.
   assert.deepEqual(
-    SPEAKING_LANGUAGES.map((entry) => [entry.code, entry.locale]),
-    [["es", "es-419"], ["it", "it-IT"], ["ja", "ja-JP"], ["zh", "zh-CN"], ["en", "en-US"]],
+    SPEAKING_LANGUAGES.map((entry) => [entry.code, entry.locale]).sort(),
+    [["en", "en-US"], ["es", "es-419"], ["it", "it-IT"], ["ja", "ja-JP"], ["zh", "zh-CN"]],
   );
   assert.equal(getSpeakingMissions("Spanish")[0].locale.startsWith("es"), true);
 });

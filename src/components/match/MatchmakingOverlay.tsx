@@ -22,32 +22,8 @@ import { RankUpCeremony } from "./RankUpCeremony";
 import { BattleReviewPanel } from "./BattleReviewPanel";
 import { LeaderboardPanel } from "./LeaderboardPanel";
 import { useLeaderboard } from "@/state/leaderboard-state";
-
-const LANG_FLAGS: Record<Language, string> = {
-  Spanish: "🇪🇸",
-  French: "🇫🇷",
-  German: "🇩🇪",
-  Italian: "🇮🇹",
-  Japanese: "🇯🇵",
-  Chinese: "🇨🇳",
-  Korean: "🇰🇷",
-  Portuguese: "🇧🇷",
-  Pashto: "🇦🇫",
-  English: "🇬🇧",
-};
-
-const OPPONENT_NAMES: Record<Language, string[]> = {
-  Spanish: ["Sofia_MX", "CarlosR_ES", "LunaV_AR", "Mateo_CO", "IsaT_PE"],
-  French: ["ChloeP_FR", "MarcB_QC", "EliseD_BE", "TheoR_FR", "CamilleM_CH"],
-  German: ["KlausW_DE", "AnnaS_AT", "LukasH_DE", "MiaB_CH", "FelixK_DE"],
-  Italian: ["GiuliaR_IT", "LucaB_IT", "MartinaC_IT", "MatteoP_IT", "SofiaT_IT"],
-  Japanese: ["Haruki_JP", "YukiM_JP", "SoraT_JP", "AoiK_JP", "RenS_JP"],
-  Chinese: ["Wei_CN", "MeiL_CN", "Jun_CN", "XiaoY_CN", "Hao_CN"],
-  Korean: ["Jihoon_KR", "MinaP_KR", "Seojun_KR", "DaeunL_KR", "Hyejin_KR"],
-  Portuguese: ["LucasS_BR", "AnaP_PT", "PedroR_BR", "BeaM_PT", "ThiagoF_BR"],
-  Pashto: ["Ahmad_AF", "ZarghunaK_AF", "Rahim_PK", "LailaN_AF", "Farid_KBL"],
-  English: ["EmmaJ_US", "OliverT_GB", "NoahP_AU", "AvaW_CA", "LiamH_US"],
-};
+import { appData, flagOf } from "@/data/language-packs/app-data";
+import { packFor } from "@/data/language-packs/registry";
 
 type MatchPhase = "idle" | "searching" | "found" | "countdown" | "battling" | "result";
 
@@ -65,7 +41,10 @@ function nearbyTier(tier: RankTier): RankTier {
 }
 
 function generateOpponent(language: Language, tier: RankTier): Opponent {
-  const pool = OPPONENT_NAMES[language];
+  const pool = (() => {
+    const pack = packFor(language);
+    return pack ? appData(pack).opponentNames : [];
+  })();
   return {
     username: pool[Math.floor(Math.random() * pool.length)],
     tier: nearbyTier(tier),
@@ -209,7 +188,7 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
     timersRef.current.push(tEnd);
   };
 
-  const flag = LANG_FLAGS[language];
+  const flag = flagOf(packFor(language));
 
   const playerCard = (
     <PlayerCard
@@ -236,7 +215,7 @@ export function MatchmakingOverlay({ open, onClose }: { open: boolean; onClose: 
       badge={RANK_BADGE[opponent.tier]}
       glowColor={RANK_COLOR[opponent.tier]}
       language={opponent.language}
-      flag={LANG_FLAGS[opponent.language]}
+      flag={flagOf(packFor(opponent.language))}
       animateTo="right"
     />
   );

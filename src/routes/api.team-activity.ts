@@ -3,6 +3,7 @@ import { z } from "zod";
 import { prepareTeamJson, MAX_TEAM_ACTIVITY_BYTES } from "@/lib/team-request";
 import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
+import { historicalCoursePair } from "@/data/language-packs/registry";
 import { ensureStageForModule, stageLoadFailed } from "@/data/core60-stages";
 import {
   authenticatedTeamUser,
@@ -127,7 +128,9 @@ export const Route = createFileRoute("/api/team-activity")({
                   "This lesson is temporarily unavailable. Try again in a moment.",
                   503,
                 );
-              const curriculum = getCurriculum(body.moduleId);
+              // Team lessons carry no pair: team modules are taught in the historical course pair.
+              const teamPair = historicalCoursePair();
+              const curriculum = getCurriculum(body.moduleId, teamPair.target, teamPair.native);
               if (!curriculum?.lessons.some((lesson) => lesson.n === body.lessonNumber))
                 throw new TeamOperationError("Unknown lesson.");
               const { data: previous, error: progressError } = await db

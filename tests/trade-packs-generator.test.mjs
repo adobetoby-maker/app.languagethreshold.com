@@ -19,9 +19,11 @@ const STUB = fileURLToPath(new URL("./fixtures/stub-claude-trade-packs.mjs", imp
 chmodSync(STUB, 0o755);
 
 function run(root, args, env = {}) {
+  // --lang is required (no language is assumed); tests that do not name one build Spanish.
+  const lang = args.includes("--lang") ? [] : ["--lang", "es"];
   const result = spawnSync(
     process.execPath,
-    ["scripts/build-trade-packs.mts", "--out-root", root, "--claude-bin", STUB, ...args],
+    ["scripts/build-trade-packs.mts", "--out-root", root, "--claude-bin", STUB, ...lang, ...args],
     {
       cwd: fileURLToPath(new URL("..", import.meta.url)),
       encoding: "utf8",

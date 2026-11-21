@@ -8,7 +8,14 @@ import {
   type ConjugationSet,
   type PersonForms,
 } from "../data/frequency-conjugations.ts";
-import type { VerbProfile } from "../components/dictionary/types";
+import {
+  profileForm,
+  type VerbFormSlot,
+  type VerbProfile,
+} from "../components/dictionary/types.ts";
+import { packFor, type LanguagePack } from "../data/language-packs/registry.ts";
+import { appData } from "../data/language-packs/app-data.ts";
+import { carrierPerson } from "./person-carrier.ts";
 import type { createLearnerDeviceStore } from "./learner-device-store.ts";
 
 type TableByLanguage = Partial<Record<Language, ConjugationSet>>;
@@ -35,48 +42,77 @@ export function getFrequencyConjugation(frequencyId: string, language: Language)
   return value ? structuredClone(value) : undefined;
 }
 
+/** The six table persons and the profile slot of each tense (a slot the profile lacks is absent). */
+const TABLE_PERSONS = [
+  ["firstSingular", 1, "singular", "1s"],
+  ["secondSingular", 2, "singular", "2s"],
+  ["thirdSingular", 3, "singular", "3s"],
+  ["firstPlural", 1, "plural", "1p"],
+  ["secondPlural", 2, "plural", "2p"],
+  ["thirdPlural", 3, "plural", "3p"],
+] as const;
+
+/**
+ * The profile form a table person takes in `tense`, read only from what the profile and the pack
+ * say: the person's own slot, else the slot of the taught key whose subjects include that person's
+ * pronoun (Spanish ustedes takes the ellos / ustedes form). Null when neither exists: a cell is
+ * never filled with another person's form.
+ */
+function personForm(
+  profile: VerbProfile,
+  pack: LanguagePack,
+  tense: "present" | "past",
+  person: 1 | 2 | 3,
+  number: "singular" | "plural",
+  slotSuffix: string,
+): string | null {
+  const own = profileForm(profile, `${tense}.${slotSuffix}` as VerbFormSlot)?.full;
+  if (own) return own;
+  const carrier = carrierPerson(pack, person, number);
+  if (!carrier) return null;
+  const suffix = `${carrier.person}${carrier.number === "singular" ? "s" : "p"}`;
+  return profileForm(profile, `${tense}.${suffix}` as VerbFormSlot)?.full ?? null;
+}
+
+function tenseTable(profile: VerbProfile, pack: LanguagePack, tense: "present" | "past"): PersonForms | null {
+  const out: Partial<PersonForms> = {};
+  for (const [field, person, number, suffix] of TABLE_PERSONS) {
+    const form = personForm(profile, pack, tense, person, number, suffix);
+    if (!form) return null;
+    out[field] = form;
+  }
+  return out as PersonForms;
+}
+
+/**
+ * A conjugation table from a dictionary verb profile, for the profile's own language. Every cell is
+ * a form the profile carries for that person (or the form the pack says that person takes); a
+ * tense the profile cannot fill in full is left out, and a profile whose present tense is not
+ * complete gives null (fail closed: no fabricated persons). The past table's name is the
+ * language's own (app/<code>.json pastTenseLabel).
+ */
 export function conjugationFromVerbProfile(
   infinitive: string,
   profile: VerbProfile,
   language: Language,
-): ConjugationSet {
-  const p1 = profile.phase1;
-  const p2 = profile.phase2;
-  const p3 = profile.phase3;
-  const presentTense: PersonForms = {
-    firstSingular: p1.presentYo.full,
-    secondSingular: p1.presentTu.full,
-    thirdSingular: p1.presentEl.full,
-    firstPlural: p2.presentNosotros.full,
-    secondPlural: p2.presentNosotros.full,
-    thirdPlural: p2.presentEllos.full,
-  };
-  const pastTense: PersonForms | undefined =
-    p3.preteriteYo?.full && p3.preteriteEl?.full
-      ? {
-          firstSingular: p3.preteriteYo.full,
-          secondSingular: p3.preteriteYo.full,
-          thirdSingular: p3.preteriteEl.full,
-          firstPlural: p3.preteriteEl.full,
-          secondPlural: p3.preteriteEl.full,
-          thirdPlural: p3.preteriteEl.full,
-        }
-      : undefined;
-  const pastLabel =
-    language === "Spanish" || language === "Portuguese"
-      ? "Preterite"
-      : language === "German"
-        ? "Simple past"
-        : "Imperfect";
+): ConjugationSet | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  const presentTense = tenseTable(profile, pack, "present");
+  const gerund = profileForm(profile, "gerund")?.full;
+  const pastParticiple = profileForm(profile, "past-participle")?.full;
+  if (!presentTense || !gerund || !pastParticiple) return null;
+  const pastTense = tenseTable(profile, pack, "past") ?? undefined;
+  const pastLabel = pastTense ? (appData(pack).pastTenseLabel ?? undefined) : undefined;
   return {
     infinitive,
     pronunciation: "",
     presentTense,
-    pastTense,
-    pastLabel: pastTense ? pastLabel : undefined,
-    gerund: p2.gerund.full,
-    pastParticiple: p2.pastParticiple.full,
-    perfectExample: p2.pastParticiple.full,
+    pastTense: pastLabel ? pastTense : undefined,
+    pastLabel,
+    gerund,
+    pastParticiple,
+    perfectExample: pastParticiple,
     commonUses: [],
   };
 }
@@ -268,12 +304,10 @@ export function createOwnedConjugationCache({
     ) {
       const existing = lookup(language, infinitive, english);
       if (existing.data?.pastTense && existing.data.futureTense) return existing;
+      const table = conjugationFromVerbProfile(infinitive, profile, language);
+      if (!table) return empty();
       try {
-        return putUserConjugation(
-          language,
-          conjugationFromVerbProfile(infinitive, profile, language),
-          english,
-        );
+        return putUserConjugation(language, table, english);
       } catch {
         return empty();
       }

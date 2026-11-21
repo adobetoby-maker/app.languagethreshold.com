@@ -5,8 +5,9 @@
 // A language is offered when its pack is registered, its speaking status is visible in this build
 // (draft packs only in a QA build), a bundled pack says it has speaking missions
 // (features.speakingMissions; legacy adapter rows set it for the missions the PWA already authored), and
-// its curriculum review is done. The packs carry no review flag yet, so the languages still waiting
-// on a sign-off are listed once here, and the sign-off is an environment flag named from the pack:
+// its curriculum review is done. The packs carry no review flag yet, so a language still waiting on
+// a sign-off says so in its app file (app/<code>.json speakingReviewPending), and the sign-off is an
+// environment flag named from the pack:
 // `<NAME>_SPEAKING_REVIEWED=true` on the server, `VITE_<NAME>_SPEAKING_REVIEWED=true` in the client.
 
 import {
@@ -14,9 +15,7 @@ import {
   packFor,
   type LanguagePack,
 } from "../data/language-packs/registry.ts";
-
-/** Pack codes whose speaking curriculum is built but not yet signed off. */
-const REVIEW_PENDING_CODES: readonly string[] = ["ja"];
+import { appData } from "../data/language-packs/app-data.ts";
 
 export type SpeakingEnvironment = Record<string, string | boolean | undefined>;
 
@@ -30,7 +29,7 @@ export function speakingAwaitsReview(
   pack: LanguagePack,
   environment: SpeakingEnvironment = {},
 ): boolean {
-  if (!REVIEW_PENDING_CODES.includes(pack.code)) return false;
+  if (!appData(pack).speakingReviewPending) return false;
   const flag = speakingReviewFlag(pack);
   return environment[flag] !== "true" && environment[`VITE_${flag}`] !== "true";
 }

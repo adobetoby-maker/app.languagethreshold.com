@@ -1,5 +1,8 @@
 // Built by TAC — 2026-10-20
-// Verb Games: builds the committed Spanish present-tense pattern data and its review report.
+// Verb Games: builds the committed present-tense pattern data and its review report for the one
+// language that has a verb-game morphology plugin and a compiled pattern file in its app data
+// (src/lib/verb-games/morphology.ts, src/data/language-packs/app/<code>.json verbPatterns): Spanish
+// today. Paths and the language come from that pack, never a literal.
 //
 //   node scripts/build-verb-patterns.mts           # write es.json and es-review-report.md
 //   node scripts/build-verb-patterns.mts --check   # exit 1 "verb patterns are stale" when a fresh compile differs
@@ -12,17 +15,27 @@
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { verbProfiles } from "../src/components/dictionary/verbProfiles.ts";
+import { verbProfiles as authoredProfiles } from "../src/components/dictionary/verbProfiles.ts";
+import { verbProfilesFromAuthored } from "../src/components/dictionary/types.ts";
+const verbProfiles = verbProfilesFromAuthored(authoredProfiles);
 import { KNOWN_VERBS } from "../src/data/known-verb-list.ts";
 import { compilePatterns } from "../src/lib/verb-games/compile.ts";
 import type { CompileInput, LessonFile } from "../src/lib/verb-games/compile.ts";
+import { PACKS } from "../src/data/language-packs/registry.ts";
+import { appData } from "../src/data/language-packs/app-data.ts";
+import { verbGameMorphology } from "../src/lib/verb-games/morphology.ts";
 
-export const DATA_PATH = "src/data/verb-patterns/es.json";
-export const REPORT_PATH = "docs/verb-patterns/es-review-report.md";
-const SIGNOFF_PATH = "docs/verb-patterns/es-review-signoff.json";
-const OVERRIDES_PATH = "docs/verb-patterns/es-overrides.json";
+const compiled = PACKS.filter((pack) => appData(pack).verbPatterns && verbGameMorphology(pack));
+if (compiled.length !== 1)
+  throw new Error("Exactly one language has a verb-game plugin and pattern file; extend this script per language.");
+const PACK = compiled[0];
+
+export const DATA_PATH = `src/data/${appData(PACK).verbPatterns}`;
+export const REPORT_PATH = `docs/verb-patterns/${PACK.code}-review-report.md`;
+const SIGNOFF_PATH = `docs/verb-patterns/${PACK.code}-review-signoff.json`;
+const OVERRIDES_PATH = `docs/verb-patterns/${PACK.code}-overrides.json`;
 const CRUSH_PATH = "src/data/verb-patterns/crush-levels.json";
-const LESSON_DIR = "public/lesson-content/es";
+const LESSON_DIR = PACK.content.lessonSourceRoot;
 
 function readJson<T>(file: string): T {
   return JSON.parse(readFileSync(file, "utf8")) as T;
@@ -82,7 +95,7 @@ export async function readCompileInput(root: string): Promise<CompileInput> {
     if (isExcludedStageFile(name, file.module) || PENDING_REVIEW_MODULES.has(file.module)) continue;
     lessonFiles.push({ module: file.module, lessons: file.lessons });
   }
-  const core = KNOWN_VERBS.filter((v) => v.language === "Spanish").map((v) => ({
+  const core = KNOWN_VERBS.filter((v) => v.language === PACK.name).map((v) => ({
     infinitive: v.infinitive,
     english: v.english,
   }));

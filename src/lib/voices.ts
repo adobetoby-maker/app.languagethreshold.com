@@ -11,13 +11,7 @@ import {
   packForVoiceLocale,
   voiceLocaleRank,
 } from "@/data/mission-tts";
-
-/**
- * Device voices a pack prefers by name when the browser offers them (the pack schema has no
- * speech.preferredDeviceVoices field yet, so this is an authored table keyed by pack code).
- * Spanish keeps Paulina, a nearby Latin American voice, ahead of the browser's first Spain voice.
- */
-const PREFERRED_DEVICE_VOICES: Record<string, readonly string[]> = { es: ["Paulina"] };
+import { appData } from "@/data/language-packs/app-data";
 
 const LISTENERS = new Set<() => void>();
 let cached: SpeechSynthesisVoice[] = [];
@@ -61,7 +55,8 @@ export function getVoicesForLocale(locale: string): SpeechSynthesisVoice[] {
   const all = getAllVoices();
   const family = locale.split("-")[0].toLowerCase();
   const pack = packForVoiceLocale(locale);
-  const preferred = (pack && PREFERRED_DEVICE_VOICES[pack.code]) ?? [];
+  // Device voices the language prefers by name (app/<code>.json preferredDeviceVoices).
+  const preferred: readonly string[] = pack ? appData(pack).preferredDeviceVoices : [];
   const exact = all.filter((v) => v.lang.toLowerCase() === locale.toLowerCase());
   const familyMatches = all.filter((v) => v.lang.toLowerCase().startsWith(family + "-"));
   // Prefer the requested locale. Without it, fall back in the pack's accent order (Spanish: a

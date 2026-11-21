@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import {
-  ENGLISH_AUTHORED_PAIR,
-  SPANISH_AUTHORED_PAIR,
+  workplaceAuthoredPair,
+  historicalAuthoredPair,
   authoredWordsPair,
   LESSON_DECK_VERSION,
   cleanLessonWords,
@@ -113,7 +113,7 @@ test("model output of the wrong shape yields nothing", () => {
 
 test("authored words are used only for the Spanish/English pair", () => {
   const authored = [{ en: "roof", es: "techo", kind: "term" }];
-  const pair = SPANISH_AUTHORED_PAIR;
+  const pair = historicalAuthoredPair();
   assert.deepEqual(pickAuthoredWords(authored, "Spanish", "English", pair), authored);
   assert.equal(pickAuthoredWords(authored, "French", "English", pair), null);
   assert.equal(pickAuthoredWords(authored, "Spanish", "French", pair), null);
@@ -124,8 +124,8 @@ test("authored words are used only for the Spanish/English pair", () => {
 
 test("authored words default to the Spanish target / English native pair", () => {
   const authored = [{ en: "roof", es: "techo", kind: "term" }];
-  assert.deepEqual(authoredWordsPair(undefined), SPANISH_AUTHORED_PAIR);
-  assert.deepEqual(authoredWordsPair(null), SPANISH_AUTHORED_PAIR);
+  assert.deepEqual(authoredWordsPair(undefined), historicalAuthoredPair());
+  assert.deepEqual(authoredWordsPair(null), historicalAuthoredPair());
   const spanish = authoredWordsPair(undefined);
   assert.deepEqual(pickAuthoredWords(authored, "Spanish", "English", spanish), authored);
   // A Spanish-target module is not served to an English-target learner: the sides would be swapped.
@@ -133,7 +133,7 @@ test("authored words default to the Spanish target / English native pair", () =>
 });
 
 test("an English-target stage returns its authored words, target on es and native on en", () => {
-  assert.deepEqual(authoredWordsPair("en-target"), ENGLISH_AUTHORED_PAIR);
+  assert.deepEqual(authoredWordsPair("en-target"), workplaceAuthoredPair());
   const english = authoredWordsPair("en-target");
   for (const stage of ["foundation-fmg", "master-fmg", "foundation-or-evs", "master-or-evs"]) {
     const file = JSON.parse(readFileSync(`src/data/core60/en/${stage}.json`, "utf8"));
@@ -211,7 +211,11 @@ test("script detection", () => {
 
 test("Latin typed answers stay accent- and case-insensitive", () => {
   assert.equal(isCorrectTypedAnswer("Perceuse", "perceuse", packFor("fr")), true);
-  assert.equal(isCorrectTypedAnswer("ou avez-vous mal", "Où avez-vous mal ?", packFor("fr")), true);
+  // French typing folds accents on its legacy adapter; its QA pack is strict (accent hint).
+  assert.equal(
+    isCorrectTypedAnswer("ou avez-vous mal", "Où avez-vous mal ?", packFor("fr")),
+    packFor("fr").answerRules.accentPolicy.typed !== "strict",
+  );
   assert.equal(isCorrectTypedAnswer("marteau", "perceuse", packFor("fr")), false);
   assert.equal(isCorrectTypedAnswer("tecnico", "técnico", packFor("es")), true);
 });

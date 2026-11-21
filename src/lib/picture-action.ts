@@ -8,6 +8,7 @@ import {
   type Point,
   type Place,
 } from "./place-directions-game.ts";
+import { historicalCoursePair } from "../data/language-packs/registry.ts";
 export type SceneId =
   | "workshop"
   | "clinic"
@@ -127,9 +128,12 @@ export function sceneForModule(moduleId: string, category = ""): SceneId {
     return "workshop";
   return "bedroom";
 }
+/** Picture scenes are authored in the historical course pair; it and its reverse are supported. */
 export function supportsPicturePair(target: string, native: string) {
+  const pair = historicalCoursePair();
   return (
-    (target === "Spanish" && native === "English") || (target === "English" && native === "Spanish")
+    (target === pair.target && native === pair.native) ||
+    (target === pair.native && native === pair.target)
   );
 }
 export function acceptsPictureTarget(scene: PictureScene, id: string, p: Point) {

@@ -1,45 +1,53 @@
-// One lookup for the public recorded lesson audio (the RECORDING_SOURCES below).
+// One lookup for the public recorded lesson audio (the readers below, chosen by each language's
+// app data).
 // These are static files anyone may fetch, so finding one never depends on a cloud voice
 // selection or an account.
 import { recordedFrenchPath, recordedFrenchVoice } from "./recorded-french.ts";
 import { recordedJapanesePath, recordedJapaneseVoice } from "./recorded-japanese.ts";
 import { recordedSpanishPath, recordedSpanishPathForGender } from "./recorded-spanish.ts";
+import { PACKS } from "../data/language-packs/registry.ts";
+import { appData } from "../data/language-packs/app-data.ts";
 
 /**
- * One recorded-audio source per language family. A source answers only for its own language and
- * locales (it returns null otherwise), so the lookup tries them in order and the first hit wins.
- * Adding a family is adding a row here; a pack's `audio.coverage` says whether one is expected.
+ * Recorded-audio readers, by the id a language's app file names (app/<code>.json recordedAudio).
+ * Each reader knows one manifest format and answers only for its own locales (null otherwise).
+ * A language whose app file names no reader has no recordings (fail closed: never another
+ * language's clips).
  */
-interface RecordingSource {
-  /** The pack code this source serves (the pack's audio block names its manifest). */
-  code: string;
+interface RecordingReader {
   pathForVoice(text: string, voiceName: string, locale: string): string | null;
   pathForGender(text: string, gender: "female" | "male", locale: string): string | null;
 }
 
-const RECORDING_SOURCES: readonly RecordingSource[] = [
-  {
-    code: "ja",
+const RECORDING_READERS: Record<string, RecordingReader> = {
+  "japanese-101-pilot": {
     pathForVoice: recordedJapanesePath,
     pathForGender: (text, gender, locale) => {
       const voice = recordedJapaneseVoice(gender);
       return voice ? recordedJapanesePath(text, voice, locale) : null;
     },
   },
-  {
-    code: "fr",
+  "french-101-pilot": {
     pathForVoice: recordedFrenchPath,
     pathForGender: (text, gender, locale) => {
       const voice = recordedFrenchVoice(gender);
       return voice ? recordedFrenchPath(text, voice, locale) : null;
     },
   },
-  {
-    code: "es",
+  "trade-recordings": {
     pathForVoice: recordedSpanishPath,
     pathForGender: (text, gender, locale) => recordedSpanishPathForGender(text, gender, locale),
   },
-];
+};
+
+/** The readers of the registered languages, in registry order. */
+function readers(): RecordingReader[] {
+  return PACKS.flatMap((pack) => {
+    const id = appData(pack).recordedAudio;
+    const reader = id ? RECORDING_READERS[id] : undefined;
+    return reader ? [reader] : [];
+  });
+}
 
 /** A recording made by exactly the selected cloud voice. */
 export function recordedPathForVoice(
@@ -47,7 +55,7 @@ export function recordedPathForVoice(
   voiceName: string,
   locale: string,
 ): string | null {
-  for (const source of RECORDING_SOURCES) {
+  for (const source of readers()) {
     const path = source.pathForVoice(text, voiceName, locale);
     if (path) return path;
   }
@@ -60,7 +68,7 @@ export function recordedPathForGender(
   locale: string,
   gender: "female" | "male",
 ): string | null {
-  for (const source of RECORDING_SOURCES) {
+  for (const source of readers()) {
     const path = source.pathForGender(text, gender, locale);
     if (path) return path;
   }

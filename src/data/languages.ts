@@ -1,28 +1,23 @@
-/** Language identities shared by the app and authenticated assessment routes. */
-export type Language =
-  | "Spanish"
-  | "French"
-  | "German"
-  | "Italian"
-  | "Japanese"
-  | "Chinese"
-  | "Korean"
-  | "Portuguese"
-  | "Pashto"
-  | "English";
+import { PACKS, packIndexEntry } from "./language-packs/registry.ts";
 
-export const LANGUAGES: Language[] = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Chinese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-  "English",
-];
+/**
+ * A target language as stored state names it ("Spanish"): a registered pack's name or legacy name,
+ * resolved through packFor (src/data/language-packs/registry.ts). Not a closed union: the registry
+ * decides which languages exist, so adding a language never edits a type here.
+ */
+export type Language = string;
+
+/**
+ * Every registered target language (stored names), deepest catalog first, then by English name.
+ * Derived from the registry; never a hand-kept list.
+ */
+export const LANGUAGES: Language[] = PACKS.slice()
+  .sort(
+    (a, b) =>
+      (packIndexEntry(b)?.modules.length ?? 0) - (packIndexEntry(a)?.modules.length ?? 0) ||
+      a.name.localeCompare(b.name),
+  )
+  .map((pack) => pack.name);
 
 // The learner's native ("translation") language — used for the left pane,
 // definitions, lesson explanations, etc. Default English; expandable.

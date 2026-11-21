@@ -29,7 +29,7 @@ import {
   TRAVEL_ZONE_MODULES,
 } from "../src/data/travel-zone.ts";
 import { MODULES } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 
 // Data-driven Core 60 stages (src/data/core60/manifest.ts) each add, in their entry's language,
@@ -45,7 +45,7 @@ function generatedStageCounts(language) {
       if (!entry[stage]) continue;
       const id = `${stage}-${entry.base}`;
       out.challenges += MODULES.find((m) => m.id === id)?.challengePrompts.length ?? 0;
-      out.lessons += getCurriculum(id)?.lessons.length ?? 0;
+      out.lessons += authoredCurriculum(id)?.lessons.length ?? 0;
     }
   }
   return out;
@@ -191,9 +191,10 @@ test("speaking preview covers every authored topic in every speaking language", 
     }),
   };
 
+  // Registry order (deepest catalog first) differs between a normal and a QA build; the set does not.
   assert.deepEqual(
-    SPEAKING_LANGUAGES.map((entry) => entry.language),
-    ["Spanish", "Italian", "Japanese", "Chinese", "English"],
+    SPEAKING_LANGUAGES.map((entry) => entry.language).sort(),
+    ["Chinese", "English", "Italian", "Japanese", "Spanish"],
   );
   for (const { language, locale } of SPEAKING_LANGUAGES) {
     const modules = getSpeakingModules(language);

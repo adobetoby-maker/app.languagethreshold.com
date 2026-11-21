@@ -10,6 +10,9 @@ import {
 } from "react";
 import { RANK_ORDER, type RankTier } from "./match-state";
 import type { Language } from "./app-state";
+import { appData, flagOf } from "@/data/language-packs/app-data";
+import { LANGUAGES as REGISTERED_LANGUAGES } from "@/data/languages";
+import { packFor } from "@/data/language-packs/registry";
 
 export interface LeaderboardPlayer {
   id: string;
@@ -38,32 +41,6 @@ const NAMES = [
   "LucasF_FR",
   "MinhP_VN",
   "JuliaD_DE",
-];
-
-const FLAGS: Record<Language, string> = {
-  Spanish: "🇪🇸",
-  French: "🇫🇷",
-  German: "🇩🇪",
-  Italian: "🇮🇹",
-  Japanese: "🇯🇵",
-  Korean: "🇰🇷",
-  Portuguese: "🇧🇷",
-  Pashto: "🇦🇫",
-  English: "🇬🇧",
-  Chinese: "🇨🇳",
-};
-
-const LANGS: Language[] = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-  "English",
-  "Chinese",
 ];
 
 function rand<T>(arr: T[]) {
@@ -95,7 +72,7 @@ function seedPlayers(): LeaderboardPlayer[] {
     // Higher tiers get more weekly points
     const tierIdx = RANK_ORDER.indexOf(tier);
     const baseWeek = 200 + tierIdx * 320 + Math.floor(Math.random() * 250);
-    const language = rand(LANGS);
+    const language = rand(REGISTERED_LANGUAGES);
     const wins = 5 + Math.floor(Math.random() * 95);
     const losses = Math.floor(Math.random() * Math.max(1, wins));
     players.push({
@@ -105,7 +82,7 @@ function seedPlayers(): LeaderboardPlayer[] {
       weekPoints: Math.min(2400, baseWeek),
       allTimePoints: baseWeek * (3 + Math.floor(Math.random() * 6)),
       language,
-      flag: FLAGS[language],
+      flag: flagOf(packFor(language)),
       wins,
       losses,
     });

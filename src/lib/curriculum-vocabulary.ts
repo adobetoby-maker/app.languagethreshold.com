@@ -1,7 +1,7 @@
 import { moduleLessonUrl } from "./learning-link.ts";
 import { packFor } from "../data/language-packs/registry.ts";
 import { nativeLanguageCode } from "../data/languages.ts";
-import { SPANISH_AUTHORED_PAIR } from "./lesson-words-core.ts";
+import { historicalAuthoredPair } from "./lesson-words-core.ts";
 import { stripLeadingArticle } from "./lesson-word-card.ts";
 export interface CurriculumWordMatch {
   word: string;
@@ -31,7 +31,7 @@ const normalized = (word: string) =>
     .replace(/^[\p{P}\s]+|[\p{P}\s]+$/gu, "")
     .toLowerCase();
 /** The pair an index row without target/native was written for (the app dictionary, older files). */
-const UNLABELLED_PAIR = SPANISH_AUTHORED_PAIR;
+const UNLABELLED_PAIR = historicalAuthoredPair();
 
 export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
   // One table per (target, native) pair: a row is a forward entry of its own pair and a reverse

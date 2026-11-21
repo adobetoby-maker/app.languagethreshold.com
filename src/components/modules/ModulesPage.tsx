@@ -200,7 +200,8 @@ export function ModulesPage() {
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
     const destination =
-      getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)
+      getCurriculum(module.id, state.selectedLanguage, state.nativeLanguage) ||
+      /^(foundation|master)-/.test(module.id)
         ? "core30"
         : state.selectedLanguage === "English" && module.learnDirection !== "en-target"
           ? "reader"

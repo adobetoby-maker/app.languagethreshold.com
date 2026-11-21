@@ -5,18 +5,24 @@
 // from them. A mission in any other language gets no form from here (callers fall back to the
 // pack's catalog lines or to nothing); it must never be handed the other side as its own words.
 
-import { packCodeOf, sameLanguage } from "../data/language-packs/registry.ts";
+import { historicalCoursePair, packCodeOf, sameLanguage } from "../data/language-packs/registry.ts";
 import type { AppModule } from "../data/modules.ts";
 import type { LessonWord } from "../data/curriculum.ts";
 
-/** LessonWord's own field names, in authored order (source language first, its meaning second). */
-const LESSON_WORD_FIELDS = ["es", "en"] as const satisfies readonly (keyof LessonWord)[];
-type LessonWordField = (typeof LESSON_WORD_FIELDS)[number];
+/**
+ * LessonWord's two columns (property names, not language codes): the first holds the authored
+ * target text, the second its meaning. Words without an authoredPair are written in the historical
+ * course pair, so its target is the first column and its native the second.
+ */
+type LessonWordField = Extract<keyof LessonWord, "es" | "en">;
+const LESSON_WORD_FIELDS: readonly [LessonWordField, LessonWordField] = ["es", "en"];
 
-/** The lesson-word field that holds `language`, or null when no authored column is that language. */
+/** The lesson-word column that holds `language`, or null when no authored column is that language. */
 export function lessonWordField(language: string): LessonWordField | null {
-  const code = packCodeOf(language);
-  return LESSON_WORD_FIELDS.find((field) => field === code) ?? null;
+  const pair = historicalCoursePair();
+  const [targetField, nativeField] = LESSON_WORD_FIELDS;
+  if (sameLanguage(language, pair.target)) return targetField;
+  return packCodeOf(language) !== null && sameLanguage(language, pair.native) ? nativeField : null;
 }
 
 /**

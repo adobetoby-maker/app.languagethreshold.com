@@ -1,0 +1,103 @@
+{
+  "code": "en",
+  "app": {
+    "workplaceCourse": true,
+    "hdListening": true,
+    "readingTracks": {
+      "es": [
+        "military-esl"
+      ]
+    },
+    "libraryIdPrefix": "esl-",
+    "phrases": {
+      "partnerSample": {
+        "woman": "Hello, I'm your conversation partner. Shall we begin?",
+        "man": "Hello, I'm your conversation partner. Shall we get started?"
+      },
+      "missionClarification": "I don't understand yet. Could you repeat more slowly and give me an example?",
+      "whereDoesItHurt": "Where does it hurt?"
+    },
+    "missions": {
+      "opening": {
+        "Core": "Hello. How can I help you today?",
+        "Core Basics": "Hello. How can I help you today?",
+        "Faith": "Hello. Thank you for coming. What would you like to talk about?",
+        "Medical": "Hello. Thank you for seeing me. What do you need to know first?",
+        "Trades": "Good morning. What should we do first in this situation?",
+        "Service": "Hello. I need some help with this situation. Can we talk?",
+        "Education": "Hello. I would like to understand the situation better. Can we review it together?",
+        "Agriculture": "Good morning. What is today's work plan, and what do you need me to do?",
+        "Sports": "Coach, what is the plan, and what do you want me to do?",
+        "Travel": "Excuse me, I need some help. What should I do?",
+        "English for Work": "Hello. Let's practice the English you need for this workplace situation."
+      },
+      "travel": {
+        "travel-breakfast": "Good morning. What would you like to drink first?",
+        "travel-lunch": "Good afternoon. Would you like to see today's lunch menu?",
+        "travel-dinner": "Good evening. Do you have a reservation, or do you need a table?",
+        "travel-shopping-essentials": "Hello. What do you need, and what size do you wear?",
+        "travel-daily-life-services": "Good morning. What service do you need today?",
+        "travel-markets-souvenirs": "Hello. These are locally made. What are you looking for?",
+        "travel-hotels-lodging": "Welcome. Do you have a reservation?",
+        "travel-taxi-rideshare": "Hello. Where are you going, and do you have luggage?",
+        "travel-trains-transit": "Good morning. Where do you need to travel?",
+        "travel-scooter-car-rental": "Hello. Are you looking for a scooter or a car, and for how many days?",
+        "travel-roadside-mechanics": "Good morning. Tell me what the vehicle is doing and when it started.",
+        "travel-guides-attractions": "Welcome. Before we begin, what are you most interested in?",
+        "travel-airport-luggage": "Good morning. What is your flight, and how can I help?",
+        "travel-pharmacy-health": "Good morning. What symptoms do you have, and when did they start?",
+        "travel-social-dating": "Hi. I don't think we've met. Are you visiting?",
+        "travel-problems-services": "Good morning. Tell me what happened and what you need first."
+      },
+      "relationship": {
+        "meeting-family": "It is lovely to meet you. We have heard a lot about you. How was your trip?",
+        "dating-interest": "I enjoy talking with you. Would you like to get coffee sometime?",
+        "defining-relationship": "I would like to talk about us. How would you describe our relationship?",
+        "affection-appreciation": "I care about you very much, and I appreciate you.",
+        "living-together": "I would like to understand what you expect from our relationship. Can we talk about it?",
+        "consent-boundaries": "Would it be okay if I hugged you? You can say no.",
+        "sexual-health-conversation": "Before we become intimate, I would like to talk about what helps both of us feel safe and comfortable.",
+        "disagreement-repair": "What happened hurt me, but I want to listen and work through it together.",
+        "ending-relationship": "I want to be honest with you. I have decided to end our relationship."
+      }
+    },
+    "contentPrompt": {
+      "registerNote": "English register: plain, current American English as used in a US hospital or workplace (short, direct, polite); the learner's native language is {native}.",
+      "asNative": "English",
+      "nearFuture": "ir a + infinitive in Spanish, going to in English",
+      "regionRule": "Use one regional variety per lesson, matching the setting, and never mix them: Spain uses euros, billete, camarero, comisaría, franquicia; Mexico and Latin America use pesos, boleto, mesero, deducible.",
+      "reportedSpeech": "El jefe dice: Revisen la cuchilla.",
+      "directSpeech": {
+        "good": "El jefe dice: Revisen la cuchilla.",
+        "bad": "El jefe dice: Revisen la cuchilla, y Marta corta."
+      },
+      "termsWithoutArticles": "\"césped\" and \"lawn\", not \"el césped\" and \"the lawn\"",
+      "infinitive": "the bare English verb, e.g. \"clean\", with no \"to\"",
+      "nativeMeaning": {
+        "es": ", e.g. \"limpiar\""
+      },
+      "formsNote": "; the he/she form takes the -s (\"cleans\"). \"i\", \"you\", \"we\", \"they\" are the base verb",
+      "unitsExample": "90 centímetros is 90 centimeters, not 36 inches",
+      "attribution": {
+        "examples": "\"según el plano\", \"la etiqueta dice\", \"as the job spec says\"",
+        "repeated": "\"la etiqueta dice...\""
+      }
+    },
+    "sentenceBuilderExample": "\"the coffee\" → [\"the\", \"coffee\"]",
+    "generator": "en-workplace",
+    "flag": "🇬🇧",
+    "countries": [
+      "United Kingdom",
+      "United States",
+      "Australia"
+    ],
+    "opponentNames": [
+      "EmmaJ_US",
+      "OliverT_GB",
+      "NoahP_AU",
+      "AvaW_CA",
+      "LiamH_US"
+    ],
+    "notePlaceholder": "Write a note…"
+  }
+}

@@ -626,7 +626,13 @@ export const Route = createFileRoute("/api/exams")({
             });
             const log = extractCore30Log(profile?.data, [progressKey])[progressKey];
             await ensureStageForModule(enrollment.module_id);
-            const studied = (getCurriculum(enrollment.module_id)?.lessons ?? [])
+            const studied = (
+              getCurriculum(
+                enrollment.module_id,
+                enrollment.target_language,
+                enrollment.instruction_language,
+              )?.lessons ?? []
+            )
               .filter((lesson) => {
                 const entry = log?.lessons[String(lesson.n)];
                 return (
@@ -638,7 +644,14 @@ export const Route = createFileRoute("/api/exams")({
                   )
                 );
               })
-              .map((lesson) => lessonObjectiveId(enrollment.module_id, lesson.n));
+              .map((lesson) =>
+                lessonObjectiveId(
+                  enrollment.module_id,
+                  lesson.n,
+                  enrollment.target_language,
+                  enrollment.instruction_language,
+                ),
+              );
             const attemptId = adaptive
               ? await startPreparedAssessment(db, {
                   actor: user.id,

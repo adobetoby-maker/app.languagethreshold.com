@@ -87,7 +87,9 @@ test("all six ways exist for every module and language", () => {
       ORDER,
     );
     for (const w of copy.ways.items) {
-      for (const field of ["doIt", "why", "exampleLabel"]) {
+      // A learner of a language the examples are not written in gets no example at all.
+      const fields = copy === FRENCH_ORTHO || copy === NO_MODULE ? ["doIt", "why"] : ["doIt", "why", "exampleLabel"];
+      for (const field of fields) {
         assert.ok(nonEmpty(w[field]), `${w.id}.${field} is non-empty`);
       }
     }
@@ -134,10 +136,12 @@ test("a non-roofing module makes no roofing-crew promise and labels the roofing 
   for (const w of ORTHO.ways.items) {
     assert.match(w.exampleLabel, /^Example from the Roofing Supervisor course \u00b7 Lesson \d+$/);
   }
-  // Another target language also flags that the example words are Spanish.
+  // Another target language never shows the Spanish example words.
   for (const w of FRENCH_ORTHO.ways.items) {
-    assert.match(w.exampleLabel, /Roofing Supervisor course \(Spanish\) \u00b7 Lesson \d+$/);
+    assert.equal(w.example, undefined);
+    assert.equal(w.exampleLabel, undefined);
   }
+  assert.doesNotMatch(FRENCH_ORTHO.opening.body.join(" "), /Spanish|Roofing Supervisor/);
 });
 
 test("the roofing module keeps its roofing lines", () => {

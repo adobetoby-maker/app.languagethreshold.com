@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { getLessonDefinition, modulePracticeVersion } from "../src/lib/lesson-definition.ts";
 import { summarizeLessonSourceCoverage } from "../src/lib/lesson-source-coverage.ts";
 import { getSpeakingMissions } from "../src/data/speaking-missions.ts";
@@ -36,7 +36,7 @@ test("all sixty military lessons have Roofing's six practice modes, readings, an
       assert.equal(d.readiness, "draft");
       assert.match(d.contentVersion, /military-en-es/);
       assert.ok(d.listeningItems.length);
-      assert.equal(d.words[0].es, getCurriculum(id).lessons[d.lessonNumber - 1].words[0].es);
+      assert.equal(d.words[0].es, authoredCurriculum(id).lessons[d.lessonNumber - 1].words[0].es);
       assert.ok(!ids.has(d.id));
       ids.add(d.id);
     }
@@ -53,9 +53,8 @@ test("all sixty military lessons have Roofing's six practice modes, readings, an
     instructionLanguage: "French",
     contentVersion: "test",
   });
-  assert.deepEqual(wrong.words, []);
-  assert.equal(wrong.reading, null);
-  assert.equal(wrong.teaching, null);
+  // A native the course was not written for has no lesson at all.
+  assert.equal(wrong, null);
 });
 
 test("military speaking cards use English headwords and sixty distinct contextual openings", () => {
@@ -66,7 +65,7 @@ test("military speaking cards use English headwords and sixty distinct contextua
       const m = missions.find((m) => m.id === `scenario_version_${id}_lesson_${n}_en_v1`);
       assert.ok(m);
       assert.equal(m.sourceObjectiveId, `${id}.lesson.${n}`);
-      const words = getCurriculum(id).lessons[n - 1].words;
+      const words = authoredCurriculum(id).lessons[n - 1].words;
       assert.equal(m.vocabulary[0], words[0].es);
       assert.equal(m.openingLine, militaryLessonPractice(id, n).openingLine);
       assert.ok(m.lessonTeaching);
@@ -135,7 +134,7 @@ test("the Cards tab can build every military stage from authored lesson vocabula
     const deck = authoredModuleDeck(id, "English", "Spanish");
     assert.equal(deck.lessonCount, count);
     const pairs = new Set(deck.pairs.map((p) => JSON.stringify([p.english, p.translation])));
-    for (const l of getCurriculum(id).lessons)
+    for (const l of authoredCurriculum(id).lessons)
       for (const w of l.words) assert.ok(pairs.has(JSON.stringify([w.en, w.es])));
     assert.equal(authoredModuleDeck(id, "English", "French"), null);
   }

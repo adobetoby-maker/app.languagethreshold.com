@@ -4,6 +4,7 @@
 // reports the question as unanswered and the server serves the next one. The server keeps the
 // real clock and refuses late answers, so nothing here can be used to get more time.
 import { useCallback, useEffect, useId, useRef, useState, type FormEvent } from "react";
+import type { LanguagePack } from "@/data/language-packs/registry";
 import { ArrowRight, Check, TriangleAlert } from "lucide-react";
 import { ExamsApiError, ExamsNetworkError, examsRequest, newRequestId } from "./api";
 import { answerReady } from "./format";
@@ -46,13 +47,13 @@ async function sendWithRetry<T>(run: () => Promise<T>): Promise<T> {
 export function Runner({
   view,
   moduleName,
-  spanish,
+  pack,
   onView,
   onLeave,
 }: {
   view: SessionData;
   moduleName: string;
-  spanish: boolean;
+  pack: LanguagePack | null;
   onView: (next: SessionData) => void;
   onLeave: () => void;
 }) {
@@ -132,7 +133,7 @@ export function Runner({
         view={view}
         label={`${moduleName}${kind ? ` · Test ${kind} · ${FORM_TITLES[kind]}` : ""}`}
         busy={busy}
-        spanish={spanish}
+        pack={pack}
         onSubmit={(answer) => void send(answer)}
         onExpire={expire}
       />
@@ -197,14 +198,14 @@ function QuestionPane({
   view,
   label,
   busy,
-  spanish,
+  pack,
   onSubmit,
   onExpire,
 }: {
   view: SessionData;
   label: string;
   busy: boolean;
-  spanish: boolean;
+  pack: LanguagePack | null;
   onSubmit: (answer: AnswerPayload | null) => void;
   onExpire: () => void;
 }) {
@@ -299,7 +300,7 @@ function QuestionPane({
               item={item}
               draft={draft}
               disabled={busy || timedOut}
-              spanish={spanish}
+              pack={pack}
               onChange={setDraft}
               labelId={promptId}
             />

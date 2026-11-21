@@ -24,6 +24,8 @@ import { LDS_PACK_LOADERS } from "@/data/lds-pack-loaders";
 import { appendLanguageSeeds } from "@/lib/library-seed-set";
 import { createLibraryPackCache } from "@/lib/library-pack-cache";
 import { readerSelectionScope } from "@/lib/reader-selection";
+import { appData, flagOf } from "@/data/language-packs/app-data";
+import { packFor } from "@/data/language-packs/registry";
 
 function browserLibraryStorage() {
   try {
@@ -67,19 +69,6 @@ type Action =
   | { type: "APPEND_LANGUAGE_SEEDS"; payload: LibraryEntry[]; language: string }
   | { type: "SET_READ_STATUS"; payload: { id: string; status: ReadStatus } }
   | { type: "SET_LANGUAGE_FILTER"; payload: Language[] };
-
-const FLAG_BY_LANGUAGE: Record<Language, string> = {
-  Spanish: "🇪🇸",
-  French: "🇫🇷",
-  German: "🇩🇪",
-  Italian: "🇮🇹",
-  Japanese: "🇯🇵",
-  Chinese: "🇨🇳",
-  Korean: "🇰🇷",
-  Portuguese: "🇧🇷",
-  Pashto: "🇦🇫",
-  English: "🇬🇧",
-};
 
 function makeInitial(actor: string | null): LibraryState {
   const saved = readLibraryPreferences(browserLibraryStorage(), actor);
@@ -403,7 +392,7 @@ export function LibraryProvider({
         state,
         dispatch,
         selected,
-        flagFor: (l) => FLAG_BY_LANGUAGE[l],
+        flagFor: (l) => flagOf(packFor(l)),
         addCustomEntry,
         removeCustomEntry,
         syncing: deviceState.syncing,
@@ -438,7 +427,7 @@ export function useLibrary() {
 }
 
 export function flagFor(l: Language): string {
-  return FLAG_BY_LANGUAGE[l];
+  return flagOf(packFor(l));
 }
 
 export function wordCount(sentences: { en?: string; target?: string }[] | string[]): number {

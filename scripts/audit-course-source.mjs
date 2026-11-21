@@ -40,6 +40,9 @@ try {
   const imports = {
     "src/data/modules.ts": ["MODULES", "moduleSupportsLearningPair"],
     "src/data/curriculum.ts": ["getCurriculum"],
+    "src/data/language-packs/registry.ts": ["PACKS", "packFor", "workplaceCoursePack"],
+    "src/data/languages.ts": ["nativeLanguageName"],
+    "src/lib/lesson-words-core.ts": ["languageTag"],
     "src/data/speaking-missions.ts": ["getSpeakingMissions"],
     "src/lib/lesson-definition.ts": [
       "getLessonDefinition",
@@ -73,18 +76,11 @@ try {
     "data:text/javascript;base64," +
       Buffer.from(compiled.outputFiles[0].contents).toString("base64")
   );
-  const codes = {
-    English: "en",
-    Spanish: "es",
-    French: "fr",
-    German: "de",
-    Italian: "it",
-    Japanese: "ja",
-    Chinese: "zh",
-    Korean: "ko",
-    Portuguese: "pt",
-    Pashto: "ps",
-  };
+  // Content directories and default natives come from the language-pack registry, never a list.
+  const codes = Object.fromEntries(app.PACKS.map((pack) => [pack.name, app.languageTag(pack.name)]));
+  const defaultNative = (target) =>
+    app.nativeLanguageName(app.packFor(target)?.native.default) ?? null;
+  const workplace = app.workplaceCoursePack();
   const fileCache = new Map(),
     missionCache = new Map();
   const seeds = new Map(app.ALL_SEEDS.map((seed) => [seed.id, seed]));
@@ -109,7 +105,7 @@ try {
     app.moduleSupportsLearningPair(m, target, native);
   const checkStage = (id, expected, target, native) => {
     const module = app.MODULES.find((m) => m.id === id);
-    const curriculum = module ? app.getCurriculum(id) : null;
+    const curriculum = module ? app.getCurriculum(id, target, native) : null;
     const raw = getFile(id, target, native),
       deckFile = getFile(id, target, native, "lesson-decks"),
       lessonNumbers = new Set((curriculum?.lessons ?? []).map((l) => l.n));
@@ -139,7 +135,7 @@ try {
           seed?.language === target &&
           (seed.nativeLanguage
             ? seed.nativeLanguage === native
-            : native === (target === "English" ? "Spanish" : "English")) &&
+            : native === defaultNative(target)) &&
           seed.sentences?.length &&
           seed.sentences.every((s) => s.target?.trim() && s.en?.trim()),
       );
@@ -256,16 +252,13 @@ try {
     const candidates = value("--target")
       ? [[value("--target"), value("--native")]]
       : module.learnDirection === "en-target"
-        ? (module.nativeLanguages ?? ["Spanish"]).map((native) => [
-            "English",
+        ? (module.nativeLanguages ?? [defaultNative(workplace.name)]).map((native) => [
+            workplace.name,
             native,
           ])
-        : [
-            ...Object.keys(codes)
-              .filter((target) => target !== "English")
-              .map((target) => [target, "English"]),
-            ["English", "Spanish"],
-          ].filter(([target, native]) => sourcePair(module, target, native));
+        : app.PACKS.map((pack) => [pack.name, defaultNative(pack.name)]).filter(
+            ([target, native]) => native && sourcePair(module, target, native),
+          );
     for (const [target, native] of candidates) {
       const stages = [
         checkStage(`foundation-${module.id}`, 10, target, native),

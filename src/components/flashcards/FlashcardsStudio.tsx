@@ -31,7 +31,8 @@ import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { usePack } from "@/hooks/use-language-pack";
 import type { LanguagePack } from "@/data/language-packs/registry";
 import { sameLanguage } from "@/data/language-packs/registry";
-import { STARTER_DECK_LANGUAGE, defaultNativeFor, nativeFirstDeckLanguage } from "@/lib/language-menu";
+import { appData } from "@/data/language-packs/app-data";
+import { starterDeckLanguage, defaultNativeFor, nativeFirstDeckLanguage } from "@/lib/language-menu";
 import { COMMANDS as CLIMBING_COMMANDS } from "@/data/climbing-practice";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import { getJapaneseConjugation, type JapaneseConjugationSet } from "@/data/japanese-conjugations";
@@ -49,22 +50,6 @@ const FURIGANA_FC_KEY = "lt.flashcards.furigana.v1";
 type PersonSlot = "s1" | "s2" | "s3" | "p1" | "p2" | "p3";
 type PersonLabels = Record<PersonSlot, string | null>;
 
-// Person labels of a language whose pack carries no verb-form keys yet (legacy adapters). Delete a
-// row when that language's reviewed pack ships; the pack's own labels then take over.
-const LEGACY_PERSON_LABELS: Record<string, PersonLabels> = {
-  it: { s1: "io", s2: "tu", s3: "lui/lei", p1: "noi", p2: "voi", p3: "loro" },
-  fr: { s1: "je", s2: "tu", s3: "il/elle", p1: "nous", p2: "vous", p3: "ils" },
-  de: { s1: "ich", s2: "du", s3: "er/sie", p1: "wir", p2: "ihr", p3: "sie" },
-  pt: { s1: "eu", s2: "tu", s3: "ele/ela", p1: "nós", p2: "vós", p3: "eles" },
-};
-
-// Six-person dictionary reference tables authored with labels of their own (keyed by pack code).
-// The Spanish dictionary table shows all six persons, vosotros included, although the course does
-// not teach vosotros; its labels are the ones Spanish learners have always seen.
-const REFERENCE_TABLE_LABELS: Record<string, PersonLabels> = {
-  es: { s1: "yo", s2: "tú", s3: "él/ella", p1: "nosotros", p2: "vosotros", p3: "ellos" },
-};
-
 /**
  * The six present-tense slots and their labels, read from the pack's verb forms (person and number
  * of each required key). A slot the course does not teach (Spanish has no vosotros) is null and
@@ -72,11 +57,12 @@ const REFERENCE_TABLE_LABELS: Record<string, PersonLabels> = {
  */
 function personLabelsFor(pack: LanguagePack | null): PersonLabels | null {
   if (!pack) return null;
-  const authored = REFERENCE_TABLE_LABELS[pack.code];
-  if (authored) return authored;
+  // A language that authors its own dictionary-table labels (app/<code>.json referenceTableLabels)
+  // keeps them; one whose pack has no person keys yet uses its app file's personLabels.
+  const app = appData(pack);
+  if (app.referenceTableLabels) return app.referenceTableLabels;
   const keys = pack.grammar.verbForms.keys;
-  if (pack.grammar.verbForms.axis !== "person" || keys.length === 0)
-    return LEGACY_PERSON_LABELS[pack.code] ?? null;
+  if (pack.grammar.verbForms.axis !== "person" || keys.length === 0) return app.personLabels;
   const labelOf = (person: 1 | 2 | 3, number: "singular" | "plural") => {
     const matches = keys
       .filter((k) => k.required && k.person === person && k.number === number)
@@ -165,7 +151,7 @@ export function FlashcardsStudio() {
   useEffect(() => {
     if (
       state.hydrated &&
-      sameLanguage(language, STARTER_DECK_LANGUAGE) &&
+      sameLanguage(language, starterDeckLanguage()) &&
       appState.nativeLanguage === defaultNativeFor(language) &&
       moduleId &&
       pack &&
@@ -534,7 +520,7 @@ export function FlashcardsStudio() {
   const exampleModuleId = activeCard?.moduleId ?? moduleId;
   const lessonSentences = useMemo(() => {
     if (!exampleModuleId) return [];
-    const curriculum = getCurriculum(exampleModuleId);
+    const curriculum = getCurriculum(exampleModuleId, language, appState.nativeLanguage);
     return (
       curriculum?.lessons.flatMap(
         (lesson) =>

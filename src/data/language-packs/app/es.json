@@ -1,0 +1,144 @@
+{
+  "code": "es",
+  "pack": {
+    "_why": "The PWA's Spanish reflexive strip has always removed os (reflexive regex me|te|se|nos|os); the profile lists only the taught pronouns. Keep the strip unchanged for Spanish learners.",
+    "grammar": {
+      "reflexivePronouns": [
+        "me",
+        "te",
+        "se",
+        "nos",
+        "os"
+      ]
+    }
+  },
+  "app": {
+    "historicalCourse": true,
+    "typingPlaceholders": {
+      "typeIn": "Escribe en español",
+      "typeForm": "Escribe la forma"
+    },
+    "clozeLetters": [
+      "á",
+      "é",
+      "í",
+      "ó",
+      "ú",
+      "ñ"
+    ],
+    "preferredDeviceVoices": [
+      "Paulina"
+    ],
+    "recordedAudio": "trade-recordings",
+    "hdListening": true,
+    "dictionary": "spanish-medical-trades",
+    "verbPatterns": "verb-patterns/es.json",
+    "referenceTableLabels": {
+      "s1": "yo",
+      "s2": "tú",
+      "s3": "él/ella",
+      "p1": "nosotros",
+      "p2": "vosotros",
+      "p3": "ellos"
+    },
+    "pastTenseLabel": "Preterite",
+    "readingTracks": {
+      "en": [
+        "place-directions",
+        "sound-like-a-native",
+        "spanish-basics",
+        "trade-passages"
+      ]
+    },
+    "phrases": {
+      "partnerSample": {
+        "woman": "Hola, soy su compañera de práctica. ¿Empezamos?",
+        "man": "Hola, soy su compañero de práctica. ¿Empezamos?"
+      },
+      "missionClarification": "No entiendo todavía. ¿Puede repetir más despacio y darme un ejemplo?",
+      "whereDoesItHurt": "¿Dónde le duele?"
+    },
+    "missions": {
+      "opening": {
+        "Core": "Hola. ¿En qué puedo ayudarle hoy?",
+        "Core Basics": "Hola. ¿En qué puedo ayudarle hoy?",
+        "Faith": "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
+        "Medical": "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
+        "Trades": "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
+        "Service": "Hola. Necesito ayuda con esta situación. ¿Podemos hablar?",
+        "Education": "Hola. Quisiera entender mejor la situación. ¿Podemos revisarla juntos?",
+        "Agriculture": "Buenos días. ¿Cuál es el plan de trabajo y qué necesita que haga?",
+        "Sports": "Entrenador, ¿cuál es el plan y qué quiere que haga?",
+        "Travel": "Disculpe, necesito ayuda con esta situación. ¿Qué debo hacer?",
+        "English for Work": "Hello. What workplace situation would you like to practice?"
+      },
+      "travel": {
+        "travel-breakfast": "Buenos días. ¿Qué le gustaría tomar para empezar?",
+        "travel-lunch": "Buenas tardes. ¿Quiere ver el menú del día?",
+        "travel-dinner": "Buenas noches. ¿Tiene reserva o busca una mesa?",
+        "travel-shopping-essentials": "Hola. ¿Qué necesita encontrar y qué talla usa?",
+        "travel-daily-life-services": "Buenos días. Dígame qué servicio necesita hoy.",
+        "travel-markets-souvenirs": "Hola. Todo esto es de la región. ¿Qué está buscando?",
+        "travel-hotels-lodging": "Bienvenido. ¿Tiene una reserva a su nombre?",
+        "travel-taxi-rideshare": "Buenas. ¿A dónde vamos y lleva equipaje?",
+        "travel-trains-transit": "Buenos días. ¿A dónde necesita viajar?",
+        "travel-scooter-car-rental": "Hola. ¿Busca una Vespa, una moto o un coche, y por cuántos días?",
+        "travel-roadside-mechanics": "Buenos días. Cuénteme qué hace el vehículo y cuándo empezó.",
+        "travel-guides-attractions": "Bienvenidos. Antes de empezar, ¿qué les interesa conocer más?",
+        "travel-airport-luggage": "Buenos días. ¿Cuál es su vuelo y en qué puedo ayudarle?",
+        "travel-pharmacy-health": "Buenos días. ¿Qué síntomas tiene y desde cuándo?",
+        "travel-social-dating": "Hola. Creo que no nos conocemos. ¿Está de visita?",
+        "travel-problems-services": "Buenos días. Explíqueme qué pasó y qué necesita primero."
+      },
+      "relationship": {
+        "meeting-family": "Qué gusto conocerte. Nos han hablado mucho de ti. ¿Cómo estuvo el viaje?",
+        "dating-interest": "Me caes muy bien. ¿Te gustaría tomar un café conmigo algún día?",
+        "defining-relationship": "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
+        "affection-appreciation": "Quiero decirte que te aprecio mucho. ¿Cómo te sientes cuando te lo digo?",
+        "living-together": "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
+        "consent-boundaries": "¿Te parece bien si te abrazo? Puedes decirme que no.",
+        "sexual-health-conversation": "Antes de tener intimidad, quiero hablar de lo que nos hace sentir seguros y cómodos.",
+        "disagreement-repair": "Me dolió lo que pasó, pero quiero escucharte y resolverlo contigo.",
+        "ending-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación."
+      }
+    },
+    "contentPrompt": {
+      "registerNote": "Spanish register: a crew lead or foreman speaking to a crew uses the plural ustedes imperative (corten, revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted. Use Mexican / US Spanish as working tradespeople and staff in the United States actually say it, including a common loanword when that is what people say on the job (troca, yarda, mopear) but only when it is standard job-site usage. Write ¿ and ¡ properly.",
+      "asNative": "Spanish (neutral Latin American Spanish)",
+      "nearFuture": "ir a + infinitive in Spanish, going to in English",
+      "regionRule": "Use one regional variety per lesson, matching the setting, and never mix them: Spain uses euros, billete, camarero, comisaría, franquicia; Mexico and Latin America use pesos, boleto, mesero, deducible.",
+      "reportedSpeech": "El jefe dice: Revisen la cuchilla.",
+      "directSpeech": {
+        "good": "El jefe dice: Revisen la cuchilla.",
+        "bad": "El jefe dice: Revisen la cuchilla, y Marta corta."
+      },
+      "termsWithoutArticles": "\"césped\" and \"lawn\", not \"el césped\" and \"the lawn\"",
+      "infinitive": "the Spanish infinitive, e.g. cortar, or reflexive lavarse",
+      "nativeMeaning": {
+        "*": ", written like \"to cut\""
+      },
+      "formsNote": ", except the reflexive pronoun for reflexive verbs (\"me lavo\", \"nos lavamos\"). All five forms must be different and must be correct: nosotros ends in -mos, ellos/ustedes ends in -n, tú ends in -s. Mark stem changes in \"note\" (o to ue)",
+      "unitsExample": "90 centímetros is 90 centimeters, not 36 inches",
+      "attribution": {
+        "examples": "\"según el plano\", \"la etiqueta dice\", \"as the job spec says\"",
+        "repeated": "\"la etiqueta dice...\""
+      }
+    },
+    "sentenceBuilderExample": "\"el café\" → [\"el\", \"café\"]",
+    "generator": "es-trades",
+    "flag": "🇪🇸",
+    "countries": [
+      "Spain",
+      "Mexico",
+      "Argentina"
+    ],
+    "opponentNames": [
+      "Sofia_MX",
+      "CarlosR_ES",
+      "LunaV_AR",
+      "Mateo_CO",
+      "IsaT_PE"
+    ],
+    "notePlaceholder": "Escribe una nota…"
+  }
+}

@@ -128,3 +128,7 @@ writeFileSync(
   ].join("\n"),
 );
 console.log(`index: ${keptIndex.map((e) => `${e.code} (${e.availability})`).join(", ")}`);
+
+// The catalog dictionaries (dictionary-index.json) are derived from the module files just written.
+const { buildCatalogDictionaries } = await import("./build-catalog-dictionaries.mjs");
+for (const line of buildCatalogDictionaries()) console.log(`dictionary ${line}`);

@@ -34,7 +34,9 @@ export function buildLearningReminderContext(
 ): LearningReminderContext {
   const reminderLanguage = state.practiceReminderLanguage ?? state.selectedLanguage;
   const module = getModule(state.activeModuleId);
-  const curriculum = state.activeModuleId ? getCurriculum(state.activeModuleId) : null;
+  const curriculum = state.activeModuleId
+    ? getCurriculum(state.activeModuleId, reminderLanguage, state.nativeLanguage)
+    : null;
   const completedRaw = state.activeModuleId
     ? (state.lessonProgress[
         core30ScopeKey(state.activeModuleId, {

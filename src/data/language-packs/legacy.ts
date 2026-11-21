@@ -20,6 +20,8 @@ interface LegacyRow {
   specialCharacters: string[];
   /** Native explanation language the PWA pairs with this target by default. */
   nativeDefault: string;
+  /** Every native the PWA's courses for this target are explained in (default: nativeDefault). */
+  nativeSupported?: readonly string[];
   /** Stage ids of this language were written without a language suffix (manifest entries exist). */
   legacyUnscopedStorage: boolean;
   remoteFallback?: LanguagePack["speech"]["remoteFallback"];
@@ -76,6 +78,8 @@ const LEGACY_ROWS: readonly LegacyRow[] = [
   { code: "en", name: "English", endonym: "English", script: "Latn",
     accents: ["en-US", "en-GB", "en-CA", "en-IE", "en-AU", "en-NZ", "en-ZA"],
     specialCharacters: [], nativeDefault: "es", legacyUnscopedStorage: true,
+    // The English-for-work modules are written for these natives (modules.ts nativeLanguages).
+    nativeSupported: ["es", "ar", "hi", "zh", "pt"],
     verbForms: ENGLISH_VERB_FORMS, contentChecks: ENGLISH_CHECKS,
     lookup: { articles: ["the", "a", "an"], stripPrefixes: ["to"] }, speakingMissions: true },
 ];
@@ -91,7 +95,11 @@ function legacyPackFromRow(row: LegacyRow): LanguagePack {
     name: row.name,
     endonym: row.endonym,
     legacyNames: [row.name],
-    native: { default: row.nativeDefault, supported: [row.nativeDefault], names: {} },
+    native: {
+      default: row.nativeDefault,
+      supported: [...(row.nativeSupported ?? [row.nativeDefault])],
+      names: {},
+    },
     variety: { tag: row.accents[0], label: row.accents[0], standard: "", alternates: [], avoid: [] },
     // A legacy adapter keeps the course the PWA already offers; it carries no catalog.
     status: { availability: "online", speakAvailability: "online", statusText: "" },

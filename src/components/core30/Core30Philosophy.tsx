@@ -69,18 +69,20 @@ function WayCard({ way, wide }: { way: PhilosophyWay; wide: boolean }) {
         {way.why}
       </p>
 
-      <div className="mt-4 rounded-xl border border-gold/25 bg-gold/[0.06] px-3.5 py-3">
-        <p className={cn(MONO_LABEL, "text-gold-ink")}>
-          {way.exampleLabel ?? `Example \u00b7 Lesson ${way.example.lesson}`}
-        </p>
-        <p className="mt-1 font-display text-base italic leading-snug text-foreground">
-          {way.example.es}
-        </p>
-        <p className="mt-0.5 text-xs text-muted-foreground">{way.example.en}</p>
-        {way.exampleNote ? (
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{way.exampleNote}</p>
-        ) : null}
-      </div>
+      {way.example ? (
+        <div className="mt-4 rounded-xl border border-gold/25 bg-gold/[0.06] px-3.5 py-3">
+          <p className={cn(MONO_LABEL, "text-gold-ink")}>
+            {way.exampleLabel ?? `Example \u00b7 Lesson ${way.example.lesson}`}
+          </p>
+          <p className="mt-1 font-display text-base italic leading-snug text-foreground">
+            {way.example.es}
+          </p>
+          <p className="mt-0.5 text-xs text-muted-foreground">{way.example.en}</p>
+          {way.exampleNote ? (
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{way.exampleNote}</p>
+          ) : null}
+        </div>
+      ) : null}
     </li>
   );
 }
@@ -104,7 +106,7 @@ export function Core30Philosophy({ onBack }: { onBack?: () => void }) {
   const language = state.selectedLanguage;
   const nativeLanguage = state.nativeLanguage;
   const { opening, ways, together, mastery, routine, teamLeads } = useMemo(() => {
-    const curriculum = moduleId ? getCurriculum(moduleId) : null;
+    const curriculum = moduleId ? getCurriculum(moduleId, language, nativeLanguage) : null;
     return buildCore30Philosophy({
       moduleId,
       language,

@@ -66,7 +66,9 @@ export function core60PathsFromManifest(
       masterId: manifestStageModuleId(entry, "master"),
       lessons: {
         foundation: 10,
-        core: getCurriculum(entry.base)?.lessons.length ?? 30,
+        core:
+          getCurriculum(entry.base, entry.language, entryNativeLanguage(entry) ?? "")?.lessons.length ??
+          30,
         master: 20,
       },
       available: { foundation: Boolean(entry.foundation), master: Boolean(entry.master) },

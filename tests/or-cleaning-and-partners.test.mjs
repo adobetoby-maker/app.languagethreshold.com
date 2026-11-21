@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { validateStageFile } from "../src/lib/core60-validate.ts";
 import { getLessonDefinition, modulePracticeVersion } from "../src/lib/lesson-definition.ts";
 import { parseLessonContent, validateLessonContent, contentLimitsFor } from "../src/lib/lesson-content-core.ts";
@@ -16,7 +16,7 @@ for (const [base,target,native,code] of [['or-evs','English','Spanish','en'],['o
  test(`${base}: all 60 lessons have exact-pair vocabulary, verbs, readings, six modes, decks and speaking`,()=>{
   const missions=getSpeakingMissions(target,native);
   for (const [prefix,count] of [['foundation-',10],['',30],['master-',20]]) {
-   const id=prefix+base, mod=getModule(id), curriculum=getCurriculum(id);
+   const id=prefix+base, mod=getModule(id), curriculum=authoredCurriculum(id);
    assert.ok(moduleSupportsLearningPair(mod,target,native));
    assert.equal(moduleSupportsLearningPair(mod,native,target),false);
    assert.equal(curriculum.lessons.length,count);
@@ -31,7 +31,7 @@ for (const [base,target,native,code] of [['or-evs','English','Spanish','en'],['o
     assert.ok(getLessons(id,target).includes(rid));assert.ok(OR_CLEANING_READERS.some(r=>r.id===rid && r.language===target));
     assert.ok(missions.some(m=>m.moduleId===id && m.sourceObjectiveId===definition.objectiveId && m.openingLine.length>5),`${id}/${n} mission`);
     const other=getLessonDefinition({moduleId:id,lessonNumber:n,targetLanguage:'Japanese',instructionLanguage:'English',contentVersion:'unsupported'});
-    assert.equal(other.reading,null);assert.equal(other.words.length,0);
+    assert.equal(other,null);
    }
    if(prefix) assert.deepEqual(validateStageFile(read(`src/data/core60/${code}/${id}.json`)),[]);
   }

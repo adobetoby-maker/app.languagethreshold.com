@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { MODULES } from "../src/data/modules.ts";
 import { validateLessonContent, contentLimitsFor } from "../src/lib/lesson-content-core.ts";
 
@@ -22,7 +22,7 @@ test("advertised mission roles have complete authored courses", () => {
       [base, 30],
       [`master-${base}`, 20],
     ]) {
-      const curriculum = getCurriculum(module);
+      const curriculum = authoredCurriculum(module);
       assert.equal(curriculum?.lessons.length, count, module);
       const content = load(module);
       assert.equal(Object.keys(content.lessons).length, count, module);
@@ -47,7 +47,7 @@ test("advertised mission roles have complete authored courses", () => {
 test("logistics is a Spanish medical Core 30 with complete lesson content", () => {
   const module = "medical-mission-logistics";
   assert.equal(MODULES.find((m) => m.id === module)?.category, "Medical");
-  const curriculum = getCurriculum(module);
+  const curriculum = authoredCurriculum(module);
   assert.equal(curriculum.lessons.length, 30);
   assert.equal(new Set(curriculum.lessons.map((l) => l.title)).size, 30);
   const content = load(module);

@@ -44,20 +44,19 @@ export function getLessonDefinition(input: {
   contentVersion: string;
 }): LessonDefinition | null {
   const { moduleId, lessonNumber, targetLanguage, instructionLanguage, contentVersion } = input;
-  // Keep the stable objective/lesson shell even for an unsupported pair; authored words, reading,
-  // teaching and sound below are each gated by the requested pair. This preserves existing lesson
-  // identity without borrowing a Spanish lesson's actual practice content.
-  const source = getCurriculum(moduleId)?.lessons.find((l) => l.n === lessonNumber);
+  // The lesson shell comes from the requested pair's own curriculum: a pair the module was not
+  // written for has no definition (null), never another language's lesson.
+  const source = getCurriculum(moduleId, targetLanguage, instructionLanguage)?.lessons.find(
+    (l) => l.n === lessonNumber,
+  );
   if (!source) return null;
+  const writtenFor = authoredWordsPairForModule(getModule(moduleId));
   const roofingTrack =
-    moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
+    moduleId === "roofing" &&
+    targetLanguage === writtenFor.language &&
+    instructionLanguage === writtenFor.nativeLanguage;
   const sourceWords =
-    pickAuthoredWords(
-      source.words,
-      targetLanguage,
-      instructionLanguage,
-      authoredWordsPairForModule(getModule(moduleId)),
-    ) ?? [];
+    pickAuthoredWords(source.words, targetLanguage, instructionLanguage, writtenFor) ?? [];
   const patternWords = spanishPatternWords(
     moduleId,
     lessonNumber,
@@ -110,7 +109,7 @@ export function getLessonDefinition(input: {
   );
   return {
     id: `${moduleId}.${targetLanguage}.${instructionLanguage}.lesson.${lessonNumber}`,
-    objectiveId: lessonObjectiveId(moduleId, lessonNumber),
+    objectiveId: lessonObjectiveId(moduleId, lessonNumber, targetLanguage, instructionLanguage),
     moduleId,
     lessonNumber,
     title: source.title,
@@ -118,7 +117,10 @@ export function getLessonDefinition(input: {
     targetLanguage,
     instructionLanguage,
     contentVersion,
-    prerequisites: lessonNumber > 1 ? [lessonObjectiveId(moduleId, lessonNumber - 1)] : [],
+    prerequisites:
+      lessonNumber > 1
+        ? [lessonObjectiveId(moduleId, lessonNumber - 1, targetLanguage, instructionLanguage)]
+        : [],
     expectedMinutes: source.steps.reduce((sum, step) => sum + step.durationMin, 0),
     source,
     words,

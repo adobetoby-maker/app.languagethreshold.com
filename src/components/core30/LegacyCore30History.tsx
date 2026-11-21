@@ -19,7 +19,7 @@ export function LegacyCore30History({
   if (!legacy && !completed) return null;
   const summary = summarizeCore30(
     legacy,
-    getCurriculum(moduleId)?.lessons.length ?? 30,
+    getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.length ?? 30,
     toDateKey(new Date()),
   );
   const imported = state.core30Log[key]?.legacyImportedAt;

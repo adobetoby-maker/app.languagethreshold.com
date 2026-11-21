@@ -11,7 +11,8 @@ export interface TravelDestination {
   id: string;
   country: string;
   flag: string;
-  language: Extract<Language, "Spanish" | "Italian" | "Japanese" | "English">;
+  /** The language the destination's phrases are written in (a registered language name). */
+  language: Language;
   ttsLocale: string;
   regions: string;
   localLens: string;

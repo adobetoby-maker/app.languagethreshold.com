@@ -11,7 +11,7 @@ export function authoredModuleDeck(
   native: string,
 ) {
   if (!moduleId) return null;
-  const curriculum = getCurriculum(moduleId);
+  const curriculum = getCurriculum(moduleId, target, native);
   const expected = isFoundationModule(moduleId) ? 10 : isMasterModule(moduleId) ? 20 : 30;
   if (!curriculum || curriculum.lessons.length !== expected) return null;
   const contentVersion = modulePracticeVersion(moduleId, target, native);

@@ -8,7 +8,7 @@ import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { getModule } from "../src/data/modules.ts";
 import {
   masterBlockRequest,
@@ -19,13 +19,20 @@ import {
 import { validateStageFile } from "../src/lib/core60-validate.ts";
 import { selfTalkIssue, validateLessonContent } from "../src/lib/lesson-content-core.ts";
 import {
-  DIRECT_SPEECH_RULE,
   NOTE_FINAL_RULE,
-  PASSAGE_QUALITY_RULES,
-  REGION_RULE,
   buildLessonContentRequest,
+  directSpeechRule,
   lessonContentCliSystemPrompt,
+  passageQualityRules,
+  regionRule,
 } from "../src/lib/lesson-content-prompt.ts";
+import { getPack } from "../src/data/language-packs/registry.ts";
+
+// The rules a Spanish-target lesson is written with (the pack's own wording).
+const ES = getPack("es");
+const REGION_RULE = regionRule(ES);
+const DIRECT_SPEECH_RULE = directSpeechRule(ES);
+const PASSAGE_QUALITY_RULES = passageQualityRules(ES);
 
 // ─── Self-talk in notes ──────────────────────────────────────────────────────
 
@@ -186,8 +193,8 @@ test("a part-only request carries only the rules that part needs", () => {
 
 const roofing = getModule("roofing");
 const core30 = {
-  titles: getCurriculum("roofing").lessons.map((l) => l.title),
-  objectives: getCurriculum("roofing").lessons.map((l) => l.objective),
+  titles: authoredCurriculum("roofing").lessons.map((l) => l.title),
+  objectives: authoredCurriculum("roofing").lessons.map((l) => l.objective),
   terms: ["teja", "clavo"],
 };
 const ctx = (stage) => ({ module: roofing, stage, pair: { language: "Spanish", nativeLanguage: "English" }, core30 });

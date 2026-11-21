@@ -1,23 +1,20 @@
 // Built by TAC — 2026-10-20
-// Verb Games: shared pattern types. Type-only declarations plus PERSONS.
+// Verb Games: shared pattern types, language-neutral. Persons are pack verb keys and family ids
+// carry their pack code; the language-specific engine is a morphology plugin (morphology.ts).
 
-export type Person = "yo" | "tú" | "él_ella_usted" | "nosotros" | "ellos_ustedes";
+/** A verb-form key of the language's pack (grammar.verbForms.keys[].key), e.g. "yo". */
+export type Person = string;
 
-/** Same order as SPANISH_FORM_KEYS in lesson-content-core.ts (no vosotros). */
-export const PERSONS: readonly Person[] = ["yo", "tú", "él_ella_usted", "nosotros", "ellos_ustedes"];
+/** The persons of the compiled pattern data, from its morphology plugin (morphology.ts). */
+export { COMPILED_PERSONS as PERSONS } from "./morphology.ts";
 
-export type FamilyId =
-  | "es.present.ar"
-  | "es.present.er"
-  | "es.present.ir"
-  | "es.present.go-yo"
-  | "es.present.e-ie"
-  | "es.present.o-ue"
-  | "es.present.e-i";
+/** `<pack code>.<tense>.<family>` (es.present.ar, es.present.e-ie, …): written by the plugin. */
+export type FamilyId = `${string}.${string}.${string}`;
 
 export interface PatternFamily {
   id: FamilyId;
-  language: "es";
+  /** The pack code the family belongs to. */
+  language: string;
   tense: "present";
   kind: "regular-ending" | "yo-irregular" | "stem-change";
   label: string;
@@ -62,7 +59,8 @@ export interface CrushLevel {
 
 export interface PatternData {
   version: 1;
-  language: "es";
+  /** The pack code the family belongs to. */
+  language: string;
   tense: "present";
   dataHash: string;
   reportSha256: string;

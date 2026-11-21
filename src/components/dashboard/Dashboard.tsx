@@ -21,19 +21,6 @@ import { PushReminderControl } from "@/components/PushReminderControl";
 import { PracticeStreakCard } from "@/components/dashboard/PracticeStreakCard";
 import { NotesCard } from "@/components/dashboard/NotesCard";
 
-const LANG_FLAGS: Record<Language, string> = {
-  Spanish: "🇪🇸",
-  French: "🇫🇷",
-  German: "🇩🇪",
-  Italian: "🇮🇹",
-  Japanese: "🇯🇵",
-  Chinese: "🇨🇳",
-  Korean: "🇰🇷",
-  Portuguese: "🇧🇷",
-  Pashto: "🇦🇫",
-  English: "🇬🇧",
-};
-
 function formatMinutes(seconds: number): string {
   if (seconds <= 0) return "0m";
   const m = Math.floor(seconds / 60);
@@ -80,7 +67,7 @@ export function Dashboard() {
 
   const langHistory = state.languagesUsed.map((lang) => ({
     lang,
-    flag: LANG_FLAGS[lang] ?? flagFor(lang),
+    flag: flagFor(lang),
     seconds: state.speakSecondsByLang[lang] ?? 0,
   }));
 
@@ -297,7 +284,7 @@ export function Dashboard() {
                         {c.kind === "reach" ? "Reach" : "Grammar"}
                       </span>
                       <span className="font-sans text-xs uppercase tracking-wide text-muted-foreground">
-                        {LANG_FLAGS[c.language] ?? flagFor(c.language)} {c.language}
+                        {flagFor(c.language)} {c.language}
                       </span>
                       <span className="font-sans text-xs text-gold-ink">+{c.xp} XP</span>
                     </div>

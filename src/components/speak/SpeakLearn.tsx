@@ -175,7 +175,7 @@ export function SpeakLearn() {
   };
 
   // Saved speaking practice advances the next session, never a running session.
-  const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce(
+  const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce<number>(
     (sum, seconds) => sum + (seconds ?? 0),
     0,
   );

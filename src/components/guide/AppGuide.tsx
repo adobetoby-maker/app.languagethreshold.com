@@ -14,8 +14,9 @@ import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
 import { onrampFor, isBasicsModule, isDefaultCourse } from "@/lib/language-onramp";
 import { usePack } from "@/hooks/use-language-pack";
-import { sameLanguage } from "@/data/language-packs/registry";
-import { STARTER_DECK_LANGUAGE } from "@/lib/language-menu";
+import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { appData } from "@/data/language-packs/app-data";
+import { starterDeckLanguage } from "@/lib/language-menu";
 import { BasicsCheck } from "@/components/core30/BasicsCheck";
 import { useLessonReview } from "@/hooks/use-lesson-review";
 import { LessonReviewCards } from "@/components/core30/LessonReviewCards";
@@ -344,7 +345,8 @@ const MEDICAL_FLOW: FlowStep[] = [
     icon: "🎤",
     title: "Say it",
     tab: "Speak & Learn",
-    value: "'¿Dónde le duele?' Practice until it's automatic.",
+    // {whereDoesItHurt} is filled from the learner's language (app/<code>.json phrases).
+    value: "'{whereDoesItHurt}' Practice until it's automatic.",
   },
 ];
 
@@ -385,6 +387,26 @@ const TRADES_FLOW: FlowStep[] = [
     value: "Practice a crew instruction. The words your crew hears need to be yours.",
   },
 ];
+
+/**
+ * The flow with its quoted target-language phrases filled in for the learner's language. A step
+ * quoting a phrase the language has not authored keeps its advice without the quote (never
+ * another language's words).
+ */
+function flowForLanguage(flow: FlowStep[], language: string): FlowStep[] {
+  const pack = packFor(language);
+  const phrase = pack ? appData(pack).phrases.whereDoesItHurt : undefined;
+  return flow.map((step) =>
+    step.value.includes("{whereDoesItHurt}")
+      ? {
+          ...step,
+          value: phrase
+            ? step.value.replace("{whereDoesItHurt}", phrase)
+            : "Ask where it hurts. Practice until it's automatic.",
+        }
+      : step,
+  );
+}
 
 function getFlow(moduleId: string | null): FlowStep[] {
   if (!moduleId) return DEFAULT_FLOW;
@@ -851,7 +873,13 @@ function OwnedLessonRunner({
   const totalMin = lesson.steps.reduce((s, step) => s + step.durationMin, 0);
   // The sequential counter (lessonProgress) only moves for the lesson it is currently on.
   const isCurrentSequential =
-    getCurrentLesson(moduleId, state.lessonProgress, progressKey)?.n === lesson.n;
+    getCurrentLesson(
+      moduleId,
+      state.selectedLanguage,
+      state.nativeLanguage,
+      state.lessonProgress,
+      progressKey,
+    )?.n === lesson.n;
   const lessonLog = state.core30Log[progressKey]?.lessons[String(lesson.n)];
   const masteredAt = lessonLog?.masteredAt;
   const needsPractice = Boolean(lessonLog?.needsPractice);
@@ -1889,12 +1917,12 @@ export function AppGuide() {
   useStageCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage);
   const curriculum = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage);
 
-  const flow = getFlow(state.activeModuleId);
+  const flow = flowForLanguage(getFlow(state.activeModuleId), state.selectedLanguage);
   // Module tips and cognates are authored per language (pack.content.guideTips); a language
   // with none shows no tip card rather than another language's.
   const tipPack = usePack(state.selectedLanguage);
   const tip = tipPack?.content.guideTips ? getModuleTip(state.activeModuleId) : null;
-  const tourSteps = getTourScript(state.activeModuleId);
+  const tourSteps = getTourScript(state.activeModuleId, state.selectedLanguage, state.nativeLanguage);
 
   // XP tier progress
   const xp = state.xp ?? 0;
@@ -2422,7 +2450,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     const course = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)!;
     const lesson =
       (savedPosition && course.lessons.find((item) => item.n === savedPosition.lesson)) ??
-      getCurrentLesson(moduleId, state.lessonProgress, progressKey);
+      getCurrentLesson(moduleId, state.selectedLanguage, state.nativeLanguage, state.lessonProgress, progressKey);
     if (lesson) {
       try {
         sessionStorage.removeItem("lt.v6.pending-mode");
@@ -2472,7 +2500,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     (lesson) => core30Log?.lessons[String(lesson.n)]?.needsPractice,
   );
   const currentLesson =
-    practiceLesson ?? getCurrentLesson(moduleId, state.lessonProgress, progressKey);
+    practiceLesson ?? getCurrentLesson(moduleId, state.selectedLanguage, state.nativeLanguage, state.lessonProgress, progressKey);
   const openLesson =
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;
@@ -2698,7 +2726,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
           {onramp &&
-            sameLanguage(state.selectedLanguage, STARTER_DECK_LANGUAGE) &&
+            sameLanguage(state.selectedLanguage, starterDeckLanguage()) &&
             isDefaultCourse(moduleId, state.selectedLanguage) && (
               <button
                 className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"

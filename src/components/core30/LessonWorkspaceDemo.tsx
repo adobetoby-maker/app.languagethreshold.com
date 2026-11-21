@@ -3,7 +3,13 @@ import { SpeakingConversationControls } from "@/components/speak/SpeakingConvers
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { V6Header, V6Dock } from "./V6AppChrome";
 import { V4StudyActivity } from "./V4StudyChrome";
-import { FOUNDATION_ROOFING_LESSONS } from "@/data/foundation-roofing-curriculum";
+import {
+  FOUNDATION_ROOFING_LESSONS,
+  FOUNDATION_ROOFING_MODULE_ID,
+} from "@/data/foundation-roofing-curriculum";
+import { moduleAuthoredPair } from "@/data/curriculum";
+import { requirePackFor } from "@/data/language-packs/registry";
+import { defaultAccentTag } from "@/lib/language-pack-text";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Mic, Moon, Play, Sun, Turtle, Volume2 } from "lucide-react";
 import {
@@ -16,8 +22,19 @@ import {
 type Word = { es: string; en: string; kind?: string };
 type DemoLesson = { passage: { title: string; target: string[]; native: string[] }; words: Word[] };
 const DEMO_LESSON = FOUNDATION_ROOFING_LESSONS[0];
-const LESSON_LINK =
-  "/?tab=core30&module=foundation-roofing&target=Spanish&native=English&lesson=1&way=see";
+// The demo shows the Roofing Foundation in the pair it was written for; its language, voice and
+// lang attributes come from that pair's pack, never a literal.
+const DEMO_PACK = requirePackFor(moduleAuthoredPair(FOUNDATION_ROOFING_MODULE_ID)?.target);
+const DEMO_LANG = DEMO_PACK.code;
+const DEMO_PAIR = moduleAuthoredPair(FOUNDATION_ROOFING_MODULE_ID);
+const LESSON_LINK = `/?${new URLSearchParams({
+  tab: "core30",
+  module: FOUNDATION_ROOFING_MODULE_ID,
+  target: DEMO_PACK.name,
+  native: DEMO_PAIR?.native ?? "",
+  lesson: "1",
+  way: "see",
+})}`;
 const buttonClass =
   "min-h-11 rounded-xl border border-border px-4 py-2 text-sm font-semibold text-foreground hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring";
 
@@ -133,10 +150,10 @@ export function LessonWorkspaceDemo() {
       return;
     }
     const next = new SpeechSynthesisUtterance(word.es);
-    next.lang = "es-ES";
+    next.lang = defaultAccentTag(DEMO_PACK) ?? DEMO_PACK.speech.tts.languageCode;
     next.rate = rate;
     next.voice =
-      window.speechSynthesis.getVoices().find((voice) => voice.lang.startsWith("es")) ?? null;
+      window.speechSynthesis.getVoices().find((voice) => voice.lang.startsWith(DEMO_LANG)) ?? null;
     next.onend = () => {
       if (utterance.current === next) {
         utterance.current = null;
@@ -158,7 +175,7 @@ export function LessonWorkspaceDemo() {
     <div className="lt-lesson-demo-shell lt-v6-demo">
       <V6Header
         course="Roofing · Foundation"
-        language="Spanish"
+        language={DEMO_PACK.name}
         lessonNumber={1}
         totalLessons={FOUNDATION_ROOFING_LESSONS.length}
         dueCards={0}
@@ -232,7 +249,7 @@ export function LessonWorkspaceDemo() {
         <main data-demo-scroll className="lt-native-demo-main">
           <NativeSpeakSurface
             lesson="Sounds and Greetings"
-            language="Spanish"
+            language={DEMO_PACK.name}
             partnerTitle="Teacher · learn a topic"
             transcript={<div role="region" aria-label="Conversation replies" />}
             partner={
@@ -265,8 +282,8 @@ export function LessonWorkspaceDemo() {
                 }}
               >
                 <textarea
-                  aria-label="Preview Spanish reply"
-                  placeholder="Your Spanish reply…"
+                  aria-label={`Preview ${DEMO_PACK.name} reply`}
+                  placeholder={`Your ${DEMO_PACK.name} reply…`}
                   rows={2}
                   value={response}
                   onChange={(event) => setResponse(event.target.value)}
@@ -381,8 +398,8 @@ export function LessonWorkspaceDemo() {
                         className="lt-native-reading-card"
                         aria-label="Published lesson reading"
                       >
-                        <p className="lt-native-reading-language">Spanish</p>
-                        <p lang="es" className="lt-native-reading-target">
+                        <p className="lt-native-reading-language">{DEMO_PACK.name}</p>
+                        <p lang={DEMO_LANG} className="lt-native-reading-target">
                           {word.es}
                         </p>
                         <p lang="en" className="lt-native-reading-translation">
@@ -426,7 +443,7 @@ export function LessonWorkspaceDemo() {
                       <section className="space-y-5 rounded-3xl border border-border bg-card p-6">
                         {active === "recall" && (
                           <>
-                            <p lang="es" className="font-serif text-3xl">
+                            <p lang={DEMO_LANG} className="font-serif text-3xl">
                               {word.es}
                             </p>
                             <button
@@ -470,7 +487,7 @@ export function LessonWorkspaceDemo() {
                               {revealed ? "Hide phrase" : "Reveal phrase"}
                             </button>
                             {revealed && (
-                              <p lang="es" className="font-serif text-2xl">
+                              <p lang={DEMO_LANG} className="font-serif text-2xl">
                                 {word.es}{" "}
                                 <span className="block text-base text-muted-foreground">
                                   {word.en}
@@ -485,8 +502,8 @@ export function LessonWorkspaceDemo() {
                             onSubmit={(event) => {
                               event.preventDefault();
                               setChecked(
-                                typed.trim().normalize("NFC").toLocaleLowerCase("es") ===
-                                  word.es.trim().normalize("NFC").toLocaleLowerCase("es")
+                                typed.trim().normalize("NFC").toLocaleLowerCase(DEMO_LANG) ===
+                                  word.es.trim().normalize("NFC").toLocaleLowerCase(DEMO_LANG)
                                   ? "That matches the published word. Demo practice only."
                                   : `Compare with the lesson word: ${word.es}`,
                               );
@@ -494,9 +511,9 @@ export function LessonWorkspaceDemo() {
                           >
                             <p className="text-xl">{word.en}</p>
                             <label className="block space-y-2">
-                              <span className="text-sm font-semibold">Type the Spanish word</span>
+                              <span className="text-sm font-semibold">Type the {DEMO_PACK.name} word</span>
                               <input
-                                lang="es"
+                                lang={DEMO_LANG}
                                 autoComplete="off"
                                 value={typed}
                                 onChange={(event) => {
@@ -560,7 +577,7 @@ export function LessonWorkspaceDemo() {
                   )}
                   {active === "say" && (
                     <section className="space-y-4 rounded-2xl border border-border bg-card p-5">
-                      <p lang="es" className="font-serif text-2xl">
+                      <p lang={DEMO_LANG} className="font-serif text-2xl">
                         {lesson.passage.target[0]}
                       </p>
                       <p className="text-muted-foreground">

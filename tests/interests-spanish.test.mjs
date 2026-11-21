@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { interestLesson } from "../src/data/interests-spanish.ts";
 import { getLessonDefinition } from "../src/lib/lesson-definition.ts";
 import { getLessons } from "../src/data/module-starters.ts";
@@ -24,7 +24,7 @@ test("both interest courses have complete exact-pair paths, with no borrowed lan
   for (const [id, count] of stages) {
     const module = getModule(id);
     assert.ok(module, id);
-    assert.equal(getCurriculum(id)?.lessons.length, count, id);
+    assert.equal(authoredCurriculum(id)?.lessons.length, count, id);
     assert.equal(moduleSupportsLearningPair(module, "Spanish", "English"), true);
     for (const [target, native] of [
       ["English", "Spanish"],

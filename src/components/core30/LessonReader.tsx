@@ -26,6 +26,8 @@ import { languageTag } from "@/lib/lesson-words-core";
 import { packFor } from "@/data/language-packs/registry";
 import { cn } from "@/lib/utils";
 import { currentTutorLesson } from "@/lib/lesson-tutor-context";
+import { historicalCoursePair, sameLanguage, workplaceCoursePack } from "@/data/language-packs/registry";
+import { nativeLanguageName } from "@/data/languages";
 
 /** How long to wait for the reading library before treating a missing passage as absent. */
 const LIBRARY_WAIT_MS = 6000;
@@ -131,16 +133,19 @@ export function LessonReader({
   // Reader library ids are seed-<code>-<module>-lesson-<n> for every authored track.
   const seedId = (n: number) => `seed-${lang}-${moduleId}-lesson-${n}`;
   // Only offer the exact passage shown; authored inline content has no library counterpart.
+  // The military course is written in the workplace course with its default native.
+  const workplace = workplaceCoursePack();
   const militaryReaderId =
-    language === "English" &&
-    state.nativeLanguage === "Spanish" &&
+    sameLanguage(language, workplace.code) &&
+    state.nativeLanguage === nativeLanguageName(workplace.native.default) &&
     ["military", "foundation-military", "master-military"].includes(moduleId) &&
     lessonNumber
       ? seedId(lessonNumber)
       : null;
+  // The basics, place, sound and interest courses are written in the historical course pair.
   const basicsReaderId =
-    language === "Spanish" &&
-    state.nativeLanguage === "English" &&
+    language === historicalCoursePair().target &&
+    state.nativeLanguage === historicalCoursePair().native &&
     lessonNumber &&
     (interestLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       placeLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||

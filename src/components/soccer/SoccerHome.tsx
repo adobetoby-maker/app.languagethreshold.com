@@ -359,7 +359,7 @@ function PositionsSection() {
           </div>
         </div>
       </div>
-      <SoccerPositionsGame language={state.selectedLanguage ?? "Spanish"} />
+      <SoccerPositionsGame language={state.selectedLanguage} />
     </div>
   );
 }

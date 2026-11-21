@@ -1,5 +1,5 @@
 import { getCurriculum } from "../data/curriculum.ts";
-import type { SpeakingMission } from "../data/speaking-missions.ts";
+import { missionNativeLanguage, type SpeakingMission } from "../data/speaking-missions.ts";
 import { lessonWordPair } from "./speaking-lesson-words.ts";
 import { lessonObjectiveId } from "./learning-identity.ts";
 
@@ -25,9 +25,16 @@ export function speakingPreparationPhrases(
   catalogLines?: readonly PreparationCatalogLine[],
 ) {
   const lesson = mission.sourceObjectiveId
-    ? getCurriculum(mission.moduleId)?.lessons.find(
-        (item) => lessonObjectiveId(mission.moduleId, item.n) === mission.sourceObjectiveId,
-      )
+    ? getCurriculum(mission.moduleId, mission.language, missionNativeLanguage(mission.language))
+        ?.lessons.find(
+          (item) =>
+            lessonObjectiveId(
+              mission.moduleId,
+              item.n,
+              mission.language,
+              missionNativeLanguage(mission.language),
+            ) === mission.sourceObjectiveId,
+        )
     : undefined;
   if (lesson?.words?.length) {
     const authored = lesson.words

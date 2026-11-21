@@ -68,6 +68,7 @@ import {
 } from "./vocab-store";
 
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
+import { historicalCoursePair } from "@/data/language-packs/registry";
 export { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 
 export type TabKey = AppTab;
@@ -343,10 +344,14 @@ export type AppAction =
     }
   | { type: "MERGE_REMOTE"; payload: PersistedShape };
 
+// Until onboarding asks (LanguageFirstStep), a new learner sits on the historical course pair: the
+// registry names it (app/<code>.json historicalCourse), never a literal here.
+const FIRST_LAUNCH_PAIR = historicalCoursePair();
+
 const initialState: AppState = {
   learningResetId: null,
-  selectedLanguage: "Spanish",
-  nativeLanguage: "English",
+  selectedLanguage: FIRST_LAUNCH_PAIR.target,
+  nativeLanguage: FIRST_LAUNCH_PAIR.native as NativeLanguage,
   darkMode: true,
   currentTab: "core30",
   xp: 0,
@@ -368,7 +373,7 @@ const initialState: AppState = {
   customTextsAdded: 0,
   lettersWritten: 0,
   cultureRead: [],
-  languagesUsed: ["Spanish"],
+  languagesUsed: [FIRST_LAUNCH_PAIR.target],
   cefrLevelsCompleted: [],
   speakSecondsByLang: {},
   xpSessions: [],
@@ -1033,7 +1038,8 @@ function migrate(raw: unknown): PersistedShape {
     data.practiceStreak = practiceStreakFromLegacy(undefined, data);
     data.practiceReminderLanguage ??= null;
     data.lastPracticeDateByLanguage = data.lastPracticeDate
-      ? { [data.selectedLanguage ?? "Spanish"]: data.lastPracticeDate }
+      ? // A profile saved before the language setting existed was the historical course.
+        { [data.selectedLanguage ?? FIRST_LAUNCH_PAIR.target]: data.lastPracticeDate }
       : {};
     v = 5;
   }

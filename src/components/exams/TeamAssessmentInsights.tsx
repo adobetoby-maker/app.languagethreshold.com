@@ -48,7 +48,7 @@ function OwnedTeamAssessmentInsights({ orgId, moduleId, target, native }: Props)
   const { capture } = usePracticeLifecycle(JSON.stringify([orgId, scope, draft, open, report.key]));
   const current = () => capture().isCurrent();
   const metadata = report.metadata;
-  const source = getCurriculum(scope.module);
+  const source = getCurriculum(scope.module, scope.target, scope.native);
   return (
     <details
       className="rounded-2xl border border-border bg-card/50 p-4 sm:p-6"

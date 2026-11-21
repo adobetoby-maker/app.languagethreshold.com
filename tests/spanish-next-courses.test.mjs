@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { spanishBasicsLesson, spanishPatternWords } from "../src/data/spanish-basics.ts";
 import { getLessonDefinition, modulePracticeVersion } from "../src/lib/lesson-definition.ts";
 import {
@@ -50,7 +50,7 @@ for (const base of courses)
         assert.equal(moduleSupportsLearningPair(module, target, native), false);
         assert.equal(spanishBasicsLesson(id, 1, target, native), null);
       }
-      const curriculum = getCurriculum(id);
+      const curriculum = authoredCurriculum(id);
       assert.equal(curriculum.lessons.length, count);
       if (stage !== "core")
         assert.deepEqual(validateStageFile(read(`src/data/core60/es/${id}.json`)), []);

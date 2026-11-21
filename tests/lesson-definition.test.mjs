@@ -35,14 +35,16 @@ test("introductory and final lessons request different production and listening 
   assert.notEqual(first.writing.prompt, last.writing.prompt);
 });
 test("a new language track cannot inherit Spanish content or verified readiness", () => {
-  const d = getLessonDefinition({ ...input, targetLanguage: "French", lessonNumber: 1 });
+  // A pair the module was not written for has no definition at all: no Spanish lesson shell.
+  assert.equal(getLessonDefinition({ ...input, targetLanguage: "French", lessonNumber: 1 }), null);
+  const d = getLessonDefinition({ ...input, instructionLanguage: "French", lessonNumber: 1 });
   assert.deepEqual(d.words, []);
   assert.equal(d.teaching, null);
   assert.equal(d.readiness, "draft");
   assert.ok(d.gaps.length);
   assert.notEqual(d.id, getLessonDefinition({ ...input, lessonNumber: 1 }).id);
-  assert.equal(d.objectiveId, lessonObjectiveId("roofing", 1));
-  assert.throws(() => lessonObjectiveId("../private", 1));
+  assert.equal(d.objectiveId, lessonObjectiveId("roofing", 1, "Spanish", "English"));
+  assert.throws(() => lessonObjectiveId("../private", 1, "Spanish", "English"));
 });
 
 test("English-for-work definitions use only their English/Spanish authored pair", () => {
@@ -57,8 +59,8 @@ test("English-for-work definitions use only their English/Spanish authored pair"
   assert.ok(english.words.length >= 12);
   assert.equal(english.words[0].es, "the doctor");
   assert.equal(english.words[0].en, "el médico");
-  assert.deepEqual(getLessonDefinition({ ...args, instructionLanguage: "French" }).words, []);
-  assert.deepEqual(getLessonDefinition({ ...args, targetLanguage: "Spanish" }).words, []);
+  assert.equal(getLessonDefinition({ ...args, instructionLanguage: "French" }), null);
+  assert.equal(getLessonDefinition({ ...args, targetLanguage: "Spanish" }), null);
 });
 
 test("listening grows from the word list to aligned connected passage messages", () => {

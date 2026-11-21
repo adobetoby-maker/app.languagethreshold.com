@@ -6,7 +6,7 @@
 // (0 lessons) would move both sides of those assertions together and hide behind them.
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { getModule } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import { getSpeakingMissions } from "../src/data/speaking-missions.ts";
@@ -21,7 +21,7 @@ for (const base of PILOT) {
     test(`${id}: loads ${LESSONS[stage]} lessons and exposes one Say it mission per lesson plus its own challenges`, () => {
       const entry = CORE60_MANIFEST.find((e) => e.base === base);
       assert.ok(entry?.[stage], `${id} is listed in the manifest`);
-      const curriculum = getCurriculum(id);
+      const curriculum = authoredCurriculum(id);
       assert.ok(curriculum, `${id} curriculum loads`);
       assert.equal(curriculum.lessons.length, LESSONS[stage]);
 

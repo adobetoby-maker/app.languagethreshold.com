@@ -99,7 +99,9 @@ try {
     };
     const request = buildLessonWordsRequest({
       module: getModule(data.moduleId),
-      lesson: getCurriculum(data.moduleId).lessons.find((l) => l.n === data.lessonNumber),
+      lesson: getCurriculum(data.moduleId, data.language, data.nativeLanguage).lessons.find(
+        (l) => l.n === data.lessonNumber,
+      ),
       targetLanguage: data.language,
       nativeLanguage: data.nativeLanguage,
     });

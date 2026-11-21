@@ -7,9 +7,9 @@ test("English grammar notes with a Spanish example are English", () => {
     "Feminine noun that takes el: el agua fría.",
     "A feminine word that takes el: el agua fría.",
     "Adjectives agree: el hilo afilado, la cuchilla afilada.",
-  ]) assert.equal(noteInWrongLanguage(note, "English"), false, note);
+  ]) assert.equal(noteInWrongLanguage(note, { language: "Spanish", nativeLanguage: "English" }), false, note);
 });
 
 test("a Spanish-only note is still caught", () => {
-  assert.equal(noteInWrongLanguage("Se usa con el verbo tener para la edad.", "English"), true);
+  assert.equal(noteInWrongLanguage("Se usa con el verbo tener para la edad.", { language: "Spanish", nativeLanguage: "English" }), true);
 });

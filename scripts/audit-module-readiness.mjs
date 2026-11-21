@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 import { loadModule } from "../tests/helpers/bundle.mjs";
 const [
   { MODULES, moduleSupportsLearningPair },
-  { getCurriculum },
+  { authoredCurriculum },
   { ALL_SEEDS },
   { getAvailableModuleLessons },
   { LANGUAGES, NATIVE_LANGUAGES },
@@ -91,7 +91,8 @@ const meetsVocabularyBaseline = (words) => {
   return terms >= 8 && terms <= 12 && phrases >= 4 && phrases <= 6;
 };
 const modules = MODULES.map((module) => {
-  const lessons = getCurriculum(module.id)?.lessons ?? [];
+  // The module's own lessons (its authored pair); each track below is checked for its own pair.
+  const lessons = authoredCurriculum(module.id)?.lessons ?? [];
   const missingRecallSteps = lessons
     .filter((l) => !l.steps.some((s) => ["wordMatch", "games"].includes(s.tab)))
     .map((l) => l.n);

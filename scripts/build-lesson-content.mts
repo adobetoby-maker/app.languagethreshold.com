@@ -103,8 +103,8 @@ import {
   type AuthoredContext,
   type ContentBlock,
 } from "../src/lib/lesson-content-prompt.ts";
-import { cleanLessonWords, languageTag, pickAuthoredWords, SPANISH_AUTHORED_PAIR, authoredWordsPairForModule } from "../src/lib/lesson-words-core.ts";
-import { PACKS, packFor, sameLanguage } from "../src/data/language-packs/registry.ts";
+import { cleanLessonWords, languageTag, pickAuthoredWords, authoredWordsPairForModule } from "../src/lib/lesson-words-core.ts";
+import { PACKS, packFor, sameLanguage, workplaceCoursePack } from "../src/data/language-packs/registry.ts";
 import { nativeLanguageName } from "../src/data/languages.ts";
 
 const SCRIPT_PATH = "scripts/build-lesson-content.mts";
@@ -123,8 +123,8 @@ const API_URL = "https://api.anthropic.com/v1/messages";
 // it was authored for; any other language is built only when named with --lang, so a normal run
 // never starts generating a new language.
 const TARGETS = Object.values(PACKS).map((pack) => pack.name);
-/** learnDirection "en-target" is defined as English-for-work: the English pack's code. */
-const EN_TARGET_CODE = "en";
+/** learnDirection "en-target" is English-for-work: the workplace course's pack (its app file says so). */
+const EN_TARGET_CODE = workplaceCoursePack().code;
 
 // Per-lesson sizes (retries included), used only for --dry-run estimates. Calibrated on the
 // landscaper pilot: 30 lessons = 138k input / 104k output tokens, ~19 s of wall time per lesson
@@ -248,14 +248,15 @@ function planLesson(
   lesson: { n: number; words?: LessonWord[] },
 ): LessonPlan {
   const forced = verbsOnlyFor.includes(moduleId.toLowerCase());
+  const writtenFor = authoredWordsPairForModule(MODULES.find((item) => item.id === moduleId));
   const authoredWords = pickAuthoredWords(
     lesson.words,
     language,
     contentNativeLanguage(language),
-    SPANISH_AUTHORED_PAIR,
+    writtenFor,
   );
   const roofingPassage =
-    moduleId === "roofing" && sameLanguage(language, SPANISH_AUTHORED_PAIR.language)
+    moduleId === "roofing" && sameLanguage(language, writtenFor.language)
       ? ROOFING_LESSON_PASSAGES[lesson.n]
       : undefined;
   const passageAuthored = forced || roofingPassage !== undefined;
@@ -328,8 +329,6 @@ function buildPlan(): Pair[] {
     // A Foundation's and a Master's passages and verbs are hand-authored in public/lesson-content;
     // never regenerate.
     if (module.id.startsWith("foundation-") || module.id.startsWith("master-")) continue;
-    const curriculum = getCurriculum(module.id);
-    if (!curriculum) continue;
     for (const language of TARGETS) {
       const pack = packFor(language);
       if (!pack || !matchesLang(language)) continue;
@@ -343,6 +342,9 @@ function buildPlan(): Pair[] {
         (enTarget ? module.learnDirection === "en-target" : true) &&
         moduleSupportsLearningPair(module, language as never, nativeSetting);
       if (!supported) continue;
+      // The curriculum this pair reads (null when the module was not written for it).
+      const curriculum = getCurriculum(module.id, language, nativeSetting);
+      if (!curriculum) continue;
       const dir = languageTag(language);
       const pair: Pair = {
         moduleId: module.id,
@@ -659,7 +661,7 @@ async function generateLesson(
   plan: LessonPlan,
 ): Promise<LessonContentLesson> {
   const module = MODULES.find((item) => item.id === pair.moduleId)!;
-  const curriculum = getCurriculum(pair.moduleId)!;
+  const curriculum = getCurriculum(pair.moduleId, pair.language, pair.nativeLanguage)!;
   const lesson = curriculum.lessons.find((item) => item.n === plan.n)!;
   const previous = curriculum.lessons.find((item) => item.n === plan.n - 1);
   const body = buildLessonContentRequest({

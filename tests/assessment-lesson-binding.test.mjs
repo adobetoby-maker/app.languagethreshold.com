@@ -182,14 +182,17 @@ test("snapshot database failures stay unavailable rather than being reported as 
 
 test("a claimed verified release cannot hide missing lesson source mappings", async () => {
   const f = await fixture();
+  // A pair the module serves but whose lesson material is not written (Spanish for French
+  // speakers); a target the module was not written for has no snapshot at all.
   f.rows.assessment_releases.module_id = "landscaper";
-  f.rows.assessment_releases.target_language = "French";
-  const snapshot = currentLessonReviewSnapshot("landscaper", "French", "English");
+  f.rows.assessment_releases.instruction_language = "French";
+  assert.equal(currentLessonReviewSnapshot("landscaper", "French", "English"), null);
+  const snapshot = currentLessonReviewSnapshot("landscaper", "Spanish", "French");
   const fingerprint = await lessonReviewFingerprint(snapshot);
   f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
   f.rows.assessment_lesson_snapshots.fingerprint = fingerprint;
   f.rows.assessment_lesson_snapshots.snapshot_text = serializeLessonReviewSnapshot(snapshot);
-  const catalog = await readinessCatalog(f.db, "French", "English");
+  const catalog = await readinessCatalog(f.db, "Spanish", "French");
   const land = catalog.find((track) => track.moduleId === "landscaper");
   assert.equal(land.lessonsReviewed, true); // Deliberately fictional DB review claim.
   assert.equal(land.authoredLessonLists, 0);
@@ -216,9 +219,12 @@ test("complete reviewed current lessons and a calibrated form agree across enrol
 
 test("missing source coverage blocks new official attempts and enrollment availability but preserves partial review", async () => {
   const f = await fixture();
+  // A pair the module serves but whose lesson material is not written (Spanish for French
+  // speakers); a target the module was not written for has no snapshot at all.
   f.rows.assessment_releases.module_id = "landscaper";
-  f.rows.assessment_releases.target_language = "French";
-  const snapshot = currentLessonReviewSnapshot("landscaper", "French", "English");
+  f.rows.assessment_releases.instruction_language = "French";
+  assert.equal(currentLessonReviewSnapshot("landscaper", "French", "English"), null);
+  const snapshot = currentLessonReviewSnapshot("landscaper", "Spanish", "French");
   const fingerprint = await lessonReviewFingerprint(snapshot);
   f.rows.assessment_releases.lesson_manifest.lessonSnapshotFingerprint = fingerprint;
   Object.assign(f.rows.assessment_lesson_snapshots, {

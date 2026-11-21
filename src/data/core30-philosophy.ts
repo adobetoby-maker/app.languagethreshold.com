@@ -6,7 +6,8 @@
 // and language and adds the roofing-only lines when the module is roofing.
 // Kept as plain data so the App Guide or any other surface can reuse it.
 
-import { sameLanguage } from "./language-packs/registry.ts";
+import { historicalCoursePack, packFor, sameLanguage } from "./language-packs/registry.ts";
+import { nativeLanguageName } from "./languages.ts";
 
 export type PhilosophyWayId = "see" | "recall" | "hear" | "type" | "say" | "write";
 
@@ -31,7 +32,8 @@ export interface PhilosophyWay {
   doIt: string;
   /** Why it helps memory. One or two plain sentences, no statistics. */
   why: string;
-  example: PhilosophyExample;
+  /** Absent for a learner of a language the examples are not written in (never another language's words). */
+  example?: PhilosophyExample;
   /** Label above the example. Set by buildCore30Philosophy(): it names the course the example is from. */
   exampleLabel?: string;
   /** Optional second line under the example (used by Write it, which has two passes). */
@@ -330,8 +332,15 @@ function fillDeep<T>(value: T, vars: Record<string, string>): T {
   return value;
 }
 
-/** The language the six-ways example words are written in (until a pack carries its own examples). */
-const EXAMPLE_LANGUAGE = "Spanish";
+/**
+ * The six-ways example words come from the Roofing Supervisor course, written in the historical
+ * course's language (the registry names it; app/<code>.json historicalCourse). A learner of any
+ * other language gets the six ways without examples rather than another language's words.
+ */
+const examplesPack = () => historicalCoursePack();
+
+const NO_EXAMPLES_BODY =
+  "A word you only read is easy to lose. So every lesson makes you meet the same words in six different ways, and every Core 30 works the same way.";
 
 /**
  * The page copy for one module and language. The opening promise is the module's own threshold,
@@ -343,7 +352,8 @@ export function buildCore30Philosophy(ctx: PhilosophyContext): Core30Philosophy 
   const isRoofing = ctx.moduleId === EXAMPLE_MODULE_ID;
   const vars: Record<string, string> = {
     language: ctx.language,
-    native: ctx.nativeLanguage || "English",
+    native:
+      ctx.nativeLanguage || nativeLanguageName(packFor(ctx.language)?.native.default) || "",
     headline: ctx.headline?.trim() || "this course",
     threshold: ctx.threshold?.trim() || FALLBACK_PROMISE,
   };
@@ -357,11 +367,17 @@ export function buildCore30Philosophy(ctx: PhilosophyContext): Core30Philosophy 
     copy.opening.body[0] = `Core 30 courses follow the same six-way pattern. Each lesson in ${ctx.headline.trim()} covers one real moment from the module and teaches its words in ${ctx.language}.`;
   }
 
+  if (!sameLanguage(ctx.language, examplesPack().code)) {
+    copy.opening.body[1] = NO_EXAMPLES_BODY;
+    copy.ways.items = copy.ways.items.map(
+      ({ example: _example, exampleLabel: _label, exampleNote: _note, ...way }) => way,
+    );
+    return copy;
+  }
   const exampleSource = isRoofing ? "Example" : "Example from the Roofing Supervisor course";
-  const exampleTag = sameLanguage(ctx.language, EXAMPLE_LANGUAGE) ? "" : ` (${EXAMPLE_LANGUAGE})`;
   copy.ways.items = copy.ways.items.map((way) => ({
     ...way,
-    exampleLabel: `${exampleSource}${exampleTag} \u00b7 Lesson ${way.example.lesson}`,
+    exampleLabel: `${exampleSource} \u00b7 Lesson ${way.example?.lesson ?? ""}`,
   }));
   return copy;
 }

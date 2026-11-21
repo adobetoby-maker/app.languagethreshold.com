@@ -10,7 +10,12 @@
 
 import type { LessonWord } from "../data/curriculum.ts";
 import { isCorrectAnswer } from "./lesson-practice.ts";
-import { packFor, type LanguagePack } from "../data/language-packs/registry.ts";
+import {
+  historicalCoursePair,
+  packFor,
+  workplaceCoursePack,
+  type LanguagePack,
+} from "../data/language-packs/registry.ts";
 import { nativeLanguageCode, nativeLanguageName } from "../data/languages.ts";
 
 export type LessonWordsStatus = "authored" | "loading" | "ready" | "error";
@@ -185,28 +190,28 @@ export interface AuthoredWordsPair {
 
 /**
  * Modules written before module records carried an `authoredPair` (the hand-written trades) were
- * authored Spanish target / English native: `es` is Spanish, `en` is English. This is a fact about
- * that data, not a default for other languages: a module that names its `authoredPair` is never
- * read through this constant, and no new module relies on it.
+ * authored in the historical course pair (its app file sets historicalCourse): `es` holds the
+ * target, `en` the native. A fact about that data, read from the registry, never a default for
+ * another language: a module that names its `authoredPair` is never read through it.
  */
-export const SPANISH_AUTHORED_PAIR: AuthoredWordsPair = {
-  language: "Spanish",
-  nativeLanguage: "English",
-};
+export function historicalAuthoredPair(): AuthoredWordsPair {
+  const pair = historicalCoursePair();
+  return { language: pair.target, nativeLanguage: pair.native };
+}
 
 /**
- * English-for-work modules (learnDirection "en-target"): their stage files store the English
- * target text in `es` and the Spanish gloss in `en`, already in the LessonWord convention, so
- * the words need no swapping.
+ * English-for-work modules (learnDirection "en-target"): their stage files store the workplace
+ * target text in `es` and the gloss in `en`, already in the LessonWord convention, so the words
+ * need no swapping. The native is the workplace course's default native.
  */
-export const ENGLISH_AUTHORED_PAIR: AuthoredWordsPair = {
-  language: "English",
-  nativeLanguage: nativeLanguageName(packFor("English")?.native.default) ?? "",
-};
+export function workplaceAuthoredPair(): AuthoredWordsPair {
+  const pack = workplaceCoursePack();
+  return { language: pack.name, nativeLanguage: nativeLanguageName(pack.native.default) ?? "" };
+}
 
 /** The pair a module's authored words are written for, from its AppModule.learnDirection. */
 export function authoredWordsPair(learnDirection?: string | null): AuthoredWordsPair {
-  return learnDirection === "en-target" ? ENGLISH_AUTHORED_PAIR : SPANISH_AUTHORED_PAIR;
+  return learnDirection === "en-target" ? workplaceAuthoredPair() : historicalAuthoredPair();
 }
 
 /** Prefer an explicitly authored pair; historical modules keep their direction-based default. */
@@ -229,7 +234,7 @@ export function pickAuthoredWords(
   authored: readonly LessonWord[] | undefined,
   language: string,
   nativeLanguage: string,
-  writtenFor: AuthoredWordsPair = SPANISH_AUTHORED_PAIR,
+  writtenFor: AuthoredWordsPair,
 ): LessonWord[] | null {
   if (
     language !== writtenFor.language ||

@@ -40,7 +40,14 @@ import {
 import { useAuth } from "@/state/auth-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
-import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
+import {
+  LANGUAGES,
+  NATIVE_LANGUAGES,
+  nativeLanguageName,
+  type Language,
+  type NativeLanguage,
+} from "@/data/languages";
+import { packFor, workplaceCoursePack } from "@/data/language-packs/registry";
 import { getCurriculum } from "@/data/curriculum";
 import { assessmentCsv, assessedProgressRows } from "@/lib/assessments/export";
 import type {
@@ -178,8 +185,9 @@ type ExamsAreaProps = {
 function ExamsAreaContent({
   embedded = false,
   moduleId = "roofing",
-  targetLanguage = "Spanish",
-  instructionLanguage = "English",
+  // No default pair: a page opened without one asks for it (fail closed, never a Spanish exam).
+  targetLanguage,
+  instructionLanguage,
   orgId,
   attemptId,
   reviewMode = false,
@@ -217,8 +225,8 @@ function ExamsAreaContent({
   } | null>(null);
   const { prepared, error: preparationError } = useExamPreparation(pending?.checkpoint.id);
   const [module, setModule] = useState(moduleId),
-    [target, setTarget] = useState(targetLanguage),
-    [native, setNative] = useState(instructionLanguage),
+    [target, setTarget] = useState<"" | Language>(targetLanguage ?? ""),
+    [native, setNative] = useState<"" | NativeLanguage>(instructionLanguage ?? ""),
     [start, setStart] = useState(() => toDateKey(new Date())),
     [learner, setLearner] = useState("");
   const [schedule, setSchedule] = useState<{
@@ -312,8 +320,8 @@ function ExamsAreaContent({
   }, [report.metadata]);
   const explicitReturn = examLessonReturn({
     moduleId,
-    target: targetLanguage,
-    native: instructionLanguage,
+    target: targetLanguage ?? "",
+    native: instructionLanguage ?? "",
     returnPlanId,
     lesson: returnLesson,
     way: returnWay,
@@ -567,12 +575,12 @@ function ExamsAreaContent({
       ) : (
         <div className="flex flex-col gap-5">
           <ExamInputPractice />
-          {orgId && overview?.canManage && (
+          {orgId && overview?.canManage && (filters.target || target) && (filters.native || native) && (
             <TeamAssessmentInsights
               orgId={orgId}
               moduleId={filters.module || module}
-              target={filters.target || target}
-              native={filters.native || native}
+              target={(filters.target || target) as Language}
+              native={(filters.native || native) as NativeLanguage}
             />
           )}
           {(orgId ||
@@ -781,12 +789,14 @@ function ExamsAreaContent({
                     onChange={(event) => {
                       setModule(event.target.value);
                       if (getModule(event.target.value)?.learnDirection === "en-target") {
-                        setTarget("English");
-                        setNative("Spanish");
+                        // English-for-work modules teach the workplace course with its native.
+                        const workplace = workplaceCoursePack();
+                        setTarget(workplace.name);
+                        setNative(nativeLanguageName(workplace.native.default) ?? "");
                       }
                     }}
                   >
-                    {MODULES.filter((item) => getCurriculum(item.id)).map((item) => (
+                    {MODULES.filter((item) => target && native && getCurriculum(item.id, target, native)).map((item) => (
                       <option key={item.id} value={item.id}>
                         {item.name}
                       </option>
@@ -801,6 +811,7 @@ function ExamsAreaContent({
                     value={target}
                     onChange={(event) => setTarget(event.target.value as Language)}
                   >
+                    {!target && <option value="">Choose a language</option>}
                     {LANGUAGES.map((value) => (
                       <option key={value}>{value}</option>
                     ))}
@@ -840,6 +851,8 @@ function ExamsAreaContent({
                   disabled={
                     loading ||
                     !getModule(module) ||
+                    !target ||
+                    !native ||
                     !moduleSupportsLearningPair(getModule(module)!, target, native) ||
                     target === native
                   }
@@ -1104,7 +1117,13 @@ function ExamsAreaContent({
           </p>
         </div>
       )}
-      {!selected && !pending && <ReadinessPanel target={target} native={native} />}
+      {!selected && !pending && target && native ? (
+        <ReadinessPanel target={target} native={native} />
+      ) : !selected && !pending ? (
+        <p className="mt-4 text-sm text-muted-foreground">
+          Choose the language you are learning and your instruction language to see exam readiness.
+        </p>
+      ) : null}
       {schedule && (
         <Dialog
           open
@@ -1460,7 +1479,7 @@ function OwnedExamRunner({
         </h3>
         {item.passage && (
           <p
-            lang={attempt.enrollment.targetLanguage === "Spanish" ? "es" : undefined}
+            lang={packFor(attempt.enrollment.targetLanguage)?.code}
             className="my-4 whitespace-pre-line rounded-xl bg-background p-4 text-lg leading-relaxed"
           >
             {item.passage}

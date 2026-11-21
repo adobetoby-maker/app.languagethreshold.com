@@ -6,7 +6,7 @@ import {
   advanceLessonRecall,
   recallFormLines,
 } from "../src/lib/lesson-recall.ts";
-import { packFor } from "../src/data/language-packs/registry.ts";
+import { isBundledPack, packFor } from "../src/data/language-packs/registry.ts";
 const es = packFor("es");
 const words = Array.from({ length: 10 }, (_, i) => ({
   es: `palabra ${i}`,
@@ -163,7 +163,12 @@ test("conjugations come only from authored forms: nothing is generated or guesse
     [{ ...conectar, infinitive: "connecter", forms: { je: "connecte" } }],
     "French",
   );
-  assert.deepEqual(recallFormLines(verbCard(french, "connecter"), packFor("fr")), []);
+  // A language without verb keys (French on its legacy adapter) gets no lines; with its QA pack,
+  // only the one authored form shows, never a completed table.
+  assert.deepEqual(
+    recallFormLines(verbCard(french, "connecter"), packFor("fr")).map((line) => line.form),
+    isBundledPack(packFor("fr")) ? ["connecte"] : [],
+  );
   // Every real authored line is "subject + authored form" and nothing else.
   for (const lesson of Object.values(electrician.lessons)) {
     const deck = buildLessonRecall(lesson.words ?? [], lesson.verbs, "Spanish");

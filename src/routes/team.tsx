@@ -27,6 +27,7 @@ import {
 } from "@/lib/team-pricing";
 import { MODULES, getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
+import { historicalCoursePair } from "@/data/language-packs/registry";
 import type { Core30Log } from "@/lib/core30-plan";
 import { describeCore30, type Core30Display, type Core30TrackDisplay } from "@/lib/team-core30";
 
@@ -1919,8 +1920,10 @@ function TeamDocumentsPanel({
   );
 }
 
+/** Team assignments carry no pair: team modules are taught in the historical course pair. */
 function core30Total(moduleId: string): number {
-  return getCurriculum(moduleId)?.lessons.length || 30;
+  const pair = historicalCoursePair();
+  return getCurriculum(moduleId, pair.target, pair.native)?.lessons.length || 30;
 }
 
 const CORE30_CHIP: Record<Core30Display["status"], string> = {

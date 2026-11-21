@@ -3,6 +3,7 @@
 // screen keeps its own hand-typed language list (language-pack model sections 5 and 14).
 
 import {
+  historicalCoursePack,
   listedPacks,
   packFor,
   packIndexEntry,
@@ -61,6 +62,28 @@ export function nativeAfterTargetChange(
   return paired && !sameLanguage(paired, native) ? paired : null;
 }
 
+/** The native (explanation) languages a target's course is written for (its pack's native.supported). */
+export function nativeChoicesFor(target: string | null | undefined): NativeLanguage[] {
+  const pack = packFor(target);
+  if (!pack) return [];
+  return pack.native.supported
+    .map((code) => nativeLanguageName(code))
+    .filter((name): name is NativeLanguage => name !== null && !sameLanguage(name, pack.code));
+}
+
+/**
+ * True when picking `target` must ask the learner's native language: their current native is not
+ * one the target's course is explained in (an English learner whose setting is still English).
+ * The app never guesses it from the target (fail closed: ask).
+ */
+export function needsNativeQuestion(
+  target: string | null | undefined,
+  currentNative: string | null | undefined,
+): boolean {
+  const choices = nativeChoicesFor(target);
+  return choices.length > 0 && !choices.some((choice) => choice === currentNative);
+}
+
 /** True when the pack's script needs Character Studio (kanji / hanzi + radicals). */
 export function hasCharacterStudio(pack: LanguagePack): boolean {
   return pack.script.iso15924.some((s) => ["Hani", "Jpan", "Hans", "Hant"].includes(s));
@@ -85,5 +108,10 @@ export function nativeFirstDeckLanguage(
   return native && native !== "English" ? (native as NativeLanguage) : null;
 }
 
-/** The language of the starter vocabulary deck (src/data/spanish-basics-flashcards.json). A data fact, not a rule. */
-export const STARTER_DECK_LANGUAGE = "Spanish";
+/**
+ * The language of the starter vocabulary deck (src/data/spanish-basics-flashcards.json): the
+ * historical course's language, read from the registry.
+ */
+export function starterDeckLanguage(): Language {
+  return historicalCoursePack().name as Language;
+}

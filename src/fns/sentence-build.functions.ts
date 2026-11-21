@@ -8,6 +8,7 @@ import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
 import { checkSentenceBuildQuestion } from "@/lib/sentence-build-core";
 import { packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { appData } from "@/data/language-packs/app-data";
 
 // Levels, the question shape and its checks live in src/lib/sentence-build-core.ts, shared with
 // the trade-pack loader and generator.
@@ -26,22 +27,26 @@ const Input = z.object({
  * (script, tokenizer, typography, elision). Nothing here names a language.
  */
 function tokenRules(pack: LanguagePack): { split: string; join: string } {
+  // The language's own worked example (app/<code>.json sentenceBuilderExample), e.g. the
+  // Japanese bunsetsu split "私は学生です" → ["私は", "学生", "です"].
+  const example = appData(pack).sentenceBuilderExample;
+  const eg = example ? `, e.g. ${example}` : "";
   const unspaced = pack.script.wordSeparator === "none";
   if (unspaced)
     return {
-      split: `   - Split the sentence into meaningful chunks (word or phrase units; each particle stays with the word it marks). Each chunk is one token.`,
+      split: `   - Split the sentence into meaningful chunks (word or phrase units; each particle stays with the word it marks)${eg}. Each chunk is one token.`,
       join: "with no separator",
     };
   if (pack.answerRules.tokenizer === "graphemes")
     return {
-      split: `   - Split on the language's natural spaces. Each spaced unit is one token.`,
+      split: `   - Split on the language's natural spaces${eg}. Each spaced unit is one token.`,
       join: "with single spaces",
     };
   const lines = [
     `   - Split on whitespace; keep punctuation attached to the word it follows (e.g. "Hola,").`,
   ];
   if (pack.grammar.nounSystem.contentRule === "article-with-noun")
-    lines.push(`   - Articles and nouns are SEPARATE tokens (an article is its own unit).`);
+    lines.push(`   - Articles and nouns are SEPARATE tokens (an article is its own unit${eg}).`);
   if (pack.dictionary.lookup.elisionPrefixes.length > 0)
     lines.push(
       `   - An elided word stays attached to the word it elides into, apostrophe included (${pack.dictionary.lookup.elisionPrefixes

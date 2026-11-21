@@ -3,6 +3,7 @@
 // catalog fail-closed checks and the pack-driven text helpers.
 import assert from "node:assert/strict";
 import test from "node:test";
+import { isQaBuild } from "../src/lib/qa-build.ts";
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import {
@@ -54,7 +55,7 @@ test("every PWA target resolves to one pack, by code and by its stored legacy na
   assert.ok(!sameLanguage("Klingon", "Klingon"), "two unknown names are not the same language");
 });
 
-test("a normal build registers no draft pack: French and Italian keep their legacy adapters", () => {
+test("a normal build registers no draft pack: French and Italian keep their legacy adapters", { skip: isQaBuild() && "QA build registers draft packs" }, () => {
   for (const code of ["fr", "it"]) {
     const pack = getPack(code);
     assert.equal(isBundledPack(pack), false);

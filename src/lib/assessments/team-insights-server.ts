@@ -31,7 +31,7 @@ export async function teamAssessmentInsights(
     throw new AssessmentAccessError("Team insight admin access required.", 403);
   await ensureStageForModule(moduleId);
   const module = getModule(moduleId),
-    curriculum = getCurriculum(moduleId);
+    curriculum = getCurriculum(moduleId, target, native);
   if (
     target === native ||
     (target === "Chinese" && native === "Chinese (Simplified)") ||
@@ -78,7 +78,7 @@ export async function teamAssessmentInsights(
   if (!form) return emptyTeamInsights("content_pending");
   const allItems = (form.definition as { items?: InsightItem[] }).items;
   const objectives = new Set(
-    curriculum.lessons.map((lesson) => lessonObjectiveId(moduleId, lesson.n)),
+    curriculum.lessons.map((lesson) => lessonObjectiveId(moduleId, lesson.n, target, native)),
   );
   if (
     !Array.isArray(allItems) ||

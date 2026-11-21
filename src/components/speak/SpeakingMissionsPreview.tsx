@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { isMissionTtsSpeed, type MissionPartnerVersion } from "@/data/mission-tts";
 import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { appData } from "@/data/language-packs/app-data";
 import { isSpeakingMissionLanguageEnabled, speakingAwaitsReview } from "@/lib/speaking-review";
 import {
   RELATIONSHIP_GROUPS,
@@ -143,40 +144,9 @@ function missionTurnId() {
   return `${Date.now()}-${crypto.randomUUID()}`;
 }
 
-// Authored partner samples and "ask for an example" lines, keyed by pack code. A pack with no entry
-// here uses its own phrases (pack.phrases.partnerPreview / clarification); a pack with neither gets
+// Authored partner samples and "ask for an example" lines (app/<code>.json phrases). A language with
+// none there uses its own pack phrases (pack.phrases.partnerPreview / clarification); a pack with neither gets
 // no sample and no button, never another language's line.
-const PARTNER_SAMPLES: Record<string, Record<MissionPartnerVersion, string>> = {
-  es: {
-    woman: "Hola, soy su compañera de práctica. ¿Empezamos?",
-    man: "Hola, soy su compañero de práctica. ¿Empezamos?",
-  },
-  it: {
-    woman: "Ciao, sono la tua compagna di conversazione. Cominciamo?",
-    man: "Ciao, sono il tuo compagno di conversazione. Cominciamo?",
-  },
-  ja: {
-    woman: "こんにちは。会話練習のパートナーです。始めましょうか。",
-    man: "こんにちは。会話練習のパートナーです。始めましょうか。",
-  },
-  zh: {
-    woman: "你好，我是你的对话练习伙伴。我们开始吧？",
-    man: "你好，我是你的对话练习伙伴。我们开始吧？",
-  },
-  en: {
-    woman: "Hello, I'm your conversation partner. Shall we begin?",
-    man: "Hello, I'm your conversation partner. Shall we get started?",
-  },
-};
-
-const CLARIFICATION_PHRASES: Record<string, string> = {
-  es: "No entiendo todavía. ¿Puede repetir más despacio y darme un ejemplo?",
-  it: "Non capisco ancora. Può ripetere più lentamente e farmi un esempio?",
-  ja: "まだ分かりません。もう少しゆっくり、例を使って説明していただけますか。",
-  zh: "我还不太明白。您能说慢一点，再给我举个例子吗？",
-  en: "I don't understand yet. Could you repeat more slowly and give me an example?",
-};
-
 function partnerVoiceSample(
   language: SpeakingMissionLanguage,
   partnerVersion: MissionPartnerVersion,
@@ -184,14 +154,14 @@ function partnerVoiceSample(
   const pack = packFor(language);
   if (!pack) return null;
   return (
-    PARTNER_SAMPLES[pack.code]?.[partnerVersion] ?? (pack.phrases.partnerPreview.trim() || null)
+    appData(pack).phrases.partnerSample?.[partnerVersion] ?? (pack.phrases.partnerPreview.trim() || null)
   );
 }
 
 function clarificationPhrase(language: SpeakingMissionLanguage): string | null {
   const pack = packFor(language);
   if (!pack) return null;
-  return CLARIFICATION_PHRASES[pack.code] ?? (pack.phrases.clarification.trim() || null);
+  return appData(pack).phrases.missionClarification ?? (pack.phrases.clarification.trim() || null);
 }
 
 function highStakesNotice(mission: SpeakingMission) {

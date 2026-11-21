@@ -57,7 +57,7 @@ export function ModulePickerDialog({ open, onClose, onSelect }: Props) {
 
   function select(id: string | null, openPath = false) {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: id });
-    if (id && openPath && (getCurriculum(id) || /^(foundation|master)-/.test(id)))
+    if (id && openPath && (getCurriculum(id, state.selectedLanguage, state.nativeLanguage) || /^(foundation|master)-/.test(id)))
       dispatch({ type: "SET_TAB", payload: "core30" });
     if (id) {
       const mod = getModule(id);

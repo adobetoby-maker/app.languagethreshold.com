@@ -33,7 +33,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getCurriculum } from "../src/data/curriculum.ts";
 import { PACKS } from "../src/data/language-packs/registry.ts";
-import { SPANISH_AUTHORED_PAIR, deckNativeLanguage } from "../src/lib/lesson-words-core.ts";
+import { authoredWordsPairForModule, deckNativeLanguage } from "../src/lib/lesson-words-core.ts";
 import type { LessonWord } from "../src/data/curriculum.ts";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import {
@@ -148,14 +148,15 @@ function buildPlan(): Pair[] {
   const pairs: Pair[] = [];
   for (const module of MODULES) {
     if (wantModule.length > 0 && !wantModule.includes(module.id.toLowerCase())) continue;
-    const curriculum = getCurriculum(module.id);
-    if (!curriculum) continue;
     for (const language of TARGETS) {
       if (!matchesLang(language)) continue;
       const nativeLanguage = deckNativeLanguage(language);
       if (!moduleSupportsLearningPair(module, language, nativeLanguage)) continue;
+      const curriculum = getCurriculum(module.id, language, nativeLanguage);
+      if (!curriculum) continue;
+      const writtenFor = authoredWordsPairForModule(module);
       const lessonNumbers = curriculum.lessons
-        .filter((lesson) => pickAuthoredWords(lesson.words, language, nativeLanguage, SPANISH_AUTHORED_PAIR) === null)
+        .filter((lesson) => pickAuthoredWords(lesson.words, language, nativeLanguage, writtenFor) === null)
         .map((lesson) => lesson.n);
       if (lessonNumbers.length === 0) continue; // fully authored (roofing, Spanish)
       const dir = deckLanguageDir(language);
@@ -313,7 +314,9 @@ async function callOnce(
 /** One lesson: HTTP retries with exponential backoff, plus validation retries. */
 async function generateLesson(key: string, pair: Pair, lessonNumber: number) {
   const module = MODULES.find((item) => item.id === pair.moduleId)!;
-  const lesson = getCurriculum(pair.moduleId)!.lessons.find((item) => item.n === lessonNumber)!;
+  const lesson = getCurriculum(pair.moduleId, pair.language, pair.nativeLanguage)!.lessons.find(
+    (item) => item.n === lessonNumber,
+  )!;
   const body = buildLessonWordsRequest({
     module,
     lesson,

@@ -8,12 +8,18 @@ import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts
 import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { core60FixtureModules, core60Manifest } from "./core60-stages.ts";
 import { withDerivedStageModules } from "../lib/core60-stage-core.ts";
-import { isBundledPack, packFor, sameLanguage } from "./language-packs/registry.ts";
+import {
+  historicalCoursePack,
+  isBundledPack,
+  packFor,
+  sameLanguage,
+  workplaceCoursePack,
+} from "./language-packs/registry.ts";
 import { catalogHasModule } from "./language-packs/catalog.ts";
 import { nativeLanguageName } from "./languages.ts";
 
-/** The target language a learnDirection "en-target" module teaches (the direction's definition). */
-const EN_TARGET_LANGUAGE: Language = "English";
+/** The target language a learnDirection "en-target" module teaches (its app file sets workplaceCourse). */
+const workplaceTarget = (): string => workplaceCoursePack().code;
 
 export interface AppModule {
   id: string;
@@ -59,17 +65,21 @@ export interface AppModule {
 
 /**
  * Returns true if `module` supports the given target `language`.
- * A module with a `languages` list is offered to exactly those languages. A module without one is
- * a historical, once-authored module: it is offered to a language whose ids predate packs
- * (ids.legacyUnscopedStorage), and to a language with a bundled pack only when that pack's catalog
- * lists the module (fail closed). A language with no catalog yet (legacy adapter) keeps the older
- * behaviour until its pack ships.
+ * A module with a `languages` list is offered to exactly those languages. A language whose lessons
+ * come from its pack catalog is offered a module only when that catalog lists it. A module without
+ * a list is a historical, once-authored module: its hand-written curriculum (steps, drills,
+ * personas) is written in the historical course's language (read in reverse by the workplace
+ * course), so it is offered to those two only. Every other language, a legacy adapter included,
+ * never sees it (fail closed: language-pack model section 5, "each such module gets
+ * languages: [es]"); an unregistered language sees nothing.
  */
 export function moduleSupportsLanguage(module: AppModule, language: Language): boolean {
   if (module.languages) return module.languages.some((entry) => sameLanguage(entry, language));
   const pack = packFor(language);
-  if (!pack || !isBundledPack(pack) || pack.ids.legacyUnscopedStorage) return true;
-  return catalogHasModule(pack, module.id);
+  if (!pack) return false;
+  if (isBundledPack(pack) && !pack.ids.legacyUnscopedStorage)
+    return catalogHasModule(pack, module.id);
+  return sameLanguage(pack.code, historicalCoursePack().code) || sameLanguage(pack.code, workplaceTarget());
 }
 
 /** Returns true when a module belongs to the learner's source → target direction. */
@@ -82,13 +92,13 @@ export function moduleSupportsLearningPair(
     return (
       module.authoredPair.target === targetLanguage && module.authoredPair.native === nativeLanguage
     );
-  if (sameLanguage(targetLanguage, EN_TARGET_LANGUAGE)) {
-    if (sameLanguage(nativeLanguage, EN_TARGET_LANGUAGE)) return false;
+  if (sameLanguage(targetLanguage, workplaceTarget())) {
+    if (sameLanguage(nativeLanguage, workplaceTarget())) return false;
     if (module.learnDirection === "en-target") {
       return !module.nativeLanguages || module.nativeLanguages.includes(nativeLanguage);
     }
-    // Regular modules have authored English ↔ Spanish material. Expose the
-    // reversed direction only when its Spanish scaffold is available.
+    // Regular modules have authored material in the historical course pair. Expose the reversed
+    // direction only when its scaffold (the workplace course's default native) is available.
     const scaffold = nativeLanguageName(packFor(targetLanguage)?.native.default);
     return (
       scaffold !== null &&
@@ -451,7 +461,7 @@ const CATALOG: AppModule[] = [
     emoji: "🏠",
     category: "Trades",
     blurb:
-      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in English or Spanish.",
+      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in the language you are learning.",
     priceCents: 999,
     languages: ["Spanish"],
     aiPersona:
@@ -1628,7 +1638,7 @@ const CATALOG: AppModule[] = [
     emoji: "🦿",
     category: "Medical",
     blurb:
-      "Exercise instruction, mobility assessments, pain scales, and home program teaching with patients in English or Spanish.",
+      "Exercise instruction, mobility assessments, pain scales, and home program teaching with patients in the language you are learning.",
     priceCents: 1999,
     aiPersona:
       "You are a patient recovering from surgery or injury, speaking the learner's target language. Ask realistic questions about your exercises, pain, and limitations.",
@@ -1659,7 +1669,7 @@ const CATALOG: AppModule[] = [
     emoji: "📋",
     category: "Medical",
     blurb:
-      "Scheduling, insurance verification, intake forms, copays, and front-desk communication with patients in English or Spanish.",
+      "Scheduling, insurance verification, intake forms, copays, and front-desk communication with patients in the language you are learning.",
     priceCents: 999,
     aiPersona:
       "You are a patient speaking the learner's target language, calling to schedule an appointment or arriving at the front desk. You have questions about your insurance, copay, and forms.",
@@ -1690,7 +1700,7 @@ const CATALOG: AppModule[] = [
     emoji: "🤝",
     category: "Medical",
     blurb:
-      "Discharge planning, housing resources, mental health screening, and connecting patients with community services in English or Spanish.",
+      "Discharge planning, housing resources, mental health screening, and connecting patients with community services in the language you are learning.",
     priceCents: 1999,
     aiPersona:
       "You are a patient or family member speaking the learner's target language while navigating discharge, housing, or mental health services. Respond with realistic concerns and questions.",
@@ -1721,7 +1731,7 @@ const CATALOG: AppModule[] = [
     emoji: "⚠️",
     category: "Trades",
     blurb:
-      "OSHA-critical safety commands, hazard communication, PPE requirements, and incident reporting with crews in English or Spanish.",
+      "OSHA-critical safety commands, hazard communication, PPE requirements, and incident reporting with crews in the language you are learning.",
     priceCents: 999,
     aiPersona:
       "You are a construction crew member speaking the learner's target language. Ask questions about safety procedures, PPE, and hazard communication.",

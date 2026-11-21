@@ -22,7 +22,7 @@
 //
 // Flags:
 //   --module <id,...>        modules to build (required)
-//   --lang <name|code>       target language, a registered pack (default es; only a language with a trade-pack profile runs: Spanish so far)
+//   --lang <name|code>       required: target language, a registered pack whose app file names the trade-pack profile
 //   --area <a,...>|all       wordmatch (default), sentence, conjugation
 //   --provider cli           the only provider (default); anything else is refused
 //   --model opus|sonnet|<id> default claude-opus-5-5
@@ -69,7 +69,7 @@ import {
   type ConjugationLevel,
 } from "../src/lib/conjugation-core.ts";
 import {
-  SPANISH_VARIETY_RULE,
+  GENERATOR_PROFILES,
   cliInputTokens,
   cliJsonSchema,
   cliPrompt,
@@ -77,7 +77,8 @@ import {
   resolveModel,
   type ApiRequest,
 } from "../src/lib/core60-generator-core.ts";
-import { cleanLessonWords, languageTag, SPANISH_AUTHORED_PAIR } from "../src/lib/lesson-words-core.ts";
+import { cleanLessonWords, languageTag } from "../src/lib/lesson-words-core.ts";
+import { appData } from "../src/data/language-packs/app-data.ts";
 import { packFor } from "../src/data/language-packs/registry.ts";
 import {
   SENTENCE_BUILD_LEVELS,
@@ -173,11 +174,16 @@ if (AREAS.length === 0 || AREAS.some((a) => !AREA_KEYS.includes(a))) {
   usageError(`--area must be one or more of ${AREA_KEYS.join(", ")} (or all).`);
 }
 
-const langFlag = (flag("lang") ?? "es").trim();
-const LANGUAGE = packFor(langFlag)?.name;
-if (!LANGUAGE) usageError(`--lang ${langFlag}: not a registered language pack.`);
-// The card and variety prompts below are written for one authored profile; refuse the rest loudly.
-if (LANGUAGE !== SPANISH_AUTHORED_PAIR.language)
+// --lang is required: no language is assumed.
+const langFlag = (flag("lang") ?? "").trim();
+if (!langFlag) usageError("--lang <code> is required (for example --lang es).");
+const PACK = packFor(langFlag);
+const LANGUAGE = PACK?.name;
+if (!PACK || !LANGUAGE) usageError(`--lang ${langFlag}: not a registered language pack.`);
+/** The generator profile (app/<code>.json generator) the card and variety prompts below are written for. */
+const TRADE_PACK_PROFILE = "es-trades";
+// Refuse a language whose app file names another profile, loudly (never another language's prompts).
+if (appData(PACK!).generator !== TRADE_PACK_PROFILE)
   usageError(`--lang ${langFlag}: no trade-pack profile for ${LANGUAGE} yet (add one before generating it).`);
 const NATIVE = tradePackNativeLanguage(LANGUAGE);
 const LANG_CODE = languageTag(LANGUAGE);
@@ -620,7 +626,9 @@ function saveProgress(plan: ModulePlan, area: AreaKey) {
 
 // ─── Prompts ─────────────────────────────────────────────────────────────────
 
-const VARIETY = `${SPANISH_VARIETY_RULE} No slang, no profanity. Spell it correctly, with accents, ñ, ¿ and ¡.`;
+// The profile's variety rule (its register rules name it), from the generator profile this script
+// is written for.
+const VARIETY = `${GENERATOR_PROFILES[TRADE_PACK_PROFILE].registerRules.find((rule) => rule.startsWith("Variety:")) ?? ""} No slang, no profanity. Spell it correctly, with accents, ñ, ¿ and ¡.`;
 
 const WM_LEVEL_GUIDE: Record<WordMatchLevel, string> = {
   1: "Level 1 (CEFR A2, 6 pairs): the concrete, high-frequency words a crew member needs on day one: tools, materials, protective gear, vehicles, parts of the work area, simple actions.",

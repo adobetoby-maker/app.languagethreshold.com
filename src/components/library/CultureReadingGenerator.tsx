@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useApp } from "@/state/app-state";
-import { useCultureGenerator, COUNTRIES_BY_LANGUAGE } from "./useCultureGenerator";
+import { useCultureGenerator, countriesFor } from "./useCultureGenerator";
 
 export function CultureReadingGenerator({ onOpen }: { onOpen: () => void }) {
   const { state } = useApp();
-  const [country, setCountry] = useState(COUNTRIES_BY_LANGUAGE[state.selectedLanguage][0]);
+  const [country, setCountry] = useState(countriesFor(state.selectedLanguage)[0] ?? "");
   const { countries, generateCountry, pending, error, needsSave, ready } = useCultureGenerator();
 
   return (

@@ -66,8 +66,11 @@ function buildQuestion(
   mode: GameMode,
   exclude?: string,
 ): Question {
-  const eligible = exclude ? pool.filter((p) => p.id !== exclude) : pool;
-  const source = eligible.length > 0 ? eligible : pool;
+  // Translate It only asks about positions that have a label in this language.
+  const candidates = mode === "translate-it" ? pool.filter((p) => p.labels[language]) : pool;
+  const base = candidates.length > 0 ? candidates : pool;
+  const eligible = exclude ? base.filter((p) => p.id !== exclude) : base;
+  const source = eligible.length > 0 ? eligible : base;
   const target = source[Math.floor(Math.random() * source.length)];
 
   // 3 wrong distractors from the same pool
@@ -75,7 +78,7 @@ function buildQuestion(
   const options = shuffle([target, ...wrong]);
 
   if (mode === "translate-it") {
-    const translatedLabel = target.labels[language] ?? target.en;
+    const translatedLabel = target.labels[language];
     return { target, options, translatedLabel };
   }
 
@@ -616,7 +619,7 @@ const MODE_CONFIG: {
 ];
 
 export function SoccerPositionsGame({ language, onXp }: SoccerPositionsGameProps) {
-  const [mode, setMode] = useState<GameMode>("name-it");
+  const [requestedMode, setMode] = useState<GameMode>("name-it");
   const [formation, setFormation] = useState<SoccerFormation>("4-4-2");
   const [correct, setCorrect] = useState(0);
   const [total, setTotal] = useState(0);
@@ -624,6 +627,9 @@ export function SoccerPositionsGame({ language, onXp }: SoccerPositionsGameProps
 
   // Current question state
   const pool = useMemo(() => getPositionsForFormation(formation), [formation]);
+  // No labels in this language: hide Translate It instead of asking the English name back.
+  const hasLabels = pool.some((p) => p.labels[language]);
+  const mode: GameMode = requestedMode === "translate-it" && !hasLabels ? "name-it" : requestedMode;
   const lastIdRef = useRef<string | undefined>(undefined);
   const [question, setQuestion] = useState<Question>(() => buildQuestion(pool, language, mode));
   const [selected, setSelected] = useState<FieldPosition | null>(null);
@@ -766,7 +772,7 @@ export function SoccerPositionsGame({ language, onXp }: SoccerPositionsGameProps
 
       {/* ── Mode toggle ── */}
       <div className="flex gap-1 rounded-2xl border border-border/60 bg-card/30 p-1">
-        {MODE_CONFIG.map(({ key, label, icon: Icon }) => (
+        {MODE_CONFIG.filter(({ key }) => key !== "translate-it" || hasLabels).map(({ key, label, icon: Icon }) => (
           <button
             key={key}
             onClick={() => handleModeChange(key)}

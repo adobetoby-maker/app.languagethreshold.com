@@ -9,7 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ExternalLink, Languages, Pause, Play, Turtle, Volume2 } from "lucide-react";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
-import { useApp, type Language } from "@/state/app-state";
+import { useApp } from "@/state/app-state";
 import { useLibrary } from "@/state/library-state";
 import { useSpeech } from "@/state/speech-state";
 import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
@@ -23,21 +23,9 @@ import {
 import { useLessonContent } from "@/lib/lesson-content";
 import { pickContentPassage } from "@/lib/lesson-content-core";
 import { languageTag } from "@/lib/lesson-words-core";
+import { packFor } from "@/data/language-packs/registry";
 import { cn } from "@/lib/utils";
 import { currentTutorLesson } from "@/lib/lesson-tutor-context";
-
-const LANGUAGE_CODES: Record<Language, string> = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
-};
 
 /** How long to wait for the reading library before treating a missing passage as absent. */
 const LIBRARY_WAIT_MS = 6000;
@@ -88,13 +76,13 @@ export function LessonReader({
   const authoredContent = useLessonContent(moduleId, language, state.nativeLanguage);
 
   const sharedLessonCount = readingTemplate
-    ? (getCurriculum(moduleId)?.lessons.filter(
+    ? (getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.filter(
         (lesson) => lesson.readingTemplate === readingTemplate,
       ).length ?? 0)
     : 0;
   const passageId = exactLessonLibraryId(
     readingTemplate,
-    LANGUAGE_CODES[language],
+    languageTag(language),
     getAvailableModuleLessons(moduleId, language, lib.entries),
     sharedLessonCount,
   );
@@ -138,15 +126,17 @@ export function LessonReader({
   const contentPending = !lessonPassage && !contentPassage && authoredContent.status === "loading";
   const sentences = useMemo(() => shown?.sentences ?? [], [shown]);
   // Chinese has no spaces to tap on; the full Reader adds pinyin and word lookup there.
-  const tappable = language !== "Chinese";
   const lang = languageTag(language);
+  const tappable = packFor(language)?.script.wordSeparator !== "none";
+  // Reader library ids are seed-<code>-<module>-lesson-<n> for every authored track.
+  const seedId = (n: number) => `seed-${lang}-${moduleId}-lesson-${n}`;
   // Only offer the exact passage shown; authored inline content has no library counterpart.
   const militaryReaderId =
     language === "English" &&
     state.nativeLanguage === "Spanish" &&
     ["military", "foundation-military", "master-military"].includes(moduleId) &&
     lessonNumber
-      ? `seed-en-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
   const basicsReaderId =
     language === "Spanish" &&
@@ -157,18 +147,18 @@ export function LessonReader({
       spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       soundLesson(moduleId, lessonNumber, language, state.nativeLanguage)) &&
     lessonNumber
-      ? `seed-es-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
   const japaneseReaderId =
     language === "Japanese" &&
     state.nativeLanguage === "English" &&
     lessonNumber &&
     japaneseBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage)
-      ? `seed-ja-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
   const cleaningReaderId =
     lessonNumber && orCleaningLesson(moduleId, lessonNumber, language, state.nativeLanguage)
-      ? `seed-${language === "English" ? "en" : "es"}-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
   const fullReaderId =
     cleaningReaderId ??
@@ -274,6 +264,7 @@ export function LessonReader({
             {tappable ? (
               <ClickableText
                 text={line.target}
+                language={language}
                 onWordClick={(word, sentence, x, y) => onWordClick(word, sentence, index, x, y)}
               />
             ) : (
@@ -398,6 +389,7 @@ export function LessonReader({
                 {tappable ? (
                   <ClickableText
                     text={s.target}
+                    language={language}
                     onWordClick={(w, sentence, x, y) => onWordClick(w, sentence, index, x, y)}
                   />
                 ) : (
@@ -406,7 +398,7 @@ export function LessonReader({
               </p>
               {showEnglish && translationAvailable && (
                 <p
-                  lang={translationLanguage === "Spanish" ? "es" : "en"}
+                  lang={languageTag(translationLanguage)}
                   className="mt-1 text-sm leading-relaxed text-muted-foreground"
                 >
                   {s.en}

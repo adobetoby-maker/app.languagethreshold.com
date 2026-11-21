@@ -20,12 +20,13 @@ export function examsLocation(context: {
   lesson?: number;
   way?: string | null;
 }): string {
-  const params = new URLSearchParams({
-    target: LANGUAGES.includes(context.target as Language) ? context.target : "Spanish",
-    native: NATIVE_LANGUAGES.includes(context.native as NativeLanguage)
-      ? context.native
-      : "English",
-  });
+  // An unknown target is left out: /exams resolves it to the registry's default language.
+  const params = new URLSearchParams();
+  if (LANGUAGES.includes(context.target as Language)) params.set("target", context.target);
+  params.set(
+    "native",
+    NATIVE_LANGUAGES.includes(context.native as NativeLanguage) ? context.native : "English",
+  );
   if (context.moduleId && context.moduleId !== "core" && context.moduleId.length <= 80)
     params.set("module", context.moduleId);
   if (context.orgId && uuid.test(context.orgId)) params.set("org", context.orgId);
@@ -51,7 +52,7 @@ export function legacyExamsLocation(current: string): string | null {
   const params = url.searchParams;
   return examsLocation({
     moduleId: params.get("module"),
-    target: params.get("target") ?? "Spanish",
+    target: params.get("target") ?? "",
     native: params.get("native") ?? "English",
     orgId: params.get("org"),
     attemptId: params.get("attempt"),

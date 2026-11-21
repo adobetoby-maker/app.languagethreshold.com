@@ -1,4 +1,5 @@
 import { VerbHabitSettings } from "./verbs/VerbHabitSettings";
+import { nativeAfterTargetChange } from "@/lib/language-menu";
 import { FounderStoryLink } from "./FounderStoryLink";
 import { useEffect, useState } from "react";
 import { SITE_SETTINGS_EVENT, DESKTOP_GUIDE_MEDIA } from "@/lib/site-guide-events";
@@ -63,9 +64,8 @@ export function TopNav() {
                 key={lang}
                 onSelect={() => {
                   dispatch({ type: "SET_LANGUAGE", payload: lang });
-                  if (lang === "English" && state.nativeLanguage === "English") {
-                    dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
-                  }
+                  const native = nativeAfterTargetChange(lang, state.nativeLanguage);
+                  if (native) dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
                 }}
                 className="font-mono text-xs uppercase tracking-[0.16em]"
               >

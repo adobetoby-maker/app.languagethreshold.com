@@ -6,6 +6,8 @@
 // and language and adds the roofing-only lines when the module is roofing.
 // Kept as plain data so the App Guide or any other surface can reuse it.
 
+import { sameLanguage } from "./language-packs/registry.ts";
+
 export type PhilosophyWayId = "see" | "recall" | "hear" | "type" | "say" | "write";
 
 export type PhilosophyStage = "Recognize" | "Retrieve" | "Produce" | "Use";
@@ -328,6 +330,9 @@ function fillDeep<T>(value: T, vars: Record<string, string>): T {
   return value;
 }
 
+/** The language the six-ways example words are written in (until a pack carries its own examples). */
+const EXAMPLE_LANGUAGE = "Spanish";
+
 /**
  * The page copy for one module and language. The opening promise is the module's own threshold,
  * every {language} is the language being learned, and the roofing-only lines appear only for the
@@ -353,10 +358,10 @@ export function buildCore30Philosophy(ctx: PhilosophyContext): Core30Philosophy 
   }
 
   const exampleSource = isRoofing ? "Example" : "Example from the Roofing Supervisor course";
-  const spanishTag = ctx.language === "Spanish" ? "" : " (Spanish)";
+  const exampleTag = sameLanguage(ctx.language, EXAMPLE_LANGUAGE) ? "" : ` (${EXAMPLE_LANGUAGE})`;
   copy.ways.items = copy.ways.items.map((way) => ({
     ...way,
-    exampleLabel: `${exampleSource}${spanishTag} \u00b7 Lesson ${way.example.lesson}`,
+    exampleLabel: `${exampleSource}${exampleTag} \u00b7 Lesson ${way.example.lesson}`,
   }));
   return copy;
 }

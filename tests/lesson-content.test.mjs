@@ -24,6 +24,7 @@ import {
   verbFormLabel,
   verbsFromModelOutput,
 } from "../src/lib/lesson-content-core.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import {
   LESSON_CONTENT_MODEL,
   buildLessonContentRequest,
@@ -555,16 +556,16 @@ test("conjugationItems is one item per form per verb, labelled with the pronoun"
 });
 
 test("stripReflexive and the typed-answer rule accept a form with or without the pronoun", () => {
-  assert.equal(stripReflexive("se lava"), "lava");
-  assert.equal(stripReflexive("nos lavamos"), "lavamos");
-  assert.equal(stripReflexive("corta"), "corta");
+  assert.equal(stripReflexive("se lava", packFor("es")), "lava");
+  assert.equal(stripReflexive("nos lavamos", packFor("es")), "lavamos");
+  assert.equal(stripReflexive("corta", packFor("es")), "corta");
   // The drill accepts the full form or the bare one, accents optional.
-  assert.ok(isCorrectForm("se lava", "se lava"));
-  assert.ok(isCorrectForm("lava", "se lava"));
-  assert.ok(isCorrectForm("ESTAS", "estás"));
-  assert.ok(isCorrectForm(" Corta ", "corta"));
-  assert.ok(!isCorrectForm("lavan", "se lava"));
-  assert.ok(!isCorrectForm("", "corta"));
+  assert.ok(isCorrectForm("se lava", "se lava", packFor("es")));
+  assert.ok(isCorrectForm("lava", "se lava", packFor("es")));
+  assert.ok(isCorrectForm("ESTAS", "estás", packFor("es")));
+  assert.ok(isCorrectForm(" Corta ", "corta", packFor("es")));
+  assert.ok(!isCorrectForm("lavan", "se lava", packFor("es")));
+  assert.ok(!isCorrectForm("", "corta", packFor("es")));
 });
 
 // ─── Prompt ──────────────────────────────────────────────────────────────────

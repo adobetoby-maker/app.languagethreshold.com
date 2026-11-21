@@ -6,6 +6,7 @@ import { celebrate } from "@/lib/confetti";
 import { generateBattleWord, type BattleWord } from "@/fns/battle.functions";
 import { RankBadge } from "./RankBadge";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 
 function cefrForRound(round: number): "A1" | "A2" | "B1" | "B2" | "C1" | "C2" {
   if (round <= 2) return "A1";
@@ -90,7 +91,7 @@ export function BattleArena({
   // voice). Playback belongs to this word in this phase of this round.
   const { speak: speakWord } = useListeningSpeaker(
     JSON.stringify(["battle", language, round, phase, data?.word.word]),
-    language,
+    usePack(language),
   );
 
   const [playerPick, setPlayerPick] = useState<number | null>(null);

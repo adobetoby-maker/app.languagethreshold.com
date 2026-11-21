@@ -9,7 +9,8 @@ import { LastHit, MissPanel, PromptCard, StepProgress } from "./SeriesParts";
 const ACCENTS = ["á", "é", "í", "ó", "ú", "ü", "ñ"];
 
 /** Type it (mastery): type the form; only an exact match counts. An accent slip is "almost". */
-export function TypeStep(p: { items: SeriesItem[]; onFinish(run: StepRun): void }) {
+/** `lang` is the verb data's language code: it tags the answer field for spell-check and screen readers. */
+export function TypeStep(p: { items: SeriesItem[]; lang: string; onFinish(run: StepRun): void }) {
   const { items, onFinish } = p;
   const [index, setIndex] = useState(0);
   const [right, setRight] = useState(0);
@@ -83,7 +84,7 @@ export function TypeStep(p: { items: SeriesItem[]; onFinish(run: StepRun): void 
             value={value}
             onChange={(e) => setValue(e.target.value)}
             readOnly={feedback !== null}
-            lang="es"
+            lang={p.lang}
             autoCapitalize="none"
             autoCorrect="off"
             autoComplete="off"

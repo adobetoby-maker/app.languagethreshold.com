@@ -1,4 +1,6 @@
 import { Capacitor, registerPlugin, type PluginListenerHandle } from "@capacitor/core";
+import { packFor } from "@/data/language-packs/registry";
+import { recognitionLocales } from "@/lib/language-pack-text";
 
 export type SpeechRecognitionEventLike = {
   resultIndex: number;
@@ -25,7 +27,7 @@ type NativeEvent = {
   ended?: boolean;
 };
 interface PhoneDictationPlugin {
-  start(options: { requestId: string; locale: string }): Promise<void>;
+  start(options: { requestId: string; locale: string; locales?: string[] }): Promise<void>;
   stop(options: { requestId: string }): Promise<void>;
   cancel(options: { requestId: string }): Promise<void>;
   addListener(
@@ -34,6 +36,19 @@ interface PhoneDictationPlugin {
   ): Promise<PluginListenerHandle>;
 }
 const PhoneDictation = registerPlugin<PhoneDictationPlugin>("PhoneDictation");
+
+/**
+ * Ordered recognizer locales from the language pack behind the requested locale. Only a locale the
+ * pack itself lists (an accent or a recognition locale) gets fallbacks; anything else is matched
+ * exactly, so a dialect the pack does not teach (zh-HK) is never turned into another language.
+ */
+function nativeCandidateLocales(locale: string): string[] {
+  const key = locale.replace(/_/g, "-").toLowerCase();
+  const pack = packFor(key.split("-")[0] ?? "");
+  if (!pack) return [];
+  const listed = [...pack.speech.accents.map((a) => a.tag), ...pack.speech.recognition.locales];
+  return listed.some((tag) => tag.toLowerCase() === key) ? recognitionLocales(locale, pack) : [];
+}
 
 let nativeRelease: Promise<void> = Promise.resolve();
 function releaseNative(requestId: string) {
@@ -107,7 +122,11 @@ export class NativePhoneRecognition implements SpeechRecognitionLike {
       this.listener = listener;
       await nativeRelease;
       if (this.ended) return;
-      await PhoneDictation.start({ requestId: this.requestId, locale: this.lang });
+      await PhoneDictation.start({
+        requestId: this.requestId,
+        locale: this.lang,
+        locales: nativeCandidateLocales(this.lang),
+      });
       if (this.ended) return;
       if (this.stopping) await PhoneDictation.stop({ requestId: this.requestId });
       else this.onstart?.();

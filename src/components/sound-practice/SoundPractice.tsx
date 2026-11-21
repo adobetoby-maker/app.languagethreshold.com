@@ -13,6 +13,7 @@ import {
 } from "@/lib/sound-practice-core";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { useModulePack } from "@/hooks/use-module-pack";
 import { MouthMap } from "./MouthMap";
 
 const button =
@@ -75,7 +76,8 @@ export function SoundPractice({
   // voice) in their Spanish accent. Playback belongs to this lesson's lab while it is active.
   const { speak, stop: stopAudio } = useListeningSpeaker(
     JSON.stringify(["sound-practice", moduleId, lessonNumber, active]),
-    "Spanish",
+    // The lab speaks the module's own authored language (no literal; area work: sound families).
+    useModulePack(moduleId),
   );
   useEffect(() => {
     const next = readSoundPracticeRecord(store.read());

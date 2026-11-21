@@ -1,9 +1,13 @@
 import { Repeat2, ArrowRight } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { hasVerbPatterns } from "@/lib/verb-games/load-patterns";
 
 /** Shared Core entry point; uses the same refreshable route as the main Verbs tab. */
 export function CoreVerbPracticeCard({ compact = false }: { compact?: boolean }) {
   const { state } = useApp();
+  const pack = packFor(state.selectedLanguage);
+  const authored = hasVerbPatterns(pack) && sameLanguage(state.nativeLanguage, pack.native.default);
   const params = new URLSearchParams({
     tab: "verbs",
     module: state.activeModuleId ?? "core",
@@ -22,7 +26,7 @@ export function CoreVerbPracticeCard({ compact = false }: { compact?: boolean })
       <p className="mt-2 text-sm text-muted-foreground">
         {compact
           ? "Keep practicing your verbs with games, conjugations and useful speaking patterns."
-          : state.selectedLanguage === "Spanish" && state.nativeLanguage === "English"
+          : authored
             ? "Remember the verb, change its form, then use it. Practice with matching, Hangman and speaking patterns such as tener que, gerunds and past participles."
             : "Explore verb forms and speaking patterns available for your selected language."}
       </p>

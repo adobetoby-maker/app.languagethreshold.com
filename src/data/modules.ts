@@ -8,6 +8,12 @@ import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts
 import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { core60FixtureModules, core60Manifest } from "./core60-stages.ts";
 import { withDerivedStageModules } from "../lib/core60-stage-core.ts";
+import { isBundledPack, packFor, sameLanguage } from "./language-packs/registry.ts";
+import { catalogHasModule } from "./language-packs/catalog.ts";
+import { nativeLanguageName } from "./languages.ts";
+
+/** The target language a learnDirection "en-target" module teaches (the direction's definition). */
+const EN_TARGET_LANGUAGE: Language = "English";
 
 export interface AppModule {
   id: string;
@@ -51,9 +57,19 @@ export interface AppModule {
   learnDirection?: "en-target";
 }
 
-/** Returns true if `module` supports the given target `language`. */
+/**
+ * Returns true if `module` supports the given target `language`.
+ * A module with a `languages` list is offered to exactly those languages. A module without one is
+ * a historical, once-authored module: it is offered to a language whose ids predate packs
+ * (ids.legacyUnscopedStorage), and to a language with a bundled pack only when that pack's catalog
+ * lists the module (fail closed). A language with no catalog yet (legacy adapter) keeps the older
+ * behaviour until its pack ships.
+ */
 export function moduleSupportsLanguage(module: AppModule, language: Language): boolean {
-  return !module.languages || module.languages.includes(language);
+  if (module.languages) return module.languages.some((entry) => sameLanguage(entry, language));
+  const pack = packFor(language);
+  if (!pack || !isBundledPack(pack) || pack.ids.legacyUnscopedStorage) return true;
+  return catalogHasModule(pack, module.id);
 }
 
 /** Returns true when a module belongs to the learner's source → target direction. */
@@ -66,14 +82,19 @@ export function moduleSupportsLearningPair(
     return (
       module.authoredPair.target === targetLanguage && module.authoredPair.native === nativeLanguage
     );
-  if (targetLanguage === "English") {
-    if (nativeLanguage === "English") return false;
+  if (sameLanguage(targetLanguage, EN_TARGET_LANGUAGE)) {
+    if (sameLanguage(nativeLanguage, EN_TARGET_LANGUAGE)) return false;
     if (module.learnDirection === "en-target") {
       return !module.nativeLanguages || module.nativeLanguages.includes(nativeLanguage);
     }
     // Regular modules have authored English ↔ Spanish material. Expose the
     // reversed direction only when its Spanish scaffold is available.
-    return nativeLanguage === "Spanish" && moduleSupportsLanguage(module, "Spanish");
+    const scaffold = nativeLanguageName(packFor(targetLanguage)?.native.default);
+    return (
+      scaffold !== null &&
+      nativeLanguage === scaffold &&
+      moduleSupportsLanguage(module, scaffold as Language)
+    );
   }
   return (
     module.learnDirection !== "en-target" &&
@@ -1879,9 +1900,9 @@ const CATALOG: AppModule[] = [
       "Give route beta to a climber who can't figure out the crux sequence.",
       "Teach a beginner to tie a figure-eight follow-through — step by step.",
       "Respond to a fall and assess whether the climber is injured.",
-      "Negotiate a guided day with a local Portuguese-speaking guide.",
+      "Negotiate a guided day with a local guide, in the language you are learning.",
       "Describe the pain in your finger tendon to a local sports medicine clinic.",
-      "Coach a Spanish-speaking climber's footwork on a friction slab.",
+      "Coach a climbing partner's footwork on a friction slab, in the language you are learning.",
     ],
     vocabFocus: [
       "harness",

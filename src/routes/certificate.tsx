@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { packFor } from "@/data/language-packs/registry";
+import { getModule } from "@/data/modules";
 
 export const Route = createFileRoute("/certificate")({ component: CertificatePage });
 type Certificate = {
@@ -13,7 +15,22 @@ type Certificate = {
   status: string;
   issued_at: string;
   revoked_at: string | null;
+  /** Language the module was taught in; certificates issued before language packs omit it. */
+  target_language?: string | null;
 };
+
+// Certificates issued before language packs carry no language (all were Spanish courses). They keep
+// the exact titles they were printed with; only a certificate that stores its language is titled
+// "<Module> - <Language>" (team_certificates has no target_language column yet).
+const LEGACY_CERTIFICATE_TITLES: Record<string, string> = { roofing: "Roofing Spanish" };
+
+function credentialTitle(certificate: Certificate): string {
+  const language = certificate.target_language ? packFor(certificate.target_language)?.name : null;
+  if (!language)
+    return LEGACY_CERTIFICATE_TITLES[certificate.module_id] ?? certificate.module_id;
+  const moduleName = getModule(certificate.module_id)?.name ?? certificate.module_id;
+  return `${moduleName} - ${language}`;
+}
 
 function CertificatePage() {
   const [certificate, setCertificate] = useState<Certificate | null>(null);
@@ -72,7 +89,7 @@ function CertificatePage() {
             <p className="mt-7 text-lg">
               for completing{" "}
               <strong>
-                {certificate.module_id === "roofing" ? "Roofing Spanish" : certificate.module_id}
+                {credentialTitle(certificate)}
               </strong>
             </p>
             <p className="mt-3 text-sm">

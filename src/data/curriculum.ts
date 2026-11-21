@@ -1,10 +1,12 @@
 import { OR_CLEANING_CURRICULA } from "./or-cleaning.ts";
+import { catalogLessonPack, loadedCatalogCurriculum } from "./language-packs/catalog-lessons.ts";
 import { PLACE_CURRICULUM } from "./place-directions.ts";
 import { SOUND_CURRICULUM } from "./sound-like-a-native.ts";
 import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
 import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
 import { JAPANESE_BASICS_CURRICULUM } from "./japanese-basics.ts";
 import type { Language } from "@/state/app-state";
+import { isBundledPack, packFor } from "./language-packs/registry.ts";
 import type { LibraryEntry } from "@/state/library-state";
 import {
   type LessonStep,
@@ -78,25 +80,13 @@ export interface ModuleCurriculum {
 
 // ─── Language code map ────────────────────────────────────────────────────────
 
-const LANG_CODES: Record<Language, string> = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
-};
 
 const MODULE_PATTERNS: Record<string, string[]> = {
   "lds-missionary": ["seed-{lang}-lds-teaching"],
   "catholic-ministry": ["seed-{lang}-catholic-mass"],
   "construction-foreman": ["seed-{lang}-framer-layout"],
   framer: ["seed-{lang}-framer-layout"],
-  roofing: ["seed-es-roofing-materials"],
+  roofing: ["seed-{lang}-roofing-materials"],
   "construction-safety": ["seed-{lang}-construction-blueprint"],
   plumber: ["seed-{lang}-plumber-leak"],
   drywall: ["seed-{lang}-drywall-mud"],
@@ -145,7 +135,9 @@ export function getModuleReadingId(
   language: Language,
   entries: LibraryEntry[],
 ): string | null {
-  const lang = LANG_CODES[language] ?? "es";
+  // The reader seed's language code comes from the pack; no pack, no reading (never Spanish's).
+  const lang = packFor(language)?.code;
+  if (!lang) return null;
 
   // Pattern-based exact lookup
   const patterns = MODULE_PATTERNS[moduleId];
@@ -4270,7 +4262,14 @@ export function getCurriculum(
   targetLanguage?: string,
   nativeLanguage?: string,
 ): ModuleCurriculum | null {
-  return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
+  const handWritten = CURRICULA[moduleId];
+  // The hand-written curricula (steps, drills, personas) were authored for the pairs that predate
+  // packs. A language with its own bundled pack never reads them: its lessons come from its
+  // catalog (loaded by useStageCurriculum); a language still on a legacy adapter keeps the older
+  // behaviour.
+  const catalogPack = catalogLessonPack(targetLanguage);
+  if (catalogPack) return loadedCatalogCurriculum(moduleId, catalogPack) ?? null;
+  return handWritten ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
 }
 
 export function getCurrentLesson(

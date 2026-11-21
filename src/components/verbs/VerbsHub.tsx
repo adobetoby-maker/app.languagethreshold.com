@@ -1,6 +1,9 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Repeat2, Clock3, Volume2 } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { hasVerbPatterns } from "@/lib/verb-games/load-patterns";
+import { SPEAKING_PATTERNS } from "@/lib/verb-speaking-practice";
 import { useVerbHabit } from "@/hooks/use-verb-habit";
 import { SpeakingPatternPractice } from "./SpeakingPatternPractice";
 import { FINISH_STUDY_EVENT } from "./VerbHabitSettings";
@@ -34,7 +37,15 @@ export function VerbsHub() {
     [ready, setReady] = useState(false),
     lastActive = useRef(0),
     activity = useRef<HTMLDivElement>(null);
-  const spanish = state.selectedLanguage === "Spanish" && state.nativeLanguage === "English";
+  // The authored verb workshop exists for the languages in load-patterns.ts, glossed in the
+  // pack's own native default; every other pair keeps only the generic drills.
+  const pack = packFor(state.selectedLanguage);
+  const supported = hasVerbPatterns(pack) && sameLanguage(state.nativeLanguage, pack.native.default);
+  const frameSamples = [0, 7, 9]
+    .map((i) => SPEAKING_PATTERNS[i]?.frame)
+    .filter(Boolean)
+    .map((frame) => `${frame}…`)
+    .join(" ");
   useEffect(() => {
     const read = () => {
       const p = new URLSearchParams(window.location.search),
@@ -118,7 +129,7 @@ export function VerbsHub() {
         )}
       </header>
       <nav aria-label="Verb practice areas" className="flex flex-wrap gap-2">
-        {AREAS.filter((a) => spanish || !["forms", "patterns", "games"].includes(a)).map((a) => (
+        {AREAS.filter((a) => supported || !["forms", "patterns", "games"].includes(a)).map((a) => (
           <button
             key={a}
             className={`${button} ${area === a ? "border-gold bg-gold/10" : ""}`}
@@ -130,14 +141,14 @@ export function VerbsHub() {
           </button>
         ))}
       </nav>
-      {!spanish && (
+      {!supported && (
         <p className="rounded-xl border p-4">
-          Your selected language is {state.selectedLanguage}. The authored ten-minute games and
-          shortcut drills here currently cover Spanish with English support. Use the conjugation
-          drills and available pattern library for your selected language.
+          The authored ten-minute games and shortcut drills are not available in{" "}
+          {state.selectedLanguage} yet. Use the conjugation drills and the pattern library for{" "}
+          {state.selectedLanguage}.
         </p>
       )}
-      {area === "daily" && (
+      {supported && area === "daily" && (
         <section className="space-y-4">
           <h2 className="font-display text-2xl">Your daily verb habit</h2>
           <div className="grid gap-3 md:grid-cols-3">
@@ -158,13 +169,13 @@ export function VerbsHub() {
                 area: "patterns" as Area,
                 time: "4 minutes",
                 title: "Make it speakable",
-                copy: "Tengo que… Estoy hablando… He hecho… Useful frames with ten verbs each.",
+                copy: `${frameSamples} Useful frames with ten verbs each.`,
               },
             ].map((p) => (
               <button
                 key={p.area}
                 className={`${button} space-y-2 p-5`}
-                disabled={!ready || !spanish}
+                disabled={!ready || !supported}
                 onClick={() => go(p.area)}
               >
                 <span className="block text-sm text-gold-ink">{p.time}</span>
@@ -191,10 +202,10 @@ export function VerbsHub() {
       )}
 
       <div ref={activity} className="space-y-5 scroll-mt-4">
-        {spanish && area === "patterns" && <SpeakingPatternPractice />}
+        {supported && area === "patterns" && <SpeakingPatternPractice />}
         <Suspense fallback={<p role="status">Opening verb practice…</p>}>
-          {spanish && area === "forms" && <ConjugationPractice />}
-          {spanish && area === "games" && <PatternGames />}
+          {supported && pack && area === "forms" && <ConjugationPractice language={pack.name} />}
+          {supported && area === "games" && <PatternGames />}
           {area === "advanced" && <Advanced />}
           {area === "library" && <PatternLibrary />}
         </Suspense>

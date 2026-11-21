@@ -1,0 +1,736 @@
+{
+ "schemaVersion": 1,
+ "code": "it",
+ "name": "Italian",
+ "endonym": "italiano",
+ "legacyNames": [
+  "Italian"
+ ],
+ "native": {
+  "default": "en",
+  "supported": [
+   "en"
+  ],
+  "names": {
+   "en": "English"
+  }
+ },
+ "variety": {
+  "tag": "it-IT",
+  "label": "Italy",
+  "standard": "Standard Italian as used in Italy, neutral and textbook-clean. No regionalisms, dialect or slang. adesso for now, la mattina / il pomeriggio / la sera, il bar for a café. Subject pronouns are dropped except for contrast or emphasis.",
+  "alternates": [
+   {
+    "tag": "it-CH",
+    "label": "Switzerland (Ticino)",
+    "taught": false,
+    "note": "Recognised; never authored."
+   }
+  ],
+  "avoid": [
+   "Formal plural Loro; use voi for every group",
+   "E' for È (write the capital grave È)",
+   "qual'è (write qual è, no apostrophe)",
+   "Spanish punctuation ¿ ¡ and the letter ñ",
+   "Spanish-looking calques (tenere for avere, la carta for il menu in a bar)"
+  ]
+ },
+ "status": {
+  "availability": "draft",
+  "speakAvailability": "draft",
+  "statusText": "Italian lessons in review · coming to this device"
+ },
+ "script": {
+  "iso15924": [
+   "Latn"
+  ],
+  "direction": "ltr",
+  "wordSeparator": "space",
+  "hasCase": true,
+  "capitalizeNouns": false,
+  "segmenterLocale": "it",
+  "readingAid": "none"
+ },
+ "typography": {
+  "apostrophe": "'",
+  "apostropheVariants": [
+   "’",
+   "ʼ",
+   "‘"
+  ],
+  "spaceVariants": [
+   " ",
+   " "
+  ],
+  "quotes": [
+   "«",
+   "»",
+   "“",
+   "”"
+  ],
+  "spaceBeforePunctuation": [],
+  "punctuationSpace": "",
+  "trimCharacters": ".!?,;:\"«»“”()…",
+  "invertedPunctuation": false,
+  "wordInnerCharacters": [],
+  "numberStyle": "Digits for doses, measurements and times with a decimal comma (2,5 mg); 24-hour clock in writing (alle 15, alle 10:15); dates il 13 marzo with lowercase months and weekdays."
+ },
+ "keyboard": {
+  "autocapitalization": "never",
+  "ime": false,
+  "specialCharacters": [
+   "à",
+   "è",
+   "é",
+   "ì",
+   "ò",
+   "ù",
+   "È"
+  ],
+  "alphabet": "abcdefghijklmnopqrstuvwxyzàèéìíîòóùú"
+ },
+ "grammar": {
+  "verbForms": {
+   "axis": "person",
+   "keys": [
+    {
+     "key": "io",
+     "label": "io",
+     "order": 1,
+     "required": true,
+     "person": 1,
+     "number": "singular",
+     "subjects": [
+      "io"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "tu",
+     "label": "tu",
+     "order": 2,
+     "required": true,
+     "person": 2,
+     "number": "singular",
+     "formal": false,
+     "subjects": [
+      "tu"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "lui_lei",
+     "label": "lui / lei / Lei",
+     "order": 3,
+     "required": true,
+     "person": 3,
+     "number": "singular",
+     "subjects": [
+      "lui",
+      "lei",
+      "Lei"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "noi",
+     "label": "noi",
+     "order": 4,
+     "required": true,
+     "person": 1,
+     "number": "plural",
+     "subjects": [
+      "noi"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "voi",
+     "label": "voi",
+     "order": 5,
+     "required": true,
+     "person": 2,
+     "number": "plural",
+     "subjects": [
+      "voi"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "loro",
+     "label": "loro",
+     "order": 6,
+     "required": true,
+     "person": 3,
+     "number": "plural",
+     "subjects": [
+      "loro"
+     ],
+     "assessment": true
+    }
+   ],
+   "includesSubject": false,
+   "imperativeIncludesSubject": false,
+   "formLeadWords": [],
+   "imperativeKeys": [
+    "tu",
+    "lui_lei",
+    "noi",
+    "voi"
+   ],
+   "referenceTableTitle": "Present tense",
+   "assessmentPrompt": "Which form goes with {label}?",
+   "joinRules": []
+  },
+  "proDrop": "full",
+  "subjectPronouns": {
+   "io": [
+    "io"
+   ],
+   "tu": [
+    "tu"
+   ],
+   "lui": [
+    "lui_lei"
+   ],
+   "lei": [
+    "lui_lei"
+   ],
+   "noi": [
+    "noi"
+   ],
+   "voi": [
+    "voi"
+   ],
+   "loro": [
+    "loro"
+   ]
+  },
+  "preVerbParticles": [
+   "non",
+   "mi",
+   "ti",
+   "si",
+   "ci",
+   "vi",
+   "lo",
+   "la",
+   "li",
+   "le",
+   "gli",
+   "ne",
+   "l'",
+   "m'",
+   "t'",
+   "s'",
+   "c'",
+   "v'"
+  ],
+  "reflexivePronouns": [
+   "mi",
+   "ti",
+   "si",
+   "ci",
+   "vi",
+   "m'",
+   "t'",
+   "s'",
+   "c'",
+   "v'"
+  ],
+  "nounSystem": {
+   "type": "gender",
+   "contentRule": "article-with-noun",
+   "genders": [
+    "masculine",
+    "feminine"
+   ],
+   "cases": [],
+   "classes": [],
+   "articles": {
+    "definite": [
+     "il",
+     "lo",
+     "la",
+     "l'",
+     "i",
+     "gli",
+     "le"
+    ],
+    "indefinite": [
+     "un",
+     "uno",
+     "una",
+     "un'"
+    ],
+    "partitive": [
+     "del",
+     "dello",
+     "della",
+     "dell'",
+     "dei",
+     "degli",
+     "delle"
+    ],
+    "contractions": {
+     "a il": "al",
+     "a lo": "allo",
+     "a la": "alla",
+     "a l'": "all'",
+     "a i": "ai",
+     "a gli": "agli",
+     "a le": "alle",
+     "di il": "del",
+     "di lo": "dello",
+     "di la": "della",
+     "di l'": "dell'",
+     "di i": "dei",
+     "di gli": "degli",
+     "di le": "delle",
+     "in il": "nel",
+     "in lo": "nello",
+     "in la": "nella",
+     "in l'": "nell'",
+     "in i": "nei",
+     "in gli": "negli",
+     "in le": "nelle",
+     "su il": "sul",
+     "su lo": "sullo",
+     "su la": "sulla",
+     "su l'": "sull'",
+     "su i": "sui",
+     "su gli": "sugli",
+     "su le": "sulle",
+     "da il": "dal",
+     "da lo": "dallo",
+     "da la": "dalla",
+     "da l'": "dall'",
+     "da i": "dai",
+     "da gli": "dagli",
+     "da le": "dalle"
+    }
+   },
+   "hiddenGenderMarkers": {
+    "masculine": "(m.)",
+    "feminine": "(f.)"
+   }
+  },
+  "formality": {
+   "forms": [
+    {
+     "id": "informal",
+     "pronoun": "tu",
+     "verbKey": "tu",
+     "use": "Classmates, friends, family, crew mates and colleagues where Spanish uses tú."
+    },
+    {
+     "id": "formal",
+     "pronoun": "Lei",
+     "verbKey": "lui_lei",
+     "use": "Patients, customers, teachers, supervisors, strangers. Capital Lei / Le / Suo as words; verbs are not capitalised."
+    },
+    {
+     "id": "plural",
+     "pronoun": "voi",
+     "verbKey": "voi",
+     "use": "Any group, formal or informal. Never Loro."
+    }
+   ],
+   "fromSpanish": {
+    "tú": "tu",
+    "usted": "Lei",
+    "ustedes": "voi",
+    "vosotros": "voi"
+   },
+   "patients": "Lei (3rd person singular): Come sta? Si sdrai. Titles il dottor Russo / la dottoressa Russo; Dottore / Dottoressa in direct address",
+   "crew": "tu where Spanish uses tú; Lei where Spanish uses usted between colleagues"
+  },
+  "impersonalForms": [
+   "c'è",
+   "ci sono",
+   "bisogna"
+  ],
+  "extraVerbForms": []
+ },
+ "answerRules": {
+  "tokenizer": "words",
+  "unicodeNormalization": "NFC",
+  "caseHint": false,
+  "accentPolicy": {
+   "typed": "strict",
+   "speech": "fold-except-protected",
+   "handwriting": "strict"
+  },
+  "accentHint": true,
+  "markName": "accent marks",
+  "fold": {
+   "à": "a",
+   "è": "e",
+   "é": "e",
+   "ì": "i",
+   "í": "i",
+   "î": "i",
+   "ò": "o",
+   "ó": "o",
+   "ù": "u",
+   "ú": "u"
+  },
+  "neverFold": [],
+  "ligatures": {},
+  "typedAlternates": {},
+  "protectedPairs": [
+   [
+    "e",
+    "è"
+   ],
+   [
+    "si",
+    "sì"
+   ],
+   [
+    "da",
+    "dà"
+   ],
+   [
+    "la",
+    "là"
+   ],
+   [
+    "li",
+    "lì"
+   ],
+   [
+    "ne",
+    "né"
+   ],
+   [
+    "se",
+    "sé"
+   ],
+   [
+    "te",
+    "tè"
+   ],
+   [
+    "papa",
+    "papà"
+   ],
+   [
+    "pero",
+    "però"
+   ]
+  ],
+  "articleOptional": "hint",
+  "soundRules": [],
+  "homophoneSets": [
+   [
+    "e",
+    "è"
+   ],
+   [
+    "a",
+    "ha"
+   ],
+   [
+    "o",
+    "ho"
+   ],
+   [
+    "ai",
+    "hai"
+   ],
+   [
+    "anno",
+    "hanno"
+   ],
+   [
+    "da",
+    "dà"
+   ],
+   [
+    "si",
+    "sì"
+   ],
+   [
+    "la",
+    "là"
+   ],
+   [
+    "li",
+    "lì"
+   ],
+   [
+    "ne",
+    "né"
+   ],
+   [
+    "se",
+    "sé"
+   ],
+   [
+    "te",
+    "tè"
+   ]
+  ],
+  "speechScoring": {
+   "soundEquivalentCredit": 0.85,
+   "similarityFloor": 0.65,
+   "similarityCredit": 0.75,
+   "minWordLength": 4
+  },
+  "ocrConfusables": [
+   [
+    "è",
+    "é",
+    "e"
+   ],
+   [
+    "à",
+    "a"
+   ],
+   [
+    "ì",
+    "i"
+   ],
+   [
+    "ò",
+    "ó",
+    "o"
+   ],
+   [
+    "ù",
+    "u"
+   ]
+  ],
+  "moreDetailKeywords": [
+   "più dettagli",
+   "più lungo",
+   "dimmi di più",
+   "mi dica di più",
+   "spiega",
+   "spieghi",
+   "racconta",
+   "storia"
+  ]
+ },
+ "speech": {
+  "recognition": {
+   "mode": "on-device",
+   "languageCode": "it",
+   "locales": [
+    "it-IT",
+    "it-CH"
+   ],
+   "dictationName": "Italian (Italy)",
+   "keyboardName": "Italian",
+   "fallback": "listen-and-compare"
+  },
+  "tts": {
+   "languageCode": "it",
+   "locales": [
+    "it-IT"
+   ],
+   "deviceVoice": true,
+   "rate": {
+    "normal": 0.45,
+    "slow": 0.33
+   }
+  },
+  "accents": [
+   {
+    "tag": "it-IT",
+    "label": "Italy",
+    "default": true
+   }
+  ],
+  "handwriting": {
+   "mode": "vision",
+   "visionLanguages": [
+    "it-IT",
+    "en-US"
+   ]
+  },
+  "partnerVoice": {
+   "available": true,
+   "provider": "google-chirp3-hd",
+   "locale": "it-IT",
+   "female": "Aoede",
+   "male": "Charon"
+  },
+  "offlineVoices": {
+   "defaultEngine": "device",
+   "phonon": null,
+   "kokoro": {
+    "language": "it",
+    "voices": [
+     {
+      "label": "Sara",
+      "voiceName": "if_sara",
+      "speakerID": null
+     },
+     {
+      "label": "Nicola",
+      "voiceName": "im_nicola",
+      "speakerID": null
+     }
+    ]
+   }
+  },
+  "remoteFallback": null
+ },
+ "audio": {
+  "folder": "RecordedAudio/it",
+  "manifest": "RecordedAudio/it/recordings.json",
+  "watchFolder": "WatchAudioLite/it",
+  "voices": [
+   {
+    "id": "female",
+    "label": "Female",
+    "gender": "female",
+    "locale": "it-IT"
+   },
+   {
+    "id": "male",
+    "label": "Male",
+    "gender": "male",
+    "locale": "it-IT"
+   }
+  ],
+  "coverage": "none",
+  "requireReviewed": true,
+  "legacy": null
+ },
+ "dictionary": {
+  "file": "TutorDictionary/it-en.json",
+  "supplement": null,
+  "morphology": null,
+  "lookup": {
+   "elisionPrefixes": [
+    "l'",
+    "un'",
+    "dell'",
+    "all'",
+    "dall'",
+    "nell'",
+    "sull'",
+    "c'",
+    "d'",
+    "m'",
+    "t'",
+    "s'",
+    "v'",
+    "quest'",
+    "quell'",
+    "anch'",
+    "dov'",
+    "com'",
+    "cos'"
+   ],
+   "stripArticles": true,
+   "stripPrefixes": []
+  },
+  "crossModuleIndex": true
+ },
+ "content": {
+  "catalog": "core60_it.json",
+  "lessonSourceRoot": "private/lesson-content/it",
+  "missions": null,
+  "readerLibrary": null,
+  "partnerPack": null,
+  "sentencePatterns": null,
+  "placementGame": null,
+  "cmeActivities": null,
+  "guideTips": null,
+  "readingTracks": null,
+  "settingsGuide": null
+ },
+ "library": {
+  "defaultModule": "italian-basics",
+  "coreBasics": [
+   "italian-basics",
+   "italian-102",
+   "italian-frequent-verbs",
+   "italian-usage-verbs",
+   "italian-common-patterns",
+   "italian-conjugation-patterns",
+   "italian-cognates",
+   "sound-like-a-native"
+  ],
+  "intro": "Start with Italian 101, then 102. Use the verb, grammar, conjugation, and cognate courses alongside them. Every course includes 10 Foundation, 30 Working, and 20 Master lessons.",
+  "guidance": {
+   "italian-basics": "Start here · sounds, first words, and everyday sentences.",
+   "italian-102": "Continue after 101 · expand grammar and everyday vocabulary.",
+   "italian-frequent-verbs": "Build fluency · one useful spoken verb in each lesson.",
+   "italian-usage-verbs": "Frequency order · practice the highest-use verbs first.",
+   "italian-common-patterns": "Build sentences · dovere, bisogna, stare per, and other useful structures.",
+   "italian-conjugation-patterns": "Focus your practice · one pattern, ten verbs per lesson.",
+   "italian-cognates": "Grow vocabulary · word families, pronunciation, and false friends.",
+   "sound-like-a-native": "Sound clear · double consonants, gli and gn, open and closed vowels, stress."
+  }
+ },
+ "ids": {
+  "lessonPrefix": "it:",
+  "activity": "core60:{code}:{native}:{module}:{n}",
+  "legacyActivityPrefixes": [],
+  "mission": "scenario_version_{module}_lesson_{n}_{missionCode}_v1",
+  "missionCode": "it",
+  "storageNamespace": "it",
+  "legacyUnscopedStorage": false
+ },
+ "phrases": {
+  "register": "informal",
+  "soundCheckWord": "ciao",
+  "soundCheckSentence": "Buongiorno, come sta?",
+  "voicePreview": "il tetto",
+  "partnerPreview": "Ciao. Parliamo in italiano. Che cosa vorresti praticare oggi?",
+  "clarification": "Scusa, non ho capito. Puoi ripetere, per favore?",
+  "greeting": "Buongiorno",
+  "paceCommands": {
+   "slower": [
+    "più lentamente",
+    "più piano",
+    "parla più piano",
+    "parli più piano"
+   ],
+   "normal": [
+    "velocità normale",
+    "ritmo normale"
+   ],
+   "faster": [
+    "più veloce",
+    "più velocemente",
+    "parla più veloce"
+   ],
+   "simpler": [
+    "parole più semplici",
+    "più semplice",
+    "più facile"
+   ]
+  }
+ },
+ "prompts": {
+  "languageName": "Italian",
+  "replyInstruction": "Reply in Italian.",
+  "scriptNote": "",
+  "varietyNote": "Use standard Italian (Italy); voi for any group, never Loro."
+ },
+ "contentChecks": {
+  "targetMarkers": "\\b(molto|verbo|gli|della|per|quando|con|una|nella|questo|questa|significa|persona)\\b",
+  "nativeMarkers": {
+   "en": "\\b(the|and|with|is|are|use|form|verb|command|stem|change|to|of|it|in|for|this|when|means|your|as|say|not|he|his|her|used|usually|often|like|after|before|also|only|than)\\b"
+  },
+  "infinitivePattern": "^[a-zàèéìíîòóùú]*(are|ere|ire|rre|arsi|ersi|irsi|rsi)$",
+  "pronounFirstPattern": "^(io|tu|lui|lei|noi|voi|loro)\\s"
+ },
+ "features": {
+  "speaking": "native",
+  "speakingMissions": false,
+  "partnerChat": false,
+  "onlineTutor": false,
+  "verbsTab": false,
+  "placementGame": false,
+  "kanaPad": false,
+  "verbGames": true,
+  "handwriting": true
+ }
+}

@@ -3,7 +3,28 @@ import { ArrowLeft, ChevronDown, ChevronRight } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { getBallSportsContent, type ModuleArea } from "@/data/ball-sports-content";
 import { BaseballPositionsGame } from "../games/BaseballPositionsGame";
-import { BASEBALL_DUGOUT_VOCAB, type BaseballDugoutVocab } from "@/data/baseball-positions";
+import {
+  BASEBALL_DUGOUT_VOCAB,
+  BASEBALL_POSITIONS,
+  type BaseballDugoutVocab,
+} from "@/data/baseball-positions";
+import { packFor } from "@/data/language-packs/registry";
+
+/** The dugout-vocabulary column of a language, keyed by its pack code, or null when it has none. */
+function dugoutColumn(language: string): { code: string; label: string } | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  const has = BASEBALL_DUGOUT_VOCAB.some(
+    (row) => typeof (row as unknown as Record<string, unknown>)[pack.code] === "string",
+  );
+  return has ? { code: pack.code, label: pack.name } : null;
+}
+
+/** Field-position labels are keyed by the language's stored name. */
+function hasPositionLabels(language: string): boolean {
+  const pack = packFor(language);
+  return Boolean(pack && BASEBALL_POSITIONS.some((position) => position.labels[pack.name]));
+}
 
 const MODULE_ID = "baseball";
 
@@ -25,7 +46,16 @@ const CATEGORY_LABELS: Record<string, { label: string; emoji: string }> = {
 const DUGOUT_CATEGORIES = ["pitch-type", "call", "play", "equipment"] as const;
 
 export function BaseballHome() {
+  const { state } = useApp();
   const [activeTab, setActiveTab] = useState<Tab>("diamond");
+  // The positions quiz and the dugout vocabulary exist only for languages with authored columns;
+  // for any other language the tab is hidden rather than showing another language's words.
+  const hasDugout = Boolean(dugoutColumn(state.selectedLanguage));
+  const hasPositions = hasDugout && hasPositionLabels(state.selectedLanguage);
+  const tabs = TABS.filter(
+    (tab) => tab.id === "diamond" || (tab.id === "positions" ? hasPositions : hasDugout),
+  );
+  const shownTab = tabs.some((tab) => tab.id === activeTab) ? activeTab : "diamond";
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
@@ -43,12 +73,12 @@ export function BaseballHome() {
 
       {/* Tab pills */}
       <div className="mb-6 flex gap-2 flex-wrap">
-        {TABS.map((tab) => (
+        {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all ${
-              activeTab === tab.id
+              shownTab === tab.id
                 ? "border-gold bg-gold/10 text-gold"
                 : "border-border/60 bg-card/40 text-muted-foreground hover:border-gold/40 hover:text-foreground"
             }`}
@@ -60,9 +90,9 @@ export function BaseballHome() {
       </div>
 
       {/* Panel */}
-      {activeTab === "diamond" && <DiamondPanel />}
-      {activeTab === "positions" && <PositionsPanel />}
-      {activeTab === "dugout" && <DugoutVocabPanel />}
+      {shownTab === "diamond" && <DiamondPanel />}
+      {shownTab === "positions" && <PositionsPanel />}
+      {shownTab === "dugout" && <DugoutVocabPanel />}
     </div>
   );
 }
@@ -264,9 +294,8 @@ function DugoutVocabPanel() {
   const { state } = useApp();
   const lang = state.selectedLanguage;
 
-  // Determine which translation column to use
-  const showLang = lang === "Portuguese" ? "pt" : "es";
-  const langLabel = lang === "Portuguese" ? "Portuguese" : lang === "Spanish" ? "Spanish" : lang; // fallback to Spanish for others
+  const column = dugoutColumn(lang);
+  const langLabel = column?.label ?? lang;
 
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
     "pitch-type": true,
@@ -284,6 +313,13 @@ function DugoutVocabPanel() {
     },
     {} as Record<string, BaseballDugoutVocab[]>,
   );
+
+  if (!column)
+    return (
+      <p className="rounded-2xl border border-border/60 bg-card/40 p-4 text-sm text-muted-foreground">
+        Dugout vocabulary is not available in {langLabel} yet.
+      </p>
+    );
 
   return (
     <div>
@@ -345,7 +381,7 @@ function DugoutVocabPanel() {
                       >
                         <span className="text-sm text-foreground font-medium">{word.en}</span>
                         <span className="text-sm text-muted-foreground">
-                          {showLang === "pt" ? word.pt : word.es}
+                          {(word as unknown as Record<string, string>)[column.code]}
                         </span>
                       </li>
                     ))}

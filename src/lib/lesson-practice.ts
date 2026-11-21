@@ -1,6 +1,9 @@
 // Pure logic for the in-lesson practice kit (no React, no DOM). Imported by
 // src/components/core30/LessonPracticeKit.tsx and unit-tested directly.
 
+import type { AccentMode, LanguagePack } from "../data/language-packs/types.ts";
+import { foldMarks, normalizeKey } from "./language-pack-text.ts";
+
 export interface PracticeWord {
   en: string;
   es: string;
@@ -13,39 +16,199 @@ export type RandomFn = () => number;
 const MAX_SINGLE_ROUND = 12;
 const MAX_ROUND_SIZE = 6;
 
-/** Lowercase, strip accents and punctuation, collapse whitespace. */
-export function normalizeAnswer(text: string): string {
-  return text
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+// ─── Typed-answer checking (language-pack model section 8) ──────────────────────────────────────
+//
+// Every rule comes from the pack: apostrophe and space folding (typography), accent policy and
+// fold table (answerRules), typed alternates (œ ↔ oe), protected pairs, article handling and
+// elision. There is no language name or code in this file.
+
+type TypedMode = AccentMode | "legacy";
+
+/**
+ * How typed accents are compared. A pack with unscoped legacy ids (`ids.legacyUnscopedStorage`:
+ * Spanish and Japanese, whose behaviour predates the pack model) keeps the accent-blind check
+ * until the owner decides model section 18 delta 2; every other pack follows its own
+ * `answerRules.accentPolicy.typed`.
+ */
+export function typedAccentMode(pack: LanguagePack): TypedMode {
+  return pack.ids.legacyUnscopedStorage ? "legacy" : pack.answerRules.accentPolicy.typed;
+}
+
+function usesElision(pack: LanguagePack): boolean {
+  return pack.dictionary.lookup.elisionPrefixes.length > 0;
+}
+
+/**
+ * Lowercase and punctuation-free comparison form: step 1 of the pipeline (normalizeKey), accent
+ * handling by mode, apostrophes and punctuation become spaces, whitespace collapses.
+ */
+export function normalizeAnswer(text: string, pack: LanguagePack): string {
+  const mode = typedAccentMode(pack);
+  let key = normalizeKey(text, pack);
+  // A pack with no fold table (a legacy adapter) folds every mark, as the kit always has.
+  const noFoldTable = Object.keys(pack.answerRules.fold).length === 0;
+  if (mode === "legacy" || ((mode === "fold" || mode === "fold-except-protected") && noFoldTable)) {
+    key = key.normalize("NFD").replace(/\p{M}/gu, "");
+    for (const [ligature, plain] of Object.entries(pack.answerRules.ligatures))
+      key = key.replaceAll(ligature, plain);
+  } else if (mode === "fold" || mode === "fold-except-protected") {
+    key = foldMarks(key, pack);
+  }
+  return key
+    .replace(/[^\p{L}\p{N}\p{M}\s]/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
 
+/** The same key with elided apostrophes closed up: "l eau" and "leau" are one answer. */
+function joinedKey(spaced: string, pack: LanguagePack): string | null {
+  if (!usesElision(pack)) return null;
+  const tokens = spaced.split(" ");
+  const out: string[] = [];
+  for (let i = 0; i < tokens.length; i += 1) {
+    if (i + 1 < tokens.length && isElisionToken(tokens[i], pack)) {
+      out.push(tokens[i] + tokens[i + 1]);
+      i += 1;
+    } else out.push(tokens[i]);
+  }
+  return out.join(" ");
+}
+
+function isElisionToken(token: string, pack: LanguagePack): boolean {
+  return pack.dictionary.lookup.elisionPrefixes.some(
+    (prefix) =>
+      prefix.replace(/['’ʼ‘]/gu, "").toLocaleLowerCase(pack.script.segmenterLocale) === token,
+  );
+}
+
+/** Every article of the pack as a normalized token run ("l'" → "l", "de la" → "de la"), longest first. */
+function articleKeys(pack: LanguagePack): string[] {
+  const { definite = [], indefinite = [], partitive = [] } = pack.grammar.nounSystem.articles;
+  const keys = new Set<string>();
+  for (const article of [...definite, ...indefinite, ...partitive]) {
+    const key = normalizeAnswer(article, pack);
+    if (key) keys.add(key);
+  }
+  return [...keys].sort((a, b) => b.length - a.length);
+}
+
+/** `spaced` without its leading article, or null when it has none (or nothing else). */
+function withoutArticle(spaced: string, pack: LanguagePack): string | null {
+  for (const article of articleKeys(pack)) {
+    if (spaced.startsWith(`${article} `) && spaced.length > article.length + 1)
+      return spaced.slice(article.length + 1);
+  }
+  return null;
+}
+
+/** Typed alternates (œ ↔ oe): the expected text with each listed letter written the other way. */
+function withAlternates(text: string, pack: LanguagePack): string {
+  let out = text;
+  for (const [letter, substitute] of Object.entries(pack.answerRules.typedAlternates))
+    out = out.replaceAll(letter, substitute);
+  return out;
+}
+
 /**
- * Every normalized string accepted as a correct Spanish answer for `es`:
- * the full entry, the part before " (" or " / ", and each side of " / ".
+ * Every raw string accepted as a correct answer for the entry `target`: the full entry, the part
+ * before " (" or " / ", and each side of " / ".
  */
-export function answerVariants(es: string): string[] {
+function entryForms(target: string): string[] {
+  const forms = new Set<string>();
+  forms.add(target);
+  const beforeParen = target.split(" (")[0];
+  forms.add(beforeParen);
+  for (const side of beforeParen.split(" / ")) forms.add(side);
+  for (const side of target.split(" / ")) forms.add(side.split(" (")[0]);
+  return [...forms];
+}
+
+/**
+ * Every normalized string accepted as a correct answer for `target`: the entry forms, the typed
+ * alternates, and, when the pack accepts a bare noun (`articleOptional: "accept"`), the forms
+ * without their article.
+ */
+export function answerVariants(target: string, pack: LanguagePack): string[] {
   const variants = new Set<string>();
   const add = (value: string) => {
-    const normalized = normalizeAnswer(value);
+    const normalized = normalizeAnswer(value, pack);
     if (normalized) variants.add(normalized);
   };
-  add(es);
-  const beforeParen = es.split(" (")[0];
-  add(beforeParen);
-  for (const side of beforeParen.split(" / ")) add(side);
-  for (const side of es.split(" / ")) add(side.split(" (")[0]);
+  for (const form of entryForms(target)) {
+    add(form);
+    if (Object.keys(pack.answerRules.typedAlternates).length > 0)
+      add(withAlternates(form.toLocaleLowerCase(pack.script.segmenterLocale), pack));
+  }
+  if (pack.answerRules.articleOptional === "accept") {
+    for (const variant of [...variants]) {
+      const bare = withoutArticle(variant, pack);
+      if (bare) variants.add(bare);
+    }
+  }
   return [...variants];
 }
 
-export function isCorrectAnswer(input: string, es: string): boolean {
-  const normalized = normalizeAnswer(input);
+function matchesAny(normalized: string, variants: readonly string[], pack: LanguagePack): boolean {
+  if (variants.includes(normalized)) return true;
+  const joined = joinedKey(normalized, pack);
+  return joined !== null && variants.some((variant) => joinedKey(variant, pack) === joined);
+}
+
+export function isCorrectAnswer(input: string, target: string, pack: LanguagePack): boolean {
+  const normalized = normalizeAnswer(input, pack);
   if (!normalized) return false;
-  return answerVariants(es).includes(normalized);
+  return matchesAny(normalized, answerVariants(target, pack), pack);
+}
+
+export type TypedAnswerHint =
+  | { kind: "accent"; text: string }
+  | { kind: "different-word"; text: string }
+  | { kind: "article"; text: string };
+
+/**
+ * Why a wrong typed answer was wrong, when it is one of the pack's taught near misses: right
+ * letters with the wrong marks (`accentHint`), a protected pair ("où" for "ou"), or a bare noun
+ * where the pack asks for its article (`articleOptional: "hint"`). Null otherwise.
+ */
+export function typedAnswerHint(
+  input: string,
+  target: string,
+  pack: LanguagePack,
+): TypedAnswerHint | null {
+  const normalized = normalizeAnswer(input, pack);
+  if (!normalized || isCorrectAnswer(input, target, pack)) return null;
+  const rules = pack.answerRules;
+  if (rules.articleOptional === "hint") {
+    for (const variant of answerVariants(target, pack)) {
+      if (withoutArticle(variant, pack) === normalized)
+        return { kind: "article", text: "Add the article" };
+    }
+  }
+  if (typedAccentMode(pack) !== "strict") return null;
+  const foldWords = (text: string) =>
+    foldMarks(normalizeKey(text, pack), pack)
+      .replace(/[^\p{L}\p{N}\s]/gu, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  const folded = foldWords(input);
+  for (const variant of answerVariants(target, pack)) {
+    if (foldWords(variant) !== folded) continue;
+    const given = normalized.split(" ");
+    const wanted = variant.split(" ");
+    const swapped = wanted.findIndex(
+      (word, index) =>
+        word !== given[index] &&
+        rules.protectedPairs.some((pair) => pair.includes(word) && pair.includes(given[index])),
+    );
+    if (swapped >= 0)
+      return {
+        kind: "different-word",
+        text: `That is a different word: ${wanted[swapped]} vs ${given[swapped]}`,
+      };
+    if (rules.accentHint)
+      return { kind: "accent", text: `The words are right. Check the ${rules.markName}.` };
+  }
+  return null;
 }
 
 /** Fisher-Yates; returns a new array. `random` is injectable for tests. */

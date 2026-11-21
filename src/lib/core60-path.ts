@@ -10,7 +10,12 @@ import { isFoundationModule, isMasterModule } from "./core30-plan.ts";
 import { getCurriculum } from "../data/curriculum.ts";
 import { getModule, moduleSupportsLearningPair } from "../data/modules.ts";
 import { core60Manifest } from "../data/core60-stages.ts";
-import { manifestStageModuleId, type Core60ManifestEntry } from "./core60-stage-core.ts";
+import {
+  entryNativeLanguage,
+  manifestStageModuleId,
+  type Core60ManifestEntry,
+} from "./core60-stage-core.ts";
+import { sameLanguage } from "../data/language-packs/registry.ts";
 import type { Language, NativeLanguage } from "../data/languages.ts";
 
 export type Core60Stage = "foundation" | "core" | "master";
@@ -24,6 +29,12 @@ export interface Core60PathConfig {
   lessons: Record<Core60Stage, number>;
   /** Which stages exist. A missing one is shown as "Coming soon". Absent = both exist. */
   available?: Record<"foundation" | "master", boolean>;
+  /**
+   * Stages of the same trade written for another language pair (an unscoped map only). The base
+   * module is shared, so a second language's Foundation and Master ids are listed here instead of
+   * being dropped; a pair-scoped map never has any.
+   */
+  also?: Core60PathConfig[];
 }
 
 /** Hand-written rows, keyed by the trade's Core 30 module id (roofing). Manifest trades: core60Paths(). */
@@ -45,16 +56,11 @@ export function core60PathsFromManifest(
 ): Record<string, Core60PathConfig> {
   const out: Record<string, Core60PathConfig> = {};
   for (const entry of manifest) {
-    if (targetLanguage && entry.language !== targetLanguage) continue;
-    if (
-      nativeLanguage &&
-      (entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English")) !==
-        nativeLanguage
-    )
-      continue;
+    if (targetLanguage && !sameLanguage(entry.language, targetLanguage)) continue;
+    if (nativeLanguage && entryNativeLanguage(entry) !== nativeLanguage) continue;
     const base = getModule(entry.base);
-    if (!base || handWritten[entry.base] || out[entry.base]) continue;
-    out[entry.base] = {
+    if (!base || handWritten[entry.base]) continue;
+    const row: Core60PathConfig = {
       tradeLabel: entry.tradeLabel ?? base.name,
       foundationId: manifestStageModuleId(entry, "foundation"),
       masterId: manifestStageModuleId(entry, "master"),
@@ -65,6 +71,10 @@ export function core60PathsFromManifest(
       },
       available: { foundation: Boolean(entry.foundation), master: Boolean(entry.master) },
     };
+    const first = out[entry.base];
+    if (!first) out[entry.base] = row;
+    else if (first.foundationId !== row.foundationId || first.masterId !== row.masterId)
+      (first.also ??= []).push(row);
   }
   return out;
 }
@@ -128,7 +138,10 @@ export function core60PathOf(
   paths: Record<string, Core60PathConfig> = core60Paths(),
 ): Core60Path | null {
   if (!moduleId) return null;
-  for (const [tradeModuleId, config] of Object.entries(paths)) {
+  const rows = Object.entries(paths).flatMap(([tradeModuleId, config]) =>
+    [config, ...(config.also ?? [])].map((row) => [tradeModuleId, row] as const),
+  );
+  for (const [tradeModuleId, config] of rows) {
     const available = config.available ?? { foundation: true, master: true };
     let current: Core60Stage | null = null;
     if (moduleId === config.foundationId && available.foundation) current = "foundation";

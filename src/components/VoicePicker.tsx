@@ -12,6 +12,7 @@ import {
 import {
   decodeGoogleVoicePreference,
   encodeGoogleVoicePreference,
+  packForVoiceLocale,
   type GoogleTtsVoice,
 } from "@/data/mission-tts";
 import {
@@ -26,34 +27,27 @@ import { useAuth } from "@/state/auth-state";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { useSiteVoice } from "@/hooks/use-site-voice";
 import { useSpeech } from "@/state/speech-state";
+import { accentRegionName } from "@/lib/speech-accents";
+import type { LanguagePack } from "@/data/language-packs/registry";
 
-const SAMPLES: Record<string, string> = {
+// Preview sentences, keyed by pack code. A pack with none uses its own sound-check sentence
+// (pack.phrases.soundCheckSentence); a pack with neither previews nothing rather than "Hello".
+const PREVIEW_SAMPLES: Record<string, string> = {
   es: "Hola, ¿cómo estás?",
   fr: "Bonjour, comment ça va ?",
   de: "Hallo, wie geht es dir?",
   it: "Ciao, come stai?",
   ja: "こんにちは、お元気ですか。",
+  zh: "你好，你好吗？",
   ko: "안녕하세요, 어떻게 지내세요?",
   pt: "Olá, como vai?",
   ps: "سلام، تاسو څنګه یاست؟",
   en: "Hello, how are you?",
 };
 
-const SPANISH_REGION_NAMES: Record<string, string> = {
-  "es-CR": "Costa Rica",
-  "es-MX": "México",
-  "es-GT": "Guatemala",
-  "es-CO": "Colombia",
-  "es-PE": "Perú",
-  "es-CL": "Chile",
-  "es-AR": "Argentina",
-  "es-419": "Latin America",
-  "es-US": "US Spanish",
-  "es-ES": "Spain",
-};
-
-function voiceRegion(locale: string): string {
-  return SPANISH_REGION_NAMES[locale] ?? locale;
+function previewSample(pack: LanguagePack | null): string | null {
+  if (!pack) return null;
+  return PREVIEW_SAMPLES[pack.code] ?? (pack.phrases.soundCheckSentence.trim() || null);
 }
 
 export function VoicePicker({
@@ -90,8 +84,10 @@ export function VoicePicker({
     () => googleVoices.find((voice) => voice.name === googlePreference?.voiceName) ?? null,
     [googlePreference?.voiceName, googleVoices],
   );
-  const family = accent.split("-")[0].toLowerCase();
-  const sample = SAMPLES[family] ?? "Hello";
+  const accentPack = packForVoiceLocale(accent);
+  const sample = previewSample(accentPack);
+  // "your learning language" when the accent belongs to no registered pack.
+  const languageName = accentPack?.name ?? "your learning language";
   const normalizedSearch = voiceSearch.trim().toLocaleLowerCase();
   const visibleGoogleVoices = useMemo(
     () =>
@@ -146,10 +142,12 @@ export function VoicePicker({
   const previewDevice = (voice: SpeechSynthesisVoice) => {
     previewRef.current?.abort();
     previewRef.current = null;
+    if (!sample) return;
     speakDevice(sample, voice.lang, voice.voiceURI, rate);
   };
 
   const previewGoogle = async (voice: GoogleTtsVoice) => {
+    if (!sample) return;
     if (mountedPreviewScope.current !== previewScope || !user || !isCurrentUser(user.id)) return;
     const languageCode = voice.languageCodes[0];
     if (!languageCode) return;
@@ -272,7 +270,7 @@ export function VoicePicker({
             htmlFor="site-voice-accent"
             className="mb-1 block font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground"
           >
-            {family === "es" ? "Spanish accent / region" : "Accent / region"}
+            {accentPack ? `${accentPack.name} accent / region` : "Accent / region"}
           </label>
           <select
             id="site-voice-accent"
@@ -291,8 +289,8 @@ export function VoicePicker({
           </select>
           {actualVoiceLocale && actualVoiceLocale.toLowerCase() !== accent.toLowerCase() && (
             <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
-              Playback uses {voiceRegion(actualVoiceLocale)} ({actualVoiceLocale}). Exact {accent}{" "}
-              voices are shown when available.
+              Playback uses {accentRegionName(actualVoiceLocale)} ({actualVoiceLocale}). Exact{" "}
+              {accent} voices are shown when available.
             </p>
           )}
         </div>
@@ -327,7 +325,7 @@ export function VoicePicker({
         </DropdownMenuItem>
         {preferredDevice && (voiceURI === null || voiceURI === DEVICE_DEFAULT_VOICE) && (
           <div className="px-2 pb-1 text-[11px] text-muted-foreground">
-            Current device voice: {preferredDevice.name} · {voiceRegion(preferredDevice.lang)}
+            Current device voice: {preferredDevice.name} · {accentRegionName(preferredDevice.lang)}
           </div>
         )}
 
@@ -349,7 +347,8 @@ export function VoicePicker({
                 }}
                 className="mt-2 rounded-lg border border-gold/50 bg-gold/10 px-3 py-2 font-semibold text-gold"
               >
-                Use clearer cloud voice · {voiceRegion(mobileCloudVoice.languageCodes[0] ?? accent)}
+                Use clearer cloud voice ·{" "}
+                {accentRegionName(mobileCloudVoice.languageCodes[0] ?? accent)}
               </button>
             ) : !session ? (
               <p className="mt-2 text-muted-foreground">
@@ -358,8 +357,8 @@ export function VoicePicker({
             ) : null}
             <p className="mt-2 text-muted-foreground">
               For an offline option, open iPhone Settings → Accessibility → Read &amp; Speak →
-              Voices → Spanish. Download an Enhanced voice over Wi-Fi if offered, then reopen this
-              page and preview it.
+              Voices → {languageName}. Download an Enhanced voice over Wi-Fi if offered, then reopen
+              this page and preview it.
             </p>
             <a
               href="https://support.apple.com/guide/iphone/iph96b214f0/ios"
@@ -419,7 +418,7 @@ export function VoicePicker({
                   <div className="flex flex-1 flex-col gap-0.5">
                     <span className="leading-tight">{voice.label}</span>
                     <span className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-                      {voiceRegion(languageCode)} ({languageCode}) · {voice.name}
+                      {accentRegionName(languageCode)} ({languageCode}) · {voice.name}
                     </span>
                   </div>
                 </DropdownMenuItem>
@@ -467,7 +466,7 @@ export function VoicePicker({
                   <div className="flex flex-1 flex-col gap-0.5">
                     <span className="leading-tight">{voice.name}</span>
                     <span className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                      {voiceRegion(voice.lang)} ({voice.lang})
+                      {accentRegionName(voice.lang)} ({voice.lang})
                       {voice.localService ? <span className="ml-2">offline</span> : null}
                     </span>
                   </div>

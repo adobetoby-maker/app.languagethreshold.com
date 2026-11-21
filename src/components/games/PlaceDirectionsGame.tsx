@@ -1,3 +1,4 @@
+import { useApp } from "@/state/app-state";
 import { ObjectIcon } from "./PictureObjectIcon";
 import { PictureAssemblyPuzzle } from "./PictureAssemblyPuzzle";
 import recordings from "@/data/picture-action-audio.json";
@@ -28,8 +29,8 @@ export function PlaceDirectionsGame({
   initialRound = 0,
   moduleId = "place-directions",
   category = "",
-  targetLanguage = "Spanish",
-  nativeLanguage = "English",
+  targetLanguage: targetProp,
+  nativeLanguage: nativeProp,
 }: {
   initialRound?: number;
   moduleId?: string;
@@ -37,6 +38,10 @@ export function PlaceDirectionsGame({
   targetLanguage?: string;
   nativeLanguage?: string;
 }) {
+  // No built-in language pair: a caller that names none practices the learner's own selection.
+  const { state: appState } = useApp();
+  const targetLanguage = targetProp ?? appState.selectedLanguage;
+  const nativeLanguage = nativeProp ?? appState.nativeLanguage;
   const context = `${targetLanguage}:${nativeLanguage}:${moduleId}`;
   const [assembly, setAssembly] = useState(false);
   const [sceneId, setSceneId] = useState<SceneId>(() => sceneForModule(moduleId, category));

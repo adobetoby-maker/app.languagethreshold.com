@@ -259,6 +259,8 @@ function PhraseDrillTab({
   setOpenAreaId: (id: string) => void;
   setActiveTab: (t: FmgTab) => void;
 }) {
+  const { state: appState } = useApp();
+  const nativeName = appState.nativeLanguage;
   const [currentIdx, setCurrentIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [selectedAreaId, setSelectedAreaId] = useState(area?.id ?? allAreas[0].id);
@@ -306,7 +308,7 @@ function PhraseDrillTab({
         onClick={() => setFlipped((f) => !f)}
       >
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-          {flipped ? "Intent + Spanish gloss" : "English phrase — tap to reveal"}
+          {flipped ? `Intent + ${nativeName} gloss` : "English phrase — tap to reveal"}
         </div>
 
         {!flipped ? (
@@ -322,7 +324,7 @@ function PhraseDrillTab({
             {phrase.native && (
               <div className="rounded-xl border border-indigo-400/30 bg-indigo-400/5 px-4 py-3">
                 <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-indigo-400/70">
-                  Spanish
+                  {nativeName}
                 </div>
                 <p className="text-sm leading-relaxed text-indigo-200">{phrase.native}</p>
               </div>

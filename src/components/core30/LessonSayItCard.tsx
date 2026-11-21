@@ -1,11 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowLeft, CheckCircle2, Info, Mic, RotateCcw, Turtle, Volume2 } from "lucide-react";
 import type { LessonWord } from "@/data/curriculum";
-import { languageTag } from "@/lib/lesson-words-core";
+import { recognitionLocales } from "@/lib/language-pack-text";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
 import { speechWordSimilarity, type SpeechWordScore } from "@/lib/speech-word-similarity";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import { useSpeech } from "@/state/speech-state";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
@@ -36,15 +37,17 @@ export function LessonSayItCard({
     [dockHeight, setDockHeight] = useState(110);
   const word = words[Math.min(index, words.length - 1)];
   const { accent, rate } = useSpeech();
-  const locale =
-    accent?.slice(0, 2) === languageTag(language).slice(0, 2) ? accent : languageTag(language);
+  // The lesson's pack decides recognition: the learner's accent when it is this language, then
+  // the pack's recognition locales. Null: no recognizer for this pack (dictation unsupported).
+  const pack = usePack(language);
+  const locale = pack ? (recognitionLocales(accent, pack)[0] ?? null) : null;
   const scope = JSON.stringify([language, index, word?.es]);
   const { capture, cancel } = usePracticeLifecycle("say-word:" + scope);
   // The model word (Listen, Slow) is read by the learner's listening voice: recorded HD audio
   // first, then the HD voice, never a device voice in its place unless the learner chose one.
   // It keeps this word's scope, so Next, Speak, My recording and leaving the page stop it as
   // before. The learner's own recording and the microphone are separate and unchanged.
-  const { speak: playModel, stop: stopModel } = useListeningSpeaker("say-word:" + scope, language);
+  const { speak: playModel, stop: stopModel } = useListeningSpeaker("say-word:" + scope, pack);
   const recognition = useRef<SpeechRecognitionLike | null>(null),
     transcript = useRef(""),
     recorder = useRef<MediaRecorder | null>(null),
@@ -137,7 +140,7 @@ export function LessonSayItCard({
     url.current = null;
     setRecording(null);
     const Ctor = recognitionConstructor();
-    if (!Ctor) {
+    if (!Ctor || !locale) {
       setSupported(false);
       return;
     }
@@ -187,7 +190,7 @@ export function LessonSayItCard({
       stopRecording();
       clearTimeout(timer.current);
       if (transcript.current.trim()) {
-        setResult(speechWordSimilarity(word.es, transcript.current, language));
+        setResult(pack ? speechWordSimilarity(word.es, transcript.current, pack) : null);
         activity.current();
       } else {
         setError("I didn’t catch any words. Please try again.");
@@ -279,7 +282,7 @@ export function LessonSayItCard({
         <div className="flex items-start justify-between gap-3">
           <h3
             data-testid="say-word-target"
-            lang={locale}
+            lang={pack?.code}
             className="min-w-0 flex-1 font-display text-[28px] leading-tight"
           >
             {word.es}
@@ -332,8 +335,8 @@ export function LessonSayItCard({
               onChange={(e) => {
                 setHeard(e.target.value);
                 setResult(
-                  e.target.value.trim()
-                    ? speechWordSimilarity(word.es, e.target.value, language)
+                  e.target.value.trim() && pack
+                    ? speechWordSimilarity(word.es, e.target.value, pack)
                     : null,
                 );
                 activity.current();

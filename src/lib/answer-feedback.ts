@@ -5,6 +5,7 @@
 // here (the practice kit scores with isCorrectTypedAnswer); this only explains the result.
 
 import { isLatinScript } from "./lesson-words-core.ts";
+import type { LanguagePack } from "../data/language-packs/types.ts";
 
 export type AnswerVerdict = "correct" | "accent" | "close" | "wrong";
 export type SegmentStatus = "ok" | "wrong" | "missing" | "extra" | "accent";
@@ -48,7 +49,6 @@ export function verdictHeadline(verdict: AnswerVerdict, scoredCorrect = false): 
   return VERDICT_LABELS[verdict];
 }
 
-const CJK_LANGUAGES = new Set(["Japanese", "Chinese", "Korean"]);
 const HAN_KANA_HANGUL = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/u;
 const ACCENT_COST = 0.5;
 
@@ -181,11 +181,13 @@ function targetForms(expected: string): string[] {
   return forms;
 }
 
-function markName(char: string): "tilde" | "dots" | "cedilla" | "accent" {
+function markName(char: string): "tilde" | "dots" | "cedilla" | "circumflex" | "grave" | "accent" {
   const marks = char.normalize("NFD").replace(/[^\p{M}]/gu, "");
   if (marks.includes("̃")) return "tilde";
   if (marks.includes("̈")) return "dots";
   if (marks.includes("̧")) return "cedilla";
+  if (marks.includes("̂")) return "circumflex";
+  if (marks.includes("̀")) return "grave";
   return "accent";
 }
 
@@ -197,6 +199,8 @@ function accentTip(expectedChar: string, givenChar: string): string {
     if (name === "tilde") return `Add the tilde: ${expectedChar}`;
     if (name === "dots") return `Add the dots: ${expectedChar}`;
     if (name === "cedilla") return `Add the cedilla: ${expectedChar}`;
+    if (name === "circumflex") return `Add the circumflex: ${expectedChar}`;
+    if (name === "grave") return `Add the grave accent: ${expectedChar}`;
     return `Accent on the ${expectedChar}`;
   }
   if (!expectedHasMark && givenHasMark) return `No accent on the ${expectedChar}`;
@@ -217,7 +221,13 @@ function mergeSegments(segments: AnswerSegment[]): AnswerSegment[] {
   return merged;
 }
 
-function tipsFor(givenItems: Item[], expectedItems: Item[], ops: Op[]): string[] {
+function tipsFor(
+  givenItems: Item[],
+  expectedItems: Item[],
+  ops: Op[],
+  pack: LanguagePack,
+): string[] {
+  const apostrophes = new Set([pack.typography.apostrophe, ...pack.typography.apostropheVariants]);
   const tips: string[] = [];
   const push = (tip: string) => {
     if (!tips.includes(tip)) tips.push(tip);
@@ -283,10 +293,12 @@ function tipsFor(givenItems: Item[], expectedItems: Item[], ops: Op[]): string[]
   };
   for (const run of runs("missing")) {
     if (run.trim() === "") push("Missing space");
+    else if ([...run].every((c) => apostrophes.has(c))) push("Missing apostrophe");
     else push(run.length > 1 ? `Missing letters: ${run}` : `Missing letter: ${run}`);
   }
   for (const run of runs("extra")) {
     if (run.trim() === "") push("Extra space");
+    else if ([...run].every((c) => apostrophes.has(c))) push("Extra apostrophe");
     else push(run.length > 1 ? `Extra letters: ${run}` : `Extra letter: ${run}`);
   }
   return tips.slice(0, 3);
@@ -297,6 +309,7 @@ function build(
   expectedItems: Item[],
   display: Display[],
   ops: Op[],
+  pack: LanguagePack,
 ): { segments: AnswerSegment[]; tips: string[]; hard: number; accents: number } {
   const segments: AnswerSegment[] = [];
   let pointer = 0;
@@ -334,7 +347,7 @@ function build(
 
   return {
     segments: mergeSegments(segments),
-    tips: tipsFor(givenItems, expectedItems, ops),
+    tips: tipsFor(givenItems, expectedItems, ops, pack),
     hard,
     accents,
   };
@@ -346,8 +359,13 @@ function build(
  * punctuation and extra spaces are ignored. An entry such as "A / B" or "A (note)" is
  * compared with whichever accepted form is nearest to what was given.
  */
-export function compareAnswer(given: string, expected: string, language: string): AnswerComparison {
-  const perCharacter = !isLatinScript(expected) || CJK_LANGUAGES.has(language);
+export function compareAnswer(
+  given: string,
+  expected: string,
+  pack: LanguagePack,
+): AnswerComparison {
+  // Character-by-character for scripts without word spaces (the pack's grapheme tokenizer).
+  const perCharacter = !isLatinScript(expected) || pack.answerRules.tokenizer === "graphemes";
   const accentAware = !perCharacter;
   const dropSeparators = perCharacter && HAN_KANA_HANGUL.test(expected);
   const givenSide = toItems(given ?? "", accentAware, dropSeparators);
@@ -382,7 +400,7 @@ export function compareAnswer(given: string, expected: string, language: string)
     };
   }
 
-  const built = build(givenSide.items, best.expectedItems, best.display, best.ops);
+  const built = build(givenSide.items, best.expectedItems, best.display, best.ops, pack);
   const length = best.expectedItems.length;
   let verdict: AnswerVerdict;
   if (built.hard === 0 && built.accents === 0) verdict = "correct";

@@ -44,14 +44,21 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function buildQuiz(regions: AnatomyRegion[], exclude: string | null, language: string): QuizState {
+function buildQuiz(
+  allRegions: AnatomyRegion[],
+  exclude: string | null,
+  language: string,
+): QuizState {
+  // Only regions labelled in this language are asked; the English name is never the answer.
+  const labelled = allRegions.filter((r) => r.labels[language]);
+  const regions = labelled.length > 0 ? labelled : allRegions;
   const pool = regions.length > 1 ? regions.filter((r) => r.id !== exclude) : regions;
   const region = pool[Math.floor(Math.random() * pool.length)];
-  const correctLabel = region.labels[language] ?? region.en;
+  const correctLabel = region.labels[language] ?? "";
 
   // Pick 2 wrong choices from same category
   const wrong = shuffle(
-    regions.filter((r) => r.id !== region.id).map((r) => r.labels[language] ?? r.en),
+    regions.filter((r) => r.id !== region.id && r.labels[language]).map((r) => r.labels[language]!),
   ).slice(0, 2);
 
   const choices = shuffle([correctLabel, ...wrong]);
@@ -119,6 +126,13 @@ export function AnatomyQuizPanel() {
       setStreak(0);
     }
   };
+
+  if (!quiz.correctLabel)
+    return (
+      <p className="rounded-2xl border border-border/60 bg-card/40 p-6 text-sm text-muted-foreground">
+        Anatomy labels are not available in {language} yet.
+      </p>
+    );
 
   const Diagram =
     category === "body"

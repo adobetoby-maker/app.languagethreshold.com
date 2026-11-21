@@ -95,7 +95,7 @@ function makeInitial(actor: string | null): LibraryState {
   return {
     entries: [],
     selectedId:
-      typeof saved?.selectedId === "string" ? saved.selectedId : "seed-es-travel-train-ticket",
+      typeof saved?.selectedId === "string" ? saved.selectedId : STARTER_SEED_ID,
     selectionScope: typeof saved?.selectionScope === "string" ? saved.selectionScope : null,
     readStatus,
     languageFilter: Array.isArray(saved?.languageFilter)
@@ -103,6 +103,13 @@ function makeInitial(actor: string | null): LibraryState {
       : [],
   };
 }
+
+/**
+ * Id of the library text a brand-new reader opens on. It is a seed id, not a language rule: the
+ * open text is always filtered to the selected language below (`selected`), so under any other
+ * language it is ignored and the easiest text of that language is chosen instead.
+ */
+const STARTER_SEED_ID = "seed-es-travel-train-ticket";
 
 function reducer(state: LibraryState, action: Action): LibraryState {
   switch (action.type) {

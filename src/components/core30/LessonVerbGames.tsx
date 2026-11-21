@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { XCircle } from "lucide-react";
 import type { LessonVerb } from "@/lib/lesson-content-core";
 import type { SpanishPattern } from "@/data/spanish-basics";
+import { packFor } from "@/data/language-packs/registry";
+import { specialLetters } from "@/lib/language-pack-text";
 import { useSpeech } from "@/state/speech-state";
 import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
 import { MATCH_MISMATCH_MS, shuffle } from "@/lib/lesson-practice";
@@ -9,8 +11,9 @@ import {
   clearPairMismatch,
   EMPTY_PAIR_BOARD,
   gameRoundItems,
-  GAME_LETTERS,
+  gameLetters,
   gameAnswer,
+  gameSubjects,
   lessonGameBank,
   maskedAnswer,
   pairTileState,
@@ -58,7 +61,8 @@ export function LessonVerbGames({
   const bank = useMemo(() => lessonGameBank(verbs, language, pattern), [verbs, language, pattern]);
   const [game, setGame] = useState<Game | null>(null);
   const [round, setRound] = useState(0);
-  if (!bank.forms.length) return null;
+  // Fail closed: a language without a pack has no verb-game rules.
+  if (!bank.forms.length || packFor(language) === null) return null;
   return (
     <section
       aria-label="Lesson verb games"
@@ -112,7 +116,12 @@ export function GameRound({
   onSkip?: () => void;
 }) {
   const { speakSentence } = useSpeech();
+  const pack = packFor(language);
   const items = useMemo(() => gameRoundItems(shuffle(source)), [source]);
+  const letters = useMemo(
+    () => (pack ? gameLetters(pack, items.map((item) => item.answer)) : []),
+    [pack, items],
+  );
   const [index, setIndex] = useState(0);
   const [missed, setMissed] = useState(false);
   const [score, setScore] = useState(0);
@@ -178,11 +187,9 @@ export function GameRound({
   }
   function check(value: string) {
     if (!current) return;
-    const subjects =
-      ["Spanish", "English"].includes(language) && current.prompt.includes(" · ")
-        ? current.prompt.split(" · ")[0].split(" / ")
-        : [];
-    if (gameAnswer(current.answer, value, subjects)) {
+    if (!pack) return;
+    const subjects = gameSubjects(current.prompt, pack);
+    if (gameAnswer(current.answer, value, subjects, pack)) {
       setDone(true);
       if (!missed) setScore((n) => n + 1);
       setFeedback("Correct. " + current.answer);
@@ -202,7 +209,7 @@ export function GameRound({
   const wrong = current
     ? guesses.filter((c) => !current.answer.toLowerCase().includes(c)).length
     : 0;
-  const won = current ? !maskedAnswer(current.answer, guesses).includes("＿") : false;
+  const won = current ? !maskedAnswer(current.answer, guesses, letters).includes("＿") : false;
   const lost = wrong >= 6;
   return (
     <div className="space-y-3" data-testid="lesson-verb-game-round">
@@ -288,14 +295,14 @@ export function GameRound({
           {game === "hangman" ? (
             <>
               <p className="break-words text-xl" aria-label="Hidden verb">
-                {maskedAnswer(current.answer, guesses)}
+                {maskedAnswer(current.answer, guesses, letters)}
               </p>
               <p>
                 {wrong} of 6 misses · {"●".repeat(wrong)}
                 {"○".repeat(6 - wrong)}
               </p>
               <div className="flex flex-wrap gap-1">
-                {GAME_LETTERS.map((c) => (
+                {letters.map((c) => (
                   <button
                     type="button"
                     key={c}
@@ -305,7 +312,7 @@ export function GameRound({
                       const next = [...guesses, c];
                       setGuesses(next);
                       if (!current.answer.toLowerCase().includes(c)) setMissed(true);
-                      if (!maskedAnswer(current.answer, next).includes("＿")) {
+                      if (!maskedAnswer(current.answer, next, letters).includes("＿")) {
                         setDone(true);
                         if (!missed) setScore((s) => s + 1);
                         setFeedback("Solved. " + current.answer);
@@ -344,7 +351,7 @@ export function GameRound({
                 />
               </label>
               <div className="flex flex-wrap gap-1">
-                {[..."áéíóúüñ"].map((c) => (
+                {(pack ? specialLetters(pack) : []).map((c) => (
                   <button
                     key={c}
                     type="button"

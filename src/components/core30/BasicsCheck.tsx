@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
-import { correctSpanishCloze } from "@/lib/spanish-basics-check";
+import { correctCloze } from "@/lib/spanish-basics-check";
+import { usePack } from "@/hooks/use-language-pack";
+import { clozeLetters } from "@/data/language-packs/ui-text";
 
 interface Check {
   prompt: string;
@@ -7,18 +9,24 @@ interface Check {
   answer: string;
   explanation: string;
 }
-/** The owning lesson runner remounts on account, language, enrollment and lesson changes. */
-export function SpanishBasicsCheck({
+/**
+ * A short exact cloze check for a course lesson, in the lesson's own language (its pack decides
+ * the grading, the input language and the letter row). Renders nothing without a pack.
+ * The owning lesson runner remounts on account, language, enrollment and lesson changes.
+ */
+export function BasicsCheck({
   checks,
   onPassed,
   topic = "Grammar",
-  language = "Spanish",
+  language,
 }: {
   topic?: "Grammar" | "Cognate";
-  language?: "Spanish" | "Japanese";
+  /** The lesson's target language (name or pack code). */
+  language: string;
   checks: Check[];
   onPassed: () => void;
 }) {
+  const pack = usePack(language);
   const [answers, setAnswers] = useState<string[]>(() => checks.map(() => ""));
   const [results, setResults] = useState<boolean[] | null>(null);
   const passed = results?.every(Boolean) ?? false;
@@ -40,6 +48,8 @@ export function SpanishBasicsCheck({
       input.setSelectionRange(start + 1, start + 1);
     });
   }
+  if (!pack) return null;
+  const letters = clozeLetters(pack);
   return (
     <section
       aria-label={`${topic} practice check`}
@@ -54,10 +64,7 @@ export function SpanishBasicsCheck({
         onSubmit={(event) => {
           event.preventDefault();
           const next = checks.map((check, i) =>
-            language === "Japanese"
-              ? (inputs.current[i]?.value ?? answers[i]).normalize("NFC").replace(/\s+/g, "").trim() ===
-                check.answer.normalize("NFC").replace(/\s+/g, "").trim()
-              : correctSpanishCloze(inputs.current[i]?.value ?? answers[i], check.answer),
+            correctCloze(inputs.current[i]?.value ?? answers[i], check.answer, pack),
           );
           setResults(next);
           if (next.every(Boolean)) onPassed();
@@ -76,7 +83,7 @@ export function SpanishBasicsCheck({
               }}
               onFocus={() => setFocused(i)}
               aria-invalid={results ? !results[i] : undefined}
-              lang={language === "Japanese" ? "ja" : "es"}
+              lang={pack.code}
               autoComplete="off"
               autoCapitalize="none"
               spellCheck={false}
@@ -101,13 +108,13 @@ export function SpanishBasicsCheck({
             )}
           </div>
         ))}
-        {!passed && language === "Spanish" && (
+        {!passed && letters.length > 0 && (
           <div
             role="group"
             aria-label={`Accents for grammar answer ${focused + 1}`}
             className="mt-4 flex flex-wrap gap-1"
           >
-            {"áéíóúñ".split("").map((letter) => (
+            {letters.map((letter) => (
               <button
                 key={letter}
                 type="button"

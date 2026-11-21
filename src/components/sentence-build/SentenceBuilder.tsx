@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { usePack } from "@/hooks/use-language-pack";
+import type { LanguagePack } from "@/data/language-packs/registry";
 import { useServerFn } from "@tanstack/react-start";
 import {
   CheckCircle2,
@@ -193,6 +195,7 @@ export function SentenceBuilder() {
       {cur && (
         <QuestionCard
           q={cur}
+          language={app.selectedLanguage}
           onPlace={(idx) => sb.placeToken(idx)}
           onRemove={(idx) => sb.removePlaced(idx)}
           onShuffle={() => sb.shufflePool()}
@@ -312,8 +315,22 @@ function RunHeader({
   );
 }
 
+function joinTokens(tokens: readonly string[], pack: LanguagePack | null): string {
+  if (!pack) return tokens.join(" ");
+  if (pack.script.wordSeparator === "none") return tokens.join("");
+  const { spaceBeforePunctuation, punctuationSpace } = pack.typography;
+  return tokens.reduce(
+    (out, token, i) =>
+      i === 0
+        ? token
+        : out + (spaceBeforePunctuation.includes(token) ? punctuationSpace || " " : " ") + token,
+    "",
+  );
+}
+
 function QuestionCard({
   q,
+  language,
   onPlace,
   onRemove,
   onShuffle,
@@ -321,6 +338,7 @@ function QuestionCard({
   onNext,
 }: {
   q: NonNullable<ReturnType<typeof useSentenceBuild>["state"]["run"]>["questions"][number];
+  language: string;
   onPlace: (poolIndex: number) => void;
   onRemove: (placedIndex: number) => void;
   onShuffle: () => void;
@@ -330,12 +348,10 @@ function QuestionCard({
   const allPlaced = q.placed.length === q.question.tokens.length;
   const reveal = q.submitted;
 
-  // For Japanese / Korean, render placed tokens with no joining space.
-  const isCJK = useMemo(
-    () => /^[぀-ヿ一-鿿가-힯]+$/.test(q.question.tokens.join("")),
-    [q.question.tokens],
-  );
-  const joinedPlaced = isCJK ? q.placed.join("") : q.placed.join(" ");
+  // Placed tokens are joined the way the language writes: no space for a script without word
+  // spaces, the pack's narrow space before punctuation that takes one (French « ? »).
+  const pack = usePack(language);
+  const joinedPlaced = joinTokens(q.placed, pack);
 
   return (
     <div className="rounded-2xl border border-border/60 bg-card/40 p-6">

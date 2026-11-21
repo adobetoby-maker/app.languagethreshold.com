@@ -147,8 +147,7 @@ const RULE_SNIPPETS = [
   "Every clause of the lesson objective and roleplay is covered by at least one full sentence",
   "a capstone's listed beats each get their own sentence",
   "Any question about allergies or ingredients is answered in the passage",
-  "Spain uses euros, billete, camarero, comisaría, franquicia",
-  "Mexico and Latin America use pesos, boleto, mesero, deducible",
+  "Use one regional variety per lesson, matching the setting, and never mix them",
   "Direct speech goes at the end of a sentence",
   "never runs into narration",
 ];

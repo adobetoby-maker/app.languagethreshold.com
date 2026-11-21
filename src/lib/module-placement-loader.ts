@@ -15,6 +15,7 @@ import { pickContentWords, pickContentPassage } from "./lesson-content-core";
 import { authoredLessonReading } from "./lesson-reading";
 import { placementBlocks, placementCloze, type PlacementLesson } from "./module-placement";
 import type { Language, NativeLanguage } from "@/data/languages";
+import { packFor } from "@/data/language-packs/registry";
 
 // Public self-assessments use authored static material only, without the AI word-generation hook.
 async function placementDeck(moduleId: string, target: Language) {
@@ -35,6 +36,8 @@ export async function loadModulePlacement(
   const module = getModule(moduleId);
   if (!module || !moduleSupportsLearningPair(module, target, native))
     throw new Error("Placement is not available for this module and language pair.");
+  const pack = packFor(target);
+  if (!pack) throw new Error("This module does not have enough lesson material for placement yet.");
   const path = core60PathOfPair(moduleId, target, native);
   const stages =
     mode === "post-core"
@@ -48,7 +51,7 @@ export async function loadModulePlacement(
       if (!stageModule || !moduleSupportsLearningPair(stageModule, target, native))
         throw new Error("A course stage is not available for this language pair.");
       await ensureStageForModule(stage.id);
-      const curriculum = getCurriculum(stage.id);
+      const curriculum = getCurriculum(stage.id, target, native);
       if (!curriculum) throw new Error("A course stage could not load. Please try again.");
       const authored = authoredWordsPairForModule(stageModule);
       const needsFiles = curriculum.lessons.some(
@@ -77,13 +80,13 @@ export async function loadModulePlacement(
           title: lesson.title,
           stage: stage.label,
           words,
-          checks: basics?.checks ?? placementCloze(words, examples),
+          checks: basics?.checks ?? placementCloze(words, examples, pack),
         };
       });
     }),
   );
   const lessons = loaded.flat();
-  const blocks = placementBlocks(lessons, seed);
+  const blocks = placementBlocks(lessons, seed, pack);
   const covered = blocks.reduce((sum, b) => sum + b.lessons.length, 0);
   if (mode === "post-core" && (lessons.length !== 30 || covered !== 30))
     throw new Error("A complete 30-lesson Core check is not available for this module yet.");

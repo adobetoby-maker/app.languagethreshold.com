@@ -4,25 +4,19 @@
 
 import { answerVariants, normalizeAnswer } from "./lesson-practice.ts";
 import { isCorrectTypedAnswer, isLatinScript, normalizeScriptAnswer } from "./lesson-words-core.ts";
+import { PACKS, type LanguagePack } from "../data/language-packs/registry.ts";
 
-/** Languages the handwriting reader (src/fns/handwriting-read.functions.ts) accepts. */
-export const HANDWRITING_READ_LANGUAGES = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Chinese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-  "English",
-] as const;
+/**
+ * Languages the handwriting reader (src/fns/handwriting-read.functions.ts) accepts: every
+ * registered language pack, by its English name (the name the reader prompt uses). Derived from
+ * the pack registry, never a hand-kept list.
+ */
+export const HANDWRITING_READ_LANGUAGES = PACKS.map((pack) => pack.name) as [string, ...string[]];
 
-export type HandwritingReadLanguage = (typeof HANDWRITING_READ_LANGUAGES)[number];
+export type HandwritingReadLanguage = string;
 
 export function isHandwritingReadLanguage(language: string): language is HandwritingReadLanguage {
-  return (HANDWRITING_READ_LANGUAGES as readonly string[]).includes(language);
+  return HANDWRITING_READ_LANGUAGES.includes(language);
 }
 
 /** Levenshtein distance over Unicode code points (so a CJK character or emoji counts once). */
@@ -54,8 +48,8 @@ export interface HandwritingCheck {
 }
 
 /** Normalized strings accepted for `expected` in the script it is written in. */
-function expectedForms(expected: string): string[] {
-  if (isLatinScript(expected)) return answerVariants(expected);
+function expectedForms(expected: string, pack: LanguagePack): string[] {
+  if (isLatinScript(expected)) return answerVariants(expected, pack);
   const forms = new Set<string>();
   const add = (value: string) => {
     const normalized = normalizeScriptAnswer(value);
@@ -67,8 +61,8 @@ function expectedForms(expected: string): string[] {
   return [...forms];
 }
 
-function normalizeRead(text: string, expected: string): string {
-  return isLatinScript(expected) ? normalizeAnswer(text) : normalizeScriptAnswer(text);
+function normalizeRead(text: string, expected: string, pack: LanguagePack): string {
+  return isLatinScript(expected) ? normalizeAnswer(text, pack) : normalizeScriptAnswer(text);
 }
 
 /**
@@ -97,16 +91,17 @@ export function checkHandwritten(
   recognized: string,
   expected: string,
   kind: "term" | "phrase",
+  pack: LanguagePack,
 ): HandwritingCheck {
-  const read = normalizeRead(recognized ?? "", expected);
+  const read = normalizeRead(recognized ?? "", expected, pack);
   if (!read) return { verdict: "empty", distance: Number.POSITIVE_INFINITY, accepted: false };
-  if (isCorrectTypedAnswer(recognized, expected)) {
+  if (isCorrectTypedAnswer(recognized, expected, pack)) {
     return { verdict: "correct", distance: 0, accepted: true };
   }
 
   let best = Number.POSITIVE_INFINITY;
   let bestLength = 0;
-  for (const form of expectedForms(expected)) {
+  for (const form of expectedForms(expected, pack)) {
     const distance = editDistance(read, form);
     if (distance < best) {
       best = distance;

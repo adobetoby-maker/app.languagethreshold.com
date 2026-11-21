@@ -9,6 +9,7 @@ import {
   speakingNativeExample,
 } from "../src/lib/verb-speaking-practice.ts";
 import { lessonGameBank, gameAnswer } from "../src/lib/lesson-verb-games.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import { readVerbHabit, verbReminderDue } from "../src/lib/verb-habit.ts";
 import { appNavigationLocation, appTab } from "../src/lib/app-navigation.ts";
 import { needsGameProviders } from "../src/lib/game-provider-activation.ts";
@@ -35,11 +36,11 @@ test("ten common verbs supply five present forms and optional subjects keep the 
   const bank = lessonGameBank(DAILY_VERBS, "Spanish");
   assert.equal(bank.meanings.length, 10);
   assert.equal(bank.forms.length, 50);
-  assert.equal(gameAnswer("soy", "yo soy", ["yo"]), true);
-  assert.equal(gameAnswer("soy", "tú soy", ["yo"]), false);
-  assert.equal(gameAnswer("estás", "tu estas", ["tú"]), false);
-  assert.equal(gameAnswer("am", "I am", ["I"]), true);
-  assert.equal(gameAnswer("soy", "yo soy"), false);
+  assert.equal(gameAnswer("soy", "yo soy", ["yo"], packFor("es")), true);
+  assert.equal(gameAnswer("soy", "tú soy", ["yo"], packFor("es")), false);
+  assert.equal(gameAnswer("estás", "tu estas", ["tú"], packFor("es")), false);
+  assert.equal(gameAnswer("am", "I am", ["I"], packFor("en")), true);
+  assert.equal(gameAnswer("soy", "yo soy", [], packFor("es")), false);
 });
 test("twelve local speaking frames practice ten verbs including irregular gerunds and participles", () => {
   assert.equal(SPEAKING_PATTERNS.length, 12);

@@ -22,6 +22,7 @@ import { AddTextModal } from "./AddTextModal";
 import { CultureReadingGenerator } from "./CultureReadingGenerator";
 import type { CefrLevel } from "@/fns/grammar.functions";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 
 const LEVEL_TONE: Record<CefrLevel, string> = {
   A1: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
@@ -541,7 +542,10 @@ function SavedWordCard({
   word: SavedVocabWord;
   onRemove: (id: string) => void;
 }) {
-  const { speak } = useListeningSpeaker(JSON.stringify(["saved-word", w.id]), w.language);
+  const { speak } = useListeningSpeaker(
+    JSON.stringify(["saved-word", w.id]),
+    usePack(w.language),
+  );
   return (
     <div className="rounded-xl border border-gold/30 bg-gold/[0.04] p-3">
       <div className="flex items-start gap-3">

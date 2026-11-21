@@ -7,6 +7,7 @@ import {
   placementCorrect,
   placementCloze,
 } from "../src/lib/module-placement.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import { applyPlacementCredit } from "../src/lib/module-placement-credit.ts";
 import { mergeCore30Log } from "../src/lib/core30-plan.ts";
 import { core30ScopeKey } from "../src/lib/core30-scope.ts";
@@ -23,7 +24,7 @@ const lessons = Array.from({ length: 15 }, (_, i) => ({
   })),
   checks: [{ prompt: `Yo ____ ${i}.`, hint: `I speak ${i}.`, answer: "hablo" }],
 }));
-const blocks = placementBlocks(lessons, "test-seed");
+const blocks = placementBlocks(lessons, "test-seed", packFor("es"));
 const answers = (bs) =>
   Object.fromEntries(bs.flatMap((b) => b.questions.map((q) => [q.id, q.answer])));
 test("typed placement accepts the missing word or the correct completed sentence", () => {
@@ -45,8 +46,8 @@ test("checks cover every lesson and keep stage-local numbers, stable draw and sh
   assert.equal(blocks.length, 3);
   assert.equal(blocks.flatMap((b) => b.questions).length, 30);
   assert.equal(blocks[2].lessons[0].n, 1);
-  assert.deepEqual(placementBlocks(lessons, "test-seed"), blocks);
-  assert.notDeepEqual(placementBlocks(lessons, "other-seed"), blocks);
+  assert.deepEqual(placementBlocks(lessons, "test-seed", packFor("es")), blocks);
+  assert.notDeepEqual(placementBlocks(lessons, "other-seed", packFor("es")), blocks);
   for (const b of blocks)
     for (const q of b.questions.filter((q) => q.type === "choice")) {
       assert.equal(q.options.length, 4);
@@ -85,12 +86,13 @@ test("all-pass credits full path, no fabricated next lesson", () => {
 test("missing lesson material halts coverage instead of jumping forward", () => {
   const source = structuredClone(lessons);
   source[5].checks = [];
-  assert.equal(placementBlocks(source, "seed").flatMap((b) => b.lessons).length, 5);
+  assert.equal(placementBlocks(source, "seed", packFor("es")).flatMap((b) => b.lessons).length, 5);
 });
 test("cloze masks a whole word and respects accents", () => {
   const checks = placementCloze(
     [{ es: "techo", en: "roof", kind: "term" }],
     [{ target: "El techo está limpio.", native: "The roof is clean." }],
+    packFor("es"),
   );
   assert.deepEqual(checks, [
     { prompt: "El ____ está limpio.", hint: "The roof is clean.", answer: "techo" },

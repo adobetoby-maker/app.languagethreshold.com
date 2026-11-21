@@ -11,6 +11,7 @@
  * No external libs. Inline SVG diamond. Lucide-react icons only.
  */
 
+import { packFor } from "@/data/language-packs/registry";
 import { useState, useCallback, useEffect, useRef } from "react";
 import {
   CheckCircle2,
@@ -113,11 +114,21 @@ function buildFieldQuestion(language: string): FieldQuestion {
   return { position: pos, variant, correct, options: shuffle([correct, ...distractors]) };
 }
 
-function buildDugoutQuestion(language: string): DugoutQuestion {
+/** The dugout vocabulary columns other than English, keyed by pack code. */
+type DugoutColumn = Exclude<keyof BaseballDugoutVocab, "en" | "category">;
+
+/** The dugout column authored for a language, or null (the Dugout game is then not offered). */
+export function dugoutColumn(language: string): DugoutColumn | null {
+  const code = packFor(language)?.code;
+  const sample = BASEBALL_DUGOUT_VOCAB[0];
+  if (!code || !sample || code === "en" || code === "category" || !(code in sample)) return null;
+  return code as DugoutColumn;
+}
+
+function buildDugoutQuestion(column: DugoutColumn): DugoutQuestion {
   const vocab = BASEBALL_DUGOUT_VOCAB[Math.floor(Math.random() * BASEBALL_DUGOUT_VOCAB.length)];
-  const usePt = language === "Portuguese";
-  const correct = usePt ? vocab.pt : vocab.es;
-  const pool = BASEBALL_DUGOUT_VOCAB.map((v) => (usePt ? v.pt : v.es));
+  const correct = vocab[column];
+  const pool = BASEBALL_DUGOUT_VOCAB.map((v) => v[column]);
   const distractors = pickDistractors(pool, correct, 3);
   return { vocab, correct, options: shuffle([correct, ...distractors]) };
 }
@@ -606,11 +617,12 @@ function FieldPositionsGame({ language, onXp }: FieldGameProps) {
 
 interface DugoutGameProps {
   language: string;
+  column: DugoutColumn;
   onXp?: (amount: number) => void;
 }
 
-function DugoutVocabGame({ language, onXp }: DugoutGameProps) {
-  const [question, setQuestion] = useState<DugoutQuestion>(() => buildDugoutQuestion(language));
+function DugoutVocabGame({ language, column, onXp }: DugoutGameProps) {
+  const [question, setQuestion] = useState<DugoutQuestion>(() => buildDugoutQuestion(column));
   const [selected, setSelected] = useState<string | null>(null);
   const [answerState, setAnswerState] = useState<AnswerState>("idle");
   const [correct, setCorrect] = useState(0);
@@ -623,17 +635,17 @@ function DugoutVocabGame({ language, onXp }: DugoutGameProps) {
   // Rebuild question when language changes
   useEffect(() => {
     seenRef.current.clear();
-    setQuestion(buildDugoutQuestion(language));
+    setQuestion(buildDugoutQuestion(column));
     setSelected(null);
     setAnswerState("idle");
-  }, [language]);
+  }, [column]);
 
   const nextQuestion = useCallback(() => {
     // Build next question avoiding recently seen; reset seen after full cycle
-    let q = buildDugoutQuestion(language);
+    let q = buildDugoutQuestion(column);
     let tries = 0;
     while (seenRef.current.has(q.vocab.en) && tries < 12) {
-      q = buildDugoutQuestion(language);
+      q = buildDugoutQuestion(column);
       tries++;
     }
     if (seenRef.current.size >= BASEBALL_DUGOUT_VOCAB.length - 1) {
@@ -643,7 +655,7 @@ function DugoutVocabGame({ language, onXp }: DugoutGameProps) {
     setQuestion(q);
     setSelected(null);
     setAnswerState("idle");
-  }, [language]);
+  }, [column]);
 
   const handleAnswer = useCallback(
     (option: string) => {
@@ -676,8 +688,13 @@ function DugoutVocabGame({ language, onXp }: DugoutGameProps) {
     };
   }, [answerState, nextQuestion]);
 
-  const targetLang = language === "Portuguese" ? "pt" : "es";
-  const targetLangLabel = language === "Portuguese" ? "Português" : "Español";
+  // The vocabulary columns are keyed by language code; the label is the pack's own name for it.
+  const targetPack = packFor(language);
+  const targetLang = targetPack?.code ?? "und";
+  const targetLangLabel = targetPack
+    ? targetPack.endonym.charAt(0).toLocaleUpperCase(targetPack.script.segmenterLocale) +
+      targetPack.endonym.slice(1)
+    : language;
   const revealed = selected !== null;
 
   // Category badge color
@@ -745,7 +762,9 @@ function DugoutVocabGame({ language, onXp }: DugoutGameProps) {
               <XCircle className="h-4 w-4 text-rose-400" />
             )}
             <span className="font-mono text-[11px] uppercase tracking-[0.18em]">
-              {answerState === "correct" ? "Correct!" : `Answer: ${question.vocab[targetLang]}`}
+              {answerState === "correct"
+                ? "Correct!"
+                : `Answer: ${(question.vocab as unknown as Record<string, string | undefined>)[targetLang] ?? ""}`}
             </span>
           </div>
           <button
@@ -786,7 +805,11 @@ function DugoutVocabGame({ language, onXp }: DugoutGameProps) {
 // ── Main exported component ────────────────────────────────────────────────────
 
 export function BaseballPositionsGame({ language, onXp }: BaseballPositionsGameProps) {
-  const [mode, setMode] = useState<GameMode>("field");
+  const [chosenMode, setMode] = useState<GameMode>("field");
+  const column = dugoutColumn(language);
+  // No dugout column for this language: the Dugout game is not offered (never graded in Spanish).
+  const mode: GameMode = column ? chosenMode : "field";
+  const languageName = packFor(language)?.name ?? language;
   // Reset child games when mode changes by incrementing a key
   const [fieldKey, setFieldKey] = useState(0);
   const [dugoutKey, setDugoutKey] = useState(0);
@@ -806,7 +829,8 @@ export function BaseballPositionsGame({ language, onXp }: BaseballPositionsGameP
         </div>
         <h2 className="mt-1 font-display text-3xl font-semibold">Know Your Diamond</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Learn field positions and dugout vocabulary for Spanish-speaking players.
+          Learn field positions{column ? " and dugout vocabulary" : ""} for {languageName}-speaking
+          players.
         </p>
       </div>
 
@@ -820,19 +844,23 @@ export function BaseballPositionsGame({ language, onXp }: BaseballPositionsGameP
           <MapPin className="h-3.5 w-3.5" />
           Field Positions
         </button>
-        <button
-          onClick={() => switchMode("dugout")}
-          data-active={mode === "dugout"}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all data-[active=true]:border data-[active=true]:border-gold/60 data-[active=true]:bg-gold/10 data-[active=true]:text-gold data-[active=false]:text-muted-foreground data-[active=false]:hover:text-foreground/80"
-        >
-          <BookOpen className="h-3.5 w-3.5" />
-          Dugout Vocab
-        </button>
+        {column && (
+          <button
+            onClick={() => switchMode("dugout")}
+            data-active={mode === "dugout"}
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all data-[active=true]:border data-[active=true]:border-gold/60 data-[active=true]:bg-gold/10 data-[active=true]:text-gold data-[active=false]:text-muted-foreground data-[active=false]:hover:text-foreground/80"
+          >
+            <BookOpen className="h-3.5 w-3.5" />
+            Dugout Vocab
+          </button>
+        )}
       </div>
 
       {/* Game panes */}
       {mode === "field" && <FieldPositionsGame key={fieldKey} language={language} onXp={onXp} />}
-      {mode === "dugout" && <DugoutVocabGame key={dugoutKey} language={language} onXp={onXp} />}
+      {mode === "dugout" && column && (
+        <DugoutVocabGame key={dugoutKey} language={language} column={column} onXp={onXp} />
+      )}
     </div>
   );
 }

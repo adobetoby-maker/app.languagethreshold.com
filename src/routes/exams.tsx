@@ -7,11 +7,15 @@ import { ExamsArea } from "@/components/exams/ExamsArea";
 import { Exams2Page } from "@/components/exams2/Exams2Page";
 import { FreeSpanishExams } from "@/components/exams/FreeSpanishExams";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
+import { defaultLanguage, defaultNativeFor } from "@/lib/language-menu";
+import { packFor } from "@/data/language-packs/registry";
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export const Route = createFileRoute("/exams")({
-  head: () => ({
+  head: ({ match }) => ({
     meta: [
-      { title: "Free Spanish Placement Test | Language Threshold" },
+      {
+        title: `Free ${packFor(match.search.target)?.name ?? "Language"} Placement Test | Language Threshold`,
+      },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),
@@ -39,10 +43,10 @@ export const Route = createFileRoute("/exams")({
     module: typeof search.module === "string" ? search.module : undefined,
     target: LANGUAGES.includes(search.target as Language)
       ? (search.target as Language)
-      : ("Spanish" as Language),
+      : defaultLanguage(),
     native: NATIVE_LANGUAGES.includes(search.native as NativeLanguage)
       ? (search.native as NativeLanguage)
-      : ("English" as NativeLanguage),
+      : "English",
   }),
   component: ExamsPage,
 });
@@ -81,9 +85,14 @@ function ExamsPage() {
         <main>
           {!legacyExams &&
             !search.session &&
-            search.target === "Spanish" &&
-            search.native === "English" && (
-              <FreeSpanishExams initialModule={search.module} initialMode={search.test} />
+            packFor(search.target)?.features.placementGame &&
+            search.native === defaultNativeFor(search.target) && (
+              <FreeSpanishExams
+                target={search.target}
+                native={search.native}
+                initialModule={search.module}
+                initialMode={search.test}
+              />
             )}
           {legacyExams ? (
             exams

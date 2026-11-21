@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useFuriganaSegments } from "@/components/reader/FuriganaText";
 import { usePinyinSegments } from "@/components/reader/PinyinText";
+import { cleanTapWord } from "@/components/reader/ClickableText";
 
 const LONG_PRESS_MS = 475;
 const MOVE_TOLERANCE_PX = 10;
@@ -64,12 +65,15 @@ function tokenizeJapanese(text: string): WordToken[] {
   return tokens;
 }
 
-function tokenizeWords(text: string): WordToken[] {
+function tokenizeWords(text: string, language?: string | null): WordToken[] {
   if (/[぀-ヿ]/u.test(text)) return tokenizeJapanese(text);
 
   return text.split(/(\s+)/).map((token) => {
     if (!token || /^\s+$/u.test(token)) return { text: token, word: null };
-    const word = token.replace(/^[¿¡«"'([]+|[.,;:!?»"')\]]+$/g, "");
+    // With a language, its pack strips punctuation and elision (French l'eau -> eau).
+    const word = language
+      ? cleanTapWord(token, language)
+      : token.replace(/^[¿¡«"'([]+|[.,;:!?»"')\]]+$/g, "");
     return { text: token, word: word || null };
   });
 }
@@ -164,8 +168,11 @@ export function LongPressWordText({
   text,
   onWordLookup,
   reading = null,
+  language = null,
 }: {
   text: string;
+  /** The text's language (name or pack code): its pack cleans tapped words. */
+  language?: string | null;
   onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
   /**
    * Show readings above the characters: furigana for Japanese, pinyin for
@@ -180,17 +187,19 @@ export function LongPressWordText({
   if (reading === "chinese") {
     return <PinyinLongPressText text={text} onWordLookup={onWordLookup} />;
   }
-  return <PlainLongPressText text={text} onWordLookup={onWordLookup} />;
+  return <PlainLongPressText text={text} language={language} onWordLookup={onWordLookup} />;
 }
 
 function PlainLongPressText({
   text,
+  language = null,
   onWordLookup,
 }: {
   text: string;
+  language?: string | null;
   onWordLookup: (word: string, sentence: string, x: number, y: number) => void;
 }) {
-  const tokens = useMemo(() => tokenizeWords(text), [text]);
+  const tokens = useMemo(() => tokenizeWords(text, language), [text, language]);
 
   return (
     <>

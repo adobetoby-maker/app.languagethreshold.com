@@ -1,4 +1,8 @@
 import { moduleLessonUrl } from "./learning-link.ts";
+import { packFor } from "../data/language-packs/registry.ts";
+import { nativeLanguageCode } from "../data/languages.ts";
+import { SPANISH_AUTHORED_PAIR } from "./lesson-words-core.ts";
+import { stripLeadingArticle } from "./lesson-word-card.ts";
 export interface CurriculumWordMatch {
   word: string;
   meaning: string;
@@ -14,6 +18,8 @@ export interface CurriculumVocabularyData {
     name: string;
     target?: string;
     native?: string;
+    /** Languages of the entry's two text columns; absent in older files (the unlabelled pair). */
+    columns?: [string, string];
     lessons: Record<string, string | undefined>;
   }[];
   entries: (string | number)[][];
@@ -24,9 +30,19 @@ const normalized = (word: string) =>
     .trim()
     .replace(/^[\p{P}\s]+|[\p{P}\s]+$/gu, "")
     .toLowerCase();
+/** The pair an index row without target/native was written for (the app dictionary, older files). */
+const UNLABELLED_PAIR = SPANISH_AUTHORED_PAIR;
+
 export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
-  const spanish = new Map<string, CurriculumWordMatch[]>();
-  const english = new Map<string, CurriculumWordMatch[]>();
+  // One table per (target, native) pair: a row is a forward entry of its own pair and a reverse
+  // entry of the opposite pair, so a word is only ever offered for the pair it was authored for.
+  const tables = new Map<string, Map<string, CurriculumWordMatch[]>>();
+  const tableFor = (target: string, native: string) => {
+    const key = `${packFor(target)?.code ?? target}\u0000${packFor(native)?.code ?? nativeLanguageCode(native) ?? native}`;
+    let table = tables.get(key);
+    if (!table) tables.set(key, (table = new Map()));
+    return table;
+  };
   for (const [es, en, index, lesson] of data.entries) {
     if (
       typeof es !== "string" ||
@@ -37,6 +53,9 @@ export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
       continue;
     const module = data.modules[index];
     if (!module) continue;
+    const target = module.target ?? UNLABELLED_PAIR.language;
+    const native = module.native ?? UNLABELLED_PAIR.nativeLanguage;
+    const [first, second] = module.columns ?? [UNLABELLED_PAIR.language, UNLABELLED_PAIR.nativeLanguage];
     const base = {
       moduleId: module.id,
       moduleName: module.name,
@@ -44,27 +63,17 @@ export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
       title: module.lessons[String(lesson)] ?? "",
       href:
         lesson === 0
-          ? "/?tab=dictionary&target=Spanish&native=English"
-          : moduleLessonUrl({
-              moduleId: module.id,
-              target: module.target ?? "Spanish",
-              native: module.native ?? "English",
-              lesson,
-              way: "see",
-            }),
+          ? `/?tab=dictionary&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}`
+          : moduleLessonUrl({ moduleId: module.id, target, native, lesson, way: "see" }),
     };
-    for (const [table, word, meaning] of [
-      [spanish, es, en],
-      [english, en, es],
+    for (const [table, word, meaning, language] of [
+      [tableFor(first, second), es, en, first],
+      [tableFor(second, first), en, es, second],
     ] as const) {
+      const pack = packFor(language);
       // Slash-separated authored term alternatives are exact alternatives, never partial phrase matches.
       for (const term of word.split(/\s+\/\s+/u)) {
-        const key = normalized(term).replace(
-          table === spanish
-            ? /^(?:el|la|los|las|un|una|unos|unas)\s+(?=\S+$)/u
-            : /^(?:the|a|an|to)\s+(?=\S+$)/u,
-          "",
-        );
+        const key = stripLeadingArticle(normalized(term), pack);
         if (!key || /\s/u.test(key)) continue;
         const matches = table.get(key) ?? [];
         if (
@@ -78,12 +87,11 @@ export function buildCurriculumVocabulary(data: CurriculumVocabularyData) {
     }
   }
   return (word: string, language: string, native: string, preferredModule?: string) => {
-    if (!(
-      (language === "Spanish" && native === "English") ||
-      (language === "English" && native === "Spanish")
-    ))
-      return [];
-    const found = [...((language === "Spanish" ? spanish : english).get(normalized(word)) ?? [])];
+    const found = [
+      ...(tableFor(language, native).get(
+        stripLeadingArticle(normalized(word), packFor(language)),
+      ) ?? []),
+    ];
     if (preferredModule)
       found.sort(
         (a, b) => Number(b.moduleId === preferredModule) - Number(a.moduleId === preferredModule),
@@ -108,13 +116,8 @@ export async function curriculumVocabulary(
   native: string,
   preferredModule?: string,
 ) {
-  if (!(
-    (language === "Spanish" && native === "English") ||
-    (language === "English" && native === "Spanish")
-  ))
-    return [];
   vocabulary ??= import("../data/curriculum-word-index.json").then((data) =>
-    buildCurriculumVocabulary(data.default),
+    buildCurriculumVocabulary(data.default as unknown as CurriculumVocabularyData),
   );
   try {
     return (await vocabulary)(word, language, native, preferredModule);

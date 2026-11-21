@@ -7,7 +7,8 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { foundationAccess } from "@/lib/core30-plan";
 import { lessonLocation } from "@/lib/learning-link";
-import { MODULES } from "@/data/modules";
+import { MODULES, moduleSupportsLearningPair } from "@/data/modules";
+import { packFor } from "@/data/language-packs/registry";
 import { getCurriculum } from "@/data/curriculum";
 import { PracticeBlocker } from "@/hooks/use-practice-time";
 
@@ -131,7 +132,14 @@ export function SubscriptionGate({ currentTab, children }: Props) {
 
   // A module with a free Foundation offers it from the paywall: the Foundation's entry card on
   // the Core 30 page sits under this overlay and cannot be clicked here.
-  const foundationOffer = foundationFor(activeModuleId);
+  // Only offered when the Foundation is authored for the learner's own language pair.
+  const foundationCandidate = foundationFor(activeModuleId);
+  const foundationOffer =
+    foundationCandidate &&
+    moduleSupportsLearningPair(foundationCandidate, state.selectedLanguage, state.nativeLanguage)
+      ? foundationCandidate
+      : null;
+  const languageName = packFor(state.selectedLanguage)?.name ?? "language";
   function openFoundation() {
     if (!foundationOffer) return;
     dispatch({ type: "SET_ACTIVE_MODULE", payload: foundationOffer.id });
@@ -211,7 +219,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
           <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
             {isMissionaryModule
               ? "Your missionary discussions and field prep are always free. This section is part of the Pro plan."
-              : "Full access to all professional Spanish content — construction, medical, sports, and more."}
+              : `Full access to all professional ${languageName} content — construction, medical, sports, and more.`}
             {!user && " Sign in to get started."}
           </p>
 
@@ -246,7 +254,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                 onClick={onFreeDismiss}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-bold text-background transition-opacity hover:opacity-90 mb-3"
               >
-                Continue free with Missionary Spanish →
+                Continue free with Missionary {languageName} →
               </Link>
               <Link
                 to="/pricing"
@@ -273,7 +281,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                   onClick={openFoundation}
                   className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-gold/40 px-5 py-2.5 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
                 >
-                  New to Spanish? Start the free {foundationOffer.name} →
+                  New to {languageName}? Start the free {foundationOffer.name} →
                 </button>
               )}
 
@@ -293,7 +301,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                   onClick={onFreeDismiss}
                   className="underline underline-offset-2"
                 >
-                  Continue free with Missionary Spanish →
+                  Continue free with Missionary {languageName} →
                 </Link>
               </p>
             </>

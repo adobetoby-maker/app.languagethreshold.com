@@ -13,6 +13,10 @@ precondition(phoneDictationLocales(requested:"en-GB", supported:["en-GB","en-US"
 precondition(phoneDictationLocales(requested:"zh-HK", supported:["zh-CN","zh-TW"]).isEmpty)
 precondition(phoneDictationLocales(requested:"zh-TW", supported:["zh-CN","zh-TW"]) == ["zh-TW"])
 precondition(phoneDictationLocales(requested:"ps-AF", supported:["es-MX","en-US"]).isEmpty)
+precondition(phoneDictationLocales(requested:"fr-CA", supported:["fr-FR","en-US"], candidates:["fr-CA","fr-FR"]) == ["fr-FR"])
+precondition(phoneDictationLocales(requested:"pt_PT", supported:["pt-BR","pt-PT"], candidates:["pt-PT","pt-BR"]) == ["pt-PT","pt-BR"])
+precondition(phoneDictationLocales(requested:"zh-HK", supported:["zh-CN","zh-TW"], candidates:["zh-CN"]) == ["zh-CN"])
+precondition(phoneDictationLocales(requested:"de-AT", supported:["de-DE","de-CH"], candidates:["de-AT","de-DE"]) == ["de-DE"])
 print("Locale selection passed")`], { encoding: "utf8", timeout: 60000 });
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /Locale selection passed/);

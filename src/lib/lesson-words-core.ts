@@ -10,6 +10,8 @@
 
 import type { LessonWord } from "../data/curriculum.ts";
 import { isCorrectAnswer } from "./lesson-practice.ts";
+import { packFor, type LanguagePack } from "../data/language-packs/registry.ts";
+import { nativeLanguageCode, nativeLanguageName } from "../data/languages.ts";
 
 export type LessonWordsStatus = "authored" | "loading" | "ready" | "error";
 
@@ -181,7 +183,12 @@ export interface AuthoredWordsPair {
   nativeLanguage: string;
 }
 
-/** Spanish-target modules (the default): `es` is Spanish, `en` is English. */
+/**
+ * Modules written before module records carried an `authoredPair` (the hand-written trades) were
+ * authored Spanish target / English native: `es` is Spanish, `en` is English. This is a fact about
+ * that data, not a default for other languages: a module that names its `authoredPair` is never
+ * read through this constant, and no new module relies on it.
+ */
 export const SPANISH_AUTHORED_PAIR: AuthoredWordsPair = {
   language: "Spanish",
   nativeLanguage: "English",
@@ -194,7 +201,7 @@ export const SPANISH_AUTHORED_PAIR: AuthoredWordsPair = {
  */
 export const ENGLISH_AUTHORED_PAIR: AuthoredWordsPair = {
   language: "English",
-  nativeLanguage: "Spanish",
+  nativeLanguage: nativeLanguageName(packFor("English")?.native.default) ?? "",
 };
 
 /** The pair a module's authored words are written for, from its AppModule.learnDirection. */
@@ -221,7 +228,7 @@ export function authoredWordsPairForModule(module?: {
 export function pickAuthoredWords(
   authored: readonly LessonWord[] | undefined,
   language: string,
-  nativeLanguage = "English",
+  nativeLanguage: string,
   writtenFor: AuthoredWordsPair = SPANISH_AUTHORED_PAIR,
 ): LessonWord[] | null {
   if (
@@ -257,9 +264,9 @@ export function deckLanguageDir(language: string): string {
   return languageTag(language);
 }
 
-/** The native language a target language's deck is written for (English decks: Spanish natives). */
+/** The native language a target language's deck is written for: its pack's native default. */
 export function deckNativeLanguage(targetLanguage: string): string {
-  return targetLanguage === "English" ? "Spanish" : "English";
+  return nativeLanguageName(packFor(targetLanguage)?.native.default) ?? "";
 }
 
 /** Site-relative URL of a module's deck for one target language. */
@@ -315,45 +322,20 @@ export function pickDeckWords(
 
 // ─── Languages: tags, short codes, helper keys ───────────────────────────────
 
-const LANG_TAGS: Record<string, string> = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh",
-  "Chinese (Simplified)": "zh",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
-  Dutch: "nl",
-  Polish: "pl",
-  Russian: "ru",
-  Turkish: "tr",
-  Arabic: "ar",
-  Hindi: "hi",
-};
-
-/** BCP-47 primary subtag for a `lang` attribute ("und" when unknown). */
+/**
+ * BCP-47 primary subtag for a `lang` attribute or a content path: the target language's pack code
+ * (resolved from a code or a stored legacy name), else the native-language setting's code, else
+ * "und". The code comes from the pack registry, never from a hand-kept name table.
+ */
 export function languageTag(language: string): string {
-  return LANG_TAGS[language] ?? "und";
+  return packFor(language)?.code ?? nativeLanguageCode(language) ?? "und";
 }
 
 /** Short uppercase label for toggles ("ES", "FR"); falls back to the first two letters. */
 export function languageCode(language: string): string {
-  const tag = LANG_TAGS[language];
-  return (tag ?? language.slice(0, 2)).toUpperCase();
+  const tag = languageTag(language);
+  return (tag === "und" ? language.slice(0, 2) : tag).toUpperCase();
 }
-
-/** Letters a learner may need that a phone keyboard buries. Empty for IME-typed scripts. */
-export const SPECIAL_CHARS_BY_LANGUAGE: Record<string, string[]> = {
-  Spanish: ["á", "é", "í", "ó", "ú", "ñ", "ü", "¿", "¡"],
-  French: ["à", "â", "ç", "é", "è", "ê", "ë", "î", "ï", "ô", "ù", "û", "œ"],
-  German: ["ä", "ö", "ü", "ß"],
-  Italian: ["à", "è", "é", "ì", "ò", "ù"],
-  Portuguese: ["á", "â", "ã", "à", "ç", "é", "ê", "í", "ó", "ô", "õ", "ú"],
-};
 
 // ─── Typed-answer checking ───────────────────────────────────────────────────
 
@@ -394,13 +376,15 @@ function scriptVariants(target: string): string[] {
 }
 
 /**
- * Is `input` a correct typed answer for `target`? Latin-script targets keep the accent- and
- * case-insensitive check the Spanish kit has always had. Any other script is compared
- * exactly (after NFKC, punctuation and, for CJK, space removal), so a missing vowel mark or
- * a different character is wrong rather than silently accepted.
+ * Is `input` a correct typed answer for `target` in this pack? A pack written in Latin script keeps
+ * the accent- and case-insensitive check the Spanish kit has always had (the pack's typed accent
+ * policy replaces it in the Type/Write work; see audit/pwa-foundation.md). Any other script is
+ * compared exactly (after NFKC, punctuation and, for CJK, space removal), so a missing vowel mark
+ * or a different character is wrong rather than silently accepted. The pack is required.
  */
-export function isCorrectTypedAnswer(input: string, target: string): boolean {
-  if (isLatinScript(target)) return isCorrectAnswer(input, target);
+export function isCorrectTypedAnswer(input: string, target: string, pack: LanguagePack): boolean {
+  if (pack.script.iso15924.includes("Latn") && isLatinScript(target))
+    return isCorrectAnswer(input, target, pack);
   const normalized = normalizeScriptAnswer(input);
   if (!normalized) return false;
   return scriptVariants(target).includes(normalized);

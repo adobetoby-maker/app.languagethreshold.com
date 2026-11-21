@@ -136,8 +136,9 @@ export const Route = createFileRoute("/api/mission-tts")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const locale = new URL(request.url).searchParams.get("languageCode") ?? "es-US";
-        if (!isSupportedGoogleTtsLocale(locale)) {
+        // No default language: a request without its language is refused, never read as Spanish.
+        const locale = new URL(request.url).searchParams.get("languageCode") ?? "";
+        if (!locale || !isSupportedGoogleTtsLocale(locale)) {
           return json({ error: "Unsupported voice language." }, 400);
         }
         if (voiceCatalogOriginDenied(request)) {

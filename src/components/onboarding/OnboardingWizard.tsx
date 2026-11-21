@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Sparkle, ArrowRight, Check } from "lucide-react";
 import { useApp, type Language, type Level } from "@/state/app-state";
 import { cn } from "@/lib/utils";
+import { defaultNativeFor, languageOptions } from "@/lib/language-menu";
+import { packFor } from "@/data/language-packs/registry";
 
 const FIELD_PREP_IDS = new Set([
   "orthopedics",
@@ -96,21 +98,11 @@ const LEVELS: { value: Level; label: string; sub: string }[] = [
   { value: "Advanced", label: "Advanced", sub: "I speak well but want to refine" },
 ];
 
-/**
- * Offered target languages, with the native-language name so a learner
- * recognises their own. Order matches current seeded-content depth.
- */
-const LANGUAGES: { id: Language; label: string; native: string }[] = [
-  { id: "Spanish", label: "Spanish", native: "Español" },
-  { id: "French", label: "French", native: "Français" },
-  { id: "Italian", label: "Italian", native: "Italiano" },
-  { id: "German", label: "German", native: "Deutsch" },
-  { id: "Portuguese", label: "Portuguese", native: "Português" },
-  { id: "Japanese", label: "Japanese", native: "日本語" },
-  { id: "Chinese", label: "Chinese (Mandarin)", native: "中文" },
-  { id: "Korean", label: "Korean", native: "한국어" },
-  { id: "Pashto", label: "Pashto", native: "پښتو" },
-];
+/** True when the language's pack ships speaking missions (Core Speaking is ready for it). */
+function hasCoreSpeaking(language: Language | null): boolean {
+  const pack = packFor(language);
+  return Boolean(pack?.features.speakingMissions);
+}
 
 export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   const { dispatch } = useApp();
@@ -123,6 +115,18 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   const [levelLabel, setLevelLabel] = useState<string>("");
   const [professionId, setProfessionId] = useState<string | null>(undefined as unknown as null);
   const [professionLabel, setProfessionLabel] = useState<string>("");
+
+  // A target whose course pairs with a different native language by default (English learners,
+  // from the English pack) switches the explanation language with it.
+  function applyNativeDefault() {
+    const native = defaultNativeFor(language);
+    if (native && native !== "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
+  }
+
+  function pairsWithOtherNative(lang: Language | null): boolean {
+    const native = defaultNativeFor(lang);
+    return Boolean(native && native !== "English");
+  }
 
   function pickLanguage(l: Language) {
     setLanguage(l);
@@ -144,14 +148,16 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function finish() {
     // Language first — the Reader's passage selection keys off it.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
-    if (language === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+    applyNativeDefault();
     if (level) dispatch({ type: "SET_LEVEL", payload: level });
     if (professionId) {
       dispatch({ type: "PURCHASE_MODULE", payload: professionId });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: professionId });
     }
     dispatch({ type: "COMPLETE_ONBOARDING" });
-    if (language === "English") {
+    if (pairsWithOtherNative(language)) {
+      // The course explains in another native language by default (an English-as-target course):
+      // profession tabs are not authored for it, so start in the Reader.
       dispatch({ type: "SET_TAB", payload: "reader" });
     } else if (professionId === "lds-missionary") {
       dispatch({ type: "SET_TAB", payload: "discussions" });
@@ -170,7 +176,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function skip() {
     // Preserve a language picked before the learner bailed out of setup.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
-    if (language === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+    applyNativeDefault();
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: "reader" });
     onClose?.();
@@ -224,7 +230,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                 We&apos;ll open a passage you can start reading right away.
               </p>
               <div className="grid grid-cols-2 gap-2">
-                {LANGUAGES.map((l) => (
+                {languageOptions().map((l) => (
                   <button
                     key={l.id}
                     onClick={() => pickLanguage(l.id)}
@@ -321,7 +327,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                     <p className="text-sm font-medium">{professionLabel}</p>
                   </div>
                 </div>
-                {language && ["Spanish", "Italian", "Japanese", "English"].includes(language) && (
+                {hasCoreSpeaking(language) && (
                   <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
                     <span className="text-lg">🎙️</span>
                     <p className="text-xs leading-snug text-muted-foreground">

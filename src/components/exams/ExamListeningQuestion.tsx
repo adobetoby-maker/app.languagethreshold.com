@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
 import { examAudioRequest } from "@/lib/assessments/client";
 import type { AssessmentAnswer, PublicAssessmentItem } from "@/lib/assessments/form";
-import { ACCENTS_BY_LANGUAGE } from "@/state/speech-state";
-import type { Language } from "@/data/languages";
+import { accentsFor } from "@/lib/speech-accents";
 import { getVoicesForLocale } from "@/lib/voices";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
@@ -86,7 +85,7 @@ export function ExamListeningQuestion({
         await clip.play();
         return;
       }
-      const locale = ACCENTS_BY_LANGUAGE[audio.language as Language]?.[0]?.code;
+      const locale = accentsFor(audio.language)[0]?.code;
       const voice = locale ? getVoicesForLocale(locale)[0] : undefined;
       if (!voice)
         throw new Error(

@@ -3,7 +3,10 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {transformSync} from 'esbuild';
 const code=transformSync(readFileSync(new URL('../src/lib/speech-word-similarity.ts',import.meta.url),'utf8'),{loader:'ts',format:'esm'}).code;
-const {speechWordSimilarity:score}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const {speechWordSimilarity}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const pack=(code)=>JSON.parse(readFileSync(new URL(`../src/data/language-packs/${code}.json`,import.meta.url),'utf8'));
+const es=pack('es'), ja=pack('ja'), fr=pack('fr'), it=pack('it');
+const score=(a,b,p=es)=>speechWordSimilarity(a,b,p);
 test('speech scoring matches native exact, missing-word, near-word and sound-alike examples',()=>{
  assert.deepEqual(score('manguito rotador','manguito rotador'),{score:100,exact:true});
  assert.deepEqual(score('manguito rotador','rotador'),{score:50,exact:false});
@@ -18,9 +21,22 @@ test('word order, insertions, repeats and ñ remain meaningful; a close match ne
  assert.deepEqual(score('','hola'),{score:0,exact:false});
  assert.equal(score('¡Buenos días!','buenos dias').score,100);
 });
-test('non-Spanish scripts never receive Spanish phonetic allowances',()=>{
- assert.deepEqual(score('hola','ola','French'),{score:0,exact:false});
- assert.equal(score('日本','日','Japanese').score,50);
- assert.equal(score('猫','犬','Japanese').exact,false);
- assert.equal(score('école','école','French').score,100);
+test('other packs never receive Spanish phonetic allowances; their own rules apply',()=>{
+ // Spanish v = b is not a French rule.
+ assert.equal(score('vaca','baca').score,85);
+ assert.ok(score('vaca','baca',fr).score<85);
+ assert.equal(score('日本','日',ja).score,50);
+ assert.equal(score('猫','犬',ja).exact,false);
+ assert.equal(score('école','école',fr).score,100);
+ // French folds marks in speech and credits its own homophones and spelling equivalences.
+ assert.equal(score('où','ou',fr).exact,true);
+ assert.equal(score('il est là','il et là',fr).exact,false);
+ assert.ok(score('il est là','il et là',fr).score>=95);
+ assert.ok(score('parlez','parlé',fr).score>=85);
+ // Italian keeps protected pairs apart in speech unless they are homophones.
+ assert.equal(score('papà','papa',it).exact,false);
+ assert.equal(score('è','e',it).exact,true);
+});
+test('the pack is required: no default language',()=>{
+ assert.throws(()=>speechWordSimilarity('hola','hola'));
 });

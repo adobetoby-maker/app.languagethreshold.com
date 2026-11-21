@@ -1,4 +1,5 @@
 import { PHRASES, type Phrase } from "@/data/climbing-practice.ts";
+import { translationFor, NOT_YET_TRANSLATED } from "@/lib/phrase-translation";
 import { useApp } from "@/state/app-state";
 
 const CAT_LABELS: Record<Phrase["category"], string> = {
@@ -46,14 +47,14 @@ export function ClimbingMedical() {
             </div>
             <div className="space-y-2">
               {catPhrases.map((phrase, i) => {
-                const translation = phrase.translations[lang] ?? phrase.translations["Spanish"];
+                const translation = translationFor(phrase.translations, lang);
                 return (
                   <div
                     key={i}
                     className="bg-white/[0.03] border border-white/[0.06] rounded-xl px-4 py-3"
                   >
                     <p className="text-white text-sm font-medium">{phrase.en}</p>
-                    <p className="text-white/60 text-sm mt-1">{translation}</p>
+                    <p className="text-white/60 text-sm mt-1">{translation ?? NOT_YET_TRANSLATED}</p>
                   </div>
                 );
               })}

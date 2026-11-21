@@ -21,6 +21,10 @@ import {
 } from "./core-speaking.ts";
 import { isFoundationModule, isMasterModule } from "../lib/core30-plan.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
+import { PACKS, packFor } from "./language-packs/registry.ts";
+import { nativeLanguageName } from "./languages.ts";
+import { packOffersSpeakingMissions } from "../lib/speaking-review.ts";
+import { lessonWordForm } from "../lib/speaking-lesson-words.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
 import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
@@ -29,8 +33,9 @@ import { militaryLessonPractice } from "./military-practice.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
 export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese" | "Chinese" | "English";
-export type SpeakingMissionLocale = "es-419" | "it-IT" | "ja-JP" | "zh-CN" | "en-US";
-type SpeakingMissionCode = "es" | "it" | "ja" | "zh" | "en";
+/** A BCP 47 tag: the pack's variety tag (es-419, ja-JP ...). */
+export type SpeakingMissionLocale = string;
+type SpeakingMissionCode = string;
 export type SpeakingMissionRisk =
   "medical" | "emergency" | "financial" | "legal" | "minor-data" | "intimacy";
 
@@ -598,18 +603,6 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
 ];
 
-export const SPEAKING_LANGUAGES: Array<{
-  language: SpeakingMissionLanguage;
-  code: SpeakingMissionCode;
-  locale: SpeakingMissionLocale;
-}> = [
-  { language: "Spanish", code: "es", locale: "es-419" },
-  { language: "Italian", code: "it", locale: "it-IT" },
-  { language: "Japanese", code: "ja", locale: "ja-JP" },
-  { language: "Chinese", code: "zh", locale: "zh-CN" },
-  { language: "English", code: "en", locale: "en-US" },
-];
-
 function projectTextForLanguage(text: string, language: SpeakingMissionLanguage): string {
   return text
     .replace(
@@ -697,6 +690,24 @@ const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpeci
     "English for Work": "Hello. Let's practice the English you need for this workplace situation.",
   },
 };
+
+/**
+ * The languages Say it missions are offered in: a registered pack that offers speaking missions
+ * (speaking-review.ts: status, features.speakingMissions, review sign-off pending is a separate,
+ * environment-aware check) AND has authored mission content here. A pack with no content (French,
+ * Portuguese ...) is simply not listed, so no screen can reach a table that has no row for it.
+ * The mission locale is the pack's own variety tag.
+ */
+export const SPEAKING_LANGUAGES: Array<{
+  language: SpeakingMissionLanguage;
+  code: SpeakingMissionCode;
+  locale: SpeakingMissionLocale;
+}> = Object.keys(OPENING_LINES).flatMap((name) => {
+  const pack = PACKS.find((item) => item.name === name);
+  return pack && packOffersSpeakingMissions(pack)
+    ? [{ language: name as SpeakingMissionLanguage, code: pack.code, locale: pack.variety.tag }]
+    : [];
+});
 
 function openingLineFor(
   language: SpeakingMissionLanguage,
@@ -1182,8 +1193,8 @@ const LESSON_MISSION_VOCABULARY_CAP = 12;
 const MASTER_MISSION_VOCABULARY_CAP = 24;
 
 // A lesson that carries its own word list drills those exact words in its mission: terms first,
-// then phrases, capped at 12 (24 for a Master lesson). Spanish missions show the Spanish forms; every other language keeps
-// the English headwords that module.vocabFocus already uses (lesson words only exist as en/es).
+// then phrases, capped at 12 (24 for a Master lesson). Lesson words exist in two columns only
+// (lessonWordForm); a mission in any other language keeps the headwords module.vocabFocus already uses.
 function lessonMissionVocabulary(
   module: AppModule,
   lesson: Lesson,
@@ -1201,17 +1212,27 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    const authoredTarget =
-      module.authoredPair?.target ??
-      (module.learnDirection === "en-target" ? "English" : "Spanish");
-    const form = (language === authoredTarget ? word.es : word.en).trim();
+    // A language with no lesson-word column (and a module that names a different authored pair)
+    // gets no form here: it never shows the other side as its own words.
+    const form = lessonWordForm(module, language, word)?.trim();
+    if (!form) continue;
     const key = form.toLocaleLowerCase();
-    if (!form || seen.has(key)) continue;
+    if (seen.has(key)) continue;
     seen.add(key);
     out.push(form);
     if (out.length >= cap) break;
   }
   return out.length > 0 ? out : module.vocabFocus.slice(0, 8);
+}
+
+/** The native language a mission in `language` explains in by default: the pack's native.default. */
+function defaultNativeFor(language: SpeakingMissionLanguage): NativeLanguage {
+  const code = packFor(language)?.native.default;
+  return (
+    nativeLanguageName(code) ??
+    nativeLanguageName(packFor(language)?.native.supported[0]) ??
+    "English"
+  );
 }
 
 function missionFromLesson(
@@ -1223,18 +1244,9 @@ function missionFromLesson(
   lesson: Lesson,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
-  const teaching = moduleTeachingSettings(
-    module.id,
-    lesson.n,
-    language,
-    module.learnDirection === "en-target" ? "Spanish" : "English",
-  );
-  const cleaning = orCleaningLesson(
-    module.id,
-    lesson.n,
-    language,
-    language === "English" ? "Spanish" : "English",
-  );
+  const nativeDefault = defaultNativeFor(language);
+  const teaching = moduleTeachingSettings(module.id, lesson.n, language, nativeDefault);
+  const cleaning = orCleaningLesson(module.id, lesson.n, language, nativeDefault);
   const interest = interestLesson(module.id, lesson.n, language, "English");
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics =
@@ -1692,7 +1704,7 @@ export function getAllSpeakingMissions() {
 }
 
 export function findSpeakingMission(id: string) {
-  const code = id.match(/_(es|it|ja|zh|en)_v1$/)?.[1];
+  const code = id.match(/_([a-z]{2,3})_v1$/)?.[1];
   const language = SPEAKING_LANGUAGES.find((entry) => entry.code === code)?.language;
   if (!language) return null;
   getSpeakingMissions(language);

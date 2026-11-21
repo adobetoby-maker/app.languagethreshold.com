@@ -22,7 +22,7 @@
 //
 // Flags:
 //   --module <id,...>        modules to build (required)
-//   --lang <name|code>       target language (default es; Spanish is the only one supported so far)
+//   --lang <name|code>       target language, a registered pack (default es; only a language with a trade-pack profile runs: Spanish so far)
 //   --area <a,...>|all       wordmatch (default), sentence, conjugation
 //   --provider cli           the only provider (default); anything else is refused
 //   --model opus|sonnet|<id> default claude-opus-5-5
@@ -77,7 +77,8 @@ import {
   resolveModel,
   type ApiRequest,
 } from "../src/lib/core60-generator-core.ts";
-import { cleanLessonWords, languageTag } from "../src/lib/lesson-words-core.ts";
+import { cleanLessonWords, languageTag, SPANISH_AUTHORED_PAIR } from "../src/lib/lesson-words-core.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import {
   SENTENCE_BUILD_LEVELS,
   checkSentenceBuildItem,
@@ -173,8 +174,11 @@ if (AREAS.length === 0 || AREAS.some((a) => !AREA_KEYS.includes(a))) {
 }
 
 const langFlag = (flag("lang") ?? "es").trim();
-const LANGUAGE = { es: "Spanish", spanish: "Spanish" }[langFlag.toLowerCase() as "es" | "spanish"];
-if (!LANGUAGE) usageError(`--lang ${langFlag}: only Spanish (es) is supported so far.`);
+const LANGUAGE = packFor(langFlag)?.name;
+if (!LANGUAGE) usageError(`--lang ${langFlag}: not a registered language pack.`);
+// The card and variety prompts below are written for one authored profile; refuse the rest loudly.
+if (LANGUAGE !== SPANISH_AUTHORED_PAIR.language)
+  usageError(`--lang ${langFlag}: no trade-pack profile for ${LANGUAGE} yet (add one before generating it).`);
 const NATIVE = tradePackNativeLanguage(LANGUAGE);
 const LANG_CODE = languageTag(LANGUAGE);
 

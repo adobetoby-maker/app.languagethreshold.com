@@ -7,6 +7,7 @@ import {
 import { prepareConversationRequest } from "@/lib/conversation-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { packFor } from "@/data/language-packs/registry";
 import { initSentry, Sentry } from "../lib/sentry";
 initSentry();
 
@@ -22,44 +23,51 @@ const BodySchema = z.object({
   learnerRole: z.string().max(400),
   openingSetup: z.string().max(800),
   moduleGroup: z.enum(["medical", "trades", "sports"]),
-  language: z.string().min(1).max(40),
+  // Must resolve to a registered language pack: no default language.
+  language: z
+    .string()
+    .min(1)
+    .max(40)
+    .refine((language) => packFor(language) !== null)
+    .transform((language) => packFor(language)?.name ?? language),
   level: z.string().min(1).max(40),
   messages: z.array(MessageSchema).max(80),
   requestFeedback: z.boolean().default(false),
 });
 
-// Natural clarification phrases by language — what a real speaker says when confused
+// Natural clarification phrases, authored per pack code: what a real speaker says when confused.
+// A pack with no row uses its own phrases.clarification; with neither, the line is left out.
 const CLARIFICATION_PHRASE: Record<string, string> = {
-  Spanish: "¿Cómo dijiste? / ¿Perdón?",
-  French: "Comment ? / Pardon ?",
-  German: "Wie bitte? / Entschuldigung?",
-  Italian: "Come ha detto? / Prego?",
-  Portuguese: "Como disse? / Pode repetir?",
-  Japanese: "もう一度おっしゃっていただけますか？",
-  Korean: "다시 말씀해 주시겠어요?",
-  English: "Sorry, could you say that again?",
+  es: "¿Cómo dijiste? / ¿Perdón?",
+  fr: "Comment ? / Pardon ?",
+  de: "Wie bitte? / Entschuldigung?",
+  it: "Come ha detto? / Prego?",
+  pt: "Como disse? / Pode repetir?",
+  ja: "もう一度おっしゃっていただけますか？",
+  ko: "다시 말씀해 주시겠어요?",
+  en: "Sorry, could you say that again?",
 };
 
-// Dialect / register notes by language
+// Dialect / register notes, authored per pack code (the pack schema has no dialect-note field).
+const DIALECT_NOTES: Record<string, string> = {
+  fr: `Use conversational French. Drop "ne" in negation informally ("je sais pas", "c'est pas grave"). Use "on" instead of "nous". Natural fillers: "bon", "enfin", "bref", "quoi". Register adapts to context — clinical or professional settings stay formal (vous), job sites and sports can loosen to tu after a moment.`,
+  es: `Use natural Latin American Spanish. Warm register. "Usted" with patients and new contacts; "tú" on job sites once rapport is established. Natural fillers: "mire", "pues", "oiga".`,
+  de: `Use German. Professional contexts: Sie throughout. Job sites may shift to du once familiarity is established. Germans are direct — avoid over-explaining. Natural filler: "also", "naja", "genau".`,
+  it: `Use Italian. Start formal (Lei) with patients or clients; tu is fine between colleagues or on a sports field. Natural exclamations: "senti", "guarda", "dai". Expressive but professional.`,
+  pt: `Use Brazilian Portuguese. Warm and direct. Contracted speech: "tá", "pra", "num". Natural fillers: "então", "né", "cara" (informal). Clinical settings stay formal; sports coaching is energetic and informal.`,
+  ja: `Use Japanese. Polite register (です・ます) in medical and professional settings. Sports coaching can use plain form with players. Soft clarification patterns: "すみません、もう一度…". Never use English.`,
+  ko: `Use Korean. Formal polite speech (해요체) in medical and client contexts; coaching can use informal with players. Natural filler: "그런데", "사실". Stay culturally grounded in your character.`,
+};
+
 function buildDialectNote(language: string): string | null {
-  switch (language) {
-    case "French":
-      return `Use conversational French. Drop "ne" in negation informally ("je sais pas", "c'est pas grave"). Use "on" instead of "nous". Natural fillers: "bon", "enfin", "bref", "quoi". Register adapts to context — clinical or professional settings stay formal (vous), job sites and sports can loosen to tu after a moment.`;
-    case "Spanish":
-      return `Use natural Latin American Spanish. Warm register. "Usted" with patients and new contacts; "tú" on job sites once rapport is established. Natural fillers: "mire", "pues", "oiga".`;
-    case "German":
-      return `Use German. Professional contexts: Sie throughout. Job sites may shift to du once familiarity is established. Germans are direct — avoid over-explaining. Natural filler: "also", "naja", "genau".`;
-    case "Italian":
-      return `Use Italian. Start formal (Lei) with patients or clients; tu is fine between colleagues or on a sports field. Natural exclamations: "senti", "guarda", "dai". Expressive but professional.`;
-    case "Portuguese":
-      return `Use Brazilian Portuguese. Warm and direct. Contracted speech: "tá", "pra", "num". Natural fillers: "então", "né", "cara" (informal). Clinical settings stay formal; sports coaching is energetic and informal.`;
-    case "Japanese":
-      return `Use Japanese. Polite register (です・ます) in medical and professional settings. Sports coaching can use plain form with players. Soft clarification patterns: "すみません、もう一度…". Never use English.`;
-    case "Korean":
-      return `Use Korean. Formal polite speech (해요체) in medical and client contexts; coaching can use informal with players. Natural filler: "그런데", "사실". Stay culturally grounded in your character.`;
-    default:
-      return null;
-  }
+  const pack = packFor(language);
+  return pack ? (DIALECT_NOTES[pack.code] ?? null) : null;
+}
+
+function clarificationPhrase(language: string): string | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  return CLARIFICATION_PHRASE[pack.code] ?? (pack.phrases.clarification.trim() || null);
 }
 
 function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
@@ -100,7 +108,7 @@ function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
     sports: `Energetic and direct sports communication. Coaching language is motivational, technical, and immediate. Use sports vocabulary, position names, and tactical terms naturally. Never add stage directions or asterisks.`,
   };
 
-  const clarification = CLARIFICATION_PHRASE[language] ?? CLARIFICATION_PHRASE["Spanish"];
+  const clarification = clarificationPhrase(language);
   const dialectNote = buildDialectNote(language);
 
   const lines: (string | null)[] = [
@@ -116,7 +124,9 @@ function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
     `- The person you're speaking with is at ${level} level. Speak naturally — do not oversimplify, but do not use vocabulary so obscure they're completely lost.`,
     `- Keep your responses 2-4 sentences. This is a real conversation, not a monologue.`,
     `- ${moduleStyle[moduleGroup] ?? moduleStyle.medical}`,
-    `- React authentically: if they make a language error that causes genuine confusion, respond naturally ("${clarification}") — this is what a real person would do.`,
+    clarification
+      ? `- React authentically: if they make a language error that causes genuine confusion, respond naturally ("${clarification}") — this is what a real person would do.`
+      : `- React authentically: if they make a language error that causes genuine confusion, ask them naturally to repeat — this is what a real person would do.`,
     `- Stay fully in character at all times. Do NOT explain the exercise or break the fourth wall.`,
     `- Raise your character's natural concerns, objections, or questions when the scene calls for them.`,
     `- Do NOT make it artificially easy — authentic interaction is what makes practice valuable.`,

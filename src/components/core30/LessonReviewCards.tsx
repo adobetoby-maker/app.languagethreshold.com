@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Volume2 } from "lucide-react";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import type { LessonReviewController } from "@/hooks/use-lesson-review";
 import { SrsRatingButtons } from "@/components/flashcards/SrsRatingButtons";
 import { useApp } from "@/state/app-state";
@@ -19,7 +20,7 @@ export function LessonReviewCards({
   // Read by the learner's listening voice (recorded HD audio, then the HD voice).
   const { speak } = useListeningSpeaker(
     JSON.stringify(["lesson-review", state.selectedLanguage, review.currentCard?.id]),
-    state.selectedLanguage,
+    usePack(state.selectedLanguage),
   );
   const card = review.currentCard;
   const round = review.round;

@@ -278,6 +278,7 @@ export function ModuleStudyGuide({
                     <p className="text-[13px] leading-relaxed text-foreground cursor-text">
                       <ClickableText
                         text={pair.target}
+                        language={language}
                         onWordClick={(word, sentence, x, y) =>
                           setWordReq({ word, sentence, language, x, y })
                         }

@@ -14,6 +14,7 @@ import { prepareBrowserPlayback } from "./browser-audio-session";
 // neither a Google preference nor an on-device voice exists.
 
 import { decodeGoogleVoicePreference, languageFamily } from "@/data/mission-tts";
+import { PACKS } from "@/data/language-packs/registry";
 import { isIosDevice } from "@/lib/pwa-install";
 import { speakMissionTts, stopMissionTts } from "@/lib/mission-tts";
 import { decideStickyRetry } from "@/lib/tts-audio-cache";
@@ -21,9 +22,13 @@ import { configureUtterance, getVoicesForLocale } from "@/lib/voices";
 import type { SpeakingRequestOwner } from "@/lib/speaking-client";
 import { toast } from "sonner";
 
-const REMOTE_TTS_BY_FAMILY: Record<string, string> = {
-  ps: "ps",
-};
+/** The pack code whose server fallback voice (speech.remoteFallback) serves a locale, if any. */
+function remoteFallbackLanguage(locale: string): string | undefined {
+  const family = languageFamily(locale);
+  return PACKS.find(
+    (pack) => pack.speech.remoteFallback && languageFamily(pack.speech.tts.languageCode) === family,
+  )?.code;
+}
 
 let shared: HTMLAudioElement | null = null;
 let generation = 0;
@@ -64,8 +69,7 @@ function hdFailureReason(error: unknown, owner?: SpeakingRequestOwner): Listenin
 /** True when playback should use a selected server voice or needs the Pashto fallback. */
 export function needsRemoteTTS(locale: string, preferredVoiceURI?: string | null): boolean {
   if (selectedGoogleVoice(locale, preferredVoiceURI)) return true;
-  const family = languageFamily(locale);
-  if (!(family in REMOTE_TTS_BY_FAMILY)) return false;
+  if (!remoteFallbackLanguage(locale)) return false;
   return getVoicesForLocale(locale).length === 0;
 }
 
@@ -414,7 +418,7 @@ export async function speakRemote(
 
     const lang =
       !opts?.deviceOnly && needsRemoteTTS(locale, opts?.voiceURI)
-        ? REMOTE_TTS_BY_FAMILY[languageFamily(locale)]
+        ? remoteFallbackLanguage(locale)
         : undefined;
     if (!lang) {
       const heard = await speakOnDevice(

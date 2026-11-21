@@ -1,8 +1,24 @@
+import { PACKS } from "../data/language-packs/registry.ts";
+
+/** Codes whose stage ids end in "-<code>" (packs without legacy unscoped ids). */
+const SUFFIXED_STAGE_CODES = new Set(
+  PACKS.filter((pack) => !pack.ids.legacyUnscopedStorage).map((pack) => pack.code),
+);
 interface NamedModule {
   id: string;
   name: string;
 }
-export const moduleBaseId = (id: string) => id.replace(/^(foundation|master)-/, "");
+/**
+ * The Core 30 module a stage belongs to: drops the stage prefix and, for a pack whose stage ids
+ * carry their language (core60-stage-core manifestStageModuleId), the "-<code>" suffix.
+ */
+export const moduleBaseId = (id: string) => {
+  const base = id.replace(/^(foundation|master)-/, "");
+  if (base === id) return id;
+  const dash = base.lastIndexOf("-");
+  const code = dash > 0 ? base.slice(dash + 1) : "";
+  return SUFFIXED_STAGE_CODES.has(code) ? base.slice(0, dash) : base;
+};
 const stageRank = (id: string) =>
   id.startsWith("foundation-") ? 0 : id.startsWith("master-") ? 2 : 1;
 

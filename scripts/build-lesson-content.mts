@@ -28,7 +28,7 @@
 //
 // Flags:
 //   --module <id,...>           only these modules
-//   --lang <name|code,...>      only these target languages (Spanish/es, English/en)
+//   --lang <name|code,...>      only these target languages (any registered pack: es, en, fr, ...)
 //   --verbs-only-for <id,...>   write only verbs for these modules (roofing is detected itself)
 //   --lessons <list>            regenerate exactly these lesson numbers (3,7,11-15), even when valid
 //                               saved content exists; no other lesson is touched. Composes with
@@ -103,7 +103,9 @@ import {
   type AuthoredContext,
   type ContentBlock,
 } from "../src/lib/lesson-content-prompt.ts";
-import { cleanLessonWords, languageTag, pickAuthoredWords } from "../src/lib/lesson-words-core.ts";
+import { cleanLessonWords, languageTag, pickAuthoredWords, SPANISH_AUTHORED_PAIR, authoredWordsPairForModule } from "../src/lib/lesson-words-core.ts";
+import { PACKS, packFor, sameLanguage } from "../src/data/language-packs/registry.ts";
+import { nativeLanguageName } from "../src/data/languages.ts";
 
 const SCRIPT_PATH = "scripts/build-lesson-content.mts";
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -117,7 +119,12 @@ const PUBLIC_DIR = join(ROOT, "public", "lesson-content");
 const PROGRESS_DIR = join(ROOT, ".lesson-content-progress");
 const API_URL = "https://api.anthropic.com/v1/messages";
 
-const TARGETS = ["Spanish", "English"] as const;
+// Target languages: every registered pack. Without --lang a module is built only for the language
+// it was authored for; any other language is built only when named with --lang, so a normal run
+// never starts generating a new language.
+const TARGETS = Object.values(PACKS).map((pack) => pack.name);
+/** learnDirection "en-target" is defined as English-for-work: the English pack's code. */
+const EN_TARGET_CODE = "en";
 
 // Per-lesson sizes (retries included), used only for --dry-run estimates. Calibrated on the
 // landscaper pilot: 30 lessons = 138k input / 104k output tokens, ~19 s of wall time per lesson
@@ -241,9 +248,16 @@ function planLesson(
   lesson: { n: number; words?: LessonWord[] },
 ): LessonPlan {
   const forced = verbsOnlyFor.includes(moduleId.toLowerCase());
-  const authoredWords = pickAuthoredWords(lesson.words, language);
+  const authoredWords = pickAuthoredWords(
+    lesson.words,
+    language,
+    contentNativeLanguage(language),
+    SPANISH_AUTHORED_PAIR,
+  );
   const roofingPassage =
-    moduleId === "roofing" && language === "Spanish" ? ROOFING_LESSON_PASSAGES[lesson.n] : undefined;
+    moduleId === "roofing" && sameLanguage(language, SPANISH_AUTHORED_PAIR.language)
+      ? ROOFING_LESSON_PASSAGES[lesson.n]
+      : undefined;
   const passageAuthored = forced || roofingPassage !== undefined;
   const wordsAuthored = forced || authoredWords !== null;
   const parts: ContentParts = {
@@ -317,13 +331,17 @@ function buildPlan(): Pair[] {
     const curriculum = getCurriculum(module.id);
     if (!curriculum) continue;
     for (const language of TARGETS) {
-      if (!matchesLang(language)) continue;
+      const pack = packFor(language);
+      if (!pack || !matchesLang(language)) continue;
+      // Without --lang, a module is built only for the language it was authored for.
+      if (wantLang.length === 0 && !sameLanguage(authoredWordsPairForModule(module).language, language)) continue;
       const nativeLanguage = contentNativeLanguage(language);
+      const nativeSetting = nativeLanguageName(pack.native.default);
+      const enTarget = pack.code === EN_TARGET_CODE;
       const supported =
-        language === "Spanish"
-          ? moduleSupportsLearningPair(module, "Spanish", "English")
-          : module.learnDirection === "en-target" &&
-            moduleSupportsLearningPair(module, "English", "Spanish");
+        nativeSetting !== null &&
+        (enTarget ? module.learnDirection === "en-target" : true) &&
+        moduleSupportsLearningPair(module, language as never, nativeSetting);
       if (!supported) continue;
       const dir = languageTag(language);
       const pair: Pair = {

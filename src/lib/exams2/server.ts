@@ -14,6 +14,7 @@
  * All storage goes through the service-role client passed in by the route; nothing here reads
  * process.env directly except through the `env` dependency.
  */
+import { packFor } from "../../data/language-packs/registry.ts";
 import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { isIP } from "node:net";
 import { z } from "zod";
@@ -436,6 +437,11 @@ export const examAnswerSchema = z.discriminatedUnion("type", [
 /** The longest session: form C has 60 questions. */
 const MAX_QUESTIONS = 60;
 
+/** The adaptive diagnostic's name for a language: "<Language> Check" (the pack's English name). */
+function checkName(target: string): string {
+  return `${packFor(target)?.name ?? target} Check`;
+}
+
 export const examCheckAction = z.discriminatedUnion("action", [
   z
     .object({
@@ -443,8 +449,9 @@ export const examCheckAction = z.discriminatedUnion("action", [
       moduleId: moduleIdSchema,
       kind: z.enum(["A", "B", "C", "diagnostic"]),
       public: z.boolean().optional(),
-      target: languageSchema.default("Spanish"),
-      native: languageSchema.default("English"),
+      // No default language: the client always names the pair.
+      target: languageSchema,
+      native: languageSchema,
     })
     .strict(),
   z
@@ -476,8 +483,9 @@ export const examCheckAction = z.discriminatedUnion("action", [
   z
     .object({
       action: z.literal("overview"),
-      target: languageSchema.default("Spanish"),
-      native: languageSchema.default("English"),
+      // No default language: the client always names the pair.
+      target: languageSchema,
+      native: languageSchema,
     })
     .strict(),
   z
@@ -690,11 +698,15 @@ async function startSession(
     if (input.kind !== "diagnostic")
       throw new ExamApiError(
         400,
-        "Only the Spanish Check can be taken without an account.",
+        `Only the ${checkName(input.target)} can be taken without an account.`,
         "public_kind",
       );
     if (!examsPublicEnabled(deps.env))
-      throw new ExamApiError(404, "The public Spanish Check isn't open yet.", "public_disabled");
+      throw new ExamApiError(
+        404,
+        `The public ${checkName(input.target)} isn't open yet.`,
+        "public_disabled",
+      );
     if (!deps.clientIp) throw new ExamApiError(503, UNAVAILABLE, "unavailable");
     const ipKey = rateLimitIpKey(deps.clientIp);
     ipHash = hashClientIp(ipKey, deps.env);
@@ -729,7 +741,7 @@ async function startSession(
     )
       throw new ExamApiError(
         429,
-        "The Spanish Check is very busy right now. Try again in a little while.",
+        `The ${checkName(input.target)} is very busy right now. Try again in a little while.`,
         "rate",
       );
   } else {
@@ -1047,7 +1059,11 @@ async function submitFixedForm(
 ) {
   const session = await ownedSession(deps, input.sessionId, undefined);
   if (session.kind === "diagnostic")
-    throw new ExamApiError(400, "Answer the Spanish Check one question at a time.", "wrong_kind");
+    throw new ExamApiError(
+      400,
+      `Answer the ${checkName(session.target_language)} one question at a time.`,
+      "wrong_kind",
+    );
   const loaded = await loadSessionBank(deps.db, session);
   if (session.status === "completed") return completedResult(session, loaded);
   if (session.status !== "in_progress")
@@ -1383,7 +1399,7 @@ async function claimSession(
     if (isUniqueViolation(result.error))
       throw new ExamApiError(
         409,
-        "You already have a Spanish Check in progress. Finish it first.",
+        `You already have a ${checkName(session.target_language)} in progress. Finish it first.`,
         "open_session",
       );
     throw storageError(result.error);

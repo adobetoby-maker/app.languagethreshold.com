@@ -4,7 +4,7 @@
  * Irregulars live in IRREGULAR_OVERRIDES (conjugation-atlas) and FREQUENCY_CONJUGATIONS.
  */
 
-import type { Language } from "@/state/app-state";
+import { packFor } from "../data/language-packs/registry.ts";
 import type { ConjugationSet, PersonForms } from "@/data/frequency-conjugations";
 
 function emptyPersons(): PersonForms {
@@ -267,19 +267,22 @@ function conjugateItalian(infinitive: string): ConjugationSet | null {
 }
 
 /**
- * Produce a full ConjugationSet for a regular verb, or null if the ending
- * is not recognized / language unsupported.
+ * Offline regular-conjugation engines, by the morphology plugin id a pack names in
+ * `dictionary.morphology` (language-pack model section 19: a morphology plugin is engine code, not
+ * a field read). A pack that names none uses `<code>-verbs`, the id its own engine registers under.
  */
-export function conjugateRegular(
-  language: Language,
-  infinitive: string,
-): ConjugationSet | null {
-  const lang = language.toLowerCase();
-  if (lang.includes("spanish") || lang === "es" || lang === "español") {
-    return conjugateSpanish(infinitive);
-  }
-  if (lang.includes("italian") || lang === "it" || lang === "italiano") {
-    return conjugateItalian(infinitive);
-  }
-  return null;
+const MORPHOLOGY_ENGINES: Record<string, (infinitive: string) => ConjugationSet | null> = {
+  "es-verbs": conjugateSpanish,
+  "it-verbs": conjugateItalian,
+};
+
+/**
+ * Produce a full ConjugationSet for a regular verb, or null if the ending is not recognized or
+ * the language's pack has no morphology engine (fail closed: no other language's rules).
+ */
+export function conjugateRegular(language: string, infinitive: string): ConjugationSet | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  const engine = MORPHOLOGY_ENGINES[pack.dictionary.morphology ?? `${pack.code}-verbs`];
+  return engine ? engine(infinitive) : null;
 }

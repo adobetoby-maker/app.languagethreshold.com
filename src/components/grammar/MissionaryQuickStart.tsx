@@ -244,7 +244,7 @@ export function MissionaryQuickStart() {
                     fading={speaking.fading}
                   />
                 ) : (
-                  <ClickableText text={inv.prompt} onWordClick={onWord} />
+                  <ClickableText text={inv.prompt} language={state.selectedLanguage} onWordClick={onWord} />
                 )}
                 ”
                 <button
@@ -260,7 +260,7 @@ export function MissionaryQuickStart() {
                 </button>
               </p>
               <p className="mt-1 text-[11px] text-muted-foreground">
-                <ClickableText text={inv.context} onWordClick={onWord} />
+                <ClickableText text={inv.context} language={state.selectedLanguage} onWordClick={onWord} />
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <button

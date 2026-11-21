@@ -4,9 +4,13 @@ import { Search, X, Check, Clock } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
 import type { AppModule } from "@/data/modules";
-import type { Language } from "@/state/app-state";
+import { packFor } from "@/data/language-packs/registry";
 
-const COMING_SOON_LANGUAGES = new Set<Language>([]);
+/** A language is "coming soon" until its pack is registered and visible to this build. */
+function isComingSoon(language: string): boolean {
+  const pack = packFor(language);
+  return !pack || pack.status.availability === "hidden";
+}
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { moduleLearningPaths, type ModuleLearningPath } from "@/lib/module-order";
@@ -68,16 +72,16 @@ export function ModulePickerDialog({ open, onClose, onSelect }: Props) {
       <DialogContent className="max-h-[82vh] w-full max-w-2xl overflow-hidden p-0 gap-0 border-border/60 bg-background">
         <DialogTitle className="sr-only">Select Module</DialogTitle>
 
-        {/* Coming soon guard for non-Spanish languages */}
-        {COMING_SOON_LANGUAGES.has(state.selectedLanguage) && (
+        {/* Coming soon guard for a language whose pack is not available yet */}
+        {isComingSoon(state.selectedLanguage) && (
           <div className="flex flex-col items-center justify-center gap-4 px-8 py-16 text-center">
             <Clock className="h-10 w-10 text-gold/60" strokeWidth={1.2} />
             <h3 className="font-display text-xl font-semibold tracking-tight">
               {state.selectedLanguage} — Coming Soon
             </h3>
             <p className="max-w-sm text-sm text-muted-foreground leading-relaxed">
-              All 41+ modules are live in Spanish today. {state.selectedLanguage} content is in
-              development — switch back to Spanish to explore the full library.
+              {state.selectedLanguage} content is in development — choose another language to
+              explore the full library.
             </p>
             <button
               onClick={onClose}
@@ -89,7 +93,7 @@ export function ModulePickerDialog({ open, onClose, onSelect }: Props) {
         )}
 
         {/* Search bar + module list — only shown for supported languages */}
-        {!COMING_SOON_LANGUAGES.has(state.selectedLanguage) && (
+        {!isComingSoon(state.selectedLanguage) && (
           <>
             <div className="flex items-center gap-3 border-b border-border/50 px-5 py-4">
               <Search className="h-4 w-4 shrink-0 text-muted-foreground" strokeWidth={1.6} />

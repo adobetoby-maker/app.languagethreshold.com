@@ -104,7 +104,13 @@ const get = (route) => route.server.handlers.GET;
 
 test("exam-check: kill switch off is a 404 with no private call; on + missing tables is 503", async () => {
   await fixture(async ({ api, c, request }) => {
-    const body = { action: "start", moduleId: "roofing", kind: "C" };
+    const body = {
+      action: "start",
+      moduleId: "roofing",
+      kind: "C",
+      target: "Spanish",
+      native: "English",
+    };
     const off = await post(api.check)({ request: request("/api/exam-check", body) });
     assert.equal(off.status, 404);
     assert.equal((await off.json()).code, "disabled");

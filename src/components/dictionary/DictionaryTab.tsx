@@ -9,29 +9,41 @@ import japaneseWordData from "./japaneseWordData.json";
 import type { WordCategory, DictWord, VerbProfile } from "./types";
 import { MorphDisplay } from "./MorphDisplay";
 import { useApp, type Language } from "@/state/app-state";
+import { packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { foldMarks, normalizeKey } from "@/lib/language-pack-text";
 import { useFlashcards } from "@/state/flashcard-state";
 import { MODULE_DECKS } from "@/data/deck-modules";
 import { toast } from "sonner";
 
-const ROOFING_DICTIONARY_WORDS: DictWord[] = MODULE_DECKS.roofing.map((entry) => ({
-  id: entry.id,
-  word: entry.translations.Spanish?.word ?? "",
-  english: entry.english,
-  pronunciation: "",
-  partOfSpeech: entry.partOfSpeech === "roofing term" ? "noun" : "phrase",
-  category: "roofing",
-  context: "Roofing crew language",
-  examples: [],
-}));
+/** Roofing-crew entries for a language, from the roofing deck's translation of that language. */
+function roofingWordsFor(language: string): DictWord[] {
+  return MODULE_DECKS.roofing.flatMap((entry) => {
+    const word = entry.translations[language as Language]?.word;
+    if (!word) return [];
+    return [
+      {
+        id: entry.id,
+        word,
+        english: entry.english,
+        pronunciation: "",
+        partOfSpeech: entry.partOfSpeech === "roofing term" ? ("noun" as const) : ("phrase" as const),
+        category: "roofing" as const,
+        context: "Roofing crew language",
+        examples: [],
+      },
+    ];
+  });
+}
 
 // ─── Per-language dataset + label config ───────────────────────────────────────
 
 interface DictionaryLanguageConfig {
   words: DictWord[];
   profiles: Record<string, VerbProfile>;
-  searchPlaceholder: string;
-  phraseNoun: string;
-  phraseExample: string;
+  /** Sample sentence for the AI phrase lookup box; a dataset without one has no phrase lookup. */
+  phraseExample?: string;
+  /** The dataset is glossed in English only, so it is offered only to English-native learners. */
+  englishGlossOnly?: boolean;
   /** Overrides the key-derived field label ("presentYo" -> "Present Yo") with a
    * label that matches this language's actual grammatical terms. */
   fieldLabels?: Record<string, string>;
@@ -67,30 +79,34 @@ function mergeWithCore(moduleWords: DictWord[], coreWords: DictWord[]): DictWord
   return Array.from(byLemma.values());
 }
 
-const DICTIONARY_LANGUAGES: Partial<Record<Language, DictionaryLanguageConfig>> = {
-  Spanish: {
+/** Bundled datasets, keyed by language-pack code. A language with no entry shows "not yet available". */
+const DICTIONARY_LANGUAGES: Record<string, DictionaryLanguageConfig> = {
+  es: {
     words: dictWords,
     profiles: verbProfiles,
-    searchPlaceholder: "Search Spanish or English…",
-    phraseNoun: "Spanish",
     phraseExample: "El médico examina al paciente...",
   },
-  Italian: {
+  it: {
     words: mergeWithCore(italianDictWords, coreItalianWords),
     profiles: italianVerbProfiles,
-    searchPlaceholder: "Search Italian or English…",
-    phraseNoun: "Italian",
     phraseExample: "Il medico esamina il paziente...",
     fieldLabels: ITALIAN_FIELD_LABELS,
   },
-  Japanese: {
+  ja: {
     words: japaneseWordData as DictWord[],
     profiles: {},
-    searchPlaceholder: "Search Japanese or English…",
-    phraseNoun: "Japanese",
-    phraseExample: "こんにちは。",
+    englishGlossOnly: true,
   },
 };
+
+/** "A and B" for the languages whose dataset carries verb profiles. */
+function conjugationLanguageNames(): string {
+  const names = Object.entries(DICTIONARY_LANGUAGES)
+    .filter(([, config]) => Object.keys(config.profiles).length > 0)
+    .map(([code]) => packFor(code)?.name)
+    .filter((name): name is string => Boolean(name));
+  return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names.join("");
+}
 
 // ─── Category chip data ───────────────────────────────────────────────────────
 
@@ -448,43 +464,56 @@ function PhraseEngine({ noun, example }: { noun: string; example: string }) {
 
 export function DictionaryTab() {
   const { state } = useApp();
-  const [category, setCategory] = useState<CategoryFilter>(
-    state.activeModuleId === "roofing" && state.selectedLanguage === "Spanish" ? "roofing" : "all",
+  const pack = packFor(state.selectedLanguage);
+  const rawConfig = pack ? DICTIONARY_LANGUAGES[pack.code] : undefined;
+  const config =
+    rawConfig?.englishGlossOnly && state.nativeLanguage !== "English" ? undefined : rawConfig;
+  // The Roofing chip is offered whenever the language has roofing entries, so they must not
+  // depend on the active module (they were empty unless the Roofing module was selected).
+  const roofingWords = useMemo(
+    () => (config ? roofingWordsFor(state.selectedLanguage) : []),
+    [config, state.selectedLanguage],
   );
+  const words = useMemo(
+    () => [...(config?.words ?? []), ...roofingWords],
+    [config, roofingWords],
+  );
+  const startCategory: CategoryFilter =
+    state.activeModuleId === "roofing" && roofingWords.length > 0 ? "roofing" : "all";
+  const [category, setCategory] = useState<CategoryFilter>(startCategory);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    setCategory(state.activeModuleId === "roofing" && state.selectedLanguage === "Spanish" ? "roofing" : "all");
-  }, [state.activeModuleId, state.selectedLanguage]);
-
-  const config = state.selectedLanguage === "Japanese" && state.nativeLanguage !== "English"
-    ? undefined
-    : DICTIONARY_LANGUAGES[state.selectedLanguage];
-  // The Roofing chip is always offered, so its entries must not depend on the
-  // active module (they were empty unless the Roofing module was selected).
-  const words = useMemo(
+    setCategory(startCategory);
+  }, [startCategory, state.selectedLanguage]);
+  // Chips for categories the language has no entries in are not offered.
+  const chips = useMemo(
     () =>
-      state.selectedLanguage === "Spanish"
-        ? [...(config?.words ?? []), ...ROOFING_DICTIONARY_WORDS]
-        : (config?.words ?? []),
-    [config, state.selectedLanguage],
+      CATEGORY_CHIPS.filter(
+        (chip) => chip.key === "all" || words.some((word) => word.category === chip.key),
+      ),
+    [words],
   );
   const profiles = config?.profiles ?? {};
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    // Both sides are folded with the language's own marks (être / etre, œuf / oeuf).
+    const key = (text: string) => (pack ? foldMarks(normalizeKey(text, pack), pack) : text.toLowerCase());
+    const q = key(query);
     return words
       .filter((w) => {
         const catMatch = category === "all" || w.category === category;
         const searchMatch =
           !q ||
-          w.word.toLowerCase().includes(q) ||
-          w.english.toLowerCase().includes(q) ||
-          w.pronunciation.toLowerCase().includes(q);
+          key(w.word).includes(q) ||
+          key(w.english).includes(q) ||
+          key(w.pronunciation).includes(q);
         return catMatch && searchMatch;
       })
-      .sort((a, b) => a.word.localeCompare(b.word, undefined, { sensitivity: "base" }));
-  }, [words, category, query]);
+      .sort((a, b) =>
+        a.word.localeCompare(b.word, pack?.script.segmenterLocale, { sensitivity: "base" }),
+      );
+  }, [words, category, query, pack]);
 
   return (
     <div className="flex flex-col gap-6 px-4 py-6 sm:px-6 max-w-5xl mx-auto pb-32">
@@ -526,7 +555,7 @@ export function DictionaryTab() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={config.searchPlaceholder}
+              placeholder={`Search ${pack?.name ?? "the language"} or English…`}
               className="w-full rounded-xl border border-border/50 bg-card/50 py-2.5 pl-9 pr-4 text-sm focus:outline-none focus:ring-1 focus:ring-gold/50 placeholder:text-muted-foreground/50"
               style={{ color: "var(--foreground)" }}
             />
@@ -534,7 +563,7 @@ export function DictionaryTab() {
 
           {/* Category chips — All → Core → modules A–Z */}
           <div className="flex flex-wrap gap-2">
-            {CATEGORY_CHIPS.map((chip) => {
+            {chips.map((chip) => {
               const active = category === chip.key;
               return (
                 <button
@@ -589,8 +618,8 @@ export function DictionaryTab() {
           )}
 
           {/* Phrase Engine */}
-          {state.selectedLanguage !== "Japanese" && (
-            <PhraseEngine noun={config.phraseNoun} example={config.phraseExample} />
+          {config.phraseExample && pack && (
+            <PhraseEngine noun={pack.name} example={config.phraseExample} />
           )}
         </>
       )}
@@ -607,8 +636,9 @@ export function DictionaryTab() {
             Dictionary not yet available for {state.selectedLanguage}
           </p>
           <p className="text-sm" style={{ color: "var(--muted-foreground)" }}>
-            Verb-conjugation lookup is live for Spanish and Italian so far — more languages are on
-            the way.
+            {conjugationLanguageNames()
+              ? `Verb-conjugation lookup is live for ${conjugationLanguageNames()} so far — more languages are on the way.`
+              : "More languages are on the way."}
           </p>
         </div>
       )}

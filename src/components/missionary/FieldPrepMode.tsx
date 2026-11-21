@@ -17,9 +17,12 @@ import {
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
+import { accentRegionName } from "@/lib/speech-accents";
+import { packFor } from "@/data/language-packs/registry";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { getMissionArea } from "@/data/missionary-content";
@@ -46,24 +49,34 @@ interface FieldPrepMessage {
   createdAt: number;
 }
 
-// Maps Language → BCP-47 locale, biased toward the mission area's dialect
-function speechLocale(language: string, missionAreaName?: string): string {
-  if (language === "Spanish") {
-    const area = missionAreaName?.toLowerCase() ?? "";
-    if (area.includes("mexico")) return "es-MX";
-    if (area.includes("spain") || area.includes("iberia")) return "es-ES";
-    return "es-419";
-  }
-  const map: Record<string, string> = {
-    French: "fr-FR",
-    German: "de-DE",
-    Italian: "it-IT",
-    Japanese: "ja-JP",
-    Korean: "ko-KR",
-    Portuguese: missionAreaName?.toLowerCase().includes("brazil") ? "pt-BR" : "pt-PT",
-    English: "en-US",
-  };
-  return map[language] ?? "es-419";
+// Mission-area names that stand for a region the area name does not spell out ("Iberia & France").
+const AREA_REGION_ALIASES: Record<string, string> = { iberia: "ES" };
+
+const foldName = (text: string) =>
+  text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+/**
+ * BCP-47 locale for the language's pack, biased toward the mission area: the first accent whose
+ * region the area name mentions ("Mexico" -> es-MX, "Brazil" -> pt-BR), otherwise the pack's
+ * own variety tag. A language with no pack has no locale (voice and dictation are hidden).
+ */
+function speechLocale(language: string, missionAreaName?: string): string | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  const area = foldName(missionAreaName ?? "");
+  const aliasRegions = Object.entries(AREA_REGION_ALIASES)
+    .filter(([word]) => area.includes(word))
+    .map(([, region]) => region);
+  const hit = pack.speech.accents.find((entry) => {
+    const region = entry.tag.split("-").at(-1)?.toUpperCase() ?? "";
+    if (aliasRegions.includes(region)) return true;
+    const name = foldName(accentRegionName(entry.tag));
+    return area.includes(name);
+  });
+  return hit?.tag ?? pack.variety.tag;
 }
 
 export function FieldPrepMode() {
@@ -171,7 +184,7 @@ export function FieldPrepMode() {
       if (success) onEnd?.();
     };
     const clean = text.replace(/[*_`~#[\]]/g, "").trim();
-    if (!clean) {
+    if (!clean || !locale) {
       done(false);
       return;
     }
@@ -432,6 +445,10 @@ export function FieldPrepMode() {
     const SR = w.SpeechRecognition ?? w.webkitSpeechRecognition;
     if (!SR) {
       toast.error("Speech recognition not available in this browser.");
+      return;
+    }
+    if (!locale) {
+      toast.error("Voice input is unavailable for this language.");
       return;
     }
     const rec = new SR();
@@ -927,7 +944,7 @@ function InvestigatorBubble({
   // then the HD voice) with their accent and speed. The replay belongs to this message.
   const { speak: listenAgain } = useListeningSpeaker(
     JSON.stringify(["field-prep", message.id]),
-    language,
+    usePack(language),
   );
   return (
     <div className="flex gap-2.5">
@@ -940,7 +957,11 @@ function InvestigatorBubble({
         </p>
         <div className="rounded-2xl rounded-tl-sm border border-border/40 bg-card/60 px-4 py-2.5 text-sm text-foreground/90 leading-relaxed">
           {message.content ? (
-            <ClickableText text={message.content.replace(/[*_`~#]/g, "")} onWordClick={onWordTap} />
+            <ClickableText
+              text={message.content.replace(/[*_`~#]/g, "")}
+              language={language}
+              onWordClick={onWordTap}
+            />
           ) : (
             <span className="text-muted-foreground/40 italic">…</span>
           )}

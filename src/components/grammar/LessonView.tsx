@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Loader2, BookOpen, Sparkles, ArrowLeft } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { packFor } from "@/data/language-packs/registry";
 import { useGrammar, type CefrLevel } from "@/state/grammar-state";
 import {
   generateLessonContent,
@@ -44,6 +45,7 @@ export function LessonView({
   onStartNextLevel?: (level: CefrLevel) => void;
 }) {
   const { state, dispatch } = useApp();
+  const readingAid = packFor(state.selectedLanguage)?.script.readingAid ?? "none";
   const { getLevel, setContent } = useGrammar();
   const genContent = useServerFn(generateLessonContent);
   const [loading, setLoading] = useState(false);
@@ -217,12 +219,16 @@ export function LessonView({
                   {content.examples.map((ex, i) => (
                     <div key={i} className="contents">
                       <div
-                        className={`border-b border-border/40 px-5 py-4 font-display text-[16px] leading-relaxed text-foreground md:border-r ${state.selectedLanguage === "Japanese" ? "furigana-line" : ""}`}
+                        className={`border-b border-border/40 px-5 py-4 font-display text-[16px] leading-relaxed text-foreground md:border-r ${readingAid === "furigana" ? "furigana-line" : ""}`}
                       >
-                        {state.selectedLanguage === "Japanese" ? (
+                        {readingAid === "furigana" ? (
                           <FuriganaText text={ex.target} onWordClick={handleWord} />
                         ) : (
-                          <ClickableText text={ex.target} onWordClick={handleWord} />
+                          <ClickableText
+                            text={ex.target}
+                            language={state.selectedLanguage}
+                            onWordClick={handleWord}
+                          />
                         )}
                       </div>
                       <div className="border-b border-border/40 px-5 py-4 font-display text-[15px] italic leading-relaxed text-muted-foreground">

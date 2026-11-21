@@ -6,6 +6,8 @@ import { PocketTutorCardSchema, pocketTutorPrompt } from "@/lib/speak-pocket-tut
 import { withSpeakingProvider, SpeakingProviderError } from "../lib/speaking-provider";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { packFor } from "@/data/language-packs/registry";
+import { NATIVE_LANGUAGES, nativeLanguageName, type NativeLanguage } from "@/data/languages";
 import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
 import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
 import {
@@ -52,7 +54,14 @@ const BodySchema = z.object({
   mode: z.enum(["chat", "tip", "challenge", "mission", "translate", "lookup"]),
   word: z.string().trim().min(1).max(80).optional(),
   sentence: z.string().max(1200).optional(),
-  language: z.string().min(1).max(40),
+  // A registered language pack (code or stored legacy name); anything else is refused.
+  language: z
+    .string()
+    .min(1)
+    .max(40)
+    .refine((language) => packFor(language) !== null)
+    // Prompts and comparisons below use the pack's display name, whether the client sent a code or a name.
+    .transform((language) => packFor(language)?.name ?? language),
   level: z.string().min(1).max(40),
   messages: z.array(MessageSchema).min(1).max(40).optional(),
   userText: z.string().max(2000).optional(),
@@ -70,25 +79,7 @@ const BodySchema = z.object({
   feedbackLanguage: z
     .enum(["English", "Native language", "Target language", "Adaptive", "Mixed"])
     .optional(),
-  nativeLanguage: z
-    .enum([
-      "English",
-      "Spanish",
-      "French",
-      "German",
-      "Italian",
-      "Portuguese",
-      "Dutch",
-      "Polish",
-      "Russian",
-      "Turkish",
-      "Arabic",
-      "Hindi",
-      "Chinese (Simplified)",
-      "Japanese",
-      "Korean",
-    ])
-    .optional(),
+  nativeLanguage: z.enum(NATIVE_LANGUAGES as [NativeLanguage, ...NativeLanguage[]]).optional(),
   partnerVersion: z.enum(["woman", "man"]).optional(),
   destinationCountryId: z.string().min(1).max(80).optional(),
   activeObjectiveId: z.string().min(1).max(120).optional(),
@@ -359,7 +350,12 @@ export const Route = createFileRoute("/api/speak")({
           });
         }
 
-        const nativeLanguage = payload.nativeLanguage ?? "English";
+        // No native language sent: the target pack's own default (never a fixed language).
+        const nativeLanguage =
+          payload.nativeLanguage ?? nativeLanguageName(packFor(payload.language)?.native.default);
+        if (!nativeLanguage) {
+          return Response.json({ error: "Choose a native language." }, { status: 400 });
+        }
 
         if (nativeLanguage === payload.language) {
           return new Response(

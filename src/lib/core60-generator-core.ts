@@ -14,7 +14,7 @@
 import type { LessonGrammar, LessonWord } from "../data/curriculum.ts";
 import {
   CONTENT_LIMITS,
-  MODEL_FORM_KEYS,
+  modelFormKeys,
   contentLimitsFor,
   foldText,
   invisibleCharErrors,
@@ -25,6 +25,8 @@ import {
   type LessonContentLesson,
 } from "./lesson-content-core.ts";
 import { cleanLessonWords } from "./lesson-words-core.ts";
+import { requirePackFor } from "../data/language-packs/registry.ts";
+import { contentRulesFor } from "../data/language-packs/content-rules.ts";
 import { NOTE_FINAL_RULE, PASSAGE_QUALITY_RULES, REGION_RULE } from "./lesson-content-prompt.ts";
 import {
   CORE60_STAGE_FILE_VERSION,
@@ -95,9 +97,30 @@ export interface GeneratorModule {
   languages?: readonly string[];
 }
 
+/** A trade's stage pair: target and native display names (a pack name and a native-language name). */
 export interface Core60Pair {
-  language: "Spanish" | "English";
-  nativeLanguage: "English" | "Spanish";
+  language: string;
+  nativeLanguage: string;
+}
+
+/** The languages that have hand-authored unit tables, spines and prompts (see FOUNDATION_UNITS). */
+export type GeneratorLanguage = "Spanish" | "English";
+
+export function foundationUnitsFor(pair: Core60Pair): readonly FoundationUnit[] {
+  assertGeneratorProfile(pair);
+  return FOUNDATION_UNITS[pair.language];
+}
+
+export function masterSpineFor(pair: Core60Pair) {
+  assertGeneratorProfile(pair);
+  return MASTER_GRAMMAR_SPINE[pair.language];
+}
+
+/** Fails loudly for a pair whose language has no authored generator profile, never falls back. */
+export function assertGeneratorProfile(pair: Core60Pair): asserts pair is Core60Pair & { language: GeneratorLanguage } {
+  if (!Object.hasOwn(FOUNDATION_UNITS, pair.language)) {
+    throw new Error(`No Core 60 generator profile for ${pair.language}; add one before generating it`);
+  }
 }
 
 /**
@@ -121,7 +144,7 @@ export interface FoundationUnit {
 }
 
 /** F1-F10: the same ten topics for every trade, taught with the trade's own words. */
-export const FOUNDATION_UNITS: Record<Core60Pair["language"], readonly FoundationUnit[]> = {
+export const FOUNDATION_UNITS: Record<GeneratorLanguage, readonly FoundationUnit[]> = {
   Spanish: [
     { title: "Sounds and Greetings", topic: "the five vowels, ch, j, ll, rr and the written accent; greetings" },
     { title: "Numbers, Time and Measurements", topic: "numbers 0 to 1,000, clock time, and the measurements and quantities of this work" },
@@ -584,7 +607,7 @@ function request(
 
 export function foundationCurriculumRequest(ctx: StageContext, model: string): ApiRequest {
   const limits = contentLimitsFor(stageId(ctx));
-  const units = FOUNDATION_UNITS[ctx.pair.language];
+  const units = foundationUnitsFor(ctx.pair);
   const system = `You write the curriculum of a free beginner Foundation: ten short A1 lessons (F1 to F10) in front of a job-language Core 30. The learner is a true beginner learning ${ctx.pair.language} for this work; their native language is ${ctx.pair.nativeLanguage}. Deliver everything by calling the ${FOUNDATION_TOOL} tool, once, with all ten lessons.
 
 The ten unit topics are FIXED (given in the request, in order). Each lesson teaches its fixed topic with THIS work's own simple, high-frequency words so the learner can follow Core 30 Lesson 1. Prefer the most common, concrete words of the job (tools, places, people, body parts or supplies the learner touches daily); do not use the advanced Core 30 vocabulary.
@@ -661,7 +684,7 @@ export interface MasterOutline {
 }
 
 export function masterOutlineRequest(ctx: StageContext, model: string): ApiRequest {
-  const spine = MASTER_GRAMMAR_SPINE[ctx.pair.language];
+  const spine = masterSpineFor(ctx.pair);
   const system = `You design a Master 20: twenty advanced B1 to B2 lessons that come after a job-language Core 30, for the day that does not go as planned. The learner already finished the Core 30 (its lesson titles and terms are in the request) and now leads, teaches, solves problems and reports in ${ctx.pair.language}; their native language is ${ctx.pair.nativeLanguage}. Deliver the outline by calling the ${OUTLINE_TOOL} tool, once, with all twenty lessons.
 
 The arc is FIXED: five blocks of four lessons (given in the request with their purpose and allowed lesson types). Lesson 20 is the Capstone: one full, hard day of this work that integrates the whole Master 20 (lessonType "Capstone"); no other lesson is a Capstone.
@@ -805,7 +828,9 @@ export function stageContentRequest(
   const limits = contentLimitsFor(stageId(ctx));
   const master = ctx.stage === "master";
   const spanish = ctx.pair.language === "Spanish";
-  const keys = MODEL_FORM_KEYS[spanish ? "Spanish" : "English"].join(", ");
+  const pack = requirePackFor(ctx.pair.language);
+  const keys = modelFormKeys(pack).join(", ");
+  const rules = contentRulesFor(pack);
   const level = master
     ? `B1 to B2. Natural, connected ${ctx.pair.language} at a normal working pace; sentences up to about 22 words. The lesson's grammar focus appears in at least 3 sentences.`
     : `A1. Short present-tense sentences of 4 to 10 words with common words; no subordinate clauses. The unit's focus (${lesson.focus}) is visible in most sentences.`;
@@ -817,7 +842,7 @@ PASSAGE: ${limits.minSentences} to ${limits.maxSentences} sentences forming ONE 
 VOCABULARY IN THE PASSAGE: use EVERY term of the lesson's word list, written as in the list with the same head noun (plural or gender agreement is fine, the article may change), and at least ${Math.max(limits.minPhrasesUsed, master ? 3 : 2)} of its phrases word for word. Spread the terms over the scene: each term sits in a sentence that says something about it (what someone does with it, where it is, why it matters). Never pack three or more terms into a bare list ("Marta revisa la protección, la capacidad y la cantidad." is rejected). Check this before you answer.
 PASSAGE RULES: ${PASSAGE_QUALITY_RULES.filter((rule) => rule !== REGION_RULE).join(" ")}
 
-VERBS: ${limits.minVerbs === limits.maxVerbs ? `exactly ${limits.minVerbs}` : `${limits.minVerbs} to ${limits.maxVerbs}`} verbs this lesson actually needs${master ? "" : " (the unit's own verbs first: for example ser and estar in a ser / estar unit)"}, used in the passage. For each: "infinitive" (${spanish ? "the Spanish infinitive, e.g. revisar, or reflexive lavarse" : 'the bare English verb, e.g. "check", no "to"'}), "native" (the meaning in ${ctx.pair.nativeLanguage}${spanish ? ', like "to check"' : ', e.g. "revisar"'}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; the bare verb form with no pronoun${spanish ? ', except the reflexive pronoun for reflexive verbs ("me lavo"). All five forms differ: tú ends in -s, nosotros in -mos, ellos/ustedes in -n. Mark stem changes in the note' : '; the he/she form takes the -s ("checks")'}), "example" (one short sentence from this scene in the PRESENT tense or a command that uses one form of the verb, with its ${ctx.pair.nativeLanguage} translation) and an optional short "note" written in ${ctx.pair.nativeLanguage} (never in ${ctx.pair.language}). ${NOTE_FINAL_RULE}
+VERBS: ${limits.minVerbs === limits.maxVerbs ? `exactly ${limits.minVerbs}` : `${limits.minVerbs} to ${limits.maxVerbs}`} verbs this lesson actually needs${master ? "" : " (the unit's own verbs first: for example ser and estar in a ser / estar unit)"}, used in the passage. For each: "infinitive" (the ${pack.name} dictionary form${pack.grammar.reflexivePronouns.length > 0 ? ", a reflexive verb keeps its pronoun" : ""}), "native" (the meaning in ${ctx.pair.nativeLanguage}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; ${pack.grammar.verbForms.includesSubject ? "each form with its subject pronoun" : "the bare verb form with no pronoun"}${pack.grammar.reflexivePronouns.length > 0 ? ", except the reflexive pronoun for reflexive verbs" : ""}${rules.distinctForms ? `. All ${modelFormKeys(pack).length} forms differ` : ""}${rules.endings.map(([at, , , text]) => `; the ${modelFormKeys(pack)[at]} form ${text}`).join("")}${rules.mustDiffer.map(([, , text]) => `; ${text}`).join("")}. Mark stem changes in the note), "example" (one short sentence from this scene in the PRESENT tense or a command that uses one form of the verb, with its ${ctx.pair.nativeLanguage} translation) and an optional short "note" written in ${ctx.pair.nativeLanguage} (never in ${ctx.pair.language}). ${NOTE_FINAL_RULE}
 
 ${registerRules(ctx)}
 
@@ -845,7 +870,7 @@ ${safetyRules(ctx)}${extra.safetySensitive ? " This lesson is safety-sensitive: 
     },
     words: lesson.words.map((word) => ({ kind: word.kind, target: word.es, native: word.en })),
   };
-  const verbKeys = MODEL_FORM_KEYS[spanish ? "Spanish" : "English"];
+  const verbKeys = modelFormKeys(ctx.pair.language);
   const verb = {
     type: "object",
     properties: {
@@ -1080,7 +1105,7 @@ export function foundationFromReply(
   input: Record<string, unknown>,
   ctx: StageContext,
 ): { threshold: string; catalog: StageCatalog; lessons: Core60StageLesson[] } {
-  const units = FOUNDATION_UNITS[ctx.pair.language];
+  const units = foundationUnitsFor(ctx.pair);
   const raw = Array.isArray(input.lessons) ? (input.lessons as Record<string, unknown>[]) : [];
   const lessons = units.map((unit, i): Core60StageLesson => {
     const item = raw.find((lesson) => lesson && lesson.n === i + 1) ?? raw[i] ?? {};
@@ -1272,7 +1297,7 @@ export function stageGeneratorErrors(
     }
     checkLessonWords(lesson, ctx, errors);
     if (ctx.stage === "foundation") {
-      const unit = FOUNDATION_UNITS[ctx.pair.language][lesson.n - 1];
+      const unit = foundationUnitsFor(ctx.pair)[lesson.n - 1];
       if (unit && lesson.title !== unit.title) errors.push(`${where}: Foundation title must be "${unit.title}"`);
       if (lesson.focus && lesson.focus.length > 110) errors.push(`${where}: focus is longer than 110 characters`);
       if (lesson.objective.length > 140) errors.push(`${where}: objective is longer than 140 characters`);

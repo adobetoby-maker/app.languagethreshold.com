@@ -38,7 +38,7 @@ test("legacy root exam entry is private before rendering and copies no credentia
   for (const key of ["access_token", "email", "return", "token", "tab"])
     assert.equal(url.searchParams.has(key), false);
 });
-test("invalid references are dropped and language values use known defaults", () => {
+test("invalid references are dropped; an unknown target is left for /exams to resolve", () => {
   const url = new URL(
     examsLocation({
       moduleId: "core",
@@ -52,7 +52,7 @@ test("invalid references are dropped and language values use known defaults", ()
   assert.equal(url.searchParams.has("module"), false);
   assert.equal(url.searchParams.has("org"), false);
   assert.equal(url.searchParams.has("attempt"), false);
-  assert.equal(url.searchParams.get("target"), "Spanish");
+  assert.equal(url.searchParams.has("target"), false);
   assert.equal(url.searchParams.get("native"), "English");
 });
 test("ordinary app/private routes neither redirect to Exams nor lose their destination", () => {

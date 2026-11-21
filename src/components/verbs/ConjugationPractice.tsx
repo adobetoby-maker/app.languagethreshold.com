@@ -3,7 +3,7 @@ import patterns from "@/data/verbs-practice-patterns.json";
 import { DAILY_VERBS } from "@/lib/verb-speaking-practice";
 import { LessonVerbGames } from "@/components/core30/LessonVerbGames";
 import { useSpeech } from "@/state/speech-state";
-export function ConjugationPractice() {
+export function ConjugationPractice({ language }: { language: string }) {
   const [selected, setSelected] = useState("warmup"),
     speech = useSpeech();
   const pattern = patterns.patterns.find((p) => p.id === selected);
@@ -33,7 +33,7 @@ export function ConjugationPractice() {
         The course’s 28 teaching families cover regular changes, irregular forms, tense patterns,
         commands, gerunds and participles.
       </p>
-      <LessonVerbGames key={selected} language="Spanish" verbs={DAILY_VERBS} pattern={pattern} />
+      <LessonVerbGames key={selected} language={language} verbs={DAILY_VERBS} pattern={pattern} />
       <details className="rounded-xl border p-4">
         <summary className="min-h-11 cursor-pointer font-semibold">Study the forms</summary>
         <div className="grid gap-3 pt-3 sm:grid-cols-2">

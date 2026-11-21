@@ -1,0 +1,420 @@
+{
+ "schemaVersion": 1,
+ "code": "ja",
+ "name": "Japanese",
+ "endonym": "日本語",
+ "legacyNames": [
+  "Japanese"
+ ],
+ "native": {
+  "default": "en",
+  "supported": [
+   "en"
+  ],
+  "names": {
+   "en": "English"
+  }
+ },
+ "variety": {
+  "tag": "ja-JP",
+  "label": "Standard Japanese",
+  "standard": "Standard Japanese (hyōjungo). Polite desu/masu style by default; fixed keigo phrases with patients and customers (お名前をお願いします、少々お待ちください); plain style only between close peers. Common-use kanji (jōyō). Every kanji item carries its kana reading: in the note until the catalog gains the per-item reading field (LANGUAGE-PACK-MODEL.md section 13).",
+  "alternates": [],
+  "avoid": [
+   "あなた to address a patient or customer (use the surname + さん / 様)",
+   "Kansai or other dialect forms",
+   "Spaces between words in target text",
+   "Half-width katakana; Latin letters except accepted acronyms (MRI, CT, X線)"
+  ]
+ },
+ "status": {
+  "availability": "native",
+  "speakAvailability": "native",
+  "statusText": "Japanese 101 on this device · more courses coming"
+ },
+ "script": {
+  "iso15924": [
+   "Jpan"
+  ],
+  "direction": "ltr",
+  "wordSeparator": "none",
+  "hasCase": false,
+  "capitalizeNouns": false,
+  "segmenterLocale": "ja",
+  "readingAid": "furigana"
+ },
+ "typography": {
+  "apostrophe": "'",
+  "apostropheVariants": [
+   "’"
+  ],
+  "spaceVariants": [
+   " ",
+   " ",
+   "　"
+  ],
+  "quotes": [
+   "「",
+   "」",
+   "『",
+   "』"
+  ],
+  "spaceBeforePunctuation": [],
+  "punctuationSpace": "",
+  "trimCharacters": "。、！？「」『』（）・…．，.!?,()",
+  "invertedPunctuation": false,
+  "wordInnerCharacters": [
+   "ー"
+  ],
+  "numberStyle": "Arabic numerals with counters attached (2錠、1日3回、15時30分 or 午後3時半); full-width punctuation 。、？！."
+ },
+ "keyboard": {
+  "autocapitalization": "never",
+  "ime": true,
+  "specialCharacters": [],
+  "alphabet": ""
+ },
+ "grammar": {
+  "verbForms": {
+   "axis": "form",
+   "keys": [
+    {
+     "key": "dictionary",
+     "label": "dictionary form (辞書形)",
+     "order": 1,
+     "required": true,
+     "assessment": true
+    },
+    {
+     "key": "masu",
+     "label": "polite (〜ます)",
+     "order": 2,
+     "required": true,
+     "assessment": true
+    },
+    {
+     "key": "masen",
+     "label": "polite negative (〜ません)",
+     "order": 3,
+     "required": true,
+     "assessment": true
+    },
+    {
+     "key": "mashita",
+     "label": "polite past (〜ました)",
+     "order": 4,
+     "required": true,
+     "assessment": true
+    },
+    {
+     "key": "te",
+     "label": "te-form (〜て)",
+     "imperativeLabel": "request (〜てください)",
+     "order": 5,
+     "required": true,
+     "assessment": true
+    }
+   ],
+   "includesSubject": false,
+   "imperativeIncludesSubject": false,
+   "formLeadWords": [],
+   "imperativeKeys": [
+    "te"
+   ],
+   "referenceTableTitle": "Verb forms",
+   "assessmentPrompt": "Which is the {label} of {infinitive}?",
+   "joinRules": []
+  },
+  "proDrop": "n/a",
+  "subjectPronouns": {},
+  "preVerbParticles": [],
+  "reflexivePronouns": [],
+  "nounSystem": {
+   "type": "none",
+   "contentRule": "bare",
+   "genders": [],
+   "cases": [],
+   "classes": [],
+   "articles": {},
+   "hiddenGenderMarkers": {}
+  },
+  "formality": {
+   "forms": [
+    {
+     "id": "plain",
+     "pronoun": "(plain form, no pronoun)",
+     "verbKey": "dictionary",
+     "use": "Close friends and peers of the same rank only."
+    },
+    {
+     "id": "polite",
+     "pronoun": "(desu/masu, no pronoun)",
+     "verbKey": "masu",
+     "use": "The default with colleagues, seniors, patients and customers."
+    },
+    {
+     "id": "keigo",
+     "pronoun": "(honorific and humble set phrases)",
+     "verbKey": "masu",
+     "use": "Front desk and clinical set phrases with patients and customers (お掛けください、少々お待ちください)."
+    }
+   ],
+   "fromSpanish": {
+    "tú": "plain form between close peers, otherwise desu/masu",
+    "usted": "desu/masu with keigo set phrases; surname + さん",
+    "ustedes": "皆さん + desu/masu",
+    "vosotros": "皆さん + desu/masu"
+   },
+   "patients": "desu/masu with keigo set phrases; address by surname + さん (様 at reception); never あなた",
+   "crew": "desu/masu with seniors; plain form between close peers where Spanish uses tú"
+  },
+  "impersonalForms": [],
+  "extraVerbForms": []
+ },
+ "answerRules": {
+  "tokenizer": "graphemes",
+  "unicodeNormalization": "NFKC",
+  "caseHint": false,
+  "accentPolicy": {
+   "typed": "strict",
+   "speech": "strict",
+   "handwriting": "strict"
+  },
+  "accentHint": false,
+  "markName": "accent marks",
+  "fold": {},
+  "neverFold": [],
+  "ligatures": {},
+  "typedAlternates": {},
+  "protectedPairs": [],
+  "articleOptional": "off",
+  "soundRules": [],
+  "homophoneSets": [],
+  "speechScoring": {
+   "soundEquivalentCredit": 0.85,
+   "similarityFloor": 0.65,
+   "similarityCredit": 0.75,
+   "minWordLength": 2
+  },
+  "ocrConfusables": [
+   [
+    "ー",
+    "一"
+   ],
+   [
+    "カ",
+    "力"
+   ],
+   [
+    "ロ",
+    "口"
+   ],
+   [
+    "ニ",
+    "二"
+   ],
+   [
+    "タ",
+    "夕"
+   ],
+   [
+    "エ",
+    "工"
+   ],
+   [
+    "へ",
+    "ヘ"
+   ],
+   [
+    "り",
+    "リ"
+   ]
+  ],
+  "moreDetailKeywords": [
+   "もっと詳しく",
+   "詳しく",
+   "もっと長く",
+   "説明して",
+   "話して"
+  ]
+ },
+ "speech": {
+  "recognition": {
+   "mode": "on-device",
+   "languageCode": "ja",
+   "locales": [
+    "ja-JP"
+   ],
+   "dictationName": "Japanese",
+   "keyboardName": "Japanese – Kana",
+   "fallback": "listen-and-compare"
+  },
+  "tts": {
+   "languageCode": "ja",
+   "locales": [
+    "ja-JP"
+   ],
+   "deviceVoice": true,
+   "rate": {
+    "normal": 0.45,
+    "slow": 0.33
+   }
+  },
+  "accents": [
+   {
+    "tag": "ja-JP",
+    "label": "Japan",
+    "default": true
+   }
+  ],
+  "handwriting": {
+   "mode": "vision",
+   "visionLanguages": [
+    "ja-JP",
+    "en-US"
+   ]
+  },
+  "partnerVoice": {
+   "available": true,
+   "provider": "google-chirp3-hd",
+   "locale": "ja-JP",
+   "female": "Aoede",
+   "male": "Charon"
+  },
+  "offlineVoices": {
+   "defaultEngine": "device",
+   "phonon": null,
+   "kokoro": null
+  },
+  "remoteFallback": null
+ },
+ "audio": {
+  "folder": "RecordedAudio/ja",
+  "manifest": "RecordedAudio/ja/recordings.json",
+  "watchFolder": "WatchAudioLite/ja",
+  "voices": [
+   {
+    "id": "female",
+    "label": "Female",
+    "gender": "female",
+    "locale": "ja-JP"
+   },
+   {
+    "id": "male",
+    "label": "Male",
+    "gender": "male",
+    "locale": "ja-JP"
+   }
+  ],
+  "coverage": "partial",
+  "requireReviewed": true,
+  "legacy": {
+   "manifest": "JapaneseRecordedAudio/recordings.json",
+   "folder": "JapaneseRecordedAudio",
+   "watchFolder": "JapaneseRecordedAudio"
+  }
+ },
+ "dictionary": {
+  "file": "TutorDictionary/ja-en.json",
+  "supplement": null,
+  "morphology": null,
+  "lookup": {
+   "elisionPrefixes": [],
+   "stripArticles": false,
+   "stripPrefixes": []
+  },
+  "crossModuleIndex": true
+ },
+ "content": {
+  "catalog": "core60_ja.json",
+  "lessonSourceRoot": "public/lesson-content/ja",
+  "missions": "speaking_missions_ja.json",
+  "readerLibrary": null,
+  "partnerPack": "partner/ja.json",
+  "sentencePatterns": null,
+  "placementGame": null,
+  "cmeActivities": null,
+  "guideTips": null,
+  "readingTracks": null,
+  "settingsGuide": null
+ },
+ "library": {
+  "defaultModule": "japanese-basics",
+  "coreBasics": [
+   "japanese-basics",
+   "japanese-102",
+   "japanese-frequent-verbs",
+   "japanese-usage-verbs",
+   "japanese-common-patterns",
+   "japanese-conjugation-patterns",
+   "japanese-cognates",
+   "sound-like-a-native"
+  ],
+  "intro": "Start with Japanese 101. These 60 lessons include six practice modes and paired readings.",
+  "guidance": {
+   "japanese-basics": "Start here · Japanese sounds, script, and everyday conversation."
+  }
+ },
+ "ids": {
+  "lessonPrefix": "ja:",
+  "activity": "core60:{code}:{native}:{module}:{n}",
+  "legacyActivityPrefixes": [
+   "core60:Japanese:English:",
+   "native:"
+  ],
+  "mission": "scenario_version_{module}_lesson_{n}_{missionCode}_v1",
+  "missionCode": "ja",
+  "storageNamespace": "ja",
+  "legacyUnscopedStorage": true
+ },
+ "phrases": {
+  "register": "polite",
+  "soundCheckWord": "こんにちは",
+  "soundCheckSentence": "こんにちは。お元気ですか。",
+  "voicePreview": "屋根",
+  "partnerPreview": "こんにちは。日本語で話しましょう。今日は何を練習したいですか。",
+  "clarification": "すみません、よく分かりませんでした。もう一度お願いします。",
+  "greeting": "こんにちは",
+  "paceCommands": {
+   "slower": [
+    "ゆっくり",
+    "もっとゆっくり"
+   ],
+   "normal": [
+    "普通の速さで"
+   ],
+   "faster": [
+    "もっと速く"
+   ],
+   "simpler": [
+    "もっと簡単な言葉",
+    "やさしい言葉"
+   ]
+  }
+ },
+ "prompts": {
+  "languageName": "Japanese",
+  "replyInstruction": "Reply in Japanese.",
+  "scriptNote": "Use natural Japanese script (kana and kanji), not romaji.",
+  "varietyNote": "Use desu/masu style; address people by surname + さん, never あなた."
+ },
+ "contentChecks": {
+  "targetMarkers": "(です|ます|ません|でした|ました|ください)",
+  "nativeMarkers": {
+   "en": "\\b(the|and|with|is|are|use|form|verb|command|stem|change|to|of|it|in|for|this|when|means|your|as|say|not|he|his|her|used|usually|often|like|after|before|also|only|than)\\b"
+  },
+  "infinitivePattern": "",
+  "pronounFirstPattern": ""
+ },
+ "features": {
+  "speaking": "web",
+  "speakingMissions": true,
+  "partnerChat": true,
+  "onlineTutor": false,
+  "verbsTab": false,
+  "placementGame": false,
+  "kanaPad": true,
+  "verbGames": false,
+  "handwriting": true
+ }
+}

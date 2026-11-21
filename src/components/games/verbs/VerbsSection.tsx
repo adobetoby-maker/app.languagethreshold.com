@@ -6,7 +6,12 @@ import { useAuth } from "@/state/auth-state";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useVerbDevice } from "@/hooks/use-verb-device";
 import { recordPicks, recordRound, sourceFilterFor, type VerbDeviceState } from "@/lib/verb-games/device";
-import { loadPatternData } from "@/lib/verb-games/load-patterns";
+import {
+  hasVerbPatterns,
+  loadPatternData,
+  verbPatternLanguageNames,
+} from "@/lib/verb-games/load-patterns";
+import { packFor } from "@/data/language-packs/registry";
 import { guardVerbRoute } from "@/lib/verb-games/route-guard";
 import { modeKey, modeOf, scopeKey } from "@/lib/verb-games/rules";
 import type { EndReason, FamilyId, PatternData, RoundConfig, RoundLog, RoundMode, RoundResult } from "@/lib/verb-games/types";
@@ -103,6 +108,7 @@ function Loading() {
 export function VerbsSection() {
   const [open, setOpen] = useState(false);
   const { state } = useApp();
+  const pack = packFor(state.selectedLanguage);
   const root = useRef<HTMLDivElement>(null);
   const launcher = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -128,14 +134,14 @@ export function VerbsSection() {
       className={`group flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-5 text-left transition-all hover:border-gold/60 hover:bg-card/70 ${FOCUS}`}>
       <div className="flex items-center justify-between">
         <Repeat2 className="h-6 w-6 text-gold" strokeWidth={1.6} aria-hidden="true" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Spanish</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{hasVerbPatterns(pack) ? pack.name : verbPatternLanguageNames("·")}</span>
       </div>
       <div>
         <h3 className="font-display text-lg font-semibold leading-tight text-foreground">Verbs</h3>
         <p className="mt-1 text-xs leading-snug text-muted-foreground">Practice by pattern with Bubble Pop and Verb Crush.</p>
       </div>
       <div className="mt-auto border-t border-border/40 pt-3 text-xs text-muted-foreground">
-        {state.selectedLanguage === "Spanish" ? "Choose a pattern and play a round." : "Switch to Spanish to play."}
+        {hasVerbPatterns(pack) ? "Choose a pattern and play a round." : `Switch to ${verbPatternLanguageNames("or")} to play.`}
       </div>
       <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
     </button>
@@ -167,7 +173,8 @@ export function VerbPractice() {
   /** The last round recorded, so a repeated end call never counts a round twice. */
   const recordedRef = useRef<string | null>(null);
 
-  const spanish = state.selectedLanguage === "Spanish";
+  const pack = packFor(state.selectedLanguage);
+  const supported = hasVerbPatterns(pack);
   const moduleId = state.activeModuleId ?? null;
 
   useEffect(() => {
@@ -181,17 +188,17 @@ export function VerbPractice() {
   }, []);
 
   useEffect(() => {
-    if (!spanish) return;
+    if (!supported || !pack) return;
     let live = true;
     setFailed(false);
-    loadPatternData().then(
+    loadPatternData(pack).then(
       (loaded) => live && setData(loaded),
       () => live && setFailed(true),
     );
     return () => {
       live = false;
     };
-  }, [spanish, attempt]);
+  }, [supported, pack, attempt]);
 
   const go = useCallback((next: VerbScreen) => {
     const params = new URLSearchParams(verbRouteSearch(window.location.search, next));
@@ -274,8 +281,9 @@ export function VerbPractice() {
   }, [roundId, ready, frozen, playGame, playFamily, playFamilies, playLevel, playModeKey, playMode, settings, moduleId, seed, reducedMotion]);
   const roundConfig = ready && roundId !== null && frozen?.id === roundId ? frozen.config : null;
 
-  if (!spanish) {
-    return <Notice title="Verb Games are Spanish-only for now" body="Switch your target language to Spanish to practice verbs by pattern." />;
+  if (!supported) {
+    const names = verbPatternLanguageNames("and");
+    return <Notice title={`Verb Games are ${names}-only for now`} body={`Switch your target language to ${verbPatternLanguageNames("or")} to practice verbs by pattern.`} />;
   }
   if (failed) {
     return (

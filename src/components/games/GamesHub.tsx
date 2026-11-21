@@ -384,7 +384,7 @@ export function GamesHub() {
 
       {/* ── Module-specific games ──────────────────────────────────────── */}
       <ModuleGamesSection
-        language={state.selectedLanguage ?? "Spanish"}
+        language={state.selectedLanguage}
         activeModule={state.activeModuleId ?? null}
       />
 

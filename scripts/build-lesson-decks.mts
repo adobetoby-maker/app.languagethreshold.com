@@ -32,6 +32,8 @@ import {
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { getCurriculum } from "../src/data/curriculum.ts";
+import { PACKS } from "../src/data/language-packs/registry.ts";
+import { SPANISH_AUTHORED_PAIR, deckNativeLanguage } from "../src/lib/lesson-words-core.ts";
 import type { LessonWord } from "../src/data/curriculum.ts";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import {
@@ -54,18 +56,7 @@ const PUBLIC_DIR = join(ROOT, "public", "lesson-decks");
 const PROGRESS_DIR = join(ROOT, ".lesson-decks-progress");
 const API_URL = "https://api.anthropic.com/v1/messages";
 
-const TARGETS = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Portuguese",
-  "Japanese",
-  "Chinese",
-  "Korean",
-  "Pashto",
-  "English",
-] as const;
+const TARGETS = Object.values(PACKS).map((pack) => pack.name);
 
 // ─── Flags ───────────────────────────────────────────────────────────────────
 
@@ -161,10 +152,10 @@ function buildPlan(): Pair[] {
     if (!curriculum) continue;
     for (const language of TARGETS) {
       if (!matchesLang(language)) continue;
-      const nativeLanguage = language === "English" ? "Spanish" : "English";
+      const nativeLanguage = deckNativeLanguage(language);
       if (!moduleSupportsLearningPair(module, language, nativeLanguage)) continue;
       const lessonNumbers = curriculum.lessons
-        .filter((lesson) => pickAuthoredWords(lesson.words, language) === null)
+        .filter((lesson) => pickAuthoredWords(lesson.words, language, nativeLanguage, SPANISH_AUTHORED_PAIR) === null)
         .map((lesson) => lesson.n);
       if (lessonNumbers.length === 0) continue; // fully authored (roofing, Spanish)
       const dir = deckLanguageDir(language);

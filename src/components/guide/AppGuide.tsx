@@ -12,7 +12,11 @@ import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
 import { spanishPatternWords } from "@/data/spanish-basics";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
-import { SpanishBasicsCheck } from "@/components/core30/SpanishBasicsCheck";
+import { onrampFor, isBasicsModule, isDefaultCourse } from "@/lib/language-onramp";
+import { usePack } from "@/hooks/use-language-pack";
+import { sameLanguage } from "@/data/language-packs/registry";
+import { STARTER_DECK_LANGUAGE } from "@/lib/language-menu";
+import { BasicsCheck } from "@/components/core30/BasicsCheck";
 import { useLessonReview } from "@/hooks/use-lesson-review";
 import { LessonReviewCards } from "@/components/core30/LessonReviewCards";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
@@ -1183,7 +1187,8 @@ function OwnedLessonRunner({
     current: () => boolean,
   ) {
     const lessonsLog = state.core30Log[progressKey]?.lessons ?? {};
-    const total = getCurriculum(moduleId)?.lessons.length ?? 0;
+    const total =
+      getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.length ?? 0;
     let n = fromN + 1;
     while (n <= total && lessonsLog[String(n)]?.masteredAt) {
       let sessions: Record<string, string> = {};
@@ -1308,8 +1313,13 @@ function OwnedLessonRunner({
       if (mark)
         trackEvent(
           "lesson_mastered",
-          { module_id: moduleId, lesson: lesson.n },
-          `lesson_mastered:${moduleId}:${lesson.n}`,
+          {
+            module_id: moduleId,
+            lesson: lesson.n,
+            target_language: state.selectedLanguage,
+            native_language: state.nativeLanguage,
+          },
+          `lesson_mastered:${moduleId}:${state.selectedLanguage}:${state.nativeLanguage}:${lesson.n}`,
         );
       completed.current = sequential;
       if (sequential) onComplete();
@@ -1785,9 +1795,9 @@ function OwnedLessonRunner({
         className="rounded-2xl border border-gold/20 bg-gold/[0.04] p-4"
       >
         {coursePractice && (!masteredAt || needsPractice) && (
-          <SpanishBasicsCheck
+          <BasicsCheck
             topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"}
-            language={japanese ? "Japanese" : "Spanish"}
+            language={state.selectedLanguage}
             checks={coursePractice.checks}
             onPassed={() => setGrammarPassed(true)}
           />
@@ -1880,7 +1890,10 @@ export function AppGuide() {
   const curriculum = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage);
 
   const flow = getFlow(state.activeModuleId);
-  const tip = getModuleTip(state.activeModuleId);
+  // Module tips and cognates are authored per language (pack.content.guideTips); a language
+  // with none shows no tip card rather than another language's.
+  const tipPack = usePack(state.selectedLanguage);
+  const tip = tipPack?.content.guideTips ? getModuleTip(state.activeModuleId) : null;
   const tourSteps = getTourScript(state.activeModuleId);
 
   // XP tier progress
@@ -2269,6 +2282,7 @@ function clearCore30Philosophy() {
  *  open on "How Core 30 works". */
 function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const { state, dispatch } = useApp();
+  const onramp = onrampFor(state.selectedLanguage, state.nativeLanguage);
   const { user } = useAuth();
   const moduleId = state.activeModuleId ?? "";
   const downloadPackId = offlineLessonPackId(
@@ -2323,7 +2337,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     )
       return null;
     const marker = readLessonReturn(browserReturnStorage(), Date.now());
-    const total = getCurriculum(moduleId)?.lessons.length ?? 0;
+    const total =
+      getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.length ?? 0;
     return marker && marker.moduleId === moduleId && marker.lesson <= total ? marker : null;
   });
   const [linkedLesson] = useState(() =>
@@ -2334,7 +2349,8 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       ? requestedLesson(
           new URLSearchParams(window.location.search),
           moduleId,
-          getCurriculum(moduleId)?.lessons.length ?? 0,
+          getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.length ??
+            0,
         )
       : null,
   );
@@ -2349,14 +2365,17 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
       const storage = user?.id ? window.localStorage : window.sessionStorage;
       const position = readLessonPosition(storage, positionKey);
       const valid =
-        position && getCurriculum(moduleId)?.lessons.some((l) => l.n === position.lesson)
+        position &&
+        getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.some(
+          (l) => l.n === position.lesson,
+        )
           ? position
           : null;
       setSavedPositionState({ key: positionKey, position: valid });
     } catch {
       setSavedPositionState({ key: positionKey, position: null });
     }
-  }, [positionKey, moduleId, user?.id, openLessonN]);
+  }, [positionKey, moduleId, user?.id, openLessonN, state.selectedLanguage, state.nativeLanguage]);
   useEffect(() => {
     if (!restoreView || openLessonN !== null) return;
     const next = lessonOverviewLocation(window.location.href, {
@@ -2380,7 +2399,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     clearLessonReturn(browserReturnStorage());
   }, []);
 
-  const curriculum = getCurriculum(moduleId);
+  const curriculum = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage);
   const hasCurriculum = Boolean(curriculum);
   // Fetch the module's whole pre-built word deck once the learner opens Core 30, so every
   // lesson is ready and the service worker has it for offline use.
@@ -2394,8 +2413,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
   const [cardReviewOpen, setCardReviewOpen] = useState(false);
   const nativeOpen = useRef<(mode: SectionId) => void>(() => {});
   nativeOpen.current = (mode) => {
-    if (!restoreView || openLessonN !== null || !getCurriculum(moduleId)) return;
-    const course = getCurriculum(moduleId)!;
+    if (
+      !restoreView ||
+      openLessonN !== null ||
+      !getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)
+    )
+      return;
+    const course = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)!;
     const lesson =
       (savedPosition && course.lessons.find((item) => item.n === savedPosition.lesson)) ??
       getCurrentLesson(moduleId, state.lessonProgress, progressKey);
@@ -2673,48 +2697,36 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
             {curriculum.displayHeadline ?? curriculum.headline}
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">{curriculum.threshold}</p>
-          {state.selectedLanguage === "Spanish" &&
-            state.nativeLanguage === "English" &&
-            ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(
-              moduleId,
-            ) && (
+          {onramp &&
+            sameLanguage(state.selectedLanguage, STARTER_DECK_LANGUAGE) &&
+            isDefaultCourse(moduleId, state.selectedLanguage) && (
               <button
                 className="mt-3 min-h-11 rounded-lg border border-border px-4 text-foreground"
                 onClick={() => dispatch({ type: "SET_TAB", payload: "flashcards" })}
               >
-                Practice Spanish 101 vocabulary · My card lists
+                Practice {onramp.start.label} vocabulary · My card lists
               </button>
             )}
-          {state.selectedLanguage === "Spanish" &&
-            state.nativeLanguage === "English" &&
-            spanishBasicsLesson(moduleId, 1) && (
-              <nav
-                aria-label="General Spanish course sequence"
-                className="mt-4 rounded-xl border border-border p-3"
-              >
-                <p className="text-sm font-semibold">Continue your Spanish</p>
-                <ol className="mt-2 space-y-1">
-                  {[
-                    ["spanish-basics", "Spanish 101"],
-                    ["spanish-102", "Spanish 102"],
-                    ["spanish-frequent-verbs", "Frequent Verbs"],
-                    ["spanish-conjugation-patterns", "Conjugation Patterns"],
-                    ["spanish-usage-verbs", "Usage-First Verbs"],
-                    ["spanish-common-patterns", "Common Grammar Patterns"],
-                    ["spanish-cognates", "Cognates"],
-                  ].map(([id, label], index) => (
-                    <li key={id}>
-                      <a
-                        className="inline-flex min-h-11 items-center text-sm underline"
-                        href={`/?tab=core30&module=foundation-${id}&target=Spanish&native=English`}
-                      >
-                        {index + 1}. {label}
-                      </a>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            )}
+          {onramp && isBasicsModule(moduleId, state.selectedLanguage) && (
+            <nav
+              aria-label={`General ${onramp.pack.name} course sequence`}
+              className="mt-4 rounded-xl border border-border p-3"
+            >
+              <p className="text-sm font-semibold">Continue your {onramp.pack.name}</p>
+              <ol className="mt-2 space-y-1">
+                {onramp.courses.map((course, index) => (
+                  <li key={course.id}>
+                    <a
+                      className="inline-flex min-h-11 items-center text-sm underline"
+                      href={course.href}
+                    >
+                      {index + 1}. {course.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
           {moduleId.includes("spanish-usage-verbs") && (
             <p className="mt-3 text-sm text-muted-foreground">
               Rank counts group a verb’s inflected forms together. This course follows the Spanish
@@ -3042,6 +3054,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
 export function Core30Tab() {
   useEffect(scrollLessonPageToTop, []);
   const { state, dispatch } = useApp();
+  const onramp = onrampFor(state.selectedLanguage, state.nativeLanguage);
   const { user } = useAuth();
   // A data-driven Core 60 stage (Foundation / Master) loads its curriculum on open: the lesson
   // page and runner mount once it is here, so their first render already has every lesson.
@@ -3063,23 +3076,22 @@ export function Core30Tab() {
       {state.hydrated &&
         !hasStartedCourse &&
         state.activeModuleId &&
-        !spanishBasicsLesson(state.activeModuleId, 1) &&
-        state.selectedLanguage === "Spanish" &&
-        state.nativeLanguage === "English" && (
+        onramp &&
+        !isBasicsModule(state.activeModuleId, state.selectedLanguage) && (
           <aside
-            aria-label="Beginner Spanish course"
+            aria-label={`Beginner ${onramp.pack.name} course`}
             className="rounded-2xl border border-gold/30 bg-card p-4 text-foreground"
           >
-            <h2 className="text-lg font-semibold">Looking for Spanish 101?</h2>
+            <h2 className="text-lg font-semibold">Looking for {onramp.start.label}?</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Start with everyday grammar before a specialty: 10 Foundation + 30 Core + 20
               application lessons.
             </p>
             <a
-              href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+              href={onramp.start.href}
               className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-gold px-4 font-semibold text-midnight"
             >
-              Start Spanish 101
+              Start {onramp.start.label}
             </a>
           </aside>
         )}
@@ -3124,16 +3136,16 @@ export function Core30Tab() {
         <section className="rounded-2xl border border-gold/30 bg-gold/5 p-6">
           <h1 className="font-display text-2xl font-semibold tracking-tight">Core 60</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English"
-              ? "New to Spanish? Start here with Spanish 101: 10 Foundation lessons, 30 grammar lessons, and 20 lessons applying the basics. No specialty module is needed."
+            {onramp
+              ? `New to ${onramp.pack.name}? Start here with ${onramp.start.label}: 10 Foundation lessons, 30 grammar lessons, and 20 lessons applying the basics. No specialty module is needed.`
               : "Choose a module with a course in your learning language."}
           </p>
-          {state.selectedLanguage === "Spanish" && state.nativeLanguage === "English" && (
+          {onramp && (
             <a
-              href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+              href={onramp.start.href}
               className="mt-4 inline-flex min-h-12 items-center rounded-xl bg-gold px-5 font-semibold text-midnight"
             >
-              Start Spanish 101 · Foundation
+              Start {onramp.start.label} · Foundation
             </a>
           )}
           <div className="mt-3">

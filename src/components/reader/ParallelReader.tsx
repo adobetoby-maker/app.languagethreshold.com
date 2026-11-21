@@ -1000,6 +1000,7 @@ export function ParallelReader() {
               >
                 <Pane
                   pane="left"
+                  language={state.nativeLanguage}
                   sentences={activeSentences.map((s) => s.en)}
                   size={size}
                   annotations={annotations}
@@ -1074,6 +1075,7 @@ export function ParallelReader() {
             >
               <Pane
                 pane="right"
+                language={state.selectedLanguage}
                 sentences={activeSentences.map((s) => s.target)}
                 size={size}
                 annotations={annotations}
@@ -1169,8 +1171,11 @@ function Pane({
   furiganaScript = "hiragana",
   romajaMode = "off",
   pinyinMode = "off",
+  language,
 }: {
   pane: "left" | "right";
+  /** Language this pane's text is written in. */
+  language?: string;
   sentences: string[];
   size: TextSize;
   annotations: ReturnType<typeof useNotes>["annotations"];
@@ -1272,6 +1277,7 @@ function Pane({
                 text={s}
                 annotations={sentenceAnns}
                 onWordClick={wrappedWordClick}
+                language={language}
               />
             )}
           </p>

@@ -417,17 +417,19 @@ test("mission lookup fails closed for unknown versions", () => {
   assert.equal(findSpeakingMission("scenario_version_unknown_es_v1"), null);
 });
 
-test("Google TTS supports every published learner language", () => {
-  assert.deepEqual(MISSION_TTS_SUPPORTED_LANGUAGES, [
-    "Spanish",
+test("Google TTS supports every registered learner language", () => {
+  // Derived from the language-pack registry (every pack's voice language), in registry order.
+  assert.deepEqual([...MISSION_TTS_SUPPORTED_LANGUAGES].sort(), [
+    "Chinese",
+    "English",
     "French",
     "German",
     "Italian",
     "Japanese",
     "Korean",
-    "Portuguese",
     "Pashto",
-    "English",
+    "Portuguese",
+    "Spanish",
   ]);
 });
 

@@ -2,6 +2,8 @@ import { dictWords } from "../src/components/dictionary/wordData.ts";
 import { writeFileSync } from "node:fs";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { getCurriculum } from "../src/data/curriculum.ts";
+import { PACKS } from "../src/data/language-packs/registry.ts";
+import { SPANISH_AUTHORED_PAIR, authoredWordsPairForModule, deckNativeLanguage } from "../src/lib/lesson-words-core.ts";
 // Public authored term pairs only. Never scrape private/generated learner content.
 const rows: {
   es: string;
@@ -13,24 +15,29 @@ const rows: {
   target?: string;
   native?: string;
 }[] = [];
-for (const module of MODULES) {
-  const englishTarget = module.learnDirection === "en-target";
-  const target = englishTarget ? "English" : "Spanish";
-  const native = englishTarget ? "Spanish" : "English";
-  if (!moduleSupportsLearningPair(module, target, native)) continue;
-  for (const lesson of getCurriculum(module.id)?.lessons ?? []) {
-    for (const word of lesson.words ?? []) {
-      if (word.kind !== "term" || !word.es.trim() || !word.en.trim()) continue;
-      rows.push({
-        es: (englishTarget ? word.en : word.es).trim(),
-        en: (englishTarget ? word.es : word.en).trim(),
-        target,
-        native,
-        moduleId: module.id,
-        moduleName: module.name,
-        lesson: lesson.n,
-        title: lesson.title,
-      });
+// One pass per registered target language. Each row is [target text, native text]; the module's
+// pair comes from its own record (authoredPair, or learnDirection), never from a Spanish default.
+for (const pack of Object.values(PACKS)) {
+  for (const module of MODULES) {
+    const native = deckNativeLanguage(pack.name);
+    const target = pack.name;
+    if (!native || !moduleSupportsLearningPair(module, target as never, native as never)) continue;
+    const authored = authoredWordsPairForModule(module);
+    if (authored.language !== target || authored.nativeLanguage !== native) continue;
+    for (const lesson of getCurriculum(module.id)?.lessons ?? []) {
+      for (const word of lesson.words ?? []) {
+        if (word.kind !== "term" || !word.es.trim() || !word.en.trim()) continue;
+        rows.push({
+          es: word.es.trim(),
+          en: word.en.trim(),
+          target,
+          native,
+          moduleId: module.id,
+          moduleName: module.name,
+          lesson: lesson.n,
+          title: lesson.title,
+        });
+      }
     }
   }
 }
@@ -39,6 +46,8 @@ for (const word of dictWords) {
   rows.push({
     es: word.word,
     en: word.english,
+    target: SPANISH_AUTHORED_PAIR.language,
+    native: SPANISH_AUTHORED_PAIR.nativeLanguage,
     moduleId: "app-dictionary",
     moduleName: "App dictionary",
     lesson: 0,
@@ -50,6 +59,7 @@ const modules: {
   name: string;
   target?: string;
   native?: string;
+  columns: [string | undefined, string | undefined];
   lessons: Record<string, string>;
 }[] = [];
 const moduleIndices = new Map<string, number>();
@@ -63,6 +73,7 @@ const entries = rows.map((row) => {
       name: row.moduleName,
       target: row.target,
       native: row.native,
+      columns: [row.target, row.native],
       lessons: {},
     });
   }

@@ -19,6 +19,12 @@ import { PENPAL_CURRICULA, type PenPalTopic } from "./penpal-curriculum";
 import { PenPalCanvas } from "./PenPalCanvas";
 import { VocabBuilder } from "./VocabBuilder";
 
+/** The languages that have a pen-pal curriculum, as "A, B, or C". */
+function penPalLanguageList(): string {
+  const names = Object.keys(PENPAL_CURRICULA);
+  return names.length > 1 ? `${names.slice(0, -1).join(", ")}, or ${names[names.length - 1]}` : names.join("");
+}
+
 type Step = "vocab" | "copyWord" | "copySentence" | "circle" | "write" | "done";
 
 function VocabCard({
@@ -244,7 +250,7 @@ export function PenPalPad() {
         <h2 className="font-display text-2xl font-semibold">Pen Pal Practice</h2>
         <p className="text-sm text-muted-foreground max-w-sm">
           Pen Pal Practice is not yet available for <strong>{state.selectedLanguage}</strong>. Switch to
-          Spanish, French, Japanese, Korean, German, Portuguese, or Italian to get started.
+          {penPalLanguageList()} to get started.
         </p>
       </div>
     );

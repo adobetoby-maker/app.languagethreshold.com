@@ -6,7 +6,18 @@
 //   4. Any voice for the locale.
 //   5. Any voice for the language family.
 
-import { decodeGoogleVoicePreference, spanishVoiceLocaleRank } from "@/data/mission-tts";
+import {
+  decodeGoogleVoicePreference,
+  packForVoiceLocale,
+  voiceLocaleRank,
+} from "@/data/mission-tts";
+
+/**
+ * Device voices a pack prefers by name when the browser offers them (the pack schema has no
+ * speech.preferredDeviceVoices field yet, so this is an authored table keyed by pack code).
+ * Spanish keeps Paulina, a nearby Latin American voice, ahead of the browser's first Spain voice.
+ */
+const PREFERRED_DEVICE_VOICES: Record<string, readonly string[]> = { es: ["Paulina"] };
 
 const LISTENERS = new Set<() => void>();
 let cached: SpeechSynthesisVoice[] = [];
@@ -49,19 +60,21 @@ export function subscribeVoices(cb: () => void): () => void {
 export function getVoicesForLocale(locale: string): SpeechSynthesisVoice[] {
   const all = getAllVoices();
   const family = locale.split("-")[0].toLowerCase();
+  const pack = packForVoiceLocale(locale);
+  const preferred = (pack && PREFERRED_DEVICE_VOICES[pack.code]) ?? [];
   const exact = all.filter((v) => v.lang.toLowerCase() === locale.toLowerCase());
   const familyMatches = all.filter((v) => v.lang.toLowerCase().startsWith(family + "-"));
-  // Prefer the requested locale. For Spanish fallback, a nearby Latin American
-  // voice is less surprising than the browser's first Spain voice.
+  // Prefer the requested locale. Without it, fall back in the pack's accent order (Spanish: a
+  // nearby Latin American voice is less surprising than the browser's first Spain voice).
   const score = (v: SpeechSynthesisVoice) => {
-    if (family === "es" && v.name === "Paulina") return 0;
+    if (preferred.includes(v.name)) return 0;
     if (v.name.includes("Google")) return 1;
     if (/^(Eddy|Flo|Grandma|Grandpa|Reed|Rocko|Sandy|Shelley) \(/.test(v.name)) return 3;
     return 2;
   };
   return (exact.length > 0 ? exact : familyMatches).sort((a, b) => {
-    if (exact.length === 0 && family === "es") {
-      const localeOrder = spanishVoiceLocaleRank(a.lang) - spanishVoiceLocaleRank(b.lang);
+    if (exact.length === 0 && pack) {
+      const localeOrder = voiceLocaleRank(a.lang, pack) - voiceLocaleRank(b.lang, pack);
       if (localeOrder !== 0) return localeOrder;
     }
     const s = score(a) - score(b);

@@ -164,7 +164,11 @@ function SectionBlock({
                     fading={speaking!.fading}
                   />
                 ) : (
-                  <ClickableText text={target} onWordClick={(w, s, x, y) => onWord(w, s, x, y)} />
+                  <ClickableText
+                    text={target}
+                    language={state.selectedLanguage}
+                    onWordClick={(w, s, x, y) => onWord(w, s, x, y)}
+                  />
                 )}
                 <button
                   type="button"

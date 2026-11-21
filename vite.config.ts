@@ -1,6 +1,8 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { realpathSync } from "node:fs";
 import { execFileSync } from "node:child_process";
+// @ts-expect-error -- plain ESM build helper without type declarations
+import { languagePackCatalogs } from "./scripts/vite-language-pack-catalogs.mjs";
 
 export default defineConfig(({ command }) => {
   let commit = process.env.VERCEL_GIT_COMMIT_SHA;
@@ -26,6 +28,8 @@ export default defineConfig(({ command }) => {
           ? "production"
           : "build";
   return {
+    // Language-pack catalog modules (draft packs only when VITE_LT_QA=1).
+    plugins: [languagePackCatalogs()],
     // Worktrees may share an installed dependency cache through a symlink.
     ...(command === "serve"
       ? { server: { fs: { allow: [process.cwd(), realpathSync("node_modules")] } } }

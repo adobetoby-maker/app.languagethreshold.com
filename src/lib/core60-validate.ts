@@ -8,12 +8,13 @@ import type { LessonWord } from "../data/curriculum.ts";
 import type { AppModule } from "../data/modules.ts";
 import { LANGUAGES } from "../data/languages.ts";
 import { contentLimitsFor, invisibleCharErrors, selfTalkIssue } from "./lesson-content-core.ts";
-import { languageTag } from "./lesson-words-core.ts";
+import { packFor } from "../data/language-packs/registry.ts";
 import {
   CORE60_BLOCKS,
   CORE60_LESSON_TYPES,
   CORE60_STAGE_FILE_VERSION,
   CORE60_STAGE_LESSONS,
+  entryNativeLanguage,
   manifestStageModuleId,
   stageModuleId,
   type Core60ManifestEntry,
@@ -189,7 +190,25 @@ export function validateStageFile(raw: unknown, expected: StageFileExpectation =
     if (!text(lesson.objective)) errors.push(`${where}: objective is missing`);
     if (!text(lesson.speaking)) errors.push(`${where}: speaking (the Say it brief) is missing`);
     validateWords(lesson.words, moduleId, where, errors);
-    if (file.language === "Spanish") {
+    const pack = typeof file.language === "string" ? packFor(file.language) : null;
+    // Language purity: the target side of a pack without inverted punctuation never carries ¿ or ¡.
+    if (pack && !pack.typography.invertedPunctuation) {
+      const targetTexts: [string, unknown][] = [];
+      if (Array.isArray(lesson.words))
+        lesson.words.forEach((word, w) =>
+          targetTexts.push([`${where} word ${w + 1}`, (word as Partial<LessonWord> | null)?.es]),
+        );
+      const examples = (lesson.grammar as { examples?: unknown } | undefined)?.examples;
+      if (Array.isArray(examples))
+        examples.forEach((example, e) =>
+          targetTexts.push([`${where} grammar example ${e + 1}`, (example as { es?: unknown } | null)?.es]),
+        );
+      for (const [at, value] of targetTexts)
+        if (typeof value === "string" && /[¿¡]/u.test(value))
+          errors.push(`${at}: ¿ or ¡ in ${pack.name} text (inverted punctuation belongs to another language): ${value}`);
+    }
+    // Release gate named by the pack: a pack that lists vosotros under variety.avoid never ships it.
+    if (pack?.variety.avoid.some((entry) => /vosotros/i.test(entry))) {
       if (Array.isArray(lesson.words))
         lesson.words.forEach((word, w) =>
           vosotrosErrors(`${where} word ${w + 1}`, (word as Partial<LessonWord> | null)?.es, errors),
@@ -247,7 +266,7 @@ export function validateManifest(
   const stageIds = new Set<string>();
   for (const entry of manifest) {
     const where = `manifest entry "${entry.base}"`;
-    const native = entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English");
+    const native = entryNativeLanguage(entry) ?? "";
     const pair = `${entry.base}\u0000${entry.language}\u0000${native}`;
     if (pairs.has(pair)) errors.push(`${where}: listed twice`);
     pairs.add(pair);
@@ -262,7 +281,7 @@ export function validateManifest(
       errors.push(`${where}: the base module is authored for ${base.authoredPair.target}/${base.authoredPair.native}; use a separate base module for ${entry.language}/${native}`);
     if (!entry.foundation && !entry.master) errors.push(`${where}: lists no stage`);
     if (!text(entry.language)) errors.push(`${where}: language is missing`);
-    else if (!(LANGUAGES as readonly string[]).includes(entry.language) || languageTag(entry.language) === "und")
+    else if (!(LANGUAGES as readonly string[]).includes(entry.language) || !packFor(entry.language))
       errors.push(
         `${where}: "${entry.language}" is not a language the app supports (${LANGUAGES.join(", ")})`,
       );

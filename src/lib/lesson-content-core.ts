@@ -10,6 +10,10 @@
 
 import type { LessonWord } from "../data/curriculum.ts";
 import { cleanLessonWords, isCorrectTypedAnswer, languageTag } from "./lesson-words-core.ts";
+import { PACKS, packFor, type LanguagePack } from "../data/language-packs/registry.ts";
+import { nativeLanguageName } from "../data/languages.ts";
+import { requiredVerbFormKeys } from "./language-pack-text.ts";
+import { contentRulesFor } from "../data/language-packs/content-rules.ts";
 
 export const LESSON_CONTENT_VERSION = 1;
 
@@ -140,63 +144,63 @@ export function contentLimitsFor(moduleId: string | null | undefined): ContentLi
     minTermsUsed: 5, minPhrasesUsed: 1, minVerbs: 3, maxVerbs: 3,
     preserveAccentContrasts: true,
   };
-  return moduleId && /^(foundation-|master-)?spanish-conjugation-patterns$/.test(moduleId)
+  return moduleId && /^(foundation-|master-)?[a-z]+-conjugation-patterns$/.test(moduleId)
     ? { ...base, minVerbs: 10, maxVerbs: 10 }
     : base;
 }
 
 // ─── Verb forms ──────────────────────────────────────────────────────────────
 
-const SPANISH_FORM_KEYS = ["yo", "tú", "él_ella_usted", "nosotros", "ellos_ustedes"] as const;
-const ENGLISH_FORM_KEYS = ["i", "you", "he_she", "we", "they"] as const;
+type PackLike = string | LanguagePack | null | undefined;
+
+const packOf = (language: PackLike): LanguagePack | null =>
+  typeof language === "string" ? packFor(language) : (language ?? null);
 
 /** Keys of `LessonVerb.forms` for a target language, in learning order. Null = no verb support. */
-export function verbFormKeys(language: string): readonly string[] | null {
-  if (language === "Spanish") return SPANISH_FORM_KEYS;
-  if (language === "English") return ENGLISH_FORM_KEYS;
-  return null;
+export function verbFormKeys(language: PackLike): readonly string[] | null {
+  const pack = packOf(language);
+  // A form-axis language (Japanese: plain/polite, te) has no person table to drill.
+  if (!pack || pack.grammar.verbForms.axis !== "person") return null;
+  const keys = requiredVerbFormKeys(pack);
+  return keys.length > 0 ? keys : null;
 }
 
-const FORM_LABELS: Record<string, string> = {
-  yo: "yo",
-  tú: "tú",
-  él_ella_usted: "él / ella / usted",
-  nosotros: "nosotros",
-  ellos_ustedes: "ellos / ustedes",
-  i: "I",
-  you: "you",
-  he_she: "he / she",
-  we: "we",
-  they: "they",
-};
-
-/** The pronoun shown for a form key. */
-export function verbFormLabel(key: string): string {
-  return FORM_LABELS[key] ?? key;
+/**
+ * The pronoun shown for a form key, from the pack. Without a language the first pack that defines
+ * the key answers; the key itself when none does.
+ */
+export function verbFormLabel(key: string, language?: PackLike): string {
+  const own = packOf(language);
+  const candidates = own ? [own] : Object.values(PACKS);
+  for (const pack of candidates) {
+    const hit = pack.grammar.verbForms.keys.find((k) => k.key === key);
+    if (hit) return hit.label;
+  }
+  return key;
 }
 
-/** Tool-schema keys are ASCII only (the API rejects "tú"); map them onto the file's keys. */
-const MODEL_KEY_TO_FORM_KEY: Record<string, string> = {
-  yo: "yo",
-  tu: "tú",
-  el_ella_usted: "él_ella_usted",
-  nosotros: "nosotros",
-  ellos_ustedes: "ellos_ustedes",
-  i: "i",
-  you: "you",
-  he_she: "he_she",
-  we: "we",
-  they: "they",
-};
+/** Tool-schema keys are ASCII only (the API rejects "tú"): the file's key with marks removed. */
+const asciiKey = (key: string): string => key.normalize("NFD").replace(/[̀-ͯ]/g, "");
 
-export const MODEL_FORM_KEYS = {
-  Spanish: ["yo", "tu", "el_ella_usted", "nosotros", "ellos_ustedes"],
-  English: ["i", "you", "he_she", "we", "they"],
-} as const;
+/** The keys a model is asked to return for a target language (ASCII), in learning order. */
+export function modelFormKeys(language: PackLike): readonly string[] {
+  return (verbFormKeys(language) ?? []).map(asciiKey);
+}
 
-/** A reflexive verb's forms carry the pronoun ("me lavo"); a learner may type it or not. */
-export function stripReflexive(form: string): string {
-  return form.replace(/^(?:me|te|se|nos|os)\s+/i, "").trim();
+/** Map a model key back onto the file's key for a language (unknown keys pass through). */
+export function formKeyOfModelKey(language: PackLike, key: string): string {
+  return (verbFormKeys(language) ?? []).find((k) => asciiKey(k) === key) ?? key;
+}
+
+/** A reflexive verb's forms carry the pronoun ("me lavo", "m'appelle"); a learner may type it or not. */
+export function stripReflexive(form: string, pack: LanguagePack): string {
+  const pronouns = pack.grammar.reflexivePronouns;
+  if (pronouns.length === 0) return form.trim();
+  const lead = [...pronouns]
+    .sort((a, b) => b.length - a.length)
+    .map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const spaced = new RegExp(`^(?:${lead.join("|")})(?:\\s+|(?<=['’ʼ]))`, "iu");
+  return form.replace(spaced, "").trim();
 }
 
 // ─── Text helpers (accent-insensitive matching) ──────────────────────────────
@@ -207,8 +211,22 @@ export const foldText = (text: string): string =>
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase();
 
-/** Words of a string, accents and punctuation removed. */
-export const wordsOf = (text: string): string[] => foldText(text).match(/[a-z0-9]+/g) ?? [];
+const WORD_CHARS = String.raw`\p{L}\p{N}`;
+
+/**
+ * Words of a string for a pack, case and marks removed. Letters and digits of any script; a pack's
+ * `typography.wordInnerCharacters` (the Swahili n' in ng'ombe) stay inside the word.
+ */
+export const wordsIn = (text: string, pack?: LanguagePack | null): string[] => {
+  const inner = (pack?.typography.wordInnerCharacters ?? []).map((c) => c.replace(/[\\\]^-]/g, "\\$&"));
+  const pattern = inner.length
+    ? new RegExp(`[${WORD_CHARS}]+(?:[${inner.join("")}][${WORD_CHARS}]+)*`, "gu")
+    : new RegExp(`[${WORD_CHARS}]+`, "gu");
+  return foldText(text).match(pattern) ?? [];
+};
+
+/** Words of a string with no pack (letters and digits of any script, marks removed). */
+export const wordsOf = (text: string): string[] => wordsIn(text);
 
 /** Prefix stem so inflections match: hundido/hundidos, reparación/reparar, escalonar/escalonen. */
 export const stemOf = (word: string): string =>
@@ -359,7 +377,7 @@ export function verbsFromModelOutput(raw: unknown, language: string): LessonVerb
     const forms: Record<string, unknown> = {};
     if (record.forms && typeof record.forms === "object") {
       for (const [key, value] of Object.entries(record.forms as Record<string, unknown>)) {
-        forms[MODEL_KEY_TO_FORM_KEY[key] ?? key] = value;
+        forms[formKeyOfModelKey(language, key)] = value;
       }
     }
     return { ...record, forms };
@@ -386,10 +404,9 @@ const QUOTES_OR_DASH = /^\s*[—–]|["“”«»]/;
 // Marker words for judging which language a short note is written in. A note may quote a
 // word or phrase in the other language ("bajarse del autobús", "presents with"), so the
 // check compares counts instead of rejecting on any single marker.
-const SPANISH_MARKERS = /\b(es|muy|verbo|cambio|mandato|los|las|para|del|cuando|forma|la|el|que|con|se|una|un|en|por|pero|este|esta|tiene|persona|significa|termina)\b/gi;
-const ENGLISH_MARKERS = /\b(the|and|with|is|are|use|form|verb|command|stem|change|to|of|it|in|for|this|when|means|your|as|say|not|he|his|her|used|usually|often|like|after|before|also|only|than)\b/gi;
-function markerCount(text: string, pattern: RegExp): number {
-  return (text.match(pattern) ?? []).length;
+// The marker patterns come from the packs (contentChecks.targetMarkers / nativeMarkers).
+function markerCount(text: string, pattern: string | undefined): number {
+  return pattern ? (text.match(new RegExp(pattern, "gi")) ?? []).length : 0;
 }
 // A note states the final rule only. These patterns catch the model thinking out loud inside a
 // note ("Stem change e to ie? No: e to i"). Everything is tested outside quoted text, and a note
@@ -440,8 +457,6 @@ export function selfTalkIssue(note: string): string | null {
 }
 
 const ENDS_LIKE_SENTENCE = /[.?!…。？！]["'”’»）)\]』」]*$/;
-const SPANISH_PRONOUN_FIRST = /^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\s/i;
-const ENGLISH_PRONOUN_FIRST = /^(i|you|he|she|it|we|they)\s/i;
 
 function validatePassage(
   passage: LessonPassageContent | undefined,
@@ -450,6 +465,8 @@ function validatePassage(
   errors: string[],
 ) {
   const limits: ContentLimits = ctx.limits ?? CONTENT_LIMITS;
+  const targetPack = packOf(ctx.language);
+  const nativePack = packOf(ctx.nativeLanguage);
   if (!passage) {
     errors.push("passage is missing");
     return;
@@ -482,7 +499,7 @@ function validatePassage(
     if (!ENDS_LIKE_SENTENCE.test(native.trim())) {
       errors.push(`${label} (${ctx.nativeLanguage}) must end with . ? or !: ${native}`);
     }
-    if (ctx.language !== "Japanese" && (QUOTES_OR_DASH.test(target) || QUOTES_OR_DASH.test(native))) {
+    if (targetPack?.script.wordSeparator !== "none" && (QUOTES_OR_DASH.test(target) || QUOTES_OR_DASH.test(native))) {
       errors.push(
         `${label} uses quotation marks or a dialogue dash; report speech with a colon instead: ${target}`,
       );
@@ -490,11 +507,11 @@ function validatePassage(
     if (target.length > limits.maxSentenceLength || native.length > limits.maxSentenceLength) {
       errors.push(`${label} is too long; split it into two sentences`);
     }
-    for (const [side, text] of [
-      [ctx.language, target],
-      [ctx.nativeLanguage, native],
+    for (const [pack, text] of [
+      [targetPack, target],
+      [nativePack, native],
     ] as const) {
-      if (side !== "Spanish") continue;
+      if (!pack?.typography.invertedPunctuation) continue;
       if (text.includes("?") && !text.includes("¿")) errors.push(`${label}: missing ¿ in: ${text}`);
       if (text.includes("!") && !text.includes("¡")) errors.push(`${label}: missing ¡ in: ${text}`);
       if (text.includes("¿") && !text.includes("?")) errors.push(`${label}: ¿ without ? in: ${text}`);
@@ -507,17 +524,18 @@ function validatePassage(
     }
   }
 
-  const passageWords = passage.target.flatMap(wordsOf);
+  const passageWords = passage.target.flatMap((sentence) => wordsIn(sentence, targetPack));
   const terms = words.filter((w) => w.kind === "term");
   const phrases = words.filter((w) => w.kind === "phrase");
   // Japanese has no mandatory word spaces. The Latin token/stem matcher returns zero for kana.
-  const japanesePassage = ctx.language === "Japanese"
+  const unspaced = targetPack?.script.wordSeparator === "none";
+  const japanesePassage = unspaced
     ? passage.target.join("").normalize("NFC").replace(/\s+/g, "")
     : "";
-  const usedTerms = terms.filter((term) => ctx.language === "Japanese"
+  const usedTerms = terms.filter((term) => unspaced
     ? japanesePassage.includes(term.es.normalize("NFC").replace(/\s+/g, ""))
     : termMatches(term.es, passageWords));
-  const usedPhrases = phrases.filter((phrase) => ctx.language === "Japanese"
+  const usedPhrases = phrases.filter((phrase) => unspaced
     ? japanesePassage.includes(phrase.es.normalize("NFC").replace(/\s+/g, ""))
     : phraseMatches(phrase.es, passageWords));
   if (usedTerms.length < limits.minTermsUsed) {
@@ -579,11 +597,12 @@ function validateWords(words: readonly LessonWord[] | undefined, ctx: ValidateCo
 
 function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateContext, errors: string[]) {
   const limits: ContentLimits = ctx.limits ?? CONTENT_LIMITS;
-  const keys = verbFormKeys(ctx.language);
-  if (!keys) {
-    // Japanese verb morphology uses plain/polite and tense/aspect, not person tables.
-    // The Japanese 101 draft teaches these in grammar examples; a form trainer is separate work.
-    if (ctx.language === "Japanese" && (!verbs || verbs.length === 0)) return;
+  const pack = packOf(ctx.language);
+  const keys = verbFormKeys(pack);
+  if (!pack || !keys) {
+    // A pack with no person table (Japanese: plain/polite and tense/aspect) teaches verbs in
+    // grammar examples; a form trainer is separate work. Empty verbs are fine.
+    if (pack && (!verbs || verbs.length === 0)) return;
     errors.push(`verbs are not supported for ${ctx.language}`);
     return;
   }
@@ -595,29 +614,30 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     errors.push(`${verbs.length} verbs; ${limits.minVerbs === limits.maxVerbs ? `there must be exactly ${limits.minVerbs}` : `there must be ${limits.minVerbs} to ${limits.maxVerbs}`}`);
   }
   const seen = new Set<string>();
-  const spanish = ctx.language === "Spanish";
+  const rules = contentRulesFor(pack);
+  const checks = pack.contentChecks;
+  const infinitive = checks.infinitivePattern ? new RegExp(checks.infinitivePattern, "u") : null;
+  const pronounFirst =
+    checks.pronounFirstPattern && !pack.grammar.verbForms.includesSubject
+      ? new RegExp(checks.pronounFirstPattern, "iu")
+      : null;
+  const reflexives = new Set(pack.grammar.reflexivePronouns.map((p) => p.toLowerCase()));
   for (const verb of verbs) {
     const name = verb.infinitive;
     const infKey = foldText(name);
     if (seen.has(infKey)) errors.push(`duplicate verb: ${name}`);
     seen.add(infKey);
-    if (spanish) {
-      if (!/^\p{L}*(ar|er|ir|ír)(se)?$/u.test(name.trim())) {
-        errors.push(`"${name}" is not a Spanish infinitive (one word ending in -ar, -er, -ir or -se)`);
-      }
-    } else if (!/^[a-z]+( [a-z]+)?$/.test(name.trim()) || /^to\s/.test(name.trim())) {
-      errors.push(`"${name}" is not a plain English verb (one or two lowercase words, no "to")`);
+    if (infinitive && !infinitive.test(name.trim())) {
+      errors.push(`"${name}" is not a ${pack.name} infinitive (a plain ${pack.name} verb, dictionary form, matching ${checks.infinitivePattern})`);
     }
     if (!verb.native.trim()) errors.push(`${name}: meaning is empty`);
     if (verb.note) {
       // Notes are for the learner, so they are written in the learner's native language.
-      const es = markerCount(verb.note, SPANISH_MARKERS);
-      const en = markerCount(verb.note, ENGLISH_MARKERS);
-      // Flag only a note with no native-language words at all: notes often quote target
-      // words or whole example phrases ("a + el becomes al", "Used with en: …").
-      const [wrong, right] =
-        ctx.nativeLanguage === "English" ? [es, en] : ctx.nativeLanguage === "Spanish" ? [en, es] : [0, 0];
-      const wrongLanguage = wrong >= 2 && right === 0;
+      const nativePack = packOf(ctx.nativeLanguage);
+      const wrong = markerCount(verb.note, checks.targetMarkers);
+      const nativePattern = nativePack ? checks.nativeMarkers[nativePack.code] : undefined;
+      const right = markerCount(verb.note, nativePattern);
+      const wrongLanguage = Boolean(nativePattern) && wrong >= 2 && right === 0;
       if (wrongLanguage) {
         errors.push(`${name}: the note must be written in ${ctx.nativeLanguage}: ${verb.note}`);
       }
@@ -635,23 +655,20 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
         continue;
       }
       if (wordsOf(form).length > 3) errors.push(`${name}: "${form}" is not a single verb form`);
-      const first = spanish ? SPANISH_PRONOUN_FIRST : ENGLISH_PRONOUN_FIRST;
-      if (first.test(form)) errors.push(`${name}: give the verb form only, without the pronoun: "${form}"`);
+      if (pronounFirst?.test(form)) errors.push(`${name}: give the verb form only, without the pronoun: "${form}"`);
     }
     if (forms.some((f) => !f)) continue;
-    if (spanish) {
-      if (new Set(forms.map(foldText)).size !== forms.length) {
-        errors.push(`${name}: the five present-tense forms must all be different`);
-      }
-      const [, tu, , nosotros, ellos] = forms;
-      if (!/s$/i.test(tu)) errors.push(`${name}: tú form "${tu}" should end in -s`);
-      if (!/mos$/i.test(nosotros)) errors.push(`${name}: nosotros form "${nosotros}" should end in -mos`);
-      if (!/n$/i.test(ellos)) errors.push(`${name}: ellos/ustedes form "${ellos}" should end in -n`);
-    } else if (foldText(forms[2]) === foldText(forms[0])) {
-      errors.push(`${name}: the he/she form "${forms[2]}" must differ from the I form (add the -s)`);
+    if (rules.distinctForms && new Set(forms.map(foldText)).size !== forms.length) {
+      errors.push(`${name}: the ${forms.length === 5 ? "five" : forms.length} present-tense forms must all be different`);
+    }
+    for (const [at, ending, who, text] of rules.endings) {
+      if (forms[at] !== undefined && !ending.test(forms[at])) errors.push(`${name}: ${who} form "${forms[at]}" ${text}`);
+    }
+    for (const [a, b, text] of rules.mustDiffer) {
+      if (forms[a] !== undefined && foldText(forms[a]) === foldText(forms[b])) errors.push(`${name}: ${text}: "${forms[a]}"`);
     }
     // The example is a short sentence from the lesson that really uses the verb.
-    const exampleWords = wordsOf(verb.example.target);
+    const exampleWords = wordsIn(verb.example.target, pack);
     if (exampleWords.length === 0 || !verb.example.native.trim()) {
       errors.push(`${name}: example is empty`);
       continue;
@@ -659,16 +676,18 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     // The verb's stem (cort- for cortar) catches every regular form and the commands built on
     // it (corten); a very short stem (us- for usar) must also be a short word, so it does not
     // match unrelated words. Irregular forms are caught through the five forms themselves.
-    const infWords = wordsOf(name);
-    const base = infWords[0] ?? "";
-    // Reflexive infinitives drop -se (sentarse -> sentar) so the stem is the verb's own.
-    const inf = spanish && /[aeií]rse$/.test(base) ? base.slice(0, -2) : base;
+    const infWords = wordsIn(name, pack);
+    // A leading reflexive pronoun is not the verb ("se laver", "s'appeler"); the head is the next word.
+    const headAt = infWords.length > 1 && reflexives.has(infWords[0]) ? 1 : 0;
+    const base = infWords[headAt] ?? "";
+    // Reflexive infinitives drop their suffix (sentarse -> sentar) so the stem is the verb's own.
+    const inf = rules.reflexiveSuffix && rules.reflexiveSuffix.test(base) ? base.slice(0, -2) : base;
     const stem = inf.slice(0, Math.max(1, inf.length - 2));
-    const formTails = forms.map((f) => wordsOf(stripReflexive(f)).pop() ?? "");
+    const formTails = forms.map((f) => wordsIn(stripReflexive(f, pack), pack).pop() ?? "");
     // Stem variants keep commands and subjunctives recognisable: vowel changes (sient-, jueg-),
     // spelling changes before -e (toqu-, llegu-, empec-, protej-) and the yo-form stem (pong-).
     const stems = new Set([stem]);
-    if (spanish) {
+    if (rules.stemVariants) {
       const vowel = (st: string, from: string, to: string) => {
         const i = st.lastIndexOf(from);
         return i >= 0 ? st.slice(0, i) + to + st.slice(i + from.length) : st;
@@ -683,7 +702,7 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
       const yo = formTails[0] ?? "";
       if (yo.length >= 4 && yo.endsWith("o")) stems.add(yo.slice(0, -1));
     }
-    const extraForms = spanish && inf === "haber" ? ["hay"] : [];
+    const extraForms = rules.extraForms[inf] ?? [];
     const SHORT_ENDINGS = ["", "a", "an", "as", "e", "en", "es", "o", "oy", "ar", "er", "ir", "amos", "emos", "imos", "ad", "ed"];
     const usesStem = (w: string) =>
       [...stems].some((st) =>
@@ -705,7 +724,7 @@ function validateVerbs(verbs: readonly LessonVerb[] | undefined, ctx: ValidateCo
     if (digitsOf(verb.example.target).join(",") !== digitsOf(verb.example.native).join(",")) {
       errors.push(`${name}: numbers differ between the example and its translation`);
     }
-    if (spanish) {
+    if (pack.typography.invertedPunctuation) {
       for (const text of [verb.example.target]) {
         if (text.includes("?") && !text.includes("¿")) errors.push(`${name}: missing ¿ in example`);
         if (text.includes("!") && !text.includes("¡")) errors.push(`${name}: missing ¡ in example`);
@@ -737,9 +756,9 @@ export function lessonContentPath(moduleId: string, language: string): string {
   return `/lesson-content/${languageTag(language)}/${encodeURIComponent(moduleId)}.json`;
 }
 
-/** The native language a target language's content is written for (English: Spanish natives). */
+/** The native language a target language's content is written for (the target pack's native default). */
 export function contentNativeLanguage(targetLanguage: string): string {
-  return targetLanguage === "English" ? "Spanish" : "English";
+  return nativeLanguageName(packFor(targetLanguage)?.native.default) ?? "";
 }
 
 /**
@@ -829,10 +848,34 @@ export function pickContentVerbs(
  * (accent- and case-insensitive for Latin scripts), and a reflexive pronoun is optional
  * ("se lava" and "lava" both count).
  */
-export function isCorrectForm(input: string, expected: string): boolean {
+export function isCorrectForm(input: string, expected: string, pack: LanguagePack): boolean {
   return (
-    isCorrectTypedAnswer(input, expected) || isCorrectTypedAnswer(input, stripReflexive(expected))
+    isCorrectTypedAnswer(input, expected, pack) ||
+    isCorrectTypedAnswer(input, stripReflexive(expected, pack), pack) ||
+    subjectVariants(expected, pack).some((variant) => isCorrectTypedAnswer(input, variant, pack))
   );
+}
+
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+/**
+ * For a pack whose forms carry their subject ("ils/elles ont", "j'aime"): the bare form ("ont")
+ * and the form with each one subject of its group ("ils ont", "elles ont"). Empty otherwise.
+ */
+export function subjectVariants(expected: string, pack: LanguagePack): string[] {
+  if (!pack.grammar.verbForms.includesSubject) return [];
+  const subjects = [
+    ...new Set(pack.grammar.verbForms.keys.flatMap((key) => key.subjects ?? [])),
+  ].sort((a, b) => b.length - a.length);
+  if (subjects.length === 0) return [];
+  const one = `(?:${subjects.map(escapeRegExp).join("|")})`;
+  const match = expected
+    .trim()
+    .match(new RegExp(`^(${one}(?:\\s*/\\s*${one})*)(?:\\s+|(?<=['’ʼ]))(\\S.*)$`, "u"));
+  if (!match) return [];
+  const bare = match[2];
+  const group = match[1].split("/").map((subject) => subject.trim());
+  return [bare, ...group.map((s) => (/['’ʼ]$/u.test(s) ? `${s}${bare}` : `${s} ${bare}`))];
 }
 
 export interface ConjugationItem {
@@ -852,7 +895,7 @@ export function conjugationItems(verbs: readonly LessonVerb[], language: string)
   for (const verb of verbs) {
     for (const key of keys) {
       const expected = verb.forms[key];
-      if (expected) items.push({ verb, key, pronoun: verbFormLabel(key), expected });
+      if (expected) items.push({ verb, key, pronoun: verbFormLabel(key, language), expected });
     }
   }
   return items;

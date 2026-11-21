@@ -314,8 +314,9 @@ export const Route = createFileRoute("/api/exams")({
             );
           }
           if (action === "readiness") {
-            const targetLanguage = target.parse(url.searchParams.get("target") ?? "Spanish"),
-              instructionLanguage = native.parse(url.searchParams.get("native") ?? "English");
+            // No default pair: a readiness request names both languages or is refused (400).
+            const targetLanguage = target.parse(url.searchParams.get("target")),
+              instructionLanguage = native.parse(url.searchParams.get("native"));
             return json({
               tracks: await readinessCatalog(db, targetLanguage, instructionLanguage),
               note: "Structural coverage is separate from curriculum review. No draft is assignable as an official exam.",

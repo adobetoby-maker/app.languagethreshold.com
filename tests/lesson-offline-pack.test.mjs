@@ -70,7 +70,7 @@ test("build emits content-addressed lesson data and bounded app inventory, exclu
     writeFileSync(path.join(root, "assets", "app-123.js.map"), "excluded source map");
     writeFileSync(path.join(root, "functions", "server.cjs"), "excluded server output");
     writeFileSync(path.join(root, "exams.html"), "excluded private route");
-    const first = await buildOfflineLessonPack(root);
+    const first = await buildOfflineLessonPack(root, "roofing-es-en");
     assert.equal(first.assets.length, 1);
     assert.equal(first.assets[0].url, "/assets/app-123.js");
     assert.equal(first.assets[0].sha256, sha("export const publicApp=true;"));
@@ -81,10 +81,10 @@ test("build emits content-addressed lesson data and bounded app inventory, exclu
     assert.equal(JSON.parse(data).lessons.length, 30);
     assert.equal(first.totalBytes, data.length + first.assets[0].bytes);
     assert.match(first.content.url, /^\/lesson-packs\/roofing-es-en-[a-f0-9]{64}\.json$/);
-    const repeat = await buildOfflineLessonPack(root);
+    const repeat = await buildOfflineLessonPack(root, "roofing-es-en");
     assert.deepEqual(repeat, first);
     writeFileSync(path.join(root, "assets", "app-123.js"), "export const publicApp=false;");
-    const next = await buildOfflineLessonPack(root);
+    const next = await buildOfflineLessonPack(root, "roofing-es-en");
     assert.notEqual(next.appVersion, first.appVersion);
     assert.notEqual(next.version, first.version);
     assert.equal(next.content.sha256, first.content.sha256);
@@ -121,7 +121,7 @@ test("building both manifests keeps each module's data, version and shared app a
   try {
     mkdirSync(path.join(root, "assets"));
     writeFileSync(path.join(root, "assets", "app.js"), "public app");
-    const roof = await buildOfflineLessonPack(root),
+    const roof = await buildOfflineLessonPack(root, "roofing-es-en"),
       land = await buildOfflineLessonPack(root, "landscaper-es-en");
     assert.equal(land.packId, "landscaper-es-en");
     assert.notEqual(roof.version, land.version);
@@ -168,7 +168,7 @@ test("offline trade packs include only their language core and selected module r
     const excluded = manifest["French/core"][0];
     for (const hash of [...selected, excluded])
       writeFileSync(path.join(root, "assets", `${hash}-test.js`), "public reading");
-    const pack = await buildOfflineLessonPack(root);
+    const pack = await buildOfflineLessonPack(root, "roofing-es-en");
     const urls = pack.assets.map((asset) => asset.url);
     for (const hash of selected) assert.ok(urls.includes(`/assets/${hash}-test.js`));
     assert.ok(!urls.includes(`/assets/${excluded}-test.js`));

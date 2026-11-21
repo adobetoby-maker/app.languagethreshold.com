@@ -7,6 +7,7 @@ import {
 import { prepareConversationRequest } from "@/lib/conversation-request";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { packFor, type LanguagePack } from "@/data/language-packs/registry";
 import { initSentry, Sentry } from "../lib/sentry";
 initSentry();
 
@@ -34,46 +35,83 @@ const BodySchema = z.object({
   requestFeedback: z.boolean().default(false),
 });
 
-function buildDialectNote(language: string, missionAreaName?: string): string | null {
-  if (language === "Spanish") {
+/**
+ * Authored register and regional guidance for the roleplay partner, keyed by pack code. `areas`
+ * are tried in order against the mission area name; `fallback` covers every other area. A pack with
+ * no entry uses its own variety and script notes (pack.prompts), so a new language needs data, not
+ * a code branch.
+ */
+const DIALECT_NOTES: Record<
+  string,
+  { areas?: { when: string[]; note: string }[]; fallback: string }
+> = {
+  es: {
+    areas: [
+      {
+        when: ["mexico"],
+        note: `Use Mexican Spanish. Natural fillers: "órale", "¿cómo no?", "ahorita", "ándale", "a poco". Address the missionaries as "jóvenes" or "hermanos". Warm, friendly register — Mexicans are known for hospitality even when declining.`,
+      },
+      {
+        when: ["spain", "iberia"],
+        note: `Use Castilian Spanish. Use "vosotros" when addressing them as a pair. Natural expressions: "oye", "tío/tía" in casual moments, "hombre" as a filler. Slightly more reserved than Latin American Spanish.`,
+      },
+      {
+        when: ["central america"],
+        note: `Use Central American Spanish. Natural and warm. "Usted" form common even with younger people. Natural filler: "mire", "fíjese". Hospitality is genuine — door approaches are usually welcomed politely.`,
+      },
+      {
+        when: ["south america northwest"],
+        note: `Use Andean Spanish (Peru/Ecuador/Colombia register). Clear pronunciation, slower pace than coastal Spanish. "Pues" as a common filler. Respectful "usted" with strangers is the norm.`,
+      },
+    ],
+    fallback: `Use natural Latin American Spanish. Warm and clear register. Address missionaries as "hermanos" or "jóvenes". "Mire", "oiga", "pues" as natural fillers.`,
+  },
+  pt: {
+    areas: [
+      {
+        when: ["brazil"],
+        note: `Use Brazilian Portuguese. Warm and informal. Natural fillers: "então", "né", "gente", "poxa". Contracted forms in speech: "tá", "pra", "pro". Brazilians are generally warm and talkative even with strangers. Address missionaries as "rapazes" or "irmãos".`,
+      },
+    ],
+    fallback: `Use European Portuguese. More formal register. Standard clitic placement. Slightly reserved with strangers at first — warm up over the conversation.`,
+  },
+  fr: {
+    fallback: `Use conversational French. In informal speech, drop "ne" in negation ("je sais pas", "c'est pas vrai"). Use "on" instead of "nous" in conversation. Natural fillers: "bon", "enfin", "bref", "quoi". The French are often reserved at the door but will engage if you are genuine.`,
+  },
+  it: {
+    fallback: `Use Italian with natural expressiveness. Natural exclamations: "ma dai!", "senti", "guarda", "mamma mia". Start with formal "Lei" with strangers. May shift to "tu" if the conversation becomes genuinely warm. Italians respect directness paired with warmth.`,
+  },
+  de: {
+    fallback: `Use German. Start formal (Sie throughout). Only shift to du if the conversation becomes exceptionally warm — which is unusual at the door. Germans appreciate directness. Typical door-knocking response is brief and polite but not overly effusive.`,
+  },
+  ja: {
+    fallback: `Use Japanese. Polite register (丁寧語/です・ます) throughout. Soft refusal patterns: "ちょっと…", "そうですね…", "考えておきます". Japanese door responses are brief and polite-but-deflecting. The challenge is breaking through the polite deflection with genuine warmth.`,
+  },
+  ko: {
+    fallback: `Use Korean. Formal polite speech level (해요체). Natural fillers: "그런데", "그래도", "사실은". Koreans may be initially reserved at the door but warm up quickly if approached with sincerity and respect.`,
+  },
+};
+
+/** The one-line example of a natural "say that again" in the language, or null. */
+const CLARIFY_EXAMPLES: Record<string, string> = { es: "¿Cómo dijiste?" };
+
+function buildDialectNote(pack: LanguagePack | null, missionAreaName?: string): string | null {
+  if (!pack) return null;
+  const entry = DIALECT_NOTES[pack.code];
+  if (entry) {
     const area = missionAreaName?.toLowerCase() ?? "";
-    if (area.includes("mexico")) {
-      return `Use Mexican Spanish. Natural fillers: "órale", "¿cómo no?", "ahorita", "ándale", "a poco". Address the missionaries as "jóvenes" or "hermanos". Warm, friendly register — Mexicans are known for hospitality even when declining.`;
-    }
-    if (area.includes("spain") || area.includes("iberia")) {
-      return `Use Castilian Spanish. Use "vosotros" when addressing them as a pair. Natural expressions: "oye", "tío/tía" in casual moments, "hombre" as a filler. Slightly more reserved than Latin American Spanish.`;
-    }
-    if (area.includes("central america")) {
-      return `Use Central American Spanish. Natural and warm. "Usted" form common even with younger people. Natural filler: "mire", "fíjese". Hospitality is genuine — door approaches are usually welcomed politely.`;
-    }
-    if (area.includes("south america northwest")) {
-      return `Use Andean Spanish (Peru/Ecuador/Colombia register). Clear pronunciation, slower pace than coastal Spanish. "Pues" as a common filler. Respectful "usted" with strangers is the norm.`;
-    }
-    return `Use natural Latin American Spanish. Warm and clear register. Address missionaries as "hermanos" or "jóvenes". "Mire", "oiga", "pues" as natural fillers.`;
+    const hit = entry.areas?.find((candidate) =>
+      candidate.when.some((word) => area.includes(word)),
+    );
+    return hit?.note ?? entry.fallback;
   }
-  if (language === "Portuguese") {
-    const area = missionAreaName?.toLowerCase() ?? "";
-    if (area.includes("brazil")) {
-      return `Use Brazilian Portuguese. Warm and informal. Natural fillers: "então", "né", "gente", "poxa". Contracted forms in speech: "tá", "pra", "pro". Brazilians are generally warm and talkative even with strangers. Address missionaries as "rapazes" or "irmãos".`;
-    }
-    return `Use European Portuguese. More formal register. Standard clitic placement. Slightly reserved with strangers at first — warm up over the conversation.`;
-  }
-  if (language === "French") {
-    return `Use conversational French. In informal speech, drop "ne" in negation ("je sais pas", "c'est pas vrai"). Use "on" instead of "nous" in conversation. Natural fillers: "bon", "enfin", "bref", "quoi". The French are often reserved at the door but will engage if you are genuine.`;
-  }
-  if (language === "Italian") {
-    return `Use Italian with natural expressiveness. Natural exclamations: "ma dai!", "senti", "guarda", "mamma mia". Start with formal "Lei" with strangers. May shift to "tu" if the conversation becomes genuinely warm. Italians respect directness paired with warmth.`;
-  }
-  if (language === "German") {
-    return `Use German. Start formal (Sie throughout). Only shift to du if the conversation becomes exceptionally warm — which is unusual at the door. Germans appreciate directness. Typical door-knocking response is brief and polite but not overly effusive.`;
-  }
-  if (language === "Japanese") {
-    return `Use Japanese. Polite register (丁寧語/です・ます) throughout. Soft refusal patterns: "ちょっと…", "そうですね…", "考えておきます". Japanese door responses are brief and polite-but-deflecting. The challenge is breaking through the polite deflection with genuine warmth.`;
-  }
-  if (language === "Korean") {
-    return `Use Korean. Formal polite speech level (해요체). Natural fillers: "그런데", "그래도", "사실은". Koreans may be initially reserved at the door but warm up quickly if approached with sincerity and respect.`;
-  }
-  return null;
+  return [pack.prompts.varietyNote, pack.prompts.scriptNote].filter(Boolean).join(" ") || null;
+}
+
+/** An in-language example of asking someone to repeat, from the pack, or null. */
+function clarifyExample(pack: LanguagePack | null): string | null {
+  if (!pack) return null;
+  return CLARIFY_EXAMPLES[pack.code] ?? (pack.phrases.clarification.trim() || null);
 }
 
 function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
@@ -106,7 +144,9 @@ function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
     ].join("\n");
   }
 
-  const dialectNote = buildDialectNote(language, missionArea?.name);
+  const pack = packFor(language);
+  const dialectNote = buildDialectNote(pack, missionArea?.name);
+  const example = clarifyExample(pack);
 
   const lines: (string | null)[] = [
     `You are roleplaying as ${investigatorName}, ${payload.investigatorBackground.split(".")[0].toLowerCase()}.`,
@@ -123,7 +163,7 @@ function buildSystemPrompt(payload: z.infer<typeof BodySchema>): string {
     `- The missionary speaking to you is at ${level} level. Speak naturally — do not oversimplify, but don't use such obscure vocabulary that they're completely lost.`,
     `- Keep your responses 2-4 sentences. This is a real conversation, not a lecture.`,
     `- React authentically: if they make a cultural misstep, respond how a real person from your background would. If they say something genuinely moving or true, let yourself be genuinely touched.`,
-    `- If the missionary makes a significant grammar error, you can naturally ask a clarifying question ("¿Cómo dijiste?") — this is what a real person would do.`,
+    `- If the missionary makes a significant grammar error, you can naturally ask a clarifying question${example ? ` ("${example}")` : ""} — this is what a real person would do.`,
     ``,
     missionArea ? `CULTURAL CONTEXT:` : null,
     missionArea?.cultureNote

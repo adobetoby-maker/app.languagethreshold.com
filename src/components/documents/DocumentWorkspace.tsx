@@ -4,6 +4,7 @@ import { BookOpen, Plus, Upload, ArrowRight, Printer, FileText, Loader2 } from "
 import { useNotes } from "@/state/notes-state";
 import { useAuth } from "@/state/auth-state";
 import { LANGUAGES, type Language } from "@/data/languages";
+import { useApp } from "@/state/app-state";
 import { documentPassages, DOCUMENT_LIMIT } from "@/lib/document-translation";
 import { extractFromFile } from "@/lib/extract-book";
 import { ownedTeamRequest } from "@/lib/team-client";
@@ -12,6 +13,7 @@ import { AuthModal } from "@/components/auth/AuthModal";
 import "./documents.css";
 
 export function DocumentWorkspace() {
+  const { state: appState } = useApp();
   const notes = useNotes();
   const { user, isCurrentUser } = useAuth();
   const [allowance, setAllowance] = useState<DocumentAllowance | null>(null);
@@ -120,8 +122,15 @@ export function DocumentWorkspace() {
   const [opened, setOpened] = useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [source, setSource] = useState<Language>("English");
-  const [target, setTarget] = useState<Language>("Spanish");
+  // The document is translated into the language being learned; its source is the learner's own
+  // language (or English when that is not a translation language, or is the target itself).
+  const [source, setSource] = useState<Language>(() =>
+    LANGUAGES.includes(appState.nativeLanguage as Language) &&
+    appState.nativeLanguage !== appState.selectedLanguage
+      ? (appState.nativeLanguage as Language)
+      : "English",
+  );
+  const [target, setTarget] = useState<Language>(appState.selectedLanguage);
   const [quality, setQuality] = useState<"standard" | "detailed">("standard");
   const [busy, setBusy] = useState(false);
   const [extracting, setExtracting] = useState(false);

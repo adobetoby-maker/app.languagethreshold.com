@@ -1,4 +1,4 @@
-// Pashto fallback for languages without an installed device voice.
+// Server fallback voice (pack.speech.remoteFallback) for languages without an installed device voice.
 // Learner text travels in a POST body; generated audio must never be shared-cached.
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
@@ -7,10 +7,12 @@ import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-re
 import { isStrictSameOrigin } from "../lib/speaking-security";
 import { checkLearningGenerationBudget } from "../lib/learning-generation-security";
 import { remoteSpeechAudio, RemoteSpeechProviderError } from "../lib/remote-speech-provider";
+import { remoteFallbackPack } from "../data/language-packs/registry";
 
 const BodySchema = z.object({
   text: z.string().min(1).max(400),
-  lang: z.literal("ps"),
+  // A registered pack code with a server fallback voice; never a default language.
+  lang: z.string().refine((code) => remoteFallbackPack(code) !== null),
 });
 
 const privateHeaders = {
@@ -76,7 +78,8 @@ export const Route = createFileRoute("/api/tts")({
           );
         if (request.signal.aborted) return json("TTS cancelled", 499);
         try {
-          const audio = await remoteSpeechAudio(parsed.data.text, apiKey, request.signal);
+          const voice = remoteFallbackPack(parsed.data.lang)!.speech.remoteFallback!;
+          const audio = await remoteSpeechAudio(parsed.data.text, apiKey, request.signal, voice);
           return new Response(audio, {
             headers: { ...privateHeaders, "Content-Type": "audio/mpeg" },
           });

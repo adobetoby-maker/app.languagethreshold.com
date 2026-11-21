@@ -1,4 +1,6 @@
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
+import { defaultNativeFor, nativeFirstDeckLanguage } from "@/lib/language-menu";
+import { sameLanguage } from "@/data/language-packs/registry";
 import {
   createContext,
   useCallback,
@@ -177,8 +179,11 @@ function syncDeckCategory(
   const next = { ...cards };
   let changed = false;
   for (const entry of words) {
-    const reverse = language === "English" && nativeLanguage === "Spanish";
-    const t = entry.translations[reverse ? "Spanish" : language];
+    // A course authored in the learner's native language (English learners) shows the English
+    // word and translates into that native column.
+    const reverseInto = nativeFirstDeckLanguage(language, nativeLanguage);
+    const reverse = reverseInto !== null;
+    const t = entry.translations[(reverseInto ?? language) as Language];
     if (!t) continue;
     const id = deckCardId(category, language, entry.id);
     const word = reverse ? entry.english : t.word;
@@ -226,6 +231,9 @@ function syncDeckCategory(
   return { cards: next, changed };
 }
 
+/** The language the built-in deck tables are written around (entry.english). A data fact. */
+const DECK_PIVOT_LANGUAGE = "English";
+
 function syncModuleDeck(
   cards: Record<string, FlashcardEntry>,
   moduleId: string,
@@ -236,14 +244,19 @@ function syncModuleDeck(
   if (!words) return { cards, changed: false };
   const next = { ...cards };
   let changed = false;
+  // Built-in decks are English-pivot tables. A course whose default native is another language
+  // (English learners) shows the English word and translates into that native column.
+  const pairedNative = defaultNativeFor(language);
+  const nativeFirst = pairedNative !== null && !sameLanguage(pairedNative, DECK_PIVOT_LANGUAGE);
+  const column = nativeFirst ? (pairedNative as unknown as Language) : language;
   for (const entry of words) {
-    const t = entry.translations[language === "English" ? "Spanish" : language];
+    const t = entry.translations[column];
     if (!t) continue;
     const id = deckCardId("module", language, `${moduleId}:${entry.id}`);
-    const word = language === "English" ? entry.english : t.word;
-    const translation = language === "English" ? t.word : entry.english;
-    const example = language === "English" ? t.exampleTranslation : t.example;
-    const exampleTranslation = language === "English" ? t.example : t.exampleTranslation;
+    const word = nativeFirst ? entry.english : t.word;
+    const translation = nativeFirst ? t.word : entry.english;
+    const example = nativeFirst ? t.exampleTranslation : t.example;
+    const exampleTranslation = nativeFirst ? t.example : t.exampleTranslation;
     const existing = next[id];
     if (existing) {
       if (
@@ -309,8 +322,9 @@ function reducer(state: State, action: Action): State {
       const cards = { ...state.cards };
       let changed = false;
       for (const entry of FREQUENCY_WORDS) {
-        const reverse = language === "English" && nativeLanguage === "Spanish";
-        const t = entry.translations[reverse ? "Spanish" : language];
+        const reverseInto = nativeFirstDeckLanguage(language, nativeLanguage);
+        const reverse = reverseInto !== null;
+        const t = entry.translations[(reverseInto ?? language) as Language];
         if (!t) continue;
         const word = reverse ? entry.english : t.word;
         const translation = reverse ? t.word : entry.english;

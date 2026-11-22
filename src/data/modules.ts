@@ -16,7 +16,7 @@ import {
   catalogManifestEntries,
   catalogModuleIdFor,
 } from "./language-packs/catalog-modules.ts";
-import { nativeLanguageName } from "./languages.ts";
+import { LANGUAGES, NATIVE_LANGUAGES, nativeLanguageName } from "./languages.ts";
 
 /** The target language a learnDirection "en-target" module teaches (its app file sets workplaceCourse). */
 const workplaceTarget = (): string => workplaceCoursePack().code;
@@ -2040,6 +2040,25 @@ export function packCourseModuleId(
   if (!moduleId) return null;
   const id = catalogModuleIdFor(pack, moduleId, CATALOG);
   return id && MODULES.some((module) => module.id === id) ? id : null;
+}
+
+/**
+ * The learning pair a link asks for (?target=…&native=…), or null when it names none. A link to a
+ * French or Italian course (a pack whose library comes from its catalog) may leave out `native`:
+ * the pack's default native language is used, so "?module=roofing&target=French" opens the French
+ * course. For every other target both parameters are needed, as before.
+ */
+export function linkLearningPair(
+  target: string | null | undefined,
+  native: string | null | undefined,
+): { target: Language; native: NativeLanguage } | null {
+  if (!target || !LANGUAGES.includes(target)) return null;
+  if (native && NATIVE_LANGUAGES.includes(native as NativeLanguage))
+    return { target, native: native as NativeLanguage };
+  if (native) return null;
+  const pack = catalogLessonPack(target);
+  const fallback = pack ? nativeLanguageName(pack.native.default) : null;
+  return fallback ? { target, native: fallback } : null;
 }
 
 export function getModule(id: string | null | undefined): AppModule | null {

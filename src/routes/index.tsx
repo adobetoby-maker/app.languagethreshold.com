@@ -42,8 +42,13 @@ import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
-import { getModule, moduleSupportsLearningPair, packCourseModuleId } from "@/data/modules";
-import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
+import {
+  getModule,
+  linkLearningPair,
+  moduleSupportsLearningPair,
+  packCourseModuleId,
+} from "@/data/modules";
+import type { Language, NativeLanguage } from "@/data/languages";
 import { learningLinkIdentity } from "@/lib/learning-link";
 import { appNavigationLocation, appTab } from "@/lib/app-navigation";
 import { useLessonReturnGuard } from "@/lib/lesson-return";
@@ -209,10 +214,11 @@ function UrlModuleBridge() {
     const coreLink = moduleId === "core";
     const tab = appTab(params.get("tab"));
     if (!tab && state.currentTab === "speak") dispatch({ type: "SET_TAB", payload: "core30" });
-    const requestedTarget = params.get("target") as Language,
-      requestedNative = params.get("native") as NativeLanguage;
-    const requestedPair =
-      LANGUAGES.includes(requestedTarget) && NATIVE_LANGUAGES.includes(requestedNative);
+    // A French or Italian link may leave out `native` (the pack default is used).
+    const linkPair = linkLearningPair(params.get("target"), params.get("native"));
+    const requestedPair = linkPair !== null;
+    const requestedTarget = (linkPair?.target ?? "") as Language,
+      requestedNative = (linkPair?.native ?? "") as NativeLanguage;
     // A French or Italian learner (or a link that asks for French or Italian) opens the same
     // course in their own language ("roofing" → "roofing-fr"); a module their library does not
     // have is not opened, so the link never switches them to another language's course.

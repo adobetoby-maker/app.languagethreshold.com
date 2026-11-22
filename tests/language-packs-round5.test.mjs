@@ -111,3 +111,24 @@ test("French and Italian: module tabs, Field Prep, Verbs and Reader show their u
     /reader-course-readings-unavailable/,
   );
 });
+
+test("a French or Italian link without a native language opens that course (?module=roofing&target=French)", async () => {
+  const { linkLearningPair } = await import("../src/data/modules.ts");
+  assert.deepEqual(linkLearningPair("French", null), { target: "French", native: "English" });
+  assert.deepEqual(linkLearningPair("Italian", ""), { target: "Italian", native: "English" });
+  assert.deepEqual(linkLearningPair("French", "English"), { target: "French", native: "English" });
+  // The route resolves the module with the link's target, never the learner's saved language.
+  const pair = linkLearningPair("French", null);
+  assert.equal(packCourseModuleId("roofing", pair.target), "roofing-fr");
+  assert.match(
+    read("src/routes/index.tsx"),
+    /linkLearningPair\(params\.get\("target"\), params\.get\("native"\)\)/,
+  );
+  // Spanish and the languages that are not packs keep base behaviour: both parameters are needed.
+  for (const target of ["Spanish", "German", "Japanese", "Portuguese", "English"])
+    assert.equal(linkLearningPair(target, null), null, target);
+  assert.deepEqual(linkLearningPair("Spanish", "English"), { target: "Spanish", native: "English" });
+  assert.equal(linkLearningPair("French", "Klingon"), null);
+  assert.equal(linkLearningPair("Klingon", "English"), null);
+  assert.equal(linkLearningPair(null, "English"), null);
+});

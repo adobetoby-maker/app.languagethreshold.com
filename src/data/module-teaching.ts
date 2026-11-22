@@ -9,6 +9,24 @@ import { LANDSCAPER_LESSON_CONTENT } from "./landscaper-lesson-content.ts";
 import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts";
 import { lessonTeachingSettings } from "../lib/teaching-settings.ts";
 import { militaryTeachingSettings, MILITARY_PRACTICE_VERSION } from "./military-practice.ts";
+import { catalogCourseLesson, catalogLessonPack } from "./language-packs/catalog-lessons.ts";
+import { nativeLanguageName } from "./languages.ts";
+
+/**
+ * A French or Italian course lesson (French 101 … Cognates) teaches with the same settings as its
+ * Spanish twin's course lessons: the stage's settings, with the lesson's speaking prompt as the
+ * response task. Null for every other module and language.
+ */
+function catalogCourseTeaching(moduleId: string, n: number, target: string, native: string) {
+  const pack = catalogLessonPack(target);
+  if (!pack || native !== nativeLanguageName(pack.native.default)) return null;
+  const course = catalogCourseLesson(moduleId, n, target);
+  if (!course) return null;
+  return lessonTeachingSettings(
+    course.stage === "foundation" ? 1 : course.stage === "master" ? 30 : Math.min(n, 30),
+    course.speaking,
+  );
+}
 
 /** An authored track belongs to its exact target/instruction pair. */
 export function moduleTeachingSettings(
@@ -24,6 +42,8 @@ export function moduleTeachingSettings(
   if (target === "English" && native === "Spanish") return militaryTeachingSettings(moduleId, n);
   if (target === "Japanese" && native === "English")
     return japaneseBasicsTeaching(moduleId, n, target, native);
+  const course = catalogCourseTeaching(moduleId, n, target, native);
+  if (course) return course;
   if (target !== "Spanish" || native !== "English") return null;
   const place = placeTeaching(moduleId, n);
   if (place) return place;

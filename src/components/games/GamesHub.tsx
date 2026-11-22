@@ -15,7 +15,7 @@ import {
   Layers,
 } from "lucide-react";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
-import { useApp, type TabKey } from "@/state/app-state";
+import { useApp, type Language, type TabKey } from "@/state/app-state";
 import { useConjugation, type LeaderboardKey as CKey } from "@/state/conjugation-state";
 import { useSentenceBuild, type SBLeaderboardKey } from "@/state/sentence-build-state";
 import { useListeningDrill } from "@/state/listening-drill-state";
@@ -28,6 +28,8 @@ import { CrossGameAchievements } from "./CrossGameAchievements";
 import { VerbsSection } from "./verbs/VerbsSection";
 import { SoccerPositionsGame } from "./SoccerPositionsGame";
 import { BaseballPositionsGame } from "./BaseballPositionsGame";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { getModule, moduleSupportsLanguage } from "@/data/modules";
 
 // Cross-component event the parent route listens for to open the Match
 // overlay. Decouples this tab from the overlay-opener prop drilling.
@@ -270,9 +272,18 @@ export function GamesHub() {
         </summary>
         <p className="my-3 text-sm">
           Practice instructions in a scene that fits your module.{" "}
-          <a className="underline" href="/place-directions">
-            Open the full game and course preview
-          </a>
+          {/* The full preview (/place-directions) is the Spanish course: a French or Italian
+              learner reads its unavailable state instead of a link to Spanish. */}
+          {catalogLessonPack(state.selectedLanguage) ? (
+            <span className="text-muted-foreground">
+              The full game and course preview is not available in{" "}
+              {catalogLessonPack(state.selectedLanguage)!.name} yet.
+            </span>
+          ) : (
+            <a className="underline" href="/place-directions">
+              Open the full game and course preview
+            </a>
+          )}
         </p>
         <PlaceDirectionsGame
           key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
@@ -586,6 +597,35 @@ function ModuleGamesSection({
 
       {available.map((moduleId) => {
         const meta = MODULE_GAMES[moduleId]!;
+        // French and Italian: a sport module outside their library keeps its card in the
+        // unavailable state, instead of opening another language's module (owner decision 1).
+        const catalogPack = catalogLessonPack(language);
+        const module = getModule(moduleId);
+        const unavailable =
+          catalogPack !== null &&
+          (!module || !moduleSupportsLanguage(module, language as Language));
+        if (unavailable)
+          return (
+            <div
+              key={moduleId}
+              aria-disabled="true"
+              data-testid={`module-game-unavailable-${moduleId}`}
+              className="overflow-hidden rounded-2xl border border-border/60 bg-card/30 opacity-70"
+            >
+              <div className="flex items-center gap-3 px-5 py-3">
+                <span className="text-2xl">{meta.emoji}</span>
+                <div className="min-w-0">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                    Coming soon in {catalogPack.name}
+                  </span>
+                  <h3 className="font-display text-base font-semibold">{meta.title}</h3>
+                  <p className="text-xs text-muted-foreground">
+                    Not available in {catalogPack.name} yet.
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
         const isActive = activeModule === moduleId;
         return (
           <div

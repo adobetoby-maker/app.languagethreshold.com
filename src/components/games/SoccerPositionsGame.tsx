@@ -12,6 +12,8 @@
  * No external game libs. Inline SVG pitch. Lucide-react icons only.
  */
 
+import { packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { useState, useCallback, useEffect, useRef, useMemo } from "react";
 import {
   CheckCircle2,
@@ -66,8 +68,11 @@ function buildQuestion(
   mode: GameMode,
   exclude?: string,
 ): Question {
-  // Translate It only asks about positions that have a label in this language.
-  const candidates = mode === "translate-it" ? pool.filter((p) => p.labels[language]) : pool;
+  // French and Italian: Translate It only asks about positions labelled in that language. Every
+  // other learner keeps the base game, which falls back to the English name.
+  const packRules = followsPackRules(packFor(language));
+  const candidates =
+    packRules && mode === "translate-it" ? pool.filter((p) => p.labels[language]) : pool;
   const base = candidates.length > 0 ? candidates : pool;
   const eligible = exclude ? base.filter((p) => p.id !== exclude) : base;
   const source = eligible.length > 0 ? eligible : base;
@@ -78,7 +83,9 @@ function buildQuestion(
   const options = shuffle([target, ...wrong]);
 
   if (mode === "translate-it") {
-    const translatedLabel = target.labels[language];
+    const translatedLabel = packRules
+      ? target.labels[language]
+      : (target.labels[language] ?? target.en);
     return { target, options, translatedLabel };
   }
 
@@ -628,7 +635,7 @@ export function SoccerPositionsGame({ language, onXp }: SoccerPositionsGameProps
   // Current question state
   const pool = useMemo(() => getPositionsForFormation(formation), [formation]);
   // No labels in this language: hide Translate It instead of asking the English name back.
-  const hasLabels = pool.some((p) => p.labels[language]);
+  const hasLabels = !followsPackRules(packFor(language)) || pool.some((p) => p.labels[language]);
   const mode: GameMode = requestedMode === "translate-it" && !hasLabels ? "name-it" : requestedMode;
   const lastIdRef = useRef<string | undefined>(undefined);
   const [question, setQuestion] = useState<Question>(() => buildQuestion(pool, language, mode));
@@ -772,18 +779,20 @@ export function SoccerPositionsGame({ language, onXp }: SoccerPositionsGameProps
 
       {/* ── Mode toggle ── */}
       <div className="flex gap-1 rounded-2xl border border-border/60 bg-card/30 p-1">
-        {MODE_CONFIG.filter(({ key }) => key !== "translate-it" || hasLabels).map(({ key, label, icon: Icon }) => (
-          <button
-            key={key}
-            onClick={() => handleModeChange(key)}
-            data-active={mode === key}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-all data-[active=true]:border data-[active=true]:border-gold/60 data-[active=true]:bg-gold/10 data-[active=true]:text-gold data-[active=false]:text-muted-foreground data-[active=false]:hover:text-foreground/80"
-          >
-            <Icon className="h-3 w-3 shrink-0" />
-            <span className="hidden sm:inline">{label}</span>
-            <span className="sm:hidden">{label.split(" ")[0]}</span>
-          </button>
-        ))}
+        {MODE_CONFIG.filter(({ key }) => key !== "translate-it" || hasLabels).map(
+          ({ key, label, icon: Icon }) => (
+            <button
+              key={key}
+              onClick={() => handleModeChange(key)}
+              data-active={mode === key}
+              className="flex flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-all data-[active=true]:border data-[active=true]:border-gold/60 data-[active=true]:bg-gold/10 data-[active=true]:text-gold data-[active=false]:text-muted-foreground data-[active=false]:hover:text-foreground/80"
+            >
+              <Icon className="h-3 w-3 shrink-0" />
+              <span className="hidden sm:inline">{label}</span>
+              <span className="sm:hidden">{label.split(" ")[0]}</span>
+            </button>
+          ),
+        )}
       </div>
 
       {/* ── Formation picker ── */}

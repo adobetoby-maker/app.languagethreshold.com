@@ -1,9 +1,21 @@
 {
   "code": "fr",
   "pack": {
-    "_why": "The PWA's French course already offers the online tutor (legacy adapter); a QA build must not drop it.",
+    "_why": "The PWA's French course already offers the online tutor (legacy adapter); a QA build must not drop it. Continue your French lists its courses in the order Spanish learners see (Conjugation Patterns 4th, as the es overlay keeps the base order).",
     "features": {
       "onlineTutor": true
+    },
+    "library": {
+      "coreBasics": [
+        "french-basics",
+        "french-102",
+        "french-frequent-verbs",
+        "french-conjugation-patterns",
+        "french-usage-verbs",
+        "french-common-patterns",
+        "french-cognates",
+        "sound-like-a-native"
+      ]
     }
   },
   "app": {

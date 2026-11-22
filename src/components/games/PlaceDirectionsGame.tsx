@@ -1,5 +1,5 @@
-import { packCodeOf } from "@/data/language-packs/registry";
-import { useApp } from "@/state/app-state";
+import { packCodeOf, packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { ObjectIcon } from "./PictureObjectIcon";
 import { PictureAssemblyPuzzle } from "./PictureAssemblyPuzzle";
 import recordings from "@/data/picture-action-audio.json";
@@ -30,8 +30,8 @@ export function PlaceDirectionsGame({
   initialRound = 0,
   moduleId = "place-directions",
   category = "",
-  targetLanguage: targetProp,
-  nativeLanguage: nativeProp,
+  targetLanguage = "Spanish",
+  nativeLanguage = "English",
 }: {
   initialRound?: number;
   moduleId?: string;
@@ -39,10 +39,6 @@ export function PlaceDirectionsGame({
   targetLanguage?: string;
   nativeLanguage?: string;
 }) {
-  // No built-in language pair: a caller that names none practices the learner's own selection.
-  const { state: appState } = useApp();
-  const targetLanguage = targetProp ?? appState.selectedLanguage;
-  const nativeLanguage = nativeProp ?? appState.nativeLanguage;
   const context = `${targetLanguage}:${nativeLanguage}:${moduleId}`;
   const [assembly, setAssembly] = useState(false);
   const [sceneId, setSceneId] = useState<SceneId>(() => sceneForModule(moduleId, category));
@@ -124,7 +120,12 @@ export function PlaceDirectionsGame({
     const clip = recordings.clips.find(
       (r) =>
         r.id === x.id &&
-        r.language === packCodeOf(targetLanguage) &&
+        r.language ===
+          (followsPackRules(packFor(targetLanguage))
+            ? packCodeOf(targetLanguage)
+            : targetLanguage === "English"
+              ? "en"
+              : "es") &&
         r.gender === voiceGender &&
         r.text === command(x),
     );
@@ -293,8 +294,10 @@ export function PlaceDirectionsGame({
       <section className="rounded-2xl border bg-card p-4" aria-label="Picture and action practice">
         <h2 className="font-display text-xl">Picture & Action</h2>
         <p className="mt-2">
-          Scene practice is currently authored for Spanish with English support and English with
-          Spanish support. Your selected language is preserved.
+          {/* French and Italian learners read a notice that names only their language. */}
+          {followsPackRules(packFor(targetLanguage))
+            ? `Scene practice is not available in ${packFor(targetLanguage)!.name} yet. Your selected language is preserved.`
+            : "Scene practice is currently authored for Spanish with English support and English with Spanish support. Your selected language is preserved."}
         </p>
       </section>
     );

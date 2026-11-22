@@ -1,10 +1,22 @@
 {
   "code": "it",
   "pack": {
-    "_why": "The PWA already authors Italian Say It missions and offers the online tutor (legacy adapter); a QA build must offer the same.",
+    "_why": "The PWA already authors Italian Say It missions and offers the online tutor (legacy adapter); a QA build must offer the same. Continue your Italian lists its courses in the order Spanish learners see (Conjugation Patterns 4th, as the es overlay keeps the base order).",
     "features": {
       "speakingMissions": true,
       "onlineTutor": true
+    },
+    "library": {
+      "coreBasics": [
+        "italian-basics",
+        "italian-102",
+        "italian-frequent-verbs",
+        "italian-conjugation-patterns",
+        "italian-usage-verbs",
+        "italian-common-patterns",
+        "italian-cognates",
+        "sound-like-a-native"
+      ]
     }
   },
   "app": {

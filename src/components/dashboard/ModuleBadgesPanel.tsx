@@ -1,7 +1,8 @@
 import { Lock, Puzzle } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
-import { getModule, MODULES } from "@/data/modules";
+import { getModule, MODULES, moduleSupportsLanguage } from "@/data/modules";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { ladderProgress, getLadder } from "@/data/module-badges";
 
 export function ModuleBadgesPanel() {
@@ -11,6 +12,9 @@ export function ModuleBadgesPanel() {
   const activeModule = getModule(state.activeModuleId);
   const activeLadder = getLadder(state.activeModuleId);
   const progress = ladderProgress(state.activeModuleId, state.challengesCleared);
+  // A French or Italian learner sees the ladders of their own library's modules only, never another
+  // language's module ("Soccer / Fútbol"); every other learner keeps the base list.
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
 
   return (
     <section className="space-y-6">
@@ -158,7 +162,11 @@ export function ModuleBadgesPanel() {
           Other Ladders
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {MODULES.filter((m) => m.id !== state.activeModuleId).map((m) => {
+          {MODULES.filter(
+            (m) =>
+              m.id !== state.activeModuleId &&
+              (!catalogPack || moduleSupportsLanguage(m, state.selectedLanguage)),
+          ).map((m) => {
             const ladder = getLadder(m.id);
             if (!ladder) return null;
             const owned = hasPlan || state.purchasedModules.includes(m.id);

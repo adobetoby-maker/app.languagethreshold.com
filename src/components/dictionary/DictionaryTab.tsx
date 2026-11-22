@@ -36,7 +36,8 @@ function roofingWordsFor(language: string): DictWord[] {
         word,
         english: entry.english,
         pronunciation: "",
-        partOfSpeech: entry.partOfSpeech === "roofing term" ? ("noun" as const) : ("phrase" as const),
+        partOfSpeech:
+          entry.partOfSpeech === "roofing term" ? ("noun" as const) : ("phrase" as const),
         category: "roofing" as const,
         context: "Roofing crew language",
         examples: [],
@@ -160,7 +161,9 @@ function conjugationLanguageNames(): string {
     const dataset = datasetFor(pack);
     return Boolean(dataset && Object.keys(dataset.profiles).length > 0);
   }).map((pack) => pack.name);
-  return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names.join("");
+  return names.length > 1
+    ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`
+    : names.join("");
 }
 
 // ─── Category chip data ───────────────────────────────────────────────────────
@@ -195,7 +198,6 @@ function VerbPhaseSection({
   onToggle: () => void;
   slotLabels: Partial<Record<VerbFormSlot, string>>;
 }) {
-
   return (
     <div className="border-t border-border/30 last:rounded-b-lg overflow-hidden">
       <button
@@ -317,15 +319,15 @@ function WordCard({
         </p>
 
         {word.context && (
-          <p
-            className="mt-1 text-xs"
-            style={{ color: "var(--muted-foreground)", opacity: 0.75 }}
-          >
+          <p className="mt-1 text-xs" style={{ color: "var(--muted-foreground)", opacity: 0.75 }}>
             {word.context}
           </p>
         )}
         {word.lessonHref && (
-          <a href={word.lessonHref} className="mt-2 block text-xs font-semibold text-gold underline underline-offset-2">
+          <a
+            href={word.lessonHref}
+            className="mt-2 block text-xs font-semibold text-gold underline underline-offset-2"
+          >
             Open source lesson
           </a>
         )}
@@ -513,14 +515,17 @@ export function DictionaryTab() {
       : null;
   // The Roofing chip is offered whenever the language has roofing entries, so they must not
   // depend on the active module (they were empty unless the Roofing module was selected).
+  // Learners outside the released course packs keep the base dataset: roofing entries only for
+  // Spanish (owner decisions 2 and 3).
+  const packRules = followsPackRules(pack);
   const roofingWords = useMemo(
-    () => (config ? roofingWordsFor(state.selectedLanguage) : []),
-    [config, state.selectedLanguage],
+    () =>
+      config && (packRules || state.selectedLanguage === "Spanish")
+        ? roofingWordsFor(state.selectedLanguage)
+        : [],
+    [config, packRules, state.selectedLanguage],
   );
-  const words = useMemo(
-    () => [...(config?.words ?? []), ...roofingWords],
-    [config, roofingWords],
-  );
+  const words = useMemo(() => [...(config?.words ?? []), ...roofingWords], [config, roofingWords]);
   const startCategory: CategoryFilter =
     state.activeModuleId === "roofing" && roofingWords.length > 0 ? "roofing" : "all";
   const [category, setCategory] = useState<CategoryFilter>(startCategory);
@@ -529,19 +534,15 @@ export function DictionaryTab() {
   useEffect(() => {
     setCategory(startCategory);
   }, [startCategory, state.selectedLanguage]);
-  // Chips for categories the language has no entries in are not offered.
-  const chips = useMemo(
-    () =>
-      CATEGORY_CHIPS.filter(
-        (chip) => chip.key === "all" || words.some((word) => word.category === chip.key),
-      ),
-    [words],
-  );
+  // Every language shows the full chip row, as the base app did for Spanish.
+  const chips = CATEGORY_CHIPS;
   const profiles = config?.profiles ?? {};
 
   const filtered = useMemo(() => {
-    // Both sides are folded with the language's own marks (être / etre, œuf / oeuf).
-    const key = (text: string) => (pack ? foldMarks(normalizeKey(text, pack), pack) : text.toLowerCase());
+    // French and Italian fold both sides with the language's own marks (être / etre, œuf / oeuf);
+    // every other learner keeps the base lower-case match and default sort.
+    const key = (text: string) =>
+      packRules && pack ? foldMarks(normalizeKey(text, pack), pack) : text.toLowerCase();
     const q = key(query);
     return words
       .filter((w) => {
@@ -554,9 +555,11 @@ export function DictionaryTab() {
         return catMatch && searchMatch;
       })
       .sort((a, b) =>
-        a.word.localeCompare(b.word, pack?.script.segmenterLocale, { sensitivity: "base" }),
+        a.word.localeCompare(b.word, packRules ? pack?.script.segmenterLocale : undefined, {
+          sensitivity: "base",
+        }),
       );
-  }, [words, category, query, pack]);
+  }, [words, category, query, pack, packRules]);
 
   return (
     <div className="flex flex-col gap-6 px-4 py-6 sm:px-6 max-w-5xl mx-auto pb-32">
@@ -585,7 +588,8 @@ export function DictionaryTab() {
         <>
           {state.selectedLanguage === "Japanese" && (
             <p className="rounded-lg border border-gold/30 bg-gold/10 px-3 py-2 text-sm text-foreground">
-              Japanese 101 lesson glossary · draft wording. Entries link to their source lesson; full dictionary and form guidance are still in progress.
+              Japanese 101 lesson glossary · draft wording. Entries link to their source lesson;
+              full dictionary and form guidance are still in progress.
             </p>
           )}
           {/* Search */}

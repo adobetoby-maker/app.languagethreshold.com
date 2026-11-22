@@ -28,6 +28,8 @@ import { SaveProgressBanner } from "@/components/SaveProgressBanner";
 import { MobilePwaPrompt } from "@/components/MobilePwaPrompt";
 import { SubscriptionGate } from "@/components/SubscriptionGate";
 import { SubscriptionProvider } from "@/state/subscription-state";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { onrampFor } from "@/lib/language-onramp";
 import { AiGateProvider } from "@/state/ai-gate-state";
 import { TabShell } from "@/components/TabShell";
 import { TutorPanel } from "@/components/tutor/TutorPanel";
@@ -111,6 +113,10 @@ function GatedTabShell() {
 }
 
 function ProductIntro() {
+  // A French or Italian learner is pointed at their own 101 course, never at Spanish 101.
+  const { state } = useApp();
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
+  const onramp = catalogPack ? onrampFor(state.selectedLanguage, state.nativeLanguage) : null;
   return (
     <section className="mx-auto mb-8 mt-4 max-w-5xl rounded-3xl border border-gold/25 bg-card/60 px-6 py-10 sm:px-10">
       <p className="mb-3 text-sm font-semibold text-gold-ink">
@@ -137,12 +143,21 @@ function ProductIntro() {
         >
           Try the free lessons
         </a>
-        <a
-          href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
-          className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
-        >
-          New to Spanish? Start Spanish 101
-        </a>
+        {!catalogPack ? (
+          <a
+            href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+            className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
+          >
+            New to Spanish? Start Spanish 101
+          </a>
+        ) : onramp ? (
+          <a
+            href={onramp.start.href}
+            className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
+          >
+            New to {catalogPack.name}? Start {onramp.start.label}
+          </a>
+        ) : null}
       </div>
       <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
         {[

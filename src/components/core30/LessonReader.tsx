@@ -26,8 +26,17 @@ import { languageTag } from "@/lib/lesson-words-core";
 import { packFor } from "@/data/language-packs/registry";
 import { cn } from "@/lib/utils";
 import { currentTutorLesson } from "@/lib/lesson-tutor-context";
-import { historicalCoursePair, sameLanguage, workplaceCoursePack } from "@/data/language-packs/registry";
+import {
+  historicalCoursePair,
+  sameLanguage,
+  workplaceCoursePack,
+} from "@/data/language-packs/registry";
 import { nativeLanguageName } from "@/data/languages";
+import { catalogCourseLesson, catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { flagOf } from "@/data/language-packs/app-data";
+import { getModule } from "@/data/modules";
+import type { LibraryEntry } from "@/state/library-state";
+import type { Language } from "@/state/app-state";
 
 /** How long to wait for the reading library before treating a missing passage as absent. */
 const LIBRARY_WAIT_MS = 6000;
@@ -57,7 +66,7 @@ export function LessonReader({
   onRoundFinished?: () => void;
 }) {
   const { state, dispatch } = useApp();
-  const { state: lib } = useLibrary();
+  const { state: lib, dispatch: libDispatch } = useLibrary();
   const { speakSentence, speakSentences, stop, playing, activeSentenceIndex, rate, setRate } =
     useSpeech();
   const language = state.selectedLanguage;
@@ -165,7 +174,34 @@ export function LessonReader({
     lessonNumber && orCleaningLesson(moduleId, lessonNumber, language, state.nativeLanguage)
       ? seedId(lessonNumber)
       : null;
+  // A French or Italian course lesson (French 101 … Cognates) opens its own reading in the full
+  // Reader, as Spanish course lessons open theirs (seed-<code>-<module>-lesson-<n>).
+  const catalogPack = catalogLessonPack(language);
+  const catalogReader: LibraryEntry | null =
+    catalogPack &&
+    contentPassage &&
+    lessonNumber &&
+    catalogCourseLesson(moduleId, lessonNumber, language)
+      ? {
+          id: seedId(lessonNumber),
+          title: `${getModule(moduleId)?.name.split(" · ")[0] ?? catalogPack.name} ${lessonNumber}: ${contentPassage.title}`,
+          subtitle: `${catalogPack.name} with ${state.nativeLanguage} support`,
+          language: language as Language,
+          targetLabel: catalogPack.name,
+          flag: flagOf(catalogPack),
+          section: "culture",
+          category: "Culture",
+          available: true,
+          sentences: contentPassage.sentences.map(({ target, en }) => ({ target, en })),
+        }
+      : null;
+  const openFullReader = (id: string) => {
+    if (catalogReader && id === catalogReader.id)
+      libDispatch({ type: "APPEND_LANGUAGE_SEEDS", language, payload: [catalogReader] });
+    onOpenFullReader(id);
+  };
   const fullReaderId =
+    catalogReader?.id ??
     cleaningReaderId ??
     japaneseReaderId ??
     basicsReaderId ??
@@ -316,11 +352,13 @@ export function LessonReader({
             <button
               type="button"
               data-testid="lesson-open-full-reader"
-              onClick={() => onOpenFullReader(fullReaderId)}
+              onClick={() => openFullReader(fullReaderId)}
               className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm underline underline-offset-4"
             >
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              {contentPassage ? "Open the longer module reading" : "Open in full Reader"}
+              {contentPassage && !catalogReader
+                ? "Open the longer module reading"
+                : "Open in full Reader"}
             </button>
           </details>
         )}
@@ -435,11 +473,13 @@ export function LessonReader({
         <button
           type="button"
           data-testid="lesson-open-full-reader"
-          onClick={() => onOpenFullReader(fullReaderId)}
+          onClick={() => openFullReader(fullReaderId)}
           className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg px-1 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
         >
           <ExternalLink className="h-4 w-4" aria-hidden="true" />
-          {contentPassage ? "Open the longer module reading" : "Open in full Reader"}
+          {contentPassage && !catalogReader
+            ? "Open the longer module reading"
+            : "Open in full Reader"}
         </button>
       )}
 

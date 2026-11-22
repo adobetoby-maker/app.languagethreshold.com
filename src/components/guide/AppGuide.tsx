@@ -14,7 +14,11 @@ import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
 import { onrampFor, isDefaultCourse } from "@/lib/language-onramp";
 import { moduleBaseId } from "@/lib/module-order";
-import { catalogLessonPack, catalogLessonPractice } from "@/data/language-packs/catalog-lessons";
+import {
+  catalogCourseLesson,
+  catalogLessonPack,
+  catalogLessonPractice,
+} from "@/data/language-packs/catalog-lessons";
 import { usePack } from "@/hooks/use-language-pack";
 import { packFor, sameLanguage } from "@/data/language-packs/registry";
 import { appData } from "@/data/language-packs/app-data";
@@ -831,7 +835,9 @@ function OwnedLessonRunner({
   // models in their catalog; null for every other language.
   const catalogPractice = catalogLessonPractice(moduleId, lesson.n, state.selectedLanguage);
   const coursePractice = basics ?? japanese ?? catalogPractice;
-  const grammar = (basics ?? japanese)?.grammar ?? lesson.grammar;
+  // French and Italian course lessons show the same Grammar focus and verb games as Spanish's.
+  const catalogCourse = catalogCourseLesson(moduleId, lesson.n, state.selectedLanguage);
+  const grammar = (basics ?? japanese)?.grammar ?? catalogCourse?.grammar ?? lesson.grammar;
   const [grammarPassed, setGrammarPassed] = useState(false);
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
@@ -1625,7 +1631,7 @@ function OwnedLessonRunner({
                 imperative={catalogPractice.pattern.isImperative}
               />
             )}
-            {basics && verbs.length > 0 && (
+            {(basics || catalogCourse) && verbs.length > 0 && (
               <LessonVerbGames
                 key={`${moduleId}:${lesson.n}`}
                 verbs={verbs}
@@ -1949,7 +1955,11 @@ export function AppGuide() {
   // with none shows no tip card rather than another language's.
   const tipPack = usePack(state.selectedLanguage);
   const tip = tipPack?.content.guideTips ? getModuleTip(state.activeModuleId) : null;
-  const tourSteps = getTourScript(state.activeModuleId, state.selectedLanguage, state.nativeLanguage);
+  const tourSteps = getTourScript(
+    state.activeModuleId,
+    state.selectedLanguage,
+    state.nativeLanguage,
+  );
 
   // XP tier progress
   const xp = state.xp ?? 0;
@@ -2477,7 +2487,13 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     const course = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)!;
     const lesson =
       (savedPosition && course.lessons.find((item) => item.n === savedPosition.lesson)) ??
-      getCurrentLesson(moduleId, state.selectedLanguage, state.nativeLanguage, state.lessonProgress, progressKey);
+      getCurrentLesson(
+        moduleId,
+        state.selectedLanguage,
+        state.nativeLanguage,
+        state.lessonProgress,
+        progressKey,
+      );
     if (lesson) {
       try {
         sessionStorage.removeItem("lt.v6.pending-mode");
@@ -2527,7 +2543,14 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
     (lesson) => core30Log?.lessons[String(lesson.n)]?.needsPractice,
   );
   const currentLesson =
-    practiceLesson ?? getCurrentLesson(moduleId, state.selectedLanguage, state.nativeLanguage, state.lessonProgress, progressKey);
+    practiceLesson ??
+    getCurrentLesson(
+      moduleId,
+      state.selectedLanguage,
+      state.nativeLanguage,
+      state.lessonProgress,
+      progressKey,
+    );
   const openLesson =
     openLessonN === null ? null : (curriculum.lessons.find((l) => l.n === openLessonN) ?? null);
   const runnerActive = openLesson !== null;

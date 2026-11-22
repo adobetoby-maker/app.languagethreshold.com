@@ -3,6 +3,7 @@ import { XCircle } from "lucide-react";
 import type { LessonVerb } from "@/lib/lesson-content-core";
 import type { SpanishPattern } from "@/data/spanish-basics";
 import { packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { specialLetters } from "@/lib/language-pack-text";
 import { useSpeech } from "@/state/speech-state";
 import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
@@ -11,6 +12,10 @@ import {
   clearPairMismatch,
   EMPTY_PAIR_BOARD,
   gameRoundItems,
+  BASE_TYPED_LETTERS,
+  baseGameAnswer,
+  baseGameSubjects,
+  GAME_LETTERS,
   gameLetters,
   gameAnswer,
   gameSubjects,
@@ -61,8 +66,7 @@ export function LessonVerbGames({
   const bank = useMemo(() => lessonGameBank(verbs, language, pattern), [verbs, language, pattern]);
   const [game, setGame] = useState<Game | null>(null);
   const [round, setRound] = useState(0);
-  // Fail closed: a language without a pack has no verb-game rules.
-  if (!bank.forms.length || packFor(language) === null) return null;
+  if (!bank.forms.length) return null;
   return (
     <section
       aria-label="Lesson verb games"
@@ -117,10 +121,18 @@ export function GameRound({
 }) {
   const { speakSentence } = useSpeech();
   const pack = packFor(language);
+  // French and Italian play by their pack; every other learner keeps the base games exactly.
+  const packRules = followsPackRules(pack);
   const items = useMemo(() => gameRoundItems(shuffle(source)), [source]);
   const letters = useMemo(
-    () => (pack ? gameLetters(pack, items.map((item) => item.answer)) : []),
-    [pack, items],
+    () =>
+      packRules && pack
+        ? gameLetters(
+            pack,
+            items.map((item) => item.answer),
+          )
+        : GAME_LETTERS,
+    [pack, packRules, items],
   );
   const [index, setIndex] = useState(0);
   const [missed, setMissed] = useState(false);
@@ -187,9 +199,11 @@ export function GameRound({
   }
   function check(value: string) {
     if (!current) return;
-    if (!pack) return;
-    const subjects = gameSubjects(current.prompt, pack);
-    if (gameAnswer(current.answer, value, subjects, pack)) {
+    const correct =
+      packRules && pack
+        ? gameAnswer(current.answer, value, gameSubjects(current.prompt, pack), pack)
+        : baseGameAnswer(current.answer, value, baseGameSubjects(current.prompt, language));
+    if (correct) {
       setDone(true);
       if (!missed) setScore((n) => n + 1);
       setFeedback("Correct. " + current.answer);
@@ -351,7 +365,7 @@ export function GameRound({
                 />
               </label>
               <div className="flex flex-wrap gap-1">
-                {(pack ? specialLetters(pack) : []).map((c) => (
+                {(packRules && pack ? specialLetters(pack) : BASE_TYPED_LETTERS).map((c) => (
                   <button
                     key={c}
                     type="button"

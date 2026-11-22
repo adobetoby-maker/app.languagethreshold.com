@@ -118,6 +118,49 @@ export function gameAnswer(
   return false;
 }
 
+// ─── Base verb-game rules ────────────────────────────────────────────────────
+// Learners outside the released course packs (Spanish, Japanese and every language without a
+// bundled pack) keep the base app's verb games exactly (owner decisions 2 and 3): its subjects
+// (Spanish and English prompts only), its matcher and its letters.
+
+/** Base subjects: the prompt's own subjects, for Spanish and English prompts only. */
+export function baseGameSubjects(prompt: string, language: string): string[] {
+  return ["Spanish", "English"].includes(language) && prompt.includes(" · ")
+    ? prompt.split(" · ")[0].split(" / ")
+    : [];
+}
+
+/** The base app's typed verb-game matcher (NFC, trimmed, lower case; punctuation kept). */
+export function baseGameAnswer(
+  expected: string,
+  actual: string,
+  subjects: readonly string[] = [],
+): boolean {
+  const normalize = (s: string) => s.normalize("NFC").trim().toLocaleLowerCase();
+  const answer = normalize(actual),
+    wanted = normalize(expected);
+  if (answer === wanted) return true;
+  const alternatives = subjects.flatMap((subject) => [
+    subject,
+    ...(subject === "nosotros"
+      ? ["nosotras"]
+      : subject === "vosotros"
+        ? ["vosotras"]
+        : subject === "ellos"
+          ? ["ellas"]
+          : []),
+  ]);
+  return alternatives.some((subject) => {
+    const prefix = normalize(subject) + " ";
+    return answer.startsWith(prefix) && answer.slice(prefix.length).trim() === wanted;
+  });
+}
+
+/** The base app's hangman keys. */
+export const GAME_LETTERS = [..."abcdefghijklmnñopqrstuvwxyzáéíóúü"];
+/** The base app's typed letter row. */
+export const BASE_TYPED_LETTERS = [..."áéíóúüñ"];
+
 /**
  * Hangman keys and the mask set (language-pack model section 9): the pack alphabet, so no letter
  * of the language is given away unmasked. A pack without an alphabet (IME scripts) plays with the

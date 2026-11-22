@@ -1,6 +1,8 @@
 import { useState, useCallback, useMemo } from "react";
 import { Dna, RotateCcw, ChevronRight, CheckCircle2, XCircle } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import {
   BODY_REGIONS,
   FACE_REGIONS,
@@ -49,7 +51,19 @@ function buildQuiz(
   exclude: string | null,
   language: string,
 ): QuizState {
-  // Only regions labelled in this language are asked; the English name is never the answer.
+  // French and Italian are asked only regions labelled in their language (the English name is
+  // never their answer). Every other learner keeps the base quiz, which falls back to English.
+  if (!followsPackRules(packFor(language))) {
+    const regions = allRegions;
+    const pool = regions.length > 1 ? regions.filter((r) => r.id !== exclude) : regions;
+    const region = pool[Math.floor(Math.random() * pool.length)];
+    const correctLabel = region.labels[language] ?? region.en;
+    const wrong = shuffle(
+      regions.filter((r) => r.id !== region.id).map((r) => r.labels[language] ?? r.en),
+    ).slice(0, 2);
+    const choices = shuffle([correctLabel, ...wrong]);
+    return { region, choices, correctLabel };
+  }
   const labelled = allRegions.filter((r) => r.labels[language]);
   const regions = labelled.length > 0 ? labelled : allRegions;
   const pool = regions.length > 1 ? regions.filter((r) => r.id !== exclude) : regions;

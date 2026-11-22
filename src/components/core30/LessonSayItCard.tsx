@@ -2,6 +2,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowLeft, CheckCircle2, Info, Mic, RotateCcw, Turtle, Volume2 } from "lucide-react";
 import type { LessonWord } from "@/data/curriculum";
 import { recognitionLocales } from "@/lib/language-pack-text";
+import { languageTag } from "@/lib/lesson-words-core";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
 import { type SpeechWordScore } from "@/lib/speech-word-similarity";
 import { speechScore } from "@/lib/speech-score";
@@ -40,8 +42,17 @@ export function LessonSayItCard({
   const { accent, rate } = useSpeech();
   // The lesson's pack decides recognition: the learner's accent when it is this language, then
   // the pack's recognition locales. Null: no recognizer for this pack (dictation unsupported).
+  // Learners outside the released course packs (Spanish included) keep the base locale: the
+  // accent when it is this language, else the language tag (owner decisions 2 and 3).
   const pack = usePack(language);
-  const locale = pack ? (recognitionLocales(accent, pack)[0] ?? null) : null;
+  const packRules = followsPackRules(pack);
+  const locale = packRules
+    ? pack
+      ? (recognitionLocales(accent, pack)[0] ?? null)
+      : null
+    : accent?.slice(0, 2) === languageTag(language).slice(0, 2)
+      ? accent
+      : languageTag(language);
   const scope = JSON.stringify([language, index, word?.es]);
   const { capture, cancel } = usePracticeLifecycle("say-word:" + scope);
   // The model word (Listen, Slow) is read by the learner's listening voice: recorded HD audio
@@ -283,7 +294,7 @@ export function LessonSayItCard({
         <div className="flex items-start justify-between gap-3">
           <h3
             data-testid="say-word-target"
-            lang={pack?.code}
+            lang={packRules ? pack?.code : (locale ?? undefined)}
             className="min-w-0 flex-1 font-display text-[28px] leading-tight"
           >
             {word.es}

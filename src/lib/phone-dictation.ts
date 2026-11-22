@@ -1,6 +1,7 @@
 import { Capacitor, registerPlugin, type PluginListenerHandle } from "@capacitor/core";
 import { packFor } from "@/data/language-packs/registry";
 import { recognitionLocales } from "@/lib/language-pack-text";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 
 export type SpeechRecognitionEventLike = {
   resultIndex: number;
@@ -45,7 +46,9 @@ const PhoneDictation = registerPlugin<PhoneDictationPlugin>("PhoneDictation");
 function nativeCandidateLocales(locale: string): string[] {
   const key = locale.replace(/_/g, "-").toLowerCase();
   const pack = packFor(key.split("-")[0] ?? "");
-  if (!pack) return [];
+  // Only the released course packs send candidates; every other language (Spanish included) keeps
+  // the base same-language fallback in PhoneDictationPlugin.swift (owner decisions 2 and 3).
+  if (!pack || !followsPackRules(pack)) return [];
   const listed = [...pack.speech.accents.map((a) => a.tag), ...pack.speech.recognition.locales];
   return listed.some((tag) => tag.toLowerCase() === key) ? recognitionLocales(locale, pack) : [];
 }

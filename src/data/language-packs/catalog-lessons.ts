@@ -318,7 +318,53 @@ function practicePattern(raw: unknown): CatalogPattern | undefined {
 
 const practices = new Map<string, CatalogPractice[]>();
 
+/**
+ * What a catalog course lesson (French 101 … French Cognates, any stage) carries for the lesson
+ * screen sections its Spanish twin's course lessons show: the Grammar focus (from the lesson's
+ * explanation: its first line, then its "target — native" example lines), the response prompt
+ * (the lesson's speaking prompt) and the stage the teaching settings follow.
+ */
+export interface CatalogCourseLesson {
+  stage: CatalogStage;
+  grammar: { focus: string; examples: { es: string; en: string }[] } | null;
+  speaking: string;
+}
+
+const courses = new Map<string, CatalogCourseLesson[]>();
+
+/** The lesson's Grammar focus, from its explanation. Null when the explanation has no focus line. */
+function courseGrammar(explanation: string | undefined): CatalogCourseLesson["grammar"] {
+  const lines = (explanation ?? "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const [focus, ...rest] = lines;
+  if (!focus) return null;
+  const examples = rest.flatMap((line) => {
+    const at = line.indexOf(" — ");
+    if (at <= 0) return [];
+    const es = line.slice(0, at).trim();
+    const en = line.slice(at + 3).trim();
+    return es && en ? [{ es, en }] : [];
+  });
+  return { focus, examples };
+}
+
+/** True for a catalog course module (the core basics courses, not Sound Like a Native). */
+function isCourseModule(module: CatalogModule): boolean {
+  return module.group === "core-basics" && module.id !== "sound-like-a-native";
+}
+
 function rememberPractice(key: string, module: CatalogModule, stage: CatalogStage): void {
+  if (isCourseModule(module))
+    courses.set(
+      key,
+      stageLessons(module, stage).map((lesson) => ({
+        stage,
+        grammar: courseGrammar(lesson.explanation),
+        speaking: (lesson.speakingPrompt ?? "").trim() || lesson.objective,
+      })),
+    );
   practices.set(
     key,
     stageLessons(module, stage).map((lesson) => {
@@ -344,6 +390,21 @@ export function catalogLessonPractice(
   if (!pack) return null;
   const practice = practices.get(keyOf(pack, moduleId))?.[lessonNumber - 1];
   return practice && practice.checks.length > 0 ? practice : null;
+}
+
+/**
+ * The course-lesson sections of a catalog course lesson (French 101 … Cognates, any stage), once
+ * its curriculum has loaded. Null for any other module, and for a language whose lessons do not
+ * come from its catalog.
+ */
+export function catalogCourseLesson(
+  moduleId: string,
+  lessonNumber: number,
+  language: string,
+): CatalogCourseLesson | null {
+  const pack = catalogLessonPack(language);
+  if (!pack) return null;
+  return courses.get(keyOf(pack, moduleId))?.[lessonNumber - 1] ?? null;
 }
 
 // ─── Registry for the synchronous getCurriculum() callers ─────────────────────

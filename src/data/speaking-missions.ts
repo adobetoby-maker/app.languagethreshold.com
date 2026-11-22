@@ -6,11 +6,17 @@ import { japaneseBasicsLesson } from "./japanese-basics.ts";
 import {
   CATALOG_LIBRARY_MODULE_IDS,
   MODULES,
+  moduleSupportsLanguage,
   moduleSupportsLearningPair,
   type AppModule,
 } from "./modules.ts";
-import type { NativeLanguage } from "@/state/app-state";
-import { authoredCurriculum, getCurriculum, moduleAuthoredPair, type Lesson } from "./curriculum.ts";
+import type { Language, NativeLanguage } from "@/state/app-state";
+import {
+  authoredCurriculum,
+  getCurriculum,
+  moduleAuthoredPair,
+  type Lesson,
+} from "./curriculum.ts";
 import { pendingStageLessonMissionCount, stageCurriculaVersion } from "./core60-stages.ts";
 import {
   CORE_SPEAKING_MODULE,
@@ -659,8 +665,6 @@ function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): s
     : `${language}-speaking ${module.name.toLowerCase()} conversation partner`;
 }
 
-
-
 /**
  * The languages Say it missions are offered in: a registered pack that offers speaking missions
  * (speaking-review.ts: status, features.speakingMissions, review sign-off pending is a separate,
@@ -694,8 +698,6 @@ function openingLineFor(
 ): string {
   return missionLines(language).opening[category];
 }
-
-
 
 function openingLineForModule(
   module: AppModule,
@@ -1378,18 +1380,25 @@ function getSpecialtySpeakingModules(
   language: SpeakingMissionLanguage,
   nativeLanguage?: NativeLanguage,
 ) {
+  // A language whose lessons come from its pack catalog (Italian) is offered missions only for
+  // the modules in its own Study library, as every other learner is (owner decision 1).
+  const catalog = catalogLessonPack(language) !== null;
   return MODULES.filter((module): module is SpecialtySpeakingModule =>
     CATALOG_LIBRARY_MODULE_IDS.has(module.id)
       ? false
-      : language === "English" && nativeLanguage
-      ? moduleSupportsLearningPair(module, language, nativeLanguage)
-      : language === "English"
-        ? module.learnDirection === "en-target" ||
-          (module.learnDirection !== "en-target" &&
-            (!module.languages || module.languages.includes(language)))
-        : module.learnDirection !== "en-target" &&
+      : catalog
+        ? module.learnDirection !== "en-target" &&
           module.category !== "English for Work" &&
-          (!module.languages || module.languages.includes(language)),
+          moduleSupportsLanguage(module, language as Language)
+        : language === "English" && nativeLanguage
+          ? moduleSupportsLearningPair(module, language, nativeLanguage)
+          : language === "English"
+            ? module.learnDirection === "en-target" ||
+              (module.learnDirection !== "en-target" &&
+                (!module.languages || module.languages.includes(language)))
+            : module.learnDirection !== "en-target" &&
+              module.category !== "English for Work" &&
+              (!module.languages || module.languages.includes(language)),
   );
 }
 
@@ -1522,8 +1531,7 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
     // quotes the authored language's words removed.
     const catalog = catalogLessonPack(language) !== null;
     const own = catalog ? getCurriculum(module.id, language, defaultNativeFor(language)) : null;
-    const projectedFrom =
-      catalog && !own ? (moduleAuthoredPair(module.id)?.target ?? null) : null;
+    const projectedFrom = catalog && !own ? (moduleAuthoredPair(module.id)?.target ?? null) : null;
     const curriculum = catalog
       ? (own ?? (projectedFrom ? authoredCurriculum(module.id) : null))
       : authoredCurriculum(module.id);

@@ -6,6 +6,10 @@ import type { AnswerPayload, PublicItemView } from "./types";
 import { cn } from "@/lib/utils";
 import type { LanguagePack } from "@/data/language-packs/registry";
 import { specialCharacters } from "@/lib/language-pack-text";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
+
+// The base app's row, shown only when the exam target is Spanish (owner decisions 2 and 3).
+const SPANISH_KEYS = ["á", "é", "í", "ó", "ú", "ü", "ñ", "¿", "¡"];
 
 const field =
   "min-h-12 w-full rounded-xl border border-border bg-background px-4 py-3 text-base text-foreground " +
@@ -76,7 +80,13 @@ export function TypedInput({
   labelId: string;
 }) {
   const ref = useRef<HTMLInputElement>(null);
-  const keys = pack ? specialCharacters(pack) : [];
+  // French and Italian get their pack's row; Spanish keeps the base row; every other language
+  // keeps the base (no row).
+  const keys = followsPackRules(pack)
+    ? specialCharacters(pack!)
+    : pack?.code === "es"
+      ? SPANISH_KEYS
+      : [];
   const text = draft?.type === "typed" ? draft.text : "";
   function insert(char: string) {
     const input = ref.current;

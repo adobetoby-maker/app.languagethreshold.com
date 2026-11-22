@@ -11,8 +11,14 @@
 // a pack, module or stage the catalog does not have resolves to null.
 
 import { isBundledPack, packFor, type LanguagePack } from "./registry.ts";
-import { loadCatalogModule, type CatalogLesson, type CatalogModule } from "./catalog.ts";
+import {
+  catalogHasModule,
+  loadCatalogModule,
+  type CatalogLesson,
+  type CatalogModule,
+} from "./catalog.ts";
 import { nativeLanguageName } from "../languages.ts";
+import { r, sp, wm } from "../curriculum-helpers.ts";
 import type { LessonWord, ModuleCurriculum } from "../curriculum.ts";
 import type {
   LessonContentFile,
@@ -33,9 +39,16 @@ export function catalogStageOf(
   moduleId: string,
   pack: LanguagePack,
 ): { base: string; stage: CatalogStage } | null {
-  const staged = moduleId.match(/^(foundation|master)-(.+)$/);
-  if (!staged) return { base: moduleId, stage: "working" };
   const suffix = `-${pack.code}`;
+  const staged = moduleId.match(/^(foundation|master)-(.+)$/);
+  if (!staged) {
+    // A Core 30 module whose id another module already uses carries the code: "grammar-fr".
+    const unsuffixed = moduleId.endsWith(suffix) ? moduleId.slice(0, -suffix.length) : null;
+    return {
+      base: unsuffixed && catalogHasModule(pack, unsuffixed) ? unsuffixed : moduleId,
+      stage: "working",
+    };
+  }
   if (!staged[2].endsWith(suffix)) return null;
   return {
     base: staged[2].slice(0, -suffix.length),
@@ -119,12 +132,24 @@ export function catalogCurriculum(
     moduleId,
     headline: module.title,
     threshold: lessons[lessons.length - 1]?.objective ?? "",
-    lessons: lessons.map((lesson, i) => ({
-      n: i + 1,
-      title: lesson.title,
-      objective: lesson.objective,
-      steps: [],
-    })),
+    // The same Reader, Word Match and Say it steps (and minutes) as the Spanish Core 60 stages.
+    lessons: lessons.map((lesson, i) => {
+      const [read, drill, say] = stage === "foundation" ? [5, 5, 6] : [12, 8, 12];
+      const terms = lesson.items
+        .filter((item) => item.target.trim() && wordKind(item.target) === "term")
+        .map((item) => item.target)
+        .join(", ");
+      return {
+        n: i + 1,
+        title: lesson.title,
+        objective: lesson.objective,
+        steps: [
+          r(`Read the ${lesson.title} passage.`, read),
+          wm(`Drill and pronounce: ${terms}.`, drill),
+          sp(lesson.objective, say),
+        ],
+      };
+    }),
   };
 }
 

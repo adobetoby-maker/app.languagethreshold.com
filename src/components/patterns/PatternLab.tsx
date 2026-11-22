@@ -12,9 +12,10 @@ import {
   Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { historicalCoursePack } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { useApp } from "@/state/app-state";
 import {
-  ALL_PATTERNS,
   FREQUENCY_META,
   getPatternsForLanguage,
   type GrammarPattern,
@@ -479,8 +480,6 @@ export function PatternLab() {
 
   const lang = app.selectedLanguage;
   const patterns = getPatternsForLanguage(lang);
-  // The languages that do have a pattern library, from the data itself (no named fallback).
-  const patternLanguages = [...new Set(ALL_PATTERNS.map((p) => p.language))];
 
   const filtered = patterns.filter((p) => phaseFilter === "all" || p.phase === phaseFilter);
 
@@ -519,8 +518,9 @@ export function PatternLab() {
         <BookOpen className="h-10 w-10 text-muted-foreground/30" />
         <p className="text-muted-foreground text-sm">
           Grammar patterns for {lang} are not yet available.
-          {patternLanguages.length > 0 &&
-            ` Switch to ${patternLanguages.join(" or ")} for the full pattern library.`}
+          {/* French and Italian courses never point at another language's library. */}
+          {!catalogLessonPack(lang) &&
+            ` Switch to ${historicalCoursePack().name} for the full pattern library.`}
         </p>
       </div>
     );

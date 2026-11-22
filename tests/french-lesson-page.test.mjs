@@ -1,8 +1,8 @@
 // Built by TAC — 2026-11-21
 // A French lesson page in a QA build (LT_QA=1) is built only from the French pack and its catalog:
 // French lesson text, a French voice and recognition locale, French person labels, French keyboard
-// letters and typing prompts, and nothing Spanish anywhere a learner reads. A normal build has no
-// French catalog lessons at all (the draft pack is not registered).
+// letters and typing prompts, and nothing Spanish anywhere a learner reads. French ships in normal
+// builds, so a normal build serves exactly the same page.
 import assert from "node:assert/strict";
 import test from "node:test";
 import { execFileSync } from "node:child_process";
@@ -108,8 +108,8 @@ test("a French QA lesson page is built only from the French pack and catalog: no
   assert.deepEqual(leaks, []);
 });
 
-test("a normal build has no French catalog lessons (the draft pack is QA only)", () => {
-  const page = run(PAGE, false);
-  assert.equal(page.catalogPack, null);
-  assert.equal(page.name, "French");
+test("a normal (release) build serves the same French lesson page as a QA build", {
+  skip: existsSync(CATALOG) ? false : "content/language-packs/fr is not imported",
+}, () => {
+  assert.deepEqual(run(PAGE, false), run(PAGE, true));
 });

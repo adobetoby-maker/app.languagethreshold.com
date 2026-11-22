@@ -8,14 +8,13 @@ import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts
 import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { core60FixtureModules, core60Manifest } from "./core60-stages.ts";
 import { withDerivedStageModules } from "../lib/core60-stage-core.ts";
-import {
-  historicalCoursePack,
-  isBundledPack,
-  packFor,
-  sameLanguage,
-  workplaceCoursePack,
-} from "./language-packs/registry.ts";
+import { packFor, sameLanguage, workplaceCoursePack } from "./language-packs/registry.ts";
 import { catalogHasModule } from "./language-packs/catalog.ts";
+import { catalogLessonPack } from "./language-packs/catalog-lessons.ts";
+import {
+  catalogCoreModules,
+  catalogManifestEntries,
+} from "./language-packs/catalog-modules.ts";
 import { nativeLanguageName } from "./languages.ts";
 
 /** The target language a learnDirection "en-target" module teaches (its app file sets workplaceCourse). */
@@ -65,21 +64,19 @@ export interface AppModule {
 
 /**
  * Returns true if `module` supports the given target `language`.
- * A module with a `languages` list is offered to exactly those languages. A language whose lessons
- * come from its pack catalog is offered a module only when that catalog lists it. A module without
- * a list is a historical, once-authored module: its hand-written curriculum (steps, drills,
- * personas) is written in the historical course's language (read in reverse by the workplace
- * course), so it is offered to those two only. Every other language, a legacy adapter included,
- * never sees it (fail closed: language-pack model section 5, "each such module gets
- * languages: [es]"); an unregistered language sees nothing.
+ * A language whose lessons come from its pack catalog (French, Italian) is offered exactly the
+ * modules of its catalog: the shared hand-written modules its catalog lists and its own catalog
+ * modules (catalog-modules.ts), never another language's. Every other language keeps the
+ * behaviour it has always had: a module with a `languages` list is offered to those languages,
+ * and a module without one to every language.
  */
 export function moduleSupportsLanguage(module: AppModule, language: Language): boolean {
-  if (module.languages) return module.languages.some((entry) => sameLanguage(entry, language));
-  const pack = packFor(language);
-  if (!pack) return false;
-  if (isBundledPack(pack) && !pack.ids.legacyUnscopedStorage)
-    return catalogHasModule(pack, module.id);
-  return sameLanguage(pack.code, historicalCoursePack().code) || sameLanguage(pack.code, workplaceTarget());
+  const catalogPack = catalogLessonPack(language);
+  if (catalogPack) {
+    if (module.languages) return module.languages.some((entry) => sameLanguage(entry, language));
+    return catalogHasModule(catalogPack, module.id);
+  }
+  return !module.languages || module.languages.some((entry) => sameLanguage(entry, language));
 }
 
 /** Returns true when a module belongs to the learner's source → target direction. */
@@ -1991,9 +1988,22 @@ export const HANDWRITTEN_MODULES: readonly AppModule[] = CATALOG;
  * exactly CATALOG.
  */
 export const MODULES: AppModule[] = withDerivedStageModules(
-  [...CATALOG, ...core60FixtureModules()],
-  core60Manifest(),
+  [...CATALOG, ...core60FixtureModules(), ...catalogCoreModules(CATALOG)],
+  [...core60Manifest(), ...catalogManifestEntries(CATALOG)],
 );
+
+/**
+ * The French and Italian library modules taken from their pack catalogs (catalog-modules.ts): own
+ * Core 30 entries and every catalog Foundation and Master. Features that need content authored per
+ * module (speaking missions, decks) have none for them yet and leave them out.
+ */
+export const CATALOG_LIBRARY_MODULE_IDS: ReadonlySet<string> = new Set([
+  ...catalogCoreModules(CATALOG).map((module) => module.id),
+  ...catalogManifestEntries(CATALOG).flatMap((entry) => [
+    entry.foundation?.moduleId ?? "",
+    entry.master?.moduleId ?? "",
+  ]),
+]);
 
 export function getModule(id: string | null | undefined): AppModule | null {
   if (!id) return null;

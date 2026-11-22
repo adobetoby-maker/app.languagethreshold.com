@@ -6,7 +6,7 @@
 // builds only). Every file carries its own pair and pack version and is refused when it does not
 // match the pack that asked for it: fail closed, never another language's lessons.
 
-import { isBundledPack, packIndexEntry, type LanguagePack } from "./registry.ts";
+import { isBundledPack, packIndexEntry, type LanguagePack, type PackIndexEntry } from "./registry.ts";
 
 export const CATALOG_VERSION = 2;
 
@@ -70,7 +70,7 @@ export interface CatalogModuleFile {
 }
 
 /** Modules a bundled pack's catalog lists (with lesson counts). Empty for a legacy adapter. */
-export function catalogModules(pack: LanguagePack): { id: string; lessonCount: number }[] {
+export function catalogModules(pack: LanguagePack): PackIndexEntry["modules"] {
   return packIndexEntry(pack)?.modules ?? [];
 }
 

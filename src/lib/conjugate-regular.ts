@@ -22,9 +22,9 @@ function emptyPersons(): PersonForms {
 }
 
 /**
- * Five taught persons (no second-person plural): the engine never writes a form the language's
- * variety avoids (Spanish vosotros). The second-person plural cell is filled from the pack by
- * withPackPersons, or left empty.
+ * Five taught persons (no second-person plural). The second-person plural cell is filled from the
+ * pack by withPackPersons, or left empty. (The Spanish engine keeps the six persons it has always
+ * written, vosotros included: its offline tables are unchanged.)
  */
 function mapFive(forms: [string, string, string, string, string]): PersonForms {
   return {
@@ -71,64 +71,71 @@ function conjugateSpanish(infinitive: string): ConjugationSet | null {
 
   const present =
     ending === "ar"
-      ? mapFive([
+      ? mapPersons([
           stem + "o",
           stem + "as",
           stem + "a",
           stem + "amos",
+          stem + "áis",
           stem + "an",
         ])
       : ending === "er"
-        ? mapFive([
-          stem + "o",
-          stem + "es",
-          stem + "e",
-          stem + "emos",
-          stem + "en",
-        ])
-        : mapFive([
-          stem + "o",
-          stem + "es",
-          stem + "e",
-          stem + "imos",
-          stem + "en",
-        ]);
+        ? mapPersons([
+            stem + "o",
+            stem + "es",
+            stem + "e",
+            stem + "emos",
+            stem + "éis",
+            stem + "en",
+          ])
+        : mapPersons([
+            stem + "o",
+            stem + "es",
+            stem + "e",
+            stem + "imos",
+            stem + "ís",
+            stem + "en",
+          ]);
 
   // Preterite
   const past =
     ending === "ar"
-      ? mapFive([
+      ? mapPersons([
           stem + "é",
           stem + "aste",
           stem + "ó",
           stem + "amos",
+          stem + "asteis",
           stem + "aron",
         ])
-      : mapFive([
+      : mapPersons([
           stem + "í",
           stem + "iste",
           stem + "ió",
           stem + "imos",
+          stem + "isteis",
           stem + "ieron",
         ]);
 
   // Future (stem + infinitive endings)
-  const future = mapFive([
-          inf + "é",
-          inf + "ás",
-          inf + "á",
-          inf + "emos",
-          inf + "án",
-        ]);
+  const future = mapPersons([
+    inf + "é",
+    inf + "ás",
+    inf + "á",
+    inf + "emos",
+    inf + "éis",
+    inf + "án",
+  ]);
 
   // Conditional
-  const conditional = mapFive([
-          inf + "ía",
-          inf + "ías",
-          inf + "ía",
-          inf + "íamos",
-          inf + "ían",
-        ]);
+  const conditional = mapPersons([
+    inf + "ía",
+    inf + "ías",
+    inf + "ía",
+    inf + "íamos",
+    inf + "íais",
+    inf + "ían",
+  ]);
 
   const gerund =
     ending === "ar" ? stem + "ando" : stem + (ending === "ir" ? "iendo" : "iendo");

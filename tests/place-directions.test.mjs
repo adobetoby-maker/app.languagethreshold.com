@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
-import { authoredCurriculum } from "../src/data/curriculum.ts";
+import { getCurriculum } from "../src/data/curriculum.ts";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { getLessonDefinition } from "../src/lib/lesson-definition.ts";
 import {
@@ -30,7 +30,7 @@ test("60 lessons have exact pair, aligned readings, content validation and all s
     assert.ok(moduleSupportsLearningPair(m, "Spanish", "English"));
     assert.equal(moduleSupportsLearningPair(m, "Japanese", "English"), false);
     assert.equal(moduleSupportsLearningPair(m, "Spanish", "French"), false);
-    assert.equal(authoredCurriculum(id).lessons.length, count);
+    assert.equal(getCurriculum(id).lessons.length, count);
     const content = parseLessonContent(
       JSON.parse(readFileSync(`public/lesson-content/es/${id}.json`, "utf8")),
       { moduleId: id, language: "Spanish" },
@@ -71,8 +71,8 @@ test("60 lessons have exact pair, aligned readings, content validation and all s
         instructionLanguage: "English",
         contentVersion: "draft",
       });
-      // A target the course was not written for has no lesson at all.
-      assert.equal(unsupported, null);
+      assert.equal(unsupported.reading, null);
+      assert.equal(unsupported.words.length, 0);
     }
   }
 });

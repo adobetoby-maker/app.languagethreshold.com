@@ -13,8 +13,7 @@ import {
 import { shuffle } from "@/lib/lesson-practice";
 import { languageTag } from "@/lib/lesson-words-core";
 import { packFor } from "@/data/language-packs/registry";
-import { specialCharacters } from "@/lib/language-pack-text";
-import { typeFormPlaceholder } from "@/data/language-packs/ui-text";
+import { practiceKeys, typeFormPlaceholder } from "@/data/language-packs/ui-text";
 
 // The lesson's verbs, two ways. Study: a card per verb with its meaning, the five present-tense
 // forms and an example from the lesson. Conjugate: one pass through every form of every verb,
@@ -226,7 +225,7 @@ function ConjugateVerbs({
   const [finished, setFinished] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const pack = packFor(language);
-  const specialChars = pack ? specialCharacters(pack) : [];
+  const specialChars = pack ? practiceKeys(pack) : [];
 
   const current = order[index];
   if (!current) return null;

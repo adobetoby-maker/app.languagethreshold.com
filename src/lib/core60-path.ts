@@ -8,7 +8,8 @@
 
 import { isFoundationModule, isMasterModule } from "./core30-plan.ts";
 import { getCurriculum } from "../data/curriculum.ts";
-import { getModule, moduleSupportsLearningPair } from "../data/modules.ts";
+import { HANDWRITTEN_MODULES, getModule, moduleSupportsLearningPair } from "../data/modules.ts";
+import { catalogManifestEntries } from "../data/language-packs/catalog-modules.ts";
 import { core60Manifest } from "../data/core60-stages.ts";
 import {
   entryNativeLanguage,
@@ -81,6 +82,11 @@ export function core60PathsFromManifest(
   return out;
 }
 
+/** The Core 60 manifest plus the catalog packs' modules (French, Italian: catalog-modules.ts). */
+function pathEntries(): readonly Core60ManifestEntry[] {
+  return [...core60Manifest(), ...catalogManifestEntries(HANDWRITTEN_MODULES)];
+}
+
 /** A learner's path map, filtered before a shared base id can select a different language. */
 export function core60PathsForPair(
   targetLanguage: Language,
@@ -96,7 +102,7 @@ export function core60PathsForPair(
   );
   return {
     ...handWritten,
-    ...core60PathsFromManifest(core60Manifest(), handWritten, targetLanguage, nativeLanguage),
+    ...core60PathsFromManifest(pathEntries(), handWritten, targetLanguage, nativeLanguage),
   };
 }
 
@@ -113,7 +119,7 @@ let allPaths: Record<string, Core60PathConfig> | null = null;
 
 /** Every trade's path: the hand-written rows, then one per manifest trade. */
 export function core60Paths(): Record<string, Core60PathConfig> {
-  allPaths ??= { ...CORE60_PATHS, ...core60PathsFromManifest(core60Manifest()) };
+  allPaths ??= { ...CORE60_PATHS, ...core60PathsFromManifest(pathEntries()) };
   return allPaths;
 }
 

@@ -263,7 +263,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                 We&apos;ll open a passage you can start reading right away.
               </p>
               <div className="grid grid-cols-2 gap-2">
-                {languageOptions().map((l) => (
+                {languageOptions("wizard").map((l) => (
                   <button
                     key={l.id}
                     onClick={() => pickLanguage(l.id)}

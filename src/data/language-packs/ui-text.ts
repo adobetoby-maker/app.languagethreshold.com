@@ -1,7 +1,7 @@
 // Built by TAC — 2026-11-21
 import type { LanguagePack } from "./types.ts";
 import { appData } from "./app-data.ts";
-import { specialLetters } from "../../lib/language-pack-text.ts";
+import { specialCharacters, specialLetters } from "../../lib/language-pack-text.ts";
 
 /**
  * Typing-field placeholders a language has written in its own words (app/<code>.json
@@ -21,4 +21,9 @@ export function typeFormPlaceholder(pack: LanguagePack | null): string {
  */
 export function clozeLetters(pack: LanguagePack): readonly string[] {
   return appData(pack).clozeLetters ?? specialLetters(pack);
+}
+
+/** The key row under lesson practice and Verb Practice (app/<code>.json practiceKeys, else the pack's row). */
+export function practiceKeys(pack: LanguagePack): readonly string[] {
+  return appData(pack).practiceKeys ?? specialCharacters(pack);
 }

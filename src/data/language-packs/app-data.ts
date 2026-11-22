@@ -80,12 +80,27 @@ export interface AppPackData {
    * profiles stored before a language setting existed are in it too. Exactly one file sets it.
    */
   historicalCourse: boolean;
+  /** Place in the language menus (1 first); the order learners have always seen. */
+  menuOrder: number;
+  /** Place in the first-run language chooser (LanguageFirstStep), the order it has always had. */
+  chooserOrder: number;
+  /** Place in the onboarding wizard's language step; null: not offered there (as before). */
+  wizardOrder: number | null;
+  /** The chooser label when it differs from the pack name ("Chinese (Mandarin)"); null: the name. */
+  chooserLabel: string | null;
   /** learnDirection "en-target" modules (English for Work) teach this language. */
   workplaceCourse: boolean;
   /** Typing-field placeholders written in the language; null: English wording with the name. */
   typingPlaceholders: { typeIn: string; typeForm: string } | null;
   /** Letter buttons under a course cloze check; null: the pack's keyboard letters. */
   clozeLetters: string[] | null;
+  /**
+   * The key row under lesson practice (Type It, Write) and Verb Practice, when it differs from the
+   * pack's keyboard row (Spanish has always shown ñ before ü there); null: the pack's row.
+   */
+  practiceKeys: string[] | null;
+  /** Verb-game typed answers compare NFC, trimmed and lower-cased only (no punctuation strip). */
+  plainVerbGameAnswers: boolean;
   /** Device voices preferred by name when the browser offers them. */
   preferredDeviceVoices: string[];
   /** Id of the recorded-audio reader serving this language (src/lib/recorded-audio.ts); null: none. */
@@ -143,9 +158,15 @@ interface AppOverlayFile {
 
 const DEFAULTS: AppPackData = {
   historicalCourse: false,
+  menuOrder: Number.MAX_SAFE_INTEGER,
+  chooserOrder: Number.MAX_SAFE_INTEGER,
+  wizardOrder: Number.MAX_SAFE_INTEGER,
+  chooserLabel: null,
   workplaceCourse: false,
   typingPlaceholders: null,
   clozeLetters: null,
+  practiceKeys: null,
+  plainVerbGameAnswers: false,
   preferredDeviceVoices: [],
   recordedAudio: null,
   hdListening: false,

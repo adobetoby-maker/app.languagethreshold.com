@@ -1,4 +1,5 @@
-import { PACKS, packIndexEntry } from "./language-packs/registry.ts";
+import { PACKS } from "./language-packs/registry.ts";
+import { appData } from "./language-packs/app-data.ts";
 
 /**
  * A target language as stored state names it ("Spanish"): a registered pack's name or legacy name,
@@ -8,15 +9,12 @@ import { PACKS, packIndexEntry } from "./language-packs/registry.ts";
 export type Language = string;
 
 /**
- * Every registered target language (stored names), deepest catalog first, then by English name.
- * Derived from the registry; never a hand-kept list.
+ * Every registered target language (stored names), in menu order (app/<code>.json menuOrder: the
+ * order learners have always seen), then by English name. Derived from the registry; never a
+ * hand-kept list.
  */
 export const LANGUAGES: Language[] = PACKS.slice()
-  .sort(
-    (a, b) =>
-      (packIndexEntry(b)?.modules.length ?? 0) - (packIndexEntry(a)?.modules.length ?? 0) ||
-      a.name.localeCompare(b.name),
-  )
+  .sort((a, b) => appData(a).menuOrder - appData(b).menuOrder || a.name.localeCompare(b.name))
   .map((pack) => pack.name);
 
 // The learner's native ("translation") language — used for the left pane,

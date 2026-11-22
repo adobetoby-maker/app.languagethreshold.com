@@ -1,18 +1,24 @@
 {
   "code": "es",
   "pack": {
-    "_why": "The PWA's Spanish reflexive strip has always removed os (reflexive regex me|te|se|nos|os); the profile lists only the taught pronouns. Keep the strip unchanged for Spanish learners.",
-    "grammar": {
-      "reflexivePronouns": [
-        "me",
-        "te",
-        "se",
-        "nos",
-        "os"
+    "_why": "Base PWA (df664f7c9) AppGuide listed Continue your Spanish as 101, 102, Frequent Verbs, Conjugation Patterns, Usage-First Verbs, Common Grammar Patterns, Cognates. The shared pack order moves Conjugation Patterns from 4th to 6th; this keeps the base order (core60-languages/audit/es-overlays/pwa.json).",
+    "library": {
+      "coreBasics": [
+        "spanish-basics",
+        "spanish-102",
+        "spanish-frequent-verbs",
+        "spanish-conjugation-patterns",
+        "spanish-usage-verbs",
+        "spanish-common-patterns",
+        "spanish-cognates",
+        "sound-like-a-native"
       ]
     }
   },
   "app": {
+    "menuOrder": 1,
+    "chooserOrder": 1,
+    "wizardOrder": 1,
     "historicalCourse": true,
     "typingPlaceholders": {
       "typeIn": "Escribe en español",
@@ -26,6 +32,18 @@
       "ú",
       "ñ"
     ],
+    "practiceKeys": [
+      "á",
+      "é",
+      "í",
+      "ó",
+      "ú",
+      "ñ",
+      "ü",
+      "¿",
+      "¡"
+    ],
+    "plainVerbGameAnswers": true,
     "preferredDeviceVoices": [
       "Paulina"
     ],

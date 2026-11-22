@@ -6,11 +6,11 @@ import {
   historicalCoursePack,
   listedPacks,
   packFor,
-  packIndexEntry,
   sameLanguage,
   type LanguagePack,
 } from "@/data/language-packs/registry";
 import { nativeLanguageName, type Language, type NativeLanguage } from "@/data/languages";
+import { appData } from "@/data/language-packs/app-data";
 
 export interface LanguageOption {
   id: Language;
@@ -25,18 +25,19 @@ function capitalise(text: string, locale: string): string {
   return text ? text.charAt(0).toLocaleUpperCase(locale) + text.slice(1) : text;
 }
 
-function contentDepth(pack: LanguagePack): number {
-  return packIndexEntry(pack)?.modules.length ?? 0;
-}
-
-/** Every language a learner may choose, deepest catalog first, then by English name. */
-export function languageOptions(): LanguageOption[] {
+/**
+ * Every language a learner may choose, in the chooser's order (app/<code>.json chooserOrder, or
+ * wizardOrder for the onboarding wizard, which never listed some languages), then by English name.
+ */
+export function languageOptions(list: "chooser" | "wizard" = "chooser"): LanguageOption[] {
+  const place = (pack: LanguagePack) =>
+    list === "wizard" ? appData(pack).wizardOrder : appData(pack).chooserOrder;
   return listedPacks()
-    .slice()
-    .sort((a, b) => contentDepth(b) - contentDepth(a) || a.name.localeCompare(b.name))
+    .filter((pack) => place(pack) !== null)
+    .sort((a, b) => place(a)! - place(b)! || a.name.localeCompare(b.name))
     .map((pack) => ({
       id: pack.name as Language,
-      label: pack.name,
+      label: appData(pack).chooserLabel ?? pack.name,
       native: capitalise(pack.endonym, pack.code),
       pack,
     }));
@@ -89,7 +90,7 @@ export function hasCharacterStudio(pack: LanguagePack): boolean {
   return pack.script.iso15924.some((s) => ["Hani", "Jpan", "Hans", "Hant"].includes(s));
 }
 
-/** The language offered first (and used when a link names none): the one with the deepest catalog. */
+/** The language offered first (and used when a link names none). */
 export function defaultLanguage(): Language {
   return languageOptions()[0].id;
 }

@@ -59,8 +59,8 @@ test("English-for-work definitions use only their English/Spanish authored pair"
   assert.ok(english.words.length >= 12);
   assert.equal(english.words[0].es, "the doctor");
   assert.equal(english.words[0].en, "el médico");
-  assert.equal(getLessonDefinition({ ...args, instructionLanguage: "French" }), null);
-  assert.equal(getLessonDefinition({ ...args, targetLanguage: "Spanish" }), null);
+  assert.deepEqual(getLessonDefinition({ ...args, instructionLanguage: "French" }).words, []);
+  assert.deepEqual(getLessonDefinition({ ...args, targetLanguage: "Spanish" }).words, []);
 });
 
 test("listening grows from the word list to aligned connected passage messages", () => {

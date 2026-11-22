@@ -242,5 +242,14 @@ export interface PackIndexEntry {
   speakAvailability: Availability;
   catalog: string;
   packVersion: string;
-  modules: { id: string; lessonCount: number }[];
+  modules: {
+    id: string;
+    lessonCount: number;
+    /** Catalog title ("French 101 · Start from zero"). */
+    title?: string;
+    /** Library group: core-basics, grammar, conjugation, cognates, medical, trade. */
+    group?: string;
+    /** Lessons per stage (foundation, working, master). */
+    stages?: { foundation: number; working: number; master: number };
+  }[];
 }

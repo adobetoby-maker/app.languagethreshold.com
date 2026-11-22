@@ -55,21 +55,22 @@ test("every PWA target resolves to one pack, by code and by its stored legacy na
   assert.ok(!sameLanguage("Klingon", "Klingon"), "two unknown names are not the same language");
 });
 
-test("a normal build registers no draft pack: French and Italian keep their legacy adapters", { skip: isQaBuild() && "QA build registers draft packs" }, () => {
+test("French and Italian ship in every build: native bundled packs with their catalogs", () => {
   for (const code of ["fr", "it"]) {
     const pack = getPack(code);
-    assert.equal(isBundledPack(pack), false);
-    assert.notEqual(pack.status.availability, "draft");
-    assert.equal(packIndexEntry(pack), null);
-    assert.equal(catalogHasModule(pack, "orthopedics"), false);
+    assert.equal(pack.status.availability, "native");
+    assert.equal(isBundledPack(pack), true);
+    assert.equal(packIndexEntry(pack).modules.length, 34);
+    assert.equal(catalogHasModule(pack, "orthopedics"), true);
   }
+  assert.ok(listedPacks(false).some((pack) => pack.code === "fr"));
+  assert.ok(listedPacks(false).some((pack) => pack.code === "it"));
   assert.ok(PACKS.every((pack) => pack.status.availability !== "draft"));
-  assert.ok(listedPacks(false).every((pack) => pack.status.availability !== "draft"));
   assert.equal(isBundledPack(es), true);
   assert.equal(isBundledPack(ja), true);
 });
 
-test("a QA build (VITE_LT_QA=1) registers the bundled draft packs with their catalogs", () => {
+test("a QA build (VITE_LT_QA=1) registers the same packs as a normal build", () => {
   const script = `
     const r = await import(${JSON.stringify(new URL("../src/data/language-packs/registry.ts", import.meta.url).href)});
     const c = await import(${JSON.stringify(new URL("../src/data/language-packs/catalog.ts", import.meta.url).href)});
@@ -85,9 +86,9 @@ test("a QA build (VITE_LT_QA=1) registers the bundled draft packs with their cat
       encoding: "utf8",
     }),
   );
-  assert.deepEqual(out.fr, ["draft", true, true]);
-  assert.deepEqual(out.it, ["draft", true]);
-  assert.ok(out.listed.includes("fr") && out.listed.includes("it"));
+  assert.deepEqual(out.fr, ["native", true, true]);
+  assert.deepEqual(out.it, ["native", true]);
+  assert.deepEqual(out.listed, listedPacks(false).map((p) => p.code).sort());
 });
 
 test("bundled packs match the pipeline copy and declare the code they are filed under", () => {

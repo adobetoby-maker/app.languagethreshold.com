@@ -4263,33 +4263,9 @@ Object.assign(CURRICULA, EXTENDED_CURRICULA);
 Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 
 /**
- * True when a hand-written curriculum serves this learning pair. Its steps, drills and personas
- * were written for one pair: a module's `authoredPair`; otherwise a module with a `languages`
- * list or the workplace direction serves the pairs moduleSupportsLearningPair offers it; and a
- * historical module (neither) serves the historical course pair and its reverse only. Nothing
- * else ever reads it (fail closed: a learner of another language never gets these steps).
- */
-function handWrittenServesPair(
-  moduleId: string,
-  targetLanguage: string,
-  nativeLanguage: string,
-): boolean {
-  const target = packFor(targetLanguage);
-  if (!target || !nativeLanguage) return false;
-  const module = getModule(moduleId);
-  if (module) return moduleSupportsLearningPair(module, target.name as Language, nativeLanguage as NativeLanguage);
-  // A curriculum without a module entry: the historical course pair only.
-  const historical = historicalCoursePack();
-  return (
-    target === historical &&
-    sameLanguage(nativeLanguageCode(nativeLanguage) ?? nativeLanguage, historical.native.default)
-  );
-}
-
-/**
  * A module's curriculum for one learning pair (target and native are required: no curriculum is
  * pair-free). A language whose lessons come from its pack catalog reads only its catalog (loaded by
- * useStageCurriculum); a hand-written curriculum is returned only for the pair it was written for;
+ * useStageCurriculum); every other language reads the hand-written curriculum as before;
  * data-driven Core 60 stages (src/data/core60/manifest.ts) answer from the stage registry (null
  * until their chunk has loaded, immediate under Node). Null for anything else.
  */
@@ -4300,10 +4276,8 @@ export function getCurriculum(
 ): ModuleCurriculum | null {
   const catalogPack = catalogLessonPack(targetLanguage);
   if (catalogPack) return loadedCatalogCurriculum(moduleId, catalogPack) ?? null;
-  const handWritten = CURRICULA[moduleId];
-  if (handWritten)
-    return handWrittenServesPair(moduleId, targetLanguage, nativeLanguage) ? handWritten : null;
-  return stageCurriculum(moduleId, targetLanguage, nativeLanguage);
+  // Every other language reads the hand-written curricula exactly as it always has.
+  return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
 }
 
 /**

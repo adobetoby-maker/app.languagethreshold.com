@@ -3,6 +3,10 @@
 // src/data/core60-stages.ts): the stage file format reproduces roofing's hand-written stages
 // exactly, the validator enforces the generator contract, catalog entries and paths are derived
 // from the manifest, and the shipped (empty) manifest leaves every current module unchanged.
+import {
+  catalogCoreModules,
+  catalogManifestEntries,
+} from "../src/data/language-packs/catalog-modules.ts";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { CURRICULA, authoredCurriculum } from "../src/data/curriculum.ts";
@@ -286,9 +290,14 @@ test("French stages on a shared base keep French progress ids and French/English
 
 test("the shipped manifest is valid and leaves every current module exactly as written", () => {
   assert.deepEqual(validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
-  const listed = new Set(CORE60_MANIFEST.flatMap((e) => [`foundation-${e.base}`, `master-${e.base}`]));
+  const catalogEntries = catalogManifestEntries(HANDWRITTEN_MODULES);
+  const listed = new Set([
+    ...CORE60_MANIFEST.flatMap((e) => [`foundation-${e.base}`, `master-${e.base}`]),
+    ...catalogEntries.flatMap((e) => [e.foundation.moduleId, e.master.moduleId]),
+  ]);
+  const catalogCores = new Set(catalogCoreModules(HANDWRITTEN_MODULES).map((m) => m.id));
   assert.deepEqual(
-    MODULES.filter((m) => !listed.has(m.id)),
+    MODULES.filter((m) => !listed.has(m.id) && !catalogCores.has(m.id)),
     [...HANDWRITTEN_MODULES],
   );
   // Roofing keeps its hand-written path row.

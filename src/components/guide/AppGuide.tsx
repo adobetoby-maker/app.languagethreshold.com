@@ -12,7 +12,9 @@ import { SpanishPatternModels } from "@/components/core30/SpanishPatternModels";
 import { spanishPatternWords } from "@/data/spanish-basics";
 import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
-import { onrampFor, isBasicsModule, isDefaultCourse } from "@/lib/language-onramp";
+import { onrampFor, isDefaultCourse } from "@/lib/language-onramp";
+import { moduleBaseId } from "@/lib/module-order";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { usePack } from "@/hooks/use-language-pack";
 import { packFor, sameLanguage } from "@/data/language-packs/registry";
 import { appData } from "@/data/language-packs/app-data";
@@ -1338,17 +1340,27 @@ function OwnedLessonRunner({
             at: new Date().toISOString(),
           },
         });
-      if (mark)
-        trackEvent(
-          "lesson_mastered",
-          {
-            module_id: moduleId,
-            lesson: lesson.n,
-            target_language: state.selectedLanguage,
-            native_language: state.nativeLanguage,
-          },
-          `lesson_mastered:${moduleId}:${state.selectedLanguage}:${state.nativeLanguage}:${lesson.n}`,
-        );
+      if (mark) {
+        // French and Italian share some module ids with Spanish, so their events carry the pair;
+        // every other course sends the event exactly as it always has.
+        if (catalogLessonPack(state.selectedLanguage))
+          trackEvent(
+            "lesson_mastered",
+            {
+              module_id: moduleId,
+              lesson: lesson.n,
+              target_language: state.selectedLanguage,
+              native_language: state.nativeLanguage,
+            },
+            `lesson_mastered:${moduleId}:${state.selectedLanguage}:${state.nativeLanguage}:${lesson.n}`,
+          );
+        else
+          trackEvent(
+            "lesson_mastered",
+            { module_id: moduleId, lesson: lesson.n },
+            `lesson_mastered:${moduleId}:${lesson.n}`,
+          );
+      }
       completed.current = sequential;
       if (sequential) onComplete();
     } finally {
@@ -2735,7 +2747,7 @@ function Core30Section({ restoreView = false }: { restoreView?: boolean }) {
                 Practice {onramp.start.label} vocabulary · My card lists
               </button>
             )}
-          {onramp && isBasicsModule(moduleId, state.selectedLanguage) && (
+          {onramp && onramp.courses.some((course) => course.id === moduleBaseId(moduleId)) && (
             <nav
               aria-label={`General ${onramp.pack.name} course sequence`}
               className="mt-4 rounded-xl border border-border p-3"
@@ -3105,7 +3117,7 @@ export function Core30Tab() {
         !hasStartedCourse &&
         state.activeModuleId &&
         onramp &&
-        !isBasicsModule(state.activeModuleId, state.selectedLanguage) && (
+        !onramp.courses.some((course) => course.id === moduleBaseId(state.activeModuleId!)) && (
           <aside
             aria-label={`Beginner ${onramp.pack.name} course`}
             className="rounded-2xl border border-gold/30 bg-card p-4 text-foreground"

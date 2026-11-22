@@ -2,6 +2,7 @@ import { conjugationItems, type LessonVerb } from "./lesson-content-core.ts";
 import type { SpanishPattern } from "../data/spanish-basics.ts";
 import type { LanguagePack } from "../data/language-packs/types.ts";
 import { foldMarks, normalizeKey } from "./language-pack-text.ts";
+import { appData } from "../data/language-packs/app-data.ts";
 export interface LessonGameItem {
   id: string;
   prompt: string;
@@ -83,7 +84,11 @@ export function gameAnswer(
   pack: LanguagePack,
 ): boolean {
   const folds = pack.answerRules.accentPolicy.typed !== "strict";
+  // A language whose app file keeps plain verb-game answers (Spanish) compares exactly as it always
+  // has: NFC, trimmed, lower case; punctuation is not stripped.
+  const plain = appData(pack).plainVerbGameAnswers;
   const normalize = (s: string) => {
+    if (plain) return s.normalize("NFC").trim().toLocaleLowerCase();
     const key = normalizeKey(s, pack);
     return folds ? foldMarks(key, pack) : key;
   };

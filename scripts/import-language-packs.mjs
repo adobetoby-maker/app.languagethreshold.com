@@ -106,7 +106,21 @@ for (const { entry, pack, catalog, modules } of planned) {
     };
     writeFileSync(path.join(dir, `${module.id}.json`), `${JSON.stringify(file)}\n`);
   }
-  keptIndex.push(entry);
+  // The app lists a catalog module without fetching it: keep its title, library group and the
+  // lesson count of each stage in the index (src/data/language-packs/catalog-modules.ts).
+  keptIndex.push({
+    ...entry,
+    modules: modules.map((module) => {
+      const count = (stage) => module.lessons.filter((lesson) => lesson.stage === stage).length;
+      return {
+        id: module.id,
+        lessonCount: module.lessonCount,
+        title: module.title,
+        group: module.group,
+        stages: { foundation: count("foundation"), working: count("working"), master: count("master") },
+      };
+    }),
+  });
   console.log(`${code}: pack + ${modules.length} modules (${entry.availability})`);
 }
 

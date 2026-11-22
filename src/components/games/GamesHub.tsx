@@ -254,7 +254,7 @@ export function GamesHub() {
   const dailyBadge = daily.badge();
 
   return (
-    <div data-games-hub="" className="mx-auto max-w-4xl space-y-3 sm:space-y-6">
+    <div data-games-hub="" className="mx-auto max-w-4xl space-y-3 pb-20 sm:space-y-6">
       <div>
         <h1 className="font-display text-2xl sm:text-3xl font-semibold">Practice Lab</h1>
         <p className="mt-1 text-sm text-muted-foreground">
@@ -368,7 +368,7 @@ export function GamesHub() {
                 </h3>
                 <p className="mt-1 text-xs leading-snug text-muted-foreground">{g.blurb}</p>
               </div>
-              <div className="mt-auto grid grid-cols-3 gap-1 border-t border-border/40 pt-3">
+              <div className="mt-auto flex justify-between gap-1 border-t border-border/40 pt-3 sm:grid sm:grid-cols-3">
                 <MiniStat label="Best" value={stats.bestStreak} />
                 <MiniStat label="Perfect" value={stats.perfectRuns} />
                 <MiniStat label="Acc" value={`${acc}%`} />
@@ -518,8 +518,8 @@ function Stat({
 
 function MiniStat({ label, value }: { label: string; value: string | number }) {
   return (
-    <div>
-      <div className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground">
+    <div className="min-w-0">
+      <div className="whitespace-nowrap font-mono text-[8px] uppercase tracking-normal text-muted-foreground sm:tracking-[0.18em]">
         {label}
       </div>
       <div className="font-display text-sm font-semibold text-foreground">{value}</div>

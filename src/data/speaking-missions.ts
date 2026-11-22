@@ -3,7 +3,12 @@ import { placeLesson } from "./place-directions.ts";
 import { soundLesson } from "./sound-like-a-native.ts";
 import { spanishBasicsLesson } from "./spanish-basics.ts";
 import { japaneseBasicsLesson } from "./japanese-basics.ts";
-import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
+import {
+  CATALOG_LIBRARY_MODULE_IDS,
+  MODULES,
+  moduleSupportsLearningPair,
+  type AppModule,
+} from "./modules.ts";
 import type { NativeLanguage } from "@/state/app-state";
 import { authoredCurriculum, getCurriculum, moduleAuthoredPair, type Lesson } from "./curriculum.ts";
 import { pendingStageLessonMissionCount, stageCurriculaVersion } from "./core60-stages.ts";
@@ -1328,7 +1333,9 @@ function getSpecialtySpeakingModules(
   nativeLanguage?: NativeLanguage,
 ) {
   return MODULES.filter((module): module is SpecialtySpeakingModule =>
-    language === "English" && nativeLanguage
+    CATALOG_LIBRARY_MODULE_IDS.has(module.id)
+      ? false
+      : language === "English" && nativeLanguage
       ? moduleSupportsLearningPair(module, language, nativeLanguage)
       : language === "English"
         ? module.learnDirection === "en-target" ||

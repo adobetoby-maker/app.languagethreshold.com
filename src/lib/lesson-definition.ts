@@ -1,3 +1,4 @@
+import { catalogLessonPack } from "../data/language-packs/catalog-lessons.ts";
 import { soundLesson, type SoundLesson } from "../data/sound-like-a-native.ts";
 import { spanishPatternWords } from "../data/spanish-basics.ts";
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
@@ -44,11 +45,14 @@ export function getLessonDefinition(input: {
   contentVersion: string;
 }): LessonDefinition | null {
   const { moduleId, lessonNumber, targetLanguage, instructionLanguage, contentVersion } = input;
-  // The lesson shell comes from the requested pair's own curriculum: a pair the module was not
-  // written for has no definition (null), never another language's lesson.
-  const source = getCurriculum(moduleId, targetLanguage, instructionLanguage)?.lessons.find(
-    (l) => l.n === lessonNumber,
-  );
+  // A catalog language (French, Italian) reads its own catalog lesson only. Every other language
+  // keeps the stable objective/lesson shell even for an unsupported pair, as it always has;
+  // authored words, reading, teaching and sound below are each gated by the requested pair.
+  const source = (
+    catalogLessonPack(targetLanguage)
+      ? getCurriculum(moduleId, targetLanguage, instructionLanguage)
+      : getCurriculum(moduleId, "", "")
+  )?.lessons.find((l) => l.n === lessonNumber);
   if (!source) return null;
   const writtenFor = authoredWordsPairForModule(getModule(moduleId));
   const roofingTrack =

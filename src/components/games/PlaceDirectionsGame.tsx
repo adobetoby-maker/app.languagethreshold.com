@@ -1,3 +1,4 @@
+import { packCodeOf } from "@/data/language-packs/registry";
 import { useApp } from "@/state/app-state";
 import { ObjectIcon } from "./PictureObjectIcon";
 import { PictureAssemblyPuzzle } from "./PictureAssemblyPuzzle";
@@ -123,7 +124,7 @@ export function PlaceDirectionsGame({
     const clip = recordings.clips.find(
       (r) =>
         r.id === x.id &&
-        r.language === (targetLanguage === "English" ? "en" : "es") &&
+        r.language === packCodeOf(targetLanguage) &&
         r.gender === voiceGender &&
         r.text === command(x),
     );

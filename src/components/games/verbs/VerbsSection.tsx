@@ -12,6 +12,7 @@ import {
   verbPatternLanguageNames,
 } from "@/lib/verb-games/load-patterns";
 import { packFor } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { guardVerbRoute } from "@/lib/verb-games/route-guard";
 import { modeKey, modeOf, scopeKey } from "@/lib/verb-games/rules";
 import type { EndReason, FamilyId, PatternData, RoundConfig, RoundLog, RoundMode, RoundResult } from "@/lib/verb-games/types";
@@ -109,6 +110,7 @@ export function VerbsSection() {
   const [open, setOpen] = useState(false);
   const { state } = useApp();
   const pack = packFor(state.selectedLanguage);
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
   const root = useRef<HTMLDivElement>(null);
   const launcher = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -134,14 +136,14 @@ export function VerbsSection() {
       className={`group flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-5 text-left transition-all hover:border-gold/60 hover:bg-card/70 ${FOCUS}`}>
       <div className="flex items-center justify-between">
         <Repeat2 className="h-6 w-6 text-gold" strokeWidth={1.6} aria-hidden="true" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{hasVerbPatterns(pack) ? pack.name : verbPatternLanguageNames("·")}</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{hasVerbPatterns(pack) || catalogPack ? pack!.name : verbPatternLanguageNames("·")}</span>
       </div>
       <div>
         <h3 className="font-display text-lg font-semibold leading-tight text-foreground">Verbs</h3>
         <p className="mt-1 text-xs leading-snug text-muted-foreground">Practice by pattern with Bubble Pop and Verb Crush.</p>
       </div>
       <div className="mt-auto border-t border-border/40 pt-3 text-xs text-muted-foreground">
-        {hasVerbPatterns(pack) ? "Choose a pattern and play a round." : `Switch to ${verbPatternLanguageNames("or")} to play.`}
+        {hasVerbPatterns(pack) ? "Choose a pattern and play a round." : catalogPack ? `${catalogPack.name} verb patterns are coming soon.` : `Switch to ${verbPatternLanguageNames("or")} to play.`}
       </div>
       <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
     </button>
@@ -282,6 +284,10 @@ export function VerbPractice() {
   const roundConfig = ready && roundId !== null && frozen?.id === roundId ? frozen.config : null;
 
   if (!supported) {
+    // French and Italian keep their own card; their pattern library is not built yet.
+    const catalogPack = catalogLessonPack(state.selectedLanguage);
+    if (catalogPack)
+      return <Notice title={`${catalogPack.name} Verb Games are coming soon`} body={`Bubble Pop and Verb Crush open here once the ${catalogPack.name} verb-pattern library is reviewed. Your ${catalogPack.name} verbs are in every Core 60 lesson and in Conjugation Drills.`} />;
     const names = verbPatternLanguageNames("and");
     return <Notice title={`Verb Games are ${names}-only for now`} body={`Switch your target language to ${verbPatternLanguageNames("or")} to practice verbs by pattern.`} />;
   }

@@ -83,7 +83,7 @@ export function LessonWorkspaceDemo() {
   useEffect(() => {
     const controller = new AbortController();
     setError("");
-    void fetch("/lesson-content/es/foundation-roofing.json", { signal: controller.signal })
+    void fetch(`/lesson-content/${DEMO_LANG}/${FOUNDATION_ROOFING_MODULE_ID}.json`, { signal: controller.signal })
       .then(async (result) => {
         if (!result.ok) throw new Error("The sample lesson could not be loaded.");
         const data = await result.json();

@@ -41,7 +41,6 @@ import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
 import { packFor, type LanguagePack } from "@/data/language-packs/registry";
-import { specialCharacters } from "@/lib/language-pack-text";
 import { getModule } from "@/data/modules";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { lessonCardFaces, type LessonCardDirection } from "@/lib/lesson-card-direction";
@@ -67,7 +66,7 @@ import {
   typedAnswerHint,
 } from "@/lib/lesson-practice";
 import { isCorrectTypedAnswer, languageCode, languageTag } from "@/lib/lesson-words-core";
-import { typeInPlaceholder } from "@/data/language-packs/ui-text";
+import { practiceKeys, typeInPlaceholder } from "@/data/language-packs/ui-text";
 
 export type PracticeMode = "study" | "flashcards" | "match" | "verbs" | "listen" | "type" | "write";
 
@@ -968,7 +967,7 @@ function ListenMode({
 
 function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
   const { target, exactSpelling, pack } = useKitLanguages();
-  const specialChars = pack ? specialCharacters(pack) : [];
+  const specialChars = pack ? practiceKeys(pack) : [];
   const [order, setOrder] = useState<LessonWord[]>(() => shuffle(words));
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState("");

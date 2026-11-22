@@ -9,6 +9,7 @@ import {
   type Place,
 } from "./place-directions-game.ts";
 import { historicalCoursePair } from "../data/language-packs/registry.ts";
+import { catalogTwinModuleId } from "../data/language-packs/catalog-modules.ts";
 export type SceneId =
   | "workshop"
   | "clinic"
@@ -73,7 +74,8 @@ export const PICTURE_OBJECTS: Record<string, { es: string; en: string; icon?: st
 };
 export const PICTURE_MODULES = profiles.modules;
 export function basePictureModule(id: string) {
-  const base = id.replace(/^(foundation-|master-)/, "");
+  // A French or Italian module shares its Spanish twin's objects and scene.
+  const base = catalogTwinModuleId(id).replace(/^(foundation-|master-)/, "");
   return base === "or-cleaning" ? "or-evs" : base;
 }
 export const MODULE_PICTURE_SCENES: readonly PictureScene[] = profiles.modules.map((m) => {

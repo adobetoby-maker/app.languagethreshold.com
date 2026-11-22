@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { mkdtempSync, cpSync, readFileSync, writeFileSync, rmSync } from "node:fs";
+import { mkdtempSync, mkdirSync, cpSync, readFileSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { resolve } from "node:path";
@@ -100,6 +100,47 @@ test("artifact guard rejects different, absent and extra packaged review files",
     writeFileSync(join(staticRoot, "extra.json"), "{}");
     assert.throws(
       () => verifyLessonReviewContent(source, packaged, staticRoot),
+      /inventory differs/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("artifact guard accepts language-pack catalogs only when they match their pack source", () => {
+  const root = mkdtempSync(join(tmpdir(), "lt-review-pack-"));
+  try {
+    const source = resolve("public/lesson-content"),
+      packaged = join(root, "server"),
+      staticRoot = join(root, "static"),
+      packs = join(root, "packs");
+    cpSync(source, packaged, { recursive: true });
+    cpSync(source, staticRoot, { recursive: true });
+    mkdirSync(join(packs, "fr"), { recursive: true });
+    mkdirSync(join(staticRoot, "fr/catalog"), { recursive: true });
+    writeFileSync(join(packs, "fr/roofing.json"), '{"id":"roofing"}');
+    writeFileSync(join(staticRoot, "fr/catalog/roofing.json"), '{"id":"roofing"}');
+    const listed = JSON.parse(readFileSync(join(source, "index.json"), "utf8")).files.length;
+    // Without the pack root the emitted catalog is an unknown extra file, as before.
+    assert.throws(() => verifyLessonReviewContent(source, packaged, staticRoot), /inventory differs/);
+    assert.equal(verifyLessonReviewContent(source, packaged, staticRoot, packs), listed + 1);
+    writeFileSync(join(staticRoot, "fr/catalog/roofing.json"), '{"id":"changed"}');
+    assert.throws(
+      () => verifyLessonReviewContent(source, packaged, staticRoot, packs),
+      /Language pack catalog bytes differ/,
+    );
+    writeFileSync(join(staticRoot, "fr/catalog/plumber.json"), "{}");
+    rmSync(join(staticRoot, "fr/catalog/roofing.json"));
+    assert.throws(
+      () => verifyLessonReviewContent(source, packaged, staticRoot, packs),
+      /has no source/,
+    );
+    // A catalog file in the server copy is never allowed.
+    rmSync(join(staticRoot, "fr"), { recursive: true });
+    mkdirSync(join(packaged, "fr/catalog"), { recursive: true });
+    writeFileSync(join(packaged, "fr/catalog/roofing.json"), '{"id":"roofing"}');
+    assert.throws(
+      () => verifyLessonReviewContent(source, packaged, staticRoot, packs),
       /inventory differs/,
     );
   } finally {

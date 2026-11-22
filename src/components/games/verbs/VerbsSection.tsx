@@ -132,6 +132,25 @@ export function VerbsSection() {
     setOpen(next);
     if (!next) requestAnimationFrame(() => launcher.current?.focus());
   };
+  // French and Italian: one unavailable card that names what is missing and where their verb
+  // practice is (no Play, no launcher, nothing to click).
+  if (comingSoon && catalogPack) return (
+    <div data-testid="verbs-launcher" aria-disabled="true"
+      className="flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-5 text-left opacity-80">
+      <div className="flex items-center justify-between">
+        <Repeat2 className="h-6 w-6 text-muted-foreground" strokeWidth={1.6} aria-hidden="true" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{catalogPack.name}</span>
+      </div>
+      <div>
+        <h3 className="font-display text-lg font-semibold leading-tight text-foreground">Verbs</h3>
+        <p className="mt-1 text-xs leading-snug text-muted-foreground">Bubble Pop and Verb Crush are not available in {catalogPack.name} yet.</p>
+      </div>
+      <div className="mt-auto border-t border-border/40 pt-3 text-xs text-muted-foreground">
+        Practice {catalogPack.name} verbs with Conjugation Drills and the Conjugation Patterns course.
+      </div>
+      <span className="inline-flex items-center justify-center rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Coming soon</span>
+    </div>
+  );
   if (!open) return (
     <button ref={launcher} type="button" data-testid="verbs-launcher" onClick={() => toggle(true)}
       className={`group flex flex-col items-stretch gap-3 rounded-2xl border border-border/60 bg-card/40 p-5 text-left transition-all hover:border-gold/60 hover:bg-card/70 ${FOCUS}`}>
@@ -141,17 +160,12 @@ export function VerbsSection() {
       </div>
       <div>
         <h3 className="font-display text-lg font-semibold leading-tight text-foreground">Verbs</h3>
-        {/* French and Italian: the unavailable state names no game and shows no Play button. */}
-        <p className="mt-1 text-xs leading-snug text-muted-foreground">{comingSoon ? "Practice by verb pattern." : "Practice by pattern with Bubble Pop and Verb Crush."}</p>
+        <p className="mt-1 text-xs leading-snug text-muted-foreground">Practice by pattern with Bubble Pop and Verb Crush.</p>
       </div>
       <div className="mt-auto border-t border-border/40 pt-3 text-xs text-muted-foreground">
-        {hasVerbPatterns(pack) ? "Choose a pattern and play a round." : catalogPack ? `${catalogPack.name} verb patterns are coming soon.` : `Switch to ${verbPatternLanguageNames("or")} to play.`}
+        {hasVerbPatterns(pack) ? "Choose a pattern and play a round." : `Switch to ${verbPatternLanguageNames("or")} to play.`}
       </div>
-      {comingSoon ? (
-        <span className="inline-flex items-center justify-center rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Coming soon</span>
-      ) : (
-        <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
-      )}
+      <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
     </button>
   );
   return (

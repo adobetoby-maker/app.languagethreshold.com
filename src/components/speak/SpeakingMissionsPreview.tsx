@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { isMissionTtsSpeed, type MissionPartnerVersion } from "@/data/mission-tts";
 import { packFor } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { appData } from "@/data/language-packs/app-data";
 import { isSpeakingMissionLanguageEnabled, speakingAwaitsReview } from "@/lib/speaking-review";
 import {
@@ -154,7 +155,8 @@ function partnerVoiceSample(
   const pack = packFor(language);
   if (!pack) return null;
   return (
-    appData(pack).phrases.partnerSample?.[partnerVersion] ?? (pack.phrases.partnerPreview.trim() || null)
+    appData(pack).phrases.partnerSample?.[partnerVersion] ??
+    (pack.phrases.partnerPreview.trim() || null)
   );
 }
 
@@ -1371,6 +1373,25 @@ export function SpeakingMissionsPreview({
   if (!selectedMission) {
     if (!missionLanguage) {
       const awaitingReviewNow = awaitingReview;
+      // French and Italian: the unavailable state names only the learner's own language.
+      const catalogPack = catalogLessonPack(appState.selectedLanguage);
+      if (catalogPack)
+        return (
+          <section
+            ref={viewTopRef}
+            className="scroll-mt-4 mt-5 rounded-3xl border border-border/70 bg-card/40 p-5"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              Scenario missions
+            </p>
+            <h2 className="mt-2 font-serif text-2xl text-foreground">
+              {catalogPack.name} missions are coming soon
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Scenario missions are not available in {catalogPack.name} yet.
+            </p>
+          </section>
+        );
       return (
         <section
           ref={viewTopRef}

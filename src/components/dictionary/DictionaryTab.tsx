@@ -543,7 +543,7 @@ export function DictionaryTab() {
     // every other learner keeps the base lower-case match and default sort.
     const key = (text: string) =>
       packRules && pack ? foldMarks(normalizeKey(text, pack), pack) : text.toLowerCase();
-    const q = key(query);
+    const q = key(query.trim());
     return words
       .filter((w) => {
         const catMatch = category === "all" || w.category === category;

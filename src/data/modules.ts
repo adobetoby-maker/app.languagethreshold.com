@@ -14,6 +14,7 @@ import { catalogLessonPack } from "./language-packs/catalog-lessons.ts";
 import {
   catalogCoreModules,
   catalogManifestEntries,
+  catalogModuleIdFor,
 } from "./language-packs/catalog-modules.ts";
 import { nativeLanguageName } from "./languages.ts";
 
@@ -2006,7 +2007,9 @@ export const CATALOG_LIBRARY_MODULE_IDS: ReadonlySet<string> = new Set([
 ]);
 
 /** "Spanish|English|…": every registered language name. */
-const LANGUAGE_NAMES = PACKS.map((pack) => pack.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+const LANGUAGE_NAMES = PACKS.map((pack) => pack.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join(
+  "|",
+);
 
 /**
  * The blurb a learner of `language` reads on a module card. A shared hand-written module's blurb
@@ -2021,6 +2024,22 @@ export function moduleBlurbFor(module: Pick<AppModule, "blurb">, language: strin
     new RegExp(`\\bin (?:${LANGUAGE_NAMES})(?: or (?:${LANGUAGE_NAMES}))*\\b`, "g"),
     `in ${pack.name}`,
   );
+}
+
+/**
+ * For a French or Italian learner (a pack whose library comes from its catalog): the module of
+ * their own course that `moduleId` names, or null when their library has no such module. For any
+ * other language: undefined (the module id is used as it is).
+ */
+export function packCourseModuleId(
+  moduleId: string | null | undefined,
+  language: string,
+): string | null | undefined {
+  const pack = catalogLessonPack(language);
+  if (!pack) return undefined;
+  if (!moduleId) return null;
+  const id = catalogModuleIdFor(pack, moduleId, CATALOG);
+  return id && MODULES.some((module) => module.id === id) ? id : null;
 }
 
 export function getModule(id: string | null | undefined): AppModule | null {

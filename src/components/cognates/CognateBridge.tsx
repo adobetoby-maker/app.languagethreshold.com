@@ -316,9 +316,15 @@ export function CognateBridge() {
           </p>
         </div>
         <p className="pt-1 text-xs leading-relaxed text-muted-foreground/70">
-          The percentage bar on each card is reliability — how often the pattern holds — which is a
-          separate question from frequency. A pattern can be common but risky (ñ → gn/nn), or rare
-          but bulletproof (-graphy → -grafia).
+          {target === "French" || target === "Italian" ? (
+            "The percentage bar on each card is reliability — how often the pattern holds — which is a separate question from frequency. A pattern can be common but risky, or rare but bulletproof."
+          ) : (
+            <>
+              The percentage bar on each card is reliability — how often the pattern holds — which
+              is a separate question from frequency. A pattern can be common but risky (ñ → gn/nn),
+              or rare but bulletproof (-graphy → -grafia).
+            </>
+          )}
         </p>
       </div>
     </div>

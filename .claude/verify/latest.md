@@ -1,7 +1,7 @@
 | Spec item            | Observed                          | Result |
 |---|---|---|
-| Layout / spacing     | Practice Lab BEST/PERFECT/ACC separate at 375 (es/fr/it); Conjugation Drills level cards stack at 375, Level 3 text inside its card; last Practice Lab row clears the Study/Speak bar at 1440 | PASS |
-| Colors / contrast    | Unchanged dark/gold system; fr/it unavailable Verbs cards dimmed with muted "Coming soon" pill | PASS |
-| Typography           | No clipping or overlap in 96 captures (375/1440/2560/5K) | PASS |
-| Mobile (375px)       | All pages captured at 375 @2x with scrolled end shot; es module picker loads without crash (14/14 clean loads) | PASS |
-| Animations / motion  | No motion changes in this round | PASS |
+| Layout / spacing     | pwa-r4 fr/it Verbs (375, 1440, 2560): one notice card ("Not available in French yet: …" / "Ready in French: …") with an "Open French Conjugation Patterns · Core 60" button, then Conjugation Drills; no timer, counter or game cards. Practice Lab 1440-end: Verbs card shows "Coming soon" pill only, no Play, no stats; Soccer/Baseball cards in the unavailable state. Reader 2560-end: "Course readings are not available in the French Reader yet" strip above the library bar, reading reaches the bottom bar | PASS   |
+| Colors / contrast    | Unavailable states use muted foreground on card background; the course button keeps the gold border; Spanish roofing lesson and Spanish module picker match base colours | PASS   |
+| Typography           | Verbs notice body text in the app sans at the same size as base notices; Cognate Bridge prose (fr 1440-end) reads "common but risky, or rare but bulletproof" with no ñ example; "You already know" chips English/French/Portuguese (it 375) | PASS   |
+| Mobile (375px)       | fr Verbs 375, it Type it 375 (Italian letter row à è é ì ò ù È), it Practice Lab 375-end, it Reader 375 (intro without Field Prep, "New to Italian? Start Italian 101"), fr module picker 375-end: no clipped or overlapping text; achievement label ellipsis and lesson-end dock overlap are base behaviour | PASS   |
+| Animations / motion  | No animation changed this round; only gating and static unavailable states | PASS   |

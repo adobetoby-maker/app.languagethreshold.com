@@ -1,5 +1,7 @@
 import { lazy, type ComponentType } from "react";
-import type { TabKey } from "@/state/app-state";
+import type { Language, NativeLanguage, TabKey } from "@/state/app-state";
+import { getModule, moduleSupportsLearningPair } from "@/data/modules";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 
 export type LearningStage = "Understand" | "Remember" | "Use" | "Grow" | "Specialize";
 export type ActivityAccent = "reading" | "remember" | "speaking" | "progress" | "specialty";
@@ -306,6 +308,23 @@ export const TOOL_CATALOG_LIST = Object.values(TOOL_CATALOG);
 
 export function isToolAvailable(tool: ToolMetadata, activeModuleId: string | null) {
   return !tool.gate || (!!activeModuleId && tool.gate.moduleIds.includes(activeModuleId));
+}
+
+/**
+ * True when a French or Italian learner must not open this tab: it belongs to a module their
+ * library does not have (Missionary, Soccer, Baseball, OR & EVS, FMG, Climbing, Fishing), whose
+ * screens are written for Spanish. Every other learner keeps the base behaviour (false).
+ */
+export function packHidesTab(tab: TabKey, language: string, nativeLanguage: string): boolean {
+  const gate = TOOL_CATALOG[tab]?.gate;
+  if (!gate || !catalogLessonPack(language)) return false;
+  return !gate.moduleIds.some((id) => {
+    const module = getModule(id);
+    return (
+      !!module &&
+      moduleSupportsLearningPair(module, language as Language, nativeLanguage as NativeLanguage)
+    );
+  });
 }
 
 const ParallelReader = lazy(() =>

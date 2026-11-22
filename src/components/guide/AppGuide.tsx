@@ -3,6 +3,7 @@ import {
   LessonModeBar,
   LESSON_MODES,
 } from "@/components/core30/LessonWorkspaceChrome";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { getModule } from "@/data/modules";
 import { CoreVerbPracticeCard } from "@/components/verbs/CoreVerbPracticeCard";
 import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
@@ -401,7 +402,12 @@ const TRADES_FLOW: FlowStep[] = [
  */
 function flowForLanguage(flow: FlowStep[], language: string): FlowStep[] {
   const pack = packFor(language);
-  const phrase = pack ? appData(pack).phrases.whereDoesItHurt : undefined;
+  // Spanish and the languages that are not packs keep the base step text.
+  const phrase = !followsPackRules(pack)
+    ? "¿Dónde le duele?"
+    : pack
+      ? appData(pack).phrases.whereDoesItHurt
+      : undefined;
   return flow.map((step) =>
     step.value.includes("{whereDoesItHurt}")
       ? {
@@ -1954,7 +1960,11 @@ export function AppGuide() {
   // Module tips and cognates are authored per language (pack.content.guideTips); a language
   // with none shows no tip card rather than another language's.
   const tipPack = usePack(state.selectedLanguage);
-  const tip = tipPack?.content.guideTips ? getModuleTip(state.activeModuleId) : null;
+  // Spanish and the languages that are not packs keep the base tip card.
+  const tip =
+    !followsPackRules(tipPack) || tipPack?.content.guideTips
+      ? getModuleTip(state.activeModuleId)
+      : null;
   const tourSteps = getTourScript(
     state.activeModuleId,
     state.selectedLanguage,

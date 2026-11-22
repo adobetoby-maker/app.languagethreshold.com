@@ -33,6 +33,7 @@ import { LibraryDrawer } from "@/components/library/LibraryDrawer";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getAvailableModuleLessons } from "@/data/module-starters";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
@@ -690,6 +691,18 @@ export function ParallelReader() {
             {currentLessonIndex < 0 ? "Start" : "Next"} <ChevronRight className="h-3 w-3" />
           </button>
         </div>
+      )}
+
+      {/* French and Italian: the module's course readings are not in the Reader yet. Each lesson's
+          own reading opens from its lesson page ("Open in full Reader"). */}
+      {lessonIds.length <= 1 && catalogLessonPack(state.selectedLanguage) && (
+        <p
+          data-testid="reader-course-readings-unavailable"
+          className="reader-reading-nav mb-3 rounded-xl border border-border/50 bg-card/40 px-3 py-2 text-xs text-muted-foreground"
+        >
+          Course readings are not available in the {catalogLessonPack(state.selectedLanguage)!.name}{" "}
+          Reader yet. Each lesson's reading opens from its lesson page.
+        </p>
       )}
 
       {/* Library bar */}

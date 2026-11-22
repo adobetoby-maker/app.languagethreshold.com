@@ -42,7 +42,7 @@ import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
-import { getModule, moduleSupportsLearningPair } from "@/data/modules";
+import { getModule, moduleSupportsLearningPair, packCourseModuleId } from "@/data/modules";
 import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
 import { learningLinkIdentity } from "@/lib/learning-link";
 import { appNavigationLocation, appTab } from "@/lib/app-navigation";
@@ -127,8 +127,16 @@ function ProductIntro() {
       </h1>
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
         Build enough confidence to hold a basic conversation, then use it while you are learning it.
-        Choose role-specific lessons, practice with an AI speaking partner, and rehearse real
-        situations in Field Prep.
+        {catalogPack ? (
+          // French and Italian have no Field Prep scenarios yet: the intro promises only what opens.
+          " Choose role-specific lessons and practice with an AI speaking partner."
+        ) : (
+          <>
+            {" "}
+            Choose role-specific lessons, practice with an AI speaking partner, and rehearse real
+            situations in Field Prep.
+          </>
+        )}
       </p>
       <div className="mt-7 flex flex-wrap gap-3">
         <Link
@@ -201,10 +209,22 @@ function UrlModuleBridge() {
     const coreLink = moduleId === "core";
     const tab = appTab(params.get("tab"));
     if (!tab && state.currentTab === "speak") dispatch({ type: "SET_TAB", payload: "core30" });
-    const linkedModule = getModule(moduleId);
+    const requestedTarget = params.get("target") as Language,
+      requestedNative = params.get("native") as NativeLanguage;
+    const requestedPair =
+      LANGUAGES.includes(requestedTarget) && NATIVE_LANGUAGES.includes(requestedNative);
+    // A French or Italian learner (or a link that asks for French or Italian) opens the same
+    // course in their own language ("roofing" → "roofing-fr"); a module their library does not
+    // have is not opened, so the link never switches them to another language's course.
+    const packModuleId =
+      moduleId && !coreLink
+        ? packCourseModuleId(moduleId, requestedPair ? requestedTarget : state.selectedLanguage)
+        : undefined;
+    const linkedModule = getModule(packModuleId === undefined ? moduleId : packModuleId);
     const targetLanguage =
       linkedModule?.learnDirection === "en-target" ? "English" : linkedModule?.languages?.[0];
     if (
+      packModuleId === undefined &&
       targetLanguage &&
       (linkedModule?.learnDirection === "en-target" ||
         !linkedModule?.languages?.includes(state.selectedLanguage)) &&
@@ -212,12 +232,10 @@ function UrlModuleBridge() {
     ) {
       dispatch({ type: "SET_LANGUAGE", payload: targetLanguage });
     }
-    const requestedTarget = params.get("target") as Language,
-      requestedNative = params.get("native") as NativeLanguage;
     if (
-      LANGUAGES.includes(requestedTarget) &&
-      NATIVE_LANGUAGES.includes(requestedNative) &&
+      requestedPair &&
       (coreLink ||
+        packModuleId !== undefined ||
         (linkedModule &&
           moduleSupportsLearningPair(linkedModule, requestedTarget, requestedNative)))
     ) {
@@ -242,6 +260,16 @@ function UrlModuleBridge() {
     // Apply the URL once per identity, after local and cloud state are ready.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.hydrated, authLoading, userId, profileReadyUserId]);
+
+  // A French or Italian learner never keeps another language's module active (a course switch
+  // from Spanish with Soccer open, or older saved state): the same course in their language opens
+  // instead, or none when their library has no such module.
+  useEffect(() => {
+    if (navigationReadyFor === null || !state.hydrated) return;
+    const own = packCourseModuleId(state.activeModuleId, state.selectedLanguage);
+    if (own === undefined || own === state.activeModuleId) return;
+    dispatch({ type: "SET_ACTIVE_MODULE", payload: own });
+  }, [navigationReadyFor, state.hydrated, state.activeModuleId, state.selectedLanguage, dispatch]);
 
   useEffect(() => {
     const identity = userId ?? "guest";

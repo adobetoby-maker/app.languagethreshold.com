@@ -58,9 +58,7 @@ export function catalogLibraryPacks(): LanguagePack[] {
 
 /** A hand-written module written for no particular language: shared by every course. */
 function isSharedModule(module: AppModule | undefined): module is AppModule {
-  return Boolean(
-    module && !module.languages && !module.authoredPair && !module.learnDirection,
-  );
+  return Boolean(module && !module.languages && !module.authoredPair && !module.learnDirection);
 }
 
 /** True when any of these texts names a language (or a regional variety). */
@@ -127,6 +125,38 @@ export function catalogCoreModuleId(
   if (isSharedModule(existing)) return id;
   const own = id.startsWith(`${pack.name.toLowerCase()}-`);
   return existing || !own ? `${id}-${pack.code}` : id;
+}
+
+/**
+ * The module of a French or Italian course that a module id names. A learning link or saved state
+ * may carry the historical course's id ("roofing", "foundation-spanish-basics",
+ * "spanish-common-patterns") or the pack's own ("roofing-fr", "master-orthopedics-fr"). Returns the
+ * pack's module id for the same course and stage, or null when the pack's library has no such
+ * module (soccer, missionary, travel…), so the caller never opens another language's module.
+ */
+export function catalogModuleIdFor(
+  pack: LanguagePack,
+  moduleId: string,
+  handWritten: readonly AppModule[],
+): string | null {
+  const stage = /^(foundation|master)-/.exec(moduleId)?.[1] ?? null;
+  let base = stage ? moduleId.slice(stage.length + 1) : moduleId;
+  const suffix = `-${pack.code}`;
+  if (base.endsWith(suffix)) base = base.slice(0, -suffix.length);
+  const entries = catalogModules(pack);
+  const own = `${pack.name.toLowerCase()}-`;
+  // A course of the pack's own ("french-common-patterns") is the twin of the historical course's
+  // module before a general Core 60 module that mirrors it ("grammar").
+  const entry =
+    entries.find((candidate) => candidate.id === base) ??
+    entries.find(
+      (candidate) => candidate.id.startsWith(own) && twinId(pack, candidate.id) === base,
+    ) ??
+    entries.find((candidate) => twinId(pack, candidate.id) === base);
+  if (!entry) return null;
+  return stage
+    ? `${stage}-${entry.id}-${pack.code}`
+    : catalogCoreModuleId(pack, entry.id, handWritten);
 }
 
 function ownModule(

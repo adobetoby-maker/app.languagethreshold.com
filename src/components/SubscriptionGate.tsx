@@ -9,6 +9,7 @@ import { foundationAccess } from "@/lib/core30-plan";
 import { lessonLocation } from "@/lib/learning-link";
 import { MODULES, moduleSupportsLearningPair } from "@/data/modules";
 import { packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { getCurriculum } from "@/data/curriculum";
 import { PracticeBlocker } from "@/hooks/use-practice-time";
 
@@ -133,14 +134,19 @@ export function SubscriptionGate({ currentTab, children }: Props) {
 
   // A module with a free Foundation offers it from the paywall: the Foundation's entry card on
   // the Core 30 page sits under this overlay and cannot be clicked here.
-  // Only offered when the Foundation is authored for the learner's own language pair.
+  // A French or Italian learner (a released course pack) is offered the Foundation only when it is
+  // authored for their own language pair, and the copy names their language. Everyone else keeps
+  // the base paywall exactly (owner decisions 2 and 3).
+  const targetPack = packFor(state.selectedLanguage);
+  const packCopy = followsPackRules(targetPack);
   const foundationCandidate = foundationFor(activeModuleId);
   const foundationOffer =
     foundationCandidate &&
-    moduleSupportsLearningPair(foundationCandidate, state.selectedLanguage, state.nativeLanguage)
+    (!packCopy ||
+      moduleSupportsLearningPair(foundationCandidate, state.selectedLanguage, state.nativeLanguage))
       ? foundationCandidate
       : null;
-  const languageName = packFor(state.selectedLanguage)?.name ?? "language";
+  const languageName = packCopy && targetPack ? targetPack.name : "Spanish";
   function openFoundation() {
     if (!foundationOffer) return;
     dispatch({ type: "SET_ACTIVE_MODULE", payload: foundationOffer.id });

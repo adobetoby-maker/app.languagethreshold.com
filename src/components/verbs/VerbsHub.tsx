@@ -178,18 +178,36 @@ export function VerbsHub() {
                   ? "Useful frames with ten verbs each."
                   : "Tengo que… Estoy hablando… He hecho… Useful frames with ten verbs each.",
               },
-            ].map((p) => (
-              <button
-                key={p.area}
-                className={`${button} space-y-2 p-5`}
-                disabled={!ready || !supported}
-                onClick={() => go(p.area)}
-              >
-                <span className="block text-sm text-gold-ink">{p.time}</span>
-                <span className="block font-display text-xl">{p.title}</span>
-                <span className="block text-sm font-normal text-muted-foreground">{p.copy}</span>
-              </button>
-            ))}
+            ].map((p) =>
+              // French and Italian: the same three cards in their unavailable state, saying so
+              // instead of advertising games the notice above says are not available yet.
+              catalogPack && !supported ? (
+                <div
+                  key={p.area}
+                  aria-disabled="true"
+                  className={`${button} space-y-2 p-5 opacity-70`}
+                >
+                  <span className="block text-sm text-muted-foreground">
+                    Coming soon in {catalogPack.name}
+                  </span>
+                  <span className="block font-display text-xl">{p.title}</span>
+                  <span className="block text-sm font-normal text-muted-foreground">
+                    Not available in {catalogPack.name} yet.
+                  </span>
+                </div>
+              ) : (
+                <button
+                  key={p.area}
+                  className={`${button} space-y-2 p-5`}
+                  disabled={!ready || !supported}
+                  onClick={() => go(p.area)}
+                >
+                  <span className="block text-sm text-gold-ink">{p.time}</span>
+                  <span className="block font-display text-xl">{p.title}</span>
+                  <span className="block text-sm font-normal text-muted-foreground">{p.copy}</span>
+                </button>
+              ),
+            )}
           </div>
           <p className="text-sm">
             Active practice counts toward today’s ten minutes. Your daily plan is saved on this

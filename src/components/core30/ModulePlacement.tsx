@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useApp } from "@/state/app-state";
 import { packFor, sameLanguage } from "@/data/language-packs/registry";
 import { specialCharacters } from "@/lib/language-pack-text";
-import { typedAccentMode } from "@/lib/lesson-practice";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
 import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
@@ -68,9 +68,9 @@ function PlacementRunner({
   const target = state.selectedLanguage;
   const native = state.nativeLanguage;
   const pack = packFor(target);
-  // Packs still on the pre-pack typing behaviour (model section 18 delta 2, open) keep the
-  // placement input they had, without a letter row; every other pack offers its keyboard letters.
-  const specialChars = pack && typedAccentMode(pack) !== "legacy" ? specialCharacters(pack) : [];
+  // Only a released course pack (French, Italian) offers its keyboard letters under the answer;
+  // Spanish, Japanese and languages without a pack keep the base input, with no letter row.
+  const specialChars = followsPackRules(pack) ? specialCharacters(pack!) : [];
   const storageKey = JSON.stringify([PLACEMENT_VERSION, user?.id ?? "guest", base, target, native]);
   const [open, setOpen] = useState(false);
   const [loaded, setLoaded] = useState<Loaded | null>(null);

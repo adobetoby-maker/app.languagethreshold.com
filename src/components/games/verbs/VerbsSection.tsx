@@ -111,6 +111,7 @@ export function VerbsSection() {
   const { state } = useApp();
   const pack = packFor(state.selectedLanguage);
   const catalogPack = catalogLessonPack(state.selectedLanguage);
+  const comingSoon = Boolean(catalogPack) && !hasVerbPatterns(pack);
   const root = useRef<HTMLDivElement>(null);
   const launcher = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -140,12 +141,17 @@ export function VerbsSection() {
       </div>
       <div>
         <h3 className="font-display text-lg font-semibold leading-tight text-foreground">Verbs</h3>
-        <p className="mt-1 text-xs leading-snug text-muted-foreground">Practice by pattern with Bubble Pop and Verb Crush.</p>
+        {/* French and Italian: the unavailable state names no game and shows no Play button. */}
+        <p className="mt-1 text-xs leading-snug text-muted-foreground">{comingSoon ? "Practice by verb pattern." : "Practice by pattern with Bubble Pop and Verb Crush."}</p>
       </div>
       <div className="mt-auto border-t border-border/40 pt-3 text-xs text-muted-foreground">
         {hasVerbPatterns(pack) ? "Choose a pattern and play a round." : catalogPack ? `${catalogPack.name} verb patterns are coming soon.` : `Switch to ${verbPatternLanguageNames("or")} to play.`}
       </div>
-      <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
+      {comingSoon ? (
+        <span className="inline-flex items-center justify-center rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Coming soon</span>
+      ) : (
+        <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">Play</span>
+      )}
     </button>
   );
   return (
@@ -287,7 +293,7 @@ export function VerbPractice() {
     // French and Italian keep their own card; their pattern library is not built yet.
     const catalogPack = catalogLessonPack(state.selectedLanguage);
     if (catalogPack)
-      return <Notice title={`${catalogPack.name} Verb Games are coming soon`} body={`Bubble Pop and Verb Crush open here once the ${catalogPack.name} verb-pattern library is reviewed. Your ${catalogPack.name} verbs are in every Core 60 lesson and in Conjugation Drills.`} />;
+      return <Notice title={`${catalogPack.name} Verb Games are coming soon`} body={`Pattern games open here once the ${catalogPack.name} verb-pattern library is reviewed. Your ${catalogPack.name} verbs are in every Core 60 lesson and in Conjugation Drills.`} />;
     const names = verbPatternLanguageNames("and");
     return <Notice title={`Verb Games are ${names}-only for now`} body={`Switch your target language to ${verbPatternLanguageNames("or")} to practice verbs by pattern.`} />;
   }

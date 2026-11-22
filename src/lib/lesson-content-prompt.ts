@@ -11,6 +11,12 @@ import type { LessonWord } from "../data/curriculum.ts";
 import { packFor, requirePackFor, type LanguagePack } from "../data/language-packs/registry.ts";
 import { appData, type ContentPromptNotes } from "../data/language-packs/app-data.ts";
 import { contentRulesFor } from "../data/language-packs/content-rules.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
+import {
+  baseLessonContentSystemPrompt,
+  baseLessonContentTools,
+  baseLevelFor,
+} from "./lesson-content-prompt-base.ts";
 import { wordsFromModelOutput } from "./lesson-words-core.ts";
 import {
   CONTENT_LIMITS,
@@ -73,6 +79,7 @@ export function levelFor(
   lessonCount: number,
   targetLanguage: string,
 ): { band: string; guide: string } {
+  if (!usesPackPrompt(targetLanguage)) return baseLevelFor(lessonNumber, lessonCount);
   const nearFuture =
     promptNotes(targetLanguage)?.nearFuture ?? "the near-future construction of the target language";
   const position = lessonNumber / Math.max(1, lessonCount);
@@ -102,6 +109,14 @@ export function levelFor(
 /** Notes (word or verb) carry the final rule only. Enforced by selfTalkIssue in lesson-content-core.ts. */
 export const NOTE_FINAL_RULE =
   'Every note states the final rule only, never deliberation or self-correction: decide the answer before you write it, and never write "? No:", "... no", "wait", "actually", "hmm" or "let me" in a note (write "Stem change e to i (pido, pides), except nosotros.", not "Stem change e to ie? No: e to i").';
+
+/**
+ * Only a released course pack (French, Italian) gets the pack-built prompt. Every other target
+ * (Spanish, English, and languages without a pack) keeps the base prompt exactly (owner rule 3).
+ */
+function usesPackPrompt(targetLanguage: string): boolean {
+  return followsPackRules(packFor(targetLanguage));
+}
 
 /** The target language's prompt wording (its app file's contentPrompt), or null. */
 function promptNotes(language: string): ContentPromptNotes | null {
@@ -148,6 +163,8 @@ export function lessonContentSystemPrompt(
   nativeLanguage: string,
   parts: ContentParts,
 ): string {
+  if (!usesPackPrompt(targetLanguage))
+    return baseLessonContentSystemPrompt(targetLanguage, nativeLanguage, parts);
   const pack = requirePackFor(targetLanguage);
   const notes = appData(pack).contentPrompt;
   const avoid = pack.variety.avoid.length > 0 ? ` Never use: ${pack.variety.avoid.join("; ")}.` : "";
@@ -303,6 +320,7 @@ function verbSchema(targetLanguage: string) {
 }
 
 export function lessonContentTools(targetLanguage: string, parts: ContentParts) {
+  if (!usesPackPrompt(targetLanguage)) return baseLessonContentTools(targetLanguage, parts);
   const properties: Record<string, unknown> = {};
   const required: string[] = [];
   if (parts.passage) {

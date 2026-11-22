@@ -6,6 +6,7 @@
 
 import { isLatinScript } from "./lesson-words-core.ts";
 import type { LanguagePack } from "../data/language-packs/types.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
 
 export type AnswerVerdict = "correct" | "accent" | "close" | "wrong";
 export type SegmentStatus = "ok" | "wrong" | "missing" | "extra" | "accent";
@@ -191,7 +192,7 @@ function markName(char: string): "tilde" | "dots" | "cedilla" | "circumflex" | "
   return "accent";
 }
 
-function accentTip(expectedChar: string, givenChar: string): string {
+function accentTip(expectedChar: string, givenChar: string, packTips: boolean): string {
   const expectedHasMark = expectedChar.normalize("NFD") !== stripMarks(expectedChar);
   const givenHasMark = givenChar.normalize("NFD") !== stripMarks(givenChar);
   if (expectedHasMark && !givenHasMark) {
@@ -199,8 +200,9 @@ function accentTip(expectedChar: string, givenChar: string): string {
     if (name === "tilde") return `Add the tilde: ${expectedChar}`;
     if (name === "dots") return `Add the dots: ${expectedChar}`;
     if (name === "cedilla") return `Add the cedilla: ${expectedChar}`;
-    if (name === "circumflex") return `Add the circumflex: ${expectedChar}`;
-    if (name === "grave") return `Add the grave accent: ${expectedChar}`;
+    // Circumflex and grave names are pack-course wording; other learners keep the base tip.
+    if (packTips && name === "circumflex") return `Add the circumflex: ${expectedChar}`;
+    if (packTips && name === "grave") return `Add the grave accent: ${expectedChar}`;
     return `Accent on the ${expectedChar}`;
   }
   if (!expectedHasMark && givenHasMark) return `No accent on the ${expectedChar}`;
@@ -227,7 +229,12 @@ function tipsFor(
   ops: Op[],
   pack: LanguagePack,
 ): string[] {
-  const apostrophes = new Set([pack.typography.apostrophe, ...pack.typography.apostropheVariants]);
+  // Apostrophe and mark-name tips are pack-course wording (French, Italian); everyone else keeps
+  // the base app's tips exactly (owner decisions 2 and 3).
+  const packTips = followsPackRules(pack);
+  const apostrophes = new Set(
+    packTips ? [pack.typography.apostrophe, ...pack.typography.apostropheVariants] : [],
+  );
   const tips: string[] = [];
   const push = (tip: string) => {
     if (!tips.includes(tip)) tips.push(tip);
@@ -262,7 +269,7 @@ function tipsFor(
   for (const op of ops) {
     if (covered.has(op)) continue;
     if (op.kind === "accent") {
-      push(accentTip(expectedItems[op.e].shown, givenItems[op.g].shown));
+      push(accentTip(expectedItems[op.e].shown, givenItems[op.g].shown, packTips));
     } else if (op.kind === "sub") {
       push(`Use ${expectedItems[op.e].shown} instead of ${givenItems[op.g].shown}`);
     }

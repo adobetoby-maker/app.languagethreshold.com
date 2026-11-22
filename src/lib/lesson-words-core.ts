@@ -17,6 +17,7 @@ import {
   type LanguagePack,
 } from "../data/language-packs/registry.ts";
 import { nativeLanguageCode, nativeLanguageName } from "../data/languages.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
 
 export type LessonWordsStatus = "authored" | "loading" | "ready" | "error";
 
@@ -388,8 +389,12 @@ function scriptVariants(target: string): string[] {
  * or a different character is wrong rather than silently accepted. The pack is required.
  */
 export function isCorrectTypedAnswer(input: string, target: string, pack: LanguagePack): boolean {
-  if (pack.script.iso15924.includes("Latn") && isLatinScript(target))
-    return isCorrectAnswer(input, target, pack);
+  // Base rule for Spanish, Japanese and languages without a pack: any Latin-script target (pinyin,
+  // romaji) gets the accent-blind check. A course pack only does so in a Latin-script language.
+  const latin = followsPackRules(pack)
+    ? pack.script.iso15924.includes("Latn") && isLatinScript(target)
+    : isLatinScript(target);
+  if (latin) return isCorrectAnswer(input, target, pack);
   const normalized = normalizeScriptAnswer(input);
   if (!normalized) return false;
   return scriptVariants(target).includes(normalized);

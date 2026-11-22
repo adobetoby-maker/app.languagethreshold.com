@@ -12,6 +12,7 @@
  */
 
 import { packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { useState, useCallback, useEffect, useRef } from "react";
 import {
   CheckCircle2,
@@ -119,7 +120,11 @@ type DugoutColumn = Exclude<keyof BaseballDugoutVocab, "en" | "category">;
 
 /** The dugout column authored for a language, or null (the Dugout game is then not offered). */
 export function dugoutColumn(language: string): DugoutColumn | null {
-  const code = packFor(language)?.code;
+  const pack = packFor(language);
+  // Base behaviour for Spanish and every language without a released pack (owner decision 3):
+  // Portuguese plays its own column, everyone else the Spanish one.
+  if (!followsPackRules(pack)) return pack?.code === "pt" ? "pt" : "es";
+  const code = pack?.code;
   const sample = BASEBALL_DUGOUT_VOCAB[0];
   if (!code || !sample || code === "en" || code === "category" || !(code in sample)) return null;
   return code as DugoutColumn;
@@ -690,11 +695,15 @@ function DugoutVocabGame({ language, column, onXp }: DugoutGameProps) {
 
   // The vocabulary columns are keyed by language code; the label is the pack's own name for it.
   const targetPack = packFor(language);
-  const targetLang = targetPack?.code ?? "und";
-  const targetLangLabel = targetPack
-    ? targetPack.endonym.charAt(0).toLocaleUpperCase(targetPack.script.segmenterLocale) +
-      targetPack.endonym.slice(1)
-    : language;
+  const packCopy = followsPackRules(targetPack);
+  const targetLang = packCopy ? (targetPack?.code ?? "und") : column;
+  const targetLangLabel =
+    packCopy && targetPack
+      ? targetPack.endonym.charAt(0).toLocaleUpperCase(targetPack.script.segmenterLocale) +
+        targetPack.endonym.slice(1)
+      : column === "pt"
+        ? "Português"
+        : "Español";
   const revealed = selected !== null;
 
   // Category badge color
@@ -809,7 +818,8 @@ export function BaseballPositionsGame({ language, onXp }: BaseballPositionsGameP
   const column = dugoutColumn(language);
   // No dugout column for this language: the Dugout game is not offered (never graded in Spanish).
   const mode: GameMode = column ? chosenMode : "field";
-  const languageName = packFor(language)?.name ?? language;
+  // Base header for Spanish and languages without a released pack (owner decision 3).
+  const languageName = followsPackRules(packFor(language)) ? packFor(language)!.name : "Spanish";
   // Reset child games when mode changes by incrementing a key
   const [fieldKey, setFieldKey] = useState(0);
   const [dugoutKey, setDugoutKey] = useState(0);

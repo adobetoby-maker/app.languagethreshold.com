@@ -3,6 +3,7 @@
 
 import type { AccentMode, LanguagePack } from "../data/language-packs/types.ts";
 import { foldMarks, normalizeKey } from "./language-pack-text.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
 
 export interface PracticeWord {
   en: string;
@@ -43,6 +44,7 @@ function usesElision(pack: LanguagePack): boolean {
  * handling by mode, apostrophes and punctuation become spaces, whitespace collapses.
  */
 export function normalizeAnswer(text: string, pack: LanguagePack): string {
+  if (!followsPackRules(pack)) return baseNormalizeAnswer(text);
   const mode = typedAccentMode(pack);
   let key = normalizeKey(text, pack);
   // A pack with no fold table (a legacy adapter) folds every mark, as the kit always has.
@@ -56,6 +58,21 @@ export function normalizeAnswer(text: string, pack: LanguagePack): string {
   }
   return key
     .replace(/[^\p{L}\p{N}\p{M}\s]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * The base app's comparison form (df664f7c9), kept for Spanish, Japanese and every language
+ * without a released pack (owner decisions 2 and 3): lowercase, combining accents stripped,
+ * punctuation-free, whitespace collapsed.
+ */
+function baseNormalizeAnswer(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -129,6 +146,8 @@ function entryForms(target: string): string[] {
  * without their article.
  */
 export function answerVariants(target: string, pack: LanguagePack): string[] {
+  if (!followsPackRules(pack))
+    return [...new Set(entryForms(target).map(baseNormalizeAnswer).filter(Boolean))];
   const variants = new Set<string>();
   const add = (value: string) => {
     const normalized = normalizeAnswer(value, pack);
@@ -157,6 +176,7 @@ function matchesAny(normalized: string, variants: readonly string[], pack: Langu
 export function isCorrectAnswer(input: string, target: string, pack: LanguagePack): boolean {
   const normalized = normalizeAnswer(input, pack);
   if (!normalized) return false;
+  if (!followsPackRules(pack)) return answerVariants(target, pack).includes(normalized);
   return matchesAny(normalized, answerVariants(target, pack), pack);
 }
 

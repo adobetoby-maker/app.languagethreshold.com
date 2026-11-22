@@ -3,6 +3,7 @@ import { normalizeAssessmentAnswer } from "./assessments/core.ts";
 import { seededUnit } from "./exams2/hash.ts";
 import type { LanguagePack } from "../data/language-packs/types.ts";
 import { normalizeKey } from "./language-pack-text.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
 
 /** Independent study placement, not a supervised exam or a proficiency certificate. */
 export const PLACEMENT_VERSION = "module-placement-v1";
@@ -33,12 +34,17 @@ export interface PlacementBlock {
   questions: PlacementQuestion[];
 }
 type AccentRule = "required" | "ignore";
-/** Placement follows the pack's typed accent policy: strict means marks are required. */
+/**
+ * A released course pack (French, Italian) follows its typed accent policy: strict means marks are
+ * required. Spanish, Japanese and languages without a pack keep the base rule: accents required.
+ */
 export function placementAccents(pack: LanguagePack): AccentRule {
+  if (!followsPackRules(pack)) return "required";
   return pack.answerRules.accentPolicy.typed === "strict" ? "required" : "ignore";
 }
-const normalize = (s: string, accents: AccentRule = "required") =>
-  normalizeAssessmentAnswer(s.replace(/[’ʼ‘]/gu, "'"), {
+// Apostrophe variants fold only for a course pack's questions (the ones that carry `accents`).
+const normalize = (s: string, accents: AccentRule = "required", apostrophes = false) =>
+  normalizeAssessmentAnswer(apostrophes ? s.replace(/[’ʼ‘]/gu, "'") : s, {
     accents,
     caseSensitive: false,
     punctuation: "ignore",
@@ -57,7 +63,8 @@ export function placementBlocks(
   pack: LanguagePack,
 ): PlacementBlock[] {
   const accents = placementAccents(pack);
-  const norm = (text: string) => normalize(text, accents);
+  const packRules = followsPackRules(pack);
+  const norm = (text: string) => normalize(text, accents, packRules);
   const blocks: PlacementBlock[] = [];
   for (const lesson of lessons) {
     const words = lesson.words.filter(
@@ -110,7 +117,7 @@ export function placementBlocks(
         prompt: check.prompt,
         hint: check.hint,
         answer: check.answer,
-        accents,
+        ...(packRules ? { accents } : {}),
       },
     );
   }
@@ -119,14 +126,15 @@ export function placementBlocks(
 export function placementCorrect(question: PlacementQuestion, response: string): boolean {
   if (!response.trim()) return false;
   const accents = question.accents ?? "required";
-  const actual = normalize(response, accents);
-  if (actual === normalize(question.answer, accents)) return true;
+  const apostrophes = question.accents !== undefined;
+  const actual = normalize(response, accents, apostrophes);
+  if (actual === normalize(question.answer, accents, apostrophes)) return true;
   // A fully completed cloze sentence is also a correct response. Require the entire
   // expected sentence, never just an answer word appearing inside arbitrary text.
   return (
     question.type === "typed" &&
     question.prompt.includes("____") &&
-    actual === normalize(question.prompt.replace("____", question.answer), accents)
+    actual === normalize(question.prompt.replace("____", question.answer), accents, apostrophes)
   );
 }
 export function placementBlockScore(block: PlacementBlock, responses: Record<string, string>) {
@@ -166,6 +174,8 @@ export function placementCloze(
     .filter(Boolean)
     .sort((a, b) => b.length - a.length);
   const withoutArticle = (term: string): string => {
+    // Spanish, Japanese and languages without a pack keep the base article list.
+    if (!followsPackRules(pack)) return term.replace(/^(?:el|la|los|las|un|una|the|a|an) /i, "");
     const key = normalizeKey(term, pack);
     for (const article of articles) {
       const lead = /['’ʼ]$/u.test(article) ? article : `${article} `;

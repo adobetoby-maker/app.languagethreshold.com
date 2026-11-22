@@ -19,6 +19,7 @@ import { useCatalogDictionary } from "./use-catalog-dictionary";
 import { MorphDisplay } from "./MorphDisplay";
 import { useApp, type Language } from "@/state/app-state";
 import { PACKS, packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { foldMarks, normalizeKey } from "@/lib/language-pack-text";
 import { useFlashcards } from "@/state/flashcard-state";
 import { MODULE_DECKS } from "@/data/deck-modules";
@@ -678,9 +679,12 @@ export function DictionaryTab() {
             Dictionary not yet available for {state.selectedLanguage}
           </p>
           <p className="text-sm" style={{ color: "var(--muted-foreground)" }}>
-            {conjugationLanguageNames()
-              ? `Verb-conjugation lookup is live for ${conjugationLanguageNames()} so far — more languages are on the way.`
-              : "More languages are on the way."}
+            {/* Learners outside the released course packs keep the base note (owner decision 3). */}
+            {!followsPackRules(packFor(state.selectedLanguage))
+              ? "Verb-conjugation lookup is live for Spanish and Italian so far — more languages are on the way."
+              : conjugationLanguageNames()
+                ? `Verb-conjugation lookup is live for ${conjugationLanguageNames()} so far — more languages are on the way.`
+                : "More languages are on the way."}
           </p>
         </div>
       )}

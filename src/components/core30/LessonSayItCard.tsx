@@ -3,7 +3,8 @@ import { ArrowLeft, CheckCircle2, Info, Mic, RotateCcw, Turtle, Volume2 } from "
 import type { LessonWord } from "@/data/curriculum";
 import { recognitionLocales } from "@/lib/language-pack-text";
 import { recognitionConstructor, type SpeechRecognitionLike } from "@/lib/phone-dictation";
-import { speechWordSimilarity, type SpeechWordScore } from "@/lib/speech-word-similarity";
+import { type SpeechWordScore } from "@/lib/speech-word-similarity";
+import { speechScore } from "@/lib/speech-score";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { usePack } from "@/hooks/use-language-pack";
@@ -190,7 +191,7 @@ export function LessonSayItCard({
       stopRecording();
       clearTimeout(timer.current);
       if (transcript.current.trim()) {
-        setResult(pack ? speechWordSimilarity(word.es, transcript.current, pack) : null);
+        setResult(pack ? speechScore(word.es, transcript.current, pack) : null);
         activity.current();
       } else {
         setError("I didn’t catch any words. Please try again.");
@@ -335,9 +336,7 @@ export function LessonSayItCard({
               onChange={(e) => {
                 setHeard(e.target.value);
                 setResult(
-                  e.target.value.trim() && pack
-                    ? speechWordSimilarity(word.es, e.target.value, pack)
-                    : null,
+                  e.target.value.trim() && pack ? speechScore(word.es, e.target.value, pack) : null,
                 );
                 activity.current();
               }}

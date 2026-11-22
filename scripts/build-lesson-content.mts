@@ -28,7 +28,7 @@
 //
 // Flags:
 //   --module <id,...>           only these modules
-//   --lang <name|code,...>      only these target languages (any registered pack: es, en, fr, ...)
+//   --lang <name|code,...>      only these target languages (es, en and the course packs fr, it)
 //   --verbs-only-for <id,...>   write only verbs for these modules (roofing is detected itself)
 //   --lessons <list>            regenerate exactly these lesson numbers (3,7,11-15), even when valid
 //                               saved content exists; no other lesson is touched. Composes with
@@ -106,6 +106,7 @@ import {
 import { cleanLessonWords, languageTag, pickAuthoredWords, authoredWordsPairForModule } from "../src/lib/lesson-words-core.ts";
 import { PACKS, packFor, sameLanguage, workplaceCoursePack } from "../src/data/language-packs/registry.ts";
 import { nativeLanguageName } from "../src/data/languages.ts";
+import { followsPackRules } from "../src/data/language-packs/pack-rules.ts";
 
 const SCRIPT_PATH = "scripts/build-lesson-content.mts";
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -122,7 +123,15 @@ const API_URL = "https://api.anthropic.com/v1/messages";
 // Target languages: every registered pack. Without --lang a module is built only for the language
 // it was authored for; any other language is built only when named with --lang, so a normal run
 // never starts generating a new language.
-const TARGETS = Object.values(PACKS).map((pack) => pack.name);
+// Owner rule 3 (2026-11-21): languages without a released course pack keep the base targets
+// (Spanish and English only); French and Italian are added as course packs.
+const TARGETS = [
+  "Spanish",
+  "English",
+  ...Object.values(PACKS)
+    .filter((pack) => followsPackRules(pack))
+    .map((pack) => pack.name),
+];
 /** learnDirection "en-target" is English-for-work: the workplace course's pack (its app file says so). */
 const EN_TARGET_CODE = workplaceCoursePack().code;
 

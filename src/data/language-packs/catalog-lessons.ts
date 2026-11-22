@@ -67,14 +67,99 @@ function wordKind(target: string): LessonWord["kind"] {
   return /[.?!…]["»”)]?\s*$/u.test(target.trim()) ? "phrase" : "term";
 }
 
-function lessonContent(lesson: CatalogLesson): LessonContentLesson {
-  const words: LessonWord[] = lesson.items
+/** Lowercase word tokens; apostrophes split elided words ("j'ai" → "j", "ai"). */
+function wordTokens(text: string, pack: LanguagePack): string[] {
+  return text
+    .toLocaleLowerCase(pack.script.segmenterLocale)
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter(Boolean);
+}
+
+/**
+ * The auxiliary of a compound-tense pattern (passé composé, passato prossimo, plus-que-parfait,
+ * aller + infinitive ...): the word before the last in every form, once the subject pronoun is
+ * dropped, when it changes with the person while the last word (participle, infinitive) stays
+ * almost the same. Empty for a simple tense or a pattern of commands.
+ */
+function patternAuxiliaries(raw: unknown, pack: LanguagePack): Set<string> {
+  const pattern = practicePattern(raw);
+  const aux = new Set<string>();
+  if (!pattern || pattern.isImperative) return aux;
+  const subjects = new Map(
+    pack.grammar.verbForms.keys.map((key) => [
+      key.key,
+      new Set((key.subjects ?? []).flatMap((subject) => wordTokens(subject, pack).slice(0, 1))),
+    ]),
+  );
+  for (const verb of pattern.verbs) {
+    const lasts = new Set<string>();
+    const persons = Object.entries(verb.forms);
+    for (const [person, form] of persons) {
+      // Agreement variants are written into the form ("andato/a", "allé(e)s"); drop them.
+      let tokens = wordTokens(form.replace(/\([^)]*\)|\/\S*/gu, ""), pack);
+      const own = subjects.get(person);
+      while (tokens.length > 0 && own?.has(tokens[0])) tokens = tokens.slice(1);
+      if (tokens.length < 2) return new Set();
+      aux.add(tokens[tokens.length - 2]);
+      lasts.add(tokens[tokens.length - 1]);
+    }
+    if (lasts.size > Math.ceil(persons.length / 2)) return new Set();
+  }
+  return aux.size >= 3 ? aux : new Set();
+}
+
+/**
+ * A compound-tense lesson opens on a sentence that uses the auxiliary it teaches (owner review
+ * 2026-11-21: an essere sentence opened an avere lesson). `opensOnAuxiliary` returns the order of
+ * `lines` with the first line that uses the auxiliary moved to the front when the first line does
+ * not; every other line keeps its order, and lines with no such sentence keep theirs.
+ */
+function opensOnAuxiliary<T>(
+  lines: readonly T[],
+  textOf: (line: T) => string | null,
+  lesson: CatalogLesson,
+  pack: LanguagePack,
+): T[] {
+  const aux = patternAuxiliaries(lesson.conjugationPattern, pack);
+  if (aux.size === 0) return [...lines];
+  // The auxiliary must be followed by a word that is not an article ("étaient les choses" is a
+  // plain imperfect, "ho cercato" a compound form).
+  const { definite = [], indefinite = [], partitive = [] } = pack.grammar.nounSystem.articles;
+  const articles = new Set(
+    [...definite, ...indefinite, ...partitive].flatMap((article) => wordTokens(article, pack)),
+  );
+  const uses = (text: string) => {
+    const tokens = wordTokens(text, pack);
+    return tokens.some(
+      (token, i) => aux.has(token) && i + 1 < tokens.length && !articles.has(tokens[i + 1]),
+    );
+  };
+  const first = lines.findIndex((line) => textOf(line) !== null);
+  if (first < 0 || uses(textOf(lines[first])!)) return [...lines];
+  const opener = lines.findIndex(
+    (line, i) => i > first && textOf(line) !== null && uses(textOf(line)!),
+  );
+  if (opener < 0) return [...lines];
+  const out = [...lines];
+  const [moved] = out.splice(opener, 1);
+  out.splice(first, 0, moved);
+  return out;
+}
+
+function lessonContent(lesson: CatalogLesson, pack: LanguagePack): LessonContentLesson {
+  const items: LessonWord[] = lesson.items
     .filter((item) => item.target.trim() && item.native.trim())
     .map((item) => {
       const word: LessonWord = { es: item.target, en: item.native, kind: wordKind(item.target) };
       if (item.note) word.note = item.note;
       return word;
     });
+  const words = opensOnAuxiliary(
+    items,
+    (word) => (word.kind === "phrase" ? word.es : null),
+    lesson,
+    pack,
+  );
   const verbs: LessonVerb[] = (lesson.verbs ?? [])
     .filter((verb) => verb.example?.target && verb.example.native)
     .map((verb) => {
@@ -89,7 +174,12 @@ function lessonContent(lesson: CatalogLesson): LessonContentLesson {
     });
   const content: LessonContentLesson = { verbs };
   if (words.length > 0) content.words = words;
-  const passage = (lesson.passage ?? []).filter((line) => line.target.trim() && line.native.trim());
+  const passage = opensOnAuxiliary(
+    (lesson.passage ?? []).filter((line) => line.target.trim() && line.native.trim()),
+    (line) => line.target,
+    lesson,
+    pack,
+  );
   if (passage.length > 0)
     content.passage = {
       title: lesson.title,
@@ -116,7 +206,9 @@ export function catalogContentFile(
     language,
     nativeLanguage,
     reviewed: lessons.every((lesson) => lesson.reviewed === true),
-    lessons: Object.fromEntries(lessons.map((lesson, i) => [String(i + 1), lessonContent(lesson)])),
+    lessons: Object.fromEntries(
+      lessons.map((lesson, i) => [String(i + 1), lessonContent(lesson, pack)]),
+    ),
   };
 }
 
@@ -125,13 +217,17 @@ export function catalogCurriculum(
   module: CatalogModule,
   stage: CatalogStage,
   moduleId: string,
+  pack?: LanguagePack,
 ): ModuleCurriculum | null {
   const lessons = stageLessons(module, stage);
   if (lessons.length === 0) return null;
   return {
     moduleId,
     headline: module.title,
-    threshold: lessons[lessons.length - 1]?.objective ?? "",
+    // A course with a library guidance line (French 101: "Start here · sounds, first words, and
+    // everyday sentences.") is described by it, as Spanish 101 is by its course line; any other
+    // module by its last lesson's objective.
+    threshold: pack?.library.guidance?.[module.id] ?? lessons[lessons.length - 1]?.objective ?? "",
     // The same Reader, Word Match and Say it steps (and minutes) as the Spanish Core 60 stages.
     lessons: lessons.map((lesson, i) => {
       const [read, drill, say] = stage === "foundation" ? [5, 5, 6] : [12, 8, 12];
@@ -280,7 +376,8 @@ export function loadCatalogCurriculum(
   const where = catalogStageOf(moduleId, pack);
   const promise = (async () => {
     const module = where ? await loadCatalogModule(pack, where.base) : null;
-    const curriculum = module && where ? catalogCurriculum(module, where.stage, moduleId) : null;
+    const curriculum =
+      module && where ? catalogCurriculum(module, where.stage, moduleId, pack) : null;
     if (module && where) rememberPractice(key, module, where.stage);
     // A failed fetch is not remembered (loadCatalogModule retries); a missing module is.
     if (curriculum || !where || module) curricula.set(key, curriculum);

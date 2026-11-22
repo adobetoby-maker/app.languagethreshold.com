@@ -637,12 +637,18 @@ function projectTextForLanguage(text: string, language: SpeakingMissionLanguage)
       `without switching away from ${language}`,
     );
   // A learner whose lessons come from a pack catalog (French, Italian) never reads another
-  // language named beside theirs ("in Italian or Spanish" → "in Italian").
+  // language named beside theirs ("in Italian or Spanish" → "in Italian"), never reads Spanish
+  // named as the language they practice ("plain Spanish", "clear Spanish commands"), and never
+  // reads a Spanish word for a celebration (owner rule 1).
   return catalogLessonPack(language)
-    ? projected.replace(
-        new RegExp(`\\bin ${language}(?: or (?:${PROJECTED_LANGUAGE_NAMES}))+\\b`, "g"),
-        `in ${language}`,
-      )
+    ? projected
+        .replace(
+          new RegExp(`\\bin ${language}(?: or (?:${PROJECTED_LANGUAGE_NAMES}))+\\b`, "g"),
+          `in ${language}`,
+        )
+        .replace(/\bSpanish\b/g, language)
+        .replace(/\bQuinceañera Mass\b/g, "fifteenth-birthday Mass")
+        .replace(/\bQuinceañera\b/g, "Fifteenth-Birthday Celebration")
     : projected;
 }
 

@@ -1,4 +1,5 @@
 import type { LanguagePack } from "../data/language-packs/types.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
 /** Exact cloze forms: ignore case/punctuation, but preserve accents (el ≠ él, esta ≠ está). */
 export function correctSpanishCloze(input: string, expected: string): boolean {
   const normalize = (value: string) =>
@@ -17,11 +18,14 @@ export function correctSpanishCloze(input: string, expected: string): boolean {
  * written without spaces (Japanese) ignores whitespace. Spanish answers grade exactly as
  * correctSpanishCloze.
  */
-export function correctCloze(
-  input: string,
-  expected: string,
-  pack: Pick<LanguagePack, "code" | "script" | "typography">,
-): boolean {
+export function correctCloze(input: string, expected: string, pack: LanguagePack): boolean {
+  // Spanish and Japanese keep the base checks exactly (owner decisions 2 and 3): Spanish uses
+  // correctSpanishCloze; Japanese compares NFC text with whitespace removed and nothing else.
+  if (!followsPackRules(pack)) {
+    if (pack.script.wordSeparator !== "none") return correctSpanishCloze(input, expected);
+    const strip = (value: string) => value.normalize("NFC").replace(/\s+/g, "").trim();
+    return strip(input) === strip(expected);
+  }
   const normalize = (value: string) => {
     let text = value.normalize("NFC");
     for (const variant of pack.typography.apostropheVariants)

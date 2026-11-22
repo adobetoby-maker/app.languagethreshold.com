@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import {
-  ENGLISH_AUTHORED_PAIR,
-  SPANISH_AUTHORED_PAIR,
+  workplaceAuthoredPair,
+  historicalAuthoredPair,
   authoredWordsPair,
   LESSON_DECK_VERSION,
   cleanLessonWords,
@@ -25,6 +25,7 @@ import {
   wordsFromModelOutput,
   writeCachedWords,
 } from "../src/lib/lesson-words-core.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 
 const pair = (native, target, extra = {}) => ({ native, target, ...extra });
 const terms = (n) => Array.from({ length: n }, (_, i) => pair(`term ${i}`, `terme ${i}`));
@@ -112,18 +113,19 @@ test("model output of the wrong shape yields nothing", () => {
 
 test("authored words are used only for the Spanish/English pair", () => {
   const authored = [{ en: "roof", es: "techo", kind: "term" }];
-  assert.deepEqual(pickAuthoredWords(authored, "Spanish"), authored);
-  assert.equal(pickAuthoredWords(authored, "French"), null);
-  assert.equal(pickAuthoredWords(authored, "Spanish", "French"), null);
-  assert.equal(pickAuthoredWords(authored, "Spanish", "Portuguese"), null);
-  assert.equal(pickAuthoredWords(undefined, "Spanish"), null);
-  assert.equal(pickAuthoredWords([], "Spanish"), null);
+  const pair = historicalAuthoredPair();
+  assert.deepEqual(pickAuthoredWords(authored, "Spanish", "English", pair), authored);
+  assert.equal(pickAuthoredWords(authored, "French", "English", pair), null);
+  assert.equal(pickAuthoredWords(authored, "Spanish", "French", pair), null);
+  assert.equal(pickAuthoredWords(authored, "Spanish", "Portuguese", pair), null);
+  assert.equal(pickAuthoredWords(undefined, "Spanish", "English", pair), null);
+  assert.equal(pickAuthoredWords([], "Spanish", "English", pair), null);
 });
 
 test("authored words default to the Spanish target / English native pair", () => {
   const authored = [{ en: "roof", es: "techo", kind: "term" }];
-  assert.deepEqual(authoredWordsPair(undefined), SPANISH_AUTHORED_PAIR);
-  assert.deepEqual(authoredWordsPair(null), SPANISH_AUTHORED_PAIR);
+  assert.deepEqual(authoredWordsPair(undefined), historicalAuthoredPair());
+  assert.deepEqual(authoredWordsPair(null), historicalAuthoredPair());
   const spanish = authoredWordsPair(undefined);
   assert.deepEqual(pickAuthoredWords(authored, "Spanish", "English", spanish), authored);
   // A Spanish-target module is not served to an English-target learner: the sides would be swapped.
@@ -131,7 +133,7 @@ test("authored words default to the Spanish target / English native pair", () =>
 });
 
 test("an English-target stage returns its authored words, target on es and native on en", () => {
-  assert.deepEqual(authoredWordsPair("en-target"), ENGLISH_AUTHORED_PAIR);
+  assert.deepEqual(authoredWordsPair("en-target"), workplaceAuthoredPair());
   const english = authoredWordsPair("en-target");
   for (const stage of ["foundation-fmg", "master-fmg", "foundation-or-evs", "master-or-evs"]) {
     const file = JSON.parse(readFileSync(`src/data/core60/en/${stage}.json`, "utf8"));
@@ -208,29 +210,33 @@ test("script detection", () => {
 });
 
 test("Latin typed answers stay accent- and case-insensitive", () => {
-  assert.equal(isCorrectTypedAnswer("Perceuse", "perceuse"), true);
-  assert.equal(isCorrectTypedAnswer("ou avez-vous mal", "Où avez-vous mal ?"), true);
-  assert.equal(isCorrectTypedAnswer("marteau", "perceuse"), false);
-  assert.equal(isCorrectTypedAnswer("tecnico", "técnico"), true);
+  assert.equal(isCorrectTypedAnswer("Perceuse", "perceuse", packFor("fr")), true);
+  // French typing folds accents on its legacy adapter; its QA pack is strict (accent hint).
+  assert.equal(
+    isCorrectTypedAnswer("ou avez-vous mal", "Où avez-vous mal ?", packFor("fr")),
+    packFor("fr").answerRules.accentPolicy.typed !== "strict",
+  );
+  assert.equal(isCorrectTypedAnswer("marteau", "perceuse", packFor("fr")), false);
+  assert.equal(isCorrectTypedAnswer("tecnico", "técnico", packFor("es")), true);
 });
 
 test("CJK typed answers compare exact after trimming and punctuation", () => {
-  assert.equal(isCorrectTypedAnswer("  ドリル ", "ドリル"), true);
-  assert.equal(isCorrectTypedAnswer("ドリル。", "ドリル"), true);
-  assert.equal(isCorrectTypedAnswer("ドリー", "ドリル"), false);
-  assert.equal(isCorrectTypedAnswer("痛 在 哪 里", "痛在哪里？"), true);
-  assert.equal(isCorrectTypedAnswer("痛在哪", "痛在哪里"), false);
-  assert.equal(isCorrectTypedAnswer("한국", "한국어"), false);
-  assert.equal(isCorrectTypedAnswer("한국어", "한국어"), true);
-  assert.equal(isCorrectTypedAnswer("", "ドリル"), false);
+  assert.equal(isCorrectTypedAnswer("  ドリル ", "ドリル", packFor("ja")), true);
+  assert.equal(isCorrectTypedAnswer("ドリル。", "ドリル", packFor("ja")), true);
+  assert.equal(isCorrectTypedAnswer("ドリー", "ドリル", packFor("ja")), false);
+  assert.equal(isCorrectTypedAnswer("痛 在 哪 里", "痛在哪里？", packFor("zh")), true);
+  assert.equal(isCorrectTypedAnswer("痛在哪", "痛在哪里", packFor("zh")), false);
+  assert.equal(isCorrectTypedAnswer("한국", "한국어", packFor("ko")), false);
+  assert.equal(isCorrectTypedAnswer("한국어", "한국어", packFor("ko")), true);
+  assert.equal(isCorrectTypedAnswer("", "ドリル", packFor("ja")), false);
 });
 
 test("non-Latin answers keep diacritics and accept slash and parenthesis variants", () => {
   // Pashto: the vowel mark is part of the answer; dropping it is wrong, not "close enough".
-  assert.equal(isCorrectTypedAnswer("کتاب", "کتاب"), true);
-  assert.equal(isCorrectTypedAnswer("کِتاب", "کتاب"), false);
-  assert.equal(isCorrectTypedAnswer("ドリル", "ドリル (電動)"), true);
-  assert.equal(isCorrectTypedAnswer("のこぎり", "鋸 / のこぎり"), true);
+  assert.equal(isCorrectTypedAnswer("کتاب", "کتاب", packFor("ps")), true);
+  assert.equal(isCorrectTypedAnswer("کِتاب", "کتاب", packFor("ps")), false);
+  assert.equal(isCorrectTypedAnswer("ドリル", "ドリル (電動)", packFor("ja")), true);
+  assert.equal(isCorrectTypedAnswer("のこぎり", "鋸 / のこぎり", packFor("ja")), true);
   assert.equal(normalizeScriptAnswer("ＡＢＣ　テスト"), "abcテスト");
 });
 

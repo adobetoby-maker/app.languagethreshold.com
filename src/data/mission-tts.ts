@@ -1,18 +1,16 @@
+import { PACKS, type LanguagePack } from "./language-packs/registry.ts";
+
 export type MissionPartnerVersion = "woman" | "man";
 
-export const MISSION_TTS_SUPPORTED_LANGUAGES = [
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Japanese",
-  "Korean",
-  "Portuguese",
-  "Pashto",
-  "English",
-] as const;
+/** Language families the cloud voice route serves: every registered pack's voice language. */
+function ttsFamilies(): Set<string> {
+  return new Set(PACKS.map((pack) => languageFamily(pack.speech.tts.languageCode)));
+}
 
-export type MissionTtsLanguage = (typeof MISSION_TTS_SUPPORTED_LANGUAGES)[number];
+/** Display names of the languages the cloud voice route serves, derived from the registry. */
+export const MISSION_TTS_SUPPORTED_LANGUAGES: readonly string[] = PACKS.map((pack) => pack.name);
+
+export type MissionTtsLanguage = string;
 
 export const MISSION_TTS_SPEEDS = [0.5, 0.6, 0.75, 0.85, 1, 1.1, 1.25, 1.5] as const;
 
@@ -31,24 +29,21 @@ export interface GoogleTtsVoice {
 
 const VOICE_PREFIX = "google:";
 
-// Costa Rican voices are uncommon in browser and Cloud catalogs. When an exact
-// voice is unavailable, keep Latin American Spanish ahead of Castilian Spanish.
-const SPANISH_FALLBACK_LOCALES = [
-  "es-CR",
-  "es-MX",
-  "es-GT",
-  "es-CO",
-  "es-PE",
-  "es-CL",
-  "es-AR",
-  "es-419",
-  "es-US",
-  "es-ES",
-];
+/** The registered pack that speaks a locale's language family, or null. */
+export function packForVoiceLocale(locale: string): LanguagePack | null {
+  const family = languageFamily(locale);
+  return PACKS.find((pack) => languageFamily(pack.speech.tts.languageCode) === family) ?? null;
+}
 
-export function spanishVoiceLocaleRank(locale: string): number {
-  const index = SPANISH_FALLBACK_LOCALES.indexOf(locale.trim());
-  return index === -1 ? SPANISH_FALLBACK_LOCALES.length - 2 : index;
+/**
+ * Where a voice locale sits in its pack's accent order (pack.speech.accents): a lower rank is
+ * nearer the pack's preferred accent. A locale the pack does not list ranks next to last, ahead of
+ * the final entry, so a fallback never lands on the pack's last-resort region by accident.
+ */
+export function voiceLocaleRank(locale: string, pack: LanguagePack | null): number {
+  const tags = pack?.speech.accents.map((accent) => accent.tag) ?? [];
+  const index = tags.indexOf(locale.trim());
+  return index === -1 ? Math.max(0, tags.length - 2) : index;
 }
 
 export function isMissionTtsSpeed(value: number): value is MissionTtsSpeed {
@@ -60,7 +55,7 @@ export function languageFamily(locale: string): string {
 }
 
 export function isSupportedGoogleTtsLocale(locale: string): boolean {
-  return ["es", "fr", "de", "it", "ja", "ko", "pt", "ps", "en"].includes(languageFamily(locale));
+  return ttsFamilies().has(languageFamily(locale));
 }
 
 export function googleVoiceTier(name: string): GoogleTtsVoice["tier"] {
@@ -111,11 +106,12 @@ export function googleVoicesForLocale(voices: GoogleTtsVoice[], locale: string):
   const familyMatches = sortGoogleTtsVoices(
     voices.filter((voice) => voice.languageCodes.some((code) => languageFamily(code) === family)),
   );
-  if (family !== "es") return familyMatches;
+  const pack = packForVoiceLocale(locale);
+  if (!pack || pack.speech.accents.length < 2) return familyMatches;
   return familyMatches.sort(
     (a, b) =>
-      spanishVoiceLocaleRank(a.languageCodes[0] ?? "") -
-      spanishVoiceLocaleRank(b.languageCodes[0] ?? ""),
+      voiceLocaleRank(a.languageCodes[0] ?? "", pack) -
+      voiceLocaleRank(b.languageCodes[0] ?? "", pack),
   );
 }
 

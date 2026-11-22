@@ -8,9 +8,13 @@ export interface TourStep {
 }
 
 /** Show the learning loop, with honest empty states and no automatic practice submissions. */
-export function getTourScript(moduleId: string | null): TourStep[] {
+export function getTourScript(
+  moduleId: string | null,
+  targetLanguage: string,
+  nativeLanguage: string,
+): TourStep[] {
   const steps: TourStep[] = [];
-  if (getCurriculum(moduleId ?? ""))
+  if (getCurriculum(moduleId ?? "", targetLanguage, nativeLanguage))
     steps.push({
       tabKey: "core30",
       title: "Choose your next lesson",

@@ -9,10 +9,12 @@ import {
   distinctGameItems,
   gameAnswer,
   maskedAnswer,
+  gameLetters,
   pairTileState,
   tapPairAnswer,
   tapPairPrompt,
 } from "../src/lib/lesson-verb-games.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import { spanishBasicsLesson } from "../src/data/spanish-basics.ts";
 const courses = [
   "spanish-basics",
@@ -63,10 +65,15 @@ test("pattern games override present reference forms and preserve accents", () =
   ).pattern;
   const bank = lessonGameBank([], "Spanish", pattern);
   assert.equal(bank.forms.find((v) => v.id === "hablar:yo").answer, "hablé");
-  assert.equal(gameAnswer("hablé", "HABLÉ "), true);
-  assert.equal(gameAnswer("hablé", "hable"), false);
-  assert.equal(maskedAnswer("él ha ido", ["é", "l", "h", "a", "i", "d", "o"]), "é l   h a   i d o");
-  assert.ok(maskedAnswer("hablé", ["h", "a", "b", "l", "e"]).includes("＿"));
+  assert.equal(gameAnswer("hablé", "HABLÉ ", [], packFor("es")), true);
+  assert.equal(gameAnswer("hablé", "hable", [], packFor("es")), false);
+  const letters = gameLetters(packFor("es"));
+  assert.equal(maskedAnswer("él ha ido", ["é", "l", "h", "a", "i", "d", "o"], letters), "é l   h a   i d o");
+  assert.ok(maskedAnswer("hablé", ["h", "a", "b", "l", "e"], letters).includes("＿"));
+  // The pack alphabet masks every letter of the language: nothing is given away unmasked.
+  assert.equal(letters.join(""), "abcdefghijklmnñopqrstuvwxyzáéíóúü");
+  // A pack with no alphabet (an IME script) plays with the letters of the round's answers.
+  assert.deepEqual(gameLetters(packFor("ja"), ["たべる", "たべます"]), ["た", "べ", "る", "ま", "す"]);
 });
 
 // ─── Matching: red feedback on both tiles, then retryable ─────────────────────

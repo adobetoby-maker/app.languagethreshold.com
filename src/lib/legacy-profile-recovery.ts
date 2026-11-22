@@ -2,6 +2,7 @@ import { z } from "zod";
 import { LANGUAGES, type Language } from "../data/languages.ts";
 import { MODULES } from "../data/modules.ts";
 import { getCurriculum } from "../data/curriculum.ts";
+import { historicalCoursePair } from "../data/language-packs/registry.ts";
 import type { AppState } from "../state/app-state";
 import { vocabWordKey } from "../state/vocab-store.ts";
 import {
@@ -166,7 +167,11 @@ function normalized(
   for (const module of MODULES) {
     if (Object.hasOwn(rawLog, module.id)) {
       const log = moduleLog.parse(rawLog[module.id]);
-      const available = new Set((getCurriculum(module.id)?.lessons ?? []).map((l) => String(l.n)));
+      // Unscoped (pre-pair) logs were written in the historical course pair.
+      const legacy = historicalCoursePair();
+      const available = new Set(
+        (getCurriculum(module.id, legacy.target, legacy.native)?.lessons ?? []).map((l) => String(l.n)),
+      );
       if (Object.keys(log.lessons).some((n) => !available.has(n)))
         throw Error("Older lesson numbers do not match this module.");
       core30Log[module.id] = log;

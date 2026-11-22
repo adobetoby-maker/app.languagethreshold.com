@@ -2,7 +2,7 @@ import { useState } from "react";
 import { moduleMatchesSearch } from "@/lib/module-search";
 import { Search, X, Check, Clock } from "lucide-react";
 import { useApp } from "@/state/app-state";
-import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
+import { MODULES, getModule, moduleBlurbFor, moduleSupportsLearningPair } from "@/data/modules";
 import type { AppModule } from "@/data/modules";
 import type { Language } from "@/state/app-state";
 
@@ -53,7 +53,7 @@ export function ModulePickerDialog({ open, onClose, onSelect }: Props) {
 
   function select(id: string | null, openPath = false) {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: id });
-    if (id && openPath && (getCurriculum(id) || /^(foundation|master)-/.test(id)))
+    if (id && openPath && (getCurriculum(id, state.selectedLanguage, state.nativeLanguage) || /^(foundation|master)-/.test(id)))
       dispatch({ type: "SET_TAB", payload: "core30" });
     if (id) {
       const mod = getModule(id);
@@ -198,6 +198,7 @@ function ModCard({
   onSelect: (id: string) => void;
 }) {
   const mod = path.module;
+  const { state } = useApp();
   const active = path.stages.some((stage) => stage.module?.id === activeId);
   return (
     <section
@@ -213,7 +214,7 @@ function ModCard({
         <h3 className="flex-1 text-sm font-semibold">{mod.name}</h3>
         {active && <Check className="h-4 w-4 text-gold" aria-label="Active module" />}
       </div>
-      <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">{mod.blurb}</p>
+      <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">{moduleBlurbFor(mod, state.selectedLanguage)}</p>
       <ModuleLearningStages
         path={path}
         activeId={activeId}

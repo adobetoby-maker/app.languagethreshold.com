@@ -1,6 +1,10 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Repeat2, Clock3, Volume2 } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { hasVerbPatterns } from "@/lib/verb-games/load-patterns";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { getModule, packCourseModuleId } from "@/data/modules";
 import { useVerbHabit } from "@/hooks/use-verb-habit";
 import { SpeakingPatternPractice } from "./SpeakingPatternPractice";
 import { FINISH_STUDY_EVENT } from "./VerbHabitSettings";
@@ -28,13 +32,27 @@ const labels: Record<Area, string> = {
 };
 const button = "min-h-11 rounded-xl border border-border bg-card px-4 py-3 text-left font-semibold";
 export function VerbsHub() {
-  const { state } = useApp(),
+  const { state, dispatch } = useApp(),
     { habit, update, key } = useVerbHabit(),
     [area, setArea] = useState<Area>("daily"),
     [ready, setReady] = useState(false),
     lastActive = useRef(0),
     activity = useRef<HTMLDivElement>(null);
-  const spanish = state.selectedLanguage === "Spanish" && state.nativeLanguage === "English";
+  // The authored verb workshop exists for the languages in load-patterns.ts, glossed in the
+  // pack's own native default; every other pair keeps only the generic drills.
+  const pack = packFor(state.selectedLanguage);
+  const supported =
+    hasVerbPatterns(pack) && sameLanguage(state.nativeLanguage, pack.native.default);
+  // A learner whose lessons come from a pack catalog (French, Italian) reads copy that names no
+  // other language; every other learner reads the copy the hub has always shown.
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
+  // French and Italian have no authored verb workshop yet: the hub names exactly what is missing,
+  // points at the Conjugation Patterns course, and keeps the conjugation drills. No ten-minute
+  // timer, habit counter or game card is shown beside the unavailable notice.
+  const packOnly = Boolean(catalogPack) && !supported;
+  const patternsCourse = packOnly
+    ? getModule(packCourseModuleId("spanish-conjugation-patterns", state.selectedLanguage))
+    : null;
   useEffect(() => {
     const read = () => {
       const p = new URLSearchParams(window.location.search),
@@ -50,6 +68,7 @@ export function VerbsHub() {
     lastActive.current = 0;
   }, [key]);
   useEffect(() => {
+    if (packOnly) return;
     const timer = setInterval(() => {
       if (
         document.visibilityState === "visible" &&
@@ -63,7 +82,7 @@ export function VerbsHub() {
         }));
     }, 1000);
     return () => clearInterval(timer);
-  }, [update]);
+  }, [update, packOnly]);
   useEffect(() => {
     if (area !== "daily") activity.current?.scrollIntoView({ block: "start" });
   }, [area]);
@@ -76,6 +95,51 @@ export function VerbsHub() {
       url.searchParams.delete(p);
     if (next === "games") url.searchParams.set("verbs", "home");
     window.history.pushState(window.history.state, "", url.pathname + url.search + url.hash);
+  }
+  if (packOnly && catalogPack) {
+    const name = catalogPack.name;
+    return (
+      <div className="mx-auto max-w-5xl space-y-6" data-testid="verbs-hub">
+        <header className="space-y-3">
+          <h1 className="flex items-center gap-2 font-display text-3xl">
+            <Repeat2 className="size-7 text-gold-ink" />
+            Verbs
+          </h1>
+          <p className="text-muted-foreground">
+            Change a verb's form, then use it to say something.
+          </p>
+        </header>
+        <section
+          className="space-y-3 rounded-xl border p-4"
+          aria-label={`Verb practice in ${name}`}
+          data-testid="verbs-pack-notice"
+        >
+          <p>
+            Not available in {name} yet: the verb meaning and conjugation games, Bubble Pop and Verb
+            Crush, the speaking-pattern drills and the daily ten-minute verb plan.
+          </p>
+          <p>
+            Ready in {name}: {patternsCourse ? `the ${patternsCourse.name} course and ` : ""}the
+            conjugation drills below.
+          </p>
+          {patternsCourse && (
+            <button
+              type="button"
+              className={`${button} border-gold/50`}
+              onClick={() => {
+                dispatch({ type: "SET_ACTIVE_MODULE", payload: patternsCourse.id });
+                dispatch({ type: "SET_TAB", payload: "core30" });
+              }}
+            >
+              Open {patternsCourse.name}
+            </button>
+          )}
+        </section>
+        <Suspense fallback={<p role="status">Opening verb practice…</p>}>
+          <Advanced />
+        </Suspense>
+      </div>
+    );
   }
   const minutes = Math.floor(habit.seconds / 60),
     seconds = habit.seconds % 60,
@@ -118,7 +182,7 @@ export function VerbsHub() {
         )}
       </header>
       <nav aria-label="Verb practice areas" className="flex flex-wrap gap-2">
-        {AREAS.filter((a) => spanish || !["forms", "patterns", "games"].includes(a)).map((a) => (
+        {AREAS.filter((a) => supported || !["forms", "patterns", "games"].includes(a)).map((a) => (
           <button
             key={a}
             className={`${button} ${area === a ? "border-gold bg-gold/10" : ""}`}
@@ -130,7 +194,7 @@ export function VerbsHub() {
           </button>
         ))}
       </nav>
-      {!spanish && (
+      {!supported && (
         <p className="rounded-xl border p-4">
           Your selected language is {state.selectedLanguage}. The authored ten-minute games and
           shortcut drills here currently cover Spanish with English support. Use the conjugation
@@ -158,13 +222,15 @@ export function VerbsHub() {
                 area: "patterns" as Area,
                 time: "4 minutes",
                 title: "Make it speakable",
-                copy: "Tengo que… Estoy hablando… He hecho… Useful frames with ten verbs each.",
+                copy: catalogPack
+                  ? "Useful frames with ten verbs each."
+                  : "Tengo que… Estoy hablando… He hecho… Useful frames with ten verbs each.",
               },
             ].map((p) => (
               <button
                 key={p.area}
                 className={`${button} space-y-2 p-5`}
-                disabled={!ready || !spanish}
+                disabled={!ready || !supported}
                 onClick={() => go(p.area)}
               >
                 <span className="block text-sm text-gold-ink">{p.time}</span>
@@ -191,10 +257,10 @@ export function VerbsHub() {
       )}
 
       <div ref={activity} className="space-y-5 scroll-mt-4">
-        {spanish && area === "patterns" && <SpeakingPatternPractice />}
+        {supported && area === "patterns" && <SpeakingPatternPractice />}
         <Suspense fallback={<p role="status">Opening verb practice…</p>}>
-          {spanish && area === "forms" && <ConjugationPractice />}
-          {spanish && area === "games" && <PatternGames />}
+          {supported && pack && area === "forms" && <ConjugationPractice language={pack.name} />}
+          {supported && area === "games" && <PatternGames />}
           {area === "advanced" && <Advanced />}
           {area === "library" && <PatternLibrary />}
         </Suspense>

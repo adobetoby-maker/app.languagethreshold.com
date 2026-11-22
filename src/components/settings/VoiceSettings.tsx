@@ -6,7 +6,11 @@ import { useAuth } from "@/state/auth-state";
 import { useSiteVoice } from "@/hooks/use-site-voice";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { DEVICE_DEFAULT_VOICE } from "@/data/mobile-voice";
-import { encodeGoogleVoicePreference, MISSION_TTS_SPEEDS } from "@/data/mission-tts";
+import {
+  encodeGoogleVoicePreference,
+  MISSION_TTS_SPEEDS,
+  packForVoiceLocale,
+} from "@/data/mission-tts";
 import {
   DEFAULT_STANDARD_VOICES,
   standardGoogleVoice,
@@ -19,6 +23,8 @@ import {
   listeningStatus,
 } from "@/lib/listening-audio";
 
+// Settings preview sentences, keyed by pack code. A pack with none uses its own sound-check
+// sentence; a pack with neither has no preview (never an English "Hello" in another voice).
 const SAMPLES: Record<string, string> = {
   es: "Hola. Vamos a practicar juntos. Escucha con calma y repite cuando estés listo.",
   en: "Hello. Let's practice together. Listen carefully and repeat when you are ready.",
@@ -53,11 +59,15 @@ export function VoiceSettings() {
   const hdSupported = hdListeningSupported(accent);
   const listen = standardGoogleVoice(googleVoices, accent, voiceSettings.listeningGender);
   const speaking = standardGoogleVoice(googleVoices, accent, voiceSettings.speakingGender);
-  const sample = SAMPLES[accent.split("-")[0]] ?? "Hello";
+  const samplePack = packForVoiceLocale(accent);
+  const sample = samplePack
+    ? (SAMPLES[samplePack.code] ?? (samplePack.phrases.soundCheckSentence.trim() || null))
+    : null;
   const deviceError =
     "The voice could not play. Check your connection and audio output, then try again.";
   /** Plays what lessons play. With the HD voice chosen, a device voice never stands in. */
   function testListening() {
+    if (!sample) return;
     setError("");
     stop();
     const plan = listeningPlan(accent);
@@ -77,6 +87,7 @@ export function VoiceSettings() {
     });
   }
   function testSpeaking() {
+    if (!sample) return;
     setError("");
     stop();
     const device = voiceSettings.speakingAudioSource === "device";
@@ -201,9 +212,10 @@ export function VoiceSettings() {
             type="button"
             onClick={key === "speakingGender" ? testSpeaking : testListening}
             disabled={
-              key === "speakingGender" &&
+              !sample ||
+              (key === "speakingGender" &&
               (voiceSettings.speakingAudioSource === "text" ||
-                (voiceSettings.speakingAudioSource === "google" && (!cloud || !speaking)))
+                (voiceSettings.speakingAudioSource === "google" && (!cloud || !speaking))))
             }
             className="mt-2 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-3 text-sm font-medium disabled:opacity-50"
           >

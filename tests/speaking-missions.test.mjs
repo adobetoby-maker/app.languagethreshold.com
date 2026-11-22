@@ -29,7 +29,7 @@ import {
   TRAVEL_ZONE_MODULES,
 } from "../src/data/travel-zone.ts";
 import { MODULES } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 
 // Data-driven Core 60 stages (src/data/core60/manifest.ts) each add, in their entry's language,
@@ -45,7 +45,7 @@ function generatedStageCounts(language) {
       if (!entry[stage]) continue;
       const id = `${stage}-${entry.base}`;
       out.challenges += MODULES.find((m) => m.id === id)?.challengePrompts.length ?? 0;
-      out.lessons += getCurriculum(id)?.lessons.length ?? 0;
+      out.lessons += authoredCurriculum(id)?.lessons.length ?? 0;
     }
   }
   return out;
@@ -178,7 +178,9 @@ test("speaking preview covers every authored topic in every speaking language", 
       core: 153,
       total: 2749 + 6 + master,
     }),
-    Italian: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2157 },
+    // Italian is offered missions only for the 20 modules of its own Study library that have
+    // Say it scenarios (owner decision 1, round-3 D-5): core speaking plus those modules.
+    Italian: { modules: 21, challenges: 111, lessons: 600, curated: 0, core: 153, total: 864 },
     Japanese: { modules: 57, challenges: 366, lessons: 1710, curated: 0, core: 156, total: 2232 },
     Chinese: { modules: 56, challenges: 354, lessons: 1650, curated: 0, core: 153, total: 2163 },
     English: withGenerated("English", {
@@ -191,10 +193,14 @@ test("speaking preview covers every authored topic in every speaking language", 
     }),
   };
 
-  assert.deepEqual(
-    SPEAKING_LANGUAGES.map((entry) => entry.language),
-    ["Spanish", "Italian", "Japanese", "Chinese", "English"],
-  );
+  // Registry order (deepest catalog first) differs between a normal and a QA build; the set does not.
+  assert.deepEqual(SPEAKING_LANGUAGES.map((entry) => entry.language).sort(), [
+    "Chinese",
+    "English",
+    "Italian",
+    "Japanese",
+    "Spanish",
+  ]);
   for (const { language, locale } of SPEAKING_LANGUAGES) {
     const modules = getSpeakingModules(language);
     const missions = getSpeakingMissions(language);
@@ -257,7 +263,9 @@ test("speaking preview covers every authored topic in every speaking language", 
   // Japanese 101 contributes twelve stage/base challenges and sixty lesson missions.
   // OR Cleaning Spanish adds four base challenges and thirty Core lesson missions.
   // Dance Team and Cosmetology add two base courses: 60 lessons plus six challenges.
-  const allMissions = 11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72 + 33 + 34 + 66;
+  // Italian keeps only its own Study library's modules (2,157 → 864 missions, round-3 D-5).
+  const allMissions =
+    11030 + 34 + 6 + 36 + 34 + 192 + 33 + master + generated + 72 + 33 + 34 + 66 - (2157 - 864);
 
   assert.equal(SPEAKING_MISSIONS.length, allMissions);
   assert.equal(new Set(SPEAKING_MISSIONS.map((mission) => mission.id)).size, allMissions);
@@ -350,6 +358,11 @@ test("Travel is a large daily-interaction zone with the Rome gaps covered", () =
     // 5 challenges), to Spanish Travel: 644 + 255 = 899. The 17 travel Masters (Core 60 T7) are now
     // published and listed too: 17 x 20 lessons = 340, plus 99 challenges (14 Masters have 6, 3 have
     // 5), = 439 more: 899 + 439 = 1338. No other language has travel stages yet.
+    // Italian's Study library (its pack catalog) has no Travel modules, so it has no Travel missions.
+    if (language === "Italian") {
+      assert.equal(travelMissions.length, 0, "Italian Travel mission count");
+      continue;
+    }
     const expectedTravelMissions = language === "Spanish" ? 1338 : 644;
     assert.equal(travelMissions.length, expectedTravelMissions, `${language} Travel mission count`);
     // Stage missions (Foundation / Master) belong to their base module's trade, not a zone of
@@ -417,17 +430,19 @@ test("mission lookup fails closed for unknown versions", () => {
   assert.equal(findSpeakingMission("scenario_version_unknown_es_v1"), null);
 });
 
-test("Google TTS supports every published learner language", () => {
-  assert.deepEqual(MISSION_TTS_SUPPORTED_LANGUAGES, [
-    "Spanish",
+test("Google TTS supports every registered learner language", () => {
+  // Derived from the language-pack registry (every pack's voice language), in registry order.
+  assert.deepEqual([...MISSION_TTS_SUPPORTED_LANGUAGES].sort(), [
+    "Chinese",
+    "English",
     "French",
     "German",
     "Italian",
     "Japanese",
     "Korean",
-    "Portuguese",
     "Pashto",
-    "English",
+    "Portuguese",
+    "Spanish",
   ]);
 });
 
@@ -510,7 +525,13 @@ test("high-stakes daily missions carry explicit runtime policy", () => {
 });
 
 test("high-stakes lessons inside general Travel modules receive scenario-level policy", () => {
-  for (const language of ["Spanish", "Italian", "Japanese", "English"]) {
+  // Italian has no Travel modules in its Study library (round-3 D-5), so no International Travel.
+  assert.equal(
+    getSpeakingMissions("Italian").filter((mission) => mission.moduleId === "international-travel")
+      .length,
+    0,
+  );
+  for (const language of ["Spanish", "Japanese", "English"]) {
     const missions = getSpeakingMissions(language);
     const medicalEmergency = missions.find(
       (mission) =>

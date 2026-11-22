@@ -9,9 +9,11 @@
 //                language has no HD voice, or for text that is not in the language being
 //                learned (the HD choice is saved per learning language).
 
+import { appData } from "../data/language-packs/app-data.ts";
 import {
   decodeGoogleVoicePreference,
   languageFamily,
+  packForVoiceLocale,
   type MissionPartnerVersion,
 } from "../data/mission-tts.ts";
 import { DEVICE_DEFAULT_VOICE } from "../data/mobile-voice.ts";
@@ -25,11 +27,13 @@ export type ListeningIssueReason = "loading" | "sign-in" | "offline" | "busy" | 
 /** What actually produced the sound, so nothing but HD audio is ever called HD. */
 export type ListeningPlaybackSource = "recording" | "hd" | "device";
 
-/** Language families that have an HD listening voice. Others read with the device voice. */
-const HD_LISTENING_FAMILIES = new Set(["es", "fr", "de", "it", "ja", "ko", "pt", "en"]);
-
+/**
+ * True when the language of `locale` has an HD listening voice (its app file sets hdListening).
+ * Others read with the device voice.
+ */
 export function hdListeningSupported(locale: string): boolean {
-  return HD_LISTENING_FAMILIES.has(languageFamily(locale));
+  const pack = packForVoiceLocale(locale);
+  return Boolean(pack && languageFamily(locale) && appData(pack).hdListening);
 }
 
 export const recordingGender = (gender: MissionPartnerVersion): RecordingGender =>

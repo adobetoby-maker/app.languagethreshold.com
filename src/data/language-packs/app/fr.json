@@ -1,0 +1,52 @@
+{
+  "code": "fr",
+  "pack": {
+    "_why": "The PWA's French course already offers the online tutor (legacy adapter); a QA build must not drop it. Continue your French lists its courses in the order Spanish learners see (Conjugation Patterns 4th, as the es overlay keeps the base order).",
+    "features": {
+      "onlineTutor": true
+    },
+    "library": {
+      "coreBasics": [
+        "french-basics",
+        "french-102",
+        "french-frequent-verbs",
+        "french-conjugation-patterns",
+        "french-usage-verbs",
+        "french-common-patterns",
+        "french-cognates",
+        "sound-like-a-native"
+      ]
+    }
+  },
+  "app": {
+    "menuOrder": 2,
+    "chooserOrder": 3,
+    "wizardOrder": 2,
+    "recordedAudio": "french-101-pilot",
+    "hdListening": true,
+    "pastTenseLabel": "Imperfect",
+    "sentenceBuilderExample": "\"l'eau froide\" → [\"l'eau\", \"froide\"]",
+    "personLabels": {
+      "s1": "je",
+      "s2": "tu",
+      "s3": "il/elle",
+      "p1": "nous",
+      "p2": "vous",
+      "p3": "ils"
+    },
+    "flag": "🇫🇷",
+    "countries": [
+      "France",
+      "Morocco",
+      "Québec"
+    ],
+    "opponentNames": [
+      "ChloeP_FR",
+      "MarcB_QC",
+      "EliseD_BE",
+      "TheoR_FR",
+      "CamilleM_CH"
+    ],
+    "notePlaceholder": "Écrire une note…"
+  }
+}

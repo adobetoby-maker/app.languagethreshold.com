@@ -20,6 +20,7 @@ import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import {
   stageFileRelativePath,
   manifestStageModuleId,
+  entryNativeLanguage,
   type Core60StageKind,
 } from "../src/lib/core60-stage-core.ts";
 import { validateManifest, validateStageFile } from "../src/lib/core60-validate.ts";
@@ -96,7 +97,7 @@ if (files.length > 0) {
         report(moduleId, [`listed in the manifest but ${path} does not exist`]);
         continue;
       }
-      checkFile(path, { moduleId, stage, language: entry.language, nativeLanguage: entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English") });
+      checkFile(path, { moduleId, stage, language: entry.language, nativeLanguage: entryNativeLanguage(entry) ?? "" });
       const content = join(CONTENT_ROOT, relative);
       if (!existsSync(content)) {
         if (strict) report(moduleId, [`no lesson content (passages, verbs) at ${content}`]);

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { MODULES, getModule } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import { FOUNDATION_ROOFING_LESSONS } from "../src/data/foundation-roofing-curriculum.ts";
@@ -51,7 +51,7 @@ test("roofing has one Core 60 path of three stages in order", () => {
 test("path lesson counts match the curricula (Master once its content has landed)", () => {
   const { lessons } = CORE60_PATHS.roofing;
   assert.equal(FOUNDATION_ROOFING_LESSONS.length, lessons.foundation);
-  assert.equal(getCurriculum("roofing").lessons.length, lessons.core);
+  assert.equal(authoredCurriculum("roofing").lessons.length, lessons.core);
   if (MASTER_ROOFING_LESSONS.length === 0) {
     return; // Master content not written yet: the config count (20) is the promise.
   }
@@ -91,7 +91,7 @@ test("the eyebrow names the trade and the step of each Roofing stage page", () =
 test("a trade has a path exactly when it is roofing or listed in the manifest (valid for any manifest)", () => {
   const listed = new Set(CORE60_MANIFEST.map((entry) => entry.base));
   for (const module of MODULES) {
-    if (!getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)) continue;
+    if (!authoredCurriculum(module.id) || /^(foundation|master)-/.test(module.id)) continue;
     const path = core60PathOf(module.id);
     if (module.id === "roofing" || listed.has(module.id)) {
       assert.ok(path, `${module.id} is listed, so it has a path`);
@@ -157,7 +157,7 @@ test("Roofing Master is registered like the Core 30: Spanish, paid tabs, same pr
   assert.equal(master.userRole, "Roofing supervisor leading a crew in Spanish");
   assert.match(master.aiPersona, /ONE realistic complication/);
   assert.ok(master.challengePrompts.length > 0 && master.vocabFocus.length > 0);
-  const curriculum = getCurriculum("master-roofing");
+  const curriculum = authoredCurriculum("master-roofing");
   assert.equal(curriculum.headline, "The Roofing Master 20");
   assert.match(curriculum.threshold, /^By Lesson 20, you can train a new roofer/);
   assert.equal(curriculum.lessons, MASTER_ROOFING_LESSONS);

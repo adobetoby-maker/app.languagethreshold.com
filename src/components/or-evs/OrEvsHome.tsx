@@ -229,6 +229,7 @@ function getAllVocabWords(): string[] {
 const ALL_WORDS = getAllVocabWords();
 
 function EquipmentFlashPanel() {
+  const { state } = useApp();
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [seen, setSeen] = useState(0);
@@ -257,7 +258,7 @@ function EquipmentFlashPanel() {
         </p>
         <p className="text-sm text-muted-foreground">
           An English term will appear on the card. Say it out loud and think of what it means in
-          Spanish. Tap to reveal context, then press Next.
+          {" "}{state.nativeLanguage}. Tap to reveal context, then press Next.
         </p>
       </div>
 

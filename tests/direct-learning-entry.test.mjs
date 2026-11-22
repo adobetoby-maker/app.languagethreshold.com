@@ -24,3 +24,22 @@ test("English-for-work links keep the instruction-language safeguard", () => {
     tab: "core30",
   });
 });
+test("a French or Italian course link opens that course, never the bilingual first-run picker", () => {
+  assert.deepEqual(directLearningEntry("?module=roofing&target=French", "English"), {
+    moduleId: "roofing-fr",
+    tab: "core30",
+  });
+  assert.deepEqual(directLearningEntry("?module=roofing&target=Italian&tab=core30", "English"), {
+    moduleId: "roofing-it",
+    tab: "core30",
+  });
+  // A Spanish-only module has no French course: the link opens nothing and the picker stays.
+  assert.equal(directLearningEntry("?module=soccer&target=French", "English"), null);
+  // Spanish and the languages that are not packs keep base behaviour (a tab is still needed).
+  assert.equal(directLearningEntry("?module=roofing&target=Spanish&native=English", "English"), null);
+  assert.equal(directLearningEntry("?module=roofing&target=German", "English"), null);
+  assert.deepEqual(directLearningEntry("?module=roofing&target=Spanish&native=English&tab=core30", "English"), {
+    moduleId: "roofing",
+    tab: "core30",
+  });
+});

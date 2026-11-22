@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { mkdtempSync, cpSync, readFileSync, writeFileSync, rmSync } from "node:fs";
+import { mkdtempSync, mkdirSync, cpSync, readFileSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { resolve } from "node:path";
@@ -37,7 +37,16 @@ test("historical shared-only constructor ignores a real generated verb change; c
       "3ef0e11242ab6138cad5c1deb81dbf7480571cfdde9a0bd623a5122926c1842c",
     );
     await build({
-      stdin: { contents: source, resolveDir: resolve("src/lib"), loader: "ts" },
+      // The retained source predates pair-scoped curricula; it is built against today's
+      // getCurriculum, which takes the pair the snapshot was asked for.
+      stdin: {
+        contents: source.replace(
+          "getCurriculum(moduleId);",
+          "getCurriculum(moduleId, target, native);",
+        ),
+        resolveDir: resolve("src/lib"),
+        loader: "ts",
+      },
       outfile: join(dir, "old.mjs"),
       bundle: true,
       format: "esm",
@@ -91,6 +100,47 @@ test("artifact guard rejects different, absent and extra packaged review files",
     writeFileSync(join(staticRoot, "extra.json"), "{}");
     assert.throws(
       () => verifyLessonReviewContent(source, packaged, staticRoot),
+      /inventory differs/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("artifact guard accepts language-pack catalogs only when they match their pack source", () => {
+  const root = mkdtempSync(join(tmpdir(), "lt-review-pack-"));
+  try {
+    const source = resolve("public/lesson-content"),
+      packaged = join(root, "server"),
+      staticRoot = join(root, "static"),
+      packs = join(root, "packs");
+    cpSync(source, packaged, { recursive: true });
+    cpSync(source, staticRoot, { recursive: true });
+    mkdirSync(join(packs, "fr"), { recursive: true });
+    mkdirSync(join(staticRoot, "fr/catalog"), { recursive: true });
+    writeFileSync(join(packs, "fr/roofing.json"), '{"id":"roofing"}');
+    writeFileSync(join(staticRoot, "fr/catalog/roofing.json"), '{"id":"roofing"}');
+    const listed = JSON.parse(readFileSync(join(source, "index.json"), "utf8")).files.length;
+    // Without the pack root the emitted catalog is an unknown extra file, as before.
+    assert.throws(() => verifyLessonReviewContent(source, packaged, staticRoot), /inventory differs/);
+    assert.equal(verifyLessonReviewContent(source, packaged, staticRoot, packs), listed + 1);
+    writeFileSync(join(staticRoot, "fr/catalog/roofing.json"), '{"id":"changed"}');
+    assert.throws(
+      () => verifyLessonReviewContent(source, packaged, staticRoot, packs),
+      /Language pack catalog bytes differ/,
+    );
+    writeFileSync(join(staticRoot, "fr/catalog/plumber.json"), "{}");
+    rmSync(join(staticRoot, "fr/catalog/roofing.json"));
+    assert.throws(
+      () => verifyLessonReviewContent(source, packaged, staticRoot, packs),
+      /has no source/,
+    );
+    // A catalog file in the server copy is never allowed.
+    rmSync(join(staticRoot, "fr"), { recursive: true });
+    mkdirSync(join(packaged, "fr/catalog"), { recursive: true });
+    writeFileSync(join(packaged, "fr/catalog/roofing.json"), '{"id":"roofing"}');
+    assert.throws(
+      () => verifyLessonReviewContent(source, packaged, staticRoot, packs),
       /inventory differs/,
     );
   } finally {
@@ -157,6 +207,11 @@ test("wrong instruction pairs and absent language files cannot borrow generated 
     ["French", "English"],
   ]) {
     const snapshot = currentLessonReviewSnapshot("roofing", target, native);
+    if (target === "French") {
+      // A target the module was not written for has no lesson snapshot at all.
+      assert.equal(snapshot, null);
+      continue;
+    }
     assert.equal(snapshot.generatedMaterial.sourcePath, null);
     assert.ok(snapshot.lessons.every((l) => l.verbs.length === 0 && l.words.length === 0));
   }

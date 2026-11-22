@@ -46,8 +46,14 @@ let uuidCounter = 0;
 const uuid = () => `20000000-0000-4000-8000-${String(++uuidCounter).padStart(12, "0")}`;
 // A learner's saved profile: the Core 30 start date and mastered lessons decide the A/B/C windows.
 // Dates are fixed so the windows do not drift with the real clock.
-function profileRow(userId, { startDate = "2026-01-01", mastered = [], moduleId = "roofing" } = {}) {
-  const key = core30ScopeKey(moduleId, { targetLanguage: "Spanish", instructionLanguage: "English" });
+function profileRow(
+  userId,
+  { startDate = "2026-01-01", mastered = [], moduleId = "roofing" } = {},
+) {
+  const key = core30ScopeKey(moduleId, {
+    targetLanguage: "Spanish",
+    instructionLanguage: "English",
+  });
   return {
     id: userId,
     data: {
@@ -55,7 +61,10 @@ function profileRow(userId, { startDate = "2026-01-01", mastered = [], moduleId 
         [key]: {
           ...(startDate ? { startDate } : {}),
           lessons: Object.fromEntries(
-            mastered.map((n) => [String(n), { visits: {}, masteredAt: "2026-02-01T10:00:00.000Z" }]),
+            mastered.map((n) => [
+              String(n),
+              { visits: {}, masteredAt: "2026-02-01T10:00:00.000Z" },
+            ]),
           ),
         },
       },
@@ -299,7 +308,13 @@ test("kill switch LT_EXAMS_V2 off returns a friendly 404 before anything else", 
   const db = setup();
   for (const value of [undefined, "0", "false", ""]) {
     const response = await examCheckResponse(
-      request({ action: "start", moduleId: "roofing", kind: "A" }),
+      request({
+        action: "start",
+        moduleId: "roofing",
+        kind: "A",
+        target: "Spanish",
+        native: "English",
+      }),
       deps(db, { env: { ...ENV, LT_EXAMS_V2: value } }),
     );
     assert.equal(response.status, 404);
@@ -312,15 +327,28 @@ test("cross-origin or origin-less requests are refused; bad bodies are 400", asy
   const db = setup();
   for (const origin of ["https://evil.invalid", null]) {
     const response = await examCheckResponse(
-      request({ action: "start", moduleId: "roofing", kind: "A" }, { origin }),
+      request(
+        { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+        { origin },
+      ),
       deps(db),
     );
     assert.equal(response.status, 403);
   }
-  const bad = await examCheckResponse(request({ action: "start", moduleId: "Roofing!" }), deps(db));
+  const bad = await examCheckResponse(
+    request({ action: "start", moduleId: "Roofing!", target: "Spanish", native: "English" }),
+    deps(db),
+  );
   assert.equal(bad.status, 400);
   const extra = await examCheckResponse(
-    request({ action: "start", moduleId: "roofing", kind: "A", userId: OTHER.id }),
+    request({
+      action: "start",
+      moduleId: "roofing",
+      kind: "A",
+      userId: OTHER.id,
+      target: "Spanish",
+      native: "English",
+    }),
     deps(db),
   );
   assert.equal(extra.status, 400);
@@ -330,7 +358,13 @@ test("cross-origin or origin-less requests are refused; bad bodies are 400", asy
 test("a missing migration gives a clear 503 'being set up' response", async () => {
   const db = setup({ missing: true });
   const response = await examCheckResponse(
-    request({ action: "start", moduleId: "roofing", kind: "A" }),
+    request({
+      action: "start",
+      moduleId: "roofing",
+      kind: "A",
+      target: "Spanish",
+      native: "English",
+    }),
     deps(db),
   );
   assert.equal(response.status, 503);
@@ -343,16 +377,33 @@ test("no approved bank is a 404; a tampered or unapproved bank is never served",
   const db = setup();
   db.tables.exam_banks = [];
   await rejects(
-    call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)),
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      deps(db),
+    ),
     404,
     "no_bank",
   );
   const tampered = bankRow();
   tampered.content.items[0].prompt = "Synthetic tampered prompt.";
   db.tables.exam_banks = [tampered];
-  await rejects(call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)), 503, "bank");
+  await rejects(
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+    503,
+    "bank",
+  );
   db.tables.exam_banks = [bankRow(BANK, { approved_sha256: "0".repeat(64) })];
-  await rejects(call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)), 503, "bank");
+  await rejects(
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+    503,
+    "bank",
+  );
 });
 
 // ── Fixed forms A / B / C ────────────────────────────────────────────────────
@@ -361,10 +412,16 @@ test("form A: one question at a time, resumes the open session, answers, reviews
   const db = setup();
   const d = deps(db);
   await rejects(
-    call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db, { user: null })),
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      deps(db, { user: null }),
+    ),
     401,
   );
-  const started = await call({ action: "start", moduleId: "roofing", kind: "A" }, d);
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+    d,
+  );
   assert.equal(started.total, 30);
   assert.equal(started.step, 0);
   assert.equal(started.items, undefined, "later questions are not sent");
@@ -380,7 +437,10 @@ test("form A: one question at a time, resumes the open session, answers, reviews
   assert.equal(row.ip_hash, null);
   assert.deepEqual(row.served, [BANK.forms.A[0]]);
 
-  const again = await call({ action: "start", moduleId: "roofing", kind: "A" }, d);
+  const again = await call(
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+    d,
+  );
   assert.equal(again.sessionId, started.sessionId);
   assert.equal(again.resumed, true);
   assert.equal(again.item.id, started.item.id);
@@ -444,23 +504,36 @@ test("form A: one question at a time, resumes the open session, answers, reviews
   // Submitting after the last answer is idempotent; A is taken once.
   const repeat = await call({ action: "submit", sessionId: started.sessionId }, d);
   assert.equal(repeat.result.pct, 100);
-  await rejects(call({ action: "start", moduleId: "roofing", kind: "A" }, d), 409, "already_taken");
+  await rejects(
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      d,
+    ),
+    409,
+    "already_taken",
+  );
 });
 
 test("form B keeps a 1-hour retake cooldown", async () => {
   const db = setup();
-  const started = await call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db));
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+    deps(db),
+  );
   // Ending the test early scores the questions not reached as 0.
   const done = await call({ action: "submit", sessionId: started.sessionId }, deps(db));
   assert.equal(done.result.pct, 0);
   assert.equal(done.result.onTrack, false);
   await rejects(
-    call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)),
+    call(
+      { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+      deps(db),
+    ),
     429,
     "cooldown",
   );
   const later = await call(
-    { action: "start", moduleId: "roofing", kind: "B" },
+    { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
     deps(db, { now: clock + 61 * 60 * 1000 }),
   );
   assert.notEqual(later.sessionId, started.sessionId);
@@ -469,7 +542,10 @@ test("form B keeps a 1-hour retake cooldown", async () => {
 test("form C result is a coarse percent, pass/fail and missed phases only; retakes allowed", async () => {
   const db = setup();
   const d = deps(db);
-  const started = await call({ action: "start", moduleId: "roofing", kind: "C" }, d);
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    d,
+  );
   assert.equal(started.total, 60);
   // Right on every item except lesson 30 (two items): 58/60 = 96.7%, passed.
   const finished = await play(d, started, (entry, step, seed) =>
@@ -506,7 +582,10 @@ test("form C result is a coarse percent, pass/fail and missed phases only; retak
   }
   // The stored result keeps per-item points server-side only.
   assert.equal(sessionRow(db, started.sessionId).result.items.length, 60);
-  const retake = await call({ action: "start", moduleId: "roofing", kind: "C" }, d);
+  const retake = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    d,
+  );
   assert.notEqual(retake.sessionId, started.sessionId);
   const fail = await call({ action: "submit", sessionId: retake.sessionId }, d);
   assert.equal(fail.result.passed, false);
@@ -533,7 +612,7 @@ const answerAt = (db, started, step, answer, ms, extra = {}) =>
 test("question clock: 45 s counts, 45-50 s is grace, later is dropped and recorded unanswered", async () => {
   const db = setup();
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "A" },
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
     deps(db, { now: T }),
   );
   const seed = sessionRow(db, started.sessionId).seed;
@@ -582,7 +661,7 @@ test("question clock: 45 s counts, 45-50 s is grace, later is dropped and record
 test("question clock: a timed-out question is recorded unanswered and the next clock starts fresh", async () => {
   const db = setup();
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "A" },
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
     deps(db, { now: T }),
   );
   const expired = await answerAt(db, started, 0, null, 46_000);
@@ -608,7 +687,7 @@ test("question clock: a timed-out question is recorded unanswered and the next c
 test("question clock: leaving does not stop it, but only the question being shown is lost", async () => {
   const db = setup();
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "B" },
+    { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
     deps(db, { now: T }),
   );
   const away = deps(db, { now: T + 10 * 60_000 });
@@ -635,7 +714,7 @@ test("question clock: leaving does not stop it, but only the question being show
 test("question clock: answers cannot jump ahead or be saved in a batch", async () => {
   const db = setup();
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "A" },
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
     deps(db, { now: T }),
   );
   await assert.rejects(
@@ -645,7 +724,10 @@ test("question clock: answers cannot jump ahead or be saved in a batch", async (
   assert.equal(sessionRow(db, started.sessionId).responses.length, 0);
   // There is no batch action, so the clock cannot be skipped by sending many answers at once.
   const sessionId = started.sessionId;
-  assert.equal(examCheckAction.safeParse({ action: "save", sessionId, answers: [] }).success, false);
+  assert.equal(
+    examCheckAction.safeParse({ action: "save", sessionId, answers: [] }).success,
+    false,
+  );
   assert.equal(
     examCheckAction.safeParse({ action: "submit", sessionId, answers: [] }).success,
     false,
@@ -660,7 +742,13 @@ test("question clock: answers cannot jump ahead or be saved in a batch", async (
 test("question clock: the Spanish Check is timed too, and a timed-out question counts as I don't know", async () => {
   const db = setup();
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "diagnostic" },
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      target: "Spanish",
+      native: "English",
+    },
     deps(db, { now: T }),
   );
   const first = await call(
@@ -710,16 +798,29 @@ test("windows: A is always open; B opens on day 45 or after lessons 1-15; C on d
   // Plan started 2026-10-01, three lessons done. Today (clock) is 2026-10-23, day 22.
   db.tables.profiles = [profileRow(USER.id, { startDate: "2026-10-01", mastered: [1, 2, 3] })];
   const at = (iso) => deps(db, { now: Date.parse(iso) });
-  const a = await call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db));
+  const a = await call(
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+    deps(db),
+  );
   assert.equal(a.kind, "A");
 
-  const b = await refused(call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)));
+  const b = await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+  );
   assert.equal(b.status, 403);
   assert.equal(b.code, "not_open");
   assert.equal(b.extra.opensOn, "2026-11-15");
   assert.deepEqual(b.extra.lessons, { from: 1, to: 15, done: 3 });
   assert.match(b.message, /Opens Nov 15, 2026, or when lessons 1–15 are done\./);
-  const c = await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db)));
+  const c = await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+  );
   assert.equal(c.code, "not_open");
   assert.equal(c.extra.opensOn, "2026-12-30");
   assert.equal(
@@ -730,13 +831,37 @@ test("windows: A is always open; B opens on day 45 or after lessons 1-15; C on d
 
   // Day 44 is still shut; day 45 opens B but not C.
   await refused(
-    call({ action: "start", moduleId: "roofing", kind: "B" }, at("2026-11-14T23:00:00.000Z")),
+    call(
+      { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+      at("2026-11-14T23:00:00.000Z"),
+    ),
   );
   const day45 = at("2026-11-15T00:30:00.000Z");
-  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "B" }, day45)).kind, "B");
-  await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, day45));
+  assert.equal(
+    (
+      await call(
+        { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+        day45,
+      )
+    ).kind,
+    "B",
+  );
+  await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+      day45,
+    ),
+  );
   const day90 = at("2026-12-30T08:00:00.000Z");
-  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "C" }, day90)).kind, "C");
+  assert.equal(
+    (
+      await call(
+        { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+        day90,
+      )
+    ).kind,
+    "C",
+  );
 });
 
 test("windows: lessons 1-15 mastered open B early (no start date needed); all 30 open C early", async () => {
@@ -745,16 +870,31 @@ test("windows: lessons 1-15 mastered open B early (no start date needed); all 30
     profileRow(USER.id, { startDate: null, mastered: ALL_LESSONS.slice(0, 15) }),
   ];
   assert.equal(
-    (await call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db))).kind,
+    (
+      await call(
+        { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+        deps(db),
+      )
+    ).kind,
     "B",
   );
-  const c = await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db)));
+  const c = await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+  );
   assert.equal(c.code, "not_open");
   assert.equal(c.extra.opensOn, undefined, "no start date, no date to show");
   assert.match(c.message, /Opens when lessons 1–30 are done\./);
   db.tables.profiles = [profileRow(USER.id, { startDate: null, mastered: ALL_LESSONS })];
   assert.equal(
-    (await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db))).kind,
+    (
+      await call(
+        { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+        deps(db),
+      )
+    ).kind,
     "C",
   );
   // A lesson flagged "needs practice" no longer counts as mastered.
@@ -763,17 +903,30 @@ test("windows: lessons 1-15 mastered open B early (no start date needed); all 30
   flagged.data.core30Log[key].lessons["7"].needsPractice = true;
   db.tables.profiles = [flagged];
   db.tables.exam_sessions = [];
-  await refused(call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db)));
+  await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+  );
 });
 
 test("windows: no profile row means B and C are shut; an unreadable profile fails closed", async () => {
   const db = setup();
   db.tables.profiles = [];
-  const shut = await refused(call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)));
+  const shut = await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+  );
   assert.equal(shut.code, "not_open");
   delete db.tables.profiles;
   const broken = await refused(
-    call({ action: "start", moduleId: "roofing", kind: "B" }, deps(db)),
+    call(
+      { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+      deps(db),
+    ),
   );
   assert.equal(broken.status, 503);
   assert.equal(db.tables.exam_sessions.length, 0);
@@ -784,24 +937,57 @@ test("windows: platform staff can start any form to preview it; learners cannot"
   db.tables.profiles = [];
   const staff = deps(db, { staff: true });
   for (const kind of ["A", "B", "C"]) {
-    const started = await call({ action: "start", moduleId: "roofing", kind }, staff);
+    const started = await call(
+      { action: "start", moduleId: "roofing", kind, target: "Spanish", native: "English" },
+      staff,
+    );
     assert.equal(started.kind, kind);
     assert.equal(started.item.id, BANK.forms[kind][0]);
     await call({ action: "submit", sessionId: started.sessionId }, staff);
   }
   // Staff can also preview A and B again; the once-only and cool-down rules are for learners.
-  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "A" }, staff)).kind, "A");
-  assert.equal((await call({ action: "start", moduleId: "roofing", kind: "B" }, staff)).kind, "B");
+  assert.equal(
+    (
+      await call(
+        { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+        staff,
+      )
+    ).kind,
+    "A",
+  );
+  assert.equal(
+    (
+      await call(
+        { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+        staff,
+      )
+    ).kind,
+    "B",
+  );
   // Staff status belongs to the signed-in account, not to the request.
   const other = deps(db, { user: OTHER, staff: [USER.id] });
-  const denied = await refused(call({ action: "start", moduleId: "roofing", kind: "B" }, other));
+  const denied = await refused(
+    call(
+      { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+      other,
+    ),
+  );
   assert.equal(denied.code, "not_open");
 });
 
 test("windows: the Spanish Check has no window", async () => {
   const db = setup();
   db.tables.profiles = [];
-  const started = await call({ action: "start", moduleId: "roofing", kind: "diagnostic" }, deps(db));
+  const started = await call(
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      target: "Spanish",
+      native: "English",
+    },
+    deps(db),
+  );
   assert.equal(started.kind, "diagnostic");
 });
 
@@ -810,13 +996,16 @@ test("windows: the Spanish Check has no window", async () => {
 test("overview: kill switch, and signed-out visitors see only which modules have an approved bank", async () => {
   const db = setup();
   const off = await examCheckResponse(
-    request({ action: "overview" }),
+    request({ action: "overview", target: "Spanish", native: "English" }),
     deps(db, { env: { ...ENV, LT_EXAMS_V2: undefined } }),
   );
   assert.equal(off.status, 404);
   assert.equal((await off.json()).code, "disabled");
 
-  const guest = await call({ action: "overview" }, deps(db, { user: null }));
+  const guest = await call(
+    { action: "overview", target: "Spanish", native: "English" },
+    deps(db, { user: null }),
+  );
   assert.deepEqual(guest, {
     target: "Spanish",
     native: "English",
@@ -826,21 +1015,42 @@ test("overview: kill switch, and signed-out visitors see only which modules have
   });
   // A draft or retired bank is not offered; another language pair has none.
   db.tables.exam_banks[0].status = "draft";
-  assert.deepEqual((await call({ action: "overview" }, deps(db, { user: null }))).modules, []);
+  assert.deepEqual(
+    (
+      await call(
+        { action: "overview", target: "Spanish", native: "English" },
+        deps(db, { user: null }),
+      )
+    ).modules,
+    [],
+  );
   db.tables.exam_banks[0].status = "approved";
   assert.deepEqual(
-    (await call({ action: "overview", target: "French" }, deps(db, { user: null }))).modules,
+    (
+      await call(
+        { action: "overview", target: "French", native: "English" },
+        deps(db, { user: null }),
+      )
+    ).modules,
     [],
   );
   db.tables.exam_banks[0].approved_sha256 = "0".repeat(64);
-  assert.deepEqual((await call({ action: "overview" }, deps(db, { user: null }))).modules, []);
+  assert.deepEqual(
+    (
+      await call(
+        { action: "overview", target: "Spanish", native: "English" },
+        deps(db, { user: null }),
+      )
+    ).modules,
+    [],
+  );
 });
 
 test("overview: a learner sees A, B and C with window, status, best score and retake state", async () => {
   const db = setup();
   db.tables.profiles = [profileRow(USER.id, { startDate: "2026-10-01", mastered: [1, 2, 3] })];
   const d = deps(db);
-  const fresh = await call({ action: "overview" }, d);
+  const fresh = await call({ action: "overview", target: "Spanish", native: "English" }, d);
   assert.equal(fresh.signedIn, true);
   assert.equal(fresh.staff, false);
   const [roofing] = fresh.modules;
@@ -863,8 +1073,11 @@ test("overview: a learner sees A, B and C with window, status, best score and re
   }
   assertNoPrivateKeys(fresh, "overview");
 
-  const a = await call({ action: "start", moduleId: "roofing", kind: "A" }, d);
-  const midway = await call({ action: "overview" }, d);
+  const a = await call(
+    { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+    d,
+  );
+  const midway = await call({ action: "overview", target: "Spanish", native: "English" }, d);
   assert.deepEqual(midway.modules[0].forms.A.inProgress, {
     sessionId: a.sessionId,
     step: 0,
@@ -872,7 +1085,8 @@ test("overview: a learner sees A, B and C with window, status, best score and re
   });
   assert.equal(midway.modules[0].forms.A.status, "in_progress");
   await play(d, a, right);
-  const done = (await call({ action: "overview" }, d)).modules[0].forms.A;
+  const done = (await call({ action: "overview", target: "Spanish", native: "English" }, d))
+    .modules[0].forms.A;
   assert.equal(done.status, "completed");
   assert.equal(done.attempts, 1);
   assert.equal(done.best.pct, 100);
@@ -885,39 +1099,58 @@ test("overview: form C scores are coarse, the retake budget and B cool-down show
   const db = setup();
   const d = deps(db);
   // C: 58 of 60 right = 96.7%, shown as 95.
-  const c = await call({ action: "start", moduleId: "roofing", kind: "C" }, d);
+  const c = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    d,
+  );
   await play(d, c, (entry, step, seed) =>
     entry.lesson === 30 ? { type: "dont_know" } : correctAnswer(entry, seed),
   );
-  let forms = (await call({ action: "overview" }, d)).modules[0].forms;
+  let forms = (await call({ action: "overview", target: "Spanish", native: "English" }, d))
+    .modules[0].forms;
   assert.deepEqual(forms.C.best, { pct: 95, passed: true, at: forms.C.best.at });
   assert.ok(!JSON.stringify(forms.C).includes("96.7"));
   assert.equal(forms.C.retake.allowed, true);
   // Two more starts use the day's budget of three.
   for (const minute of [10, 20]) {
     const when = deps(db, { now: clock + minute * 60_000 });
-    const more = await call({ action: "start", moduleId: "roofing", kind: "C" }, when);
+    const more = await call(
+      { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+      when,
+    );
     await call({ action: "submit", sessionId: more.sessionId }, when);
   }
-  forms = (await call({ action: "overview" }, deps(db, { now: clock + 30 * 60_000 }))).modules[0]
-    .forms;
+  forms = (
+    await call(
+      { action: "overview", target: "Spanish", native: "English" },
+      deps(db, { now: clock + 30 * 60_000 }),
+    )
+  ).modules[0].forms;
   assert.equal(forms.C.attempts, 3);
   assert.equal(forms.C.retake.allowed, false);
   assert.equal(forms.C.retake.retryAt, new Date(clock + 24 * 3600_000).toISOString());
   assert.equal(forms.C.best.passed, true, "best is still the passing attempt");
 
   // B: finished a few minutes ago.
-  const b = await call({ action: "start", moduleId: "roofing", kind: "B" }, d);
+  const b = await call(
+    { action: "start", moduleId: "roofing", kind: "B", target: "Spanish", native: "English" },
+    d,
+  );
   await call({ action: "submit", sessionId: b.sessionId }, d);
-  const cooling = (await call({ action: "overview" }, d)).modules[0].forms.B;
+  const cooling = (await call({ action: "overview", target: "Spanish", native: "English" }, d))
+    .modules[0].forms.B;
   assert.equal(cooling.retake.allowed, false);
   assert.equal(cooling.retake.retryAt, new Date(clock + 3600_000).toISOString());
   assert.equal(cooling.best.onTrack, false);
 
   // Staff on a learner with a locked plan: forms still show their window, flagged as preview.
   db.tables.profiles = [];
-  const staffForms = (await call({ action: "overview" }, deps(db, { staff: true }))).modules[0]
-    .forms;
+  const staffForms = (
+    await call(
+      { action: "overview", target: "Spanish", native: "English" },
+      deps(db, { staff: true }),
+    )
+  ).modules[0].forms;
   assert.equal(staffForms.B.window.open, false);
   assert.equal(staffForms.B.preview, true);
   assert.equal(staffForms.A.preview, false);
@@ -927,22 +1160,39 @@ test("form C: at most 3 starts per user per rolling 24 hours; resuming the open 
   const db = setup();
   const base = Date.parse("2026-10-24T08:00:00.000Z");
   const at = (minutes) => deps(db, { now: base + minutes * 60 * 1000 });
-  const first = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(0));
+  const first = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    at(0),
+  );
   // Re-opening the open session does not use the budget.
   for (const minute of [1, 2, 3])
     assert.equal(
-      (await call({ action: "start", moduleId: "roofing", kind: "C" }, at(minute))).sessionId,
+      (
+        await call(
+          { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+          at(minute),
+        )
+      ).sessionId,
       first.sessionId,
     );
   await call({ action: "submit", sessionId: first.sessionId }, at(5));
-  const second = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(10));
+  const second = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    at(10),
+  );
   await call({ action: "submit", sessionId: second.sessionId }, at(12));
-  const third = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(20));
+  const third = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    at(20),
+  );
   await call({ action: "submit", sessionId: third.sessionId }, at(22));
   const cRows = () => db.tables.exam_sessions.filter((row) => row.kind === "C").length;
   assert.equal(cRows(), 3);
   await assert.rejects(
-    call({ action: "start", moduleId: "roofing", kind: "C" }, at(30)),
+    call(
+      { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+      at(30),
+    ),
     (error) => {
       assert.equal(error.status, 429);
       assert.equal(error.code, "c_daily_limit");
@@ -953,16 +1203,34 @@ test("form C: at most 3 starts per user per rolling 24 hours; resuming the open 
   );
   assert.equal(cRows(), 3, "a refused start adds no row");
   // Other kinds are not affected, and the window rolls.
-  await call({ action: "start", moduleId: "roofing", kind: "diagnostic" }, at(31));
-  const fourth = await call({ action: "start", moduleId: "roofing", kind: "C" }, at(24 * 60 + 1));
+  await call(
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      target: "Spanish",
+      native: "English",
+    },
+    at(31),
+  );
+  const fourth = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    at(24 * 60 + 1),
+  );
   assert.notEqual(fourth.sessionId, third.sessionId);
 });
 
 test("parallel starts share one open session (one-open-session index)", async () => {
   const db = setup();
   const [a, b] = await Promise.all([
-    call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)),
-    call({ action: "start", moduleId: "roofing", kind: "A" }, deps(db)),
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      deps(db),
+    ),
+    call(
+      { action: "start", moduleId: "roofing", kind: "A", target: "Spanish", native: "English" },
+      deps(db),
+    ),
   ]);
   assert.equal(a.sessionId, b.sessionId);
   assert.deepEqual([a.resumed, b.resumed].sort(), [false, true]);
@@ -975,7 +1243,10 @@ test("parallel starts share one open session (one-open-session index)", async ()
 
 test("ownership: another user cannot read, save or submit a signed-in session", async () => {
   const db = setup();
-  const started = await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db));
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    deps(db),
+  );
   const other = deps(db, { user: OTHER });
   for (const action of ["resume", "result", "submit"])
     await rejects(call({ action, sessionId: started.sessionId }, other), 404, "not_found");
@@ -1005,7 +1276,16 @@ test("ownership: another user cannot read, save or submit a signed-in session", 
 test("diagnostic: one item at a time, no feedback, mismatches rejected, idempotent, study map", async () => {
   const db = setup();
   const d = deps(db);
-  const started = await call({ action: "start", moduleId: "roofing", kind: "diagnostic" }, d);
+  const started = await call(
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      target: "Spanish",
+      native: "English",
+    },
+    d,
+  );
   assert.equal(started.step, 0);
   assert.equal(started.total, 50);
   assert.ok(started.item && !started.items);
@@ -1110,7 +1390,16 @@ test("diagnostic honours cue groups: never two items of one group in a session",
   const db = fakeDb();
   db.tables.exam_banks.push(bankRow(signed));
   const d = deps(db);
-  const started = await call({ action: "start", moduleId: "roofing", kind: "diagnostic" }, d);
+  const started = await call(
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      target: "Spanish",
+      native: "English",
+    },
+    d,
+  );
   let view = started;
   for (let step = 0; step < 50; step++)
     view = await call(
@@ -1136,26 +1425,57 @@ test("public diagnostic: flag, kind, secret, salted IP hash, ownership and claim
   const anon = deps(db, { user: null });
   await rejects(
     call(
-      { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+      {
+        action: "start",
+        moduleId: "roofing",
+        kind: "diagnostic",
+        public: true,
+        target: "Spanish",
+        native: "English",
+      },
       deps(db, { user: null, env: { ...ENV, LT_EXAMS_PUBLIC: undefined } }),
     ),
     404,
     "public_disabled",
   );
   await rejects(
-    call({ action: "start", moduleId: "roofing", kind: "A", public: true }, anon),
+    call(
+      {
+        action: "start",
+        moduleId: "roofing",
+        kind: "A",
+        public: true,
+        target: "Spanish",
+        native: "English",
+      },
+      anon,
+    ),
     400,
     "public_kind",
   );
   await rejects(
     call(
-      { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+      {
+        action: "start",
+        moduleId: "roofing",
+        kind: "diagnostic",
+        public: true,
+        target: "Spanish",
+        native: "English",
+      },
       deps(db, { user: null, ip: null }),
     ),
     503,
   );
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      public: true,
+      target: "Spanish",
+      native: "English",
+    },
     anon,
   );
   assert.match(started.secret, /^[A-Za-z0-9_-]{43}$/);
@@ -1253,7 +1573,17 @@ test("claim: an expired public session is refused; parallel claims leave one own
   const db = setup();
   const anon = deps(db, { user: null });
   const start = () =>
-    call({ action: "start", moduleId: "roofing", kind: "diagnostic", public: true }, anon);
+    call(
+      {
+        action: "start",
+        moduleId: "roofing",
+        kind: "diagnostic",
+        public: true,
+        target: "Spanish",
+        native: "English",
+      },
+      anon,
+    );
   const old = await start();
   await rejects(
     call(
@@ -1300,11 +1630,25 @@ test("rate-limit IP keys: IPv4 by address, IPv6 by /64, IPv4-mapped as IPv4", as
   const one = deps(db, { user: null, ip: "2001:db8:abcd:12::1" });
   const two = deps(db, { user: null, ip: "2001:db8:abcd:12:9:8:7:6" });
   const a = await call(
-    { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      public: true,
+      target: "Spanish",
+      native: "English",
+    },
     one,
   );
   const b = await call(
-    { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      public: true,
+      target: "Spanish",
+      native: "English",
+    },
     two,
   );
   assert.equal(sessionRow(db, a.sessionId).ip_hash, sessionRow(db, b.sessionId).ip_hash);
@@ -1316,7 +1660,14 @@ test("public sessions expire for resume after 24 hours", async () => {
   const db = setup();
   const anon = deps(db, { user: null });
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "diagnostic", public: true },
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      public: true,
+      target: "Spanish",
+      native: "English",
+    },
     anon,
   );
   await rejects(
@@ -1334,7 +1685,17 @@ test("public sessions expire for resume after 24 hours", async () => {
 test("public start limits: 5/IP/hour and 500/hour budgets, 20/IP/day from stored IP hashes", async () => {
   const db = setup();
   const start = (d) =>
-    call({ action: "start", moduleId: "roofing", kind: "diagnostic", public: true }, d);
+    call(
+      {
+        action: "start",
+        moduleId: "roofing",
+        kind: "diagnostic",
+        public: true,
+        target: "Spanish",
+        native: "English",
+      },
+      d,
+    );
   const ok = deps(db, { user: null });
   await start(ok);
   assert.deepEqual(
@@ -1375,7 +1736,13 @@ test("public start limits: 5/IP/hour and 500/hour budgets, 20/IP/day from stored
 test("answers and saves are limited to 120 per session per minute", async () => {
   const db = setup();
   const started = await call(
-    { action: "start", moduleId: "roofing", kind: "diagnostic" },
+    {
+      action: "start",
+      moduleId: "roofing",
+      kind: "diagnostic",
+      target: "Spanish",
+      native: "English",
+    },
     deps(db),
   );
   const limited = deps(db, { budget: (ns) => ns !== "exams2:session-writes" });
@@ -1398,7 +1765,10 @@ test("answers and saves are limited to 120 per session per minute", async () => 
     limited.budgets.map((b) => [b.namespace, b.value, b.limit, b.windowSeconds]),
     [["exams2:session-writes", started.sessionId, 120, 60]],
   );
-  const fixed = await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db));
+  const fixed = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    deps(db),
+  );
   await rejects(
     call(
       {
@@ -1417,11 +1787,17 @@ test("answers and saves are limited to 120 per session per minute", async () => 
 
 test("an open session on a replaced bank version is abandoned and a new one starts", async () => {
   const db = setup();
-  const started = await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db));
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    deps(db),
+  );
   const v2 = signReviews({ ...clone(BANK), version: "v2", reviews: [] });
   db.tables.exam_banks[0].status = "retired";
   db.tables.exam_banks.push(bankRow(v2));
-  const fresh = await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db));
+  const fresh = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    deps(db),
+  );
   assert.notEqual(fresh.sessionId, started.sessionId);
   assert.equal(fresh.bankVersion, "v2");
   assert.equal(sessionRow(db, started.sessionId).status, "abandoned");
@@ -1623,7 +1999,10 @@ test("approval: retires the old version, approves this sha as the authenticated 
   assert.equal(again.body.code, "status");
   // The newly approved bank is what learners now start.
   clearExamBankCache();
-  const started = await call({ action: "start", moduleId: "roofing", kind: "C" }, deps(db));
+  const started = await call(
+    { action: "start", moduleId: "roofing", kind: "C", target: "Spanish", native: "English" },
+    deps(db),
+  );
   assert.equal(started.bankVersion, "v2");
 });
 

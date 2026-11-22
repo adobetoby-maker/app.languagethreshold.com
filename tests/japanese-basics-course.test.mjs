@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { core60PathOf } from "../src/lib/core60-path.ts";
 import { getLessonDefinition, modulePracticeVersion } from "../src/lib/lesson-definition.ts";
 import { validateStageFile } from "../src/lib/core60-validate.ts";
@@ -27,7 +27,7 @@ test("Japanese 101 has an exact-pair 10/30/20 path without borrowing Spanish con
     assert.equal(moduleSupportsLearningPair(module, "Japanese", "English"), true);
     assert.equal(moduleSupportsLearningPair(module, "Japanese", "Spanish"), false);
     assert.equal(moduleSupportsLearningPair(module, "Spanish", "English"), false);
-    assert.equal(getCurriculum(id).lessons.length, count);
+    assert.equal(authoredCurriculum(id).lessons.length, count);
     assert.equal(core60PathOf(id).steps.length, 3);
     assert.ok(authoredModuleDeck(id, "Japanese", "English"));
     assert.equal(authoredModuleDeck(id, "Spanish", "English"), null);

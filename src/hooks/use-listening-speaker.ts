@@ -1,19 +1,17 @@
 import { useCallback, useEffect, useRef } from "react";
-import { languageFamily } from "@/data/mission-tts";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
-import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
-import type { Language } from "@/state/app-state";
+import { useSpeech } from "@/state/speech-state";
+import { voiceUnavailableLabel, type LanguagePack } from "@/data/language-packs/registry";
+import { listeningLocaleFor } from "@/lib/language-pack-text";
 
 /**
- * The locale a surface speaks: the learner's accent when it belongs to the language being
- * practised (es-MX for Spanish), otherwise that language's first accent.
+ * The locale a surface speaks: the learner's accent when it belongs to the pack being practised
+ * (es-MX for Spanish), otherwise the pack's default accent. Null when there is no pack or the pack
+ * has no voice locale: the surface says "<Language> voice unavailable" instead of borrowing one.
  */
-export function listeningLocale(accent: string, language?: string): string {
-  const accents = language ? ACCENTS_BY_LANGUAGE[language as Language] : undefined;
-  if (!accents?.length) return accent;
-  const fallback = accents[0].code;
-  return accent && languageFamily(accent) === languageFamily(fallback) ? accent : fallback;
+export function listeningLocale(accent: string, pack: LanguagePack | null): string | null {
+  return pack ? listeningLocaleFor(accent, pack) : null;
 }
 
 /**
@@ -37,8 +35,11 @@ export function listeningLocale(accent: string, language?: string): string {
  */
 export function useListeningSpeaker(
   scope: string,
-  /** The language being practised when it may differ from the learner's selected language. */
-  language?: string,
+  /**
+   * The pack being practised (required: useTargetPack() for the learner's language, or the
+   * lesson's own pack). Null means no voice: speak() reports onerror and plays nothing.
+   */
+  pack: LanguagePack | null,
   /**
    * What the surface shows right now, when that changes inside one scope (the card of a deck).
    * A change withdraws the standing notice and leaves audio that is playing alone. Give it
@@ -55,7 +56,7 @@ export function useListeningSpeaker(
     reportListeningIssue,
     noteListeningPlayed,
   } = useSpeech();
-  const locale = listeningLocale(accent, language);
+  const locale = listeningLocale(accent, pack);
   const source = voiceSettings.listeningAudioSource;
   const gender = voiceSettings.listeningGender;
   const owner = JSON.stringify(["listening", scope, locale, voiceChoice, source, gender]);
@@ -69,6 +70,11 @@ export function useListeningSpeaker(
   const speak = useCallback(
     (text: string, options?: ListeningSpeakOptions) => {
       if (!text) return;
+      if (!locale) {
+        // Fail closed: no voice for this pack. Never another language's voice.
+        options?.onerror?.();
+        return;
+      }
       // The newest word is what a notice may retry: an older one is withdrawn.
       forget();
       const lease = capture();
@@ -109,7 +115,14 @@ export function useListeningSpeaker(
     forget();
     stopOwned();
   }, [forget, stopOwned]);
-  return { speak, stop, locale };
+  return {
+    speak,
+    stop,
+    locale,
+    /** False when the pack has no voice: hide the speaker or show `unavailableLabel`. */
+    available: locale !== null,
+    unavailableLabel: pack ? voiceUnavailableLabel(pack) : "Voice unavailable",
+  };
 }
 
 export interface ListeningSpeakOptions {

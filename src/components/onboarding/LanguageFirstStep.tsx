@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Sparkle } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
 import { cn } from "@/lib/utils";
+import { languageOptions, nativeOnPick } from "@/lib/language-menu";
 
 const STORAGE_KEY = "lt.languageChosen";
 
@@ -14,19 +15,6 @@ export function hasChosenLanguage(): boolean {
   }
 }
 
-const LANGUAGES: { id: Language; label: string; native: string }[] = [
-  { id: "Spanish", label: "Spanish", native: "Espa\u00f1ol" },
-  { id: "English", label: "English", native: "English" },
-  { id: "French", label: "French", native: "Fran\u00e7ais" },
-  { id: "Italian", label: "Italian", native: "Italiano" },
-  { id: "German", label: "German", native: "Deutsch" },
-  { id: "Portuguese", label: "Portuguese", native: "Portugu\u00eas" },
-  { id: "Japanese", label: "Japanese", native: "\u65e5\u672c\u8a9e" },
-  { id: "Chinese", label: "Chinese (Mandarin)", native: "\u4e2d\u6587" },
-  { id: "Korean", label: "Korean", native: "\ud55c\uad6d\uc5b4" },
-  { id: "Pashto", label: "Pashto", native: "\u067e\u069a\u062a\u0648" },
-];
-
 export function LanguageFirstStep({
   onChosen,
   onDismiss,
@@ -34,13 +22,14 @@ export function LanguageFirstStep({
   onChosen: () => void;
   onDismiss: () => void;
 }) {
-  const { dispatch } = useApp();
+  const { state, dispatch } = useApp();
   const [picked, setPicked] = useState<Language | null>(null);
 
   function choose(lang: Language) {
     setPicked(lang);
     dispatch({ type: "SET_LANGUAGE", payload: lang });
-    if (lang === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+    const native = nativeOnPick(lang, state.nativeLanguage);
+    if (native) dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
     try {
       localStorage.setItem(STORAGE_KEY, "1");
     } catch {
@@ -74,7 +63,7 @@ export function LanguageFirstStep({
           </p>
 
           <div className="grid grid-cols-2 gap-2">
-            {LANGUAGES.map((l) => (
+            {languageOptions().map((l) => (
               <button
                 key={l.id}
                 type="button"

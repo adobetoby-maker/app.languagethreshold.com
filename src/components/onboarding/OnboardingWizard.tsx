@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Sparkle, ArrowRight, Check } from "lucide-react";
 import { useApp, type Language, type Level } from "@/state/app-state";
 import { cn } from "@/lib/utils";
+import { languageOptions, nativeOnPick } from "@/lib/language-menu";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 
 const FIELD_PREP_IDS = new Set([
   "orthopedics",
@@ -97,23 +99,19 @@ const LEVELS: { value: Level; label: string; sub: string }[] = [
 ];
 
 /**
- * Offered target languages, with the native-language name so a learner
- * recognises their own. Order matches current seeded-content depth.
+ * True when the onboarding summary may say Core Speaking is ready: the languages it has always
+ * named, and a language whose lessons come from its pack catalog when its pack ships missions.
  */
-const LANGUAGES: { id: Language; label: string; native: string }[] = [
-  { id: "Spanish", label: "Spanish", native: "Español" },
-  { id: "French", label: "French", native: "Français" },
-  { id: "Italian", label: "Italian", native: "Italiano" },
-  { id: "German", label: "German", native: "Deutsch" },
-  { id: "Portuguese", label: "Portuguese", native: "Português" },
-  { id: "Japanese", label: "Japanese", native: "日本語" },
-  { id: "Chinese", label: "Chinese (Mandarin)", native: "中文" },
-  { id: "Korean", label: "Korean", native: "한국어" },
-  { id: "Pashto", label: "Pashto", native: "پښتو" },
-];
+function hasCoreSpeaking(language: Language | null): boolean {
+  if (!language) return false;
+  const catalogPack = catalogLessonPack(language);
+  return catalogPack
+    ? Boolean(catalogPack.features.speakingMissions)
+    : ["Spanish", "Italian", "Japanese", "English"].includes(language);
+}
 
 export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
-  const { dispatch } = useApp();
+  const { state, dispatch } = useApp();
   // Language is step 1: everything downstream (Reader text, Tutor, vocab gate)
   // keys off it, and it was previously never asked — leaving every learner on
   // the "Spanish" default. DUO-002 P0-4.
@@ -123,6 +121,12 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   const [levelLabel, setLevelLabel] = useState<string>("");
   const [professionId, setProfessionId] = useState<string | null>(undefined as unknown as null);
   const [professionLabel, setProfessionLabel] = useState<string>("");
+
+  // The native language a pick sets silently (language-menu.ts nativeOnPick), as English always has.
+  function applyNativeOnPick() {
+    const native = language ? nativeOnPick(language, state.nativeLanguage) : null;
+    if (native) dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
+  }
 
   function pickLanguage(l: Language) {
     setLanguage(l);
@@ -144,7 +148,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function finish() {
     // Language first — the Reader's passage selection keys off it.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
-    if (language === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+    applyNativeOnPick();
     if (level) dispatch({ type: "SET_LEVEL", payload: level });
     if (professionId) {
       dispatch({ type: "PURCHASE_MODULE", payload: professionId });
@@ -170,7 +174,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function skip() {
     // Preserve a language picked before the learner bailed out of setup.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
-    if (language === "English") dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
+    applyNativeOnPick();
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: "reader" });
     onClose?.();
@@ -224,7 +228,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                 We&apos;ll open a passage you can start reading right away.
               </p>
               <div className="grid grid-cols-2 gap-2">
-                {LANGUAGES.map((l) => (
+                {languageOptions("wizard").map((l) => (
                   <button
                     key={l.id}
                     onClick={() => pickLanguage(l.id)}
@@ -321,7 +325,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
                     <p className="text-sm font-medium">{professionLabel}</p>
                   </div>
                 </div>
-                {language && ["Spanish", "Italian", "Japanese", "English"].includes(language) && (
+                {hasCoreSpeaking(language) && (
                   <div className="flex items-center gap-3 rounded-xl border border-gold/30 bg-gold/5 px-4 py-3">
                     <span className="text-lg">🎙️</span>
                     <p className="text-xs leading-snug text-muted-foreground">

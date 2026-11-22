@@ -40,7 +40,8 @@ import { compareAnswer } from "@/lib/answer-feedback";
 import { checkHandwritten } from "@/lib/handwriting-check";
 import { useApp, type Language } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
-import { ACCENTS_BY_LANGUAGE } from "@/state/speech-state";
+import { packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { getModule } from "@/data/modules";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
 import { lessonCardFaces, type LessonCardDirection } from "@/lib/lesson-card-direction";
 import type { LessonWord } from "@/data/curriculum";
@@ -62,13 +63,10 @@ import {
   type MatchBoard,
   type MatchTile,
   type MatchTileState,
+  typedAnswerHint,
 } from "@/lib/lesson-practice";
-import {
-  isCorrectTypedAnswer,
-  languageCode,
-  languageTag,
-  SPECIAL_CHARS_BY_LANGUAGE,
-} from "@/lib/lesson-words-core";
+import { isCorrectTypedAnswer, languageCode, languageTag } from "@/lib/lesson-words-core";
+import { practiceKeys, typeInPlaceholder } from "@/data/language-packs/ui-text";
 
 export type PracticeMode = "study" | "flashcards" | "match" | "verbs" | "listen" | "type" | "write";
 
@@ -83,13 +81,13 @@ export interface LessonPracticeKitProps {
   mode?: PracticeMode;
   onModeChange?: (mode: PracticeMode) => void;
   /**
-   * The language being learned (default "Spanish"). It sets the speech locale, the language
-   * names in labels, the typing check, and the language "Add to my flashcards" saves under.
-   * Each word's `es` is this language; `en` is the learner's native language.
+   * The language being learned (required: no default language). It selects the pack that sets
+   * the speech locale, the language names in labels, the typing check, and the language "Add to
+   * my flashcards" saves under. Each word's `es` is this language; `en` is the native language.
    */
-  language?: string;
-  /** The learner's native language, used only for labels (default "English"). */
-  nativeLanguage?: string;
+  language: string;
+  /** The learner's native language, used only for labels (required). */
+  nativeLanguage: string;
   matchingBatchSize?: number;
   listeningItems?: LessonWord[];
   /**
@@ -104,16 +102,21 @@ export interface LessonPracticeKitProps {
 
 interface KitLanguages {
   exactSpelling?: boolean;
+  /** The pack of `target`; null when it has none (speech and typing fail closed). */
+  pack: LanguagePack | null;
   /** Target language name, e.g. "Spanish". */
   target: string;
   /** Native language name, e.g. "English". */
   native: string;
 }
 
-const SPANISH: Language = "Spanish";
-
-const KitLanguageContext = createContext<KitLanguages>({ target: "Spanish", native: "English" });
-const useKitLanguages = () => useContext(KitLanguageContext);
+// No default pair: a kit part rendered outside LessonPracticeKit is a bug, not a Spanish lesson.
+const KitLanguageContext = createContext<KitLanguages | null>(null);
+const useKitLanguages = (): KitLanguages => {
+  const languages = useContext(KitLanguageContext);
+  if (!languages) throw new Error("Lesson practice parts must render inside LessonPracticeKit");
+  return languages;
+};
 
 const MODES: { id: PracticeMode; label: string; Icon: typeof BookOpen }[] = [
   { id: "study", label: "Study", Icon: BookOpen },
@@ -150,12 +153,8 @@ const panel = "rounded-xl border border-border/50 bg-card/30 p-4";
  * playing is left alone. Modes that speak the next word as they advance leave it out.
  */
 function useTargetSpeaker(card?: string | number | null): (text: string) => void {
-  const { target } = useKitLanguages();
-  const { speak } = useListeningSpeaker(
-    "lesson-kit",
-    Object.hasOwn(ACCENTS_BY_LANGUAGE, target) ? target : SPANISH,
-    card,
-  );
+  const { pack } = useKitLanguages();
+  const { speak } = useListeningSpeaker("lesson-kit", pack, card);
   return useCallback((text: string) => speak(text), [speak]);
 }
 
@@ -420,10 +419,10 @@ function RecallSequence({
   pattern?: SpanishPattern;
   onComplete: () => void;
 }) {
-  const { target, native } = useKitLanguages();
+  const { target, native, pack } = useKitLanguages();
   const sequence = useMemo(
-    () => buildLessonRecall(words, verbs, target, pattern, native),
-    [words, verbs, target, pattern, native],
+    () => buildLessonRecall(words, verbs, target, pattern),
+    [words, verbs, target, pattern],
   );
   const [queue, setQueue] = useState(() => sequence);
   const speak = useTargetSpeaker(queue[0]?.id ?? null);
@@ -462,7 +461,7 @@ function RecallSequence({
   };
   const faces = current?.kind === "card" ? lessonCardFaces(current.word, direction) : null;
   const face = revealed ? faces?.back : faces?.front;
-  const formLines = current?.kind === "card" ? recallFormLines(current) : [];
+  const formLines = current?.kind === "card" && pack ? recallFormLines(current, pack) : [];
   if (!sequence.length) return <p role="status">No lesson cards are available yet.</p>;
   return (
     <section
@@ -967,8 +966,8 @@ function ListenMode({
 // ─── 5. Type it ───────────────────────────────────────────────────────────────
 
 function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
-  const { target, exactSpelling } = useKitLanguages();
-  const specialChars = SPECIAL_CHARS_BY_LANGUAGE[target] ?? [];
+  const { target, exactSpelling, pack } = useKitLanguages();
+  const specialChars = pack ? practiceKeys(pack) : [];
   const [order, setOrder] = useState<LessonWord[]>(() => shuffle(words));
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState("");
@@ -980,13 +979,18 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
 
   const current = order[index];
   if (words.length === 0 || !current) return null;
+  // The pack's taught near miss (wrong mark, protected pair, missing article), once graded.
+  const typedHint =
+    result === "wrong" && pack !== null && !exactSpelling
+      ? typedAnswerHint(value, current.es, pack)
+      : null;
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
     if (result !== null || !value.trim()) return;
     const correct = exactSpelling
       ? soundSpellingMatches(value, current.es)
-      : isCorrectTypedAnswer(value, current.es);
+      : pack !== null && isCorrectTypedAnswer(value, current.es, pack);
     setResult(correct ? "right" : "wrong");
     if (correct) setScore((s) => s + 1);
     speak(current.es);
@@ -1061,7 +1065,7 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
         spellCheck={false}
         enterKeyHint="done"
         aria-label={`Your ${target} answer`}
-        placeholder={target === "Spanish" ? "Escribe en español" : `Type in ${target}`}
+        placeholder={typeInPlaceholder(pack, target)}
         className={cn(
           "min-h-12 w-full rounded-xl border bg-background px-3 text-base text-foreground outline-none transition-colors duration-200 focus:border-gold",
           result === "right" && "border-emerald-500/60",
@@ -1115,6 +1119,14 @@ function TypeMode({ words, onComplete }: { words: LessonWord[]; onComplete: () =
               scoredCorrect={result === "right"}
               action={<SpeakButton text={current.es} speak={speak} className="h-9 w-9" />}
             />
+            {typedHint ? (
+              <p
+                data-testid="typing-hint"
+                className="break-words text-xs font-semibold text-foreground"
+              >
+                {typedHint.text}
+              </p>
+            ) : null}
             {current.note ? (
               <p className="break-words text-xs text-muted-foreground">{current.note}</p>
             ) : null}
@@ -1229,7 +1241,7 @@ function WritingWorkspace({
 }
 
 function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () => void }) {
-  const { target, native } = useKitLanguages();
+  const { target, native, pack } = useKitLanguages();
   const readInk = useHandwritingReader(target);
   const online = useOnline();
   const grouped = useMemo(() => groupByKind(words), [words]);
@@ -1521,8 +1533,8 @@ function WriteMode({ words, onComplete }: { words: LessonWord[]; onComplete: () 
               const text = result.outcome.text;
               const matched =
                 stage === "copy"
-                  ? compareAnswer(text, word.es, target).verdict === "correct"
-                  : checkHandwritten(text, word.es, word.kind).accepted;
+                  ? pack !== null && compareAnswer(text, word.es, pack).verdict === "correct"
+                  : pack !== null && checkHandwritten(text, word.es, word.kind, pack).accepted;
               return (
                 <>
                   <AnswerFeedback
@@ -1757,8 +1769,8 @@ export function LessonPracticeKit({
   initialMode = "study",
   mode: controlledMode,
   onModeChange,
-  language = "Spanish",
-  nativeLanguage = "English",
+  language,
+  nativeLanguage,
   matchingBatchSize,
   listeningItems,
   verbs,
@@ -1770,10 +1782,12 @@ export function LessonPracticeKit({
     () => ({
       target: language,
       native: nativeLanguage,
+      pack: packFor(language),
+      // Exact spelling only in the sound lab, and only for the pair it was authored for.
       exactSpelling:
-        language === "Spanish" &&
-        nativeLanguage === "English" &&
-        /^(foundation-|master-)?sound-like-a-native$/.test(moduleId),
+        /^(foundation-|master-)?sound-like-a-native$/.test(moduleId) &&
+        getModule(moduleId)?.authoredPair?.target === language &&
+        getModule(moduleId)?.authoredPair?.native === nativeLanguage,
     }),
     [language, nativeLanguage, moduleId],
   );

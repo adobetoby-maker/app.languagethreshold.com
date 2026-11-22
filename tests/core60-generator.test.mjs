@@ -6,7 +6,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { CURRICULA, getCurriculum } from "../src/data/curriculum.ts";
+import { CURRICULA, authoredCurriculum } from "../src/data/curriculum.ts";
 import { getModule } from "../src/data/modules.ts";
 import { FOUNDATION_ROOFING_FOCUS } from "../src/data/foundation-roofing-curriculum.ts";
 import {
@@ -54,8 +54,8 @@ const clone = (value) => JSON.parse(JSON.stringify(value));
 
 const roofing = getModule("roofing");
 const core30 = {
-  titles: getCurriculum("roofing").lessons.map((l) => l.title),
-  objectives: getCurriculum("roofing").lessons.map((l) => l.objective),
+  titles: authoredCurriculum("roofing").lessons.map((l) => l.title),
+  objectives: authoredCurriculum("roofing").lessons.map((l) => l.objective),
   terms: ["teja", "clavo"],
 };
 const ctx = (stage) => ({ module: roofing, stage, pair: { language: "Spanish", nativeLanguage: "English" }, core30 });
@@ -109,18 +109,18 @@ test("the Roofing passages pass the strict content checks (every term's head wor
 
 test("Foundation titles are the fixed F1-F10 units; Master blocks are fixed A-E with Lesson 20 the Capstone", () => {
   assert.deepEqual(
-    FOUNDATION_UNITS.Spanish.map((u) => u.title),
+    FOUNDATION_UNITS["es-trades"].map((u) => u.title),
     CURRICULA["foundation-roofing"].lessons.map((l) => l.title),
   );
-  assert.equal(FOUNDATION_UNITS.English.length, 10);
+  assert.equal(FOUNDATION_UNITS["en-workplace"].length, 10);
   assert.deepEqual(MASTER_BLOCKS.flatMap((b) => b.lessons), Array.from({ length: 20 }, (_, i) => i + 1));
   assert.deepEqual(
     MASTER_BLOCKS.flatMap((b) => b.lessons.map(() => b.block)),
     CURRICULA["master-roofing"].lessons.map((l) => l.block),
   );
-  assert.equal(MASTER_GRAMMAR_SPINE.Spanish.length, 20);
-  assert.equal(MASTER_GRAMMAR_SPINE.English.length, 20);
-  assert.equal(new Set(MASTER_GRAMMAR_SPINE.Spanish).size, 20);
+  assert.equal(MASTER_GRAMMAR_SPINE["es-trades"].length, 20);
+  assert.equal(MASTER_GRAMMAR_SPINE["en-workplace"].length, 20);
+  assert.equal(new Set(MASTER_GRAMMAR_SPINE["es-trades"]).size, 20);
 });
 
 test("stage checks catch repeated terms and phrases, Core 30 titles and a revealed complication", () => {
@@ -251,7 +251,7 @@ test("requests: tool_choice auto, the stage's limits in the schemas, and Foundat
   assert.deepEqual([passage.minItems, passage.maxItems], [12, 18]);
   assert.deepEqual([c.tools[0].input_schema.properties.verbs.minItems, c.tools[0].input_schema.properties.verbs.maxItems], [5, 5]);
   const parsed = foundationFromReply({ threshold: "x", lessons: [] }, ctx("foundation"));
-  assert.deepEqual(parsed.lessons.map((l) => l.title), FOUNDATION_UNITS.Spanish.map((u) => u.title));
+  assert.deepEqual(parsed.lessons.map((l) => l.title), FOUNDATION_UNITS["es-trades"].map((u) => u.title));
 });
 
 test("pairs, models and prices", () => {

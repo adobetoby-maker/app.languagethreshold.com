@@ -39,11 +39,17 @@ test("Speak entry has no internal UX preview label", () => {
 
 test("module library filter chips skip empty categories", () => {
   const page = read("src/components/modules/ModulesPage.tsx");
-  assert.match(page, /\.filter\(\(\{ count \}\) => count > 0\)/);
+  // Empty categories are skipped, except that a French or Italian learner keeps the categories the
+  // Spanish course shows, the empty ones in their "Coming soon" state (owner decision 1).
+  assert.match(page, /count > 0 \|\| Boolean\(kept\?\.has\(category\)\)/);
+  assert.match(page, /Coming soon in \{catalogPack\.name\}/);
   // English for Work is for speakers of other languages learning English: a Spanish learner has none.
   const spanish = MODULES.filter((m) => moduleSupportsLearningPair(m, "Spanish", "English"));
   assert.equal(spanish.filter((m) => m.category === "English for Work").length, 0);
   const english = MODULES.filter((m) => moduleSupportsLearningPair(m, "English", "Spanish"));
   const englishForWork = english.filter((m) => m.category === "English for Work").map((m) => m.id);
-  assert.ok(englishForWork.includes("fmg") && englishForWork.includes("or-evs"), englishForWork.join());
+  assert.ok(
+    englishForWork.includes("fmg") && englishForWork.includes("or-evs"),
+    englishForWork.join(),
+  );
 });

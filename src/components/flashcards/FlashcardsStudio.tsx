@@ -28,6 +28,12 @@ import { authoredModuleDeck } from "@/lib/authored-module-deck";
 import { generateModuleDeck } from "@/fns/module-deck.functions";
 import { getCuratedModulePairs } from "@/data/curated-module-pairs";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
+import type { LanguagePack } from "@/data/language-packs/registry";
+import { sameLanguage } from "@/data/language-packs/registry";
+import { appData } from "@/data/language-packs/app-data";
+import { starterDeckLanguage, defaultNativeFor, nativeFirstDeckLanguage } from "@/lib/language-menu";
+import { COMMANDS as CLIMBING_COMMANDS } from "@/data/climbing-practice";
 import { FREQUENCY_CONJUGATIONS, type ConjugationSet } from "@/data/frequency-conjugations";
 import { getJapaneseConjugation, type JapaneseConjugationSet } from "@/data/japanese-conjugations";
 import { languageCode, languageTag } from "@/lib/lesson-words-core";
@@ -41,13 +47,37 @@ import { ReviewIntervalSettings } from "./ReviewIntervalSettings";
 
 const FURIGANA_FC_KEY = "lt.flashcards.furigana.v1";
 
-const PERSON_LABEL = {
-  Italian: { s1: "io", s2: "tu", s3: "lui/lei", p1: "noi", p2: "voi", p3: "loro" },
-  Spanish: { s1: "yo", s2: "tú", s3: "él/ella", p1: "nosotros", p2: "vosotros", p3: "ellos" },
-  French: { s1: "je", s2: "tu", s3: "il/elle", p1: "nous", p2: "vous", p3: "ils" },
-  German: { s1: "ich", s2: "du", s3: "er/sie", p1: "wir", p2: "ihr", p3: "sie" },
-  Portuguese: { s1: "eu", s2: "tu", s3: "ele/ela", p1: "nós", p2: "vós", p3: "eles" },
-} as const;
+type PersonSlot = "s1" | "s2" | "s3" | "p1" | "p2" | "p3";
+type PersonLabels = Record<PersonSlot, string | null>;
+
+/**
+ * The six present-tense slots and their labels, read from the pack's verb forms (person and number
+ * of each required key). A slot the course does not teach (Spanish has no vosotros) is null and
+ * its table cell is left out.
+ */
+function personLabelsFor(pack: LanguagePack | null): PersonLabels | null {
+  if (!pack) return null;
+  // A language that authors its own dictionary-table labels (app/<code>.json referenceTableLabels)
+  // keeps them; one whose pack has no person keys yet uses its app file's personLabels.
+  const app = appData(pack);
+  if (app.referenceTableLabels) return app.referenceTableLabels;
+  const keys = pack.grammar.verbForms.keys;
+  if (pack.grammar.verbForms.axis !== "person" || keys.length === 0) return app.personLabels;
+  const labelOf = (person: 1 | 2 | 3, number: "singular" | "plural") => {
+    const matches = keys
+      .filter((k) => k.required && k.person === person && k.number === number)
+      .sort((a, b) => Number(Boolean(a.formal)) - Number(Boolean(b.formal)) || a.order - b.order);
+    return matches[0]?.label ?? null;
+  };
+  return {
+    s1: labelOf(1, "singular"),
+    s2: labelOf(2, "singular"),
+    s3: labelOf(3, "singular"),
+    p1: labelOf(1, "plural"),
+    p2: labelOf(2, "plural"),
+    p3: labelOf(3, "plural"),
+  };
+}
 
 const GRADE_BUTTONS = SRS_RATINGS;
 
@@ -77,6 +107,10 @@ export function FlashcardsStudio() {
   const lists = useCardLists(appState.selectedLanguage, appState.nativeLanguage);
   const library = useLibrary();
   const language = appState.selectedLanguage;
+  const pack = usePack(language);
+  // Courses authored in the learner's native language (English learners) keep the native word on
+  // the card's English side and translate into that native language.
+  const deckNative = nativeFirstDeckLanguage(language, appState.nativeLanguage);
   const moduleId = appState.activeModuleId;
   const moduleName = getModule(moduleId)?.name ?? "Module";
   const [direction, setDirection] = useState<"target-native" | "native-target">("target-native");
@@ -117,10 +151,15 @@ export function FlashcardsStudio() {
   useEffect(() => {
     if (
       state.hydrated &&
-      language === "Spanish" &&
-      appState.nativeLanguage === "English" &&
+      sameLanguage(language, starterDeckLanguage()) &&
+      appState.nativeLanguage === defaultNativeFor(language) &&
       moduleId &&
-      ["spanish-basics", "foundation-spanish-basics", "master-spanish-basics"].includes(moduleId)
+      pack &&
+      [
+        pack.library.defaultModule,
+        `foundation-${pack.library.defaultModule}`,
+        `master-${pack.library.defaultModule}`,
+      ].includes(moduleId)
     ) {
       addModuleCards(
         language,
@@ -129,7 +168,7 @@ export function FlashcardsStudio() {
         coreVocabulary.map((pair) => ({ ...pair, kind: "term" as const })),
       );
     }
-  }, [state.hydrated, language, appState.nativeLanguage, moduleId, addModuleCards]);
+  }, [state.hydrated, language, appState.nativeLanguage, moduleId, addModuleCards, pack]);
   const generatedCount = moduleId
     ? Object.values(state.cards).filter((card) =>
         card.id.startsWith(`module-generated:${language}:${moduleId}:`),
@@ -170,16 +209,7 @@ export function FlashcardsStudio() {
     async (force = false) => {
       const climbingHasCuratedLanguage =
         moduleId === "rock-climbing" &&
-        [
-          "Spanish",
-          "English",
-          "French",
-          "German",
-          "Italian",
-          "Japanese",
-          "Korean",
-          "Portuguese",
-        ].includes(language);
+        CLIMBING_COMMANDS.some((command) => Boolean(command.translations[language]));
       if (
         !moduleId ||
         lessonDeck ||
@@ -258,7 +288,7 @@ export function FlashcardsStudio() {
       if (!block || introducing) return;
       const have = new Set(
         cardsForCategories(language, [`block:${blockId}`]).map((c) =>
-          (language === "English" && appState.nativeLanguage === "Spanish"
+          (deckNative !== null
             ? c.word
             : c.translation
           ).toLowerCase(),
@@ -275,15 +305,13 @@ export function FlashcardsStudio() {
             data: {
               phrases: next.slice(i, i + 8),
               targetLanguage:
-                language === "English" && appState.nativeLanguage === "Spanish"
-                  ? "Spanish"
-                  : language,
+                deckNative ?? language,
               context: `${block.label} vocabulary`,
             },
           });
           if (res.error || !res.phrases) throw new Error(res.error ?? "translation failed");
           pairs.push(
-            ...(language === "English" && appState.nativeLanguage === "Spanish"
+            ...(deckNative !== null
               ? res.phrases.map((pair) => ({
                   english: pair.translation,
                   translation: pair.english,
@@ -303,7 +331,7 @@ export function FlashcardsStudio() {
       introducing,
       cardsForCategories,
       language,
-      appState.nativeLanguage,
+      deckNative,
       translate,
       addBlockCards,
     ],
@@ -403,7 +431,7 @@ export function FlashcardsStudio() {
         return;
       }
       saveCards(
-        language === "English" && appState.nativeLanguage === "Spanish"
+        deckNative !== null
           ? [{ english: newTranslation.trim(), translation: items[0] }]
           : [{ english: items[0], translation: newTranslation.trim() }],
       );
@@ -416,14 +444,14 @@ export function FlashcardsStudio() {
         data: {
           phrases: items,
           targetLanguage:
-            language === "English" && appState.nativeLanguage === "Spanish" ? "Spanish" : language,
+            deckNative ?? language,
           context: `${moduleName} learner flashcards`,
         },
       });
       if (result.error || !result.phrases?.length)
         throw new Error(result.error ?? "Translation failed");
       saveCards(
-        language === "English" && appState.nativeLanguage === "Spanish"
+        deckNative !== null
           ? result.phrases.map((pair) => ({ english: pair.translation, translation: pair.english }))
           : result.phrases,
       );
@@ -467,7 +495,7 @@ export function FlashcardsStudio() {
   // Read by the learner's listening voice (recorded HD audio, then the HD voice).
   const { speak: speakListening } = useListeningSpeaker(
     JSON.stringify(["flashcards-studio", language, moduleId, current?.id]),
-    language,
+    usePack(language),
   );
 
   const nextUp = useMemo(() => {
@@ -492,7 +520,7 @@ export function FlashcardsStudio() {
   const exampleModuleId = activeCard?.moduleId ?? moduleId;
   const lessonSentences = useMemo(() => {
     if (!exampleModuleId) return [];
-    const curriculum = getCurriculum(exampleModuleId);
+    const curriculum = getCurriculum(exampleModuleId, language, appState.nativeLanguage);
     return (
       curriculum?.lessons.flatMap(
         (lesson) =>
@@ -512,8 +540,7 @@ export function FlashcardsStudio() {
   }, [exampleModuleId, language, appState.nativeLanguage]);
   const wordGloss = current ? flashcardWordGloss(current, appState.nativeLanguage) : null;
   const usageExample = activeCard ? flashcardUsageExample(activeCard, lessonSentences) : null;
-  const personLabels =
-    language in PERSON_LABEL ? PERSON_LABEL[language as keyof typeof PERSON_LABEL] : null;
+  const personLabels = personLabelsFor(pack);
 
   // Japanese verb structure (bases + te/ta + register×tense) — separate catalog
   const japaneseConjugation: JapaneseConjugationSet | undefined =
@@ -953,8 +980,8 @@ export function FlashcardsStudio() {
                 />
               </label>
               <label className="text-xs text-muted-foreground">
-                {language === "English" && appState.nativeLanguage === "Spanish"
-                  ? "Spanish meaning (optional for one card)"
+                {deckNative !== null
+                  ? `${deckNative} meaning (optional for one card)`
                   : `${language} translation (optional for one card)`}
                 <input
                   value={newTranslation}
@@ -1322,10 +1349,10 @@ function ConjugationCard({
 }: {
   showTranslation: boolean;
   conjugation: ConjugationSet;
-  personLabels: { s1: string; s2: string; s3: string; p1: string; p2: string; p3: string };
+  personLabels: PersonLabels;
   onSpeak: (word: string) => void;
 }) {
-  const rows: { singular: [string, string]; plural: [string, string] }[] = [
+  const rows: { singular: [string | null, string]; plural: [string | null, string] }[] = [
     {
       singular: [personLabels.s1, conjugation.presentTense.firstSingular],
       plural: [personLabels.p1, conjugation.presentTense.firstPlural],
@@ -1362,6 +1389,7 @@ function ConjugationCard({
               <tr key={i} className="border-t border-border/30 first:border-t-0">
                 {(["singular", "plural"] as const).map((col) => {
                   const [person, form] = row[col];
+                  if (person === null) return <td key={col} />;
                   return (
                     <td key={col} className="py-1.5 pr-3">
                       <button

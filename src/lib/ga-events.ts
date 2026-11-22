@@ -24,7 +24,7 @@ export const EVENT_PARAMS: Readonly<Record<string, ReadonlySet<string>>> = {
   begin_checkout: new Set(["plan", "term", "seats", "currency", "value"]),
   sign_up: new Set(["method"]),
   login: new Set(["method"]),
-  lesson_mastered: new Set(["module_id", "lesson"]),
+  lesson_mastered: new Set(["module_id", "lesson", "target_language", "native_language"]),
   team_seat_assigned: new Set(["module_id"]),
   team_invite_sent: new Set(["role", "count"]),
 };

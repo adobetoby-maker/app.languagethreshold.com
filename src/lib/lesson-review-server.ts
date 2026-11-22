@@ -18,7 +18,7 @@ export function readGeneratedReviewMaterial(
   native: string,
   root = process.env.LT_INTERNAL_LESSON_CONTENT_ROOT ?? resolve("public/lesson-content"),
 ): GeneratedReviewMaterial {
-  if (!getCurriculum(moduleId)) throw new Error("Unknown lesson module.");
+  if (!getCurriculum(moduleId, target, native)) throw new Error("Unknown lesson module.");
   if (native !== contentNativeLanguage(target)) return { file: null, source: null };
   const path = lessonContentPath(moduleId, target);
   const relative = path.slice("/lesson-content/".length);
@@ -44,7 +44,7 @@ export function readGeneratedReviewMaterial(
 
 /** Exact packaged public source, not a network response or browser-supplied substitute. */
 export function currentLessonReviewSnapshot(moduleId: string, target: string, native: string) {
-  if (!getCurriculum(moduleId)) return null;
+  if (!getCurriculum(moduleId, target, native)) return null;
   return lessonReviewSnapshot(
     moduleId,
     target,

@@ -6,6 +6,7 @@ import { useApp } from "@/state/app-state";
 import { useMatch } from "@/state/match-state";
 import type { ReviewedWord } from "./BattleArena";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 
 interface Props {
   words: ReviewedWord[];
@@ -83,7 +84,7 @@ function WordRow({ word }: { word: ReviewedWord }) {
   // another language keeps this device's voice and is never read by a mismatched HD voice.
   const { speak: speakWord } = useListeningSpeaker(
     JSON.stringify(["battle-review", word.word, word.language]),
-    word.language,
+    usePack(word.language),
   );
 
   const speak = () => {

@@ -7,6 +7,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { loadModule } from "./helpers/bundle.mjs";
 import { miniData } from "./helpers/verb-fixture.mjs";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import { EMPTY_VERB_DEVICE } from "../src/lib/verb-games/device.ts";
 import { guardVerbRoute } from "../src/lib/verb-games/route-guard.ts";
 import { parseVerbRoute, practiceScreen, verbRouteSearch } from "../src/lib/verb-games/verb-route.ts";
@@ -211,8 +212,9 @@ test("route guard keeps valid routes", () => {
 });
 
 test("loadPatternData resolves the compiled data once", async () => {
-  const a = loadPatternData();
-  assert.equal(loadPatternData(), a);
+  const es = packFor("es");
+  const a = loadPatternData(es);
+  assert.equal(loadPatternData(es), a);
   const data = await a;
   assert.equal(data.language, "es");
   assert.equal(data.families.length, 7);

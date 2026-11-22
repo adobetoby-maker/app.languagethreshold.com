@@ -13,6 +13,8 @@ import {
 } from "@/lib/sound-practice-core";
 import { useLearnerDeviceStore } from "@/hooks/use-learner-device-store";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { moduleAuthoredPair } from "@/data/curriculum";
+import { packFor } from "@/data/language-packs/registry";
 import { MouthMap } from "./MouthMap";
 
 const button =
@@ -46,6 +48,10 @@ export function SoundPractice({
   lessonNumber: number;
   active: boolean;
 }) {
+  // The lab drills the module's own authored pair (its language's spelling and sounds); the store
+  // key, lang attributes and copy are read from that pair, never a literal.
+  const pair = moduleAuthoredPair(moduleId);
+  const labPack = packFor(pair?.target);
   const [familyId, setFamilyId] = useState(lesson.familyId);
   const family = SOUND_FAMILIES.find((f) => f.id === familyId) ?? SOUND_FAMILIES[0];
   const [pattern, setPattern] = useState<SoundPattern>("patter");
@@ -65,17 +71,18 @@ export function SoundPractice({
   const [elapsed, setElapsed] = useState(0);
   const [status, setStatus] = useState("Start slowly. Keep the vowel changes clear and relaxed.");
   const store = useLearnerDeviceStore(
-    `sound-pattern:${SOUND_PRACTICE_VERSION}:Spanish:English:${moduleId}:${lessonNumber}`,
+    `sound-pattern:${SOUND_PRACTICE_VERSION}:${labPack?.name ?? ""}:${pair?.native ?? ""}:${moduleId}:${lessonNumber}`,
   );
   const [record, setRecord] = useState<SoundPracticeRecord>(() => readSoundPracticeRecord(null));
   const markedRef = useRef(false);
   const recordRef = useRef(record),
     flight = useRef<Run | null>(null);
   // Word anchors are read by the learner's listening voice (recorded HD audio, then the HD
-  // voice) in their Spanish accent. Playback belongs to this lesson's lab while it is active.
+  // voice) in their accent for the lab language. Playback belongs to this lesson's lab while it is active.
   const { speak, stop: stopAudio } = useListeningSpeaker(
     JSON.stringify(["sound-practice", moduleId, lessonNumber, active]),
-    "Spanish",
+    // The lab speaks the module's own authored language.
+    labPack,
   );
   useEffect(() => {
     const next = readSoundPracticeRecord(store.read());
@@ -338,7 +345,7 @@ export function SoundPractice({
               key={`${u.text}:${i}`}
               aria-current={current === i ? "step" : undefined}
               className={`flex min-h-16 min-w-0 items-center justify-center rounded-xl border px-1 text-center font-serif text-xl sm:text-3xl ${current === i ? "border-foreground bg-gold text-background" : "border-border bg-background text-foreground"}`}
-              lang="es"
+              lang={labPack?.code}
             >
               {u.text}
             </div>
@@ -346,7 +353,7 @@ export function SoundPractice({
         </div>
         {family.soundCues ? (
           <p className="mt-2 text-sm text-muted-foreground">
-            Sound cue: {units.map((u) => u.cue).join(" · ")}. The row above uses Spanish spelling.
+            Sound cue: {units.map((u) => u.cue).join(" · ")}. The row above uses {labPack?.name} spelling.
           </p>
         ) : null}
         <p className="mt-3 text-sm">Real-word anchors: {units.map((u) => u.anchor).join(" · ")}</p>
@@ -438,7 +445,7 @@ export function SoundPractice({
               className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-border p-3 text-sm"
             >
               <div>
-                <span className="font-semibold" lang="es">
+                <span className="font-semibold" lang={labPack?.code}>
                   {w.target}
                 </span>
                 <span className="ml-2 text-muted-foreground">{w.native}</span>

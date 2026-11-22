@@ -1,6 +1,9 @@
 import type { LessonWord } from "../data/curriculum.ts";
 import { normalizeAssessmentAnswer } from "./assessments/core.ts";
 import { seededUnit } from "./exams2/hash.ts";
+import type { LanguagePack } from "../data/language-packs/types.ts";
+import { normalizeKey } from "./language-pack-text.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
 
 /** Independent study placement, not a supervised exam or a proficiency certificate. */
 export const PLACEMENT_VERSION = "module-placement-v1";
@@ -20,14 +23,29 @@ export interface PlacementQuestion {
   hint?: string;
   options?: string[];
   answer: string;
+  /**
+   * Whether accent marks count in a typed answer: "required" when the pack's typed accent policy
+   * is strict (the learner has the accent row under the field), otherwise "ignore".
+   */
+  accents?: AccentRule;
 }
 export interface PlacementBlock {
   lessons: PlacementLesson[];
   questions: PlacementQuestion[];
 }
-const normalize = (s: string) =>
-  normalizeAssessmentAnswer(s, {
-    accents: "required",
+type AccentRule = "required" | "ignore";
+/**
+ * A released course pack (French, Italian) follows its typed accent policy: strict means marks are
+ * required. Spanish, Japanese and languages without a pack keep the base rule: accents required.
+ */
+export function placementAccents(pack: LanguagePack): AccentRule {
+  if (!followsPackRules(pack)) return "required";
+  return pack.answerRules.accentPolicy.typed === "strict" ? "required" : "ignore";
+}
+// Apostrophe variants fold only for a course pack's questions (the ones that carry `accents`).
+const normalize = (s: string, accents: AccentRule = "required", apostrophes = false) =>
+  normalizeAssessmentAnswer(apostrophes ? s.replace(/[’ʼ‘]/gu, "'") : s, {
+    accents,
     caseSensitive: false,
     punctuation: "ignore",
   });
@@ -39,24 +57,29 @@ function shuffled<T>(values: T[], seed: string): T[] {
 }
 
 /** Fail closed at a coverage gap. Never borrow words from another lesson or language. */
-export function placementBlocks(lessons: PlacementLesson[], seed: string): PlacementBlock[] {
+export function placementBlocks(
+  lessons: PlacementLesson[],
+  seed: string,
+  pack: LanguagePack,
+): PlacementBlock[] {
+  const accents = placementAccents(pack);
+  const packRules = followsPackRules(pack);
+  const norm = (text: string) => normalize(text, accents, packRules);
   const blocks: PlacementBlock[] = [];
   for (const lesson of lessons) {
     const words = lesson.words.filter(
       (w, i, all) =>
         w.es.trim() &&
         w.en.trim() &&
-        all.findIndex(
-          (other) =>
-            normalize(other.en) === normalize(w.en) || normalize(other.es) === normalize(w.es),
-        ) === i,
+        all.findIndex((other) => norm(other.en) === norm(w.en) || norm(other.es) === norm(w.es)) ===
+          i,
     );
     const checks = lesson.checks.filter(
       (c) => c.prompt.includes("____") && c.answer.trim() && c.hint.trim(),
     );
     if (!checks.length) break;
     const check = shuffled(checks, `${seed}:${lesson.moduleId}:${lesson.n}:check`)[0];
-    const cues = (text: string) => ` ${normalize(text)} `.includes(` ${normalize(check.answer)} `);
+    const cues = (text: string) => ` ${norm(text)} `.includes(` ${norm(check.answer)} `);
     const uncued = words.filter((w) => !cues(w.es) && !cues(w.en));
     const choices = shuffled(
       uncued.filter((w) => w.kind === "phrase"),
@@ -94,6 +117,7 @@ export function placementBlocks(lessons: PlacementLesson[], seed: string): Place
         prompt: check.prompt,
         hint: check.hint,
         answer: check.answer,
+        ...(packRules ? { accents } : {}),
       },
     );
   }
@@ -101,14 +125,16 @@ export function placementBlocks(lessons: PlacementLesson[], seed: string): Place
 }
 export function placementCorrect(question: PlacementQuestion, response: string): boolean {
   if (!response.trim()) return false;
-  const actual = normalize(response);
-  if (actual === normalize(question.answer)) return true;
+  const accents = question.accents ?? "required";
+  const apostrophes = question.accents !== undefined;
+  const actual = normalize(response, accents, apostrophes);
+  if (actual === normalize(question.answer, accents, apostrophes)) return true;
   // A fully completed cloze sentence is also a correct response. Require the entire
   // expected sentence, never just an answer word appearing inside arbitrary text.
   return (
     question.type === "typed" &&
     question.prompt.includes("____") &&
-    actual === normalize(question.prompt.replace("____", question.answer))
+    actual === normalize(question.prompt.replace("____", question.answer), accents, apostrophes)
   );
 }
 export function placementBlockScore(block: PlacementBlock, responses: Record<string, string>) {
@@ -138,14 +164,29 @@ export function placementResult(blocks: PlacementBlock[], responses: Record<stri
 export function placementCloze(
   words: LessonWord[],
   examples: { target: string; native: string }[],
+  pack: LanguagePack,
 ) {
+  // A term is also clozed without its article, from the pack's own article list (elided forms
+  // such as l' included, closed up to the noun).
+  const { definite = [], indefinite = [], partitive = [] } = pack.grammar.nounSystem.articles;
+  const articles = [...definite, ...indefinite, ...partitive]
+    .map((article) => normalizeKey(article, pack))
+    .filter(Boolean)
+    .sort((a, b) => b.length - a.length);
+  const withoutArticle = (term: string): string => {
+    // Spanish, Japanese and languages without a pack keep the base article list.
+    if (!followsPackRules(pack)) return term.replace(/^(?:el|la|los|las|un|una|the|a|an) /i, "");
+    const key = normalizeKey(term, pack);
+    for (const article of articles) {
+      const lead = /['’ʼ]$/u.test(article) ? article : `${article} `;
+      if (key.startsWith(lead) && key.length > lead.length) return term.slice(lead.length).trim();
+    }
+    return term;
+  };
   const terms = words.filter((w) => w.kind === "term").sort((a, b) => b.es.length - a.es.length);
   const result: PlacementLesson["checks"] = [];
   for (const example of examples) {
-    const termsInOrder = terms.flatMap((w) => [
-      w.es,
-      w.es.replace(/^(?:el|la|los|las|un|una|the|a|an) /i, ""),
-    ]);
+    const termsInOrder = terms.flatMap((w) => [w.es, withoutArticle(w.es)]);
     let answer: string | undefined;
     for (const term of termsInOrder) {
       const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

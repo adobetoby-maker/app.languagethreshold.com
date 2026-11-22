@@ -1,36 +1,42 @@
-/** Transcript similarity, shared with the native Say It rule. Never an accent score. */
+/**
+ * Transcript similarity, shared with the native Say It rule. Never an accent score.
+ * Every rule comes from the pack (language-pack model section 8 step 10): the speech accent policy,
+ * the fold table, ordered sound rules, homophone sets and the speech scoring constants. The pack is
+ * required; there is no default language. Self-contained (type-only imports) so tests can load it.
+ */
+import type { LanguagePack } from "../data/language-packs/types.ts";
+
 export type SpeechWordScore = { score: number; exact: boolean };
-function tokens(text: string, language: string): string[] {
-  let value = text.normalize("NFC").toLowerCase();
-  if (language === "Spanish")
-    value = value.replace(
-      /[áéíóúü]/g,
-      (c) => ({ á: "a", é: "e", í: "i", ó: "o", ú: "u", ü: "u" })[c]!,
-    );
-  if (language === "Japanese") return [...value].filter((c) => /[\p{L}\p{N}]/u.test(c));
+
+type Rules = LanguagePack["answerRules"];
+
+function tokens(text: string, pack: LanguagePack): string[] {
+  const value = text
+    .normalize(pack.answerRules.unicodeNormalization)
+    .toLocaleLowerCase(pack.script.segmenterLocale);
+  if (pack.answerRules.tokenizer === "graphemes")
+    return [...value].filter((c) => /[\p{L}\p{N}]/u.test(c));
   return value.match(/[\p{L}\p{N}]+/gu) ?? [];
 }
-function soundKey(word: string, language: string): string {
-  if (language !== "Spanish") return word;
-  for (const [a, b] of [
-    ["que", "ke"],
-    ["qui", "ki"],
-    ["gue", "ɡe"],
-    ["gui", "ɡi"],
-    ["ce", "se"],
-    ["ci", "si"],
-    ["ge", "je"],
-    ["gi", "ji"],
-    ["ll", "y"],
-    ["ch", "§"],
-    ["h", ""],
-    ["v", "b"],
-    ["z", "s"],
-    ["c", "k"],
-  ])
-    word = word.replaceAll(a, b);
-  return word.replaceAll("ɡ", "g");
+
+function fold(word: string, rules: Rules): string {
+  const keep = new Set(rules.neverFold);
+  let out = "";
+  for (const c of word) out += keep.has(c) ? c : (rules.ligatures[c] ?? rules.fold[c] ?? c);
+  return out;
 }
+
+function soundKey(word: string, rules: Rules): string {
+  for (const rule of rules.soundRules) {
+    if (rule.at === "any") word = word.replaceAll(rule.from, rule.to);
+    else if (rule.at === "start" && word.startsWith(rule.from))
+      word = rule.to + word.slice(rule.from.length);
+    else if (rule.at === "end" && word.endsWith(rule.from))
+      word = word.slice(0, word.length - rule.from.length) + rule.to;
+  }
+  return word;
+}
+
 function editSimilarity(a: string, b: string): number {
   const x = [...a],
     y = [...b];
@@ -45,31 +51,57 @@ function editSimilarity(a: string, b: string): number {
   });
   return 1 - row[y.length] / Math.max(x.length, y.length, 1);
 }
+
+const inOneSet = (sets: readonly string[][], x: string, y: string) =>
+  sets.some((set) => set.includes(x) && set.includes(y));
+
 export function speechWordSimilarity(
   expected: string,
   heard: string,
-  language = "Spanish",
+  pack: LanguagePack,
 ): SpeechWordScore {
-  const a = tokens(expected, language),
-    b = tokens(heard, language);
+  const rules = pack.answerRules;
+  const mode = rules.accentPolicy.speech;
+  // Comparison keys: the pack's marks folded unless the speech policy is strict.
+  const key = (word: string) => (mode === "strict" ? word : fold(word, rules));
+  const rawA = tokens(expected, pack),
+    rawB = tokens(heard, pack);
+  const a = rawA.map(key),
+    b = rawB.map(key);
   if (!a.length) return { score: 0, exact: false };
-  const exact = a.length === b.length && a.every((s, i) => s === b[i]);
-  function credit(x: string, y: string): number {
-    if (x === y) return 1;
-    // CJK uses ordered written-character comparison, not Latin sound substitutions.
-    if (language === "Japanese") return 0;
-    const p = soundKey(x, language),
-      q = soundKey(y, language);
-    if (language === "Spanish" && p === q) return 0.85;
-    if (Math.min([...x].length, [...y].length) < 4) return 0;
+  // fold-except-protected: a protected pair (avó/avô) is never equal unless the two are homophones.
+  const same = (i: number, j: number) =>
+    a[i] === b[j] &&
+    !(
+      mode === "fold-except-protected" &&
+      rawA[i] !== rawB[j] &&
+      inOneSet(rules.protectedPairs, rawA[i], rawB[j]) &&
+      !inOneSet(rules.homophoneSets, rawA[i], rawB[j])
+    );
+  const exact = a.length === b.length && a.every((_, i) => same(i, i));
+  const { soundEquivalentCredit, similarityFloor, similarityCredit, minWordLength } =
+    rules.speechScoring;
+  function credit(i: number, j: number): number {
+    if (same(i, j)) return 1;
+    const x = a[i],
+      y = b[j];
+    // Grapheme scripts use ordered written-character comparison, not sound substitutions.
+    if (rules.tokenizer === "graphemes") return 0;
+    if (inOneSet(rules.homophoneSets, rawA[i], rawB[j])) return soundEquivalentCredit;
+    // Sound keys run on the folded key (as the Spanish rule always has) and are folded again, so a
+    // rule that writes a mark (French -ez → é) still meets the folded form of that mark.
+    const p = key(soundKey(x, rules)),
+      q = key(soundKey(y, rules));
+    if (rules.soundRules.length > 0 && p === q) return soundEquivalentCredit;
+    if (Math.min([...x].length, [...y].length) < minWordLength) return 0;
     const similarity = Math.max(editSimilarity(x, y), editSimilarity(p, q));
-    return similarity >= 0.65 ? similarity * 0.75 : 0;
+    return similarity >= similarityFloor ? similarity * similarityCredit : 0;
   }
   let row = Array.from({ length: b.length + 1 }, (_, i) => i);
-  a.forEach((x, i) => {
+  a.forEach((_, i) => {
     const next = [i + 1];
-    b.forEach((y, j) => {
-      next[j + 1] = Math.min(next[j] + 1, row[j + 1] + 1, row[j] + 1 - credit(x, y));
+    b.forEach((_, j) => {
+      next[j + 1] = Math.min(next[j] + 1, row[j + 1] + 1, row[j] + 1 - credit(i, j));
     });
     row = next;
   });

@@ -1,5 +1,7 @@
 import { useOverlayHistory } from "@/hooks/use-overlay-history";
-import { normalizeGrammarAnswer as normalize } from "@/lib/grammar-quiz";
+import { isCorrectGrammarAnswer, normalizeGrammarAnswer as normalize } from "@/lib/grammar-quiz";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { specialCharacters } from "@/lib/language-pack-text";
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { useServerFn } from "@tanstack/react-start";
@@ -129,7 +131,14 @@ export function QuizCard({
   };
 
   const q = questions[idx];
-  const isCorrect = q ? normalize(input) === normalize(q.answer) : false;
+  // A language whose lessons come from its pack catalog (French, Italian) is graded by its pack's
+  // own normalization and gets its letter row. Every other language keeps the quiz as it has
+  // always been: lowercase, trimmed, edge punctuation only, and no letter row.
+  const pack = catalogLessonPack(state.selectedLanguage);
+  const specialChars = pack ? specialCharacters(pack) : [];
+  const sameAnswer = (a: string, b: string) =>
+    pack ? isCorrectGrammarAnswer(a, b, pack) : normalize(a) === normalize(b);
+  const isCorrect = q ? sameAnswer(input, q.answer) : false;
 
   const submit = () => {
     if (!q || !input.trim() || answerLocked.current) return;
@@ -296,7 +305,7 @@ export function QuizCard({
               <div className="space-y-2">
                 {q.options.map((opt) => {
                   const selected = input === opt;
-                  const correct = revealed && normalize(opt) === normalize(q.answer);
+                  const correct = revealed && sameAnswer(opt, q.answer);
                   const wrong = revealed && selected && !correct;
                   return (
                     <button
@@ -320,14 +329,30 @@ export function QuizCard({
                 })}
               </div>
             ) : (
-              <input
-                value={input}
-                disabled={revealed}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && !revealed && submit()}
-                placeholder="Type your answer…"
-                className="w-full rounded-xl border border-border/70 bg-background/60 px-4 py-3 font-display text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-gold/60 focus:outline-none"
-              />
+              <>
+                <input
+                  value={input}
+                  disabled={revealed}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && !revealed && submit()}
+                  placeholder="Type your answer…"
+                  className="w-full rounded-xl border border-border/70 bg-background/60 px-4 py-3 font-display text-[15px] text-foreground placeholder:text-muted-foreground/60 focus:border-gold/60 focus:outline-none"
+                />
+                {!revealed && specialChars.length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-2" aria-label={`${state.selectedLanguage} letters`}>
+                    {specialChars.map((char) => (
+                      <button
+                        key={char}
+                        type="button"
+                        onClick={() => setInput((v) => v + char)}
+                        className="inline-flex h-10 min-w-10 cursor-pointer items-center justify-center rounded-lg border border-border/50 bg-card/30 px-2 text-base font-semibold transition-colors duration-200 hover:border-gold/40"
+                      >
+                        {char}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
 
             {revealed && (

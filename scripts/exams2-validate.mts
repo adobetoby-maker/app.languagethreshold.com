@@ -24,10 +24,17 @@ await runCli(() => {
   const args = process.argv.slice(2);
   const path = args.find((arg) => !arg.startsWith("--"));
   const { bank } = readPrivateBank(path);
-  const moduleId = (bank as { moduleId?: unknown })?.moduleId;
+  const { moduleId, targetLanguage, instructionLanguage } = (bank ?? {}) as {
+    moduleId?: unknown;
+    targetLanguage?: unknown;
+    instructionLanguage?: unknown;
+  };
   const hashes =
-    args.includes("--drift") && typeof moduleId === "string"
-      ? currentSourceHashes(moduleId)
+    args.includes("--drift") &&
+    typeof moduleId === "string" &&
+    typeof targetLanguage === "string" &&
+    typeof instructionLanguage === "string"
+      ? currentSourceHashes(moduleId, targetLanguage, instructionLanguage)
       : undefined;
   const result = validateBank(bank, {
     reviews: args.includes("--draft") ? "skip" : "require",

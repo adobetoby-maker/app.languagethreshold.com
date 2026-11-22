@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
+import { nativeFirstDeckLanguage } from "@/lib/language-menu";
 import { useServerFn } from "@tanstack/react-start";
 import { Layers, Loader2 } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
+import type { NativeLanguage } from "@/data/languages";
 import { getDueCount } from "@/state/sm2";
 import { getCategoryBlocks } from "@/lib/flashcard-blocks";
 import { translatePhrases } from "@/fns/phrase-translate.functions";
@@ -23,13 +25,15 @@ interface DeckTile {
 
 export function FlashcardDecks() {
   const { state } = useApp();
+  // English learners' decks are authored in their native language (see nativeFirstDeckLanguage).
+  const deckNative = nativeFirstDeckLanguage(state.selectedLanguage, state.nativeLanguage);
   const translate = useServerFn(translatePhrases);
   const [session, setSession] = useState<{
     blockId: string;
     title: string;
     cards: StudyCard[];
     isMyVocab: boolean;
-    backLanguage: Language;
+    backLanguage: Language | NativeLanguage;
   } | null>(null);
   const [loadingBlock, setLoadingBlock] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -82,8 +86,7 @@ export function FlashcardDecks() {
         title: "My Vocab",
         cards: myVocabCards,
         isMyVocab: true,
-        backLanguage: state.selectedLanguage === "English" && state.nativeLanguage === "Spanish"
-          ? "Spanish" : "English",
+        backLanguage: deckNative ?? "English",
       });
       return;
     }
@@ -102,8 +105,7 @@ export function FlashcardDecks() {
           translate({
             data: {
               phrases: chunk,
-              targetLanguage: state.selectedLanguage === "English" && state.nativeLanguage === "Spanish"
-                ? "Spanish" : state.selectedLanguage,
+              targetLanguage: deckNative ?? state.selectedLanguage,
               context: block.label,
             },
           }),
@@ -125,8 +127,7 @@ export function FlashcardDecks() {
         title: block.label,
         cards,
         isMyVocab: false,
-        backLanguage: state.selectedLanguage === "English" && state.nativeLanguage === "Spanish"
-          ? "Spanish" : state.selectedLanguage,
+        backLanguage: deckNative ?? state.selectedLanguage,
       });
     } finally {
       setLoadingBlock(null);

@@ -7,7 +7,9 @@ import { useApp, type TabKey } from "@/state/app-state";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { foundationAccess } from "@/lib/core30-plan";
 import { lessonLocation } from "@/lib/learning-link";
-import { MODULES } from "@/data/modules";
+import { MODULES, moduleSupportsLearningPair } from "@/data/modules";
+import { packFor } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { getCurriculum } from "@/data/curriculum";
 import { PracticeBlocker } from "@/hooks/use-practice-time";
 
@@ -32,8 +34,9 @@ const PAYWALL_SEEN_KEY = "lt.paywallSeen";
 
 /** Shown to a signed-out learner on a Foundation tab: an account is free, the paid trial is not. */
 function FoundationSignInPrompt({ moduleId }: { moduleId: string }) {
+  const { state } = useApp();
   const [authOpen, setAuthOpen] = useState(false);
-  const lessons = getCurriculum(moduleId)?.lessons ?? [];
+  const lessons = getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons ?? [];
   return (
     <div
       data-testid="foundation-signin-prompt"
@@ -131,7 +134,19 @@ export function SubscriptionGate({ currentTab, children }: Props) {
 
   // A module with a free Foundation offers it from the paywall: the Foundation's entry card on
   // the Core 30 page sits under this overlay and cannot be clicked here.
-  const foundationOffer = foundationFor(activeModuleId);
+  // A French or Italian learner (a released course pack) is offered the Foundation only when it is
+  // authored for their own language pair, and the copy names their language. Everyone else keeps
+  // the base paywall exactly (owner decisions 2 and 3).
+  const targetPack = packFor(state.selectedLanguage);
+  const packCopy = followsPackRules(targetPack);
+  const foundationCandidate = foundationFor(activeModuleId);
+  const foundationOffer =
+    foundationCandidate &&
+    (!packCopy ||
+      moduleSupportsLearningPair(foundationCandidate, state.selectedLanguage, state.nativeLanguage))
+      ? foundationCandidate
+      : null;
+  const languageName = packCopy && targetPack ? targetPack.name : "Spanish";
   function openFoundation() {
     if (!foundationOffer) return;
     dispatch({ type: "SET_ACTIVE_MODULE", payload: foundationOffer.id });
@@ -211,7 +226,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
           <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
             {isMissionaryModule
               ? "Your missionary discussions and field prep are always free. This section is part of the Pro plan."
-              : "Full access to all professional Spanish content — construction, medical, sports, and more."}
+              : `Full access to all professional ${languageName} content — construction, medical, sports, and more.`}
             {!user && " Sign in to get started."}
           </p>
 
@@ -246,7 +261,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                 onClick={onFreeDismiss}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-bold text-background transition-opacity hover:opacity-90 mb-3"
               >
-                Continue free with Missionary Spanish →
+                Continue free with Missionary {languageName} →
               </Link>
               <Link
                 to="/pricing"
@@ -273,7 +288,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                   onClick={openFoundation}
                   className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-gold/40 px-5 py-2.5 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
                 >
-                  New to Spanish? Start the free {foundationOffer.name} →
+                  New to {languageName}? Start the free {foundationOffer.name} →
                 </button>
               )}
 
@@ -293,7 +308,7 @@ export function SubscriptionGate({ currentTab, children }: Props) {
                   onClick={onFreeDismiss}
                   className="underline underline-offset-2"
                 >
-                  Continue free with Missionary Spanish →
+                  Continue free with Missionary {languageName} →
                 </Link>
               </p>
             </>

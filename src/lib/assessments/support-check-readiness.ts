@@ -106,8 +106,19 @@ export async function readSupportingChecks(
       continue;
     const lessons: unknown = snapshot.lessonIds;
     const sourceLessons = new Set(
-      (getCurriculum(enrollment.module_id)?.lessons ?? []).map((lesson) =>
-        lessonObjectiveId(enrollment.module_id, lesson.n),
+      (
+        getCurriculum(
+          enrollment.module_id,
+          enrollment.target_language,
+          enrollment.instruction_language,
+        )?.lessons ?? []
+      ).map((lesson) =>
+        lessonObjectiveId(
+          enrollment.module_id,
+          lesson.n,
+          enrollment.target_language,
+          enrollment.instruction_language,
+        ),
       ),
     );
     if (

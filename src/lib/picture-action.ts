@@ -8,6 +8,8 @@ import {
   type Point,
   type Place,
 } from "./place-directions-game.ts";
+import { historicalCoursePair } from "../data/language-packs/registry.ts";
+import { catalogTwinModuleId } from "../data/language-packs/catalog-modules.ts";
 export type SceneId =
   | "workshop"
   | "clinic"
@@ -72,7 +74,8 @@ export const PICTURE_OBJECTS: Record<string, { es: string; en: string; icon?: st
 };
 export const PICTURE_MODULES = profiles.modules;
 export function basePictureModule(id: string) {
-  const base = id.replace(/^(foundation-|master-)/, "");
+  // A French or Italian module shares its Spanish twin's objects and scene.
+  const base = catalogTwinModuleId(id).replace(/^(foundation-|master-)/, "");
   return base === "or-cleaning" ? "or-evs" : base;
 }
 export const MODULE_PICTURE_SCENES: readonly PictureScene[] = profiles.modules.map((m) => {
@@ -127,9 +130,12 @@ export function sceneForModule(moduleId: string, category = ""): SceneId {
     return "workshop";
   return "bedroom";
 }
+/** Picture scenes are authored in the historical course pair; it and its reverse are supported. */
 export function supportsPicturePair(target: string, native: string) {
+  const pair = historicalCoursePair();
   return (
-    (target === "Spanish" && native === "English") || (target === "English" && native === "Spanish")
+    (target === pair.target && native === pair.native) ||
+    (target === pair.native && native === pair.target)
   );
 }
 export function acceptsPictureTarget(scene: PictureScene, id: string, p: Point) {

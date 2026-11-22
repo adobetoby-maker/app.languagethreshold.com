@@ -10,6 +10,7 @@ import {
   parseLessonContent,
   type LessonContentFile,
 } from "@/lib/lesson-content-core";
+import { catalogLessonPack, loadCatalogContent } from "@/data/language-packs/catalog-lessons";
 
 export type LessonContentStatus = "loading" | "ready" | "none";
 
@@ -41,6 +42,19 @@ export function loadLessonContent(
   if (files.has(key)) return Promise.resolve(files.get(key) ?? null);
   const existing = requests.get(key);
   if (existing) return existing;
+  // A catalog pack (fr, it in QA builds) has no /lesson-content file: its lessons come from the
+  // pack catalog, adapted to the same file shape. A missing module stays "no content".
+  const catalogPack = catalogLessonPack(language);
+  if (catalogPack) {
+    const fromCatalog = loadCatalogContent(moduleId, language, catalogPack)
+      .then((file) => {
+        files.set(key, file);
+        return file;
+      })
+      .finally(() => requests.delete(key));
+    requests.set(key, fromCatalog);
+    return fromCatalog;
+  }
   const promise = (async () => {
     try {
       // A stalled request must not hold See it on its loading skeleton.

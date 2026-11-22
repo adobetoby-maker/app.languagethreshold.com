@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { ArrowLeft, ArrowRight, Check, Lock, RotateCcw } from "lucide-react";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import { recordSeriesStep, seriesMastered, seriesProgress, sourceFilterFor, stepUnlocked, type VerbDeviceState } from "@/lib/verb-games/device";
 import { familyById } from "@/lib/verb-games/families";
 import { MATCH_SIZE, SERIES_STEPS, seriesItems, seriesSlots, type SeriesStep } from "@/lib/verb-games/series";
@@ -72,7 +73,13 @@ export function VerbSeries(p: {
   // (Listen does not report its form: it reads the next one as it advances, and that newer
   // request already takes the place of an older notice.)
   const [card, setCard] = useState<string | null>(null);
-  const { speak: speakListening, locale } = useListeningSpeaker("verb-series", "Spanish", card);
+  const {
+    speak: speakListening,
+    locale: packLocale,
+    available: voiceAvailable,
+  } = useListeningSpeaker("verb-series", usePack(data.language), card);
+  // The verb data's pack always has a voice locale; "" only when it has none (then nothing plays).
+  const locale = packLocale ?? "";
   const listeningMode = listeningPlan(locale).mode;
   const speak = useCallback(
     (text: string, onFail?: () => void) =>
@@ -83,16 +90,21 @@ export function VerbSeries(p: {
           // HD audio that could not play is put to the learner (retry, or this device's voice),
           // and a voice that is still loading is ready a moment later. Listen keeps listening in
           // both cases, and reads instead only when nothing on this device could play the form.
-          if (plan.strict && (plan.pending === "loading" || !noVoiceFor(locale, null))) return;
+          if (
+            voiceAvailable &&
+            plan.strict &&
+            (plan.pending === "loading" || !noVoiceFor(locale, null))
+          )
+            return;
           onFail?.();
         },
       }),
-    [speakListening, rate, listeningPlan, locale],
+    [speakListening, rate, listeningPlan, locale, voiceAvailable],
   );
   // Recorded and HD audio need no installed voice; only the device route can be missing one.
   const audioMissing = useCallback(
-    () => listeningMode === "device" && noVoiceFor(locale, null),
-    [listeningMode, locale],
+    () => !voiceAvailable || (listeningMode === "device" && noVoiceFor(locale, null)),
+    [listeningMode, locale, voiceAvailable],
   );
 
   const examples = useMemo(() => {
@@ -293,7 +305,7 @@ export function VerbSeries(p: {
               )}
               {view.kind === "play" && view.step === "match" && <MatchStep key={view.run} data={data} source={source} family={family} seed={view.seed} onFinish={onFinish} />}
               {view.kind === "play" && view.step === "cards" && <CardsStep key={view.run} items={items} speak={speak} onCard={setCard} onFinish={onFinish} />}
-              {view.kind === "play" && view.step === "type" && <TypeStep key={view.run} items={items} onFinish={onFinish} />}
+              {view.kind === "play" && view.step === "type" && <TypeStep key={view.run} items={items} lang={data.language} onFinish={onFinish} />}
               {view.kind === "result" && (
                 <ResultPanel
                   step={view.step}

@@ -89,7 +89,7 @@ test("drift: warns per changed lesson, never fails; prints current hashes for au
   assert.equal(code, 0);
   assert.match(out, /drift: 30 lessons compared; 30 changed; 0 missing/);
   assertNoContent(out);
-  const hashes = run("exams2-drift.mts", ["--print-hashes", "roofing"]);
+  const hashes = run("exams2-drift.mts", ["--print-hashes", "roofing", "Spanish", "English"]);
   assert.equal(hashes.code, 0);
   const lines = hashes.out.trim().split("\n");
   assert.equal(lines.length, 30);
@@ -104,7 +104,10 @@ test("drift: warns per changed lesson, never fails; prints current hashes for au
     run("exams2-drift.mts", [write("current.json", current)]).out,
     /30 lessons compared; 0 changed/,
   );
-  assert.equal(run("exams2-drift.mts", ["--print-hashes", "no-such-module"]).code, 2);
+  assert.equal(
+    run("exams2-drift.mts", ["--print-hashes", "no-such-module", "Spanish", "English"]).code,
+    2,
+  );
 });
 
 test("import: validates first, needs env credentials, never prints them or content", () => {

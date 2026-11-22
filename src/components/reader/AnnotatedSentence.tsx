@@ -1,4 +1,5 @@
 import type { Annotation } from "@/state/notes-state";
+import { cleanTapWord } from "./ClickableText";
 import { wordA11yProps } from "@/lib/learning-guidance";
 
 /**
@@ -13,9 +14,12 @@ export function AnnotatedSentence({
   text,
   annotations,
   onWordClick,
+  language,
 }: {
   text: string;
   annotations: Annotation[];
+  /** Language of `text`: picks the punctuation and elision rules for tapped words. */
+  language?: string | null;
   onWordClick: (word: string, sentence: string, x: number, y: number) => void;
 }) {
   // Build ranges
@@ -78,7 +82,7 @@ export function AnnotatedSentence({
 
         return (
           <span key={i} className={className} data-note-start={isStartOfNote || undefined}>
-            <Tokens text={slice} fullSentence={text} onWordClick={onWordClick} />
+            <Tokens text={slice} fullSentence={text} onWordClick={onWordClick} language={language} />
             {isEndOfNote && noteIdx ? (
               <sup className="ml-0.5 font-mono text-[9px] text-gold">{toSuperscript(noteIdx)}</sup>
             ) : null}
@@ -112,8 +116,10 @@ function Tokens({
   text,
   fullSentence,
   onWordClick,
+  language,
 }: {
   text: string;
+  language?: string | null;
   fullSentence: string;
   onWordClick: (w: string, sentence: string, x: number, y: number) => void;
 }) {
@@ -122,7 +128,7 @@ function Tokens({
     <>
       {tokens.map((tok, i) => {
         if (/^\s+$/.test(tok) || tok === "") return <span key={i}>{tok}</span>;
-        const clean = tok.replace(/^[¿¡«"'([]+|[.,;:!?»"')\]]+$/g, "");
+        const clean = cleanTapWord(tok, language);
         if (!clean) return <span key={i}>{tok}</span>;
         return (
           <span

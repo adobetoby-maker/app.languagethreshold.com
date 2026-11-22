@@ -34,6 +34,10 @@ import {
   X,
 } from "lucide-react";
 import { isMissionTtsSpeed, type MissionPartnerVersion } from "@/data/mission-tts";
+import { packFor } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { appData } from "@/data/language-packs/app-data";
+import { isSpeakingMissionLanguageEnabled, speakingAwaitsReview } from "@/lib/speaking-review";
 import {
   RELATIONSHIP_GROUPS,
   type RelationshipGroup,
@@ -141,39 +145,25 @@ function missionTurnId() {
   return `${Date.now()}-${crypto.randomUUID()}`;
 }
 
+// Authored partner samples and "ask for an example" lines (app/<code>.json phrases). A language with
+// none there uses its own pack phrases (pack.phrases.partnerPreview / clarification); a pack with neither gets
+// no sample and no button, never another language's line.
 function partnerVoiceSample(
   language: SpeakingMissionLanguage,
   partnerVersion: MissionPartnerVersion,
-) {
-  if (language === "Italian") {
-    return partnerVersion === "woman"
-      ? "Ciao, sono la tua compagna di conversazione. Cominciamo?"
-      : "Ciao, sono il tuo compagno di conversazione. Cominciamo?";
-  }
-  if (language === "Japanese") {
-    return "こんにちは。会話練習のパートナーです。始めましょうか。";
-  }
-  if (language === "English") {
-    return partnerVersion === "woman"
-      ? "Hello, I'm your conversation partner. Shall we begin?"
-      : "Hello, I'm your conversation partner. Shall we get started?";
-  }
-  return partnerVersion === "woman"
-    ? "Hola, soy su compañera de práctica. ¿Empezamos?"
-    : "Hola, soy su compañero de práctica. ¿Empezamos?";
+): string | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  return (
+    appData(pack).phrases.partnerSample?.[partnerVersion] ??
+    (pack.phrases.partnerPreview.trim() || null)
+  );
 }
 
-function clarificationPhrase(language: SpeakingMissionLanguage) {
-  if (language === "Spanish") {
-    return "No entiendo todavía. ¿Puede repetir más despacio y darme un ejemplo?";
-  }
-  if (language === "Italian") {
-    return "Non capisco ancora. Può ripetere più lentamente e farmi un esempio?";
-  }
-  if (language === "Japanese") {
-    return "まだ分かりません。もう少しゆっくり、例を使って説明していただけますか。";
-  }
-  return "I don't understand yet. Could you repeat more slowly and give me an example?";
+function clarificationPhrase(language: SpeakingMissionLanguage): string | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  return appData(pack).phrases.missionClarification ?? (pack.phrases.clarification.trim() || null);
 }
 
 function highStakesNotice(mission: SpeakingMission) {
@@ -313,23 +303,37 @@ export function SpeakingMissionsPreview({
     embeddedMissionPrefix ? false : consumeCoreSpeakingEntry(),
   );
   const coreEntryRequestedRef = useRef(coreEntryRequested);
-  const japaneseSpeakingReviewed = import.meta.env.VITE_JAPANESE_SPEAKING_REVIEWED === "true";
-  const hasValidLanguagePair =
-    appState.selectedLanguage !== "English" || appState.nativeLanguage !== "English";
+  const selectedPack = packFor(appState.selectedLanguage);
+  // Pending-review languages are signed off by VITE_<NAME>_SPEAKING_REVIEWED (speaking-review.ts).
+  const awaitingReview = Boolean(
+    selectedPack && speakingAwaitsReview(selectedPack, import.meta.env),
+  );
+  const enabledSpeakingNames = SPEAKING_LANGUAGES.filter((entry) =>
+    isSpeakingMissionLanguageEnabled(entry.language, import.meta.env),
+  ).map((entry) => entry.language);
+  // English cannot also be the learner's native coaching language.
+  const sameLanguagePair =
+    appState.selectedLanguage === "English" && appState.nativeLanguage === "English";
+  const hasValidLanguagePair = !sameLanguagePair;
   const missionLanguage =
-    SPEAKING_LANGUAGES.some((entry) => entry.language === appState.selectedLanguage) &&
-    (appState.selectedLanguage !== "Japanese" || japaneseSpeakingReviewed) &&
-    hasValidLanguagePair
+    enabledSpeakingNames.some((name) => name === appState.selectedLanguage) && hasValidLanguagePair
       ? (appState.selectedLanguage as SpeakingMissionLanguage)
       : null;
   // Core Speaking shows the same readings the Reader and Flashcards do —
   // without them a learner meets bare kanji/hanzi in the transcript and the
   // reference vocabulary with no way to sound it out. Japanese gets furigana,
   // Chinese gets pinyin; every other language renders unchanged.
-  const readingScript: "japanese" | "chinese" | null =
-    missionLanguage === "Japanese" ? "japanese" : missionLanguage === "Chinese" ? "chinese" : null;
-  const showFurigana = missionLanguage === "Japanese";
-  const showPinyin = missionLanguage === "Chinese";
+  const missionPack = missionLanguage ? packFor(missionLanguage) : null;
+  const showFurigana = missionPack?.script.readingAid === "furigana";
+  // Han characters on their own (no kana) are read with pinyin.
+  const showPinyin = Boolean(
+    missionPack?.script.iso15924.includes("Hani") && !missionPack.script.iso15924.includes("Jpan"),
+  );
+  const readingScript: "japanese" | "chinese" | null = showFurigana
+    ? "japanese"
+    : showPinyin
+      ? "chinese"
+      : null;
   const tripPlan = missionLanguage ? appState.nextTrips[missionLanguage] : null;
   const tripDestination = getTravelDestination(tripPlan?.destinationId);
   const activeTravelDestination =
@@ -353,6 +357,10 @@ export function SpeakingMissionsPreview({
     );
   }, [languageModules, allLanguageMissions]);
   const missionLocale = accent ?? selectedMission?.locale;
+  const voiceSample = selectedMission
+    ? partnerVoiceSample(selectedMission.language, partnerVersion)
+    : null;
+  const clarification = selectedMission ? clarificationPhrase(selectedMission.language) : null;
   const partnerSpeed = isMissionTtsSpeed(rate) ? rate : 1;
   const {
     key: lifecycleKey,
@@ -1364,10 +1372,26 @@ export function SpeakingMissionsPreview({
   }
   if (!selectedMission) {
     if (!missionLanguage) {
-      const japaneseAwaitingReview =
-        appState.selectedLanguage === "Japanese" && !japaneseSpeakingReviewed;
-      const sameLanguagePair =
-        appState.selectedLanguage === "English" && appState.nativeLanguage === "English";
+      const awaitingReviewNow = awaitingReview;
+      // French and Italian: the unavailable state names only the learner's own language.
+      const catalogPack = catalogLessonPack(appState.selectedLanguage);
+      if (catalogPack)
+        return (
+          <section
+            ref={viewTopRef}
+            className="scroll-mt-4 mt-5 rounded-3xl border border-border/70 bg-card/40 p-5"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              Scenario missions
+            </p>
+            <h2 className="mt-2 font-serif text-2xl text-foreground">
+              {catalogPack.name} missions are coming soon
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Scenario missions are not available in {catalogPack.name} yet.
+            </p>
+          </section>
+        );
       return (
         <section
           ref={viewTopRef}
@@ -1377,15 +1401,15 @@ export function SpeakingMissionsPreview({
             Scenario missions
           </p>
           <h2 className="mt-2 font-serif text-2xl text-foreground">
-            {japaneseAwaitingReview
-              ? "Japanese missions are awaiting curriculum review"
+            {awaitingReviewNow
+              ? `${appState.selectedLanguage} missions are awaiting curriculum review`
               : sameLanguagePair
                 ? "Choose your native language to study English"
                 : `${appState.selectedLanguage} missions are next in the rollout`}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            {japaneseAwaitingReview
-              ? "The Japanese catalog is built but remains hidden until its curriculum review flag is approved. Spanish, Italian, and English missions can be used now."
+            {awaitingReviewNow
+              ? `The ${appState.selectedLanguage} catalog is built but remains hidden until its curriculum review flag is approved. Spanish, Italian, and English missions can be used now.`
               : sameLanguagePair
                 ? "English cannot also be your native coaching language. Choose your actual native language from the native-language menu, then return here for the complete English catalog."
                 : "The complete topic catalog is currently available for Spanish, Italian, and English. Choose one of those languages from the language menu to practice its full set."}
@@ -1892,14 +1916,10 @@ export function SpeakingMissionsPreview({
                   Voice, accent, speed and audio fallback are managed in Settings → Voices & audio.
                   Changing the speaking voice does not change the listening voice.
                 </p>
-                {partnerAudioSource !== "text" && partnerAudioReady && (
+                {partnerAudioSource !== "text" && partnerAudioReady && voiceSample && (
                   <button
                     type="button"
-                    onClick={() =>
-                      void speakPartnerText(
-                        partnerVoiceSample(selectedMission.language, partnerVersion),
-                      )
-                    }
+                    onClick={() => void speakPartnerText(voiceSample)}
                     className="mt-2 min-h-11 rounded-lg border border-border px-3 font-semibold"
                   >
                     Play speaking voice sample
@@ -2102,22 +2122,24 @@ export function SpeakingMissionsPreview({
                 </p>
                 {activeObjective && (
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setTypedTurn(clarificationPhrase(selectedMission.language));
-                        setTranscriptSource("typed");
-                      }}
-                      disabled={
-                        status === "thinking" ||
-                        status === "listening" ||
-                        status === "starting" ||
-                        partnerSpeaking
-                      }
-                      className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
-                    >
-                      Help me ask for an example
-                    </button>
+                    {clarification && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setTypedTurn(clarification);
+                          setTranscriptSource("typed");
+                        }}
+                        disabled={
+                          status === "thinking" ||
+                          status === "listening" ||
+                          status === "starting" ||
+                          partnerSpeaking
+                        }
+                        className="rounded-full border border-sky-300/40 px-3 py-1.5 text-xs text-sky-200 disabled:opacity-40"
+                      >
+                        Help me ask for an example
+                      </button>
+                    )}
                     <button
                       type="button"
                       onClick={() =>
@@ -2344,6 +2366,7 @@ export function SpeakingMissionsPreview({
                           text={turn.text}
                           onWordLookup={openWordDefinition}
                           reading={readingScript}
+                          language={missionLanguage}
                         />
                       )}
                     </span>

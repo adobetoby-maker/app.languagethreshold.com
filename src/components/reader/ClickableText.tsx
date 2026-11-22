@@ -1,3 +1,5 @@
+import { packFor } from "@/data/language-packs/registry";
+
 type Script = "kanji" | "kana" | "ascii" | "punct";
 
 function scriptOf(ch: string): Script {
@@ -60,11 +62,37 @@ function tokenizeJapanese(text: string): JToken[] {
  */
 export const CLICK_CLASS = "lt-word";
 
+const EDGE_MARKS = /^[^\p{L}\p{N}\p{M}]+|[^\p{L}\p{N}\p{M}]+$/gu;
+
+/**
+ * The word a tap on `token` looks up: edge punctuation of any script removed (quotes, ellipsis,
+ * inverted marks, guillemets) and, for a language that elides (French l'eau, Italian dell'acqua),
+ * the elided prefix taken off. The language is read from its pack (`pack.dictionary.lookup`).
+ */
+export function cleanTapWord(token: string, language?: string | null): string {
+  const clean = token.replace(EDGE_MARKS, "");
+  const pack = packFor(language);
+  if (!pack) return clean;
+  const lower = clean.toLocaleLowerCase(pack.script.segmenterLocale);
+  const variants = [pack.typography.apostrophe, ...pack.typography.apostropheVariants];
+  for (const prefix of pack.dictionary.lookup.elisionPrefixes) {
+    const stem = prefix.replace(/['’ʼ‘]$/u, "");
+    for (const mark of variants) {
+      const head = `${stem}${mark}`;
+      if (lower.startsWith(head) && clean.length > head.length) return clean.slice(head.length);
+    }
+  }
+  return clean;
+}
+
 export function ClickableText({
   text,
   onWordClick,
+  language,
 }: {
   text: string;
+  /** Language of `text` (code or stored name): picks the punctuation and elision rules. */
+  language?: string | null;
   onWordClick: (word: string, sentence: string, x: number, y: number) => void;
 }) {
   // Japanese text contains hiragana/katakana — tokenize by script boundary
@@ -98,7 +126,7 @@ export function ClickableText({
     <>
       {tokens.map((tok, i) => {
         if (/^\s+$/.test(tok)) return <span key={i}>{tok}</span>;
-        const clean = tok.replace(/^[¿¡«"'([]+|[.,;:!?»"')\]]+$/g, "");
+        const clean = cleanTapWord(tok, language);
         if (!clean) return <span key={i}>{tok}</span>;
         return (
           <span

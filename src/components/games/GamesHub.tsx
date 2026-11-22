@@ -15,7 +15,7 @@ import {
   Layers,
 } from "lucide-react";
 import { ExamShortcut } from "@/components/exams/ExamShortcut";
-import { useApp, type TabKey } from "@/state/app-state";
+import { useApp, type Language, type TabKey } from "@/state/app-state";
 import { useConjugation, type LeaderboardKey as CKey } from "@/state/conjugation-state";
 import { useSentenceBuild, type SBLeaderboardKey } from "@/state/sentence-build-state";
 import { useListeningDrill } from "@/state/listening-drill-state";
@@ -28,6 +28,8 @@ import { CrossGameAchievements } from "./CrossGameAchievements";
 import { VerbsSection } from "./verbs/VerbsSection";
 import { SoccerPositionsGame } from "./SoccerPositionsGame";
 import { BaseballPositionsGame } from "./BaseballPositionsGame";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { getModule, moduleSupportsLanguage } from "@/data/modules";
 
 // Cross-component event the parent route listens for to open the Match
 // overlay. Decouples this tab from the overlay-opener prop drilling.
@@ -254,7 +256,9 @@ export function GamesHub() {
   const dailyBadge = daily.badge();
 
   return (
-    <div data-games-hub="" className="mx-auto max-w-4xl space-y-3 sm:space-y-6">
+    // pb-20 keeps the last row clear of the fixed Study/Speak bar at full scroll (layout fix,
+    // owner rule 2b: every language).
+    <div data-games-hub="" className="mx-auto max-w-4xl space-y-3 pb-20 sm:space-y-6">
       <div>
         <h1 className="font-display text-2xl sm:text-3xl font-semibold">Practice Lab</h1>
         <p className="mt-1 text-sm text-muted-foreground">
@@ -268,9 +272,18 @@ export function GamesHub() {
         </summary>
         <p className="my-3 text-sm">
           Practice instructions in a scene that fits your module.{" "}
-          <a className="underline" href="/place-directions">
-            Open the full game and course preview
-          </a>
+          {/* The full preview (/place-directions) is the Spanish course: a French or Italian
+              learner reads its unavailable state instead of a link to Spanish. */}
+          {catalogLessonPack(state.selectedLanguage) ? (
+            <span className="text-muted-foreground">
+              The full game and course preview is not available in{" "}
+              {catalogLessonPack(state.selectedLanguage)!.name} yet.
+            </span>
+          ) : (
+            <a className="underline" href="/place-directions">
+              Open the full game and course preview
+            </a>
+          )}
         </p>
         <PlaceDirectionsGame
           key={`${state.activeModuleId}:${state.selectedLanguage}:${state.nativeLanguage}`}
@@ -368,7 +381,9 @@ export function GamesHub() {
                 </h3>
                 <p className="mt-1 text-xs leading-snug text-muted-foreground">{g.blurb}</p>
               </div>
-              <div className="mt-auto grid grid-cols-3 gap-1 border-t border-border/40 pt-3">
+              {/* Below 640 px the three stats share the row by content width, so BEST / PERFECT /
+                  ACC never overlap (layout fix, owner rule 2b: every language). */}
+              <div className="mt-auto flex justify-between gap-1 border-t border-border/40 pt-3 sm:grid sm:grid-cols-3">
                 <MiniStat label="Best" value={stats.bestStreak} />
                 <MiniStat label="Perfect" value={stats.perfectRuns} />
                 <MiniStat label="Acc" value={`${acc}%`} />
@@ -384,7 +399,7 @@ export function GamesHub() {
 
       {/* ── Module-specific games ──────────────────────────────────────── */}
       <ModuleGamesSection
-        language={state.selectedLanguage ?? "Spanish"}
+        language={state.selectedLanguage}
         activeModule={state.activeModuleId ?? null}
       />
 
@@ -518,8 +533,8 @@ function Stat({
 
 function MiniStat({ label, value }: { label: string; value: string | number }) {
   return (
-    <div>
-      <div className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground">
+    <div className="min-w-0">
+      <div className="whitespace-nowrap font-mono text-[8px] uppercase tracking-normal text-muted-foreground sm:tracking-[0.18em]">
         {label}
       </div>
       <div className="font-display text-sm font-semibold text-foreground">{value}</div>
@@ -582,6 +597,35 @@ function ModuleGamesSection({
 
       {available.map((moduleId) => {
         const meta = MODULE_GAMES[moduleId]!;
+        // French and Italian: a sport module outside their library keeps its card in the
+        // unavailable state, instead of opening another language's module (owner decision 1).
+        const catalogPack = catalogLessonPack(language);
+        const module = getModule(moduleId);
+        const unavailable =
+          catalogPack !== null &&
+          (!module || !moduleSupportsLanguage(module, language as Language));
+        if (unavailable)
+          return (
+            <div
+              key={moduleId}
+              aria-disabled="true"
+              data-testid={`module-game-unavailable-${moduleId}`}
+              className="overflow-hidden rounded-2xl border border-border/60 bg-card/30 opacity-70"
+            >
+              <div className="flex items-center gap-3 px-5 py-3">
+                <span className="text-2xl">{meta.emoji}</span>
+                <div className="min-w-0">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                    Coming soon in {catalogPack.name}
+                  </span>
+                  <h3 className="font-display text-base font-semibold">{meta.title}</h3>
+                  <p className="text-xs text-muted-foreground">
+                    Not available in {catalogPack.name} yet.
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
         const isActive = activeModule === moduleId;
         return (
           <div

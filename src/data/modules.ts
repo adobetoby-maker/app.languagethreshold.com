@@ -8,6 +8,18 @@ import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts
 import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { core60FixtureModules, core60Manifest } from "./core60-stages.ts";
 import { withDerivedStageModules } from "../lib/core60-stage-core.ts";
+import { PACKS, packFor, sameLanguage, workplaceCoursePack } from "./language-packs/registry.ts";
+import { catalogHasModule } from "./language-packs/catalog.ts";
+import { catalogLessonPack } from "./language-packs/catalog-lessons.ts";
+import {
+  catalogCoreModules,
+  catalogManifestEntries,
+  catalogModuleIdFor,
+} from "./language-packs/catalog-modules.ts";
+import { LANGUAGES, NATIVE_LANGUAGES, nativeLanguageName } from "./languages.ts";
+
+/** The target language a learnDirection "en-target" module teaches (its app file sets workplaceCourse). */
+const workplaceTarget = (): string => workplaceCoursePack().code;
 
 export interface AppModule {
   id: string;
@@ -51,9 +63,21 @@ export interface AppModule {
   learnDirection?: "en-target";
 }
 
-/** Returns true if `module` supports the given target `language`. */
+/**
+ * Returns true if `module` supports the given target `language`.
+ * A language whose lessons come from its pack catalog (French, Italian) is offered exactly the
+ * modules of its catalog: the shared hand-written modules its catalog lists and its own catalog
+ * modules (catalog-modules.ts), never another language's. Every other language keeps the
+ * behaviour it has always had: a module with a `languages` list is offered to those languages,
+ * and a module without one to every language.
+ */
 export function moduleSupportsLanguage(module: AppModule, language: Language): boolean {
-  return !module.languages || module.languages.includes(language);
+  const catalogPack = catalogLessonPack(language);
+  if (catalogPack) {
+    if (module.languages) return module.languages.some((entry) => sameLanguage(entry, language));
+    return catalogHasModule(catalogPack, module.id);
+  }
+  return !module.languages || module.languages.some((entry) => sameLanguage(entry, language));
 }
 
 /** Returns true when a module belongs to the learner's source → target direction. */
@@ -66,14 +90,19 @@ export function moduleSupportsLearningPair(
     return (
       module.authoredPair.target === targetLanguage && module.authoredPair.native === nativeLanguage
     );
-  if (targetLanguage === "English") {
-    if (nativeLanguage === "English") return false;
+  if (sameLanguage(targetLanguage, workplaceTarget())) {
+    if (sameLanguage(nativeLanguage, workplaceTarget())) return false;
     if (module.learnDirection === "en-target") {
       return !module.nativeLanguages || module.nativeLanguages.includes(nativeLanguage);
     }
-    // Regular modules have authored English ↔ Spanish material. Expose the
-    // reversed direction only when its Spanish scaffold is available.
-    return nativeLanguage === "Spanish" && moduleSupportsLanguage(module, "Spanish");
+    // Regular modules have authored material in the historical course pair. Expose the reversed
+    // direction only when its scaffold (the workplace course's default native) is available.
+    const scaffold = nativeLanguageName(packFor(targetLanguage)?.native.default);
+    return (
+      scaffold !== null &&
+      nativeLanguage === scaffold &&
+      moduleSupportsLanguage(module, scaffold as Language)
+    );
   }
   return (
     module.learnDirection !== "en-target" &&
@@ -1960,9 +1989,77 @@ export const HANDWRITTEN_MODULES: readonly AppModule[] = CATALOG;
  * exactly CATALOG.
  */
 export const MODULES: AppModule[] = withDerivedStageModules(
-  [...CATALOG, ...core60FixtureModules()],
-  core60Manifest(),
+  [...CATALOG, ...core60FixtureModules(), ...catalogCoreModules(CATALOG)],
+  [...core60Manifest(), ...catalogManifestEntries(CATALOG)],
 );
+
+/**
+ * The French and Italian library modules taken from their pack catalogs (catalog-modules.ts): own
+ * Core 30 entries and every catalog Foundation and Master. Features that need content authored per
+ * module (speaking missions, decks) have none for them yet and leave them out.
+ */
+export const CATALOG_LIBRARY_MODULE_IDS: ReadonlySet<string> = new Set([
+  ...catalogCoreModules(CATALOG).map((module) => module.id),
+  ...catalogManifestEntries(CATALOG).flatMap((entry) => [
+    entry.foundation?.moduleId ?? "",
+    entry.master?.moduleId ?? "",
+  ]),
+]);
+
+/** "Spanish|English|…": every registered language name. */
+const LANGUAGE_NAMES = PACKS.map((pack) => pack.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join(
+  "|",
+);
+
+/**
+ * The blurb a learner of `language` reads on a module card. A shared hand-written module's blurb
+ * may name the historical course's languages ("… with patients in English or Spanish."); a
+ * learner whose lessons come from a pack catalog (French, Italian) reads it with those names
+ * replaced by the language they are learning. Every other learner reads the blurb as written.
+ */
+export function moduleBlurbFor(module: Pick<AppModule, "blurb">, language: string): string {
+  const pack = catalogLessonPack(language);
+  if (!pack) return module.blurb;
+  return module.blurb.replace(
+    new RegExp(`\\bin (?:${LANGUAGE_NAMES})(?: or (?:${LANGUAGE_NAMES}))*\\b`, "g"),
+    `in ${pack.name}`,
+  );
+}
+
+/**
+ * For a French or Italian learner (a pack whose library comes from its catalog): the module of
+ * their own course that `moduleId` names, or null when their library has no such module. For any
+ * other language: undefined (the module id is used as it is).
+ */
+export function packCourseModuleId(
+  moduleId: string | null | undefined,
+  language: string,
+): string | null | undefined {
+  const pack = catalogLessonPack(language);
+  if (!pack) return undefined;
+  if (!moduleId) return null;
+  const id = catalogModuleIdFor(pack, moduleId, CATALOG);
+  return id && MODULES.some((module) => module.id === id) ? id : null;
+}
+
+/**
+ * The learning pair a link asks for (?target=…&native=…), or null when it names none. A link to a
+ * French or Italian course (a pack whose library comes from its catalog) may leave out `native`:
+ * the pack's default native language is used, so "?module=roofing&target=French" opens the French
+ * course. For every other target both parameters are needed, as before.
+ */
+export function linkLearningPair(
+  target: string | null | undefined,
+  native: string | null | undefined,
+): { target: Language; native: NativeLanguage } | null {
+  if (!target || !LANGUAGES.includes(target)) return null;
+  if (native && NATIVE_LANGUAGES.includes(native as NativeLanguage))
+    return { target, native: native as NativeLanguage };
+  if (native) return null;
+  const pack = catalogLessonPack(target);
+  const fallback = pack ? nativeLanguageName(pack.native.default) : null;
+  return fallback ? { target, native: fallback } : null;
+}
 
 export function getModule(id: string | null | undefined): AppModule | null {
   if (!id) return null;

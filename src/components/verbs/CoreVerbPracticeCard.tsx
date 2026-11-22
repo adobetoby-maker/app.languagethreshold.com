@@ -1,9 +1,17 @@
 import { Repeat2, ArrowRight } from "lucide-react";
 import { useApp } from "@/state/app-state";
+import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { hasVerbPatterns } from "@/lib/verb-games/load-patterns";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 
 /** Shared Core entry point; uses the same refreshable route as the main Verbs tab. */
 export function CoreVerbPracticeCard({ compact = false }: { compact?: boolean }) {
   const { state } = useApp();
+  const pack = packFor(state.selectedLanguage);
+  const authored = hasVerbPatterns(pack) && sameLanguage(state.nativeLanguage, pack.native.default);
+  // French and Italian have the conjugation drills and their Conjugation Patterns course, not the
+  // ten-minute verb games: the card promises only what opens.
+  const catalogPack = !authored ? catalogLessonPack(state.selectedLanguage) : null;
   const params = new URLSearchParams({
     tab: "verbs",
     module: state.activeModuleId ?? "core",
@@ -17,14 +25,16 @@ export function CoreVerbPracticeCard({ compact = false }: { compact?: boolean })
     >
       <h2 className="flex items-center gap-2 font-display text-lg font-semibold">
         <Repeat2 className="h-5 w-5 text-gold-ink" aria-hidden="true" />
-        Verbs · ten minutes a day
+        {catalogPack ? "Verbs · conjugation drills" : "Verbs · ten minutes a day"}
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        {compact
-          ? "Keep practicing your verbs with games, conjugations and useful speaking patterns."
-          : state.selectedLanguage === "Spanish" && state.nativeLanguage === "English"
-            ? "Remember the verb, change its form, then use it. Practice with matching, Hangman and speaking patterns such as tener que, gerunds and past participles."
-            : "Explore verb forms and speaking patterns available for your selected language."}
+        {catalogPack
+          ? `Drill ${catalogPack.name} verb forms, then work through the Conjugation Patterns course.`
+          : compact
+            ? "Keep practicing your verbs with games, conjugations and useful speaking patterns."
+            : authored
+              ? "Remember the verb, change its form, then use it. Practice with matching, Hangman and speaking patterns such as tener que, gerunds and past participles."
+              : "Explore verb forms and speaking patterns available for your selected language."}
       </p>
       <a
         href={`/?${params}`}

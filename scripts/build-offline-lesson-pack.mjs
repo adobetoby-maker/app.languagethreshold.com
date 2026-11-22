@@ -35,7 +35,8 @@ export function offlineAssetInventory(staticRoot, libraryShards = null) {
   return assets;
 }
 
-export async function buildOfflineLessonPack(staticRoot, packId = "roofing-es-en") {
+export async function buildOfflineLessonPack(staticRoot, packId) {
+  if (!packId) throw new Error("buildOfflineLessonPack needs a pack id (module-target-native); there is no default.");
   const compiled = await build({
     entryPoints: ["src/lib/lesson-offline-pack.ts"],
     bundle: true,

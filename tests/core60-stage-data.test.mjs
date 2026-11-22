@@ -3,9 +3,13 @@
 // src/data/core60-stages.ts): the stage file format reproduces roofing's hand-written stages
 // exactly, the validator enforces the generator contract, catalog entries and paths are derived
 // from the manifest, and the shipped (empty) manifest leaves every current module unchanged.
+import {
+  catalogCoreModules,
+  catalogManifestEntries,
+} from "../src/data/language-packs/catalog-modules.ts";
 import assert from "node:assert/strict";
 import test from "node:test";
-import { CURRICULA, getCurriculum } from "../src/data/curriculum.ts";
+import { CURRICULA, authoredCurriculum } from "../src/data/curriculum.ts";
 import { HANDWRITTEN_MODULES, MODULES, getModule } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import { FOUNDATION_ROOFING_FOCUS } from "../src/data/foundation-roofing-curriculum.ts";
@@ -286,9 +290,14 @@ test("French stages on a shared base keep French progress ids and French/English
 
 test("the shipped manifest is valid and leaves every current module exactly as written", () => {
   assert.deepEqual(validateManifest(CORE60_MANIFEST, HANDWRITTEN_MODULES, (id) => Boolean(CURRICULA[id])), []);
-  const listed = new Set(CORE60_MANIFEST.flatMap((e) => [`foundation-${e.base}`, `master-${e.base}`]));
+  const catalogEntries = catalogManifestEntries(HANDWRITTEN_MODULES);
+  const listed = new Set([
+    ...CORE60_MANIFEST.flatMap((e) => [`foundation-${e.base}`, `master-${e.base}`]),
+    ...catalogEntries.flatMap((e) => [e.foundation.moduleId, e.master.moduleId]),
+  ]);
+  const catalogCores = new Set(catalogCoreModules(HANDWRITTEN_MODULES).map((m) => m.id));
   assert.deepEqual(
-    MODULES.filter((m) => !listed.has(m.id)),
+    MODULES.filter((m) => !listed.has(m.id) && !catalogCores.has(m.id)),
     [...HANDWRITTEN_MODULES],
   );
   // Roofing keeps its hand-written path row.
@@ -360,7 +369,7 @@ test("a manifest trade gets a path; a stage not listed yet is Coming soon, not a
     electrician.steps.map((s) => [s.stage, s.moduleId, s.label, s.available]),
     [
       ["foundation", "foundation-electrician", "Foundation · 10 lessons · free", true],
-      ["core", "electrician", `Core 30 · ${getCurriculum("electrician").lessons.length} lessons`, true],
+      ["core", "electrician", `Core 30 · ${authoredCurriculum("electrician").lessons.length} lessons`, true],
       ["master", "master-electrician", "Master 20 · 20 lessons", true],
     ],
   );
@@ -401,9 +410,9 @@ test("the registry answers getCurriculum for a registered stage, and nothing els
   assert.equal(stageCurriculum("electrician"), null);
   const curriculum = stageCurriculumFromFile({ ...roofingStageFile("master"), module: "master-registry-probe" });
   registerStageCurriculum(curriculum);
-  assert.equal(getCurriculum("master-registry-probe"), curriculum);
-  assert.equal(getCurriculum("roofing"), CURRICULA.roofing);
-  assert.equal(getCurriculum("no-such-module"), null);
+  assert.equal(stageCurriculum("master-registry-probe"), curriculum);
+  assert.equal(authoredCurriculum("roofing"), CURRICULA.roofing);
+  assert.equal(authoredCurriculum("no-such-module"), null);
 });
 
 test("vosotros: pronouns and verb forms are flagged in Spanish-target text", () => {

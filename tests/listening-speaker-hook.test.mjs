@@ -46,7 +46,7 @@ async function fixture(run) {
     const outfile = join(dir, "hook.mjs");
     await build({
       stdin: {
-        contents: `export {useListeningSpeaker,listeningLocale} from './src/hooks/use-listening-speaker';export {controls} from 'fixture';`,
+        contents: `export {useListeningSpeaker,listeningLocale} from './src/hooks/use-listening-speaker';export {packFor} from './src/data/language-packs/registry';export {controls} from 'fixture';`,
         resolveDir: process.cwd(),
       },
       outfile,
@@ -76,7 +76,8 @@ async function fixture(run) {
     const render = (h, scope, language, card) => {
       c.host = h;
       h.cursor = 0;
-      const speaker = m.useListeningSpeaker(scope, language, card);
+      // Surfaces pass a pack; the tests name it by its stored legacy name.
+      const speaker = m.useListeningSpeaker(scope, m.packFor(language), card);
       for (const f of h.effects.splice(0)) f();
       return speaker;
     };
@@ -444,11 +445,13 @@ test("a voice that only finished resolving never cuts off a word that is playing
 
 test("multilingual: a surface in another language never borrows the selected language's HD voice", () =>
   fixture(async ({ m, c, host, render }) => {
-    assert.equal(m.listeningLocale("es-MX", "Spanish"), "es-MX");
-    assert.equal(m.listeningLocale("es-MX", "French"), "fr-FR");
-    assert.equal(m.listeningLocale("es-MX", "English"), "en-US");
-    assert.equal(m.listeningLocale("es-MX"), "es-MX");
-    assert.equal(m.listeningLocale("es-MX", "Klingon"), "es-MX");
+    assert.equal(m.listeningLocale("es-MX", m.packFor("Spanish")), "es-MX");
+    assert.equal(m.listeningLocale("es-MX", m.packFor("French")), "fr-FR");
+    assert.equal(m.listeningLocale("es-MX", m.packFor("English")), "en-US");
+    assert.equal(m.listeningLocale("es-MX", m.packFor("es")), "es-MX");
+    // No pack: no voice (fail closed), never the learner's accent in another language.
+    assert.equal(m.listeningLocale("es-MX", null), null);
+    assert.equal(m.listeningLocale("es-MX", m.packFor("Klingon")), null);
 
     c.speech.voiceURI = AOEDE;
     // A native-language card back (English) while learning Spanish, signed in and signed out:

@@ -3,6 +3,7 @@
 import { readFileSync } from "node:fs";
 import { createBubbleRound } from "../../src/lib/verb-games/bubble.ts";
 import { compilePatterns } from "../../src/lib/verb-games/compile.ts";
+import { verbProfilesFromAuthored } from "../../src/components/dictionary/types.ts";
 import { createCrushRound } from "../../src/lib/verb-games/crush.ts";
 import { ROUND_MS } from "../../src/lib/verb-games/rules.ts";
 import { buildRoundLog } from "../../src/lib/verb-games/scoring.ts";
@@ -104,7 +105,8 @@ export function fixtureInput(overrides = {}) {
 
   return {
     lessonFiles: [{ module: "roofing", lessons: { "l1": { verbs } } }],
-    profiles,
+    // Fixture profiles are written in the generated files' storage format.
+    profiles: verbProfilesFromAuthored(profiles),
     core: CORE.map((infinitive) => ({ infinitive, english: VERBS[infinitive][1] })),
     crushLevels: structuredClone(CRUSH_LEVELS),
     signoff: null,

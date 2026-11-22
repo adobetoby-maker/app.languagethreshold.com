@@ -20,8 +20,12 @@ import {
   stageCurriculumFromFile,
   stageFileRelativePath,
   manifestStageModuleId,
+  entryNativeLanguage,
   type Core60ManifestEntry,
 } from "../lib/core60-stage-core.ts";
+import { PACKS, sameLanguage } from "./language-packs/registry.ts";
+
+const MISSION_CODES = new Set(PACKS.map((pack) => pack.ids.missionCode));
 
 type Loader = () => Promise<unknown>;
 
@@ -162,7 +166,7 @@ function curriculumFrom(moduleId: string, raw: unknown): ModuleCurriculum | null
     moduleId,
     stage: found.stage,
     language: found.entry.language,
-    nativeLanguage: found.entry.nativeLanguage ?? (found.entry.language === "English" ? "Spanish" : "English"),
+    nativeLanguage: entryNativeLanguage(found.entry) ?? undefined,
   });
   return file ? stageCurriculumFromFile(file) : null;
 }
@@ -321,10 +325,10 @@ export function ensureStageCurriculum(
  * every other scenario (Core 30, roofing's hand-written stages, curated and core missions).
  */
 export function stageModuleIdOfScenario(scenarioVersionId: string): string | null {
-  const match = scenarioVersionId.match(
-    /^scenario_version_(.+)_(?:lesson|challenge)_\d+_(?:es|it|ja|zh|en)_v1$/,
-  );
-  return match && dataStageOf(match[1]) ? match[1] : null;
+  // Mission codes come from the pack registry (ids.missionCode), never a hand-kept list.
+  const match = scenarioVersionId.match(/^scenario_version_(.+)_(?:lesson|challenge)_\d+_([^_]+)_v1$/);
+  if (!match || !MISSION_CODES.has(match[2])) return null;
+  return dataStageOf(match[1]) ? match[1] : null;
 }
 
 /** Every listed stage module id (the fixture's too, in fixture mode). */
@@ -388,7 +392,7 @@ export function pendingStageLessonMissionCount(baseModuleId: string, language: s
   let pending = 0;
   for (const id of stageModulesOfBase(baseModuleId)) {
     const found = dataStageOf(id);
-    if (!found || found.entry.language !== language) continue;
+    if (!found || !sameLanguage(found.entry.language, language)) continue;
     const status = stageCurriculumStatus(id);
     if (status === "loading" || (status === "unavailable" && failed.has(id)))
       pending += CORE60_STAGE_LESSONS[found.stage];

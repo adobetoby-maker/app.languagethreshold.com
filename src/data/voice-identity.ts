@@ -263,7 +263,36 @@ const DEVICE_MEN = new Set([
   "henri",
 ]);
 
-export function deviceVoiceGender(name: string): VoiceGender | null {
+// French and Italian voices that ship with Apple, Microsoft and Chrome. They only count for a
+// French or Italian voice, so Spanish and other voices keep the base gender table.
+const PACK_DEVICE_WOMEN = new Set([
+  "denise",
+  "eloise",
+  "éloïse",
+  "hortense",
+  "julie",
+  "vivienne",
+  "brigitte",
+  "isabella",
+  "elsa",
+  "emma",
+  "paola",
+  "carla",
+]);
+const PACK_DEVICE_MEN = new Set([
+  "paul",
+  "claude",
+  "rémy",
+  "remy",
+  "cosimo",
+  "giorgio",
+  "marco",
+  "gabriele",
+  "lorenzo",
+]);
+const PACK_VOICE_FAMILIES = new Set(["fr", "it"]);
+
+export function deviceVoiceGender(name: string, lang?: string): VoiceGender | null {
   if (/\bfemale\b/i.test(name)) return "woman";
   if (/\bmale\b/i.test(name)) return "man";
   const first = name
@@ -274,6 +303,10 @@ export function deviceVoiceGender(name: string): VoiceGender | null {
   if (!first) return null;
   if (DEVICE_WOMEN.has(first)) return "woman";
   if (DEVICE_MEN.has(first)) return "man";
+  if (PACK_VOICE_FAMILIES.has((lang ?? "").trim().split(/[-_]/)[0]?.toLowerCase() ?? "")) {
+    if (PACK_DEVICE_WOMEN.has(first)) return "woman";
+    if (PACK_DEVICE_MEN.has(first)) return "man";
+  }
   return null;
 }
 
@@ -285,7 +318,7 @@ export function deviceVoiceIdentity(
     kind: "device",
     rawName: voice.name,
     locale: voice.lang,
-    gender: deviceVoiceGender(voice.name),
+    gender: deviceVoiceGender(voice.name, voice.lang),
   };
 }
 

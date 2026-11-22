@@ -119,8 +119,12 @@ export function summary(result: BankValidation): string[] {
 }
 
 /** Current repo fingerprints of a module's Core 30 lessons, keyed by lesson number. */
-export function currentSourceHashes(moduleId: string): Record<number, string> | null {
-  const curriculum = getCurriculum(moduleId);
+export function currentSourceHashes(
+  moduleId: string,
+  targetLanguage: string,
+  nativeLanguage: string,
+): Record<number, string> | null {
+  const curriculum = getCurriculum(moduleId, targetLanguage, nativeLanguage);
   if (!curriculum) return null;
   return Object.fromEntries(
     curriculum.lessons.map((lesson) => [lesson.n, lessonSourceHash(lesson)]),

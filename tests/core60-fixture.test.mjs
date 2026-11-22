@@ -10,7 +10,7 @@ import test from "node:test";
 
 process.env.CORE60_FIXTURE = "1";
 const { MODULES, getModule } = await import("../src/data/modules.ts");
-const { getCurriculum } = await import("../src/data/curriculum.ts");
+const { authoredCurriculum } = await import("../src/data/curriculum.ts");
 const { core60Manifest, core60FixtureModules, stageCurriculumStatus, loadStageCurriculum } =
   await import("../src/data/core60-stages.ts");
 const {
@@ -72,7 +72,7 @@ test("fixture stage files pass the validator, and the fixture manifest is well f
 
 test("getCurriculum reads a stage file synchronously under Node", async () => {
   assert.equal(stageCurriculumStatus("master-test"), "ready");
-  const master = getCurriculum("master-test");
+  const master = authoredCurriculum("master-test");
   assert.equal(master.headline, "The Test Trade Master 20");
   assert.equal(master.lessons.length, 20);
   assert.deepEqual(master.lessons[0].grammar, fixtureFile("master-test").lessons[0].grammar);
@@ -82,7 +82,7 @@ test("getCurriculum reads a stage file synchronously under Node", async () => {
     master.lessons[0].steps.map((s) => [s.tab, s.durationMin]),
     [["reader", 12], ["wordMatch", 8], ["speak", 12]],
   );
-  const foundation = getCurriculum("foundation-test");
+  const foundation = authoredCurriculum("foundation-test");
   assert.equal(foundation.lessons.length, 10);
   assert.equal(foundation.lessons[2].grammar, undefined);
   assert.equal(await loadStageCurriculum("foundation-test"), foundation);
@@ -119,7 +119,7 @@ test("derived stages get the Foundation and Master paces", () => {
 test("every fixture lesson has its own Say it mission, Master missions with the surprise complication", () => {
   const missions = getSpeakingMissions("Spanish");
   for (const moduleId of ["foundation-test", "master-test"]) {
-    for (const lesson of getCurriculum(moduleId).lessons) {
+    for (const lesson of authoredCurriculum(moduleId).lessons) {
       const id = `scenario_version_${moduleId}_lesson_${lesson.n}_es_v1`;
       const mission = missions.find((m) => m.id === id);
       assert.ok(mission, id);

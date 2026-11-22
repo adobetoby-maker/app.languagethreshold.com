@@ -58,7 +58,7 @@ function deckKey(moduleId: string, language: string): string {
 
 /** True when this module+language has authored words, so no deck is ever needed. */
 function hasAuthoredWords(moduleId: string, language: string, nativeLanguage: string): boolean {
-  const lessons = getCurriculum(moduleId)?.lessons ?? [];
+  const lessons = getCurriculum(moduleId, language, nativeLanguage)?.lessons ?? [];
   return (
     lessons.length > 0 &&
     lessons.every(
@@ -154,7 +154,9 @@ export function useLessonWords(
   const generateRef = useRef(generate);
   generateRef.current = generate;
   const authored = useMemo(() => {
-    const lesson = getCurriculum(moduleId)?.lessons.find((item) => item.n === lessonNumber);
+    const lesson = getCurriculum(moduleId, language, nativeLanguage)?.lessons.find(
+      (item) => item.n === lessonNumber,
+    );
     return pickAuthoredWords(lesson?.words, language, nativeLanguage, writtenFor(moduleId));
   }, [moduleId, lessonNumber, language, nativeLanguage]);
   const key = lessonWordsKey(moduleId, lessonNumber, language, nativeLanguage);

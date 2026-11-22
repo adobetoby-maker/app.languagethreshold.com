@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { core60PathOf } from "../src/lib/core60-path.ts";
 import { getLessonDefinition, modulePracticeVersion } from "../src/lib/lesson-definition.ts";
 import { validateStageFile } from "../src/lib/core60-validate.ts";
@@ -29,7 +29,7 @@ test("Spanish 101 is a full general 10/30/20 path with an exact English scaffold
     assert.equal(moduleSupportsLearningPair(module, "Spanish", "English"), true);
     assert.equal(moduleSupportsLearningPair(module, "Spanish", "French"), false);
     assert.equal(moduleSupportsLearningPair(module, "English", "Spanish"), false);
-    assert.equal(getCurriculum(id).lessons.length, count);
+    assert.equal(authoredCurriculum(id).lessons.length, count);
     assert.equal(core60PathOf(id).steps.length, 3);
     assert.doesNotMatch(module.aiPersona, /natural B1-B2/);
   }

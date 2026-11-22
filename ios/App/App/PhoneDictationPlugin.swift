@@ -4,16 +4,32 @@ import Speech
 import AVFoundation
 
 // BEGIN phone dictation locale order
-func phoneDictationLocales(requested: String, supported: [String]) -> [String] {
+/// Recognizer locales to try, best first. `candidates` is the ordered list JS sends from the language
+/// pack (pack.speech.recognition.locales behind the learner's accent): the requested locale first,
+/// then each candidate the device supports, nothing else. A language with no candidates is only
+/// ever matched exactly, so a Chinese dialect is never turned into a different spoken language.
+/// The same-language table below is the pre-pack fallback, used only while a caller still sends no
+/// candidates (src/lib/phone-dictation.ts); delete it once every caller sends them.
+func phoneDictationLocales(requested: String, supported: [String], candidates: [String] = []) -> [String] {
     func normalized(_ value: String) -> String { value.replacingOccurrences(of: "_", with: "-").lowercased() }
     let wanted = normalized(requested)
+    if !candidates.isEmpty {
+        var seen = Set<String>()
+        var ordered: [String] = []
+        for candidate in [requested] + candidates {
+            let key = normalized(candidate)
+            guard !seen.contains(key), let match = supported.first(where: { normalized($0) == key }) else { continue }
+            seen.insert(key); ordered.append(match)
+        }
+        return ordered
+    }
     let family = String(wanted.split(separator: "-").first ?? "")
     let preferred = ["es": "es-mx", "en": "en-us", "it": "it-it", "ja": "ja-jp"][family]
-    // Unsupported Spanish/English regions can use a same-language recognizer.
+    // Unsupported regions can use a same-language recognizer for the languages in the table.
     // Do not silently turn a Chinese dialect into a different spoken language.
-    let candidates = supported.filter { normalized($0) == wanted || (preferred != nil && normalized($0).hasPrefix(family + "-")) }
+    let candidatesFound = supported.filter { normalized($0) == wanted || (preferred != nil && normalized($0).hasPrefix(family + "-")) }
     func rank(_ value: String) -> Int { normalized(value) == wanted ? 0 : (normalized(value) == preferred ? 1 : 2) }
-    return candidates.sorted { rank($0) == rank($1) ? normalized($0) < normalized($1) : rank($0) < rank($1) }
+    return candidatesFound.sorted { rank($0) == rank($1) ? normalized($0) < normalized($1) : rank($0) < rank($1) }
 }
 // END phone dictation locale order
 
@@ -79,6 +95,8 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
             guard let id = call.getString("requestId"), UUID(uuidString: id) != nil,
                   let locale = call.getString("locale"), locale.count <= 30,
                   UIApplication.shared.applicationState == .active else { call.reject("Recording is not active.", "aborted"); return }
+            // Ordered fallback locales from the language pack; bounded so a bad caller cannot flood us.
+            let candidates = (call.getArray("locales", String.self) ?? []).filter { $0.count <= 30 }.prefix(12).map { $0 }
             guard self.requestID == nil else { call.reject("Another microphone turn is active.", "audio-capture"); return }
             self.requestID = id
             SFSpeechRecognizer.requestAuthorization { permission in
@@ -89,7 +107,7 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
                         DispatchQueue.main.async {
                             guard self.requestID == id else { call.reject("Recording cancelled.", "aborted"); return }
                             guard allowed else { self.finish(error: "not-allowed"); call.reject("Allow microphone access in Settings.", "not-allowed"); return }
-                            self.record(id: id, locale: locale, call: call)
+                            self.record(id: id, locale: locale, candidates: candidates, call: call)
                         }
                     }
                     if #available(iOS 17.0, *) { AVAudioApplication.requestRecordPermission(completionHandler: granted) }
@@ -98,9 +116,9 @@ final class PhoneDictationPlugin: CAPPlugin, CAPBridgedPlugin {
             }
         }
     }
-    private func record(id: String, locale: String, call: CAPPluginCall) {
+    private func record(id: String, locale: String, candidates: [String], call: CAPPluginCall) {
         guard UIApplication.shared.applicationState != .background else { finish(error: "aborted"); call.reject("Keep the mission open.", "aborted"); return }
-        let locales = phoneDictationLocales(requested: locale, supported: SFSpeechRecognizer.supportedLocales().map(\.identifier))
+        let locales = phoneDictationLocales(requested: locale, supported: SFSpeechRecognizer.supportedLocales().map(\.identifier), candidates: candidates)
         let recognizer = locales.lazy.compactMap { SFSpeechRecognizer(locale: Locale(identifier: $0)) }
             .first { $0.isAvailable && $0.supportsOnDeviceRecognition }
         guard let recognizer else {

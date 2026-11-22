@@ -297,11 +297,13 @@ function LevelPicker({
     stats.totalAttempts === 0 ? 0 : Math.round((stats.totalCorrect / stats.totalAttempts) * 100);
   return (
     <div className="rounded-2xl border border-border/60 bg-card/30 p-5">
-      <div className="mb-3 flex items-baseline justify-between">
+      {/* Layout fix (owner rule 2b, every language): the header and the level cards wrap and stack
+          below 640 px, so no level text runs outside its card at 375 px. */}
+      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           Difficulty · {language}
         </div>
-        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           <span>
             Best <span className="text-foreground">{stats.bestStreak}</span>
           </span>
@@ -313,13 +315,13 @@ function LevelPicker({
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
         {([1, 2, 3] as ConjugationLevel[]).map((l) => (
           <button
             key={l}
             onClick={() => onPick(l)}
             data-active={selected === l}
-            className="rounded-xl border border-border/70 bg-background/40 p-3 text-left transition-all hover:border-gold/60 data-[active=true]:border-gold/80 data-[active=true]:bg-gold/[0.08]"
+            className="min-w-0 rounded-xl border border-border/70 bg-background/40 p-3 text-left transition-all hover:border-gold/60 data-[active=true]:border-gold/80 data-[active=true]:bg-gold/[0.08]"
           >
             <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
               {LEVEL_LABELS[l].name}

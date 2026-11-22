@@ -18,6 +18,7 @@ import type {
 } from "@/lib/assessments/plans";
 import { getModule } from "@/data/modules";
 import { getCurriculum } from "@/data/curriculum";
+import { parseLessonObjectiveId } from "@/lib/learning-identity";
 import { toDateKey } from "@/lib/core30-plan";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import { LearnerGoalsEditor } from "./LearnerGoalsEditor";
@@ -39,10 +40,12 @@ const checkpointNames: Record<string, string> = {
   day45: "Day 45",
   day90: "Day 90",
 };
-function lessonLabel(id: string) {
-  const match = /^([a-z][a-z0-9-]*)\.lesson\.(\d+)$/.exec(id);
-  if (!match) return "Reviewed objective";
-  const lesson = getCurriculum(match[1])?.lessons.find((row) => row.n === Number(match[2]));
+function lessonLabel(id: string, target: string, native: string) {
+  const objective = parseLessonObjectiveId(id);
+  if (!objective) return "Reviewed objective";
+  const lesson = getCurriculum(objective.moduleId, target, native)?.lessons.find(
+    (row) => row.n === objective.lessonNumber,
+  );
   return lesson ? `Lesson ${lesson.n}: ${lesson.title}` : "Reviewed unit";
 }
 type PlanPanelProps = {
@@ -199,7 +202,14 @@ function OwnedAssessmentPlanPanel({
       </section>
     );
   const primary = getModule(data.enrollment.moduleId)?.name ?? data.enrollment.moduleId;
-  const lessons = getCurriculum(data.enrollment.moduleId)?.lessons ?? [];
+  const label = (objectiveId: string) =>
+    lessonLabel(objectiveId, data.enrollment.targetLanguage, data.enrollment.instructionLanguage);
+  const lessons =
+    getCurriculum(
+      data.enrollment.moduleId,
+      data.enrollment.targetLanguage,
+      data.enrollment.instructionLanguage,
+    )?.lessons ?? [];
   const pending = data.recommendations.filter(
     (rec) => rec.decision === "suggested" || rec.decision === "deferred",
   );
@@ -313,7 +323,7 @@ function OwnedAssessmentPlanPanel({
           <p className="mt-2 text-xs text-muted-foreground">
             Catch-up:{" "}
             {data.revisions[0].catchup_objectives.length
-              ? data.revisions[0].catchup_objectives.map(lessonLabel).join("; ")
+              ? data.revisions[0].catchup_objectives.map(label).join("; ")
               : "No extra catch-up recorded"}
             .
           </p>
@@ -603,7 +613,7 @@ function OwnedAssessmentPlanPanel({
                   reason:
                     candidate.basis === "learner_goal"
                       ? `Optional supporting work for the learner's selected goals: ${candidate.matchedGoals.map((topic) => LEARNER_GOALS[topic]).join(", ")}. The primary module remains the main focus.`
-                      : `Reviewed supporting units address the assessed ${[...new Set(candidate.evidence.map((item) => item.skill))].join(", ")} evidence on ${[...new Set(candidate.evidence.map((item) => item.objectiveId))].map(lessonLabel).join("; ")}.`,
+                      : `Reviewed supporting units address the assessed ${[...new Set(candidate.evidence.map((item) => item.skill))].join(", ")} evidence on ${[...new Set(candidate.evidence.map((item) => item.objectiveId))].map(label).join("; ")}.`,
                 })
               }
             >
@@ -616,6 +626,7 @@ function OwnedAssessmentPlanPanel({
           key={decision.id}
           recommendation={decision}
           timezone={data.enrollment.timezone}
+          label={label}
           busy={busy}
           error={error}
           onCancel={() => setDecision(null)}
@@ -803,6 +814,7 @@ function OwnedAssessmentPlanPanel({
 function SupportDecision({
   recommendation,
   timezone,
+  label,
   busy,
   error,
   onCancel,
@@ -810,6 +822,7 @@ function SupportDecision({
 }: {
   recommendation: SupportRecommendation;
   timezone: string;
+  label: (objectiveId: string) => string;
   busy: boolean;
   error: string;
   onCancel: () => void;
@@ -925,7 +938,7 @@ function SupportDecision({
                           )
                         }
                       />
-                      {lessonLabel(unit)}
+                      {label(unit)}
                     </label>
                   ))}
                 </div>

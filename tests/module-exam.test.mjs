@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { placementBlocks } from "../src/lib/module-placement.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import {
   moduleExamScore,
   nextModuleExamBlock,
@@ -20,7 +21,7 @@ const lessons = Array.from({ length: 30 }, (_, index) => ({
   })),
   checks: [{ prompt: "Yo ____.", hint: "I speak.", answer: "hablo" }],
 }));
-const blocks = placementBlocks(lessons, "exam");
+const blocks = placementBlocks(lessons, "exam", packFor("es"));
 test("post-Core continues beyond a failed block, placement stops there", () => {
   const responses = Object.fromEntries(blocks[0].questions.map((q) => [q.id, "wrong"]));
   assert.equal(nextModuleExamBlock(blocks, responses, "placement"), blocks[0]);
@@ -47,7 +48,7 @@ test("post-Core covers all 30 lessons and cannot finish on unanswered questions"
   assert.equal(nextModuleExamBlock(blocks, responses, "post-core"), undefined);
 });
 test("a fresh draw has a fresh attempt and no prior answers", () => {
-  const retry = placementBlocks(lessons, "retry");
+  const retry = placementBlocks(lessons, "retry", packFor("es"));
   assert.equal(nextModuleExamBlock(retry, {}, "post-core"), retry[0]);
   assert.equal(moduleExamScore(retry, {}).correct, 0);
 });

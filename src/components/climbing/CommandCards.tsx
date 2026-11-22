@@ -1,4 +1,5 @@
 import { COMMANDS, type Command } from "@/data/climbing-practice.ts";
+import { translationFor, NOT_YET_TRANSLATED } from "@/lib/phrase-translation";
 import { useState } from "react";
 import { useApp } from "@/state/app-state";
 
@@ -66,8 +67,8 @@ export function CommandCards() {
       <div className="space-y-2">
         {visible.map((cmd) => {
           const colors = ROLE_COLORS[cmd.callerRole];
-          const translation = cmd.translations[lang] ?? cmd.translations["Spanish"];
-          const note = cmd.notes?.[lang] ?? cmd.notes?.["Spanish"];
+          const translation = translationFor(cmd.translations, lang);
+          const note = cmd.notes?.[lang];
           const isRevealed = reveal.has(cmd.en);
 
           return (
@@ -85,8 +86,12 @@ export function CommandCards() {
                     </span>
                   </div>
                   <p className="text-white font-semibold text-base">{cmd.en}</p>
-                  {isRevealed && <p className="text-white/80 text-sm mt-1">{translation}</p>}
-                  {isRevealed && note && (
+                  {isRevealed && (
+                    <p className={`text-sm mt-1 ${translation ? "text-white/80" : "text-white/40 italic"}`}>
+                      {translation ?? NOT_YET_TRANSLATED}
+                    </p>
+                  )}
+                  {isRevealed && translation && note && (
                     <p className="text-white/40 text-xs mt-1 italic">{note}</p>
                   )}
                 </div>

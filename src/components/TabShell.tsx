@@ -2,7 +2,7 @@ import { Component, type ReactNode, Suspense, useEffect, useState } from "react"
 import { GraduationCap, Loader2, RefreshCw, X } from "lucide-react";
 import { useApp, type TabKey } from "@/state/app-state";
 import { EmptyState } from "./EmptyState";
-import { TAB_COMPONENTS, TOOL_CATALOG } from "./tab-registry";
+import { TAB_COMPONENTS, TOOL_CATALOG, packHidesTab } from "./tab-registry";
 import { isFoundationModule, isMasterModule } from "@/lib/core30-plan";
 import { core30PathBannerText, core60PathsForPair } from "@/lib/core60-path";
 import { useStageCurriculum } from "@/hooks/use-stage-curriculum";
@@ -92,7 +92,18 @@ export class TabErrorBoundary extends Component<
 }
 
 export function TabShell() {
-  const { state } = useApp();
+  const { state: appState, dispatch } = useApp();
+  // A French or Italian learner never opens a tab of a module their library lacks (its screens are
+  // written for Spanish): the module library opens instead.
+  const hiddenTab = packHidesTab(
+    appState.currentTab,
+    appState.selectedLanguage,
+    appState.nativeLanguage,
+  );
+  useEffect(() => {
+    if (hiddenTab) dispatch({ type: "SET_TAB", payload: "modules" });
+  }, [hiddenTab, dispatch]);
+  const state = hiddenTab ? { ...appState, currentTab: "modules" as TabKey } : appState;
   // Starts loading a data-driven Core 60 stage's curriculum from any tab (Core 60, Say it, Reader).
   useStageCurriculum(state.activeModuleId, state.selectedLanguage, state.nativeLanguage);
   const Component = TAB_COMPONENTS[state.currentTab];

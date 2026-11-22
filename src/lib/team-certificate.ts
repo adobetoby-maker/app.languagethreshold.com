@@ -1,6 +1,20 @@
 import type { TeamDb } from "@/lib/team-server";
+import { historicalCoursePack, historicalCoursePair, packFor } from "@/data/language-packs/registry";
+import { nativeLanguageCode } from "@/data/languages";
 
+/**
+ * Team roofing certificates are earned in the team course's pair, the historical course (team
+ * assignments carry no language). The language is written to the row only when it is not the
+ * historical course, so rows keep their printed titles and the write works before the owner
+ * applies the target_language migration.
+ */
 export async function maybeIssueRoofingCertificate(db: TeamDb, orgId: string, userId: string) {
+  const pair = historicalCoursePair();
+  const pack = packFor(pair.target);
+  const languageColumns =
+    pack && pack !== historicalCoursePack()
+      ? { target_language: pack.code, instruction_language: nativeLanguageCode(pair.native) }
+      : {};
   const { data: assignment, error: assignmentError } = await db
     .from("team_assignments")
     .select("require_certificate")
@@ -63,6 +77,7 @@ export async function maybeIssueRoofingCertificate(db: TeamDb, orgId: string, us
         version: 1,
         score,
         lesson_count: 30,
+        ...languageColumns,
       },
       { onConflict: "organization_id,user_id,module_id,version", ignoreDuplicates: true },
     )

@@ -2,8 +2,10 @@ import { playFlashcardSuccess } from "@/lib/sound-effects";
 import { useCallback, useEffect, useState } from "react";
 import { Volume2, X, RotateCcw } from "lucide-react";
 import { useApp, type Language } from "@/state/app-state";
+import type { NativeLanguage } from "@/data/languages";
 import { updateSM2, sortByDue } from "@/state/sm2";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 
 export interface StudyCard {
   key: string; // stable id within the block (the English word)
@@ -32,7 +34,7 @@ export function FlashcardStudy({
   /** Language the `back` face of each card is actually written in — category
    * decks flip English→target, but My Vocab cards are saved target-language
    * word→English gloss, so the back face there is English, not the target. */
-  backLanguage: Language;
+  backLanguage: Language | NativeLanguage;
   onExit: () => void;
 }) {
   const { state, dispatch } = useApp();
@@ -52,7 +54,7 @@ export function FlashcardStudy({
   // The notice for a back that could not play belongs to its card: grading moves on from it.
   const { speak: speakListening } = useListeningSpeaker(
     JSON.stringify(["flashcard-study", backLanguage]),
-    backLanguage,
+    usePack(backLanguage),
     current?.key ?? null,
   );
   const speak = useCallback((text: string) => speakListening(text), [speakListening]);

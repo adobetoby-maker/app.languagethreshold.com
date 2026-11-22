@@ -1,10 +1,20 @@
 import { OR_CLEANING_CURRICULA } from "./or-cleaning.ts";
+import { catalogLessonPack, loadedCatalogCurriculum } from "./language-packs/catalog-lessons.ts";
 import { PLACE_CURRICULUM } from "./place-directions.ts";
 import { SOUND_CURRICULUM } from "./sound-like-a-native.ts";
 import { SPANISH_NEXT_CURRICULA } from "./spanish-next.ts";
 import { SPANISH_BASICS_CURRICULUM } from "./spanish-basics.ts";
 import { JAPANESE_BASICS_CURRICULUM } from "./japanese-basics.ts";
 import type { Language } from "@/state/app-state";
+import {
+  historicalCoursePack,
+  historicalCoursePair,
+  packFor,
+  sameLanguage,
+  workplaceCoursePack,
+} from "./language-packs/registry.ts";
+import { getModule, moduleSupportsLearningPair } from "./modules.ts";
+import { nativeLanguageCode, type NativeLanguage } from "./languages.ts";
 import type { LibraryEntry } from "@/state/library-state";
 import {
   type LessonStep,
@@ -35,7 +45,8 @@ import { FOREMAN_LESSON_CONTENT } from "./construction-foreman-lesson-content.ts
 import { INTEREST_CURRICULA } from "./interests-spanish.ts";
 import { MILITARY_CURRICULUM } from "./military-curriculum.ts";
 import { MEDICAL_MISSION_LOGISTICS_CURRICULUM } from "./medical-mission-logistics-curriculum.ts";
-import { stageCurriculum } from "./core60-stages.ts";
+import { dataStageOf, stageCurriculum } from "./core60-stages.ts";
+import { entryNativeLanguage } from "../lib/core60-stage-core.ts";
 export type { LessonStep };
 export { r, sp, wm, pt, sb, ms, ot, ev, sc, bb, fm, gr, ld, ds, fi };
 
@@ -78,25 +89,13 @@ export interface ModuleCurriculum {
 
 // ─── Language code map ────────────────────────────────────────────────────────
 
-const LANG_CODES: Record<Language, string> = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
-};
 
 const MODULE_PATTERNS: Record<string, string[]> = {
   "lds-missionary": ["seed-{lang}-lds-teaching"],
   "catholic-ministry": ["seed-{lang}-catholic-mass"],
   "construction-foreman": ["seed-{lang}-framer-layout"],
   framer: ["seed-{lang}-framer-layout"],
-  roofing: ["seed-es-roofing-materials"],
+  roofing: ["seed-{lang}-roofing-materials"],
   "construction-safety": ["seed-{lang}-construction-blueprint"],
   plumber: ["seed-{lang}-plumber-leak"],
   drywall: ["seed-{lang}-drywall-mud"],
@@ -145,7 +144,9 @@ export function getModuleReadingId(
   language: Language,
   entries: LibraryEntry[],
 ): string | null {
-  const lang = LANG_CODES[language] ?? "es";
+  // The reader seed's language code comes from the pack; no pack, no reading (never Spanish's).
+  const lang = packFor(language)?.code;
+  if (!lang) return null;
 
   // Pattern-based exact lookup
   const patterns = MODULE_PATTERNS[moduleId];
@@ -4262,23 +4263,60 @@ Object.assign(CURRICULA, EXTENDED_CURRICULA);
 Object.assign(CURRICULA, TRAVEL_ZONE_CURRICULA);
 
 /**
- * A module's curriculum. Data-driven Core 60 stages (src/data/core60/manifest.ts) answer from the
- * stage registry: null until their chunk has loaded (see useStageCurriculum), immediate under Node.
+ * A module's curriculum for one learning pair (target and native are required: no curriculum is
+ * pair-free). A language whose lessons come from its pack catalog reads only its catalog (loaded by
+ * useStageCurriculum); every other language reads the hand-written curriculum as before;
+ * data-driven Core 60 stages (src/data/core60/manifest.ts) answer from the stage registry (null
+ * until their chunk has loaded, immediate under Node). Null for anything else.
  */
 export function getCurriculum(
   moduleId: string,
-  targetLanguage?: string,
-  nativeLanguage?: string,
+  targetLanguage: string,
+  nativeLanguage: string,
 ): ModuleCurriculum | null {
+  const catalogPack = catalogLessonPack(targetLanguage);
+  if (catalogPack) return loadedCatalogCurriculum(moduleId, catalogPack) ?? null;
+  // Every other language reads the hand-written curricula exactly as it always has.
   return CURRICULA[moduleId] ?? stageCurriculum(moduleId, targetLanguage, nativeLanguage);
+}
+
+/**
+ * The pair a module's own curriculum was written for: its `authoredPair`; a data-driven stage's
+ * manifest pair; a workplace (en-target) module's target with its first listed native; a module
+ * with a `languages` list, its first language with that language's default native; otherwise the
+ * historical course pair. For tooling (validators, scripts, tests) that walks every module in its
+ * own pair; a learner always reads getCurriculum with the learner's pair.
+ */
+export function moduleAuthoredPair(moduleId: string): { target: string; native: string } | null {
+  const module = getModule(moduleId);
+  if (module?.authoredPair)
+    return { target: module.authoredPair.target, native: module.authoredPair.native };
+  const stage = dataStageOf(moduleId);
+  if (stage) return { target: stage.entry.language, native: entryNativeLanguage(stage.entry) ?? "" };
+  const nativeOf = (target: string) => packFor(packFor(target)?.native.default)?.name ?? "";
+  if (module?.learnDirection === "en-target") {
+    const target = workplaceCoursePack().name;
+    return { target, native: module.nativeLanguages?.[0] ?? nativeOf(target) };
+  }
+  if (module?.languages?.length)
+    return { target: module.languages[0], native: nativeOf(module.languages[0]) };
+  return historicalCoursePair();
+}
+
+/** getCurriculum in the module's own authored pair (moduleAuthoredPair). Tooling only. */
+export function authoredCurriculum(moduleId: string): ModuleCurriculum | null {
+  const pair = moduleAuthoredPair(moduleId);
+  return pair ? getCurriculum(moduleId, pair.target, pair.native) : null;
 }
 
 export function getCurrentLesson(
   moduleId: string,
+  targetLanguage: string,
+  nativeLanguage: string,
   lessonProgress: Record<string, number>,
   progressKey: string = moduleId,
 ): Lesson | null {
-  const curriculum = getCurriculum(moduleId);
+  const curriculum = getCurriculum(moduleId, targetLanguage, nativeLanguage);
   if (!curriculum) return null;
   const completed = lessonProgress[progressKey] ?? 0;
   if (completed >= curriculum.lessons.length) return null; // all done

@@ -3,19 +3,14 @@ import { useServerFn } from "@tanstack/react-start";
 import { generateCultureEssay } from "@/fns/library.functions";
 import { useLibrary, flagFor, type LibraryEntry } from "@/state/library-state";
 import { useApp, type Language } from "@/state/app-state";
+import { appData } from "@/data/language-packs/app-data";
+import { packFor } from "@/data/language-packs/registry";
 
-export const COUNTRIES_BY_LANGUAGE: Record<Language, string[]> = {
-  Spanish: ["Spain", "Mexico", "Argentina"],
-  French: ["France", "Morocco", "Québec"],
-  German: ["Germany", "Austria", "Switzerland"],
-  Italian: ["Italy"],
-  Japanese: ["Japan"],
-  Chinese: ["China", "Taiwan", "Singapore"],
-  Korean: ["South Korea"],
-  Portuguese: ["Brazil", "Portugal"],
-  Pashto: ["Afghanistan", "Pakistan"],
-  English: ["United Kingdom", "United States", "Australia"],
-};
+/** Countries a culture reading in this language may be set in (app/<code>.json countries). */
+export function countriesFor(language: string): string[] {
+  const pack = packFor(language);
+  return pack ? appData(pack).countries : [];
+}
 
 const subtitleFor = (country: string, native: string, target: string) =>
   `AI culture reading · ${country} · ${native} → ${target}`;
@@ -45,7 +40,7 @@ export function useCultureGenerator() {
     if (inFlight.current || !readyToSelect || !alive.current) return false;
     const target = state.selectedLanguage;
     const native = state.nativeLanguage;
-    if (!COUNTRIES_BY_LANGUAGE[target].includes(country)) return false;
+    if (!countriesFor(target).includes(country)) return false;
     const current = () => alive.current && currentScope.current === scope;
     const subtitle = subtitleFor(country, native, target);
     const saved = library.entries.find(
@@ -127,7 +122,7 @@ export function useCultureGenerator() {
   };
 
   return {
-    countries: COUNTRIES_BY_LANGUAGE[state.selectedLanguage],
+    countries: countriesFor(state.selectedLanguage),
     generateCountry,
     pending,
     error,

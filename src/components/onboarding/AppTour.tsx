@@ -103,7 +103,9 @@ export function AppTour({ onClose }: { onClose: () => void }) {
   const panelRef = useRef<HTMLElement>(null);
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
-  const [steps] = useState(() => getTourScript(state.activeModuleId));
+  const [steps] = useState(() =>
+    getTourScript(state.activeModuleId, state.selectedLanguage, state.nativeLanguage),
+  );
   const arrivedRef = useRef(false);
   const step = steps[stepIndex];
   const tab = step.tabKey;

@@ -11,6 +11,7 @@ import { useDailyPlanActions } from "@/hooks/use-daily-plan-actions";
 import { examPlanRequest, ExamRequestError } from "@/lib/assessments/client";
 import type { PlanRevision, SupportAssignment } from "@/lib/assessments/plans";
 import { getCurriculum } from "@/data/curriculum";
+import { parseLessonObjectiveId } from "@/lib/learning-identity";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import { lessonPositionKey, readLessonPosition } from "@/lib/lesson-drafts";
 import type { Language, NativeLanguage } from "@/data/languages";
@@ -465,11 +466,12 @@ function DailyLessonPlanContent({
                   <>
                     <div className="flex flex-wrap gap-2">
                       {assignment.capability_snapshot.lessonIds.map((id) => {
-                        const match = /\.lesson\.(\d+)$/.exec(id),
-                          n = match ? Number(match[1]) : null;
+                        const n = parseLessonObjectiveId(id)?.lessonNumber ?? null;
                         if (!n) return null;
                         const title = getCurriculum(
                           assignment.capability_snapshot.moduleId,
+                          assignment.capability_snapshot.targetLanguage,
+                          assignment.capability_snapshot.instructionLanguage,
                         )?.lessons.find((lesson) => lesson.n === n)?.title;
                         return (
                           <button

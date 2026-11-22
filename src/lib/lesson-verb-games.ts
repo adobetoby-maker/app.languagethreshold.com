@@ -1,5 +1,8 @@
 import { conjugationItems, type LessonVerb } from "./lesson-content-core.ts";
 import type { SpanishPattern } from "../data/spanish-basics.ts";
+import type { LanguagePack } from "../data/language-packs/types.ts";
+import { foldMarks, normalizeKey } from "./language-pack-text.ts";
+import { appData } from "../data/language-packs/app-data.ts";
 export interface LessonGameItem {
   id: string;
   prompt: string;
@@ -45,7 +48,90 @@ export function lessonGameBank(
     forms: forms.filter((v) => v.answer.trim()),
   };
 }
+/**
+ * The subjects a typed game answer may start with, for a prompt such as "él / ella / usted ·
+ * hablar" (language-pack model section 10): the prompt's own subjects plus every subject of the
+ * pack's form key with that label ("ils" and "elles", "nosotros" and "nosotras", "je" and
+ * "j'"). Empty for a prompt without a subject, or a pack whose forms are not keyed by person.
+ */
+export function gameSubjects(prompt: string, pack: LanguagePack): string[] {
+  if (!prompt.includes(" · ") || pack.grammar.verbForms.axis !== "person") return [];
+  const label = prompt.split(" · ")[0].trim();
+  const subjects = new Set(
+    label
+      .split(" / ")
+      .map((part) => part.trim())
+      .filter(Boolean),
+  );
+  for (const key of pack.grammar.verbForms.keys) {
+    if (key.label === label || key.key.replaceAll("_", " / ") === label)
+      for (const subject of key.subjects ?? []) subjects.add(subject);
+  }
+  return [...subjects];
+}
+
+/**
+ * Is `actual` the expected verb form? One matcher for every game and mode: the pack's key
+ * (Unicode form, apostrophes, locale lowercase), its typed accent policy (marks are compared
+ * unless the pack folds them), its typed alternates (œ for oe), and an optional leading subject
+ * (`subjects`, elided "j'" closed up) or lead word ("que", "si"). When the pack's forms carry
+ * their subject ("j'aime"), the bare form is accepted too.
+ */
 export function gameAnswer(
+  expected: string,
+  actual: string,
+  subjects: readonly string[],
+  pack: LanguagePack,
+): boolean {
+  const folds = pack.answerRules.accentPolicy.typed !== "strict";
+  // A language whose app file keeps plain verb-game answers (Spanish) compares exactly as it always
+  // has: NFC, trimmed, lower case; punctuation is not stripped.
+  const plain = appData(pack).plainVerbGameAnswers;
+  const normalize = (s: string) => {
+    if (plain) return s.normalize("NFC").trim().toLocaleLowerCase();
+    const key = normalizeKey(s, pack);
+    return folds ? foldMarks(key, pack) : key;
+  };
+  const answer = normalize(actual);
+  const wanted = normalize(expected);
+  if (!answer) return false;
+  if (answer === wanted) return true;
+  const alternates = Object.entries(pack.answerRules.typedAlternates);
+  if (alternates.some(([letter, substitute]) => wanted.replaceAll(letter, substitute) === answer))
+    return true;
+  const prefixes = [...subjects, ...pack.grammar.verbForms.formLeadWords].flatMap((subject) => {
+    const prefix = normalize(subject);
+    if (!prefix) return [];
+    return /['’ʼ]$/u.test(prefix) ? [prefix] : [`${prefix} `];
+  });
+  if (
+    prefixes.some(
+      (prefix) => answer.startsWith(prefix) && answer.slice(prefix.length).trim() === wanted,
+    )
+  )
+    return true;
+  // A form authored with its subject ("j'aime") also accepts the bare form ("aime").
+  if (pack.grammar.verbForms.includesSubject) {
+    const own = prefixes.find((prefix) => wanted.startsWith(prefix));
+    if (own && answer === wanted.slice(own.length).trim()) return true;
+  }
+  return false;
+}
+
+// ─── Base verb-game rules ────────────────────────────────────────────────────
+// Learners outside the released course packs (Spanish, Japanese and every language without a
+// bundled pack) keep the base app's verb games exactly (owner decisions 2 and 3): its subjects
+// (Spanish and English prompts only), its matcher and its letters.
+
+/** Base subjects: the prompt's own subjects, for Spanish and English prompts only. */
+export function baseGameSubjects(prompt: string, language: string): string[] {
+  return ["Spanish", "English"].includes(language) && prompt.includes(" · ")
+    ? prompt.split(" · ")[0].split(" / ")
+    : [];
+}
+
+/** The base app's typed verb-game matcher (NFC, trimmed, lower case; punctuation kept). */
+export function baseGameAnswer(
   expected: string,
   actual: string,
   subjects: readonly string[] = [],
@@ -70,11 +156,32 @@ export function gameAnswer(
   });
 }
 
+/** The base app's hangman keys. */
 export const GAME_LETTERS = [..."abcdefghijklmnñopqrstuvwxyzáéíóúü"];
-export function maskedAnswer(answer: string, guesses: readonly string[]): string {
+/** The base app's typed letter row. */
+export const BASE_TYPED_LETTERS = [..."áéíóúüñ"];
+
+/**
+ * Hangman keys and the mask set (language-pack model section 9): the pack alphabet, so no letter
+ * of the language is given away unmasked. A pack without an alphabet (IME scripts) plays with the
+ * distinct letters of the round's own answers.
+ */
+export function gameLetters(pack: LanguagePack, answers: readonly string[] = []): string[] {
+  const alphabet = [...pack.keyboard.alphabet];
+  if (alphabet.length > 0) return alphabet;
+  const letters = answers.flatMap((answer) => [
+    ...answer.normalize(pack.answerRules.unicodeNormalization).toLocaleLowerCase(),
+  ]);
+  return [...new Set(letters.filter((c) => /\p{L}/u.test(c)))];
+}
+export function maskedAnswer(
+  answer: string,
+  guesses: readonly string[],
+  letters: readonly string[],
+): string {
   return [...answer.normalize("NFC")]
     .map((c) =>
-      !GAME_LETTERS.includes(c.toLowerCase()) || guesses.includes(c.toLowerCase()) ? c : "＿",
+      !letters.includes(c.toLowerCase()) || guesses.includes(c.toLowerCase()) ? c : "＿",
     )
     .join(" ");
 }

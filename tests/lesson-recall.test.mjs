@@ -6,6 +6,8 @@ import {
   advanceLessonRecall,
   recallFormLines,
 } from "../src/lib/lesson-recall.ts";
+import { isBundledPack, packFor } from "../src/data/language-packs/registry.ts";
+const es = packFor("es");
 const words = Array.from({ length: 10 }, (_, i) => ({
   es: `palabra ${i}`,
   en: `word ${i}`,
@@ -119,7 +121,7 @@ test("the back of the conectar card spells out every authored conjugation with i
   const card = verbCard(buildLessonRecall([], [conectar], "Spanish"), "conectar");
   assert.equal(card.label, "Verb");
   assert.equal(card.word.en, "to connect");
-  const lines = recallFormLines(card);
+  const lines = recallFormLines(card, es);
   assert.deepEqual(
     lines.map((line) => line.text),
     [
@@ -142,7 +144,7 @@ test("conjugations come only from authored forms: nothing is generated or guesse
   // A verb authored with two forms shows two lines, not a completed table.
   const partial = { ...conectar, forms: { yo: "conecto", nosotros: "conectamos" } };
   assert.deepEqual(
-    recallFormLines(verbCard(buildLessonRecall([], [partial], "Spanish"), "conectar")).map(
+    recallFormLines(verbCard(buildLessonRecall([], [partial], "Spanish"), "conectar"), es).map(
       (line) => line.text,
     ),
     ["yo conecto", "nosotros conectamos"],
@@ -154,19 +156,24 @@ test("conjugations come only from authored forms: nothing is generated or guesse
     "Spanish",
   );
   assert.equal(wordOnly[0].label, "Word");
-  assert.deepEqual(recallFormLines(wordOnly[0]), []);
+  assert.deepEqual(recallFormLines(wordOnly[0], es), []);
   // A language without authored verb forms gets none invented for it.
   const french = buildLessonRecall(
     [],
     [{ ...conectar, infinitive: "connecter", forms: { je: "connecte" } }],
     "French",
   );
-  assert.deepEqual(recallFormLines(verbCard(french, "connecter")), []);
+  // A language without verb keys (French on its legacy adapter) gets no lines; with its QA pack,
+  // only the one authored form shows, never a completed table.
+  assert.deepEqual(
+    recallFormLines(verbCard(french, "connecter"), packFor("fr")).map((line) => line.form),
+    isBundledPack(packFor("fr")) ? ["connecte"] : [],
+  );
   // Every real authored line is "subject + authored form" and nothing else.
   for (const lesson of Object.values(electrician.lessons)) {
     const deck = buildLessonRecall(lesson.words ?? [], lesson.verbs, "Spanish");
     for (const verb of lesson.verbs) {
-      const lines = recallFormLines(verbCard(deck, verb.infinitive));
+      const lines = recallFormLines(verbCard(deck, verb.infinitive), es);
       assert.equal(lines.length, 5, verb.infinitive);
       for (const line of lines) {
         assert.ok(Object.values(verb.forms).includes(line.form), `${verb.infinitive}: ${line.form}`);
@@ -190,7 +197,7 @@ test("reflexive, pattern and English-target cards keep their authored wording", 
     example: { target: "", native: "" },
   };
   assert.deepEqual(
-    recallFormLines(verbCard(buildLessonRecall([], [reflexive], "Spanish"), "lavarse")).map(
+    recallFormLines(verbCard(buildLessonRecall([], [reflexive], "Spanish"), "lavarse"), es).map(
       (line) => line.text,
     ),
     [
@@ -208,7 +215,7 @@ test("reflexive, pattern and English-target cards keep their authored wording", 
     verbs: [{ infinitive: "conectar", native: "to connect", forms: { usted: "conecte", ustedes: "conecten" } }],
   };
   assert.deepEqual(
-    recallFormLines(verbCard(buildLessonRecall([], [conectar], "Spanish", pattern), "conectar")).map(
+    recallFormLines(verbCard(buildLessonRecall([], [conectar], "Spanish", pattern), "conectar"), es).map(
       (line) => line.text,
     ),
     ["usted conecte", "ustedes conecten"],
@@ -220,7 +227,7 @@ test("reflexive, pattern and English-target cards keep their authored wording", 
     example: { target: "", native: "" },
   };
   assert.deepEqual(
-    recallFormLines(verbCard(buildLessonRecall([], [english], "English", undefined, "Spanish"), "clean")).map(
+    recallFormLines(verbCard(buildLessonRecall([], [english], "English"), "clean"), packFor("en")).map(
       (line) => line.text,
     ),
     ["I clean", "you clean", "he / she cleans", "we clean", "they clean"],
@@ -229,7 +236,7 @@ test("reflexive, pattern and English-target cards keep their authored wording", 
   assert.deepEqual(
     recallFormLines({
       forms: [{ id: "x:yo", prompt: "yo · x", answer: "yo conecto", meaning: "" }],
-    }).map((line) => line.text),
+    }, es).map((line) => line.text),
     ["yo conecto"],
   );
 });

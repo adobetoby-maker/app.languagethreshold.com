@@ -5,7 +5,7 @@ import { build } from "esbuild";
 import { mkdtempSync, readFileSync, rmSync } from "node:fs";
 import path from "node:path";
 const { authoredModuleDeck } = await loadModule("src/lib/authored-module-deck.ts");
-const { getCurriculum } = await loadModule("src/data/curriculum.ts");
+const { authoredCurriculum } = await loadModule("src/data/curriculum.ts");
 const key = (native, target) =>
   JSON.stringify([
     native.normalize("NFC").trim().toLocaleLowerCase("en"),
@@ -19,7 +19,7 @@ test("each complete authored module deck covers every lesson term and phrase wit
     assert.equal(deck.readiness, "draft");
     const pairs = new Set(deck.pairs.map((p) => key(p.english, p.translation)));
     assert.equal(pairs.size, deck.pairs.length);
-    for (const lesson of getCurriculum(moduleId).lessons)
+    for (const lesson of authoredCurriculum(moduleId).lessons)
       for (const word of lesson.words) {
         assert.ok(pairs.has(key(word.en, word.es)), `${moduleId} lesson ${lesson.n}: ${word.en}`);
       }

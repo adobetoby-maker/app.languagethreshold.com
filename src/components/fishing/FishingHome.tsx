@@ -1,4 +1,5 @@
 import { BOAT_COMMANDS, SPECIES, TRAVEL_PHRASES } from "@/data/fishing-practice.ts";
+import { translationFor, NOT_YET_TRANSLATED } from "@/lib/phrase-translation";
 import { useState } from "react";
 import { useApp } from "@/state/app-state";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
@@ -109,7 +110,7 @@ export function FishingHome() {
               >
                 <div className="text-white/50 text-xs leading-snug">{cmd.en}</div>
                 <div className="text-[#0fd99c] font-semibold text-sm">
-                  {cmd.translations[lang] ?? cmd.translations["Spanish"] ?? cmd.en}
+                  {translationFor(cmd.translations, lang) ?? NOT_YET_TRANSLATED}
                 </div>
               </div>
             ))}
@@ -127,7 +128,7 @@ export function FishingHome() {
                 <div className="flex items-start justify-between gap-4 mb-1">
                   <div className="text-white font-semibold text-sm">{sp.en}</div>
                   <div className="text-[#0fd99c] font-bold text-sm shrink-0">
-                    {sp.translations[lang] ?? sp.translations["Spanish"] ?? sp.en}
+                    {translationFor(sp.translations, lang) ?? NOT_YET_TRANSLATED}
                   </div>
                 </div>
                 <p className="text-white/35 text-xs leading-relaxed">{sp.note}</p>
@@ -166,7 +167,7 @@ export function FishingHome() {
               >
                 <div className="text-white/50 text-xs leading-snug">{phrase.en}</div>
                 <div className="text-[#0fd99c] font-semibold text-sm">
-                  {phrase.translations[lang] ?? phrase.translations["Spanish"] ?? phrase.en}
+                  {translationFor(phrase.translations, lang) ?? NOT_YET_TRANSLATED}
                 </div>
               </div>
             ))}

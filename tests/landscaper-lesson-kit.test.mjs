@@ -95,6 +95,11 @@ test("draft tracks never cross language pairs or teach the old universal field p
     ["English", "Spanish"],
   ]) {
     const d = definition(15, target, native);
+    // A target the module was not written for has no lesson at all.
+    if (target === "French") {
+      assert.equal(d, null);
+      continue;
+    }
     assert.deepEqual(d.words, []);
     assert.equal(d.reading, null);
     assert.equal(d.teaching, null);

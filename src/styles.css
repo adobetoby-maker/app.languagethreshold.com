@@ -2349,6 +2349,24 @@ main.lt-scroll-safe:has(.lt-lesson-workspace-active),
   min-width: 100px;
   min-height: 44px;
 }
+/* Desktop pages scroll on the document while main keeps the 100dvh shell's height, so main's
+   bottom padding never reaches the end of the page and the fixed dock covered the last content
+   (the Reader's study guide, the library's last row). Reserve the dock's height plus a gap after
+   the content. The lesson workspace and Speak scroll inside main and keep their own padding. */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .lt-v6-app:not(:has(.lt-lesson-workspace-active, .lt-native-speak))
+    .lt-main-column
+    > main.lt-scroll-safe::after {
+    content: "";
+    display: block;
+    height: 72px;
+  }
+  .lt-v6-app:not(:has(.lt-lesson-workspace-active, .lt-native-speak)):has(.lt-v6-study-modes)
+    .lt-main-column
+    > main.lt-scroll-safe::after {
+    height: 132px;
+  }
+}
 .lt-v6-study-modes {
   display: flex;
   border-top: 1px solid #29323b;

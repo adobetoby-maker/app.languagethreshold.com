@@ -59,7 +59,7 @@ test("cold instance: a stage lesson does not resolve until its reader loads the 
   const m = await entry();
   const ref = reference("foundation-electrician");
   assert.equal(m.resolveTutorLesson(ref), null, "the stage is not loaded yet: this was the 400");
-  assert.equal(m.getCurriculum("foundation-electrician"), null);
+  assert.equal(m.getCurriculum("foundation-electrician", "Spanish", "English"), null);
   await m.ensureStageForModule("foundation-electrician");
   const lesson = m.resolveTutorLesson(ref);
   assert.equal(lesson?.lessonNumber, 1);
@@ -267,7 +267,7 @@ test("readinessCatalog lists a stage module only through its release row, loaded
   const withoutRow = await entry();
   const cold = ids(await withoutRow.readinessCatalog(releaseDb(["roofing"]), "Spanish", "English"));
   await withoutRow.ensureStagesForModules(STAGES);
-  assert.ok(withoutRow.getCurriculum("foundation-electrician"), "the stage is loaded now");
+  assert.ok(withoutRow.getCurriculum("foundation-electrician", "Spanish", "English"), "the stage is loaded now");
   const loaded = ids(await withoutRow.readinessCatalog(releaseDb(["roofing"]), "Spanish", "English"));
   assert.deepEqual(loaded, cold, "loading a stage elsewhere does not add it to the list");
   assert.ok(cold.includes("roofing") && cold.includes("electrician"), "Core 30 modules are listed");

@@ -24,6 +24,8 @@ import { LDS_PACK_LOADERS } from "@/data/lds-pack-loaders";
 import { appendLanguageSeeds } from "@/lib/library-seed-set";
 import { createLibraryPackCache } from "@/lib/library-pack-cache";
 import { readerSelectionScope } from "@/lib/reader-selection";
+import { appData, flagOf } from "@/data/language-packs/app-data";
+import { packFor } from "@/data/language-packs/registry";
 
 function browserLibraryStorage() {
   try {
@@ -68,19 +70,6 @@ type Action =
   | { type: "SET_READ_STATUS"; payload: { id: string; status: ReadStatus } }
   | { type: "SET_LANGUAGE_FILTER"; payload: Language[] };
 
-const FLAG_BY_LANGUAGE: Record<Language, string> = {
-  Spanish: "🇪🇸",
-  French: "🇫🇷",
-  German: "🇩🇪",
-  Italian: "🇮🇹",
-  Japanese: "🇯🇵",
-  Chinese: "🇨🇳",
-  Korean: "🇰🇷",
-  Portuguese: "🇧🇷",
-  Pashto: "🇦🇫",
-  English: "🇬🇧",
-};
-
 function makeInitial(actor: string | null): LibraryState {
   const saved = readLibraryPreferences(browserLibraryStorage(), actor);
   const statuses = saved?.readStatus;
@@ -95,7 +84,7 @@ function makeInitial(actor: string | null): LibraryState {
   return {
     entries: [],
     selectedId:
-      typeof saved?.selectedId === "string" ? saved.selectedId : "seed-es-travel-train-ticket",
+      typeof saved?.selectedId === "string" ? saved.selectedId : STARTER_SEED_ID,
     selectionScope: typeof saved?.selectionScope === "string" ? saved.selectionScope : null,
     readStatus,
     languageFilter: Array.isArray(saved?.languageFilter)
@@ -103,6 +92,13 @@ function makeInitial(actor: string | null): LibraryState {
       : [],
   };
 }
+
+/**
+ * Id of the library text a brand-new reader opens on. It is a seed id, not a language rule: the
+ * open text is always filtered to the selected language below (`selected`), so under any other
+ * language it is ignored and the easiest text of that language is chosen instead.
+ */
+const STARTER_SEED_ID = "seed-es-travel-train-ticket";
 
 function reducer(state: LibraryState, action: Action): LibraryState {
   switch (action.type) {
@@ -396,7 +392,7 @@ export function LibraryProvider({
         state,
         dispatch,
         selected,
-        flagFor: (l) => FLAG_BY_LANGUAGE[l],
+        flagFor: (l) => flagOf(packFor(l)),
         addCustomEntry,
         removeCustomEntry,
         syncing: deviceState.syncing,
@@ -431,7 +427,7 @@ export function useLibrary() {
 }
 
 export function flagFor(l: Language): string {
-  return FLAG_BY_LANGUAGE[l];
+  return flagOf(packFor(l));
 }
 
 export function wordCount(sentences: { en?: string; target?: string }[] | string[]): number {

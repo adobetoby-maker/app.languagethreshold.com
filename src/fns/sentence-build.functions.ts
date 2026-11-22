@@ -7,6 +7,9 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import type { CefrLevel } from "./grammar.functions";
 import { checkSentenceBuildQuestion } from "@/lib/sentence-build-core";
+import { packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { appData } from "@/data/language-packs/app-data";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 
 // Levels, the question shape and its checks live in src/lib/sentence-build-core.ts, shared with
 // the trade-pack loader and generator.
@@ -20,6 +23,7 @@ const Input = z.object({
   topic: z.string().min(1).max(200).optional(),
 });
 
+// The base prompt, unchanged for Spanish and every language that is not a released pack.
 const SYSTEM = `You are a precise sentence-builder drill author. You generate natural target-language sentences for adult language learners and decompose each sentence into ordered tokens. The learner gets the tokens shuffled and must reorder them.
 
 Rules — non-negotiable:
@@ -34,6 +38,59 @@ Rules — non-negotiable:
 6. Keep "topic" to 1-3 words (e.g. "morning routine", "asking directions", "ordering coffee").
 7. Always respond by calling the provided tool.`;
 
+/**
+ * How a sentence is cut into tokens, and joined back, for this language: read from its pack
+ * (script, tokenizer, typography, elision). Nothing here names a language.
+ */
+function tokenRules(pack: LanguagePack): { split: string; join: string } {
+  // The language's own worked example (app/<code>.json sentenceBuilderExample), e.g. the
+  // Japanese bunsetsu split "私は学生です" → ["私は", "学生", "です"].
+  const example = appData(pack).sentenceBuilderExample;
+  const eg = example ? `, e.g. ${example}` : "";
+  const unspaced = pack.script.wordSeparator === "none";
+  if (unspaced)
+    return {
+      split: `   - Split the sentence into meaningful chunks (word or phrase units; each particle stays with the word it marks)${eg}. Each chunk is one token.`,
+      join: "with no separator",
+    };
+  if (pack.answerRules.tokenizer === "graphemes")
+    return {
+      split: `   - Split on the language's natural spaces${eg}. Each spaced unit is one token.`,
+      join: "with single spaces",
+    };
+  const lines = [
+    `   - Split on whitespace; keep punctuation attached to the word it follows (e.g. "Hola,").`,
+  ];
+  if (pack.grammar.nounSystem.contentRule === "article-with-noun")
+    lines.push(`   - Articles and nouns are SEPARATE tokens (an article is its own unit${eg}).`);
+  if (pack.dictionary.lookup.elisionPrefixes.length > 0)
+    lines.push(
+      `   - An elided word stays attached to the word it elides into, apostrophe included (${pack.dictionary.lookup.elisionPrefixes
+        .slice(0, 3)
+        .join(", ")}…): never split it into two tokens.`,
+    );
+  if (pack.typography.spaceBeforePunctuation.length > 0)
+    lines.push(
+      `   - The marks ${pack.typography.spaceBeforePunctuation.join(" ")} are written after a space in this language: attach each to the token before it, keeping the space inside the token.`,
+    );
+  return { split: lines.join("\n"), join: "with single spaces" };
+}
+
+function systemPrompt(pack: LanguagePack): string {
+  const rules = tokenRules(pack);
+  return `You are a precise sentence-builder drill author. You generate natural target-language sentences for adult language learners and decompose each sentence into ordered tokens. The learner gets the tokens shuffled and must reorder them.
+
+Rules — non-negotiable:
+1. The "targetSentence" must be natural, idiomatic, and grammatically complete in ${pack.name}. No textbook stiffness.
+2. "tokens" is the ENTIRE sentence split into discrete reorderable units. The unit IS what the user sees and drags:
+${rules.split}
+3. Concatenating the "tokens" ${rules.join} MUST reproduce the sentence as a learner would expect to read it. Verify before responding.
+4. "scrambled" is "tokens" shuffled into a different order. It MUST be a permutation — same elements, different order. Do not include the correct order.
+5. "explanation" is ONE short English sentence calling out the most likely sticking point — word-order rule, agreement, particle placement, etc.
+6. Keep "topic" to 1-3 words (e.g. "morning routine", "asking directions", "ordering coffee").
+7. Always respond by calling the provided tool.`;
+}
+
 export const generateSentenceBuilder = createServerFn({ method: "POST" })
   .inputValidator((i: unknown) => Input.parse(i))
   .handler(
@@ -47,6 +104,10 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
         setResponseStatus(originError.status);
         return { data: null, error: originError.error };
       }
+      // Released course packs (French, Italian) get their own tokenization rules; Spanish and
+      // every other language keep the base prompt and message.
+      const packRules = packFor(data.language);
+      const pack = followsPackRules(packRules) ? packRules : null;
       const signal = AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]);
       const KEY = process.env.ANTHROPIC_API_KEY;
       if (!KEY) return { data: null, error: "AI is not configured" };
@@ -73,7 +134,7 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
         ? `\nDomain: the sentence MUST be one a "${data.topic}" practitioner would actually say — use domain-specific vocabulary.`
         : "";
 
-      const userMsg = `Generate ONE ${data.language} sentence-builder question at CEFR ${cefr}.\n${lengthGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
+      const userMsg = `Generate ONE ${pack ? pack.name : data.language} sentence-builder question at CEFR ${cefr}.\n${lengthGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
 
       try {
         const client = new Anthropic({
@@ -89,7 +150,7 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
             // the game. Sonnet is reliable here.
             model: "claude-haiku-5-5",
             max_tokens: 850,
-            system: SYSTEM,
+            system: pack ? systemPrompt(pack) : SYSTEM,
             messages: [{ role: "user", content: userMsg }],
             tools: [
               {

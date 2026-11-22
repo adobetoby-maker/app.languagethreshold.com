@@ -8,10 +8,18 @@ export class RemoteSpeechProviderError extends Error {
   }
 }
 
+/** The pack's server fallback voice (pack.speech.remoteFallback). Required: no default voice. */
+export interface RemoteSpeechVoice {
+  provider: string;
+  voiceId: string;
+  languageCode: string;
+}
+
 export async function remoteSpeechAudio(
   text: string,
   apiKey: string,
   incoming: AbortSignal,
+  voice: RemoteSpeechVoice,
 ): Promise<ReadableStream<Uint8Array>> {
   const controller = new AbortController();
   let timedOut = false;
@@ -59,13 +67,13 @@ export async function remoteSpeechAudio(
   try {
     if (controller.signal.aborted) throw new Error("Cancelled");
     const pending = campaignProviderFetch(
-      "https://api.elevenlabs.io/v1/text-to-speech/XrExE9yKIg1WjnnlVkGX?output_format=mp3_44100_64",
+      `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voice.voiceId)}?output_format=mp3_44100_64`,
       {
         method: "POST",
         cache: "no-store",
         signal: controller.signal,
         headers: { "xi-api-key": apiKey, "Content-Type": "application/json" },
-        body: JSON.stringify({ text, model_id: "eleven_v3", language_code: "ps" }),
+        body: JSON.stringify({ text, model_id: "eleven_v3", language_code: voice.languageCode }),
       },
     );
     // A late response must be disposed even if a transport ignores cancellation.

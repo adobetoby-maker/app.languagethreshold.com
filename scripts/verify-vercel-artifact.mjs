@@ -76,6 +76,7 @@ function verifyArtifact() {
     "public/lesson-content",
     ".vercel/output/functions/index.func/lesson-content",
     ".vercel/output/static/lesson-content",
+    "content/language-packs",
   );
   if (
     !readFileSync(".vercel/output/functions/index.func/entry.cjs", "utf8").includes(

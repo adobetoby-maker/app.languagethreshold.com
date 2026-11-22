@@ -758,7 +758,8 @@ test.describe("Core 30 plan: Roofing", () => {
 // Authored words exist only for Spanish with English instructions and for the English-for-work
 // stages with Spanish instructions (pickAuthoredWords) and
 // authored lesson content only for one native language per target (contentNativeLanguage), so
-// the generated path is reached with a French target: Orthopedics in French has neither, and
+// the generated path is reached with a German target: Orthopedics in German has neither (French
+// and Italian read their own pack catalogs), and
 // the lesson-decks stub below answers 404, leaving the server function (lesson-words.ts).
 
 /** Builds the seroval-encoded body TanStack Start returns for a server function result. */
@@ -836,7 +837,7 @@ async function stubLessonWords(
 }
 
 async function openOrthopedicsLesson1(page: Page) {
-  await openCore30(page, undefined, "orthopedics", "French");
+  await openCore30(page, undefined, "orthopedics", "German");
   await page.getByRole("button", { name: /Start Lesson 1/ }).click();
   await expect(
     page.getByRole("button", { name: "Lesson details and goal", exact: true }),
@@ -844,11 +845,12 @@ async function openOrthopedicsLesson1(page: Page) {
   await goSection(page, "recall");
 }
 
-test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no authored list)", () => {
+// French and Italian ship their own catalog lessons; German keeps the generated-word path.
+test.describe("Core 30 plan: generated lesson words (Orthopedics in German, no authored list)", () => {
   // The service worker would answer deck requests itself, past page.route.
   test.use({ serviceWorkers: "block" });
   test("8. the practice kit shows the generated words and Match plays them", async ({ page }) => {
-    const requests = await stubLessonWords(page, () => ({ words: STUB_WORDS, lang: "French" }));
+    const requests = await stubLessonWords(page, () => ({ words: STUB_WORDS, lang: "German" }));
     await openOrthopedicsLesson1(page);
 
     await expect(
@@ -880,7 +882,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
           matched: (el as HTMLElement).dataset.matched === "true",
         })),
       );
-      const es = view.find((t) => !t.matched && t.lang === "fr" && enOf.has(t.text));
+      const es = view.find((t) => !t.matched && t.lang === "de" && enOf.has(t.text));
       expect(es, `an open tile for ${term.es}`).toBeTruthy();
       const partner = view.find(
         (t) => !t.matched && t.lang === "en" && t.text === enOf.get(es!.text),
@@ -911,7 +913,7 @@ test.describe("Core 30 plan: generated lesson words (Orthopedics in French, no a
 
   test("9. a failed word list shows Retry, and Retry builds the kit", async ({ page }) => {
     const requests = await stubLessonWords(page, (n) =>
-      n === 1 ? { error: "Word list failed" } : { words: STUB_WORDS, lang: "French" },
+      n === 1 ? { error: "Word list failed" } : { words: STUB_WORDS, lang: "German" },
     );
     await openOrthopedicsLesson1(page);
     await expect(page.getByText("Couldn't build the word list")).toBeVisible();
@@ -943,7 +945,7 @@ const deckWords = (tag: string) => [
   })),
 ];
 
-test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French)", () => {
+test.describe("Core 30 plan: pre-built static deck (Construction Foreman, German)", () => {
   test.use({ serviceWorkers: "block" });
   test("10. the kit renders words from the static deck with no server-function call", async ({
     page,
@@ -951,7 +953,7 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     const deck = {
       version: 1,
       module: DECK_MODULE,
-      language: "French",
+      language: "German",
       nativeLanguage: "English",
       model: "stub",
       generatedAt: "2026-10-15T00:00:00.000Z",
@@ -962,7 +964,7 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     await page.route("**/lesson-decks/**", async (route) => {
       const url = route.request().url();
       deckRequests.push(url);
-      if (url.endsWith(`/lesson-decks/fr/${DECK_MODULE}.json`)) {
+      if (url.endsWith(`/lesson-decks/de/${DECK_MODULE}.json`)) {
         await route.fulfill({
           status: 200,
           headers: { "content-type": "application/json" },
@@ -978,7 +980,7 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
       await route.fallback();
     });
 
-    await openCore30(page, undefined, DECK_MODULE, "French");
+    await openCore30(page, undefined, DECK_MODULE, "German");
     await page.getByRole("button", { name: /Start Lesson 1/ }).click();
     await expect(
       page.getByRole("button", { name: "Lesson details and goal", exact: true }),
@@ -996,7 +998,7 @@ test.describe("Core 30 plan: pre-built static deck (Construction Foreman, French
     );
 
     // The whole module deck is one file, fetched once; the lesson words server fn is never used.
-    expect(deckRequests.filter((url) => url.endsWith(`/fr/${DECK_MODULE}.json`))).toHaveLength(1);
+    expect(deckRequests.filter((url) => url.endsWith(`/de/${DECK_MODULE}.json`))).toHaveLength(1);
     expect(serverFnRequests).toHaveLength(0);
   });
 });

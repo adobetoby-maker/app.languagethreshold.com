@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { core60PathOf } from "../src/lib/core60-path.ts";
 import { validateStageFile } from "../src/lib/core60-validate.ts";
 import {
@@ -26,7 +26,7 @@ test("military is one complete English learning path for Spanish speakers", () =
     assert.equal(moduleSupportsLearningPair(module, "English", "Spanish"), true);
     assert.equal(moduleSupportsLearningPair(module, "Spanish", "English"), false);
     assert.equal(moduleSupportsLearningPair(module, "English", "French"), false);
-    assert.equal(getCurriculum(id)?.lessons.length, count);
+    assert.equal(authoredCurriculum(id)?.lessons.length, count);
   }
   assert.ok(core60PathOf("military"));
   assert.equal(
@@ -67,7 +67,7 @@ test("all 60 military lessons load authored bilingual content and usable activit
       );
       assert.ok(
         missions.some(
-          (m) => m.moduleId === id && m.title.includes(getCurriculum(id).lessons[n - 1].title),
+          (m) => m.moduleId === id && m.title.includes(authoredCurriculum(id).lessons[n - 1].title),
         ),
         `${id}/${n} speaking mission`,
       );
@@ -79,7 +79,7 @@ test("all 60 military lessons load authored bilingual content and usable activit
 });
 
 test("radio meanings distinguish receipt, compliance, and turn taking", () => {
-  const words = getCurriculum("military").lessons.find(
+  const words = authoredCurriculum("military").lessons.find(
     (l) => l.title === "Radio procedure words",
   ).words;
   const note = (term) => words.find((w) => w.es === term)?.note;

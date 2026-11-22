@@ -1,8 +1,25 @@
+import { PACKS } from "../data/language-packs/registry.ts";
+
+/** Codes whose stage ids end in "-<code>" (packs without legacy unscoped ids). */
+const SUFFIXED_STAGE_CODES = new Set(
+  PACKS.filter((pack) => !pack.ids.legacyUnscopedStorage).map((pack) => pack.code),
+);
 interface NamedModule {
   id: string;
   name: string;
 }
-export const moduleBaseId = (id: string) => id.replace(/^(foundation|master)-/, "");
+/**
+ * The catalog module a module id stands for: drops the stage prefix and, for a pack whose ids
+ * carry their language (core60-stage-core manifestStageModuleId, catalog-modules.ts), the
+ * "-<code>" suffix: "foundation-orthopedics-fr" and "grammar-fr" give "orthopedics" and "grammar".
+ * Ids of the other courses never end in such a suffix, so theirs are unchanged.
+ */
+export const moduleBaseId = (id: string) => {
+  const base = id.replace(/^(foundation|master)-/, "");
+  const dash = base.lastIndexOf("-");
+  const code = dash > 0 ? base.slice(dash + 1) : "";
+  return SUFFIXED_STAGE_CODES.has(code) ? base.slice(0, dash) : base;
+};
 const stageRank = (id: string) =>
   id.startsWith("foundation-") ? 0 : id.startsWith("master-") ? 2 : 1;
 
@@ -33,24 +50,26 @@ export function moduleLearningPaths<T extends NamedModule>(
   items: readonly T[],
   catalog: readonly T[] = items,
 ): ModuleLearningPath<T>[] {
-  const available = new Map(items.map((module) => [module.id, module]));
   const names = new Map(catalog.map((module) => [module.id, module]));
-  const roots = new Map<string, T>();
+  const paths = new Map<string, { foundation?: T; core?: T; master?: T; first: T }>();
   for (const module of items) {
     const base = moduleBaseId(module.id);
-    roots.set(base, names.get(base) ?? module);
+    const slot = module.id.startsWith("foundation-")
+      ? "foundation"
+      : module.id.startsWith("master-")
+        ? "master"
+        : "core";
+    const path = paths.get(base) ?? { first: module };
+    path[slot] ??= module;
+    paths.set(base, path);
   }
-  return [...roots.entries()]
-    .map(([base, module]) => ({
-      module,
+  return [...paths.entries()]
+    .map(([base, path]) => ({
+      module: path.core ?? names.get(base) ?? path.first,
       stages: [
-        {
-          key: "foundation" as const,
-          label: "Foundation",
-          module: available.get(`foundation-${base}`),
-        },
-        { key: "core" as const, label: "Core", module: available.get(base) },
-        { key: "master" as const, label: "Master", module: available.get(`master-${base}`) },
+        { key: "foundation" as const, label: "Foundation", module: path.foundation },
+        { key: "core" as const, label: "Core", module: path.core },
+        { key: "master" as const, label: "Master", module: path.master },
       ],
     }))
     .sort((a, b) => a.module.name.localeCompare(b.module.name, "en", { sensitivity: "base" }));

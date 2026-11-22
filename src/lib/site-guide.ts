@@ -1,5 +1,6 @@
 import { examsLocation } from "./exam-navigation.ts";
-import { LANGUAGES } from "../data/languages.ts";
+import { LANGUAGES, nativeLanguageName } from "../data/languages.ts";
+import { packFor } from "../data/language-packs/registry.ts";
 import type { AppTab } from "./app-navigation.ts";
 import { getModule } from "../data/modules.ts";
 import { getCurriculum } from "../data/curriculum.ts";
@@ -411,7 +412,7 @@ export function siteGuideHref(id: string, context: SiteGuideContext): string | n
     return examsLocation({
       moduleId: getModule(context.moduleId)?.id,
       target: context.language,
-      native: context.nativeLanguage ?? "English",
+      native: contextNative(context),
     });
   if (destination.path) return destination.path;
   if (destination.languages && !destination.languages.includes(context.language))
@@ -420,17 +421,21 @@ export function siteGuideHref(id: string, context: SiteGuideContext): string | n
     return siteGuideHref("modules", context);
   const module = getModule(context.moduleId);
   const tab =
-    destination.needsLessons && (!module || !getCurriculum(module.id))
+    destination.needsLessons && (!module || !getCurriculum(module.id, context.language, contextNative(context)))
       ? "modules"
       : destination.tab;
   const params = new URLSearchParams({
     module: module?.id ?? "core",
     target: context.language,
-    native: context.nativeLanguage ?? "English",
+    native: contextNative(context),
     tab: tab!,
   });
   if (destination.panel) params.set("panel", destination.panel);
   return `/?${params}`;
+}
+/** The context's native language, else the target course's default native (never a fixed language). */
+function contextNative(context: SiteGuideContext): string {
+  return context.nativeLanguage ?? nativeLanguageName(packFor(context.language)?.native.default) ?? "";
 }
 export function siteGuideLink(id: string, context: SiteGuideContext): string {
   const destination = SITE_DESTINATIONS.find((item) => item.id === id)!;
@@ -439,14 +444,15 @@ export function siteGuideLink(id: string, context: SiteGuideContext): string {
   if (destination.moduleIds && !destination.moduleIds.includes(context.moduleId ?? ""))
     return `[Choose a module for ${destination.label}](${siteGuideHref("modules", context)})`;
   const missingLessons =
-    destination.needsLessons && (!getModule(context.moduleId) || !getCurriculum(context.moduleId!));
+    destination.needsLessons && (!getModule(context.moduleId) ||
+      !getCurriculum(context.moduleId!, context.language, contextNative(context)));
   return `[${missingLessons ? "Choose a module for lessons and review" : destination.label}](${siteGuideHref(id, context)})`;
 }
 export function gettingStartedReply(context: SiteGuideContext): string {
   return (
     `I can help with both ${context.language} and finding your way around Language Threshold.\n\n` +
     `- ${siteGuideLink("modules", context)} — pick a learning focus.\n` +
-    `- ${siteGuideLink(getCurriculum(context.moduleId ?? "") ? "lessons" : "reader", context)} — start with a short lesson or passage.\n` +
+    `- ${siteGuideLink(getCurriculum(context.moduleId ?? "", context.language, contextNative(context)) ? "lessons" : "reader", context)} — start with a short lesson or passage.\n` +
     `- ${siteGuideLink("speak", context)} — practice using the language out loud.\n\n` +
     `Tell me what you want to do next.`
   );

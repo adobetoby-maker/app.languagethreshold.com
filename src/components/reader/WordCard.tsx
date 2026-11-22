@@ -12,6 +12,7 @@ import { useSpeech } from "@/state/speech-state";
 import { useTutor } from "@/state/tutor-state";
 import { useApp, type Language } from "@/state/app-state";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import { FuriganaText } from "./FuriganaText";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { dismissLearningHint } from "@/lib/learning-guidance";
@@ -106,7 +107,7 @@ export function WordCard({
   // HD voice; a device voice only when that is the learner's choice.
   const { speak: speakListening } = useListeningSpeaker(
     JSON.stringify(["word-card", lookupKey]),
-    request.language,
+    usePack(request.language),
   );
   const [lookupState, setLookupState] = useState(() => {
     const cached = cache.get(lookupKey);

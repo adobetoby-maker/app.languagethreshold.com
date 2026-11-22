@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Language } from "@/state/app-state";
+import { appData } from "@/data/language-packs/app-data";
+import { packFor } from "@/data/language-packs/registry";
 
 /**
  * A note field that actually works in Japanese, Chinese and Pashto.
@@ -36,19 +38,6 @@ function scriptOf(language: Language): ScriptKind {
 }
 
 /** BCP-47 tag — drives OS keyboard choice, font selection and spellcheck. */
-const LANG_TAG: Record<Language, string> = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh-Hans",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
-};
-
 const FONT_STACK: Record<ScriptKind, string> = {
   latin: "var(--font-sans)",
   // Hiragino/Yu = macOS+iOS Japanese, PingFang = macOS+iOS Simplified,
@@ -58,6 +47,18 @@ const FONT_STACK: Record<ScriptKind, string> = {
   arabic: '"Noto Naskh Arabic", "Geeza Pro", "Scheherazade New", "Times New Roman", serif',
 };
 
+/** BCP-47 tag for writing the language (keyboard, fonts, spellcheck): its app file's, else its code. */
+function writingTagFor(language: Language): string | undefined {
+  const pack = packFor(language);
+  return pack ? (appData(pack).writingTag ?? pack.code) : undefined;
+}
+
+/** The note placeholder written in the language (app file), else the English wording. */
+function notePlaceholderFor(language: Language): string {
+  const pack = packFor(language);
+  return (pack && appData(pack).notePlaceholder) || "Write a note…";
+}
+
 export function directionFor(language: Language): "rtl" | "ltr" {
   return scriptOf(language) === "arabic" ? "rtl" : "ltr";
 }
@@ -65,19 +66,6 @@ export function directionFor(language: Language): "rtl" | "ltr" {
 export function fontStackFor(language: Language): string {
   return FONT_STACK[scriptOf(language)];
 }
-
-const PLACEHOLDER: Record<Language, string> = {
-  Japanese: "メモを書く…",
-  Chinese: "写笔记…",
-  Pashto: "یادښت ولیکئ…",
-  Korean: "메모 쓰기…",
-  Spanish: "Escribe una nota…",
-  French: "Écrire une note…",
-  German: "Notiz schreiben…",
-  Italian: "Scrivi una nota…",
-  Portuguese: "Escreva uma nota…",
-  English: "Write a note…",
-};
 
 export function MultilingualNoteInput({
   language,
@@ -125,12 +113,12 @@ export function MultilingualNoteInput({
     <textarea
       // `lang` is not decoration: iOS uses it to pick the keyboard and to decide
       // whether autocorrect/capitalisation apply — both wrong for CJK/Arabic.
-      lang={LANG_TAG[language]}
+      lang={writingTagFor(language)}
       dir={directionFor(language)}
       rows={rows}
       autoFocus={autoFocus}
       value={draft}
-      placeholder={PLACEHOLDER[language]}
+      placeholder={notePlaceholderFor(language)}
       // Spellcheck helps Latin; on CJK/Arabic it is a wall of false positives.
       spellCheck={script === "latin"}
       autoCapitalize={script === "latin" ? "sentences" : "none"}

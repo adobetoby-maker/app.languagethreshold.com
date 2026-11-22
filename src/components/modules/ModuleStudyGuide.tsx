@@ -13,7 +13,7 @@ import {
 import { useApp, type Language, type TabKey } from "@/state/app-state";
 import { useTutor } from "@/state/tutor-state";
 import { useLibrary } from "@/state/library-state";
-import { MODULES, type AppModule, moduleSupportsLearningPair } from "@/data/modules";
+import { MODULES, type AppModule, moduleBlurbFor, moduleSupportsLearningPair } from "@/data/modules";
 import { getAvailableModuleLessons } from "@/data/module-starters";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
@@ -166,13 +166,13 @@ export function ModuleStudyGuide({
             {module.name} <span className="text-muted-foreground">— in {language}</span>
           </h2>
           <p className="mt-1 hidden sm:block text-xs leading-relaxed text-foreground/75">
-            {module.blurb}
+            {moduleBlurbFor(module, language)}
           </p>
           <details className="sm:hidden">
             <summary className="min-h-11 cursor-pointer py-2 text-sm text-muted-foreground">
               About this specialty
             </summary>
-            <p className="text-sm">{module.blurb}</p>
+            <p className="text-sm">{moduleBlurbFor(module, language)}</p>
           </details>
         </div>
         {!embedded && (
@@ -278,6 +278,7 @@ export function ModuleStudyGuide({
                     <p className="text-[13px] leading-relaxed text-foreground cursor-text">
                       <ClickableText
                         text={pair.target}
+                        language={language}
                         onWordClick={(word, sentence, x, y) =>
                           setWordReq({ word, sentence, language, x, y })
                         }

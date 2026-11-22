@@ -1,0 +1,103 @@
+{
+  "code": "it",
+  "pack": {
+    "_why": "The PWA already authors Italian Say It missions and offers the online tutor (legacy adapter); a QA build must offer the same. Continue your Italian lists its courses in the order Spanish learners see (Conjugation Patterns 4th, as the es overlay keeps the base order).",
+    "features": {
+      "speakingMissions": true,
+      "onlineTutor": true
+    },
+    "library": {
+      "coreBasics": [
+        "italian-basics",
+        "italian-102",
+        "italian-frequent-verbs",
+        "italian-conjugation-patterns",
+        "italian-usage-verbs",
+        "italian-common-patterns",
+        "italian-cognates",
+        "sound-like-a-native"
+      ]
+    }
+  },
+  "app": {
+    "menuOrder": 4,
+    "chooserOrder": 4,
+    "wizardOrder": 3,
+    "hdListening": true,
+    "dictionary": "italian-core",
+    "pastTenseLabel": "Imperfect",
+    "phrases": {
+      "partnerSample": {
+        "woman": "Ciao, sono la tua compagna di conversazione. Cominciamo?",
+        "man": "Ciao, sono il tuo compagno di conversazione. Cominciamo?"
+      },
+      "missionClarification": "Non capisco ancora. Può ripetere più lentamente e farmi un esempio?",
+      "whereDoesItHurt": "Dove le fa male?"
+    },
+    "missions": {
+      "opening": {
+        "Core": "Buongiorno. Come posso aiutarla oggi?",
+        "Core Basics": "Buongiorno. Come posso aiutarla oggi?",
+        "Faith": "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
+        "Medical": "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
+        "Trades": "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
+        "Service": "Buongiorno. Ho bisogno di aiuto con questa situazione. Possiamo parlarne?",
+        "Education": "Buongiorno. Vorrei capire meglio la situazione. Possiamo esaminarla insieme?",
+        "Agriculture": "Buongiorno. Qual è il piano di lavoro e che cosa devo fare?",
+        "Sports": "Mister, qual è il piano e che cosa vuole che faccia?",
+        "Travel": "Mi scusi, ho bisogno di aiuto. Che cosa devo fare?",
+        "English for Work": "Hello. What workplace situation would you like to practice?"
+      },
+      "travel": {
+        "travel-breakfast": "Buongiorno. Che cosa desidera bere per iniziare?",
+        "travel-lunch": "Buongiorno. Vuole vedere il menù del giorno?",
+        "travel-dinner": "Buonasera. Ha una prenotazione o cerca un tavolo?",
+        "travel-shopping-essentials": "Buongiorno. Che cosa cerca e che taglia porta?",
+        "travel-daily-life-services": "Buongiorno. Mi dica di quale servizio ha bisogno oggi.",
+        "travel-markets-souvenirs": "Buongiorno. Questi prodotti sono locali. Che cosa cerca?",
+        "travel-hotels-lodging": "Benvenuto. Ha una prenotazione a suo nome?",
+        "travel-taxi-rideshare": "Buongiorno. Dove andiamo e ha dei bagagli?",
+        "travel-trains-transit": "Buongiorno. Dove deve andare?",
+        "travel-scooter-car-rental": "Buongiorno. Cerca una Vespa, uno scooter o un'auto, e per quanti giorni?",
+        "travel-roadside-mechanics": "Buongiorno. Mi descriva che cosa fa il veicolo e da quando.",
+        "travel-guides-attractions": "Benvenuti. Prima di iniziare, che cosa vi interessa di più?",
+        "travel-airport-luggage": "Buongiorno. Qual è il suo volo e come posso aiutarla?",
+        "travel-pharmacy-health": "Buongiorno. Quali sintomi ha e da quanto tempo?",
+        "travel-social-dating": "Ciao. Non credo che ci conosciamo. Sei qui in visita?",
+        "travel-problems-services": "Buongiorno. Mi spieghi che cosa è successo e di cosa ha bisogno subito."
+      },
+      "relationship": {
+        "meeting-family": "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
+        "dating-interest": "Mi piaci molto. Ti andrebbe di prendere un caffè insieme un giorno?",
+        "defining-relationship": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
+        "affection-appreciation": "Voglio dirti che tengo molto a te. Come ti senti quando te lo dico?",
+        "living-together": "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
+        "consent-boundaries": "Ti va se ti abbraccio? Puoi dirmi di no.",
+        "sexual-health-conversation": "Prima di avere rapporti intimi, vorrei parlare di ciò che ci fa sentire al sicuro e a nostro agio.",
+        "disagreement-repair": "Quello che è successo mi ha ferito, ma voglio ascoltarti e risolverlo insieme.",
+        "ending-relationship": "Voglio parlarti con sincerità. Ho deciso di concludere la nostra relazione."
+      }
+    },
+    "sentenceBuilderExample": "\"il caffè\" → [\"il\", \"caffè\"]",
+    "personLabels": {
+      "s1": "io",
+      "s2": "tu",
+      "s3": "lui/lei",
+      "p1": "noi",
+      "p2": "voi",
+      "p3": "loro"
+    },
+    "flag": "🇮🇹",
+    "countries": [
+      "Italy"
+    ],
+    "opponentNames": [
+      "GiuliaR_IT",
+      "LucaB_IT",
+      "MartinaC_IT",
+      "MatteoP_IT",
+      "SofiaT_IT"
+    ],
+    "notePlaceholder": "Scrivi una nota…"
+  }
+}

@@ -334,7 +334,7 @@ const EN_TO_IT: CognateRule[] = [
     targetPattern: "-bile",
     name: "Possibility adjectives",
     reliability: 85,
-    hook: "Add -e after the b and you've built the Italian word.",
+    hook: "Change -ble to -bile (add an i before the final -le) and you've built the Italian word.",
     examples: [
       { source: "possible", target: "possibile", gloss: "possible" },
       { source: "terrible", target: "terribile", gloss: "terrible" },
@@ -392,7 +392,7 @@ const EN_TO_IT: CognateRule[] = [
     targetPattern: "-mente",
     name: "Adverbs",
     reliability: 95,
-    hook: "Once you know the adjective, the adverb is free — same rule Spanish uses (-mente), so this transfers twice over if you already know Spanish adverbs.",
+    hook: "Once you know the adjective, the adverb is free: Italian adds -mente where English adds -ly.",
     examples: [
       { source: "naturally", target: "naturalmente", gloss: "naturally" },
       { source: "probably", target: "probabilmente", gloss: "probably" },
@@ -626,7 +626,7 @@ const FR_TO_IT: CognateRule[] = [
     targetPattern: "-tà",
     name: "Abstract-quality nouns",
     reliability: 90,
-    hook: "French dropped the vowel before -té that Spanish and English both kept — just swap the accent direction and you're there.",
+    hook: "Both languages end these nouns on a stressed vowel — just swap the accent direction (-té → -tà) and you're there.",
     examples: [
       { source: "réalité", target: "realtà", gloss: "reality" },
       { source: "université", target: "università", gloss: "university" },
@@ -660,7 +660,7 @@ const FR_TO_IT: CognateRule[] = [
     targetPattern: "-ario",
     name: "Adjectives / role nouns",
     reliability: 80,
-    hook: "Same family as the English -ary and Spanish -ario rules — all three trace to the same Latin ending.",
+    hook: "Same family as the English -ary rule — both trace to the same Latin ending.",
     examples: [
       { source: "nécessaire", target: "necessario", gloss: "necessary" },
       { source: "dictionnaire", target: "dizionario", gloss: "dictionary" },
@@ -731,7 +731,7 @@ const PT_TO_IT: CognateRule[] = [
     targetPattern: "-zione",
     name: "Nouns of action / result",
     reliability: 95,
-    hook: "Same family as the Spanish -ción rule — Portuguese just nasalized the vowel.",
+    hook: "Same family as the English -tion rule — Portuguese just nasalized the vowel.",
     examples: [
       { source: "informação", target: "informazione", gloss: "information" },
       { source: "nação", target: "nazione", gloss: "nation" },
@@ -748,7 +748,7 @@ const PT_TO_IT: CognateRule[] = [
     targetPattern: "-tà",
     name: "Abstract-quality nouns",
     reliability: 90,
-    hook: "Same shift as Spanish -dad → -tà, one extra vowel to drop.",
+    hook: "Drop -dade and stress the final -tà: the same noun, one syllable shorter.",
     examples: [
       { source: "cidade", target: "città", gloss: "city" },
       { source: "universidade", target: "università", gloss: "university" },
@@ -830,7 +830,7 @@ const PT_TO_IT: CognateRule[] = [
     targetPattern: "gn",
     name: "The nasal-palatal sound",
     reliability: 65,
-    hook: "More predictable than the Spanish ñ split — Portuguese 'nh' lands on Italian 'gn' more consistently.",
+    hook: "Predictable: Portuguese 'nh' and Italian 'gn' spell the same sound, so the swap is direct.",
     examples: [
       { source: "sonho", target: "sogno", gloss: "dream" },
       { source: "banho", target: "bagno", gloss: "bath / bathroom" },
@@ -886,8 +886,13 @@ export const COGNATE_LANGUAGE_NOTES: Partial<Record<Language, string>> = {
 
 /** Rules that teach `target`, optionally narrowed to one source language. */
 export function getCognateRules(target: Language, source?: CognateSourceLanguage): CognateRule[] {
+  // French and Italian learners never see Spanish: their bridge has no Spanish-source patterns.
+  const noSpanish = target === "French" || target === "Italian";
   return ALL_COGNATE_RULES.filter(
-    (r) => r.targetLanguage === target && (!source || r.sourceLanguage === source),
+    (r) =>
+      r.targetLanguage === target &&
+      (!source || r.sourceLanguage === source) &&
+      !(noSpanish && r.sourceLanguage === "Spanish"),
   );
 }
 

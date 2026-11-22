@@ -3,7 +3,8 @@ import { useApp } from "@/state/app-state";
 import { useFlashcards } from "@/state/flashcard-state";
 import { getCurriculum } from "@/data/curriculum";
 import { getModule } from "@/data/modules";
-import { core60PathOf } from "@/lib/core60-path";
+import { core60PathOfPair } from "@/lib/core60-path";
+import type { Language, NativeLanguage } from "@/data/languages";
 import { core30ScopeKey, type Core30ProgressContext } from "@/lib/core30-scope";
 import {
   authoredWordsPairForModule,
@@ -27,7 +28,11 @@ import type { SrsGrade } from "@/lib/srs";
 export function useLessonReview(moduleId: string, context: Core30ProgressContext) {
   const { state } = useApp();
   const flashcards = useFlashcards();
-  const path = core60PathOf(moduleId);
+  const path = core60PathOfPair(
+    moduleId,
+    context.targetLanguage as Language,
+    context.instructionLanguage as NativeLanguage,
+  );
   const pathId = path?.tradeModuleId ?? moduleId;
   const scope = core30ScopeKey(pathId, context);
   const device = useLearnerDeviceStore(`lesson-review:${scope}`);
@@ -50,12 +55,16 @@ export function useLessonReview(moduleId: string, context: Core30ProgressContext
 
   const steps = path?.steps.filter((s) => s.available).map((s) => s.moduleId) ?? [moduleId];
   const stepKey = JSON.stringify(steps);
+  const { targetLanguage, instructionLanguage } = context;
   const lessons = useMemo(() => {
     const ids = JSON.parse(stepKey) as string[];
     return ids.flatMap((id) =>
-      (getCurriculum(id)?.lessons ?? []).map((lesson) => ({ moduleId: id, lesson })),
+      (getCurriculum(id, targetLanguage, instructionLanguage)?.lessons ?? []).map((lesson) => ({
+        moduleId: id,
+        lesson,
+      })),
     );
-  }, [stepKey]);
+  }, [stepKey, targetLanguage, instructionLanguage]);
   const completed = lessons.map(({ moduleId: id, lesson }) => {
     const key = core30ScopeKey(id, context);
     return (

@@ -3,10 +3,12 @@ import { readFileSync, existsSync, writeFileSync } from "node:fs";
 const imports = {
   "src/data/modules.ts": ["MODULES", "moduleSupportsLearningPair"],
   "src/data/curriculum.ts": ["getCurriculum"],
+  "src/data/language-packs/registry.ts": ["PACKS"],
+  "src/data/languages.ts": ["nativeLanguageName"],
   "src/lib/core60-path.ts": ["core60PathOf"],
   "src/data/spanish-basics.ts": ["spanishBasicsLesson"],
   "src/lib/lesson-reading.ts": ["authoredLessonReading"],
-  "src/lib/lesson-words-core.ts": ["pickAuthoredWords", "authoredWordsPair"],
+  "src/lib/lesson-words-core.ts": ["pickAuthoredWords", "authoredWordsPairForModule", "languageTag"],
   "src/lib/module-placement.ts": ["placementBlocks", "placementCloze"],
 };
 const compiled = await build({
@@ -28,10 +30,12 @@ const app = await import(
 );
 const read = (file) => (existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : null);
 const rows = [];
-for (const [target, native, code] of [
-  ["Spanish", "English", "es"],
-  ["English", "Spanish", "en"],
-]) {
+// Every registered target with its default native; a pair with no modules or no files adds no rows.
+for (const [target, native, code] of app.PACKS.map((pack) => [
+  pack.name,
+  app.nativeLanguageName(pack.native.default),
+  app.languageTag(pack.name),
+]).filter(([, native]) => native)) {
   for (const module of app.MODULES.filter(
     (m) => !/^(foundation|master)-/.test(m.id) && app.moduleSupportsLearningPair(m, target, native),
   )) {
@@ -41,14 +45,14 @@ for (const [target, native, code] of [
       const owner = app.MODULES.find((m) => m.id === id);
       const content = read(`public/lesson-content/${code}/${id}.json`);
       const deck = read(`public/lesson-decks/${code}/${id}.json`);
-      return (app.getCurriculum(id)?.lessons ?? []).map((lesson) => {
+      return (app.getCurriculum(id, target, native)?.lessons ?? []).map((lesson) => {
         const raw = content?.nativeLanguage === native ? content.lessons[String(lesson.n)] : null;
         const words =
           app.pickAuthoredWords(
             lesson.words,
             target,
             native,
-            app.authoredWordsPair(owner?.learnDirection),
+            app.authoredWordsPairForModule(owner),
           ) ??
           raw?.words ??
           (deck?.nativeLanguage === native ? deck.lessons[String(lesson.n)] : null) ??

@@ -1,6 +1,7 @@
 import { speakingTestPrincipal, isSpeakingTestActor } from "./speaking-test-access.ts";
 import { isIP } from "node:net";
 import { readPrivateServiceJson } from "./private-service-json.ts";
+import { isSpeakingMissionLanguageEnabled as isLanguageEnabled } from "./speaking-review.ts";
 
 export interface SpeakingPrincipal {
   userId: string;
@@ -29,7 +30,7 @@ export function isSpeakingMissionLanguageEnabled(
   language: string,
   environment: Record<string, string | undefined> = process.env,
 ) {
-  return language !== "Japanese" || environment.JAPANESE_SPEAKING_REVIEWED === "true";
+  return isLanguageEnabled(language, environment);
 }
 
 function supabaseUrl() {

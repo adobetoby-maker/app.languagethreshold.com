@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { CURRICULA, getCurriculum } from "../src/data/curriculum.ts";
+import { CURRICULA, authoredCurriculum } from "../src/data/curriculum.ts";
 import {
   FOUNDATION_ROOFING_FOCUS,
   FOUNDATION_ROOFING_LESSONS,
@@ -50,13 +50,13 @@ test("Roofing Foundation is registered as a free Spanish module with its own cur
       `vocabFocus "${word}" is taught in the Foundation`,
     );
   }
-  const curriculum = getCurriculum(ID);
+  const curriculum = authoredCurriculum(ID);
   assert.equal(curriculum, CURRICULA[ID]);
   assert.equal(curriculum.headline, "The Roofing Foundation");
   assert.match(curriculum.threshold, /^By Lesson 10, /);
   assert.equal(curriculum.lessons, FOUNDATION_ROOFING_LESSONS);
   // The Roofing Core 30 itself is untouched.
-  assert.equal(getCurriculum("roofing").lessons.length, 30);
+  assert.equal(authoredCurriculum("roofing").lessons.length, 30);
 });
 
 test("Roofing Foundation: every lesson has its own Say it mission, in Spanish only", () => {

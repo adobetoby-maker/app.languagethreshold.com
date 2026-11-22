@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import { getModule, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { getLessonDefinition, modulePracticeVersion } from "../src/lib/lesson-definition.ts";
 import { validateLessonContent, contentLimitsFor } from "../src/lib/lesson-content-core.ts";
@@ -36,7 +36,7 @@ test("all 60 sound lessons have authored content, coaching, six modes, and lesso
     missions = getSpeakingMissions("Spanish");
   for (const [id, count] of stages) {
     const content = JSON.parse(readFileSync(`public/lesson-content/es/${id}.json`));
-    assert.equal(getCurriculum(id).lessons.length, count);
+    assert.equal(authoredCurriculum(id).lessons.length, count);
     for (let n = 1; n <= count; n++) {
       const d = definition(id, n),
         p = soundLesson(id, n);
@@ -91,6 +91,7 @@ test("the new course never advertises or borrows an unsupported language pair", 
     ]) {
       assert.equal(moduleSupportsLearningPair(m, target, native), false);
       const d = definition(id, 1, target, native);
+      if (!d) continue; // a pair the course was not written for has no lesson at all
       assert.deepEqual(d.words, []);
       assert.equal(d.reading, null);
       assert.equal(d.teaching, null);

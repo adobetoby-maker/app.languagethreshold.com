@@ -308,7 +308,9 @@ export const Route = createFileRoute("/api/team")({
                   )
                   .map((track) => ({
                     ...track,
-                    lessonCount: getCurriculum(track.module_id)?.lessons.length ?? 30,
+                    lessonCount:
+                      getCurriculum(track.module_id, track.target_language, track.instruction_language)
+                        ?.lessons.length ?? 30,
                   })),
               );
             }

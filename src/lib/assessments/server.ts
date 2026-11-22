@@ -35,6 +35,7 @@ import {
   type AssessmentAnswer,
 } from "./form";
 import { checkpointProfiles, type ItemEvidence, type Checkpoint } from "./core";
+import { historicalCoursePair } from "@/data/language-packs/registry";
 
 /** Adaptive drafts cannot run through the legacy flat-form serializer/scorer. */
 export function requireFixedAssessmentRuntime(definition: unknown) {
@@ -208,7 +209,7 @@ export async function seedDraftTrack(
 ) {
   await ensureStageForModule(moduleId);
   const module = getModule(moduleId),
-    curriculum = getCurriculum(moduleId);
+    curriculum = getCurriculum(moduleId, target, native);
   if (
     target === native ||
     (target === "Chinese" && native === "Chinese (Simplified)") ||
@@ -229,7 +230,10 @@ export async function seedDraftTrack(
   if (published.error)
     throw new AssessmentAccessError("Assessment releases could not be loaded.", 503);
   if (published.data?.[0]) return published.data[0].id;
-  const roofing = moduleId === "roofing" && target === "Spanish" && native === "English";
+  // The published roofing release belongs to the pair the roofing course is written in.
+  const roofingPair = historicalCoursePair();
+  const roofing =
+    moduleId === "roofing" && target === roofingPair.target && native === roofingPair.native;
   const releaseId = roofing
     ? ROOFING_ASSESSMENT_RELEASE
     : `${moduleId}-${target.toLowerCase().replace(/\W+/g, "-")}-${native.toLowerCase().replace(/\W+/g, "-")}-assessment-draft-v1`;
@@ -412,13 +416,13 @@ export async function readinessCatalog(db: TeamDb, target: Language, native: Nat
   return Promise.all(
     MODULES.filter(
       (module) =>
-        getCurriculum(module.id) &&
+        getCurriculum(module.id, target, native) &&
         moduleSupportsLearningPair(module, target, native) &&
         // A data-driven stage is listed only through its release row, never because its chunk
         // happens to be loaded on this instance (that would differ between instances).
         (!dataStageOf(module.id) || (releases ?? []).some((row) => row.module_id === module.id)),
     ).map(async (module) => {
-      const curriculum = getCurriculum(module.id)!;
+      const curriculum = getCurriculum(module.id, target, native)!;
       const release =
         (releases ?? []).find((row) => row.module_id === module.id && row.status === "verified") ??
         (releases ?? []).find((row) => row.module_id === module.id);

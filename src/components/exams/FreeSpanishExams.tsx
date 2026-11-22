@@ -1,6 +1,8 @@
 import { ModuleAnswerReview } from "./ModuleAnswerReview";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { MODULES, moduleSupportsLearningPair } from "@/data/modules";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { packFor } from "@/data/language-packs/registry";
+import type { Language, NativeLanguage } from "@/data/languages";
+import { MODULES, getModule, moduleSupportsLearningPair } from "@/data/modules";
 import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
 import { moduleLessonUrl } from "@/lib/learning-link";
 import { placementBlockScore, placementResult } from "@/lib/module-placement";
@@ -13,27 +15,39 @@ import {
 import type { loadModulePlacement } from "@/lib/module-placement-loader";
 
 type Loaded = Awaited<ReturnType<typeof loadModulePlacement>>;
-const modules = MODULES.filter(
-  (module) =>
-    moduleSupportsLearningPair(module, "Spanish", "English") &&
-    (core60PathOfPair(module.id, "Spanish", "English")?.tradeModuleId ?? module.id) === module.id,
-);
+function testModules(target: Language, native: NativeLanguage) {
+  return MODULES.filter(
+    (module) =>
+      moduleSupportsLearningPair(module, target, native) &&
+      (core60PathOfPair(module.id, target, native)?.tradeModuleId ?? module.id) === module.id,
+  );
+}
 const button =
   "min-h-11 rounded-xl border border-border px-4 py-2 font-semibold hover:border-gold focus-visible:ring-2 focus-visible:ring-gold disabled:opacity-50";
 
 /** Public lesson-derived study checks. Never loads the private, reviewed exam banks. */
 export function FreeSpanishExams({
+  target,
+  native,
   initialModule,
   initialMode = "placement",
 }: {
+  target: Language;
+  native: NativeLanguage;
   initialModule?: string;
   initialMode?: ModuleExamMode;
 }) {
+  const pack = packFor(target);
+  const languageName = pack?.name ?? "language";
+  const defaultCourseName = (getModule(pack?.library.defaultModule)?.name ?? `${languageName} basics`).split(" · ")[0];
+  const modules = useMemo(() => testModules(target, native), [target, native]);
   const initialBase = initialModule
-    ? (core60PathOfPair(initialModule, "Spanish", "English")?.tradeModuleId ?? initialModule)
+    ? (core60PathOfPair(initialModule, target, native)?.tradeModuleId ?? initialModule)
     : undefined;
   const [moduleId, setModuleId] = useState(
-    modules.some((m) => m.id === initialBase) ? initialBase! : "spanish-basics",
+    modules.some((m) => m.id === initialBase)
+      ? initialBase!
+      : (pack?.library.defaultModule ?? modules[0]?.id ?? ""),
   );
   const [mode, setMode] = useState<ModuleExamMode>(initialMode);
   const [loaded, setLoaded] = useState<Loaded | null>(null);
@@ -74,15 +88,15 @@ export function FreeSpanishExams({
       const { loadModulePlacement } = await import("@/lib/module-placement-loader");
       const data = await loadModulePlacement(
         moduleId,
-        "Spanish",
-        "English",
+        target,
+        native,
         crypto.randomUUID(),
         mode,
       );
       if (gen !== generation.current) return;
       if (!data.blocks.length)
         throw new Error(
-          "This module does not yet have enough Spanish lesson material for a test. Choose another module.",
+          `This module does not yet have enough ${languageName} lesson material for a test. Choose another module.`,
         );
       setLoaded(data);
     } catch (cause) {
@@ -123,10 +137,10 @@ export function FreeSpanishExams({
       data-testid="free-spanish-exams"
     >
       <div>
-        <h1 className="font-serif text-3xl">Free Spanish placement test</h1>
+        <h1 className="font-serif text-3xl">Free {languageName} placement test</h1>
         <p className="mt-3">
-          Test your skills and get an estimated starting lesson. Choose Spanish 101 for general
-          Spanish, or a module for the language you use at work and in daily life.
+          Test your skills and get an estimated starting lesson. Choose {defaultCourseName} for general{" "}
+          {languageName}, or a module for the language you use at work and in daily life.
         </p>
         <p className="mt-2 font-semibold">
           Free to take. No account or payment needed. Unlimited retakes.
@@ -175,7 +189,7 @@ export function FreeSpanishExams({
         saved lesson progress stays unchanged.
       </p>
       {busy ? (
-        <p role="status">Preparing your Spanish test…</p>
+        <p role="status">Preparing your {languageName} test…</p>
       ) : !loaded ? (
         <button
           className={`${button} bg-gold text-midnight`}
@@ -249,8 +263,8 @@ export function FreeSpanishExams({
                 href={moduleLessonUrl({
                   moduleId: lesson.moduleId,
                   lesson: lesson.n,
-                  target: "Spanish",
-                  native: "English",
+                  target,
+                  native,
                 })}
               >
                 {stageLessonLabel(lesson.moduleId, lesson.n)}: {lesson.title}

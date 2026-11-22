@@ -8,10 +8,19 @@
 // list when a reply has no tool call or fails a rule (see lesson-content-core.ts).
 
 import type { LessonWord } from "../data/curriculum.ts";
+import { packFor, requirePackFor, type LanguagePack } from "../data/language-packs/registry.ts";
+import { appData, type ContentPromptNotes } from "../data/language-packs/app-data.ts";
+import { contentRulesFor } from "../data/language-packs/content-rules.ts";
+import { followsPackRules } from "../data/language-packs/pack-rules.ts";
+import {
+  baseLessonContentSystemPrompt,
+  baseLessonContentTools,
+  baseLevelFor,
+} from "./lesson-content-prompt-base.ts";
 import { wordsFromModelOutput } from "./lesson-words-core.ts";
 import {
   CONTENT_LIMITS,
-  MODEL_FORM_KEYS,
+  modelFormKeys,
   cleanPassage,
   verbsFromModelOutput,
   type ContentParts,
@@ -60,8 +69,19 @@ export interface ContentRequestArgs {
 
 // ─── Level ───────────────────────────────────────────────────────────────────
 
-/** Language level for a lesson, scaled by its position in the module (30, 15 or 10 lessons). */
-export function levelFor(lessonNumber: number, lessonCount: number): { band: string; guide: string } {
+/**
+ * Language level for a lesson, scaled by its position in the module (30, 15 or 10 lessons). The
+ * near-future construction named in the A2-B1 guide comes from the target's app file
+ * (contentPrompt.nearFuture), else a neutral description.
+ */
+export function levelFor(
+  lessonNumber: number,
+  lessonCount: number,
+  targetLanguage: string,
+): { band: string; guide: string } {
+  if (!usesPackPrompt(targetLanguage)) return baseLevelFor(lessonNumber, lessonCount);
+  const nearFuture =
+    promptNotes(targetLanguage)?.nearFuture ?? "the near-future construction of the target language";
   const position = lessonNumber / Math.max(1, lessonCount);
   if (position <= 1 / 3) {
     return {
@@ -74,7 +94,7 @@ export function levelFor(lessonNumber: number, lessonCount: number): { band: str
     return {
       band: "A2-B1",
       guide:
-        "sequencing words (first, then, after), imperatives, the near future (ir a + infinitive in Spanish, going to in English) and the simple past; sentences up to about 14 words",
+        `sequencing words (first, then, after), imperatives, the near future (${nearFuture}) and the simple past; sentences up to about 14 words`,
     };
   }
   return {
@@ -90,20 +110,51 @@ export function levelFor(lessonNumber: number, lessonCount: number): { band: str
 export const NOTE_FINAL_RULE =
   'Every note states the final rule only, never deliberation or self-correction: decide the answer before you write it, and never write "? No:", "... no", "wait", "actually", "hmm" or "let me" in a note (write "Stem change e to i (pido, pides), except nosotros.", not "Stem change e to ie? No: e to i").';
 
-export const REGION_RULE =
-  "Use one regional variety per lesson, matching the setting, and never mix them: Spain uses euros, billete, camarero, comisaría, franquicia; Mexico and Latin America use pesos, boleto, mesero, deducible.";
+/**
+ * Only a released course pack (French, Italian) gets the pack-built prompt. Every other target
+ * (Spanish, English, and languages without a pack) keeps the base prompt exactly (owner rule 3).
+ */
+function usesPackPrompt(targetLanguage: string): boolean {
+  return followsPackRules(packFor(targetLanguage));
+}
 
-export const DIRECT_SPEECH_RULE =
-  'Direct speech goes at the end of a sentence, after a colon; it never runs into narration (write "El jefe dice: Revisen la cuchilla.", never "El jefe dice: Revisen la cuchilla, y Marta corta.").';
+/** The target language's prompt wording (its app file's contentPrompt), or null. */
+function promptNotes(language: string): ContentPromptNotes | null {
+  const pack = packFor(language);
+  return pack ? appData(pack).contentPrompt : null;
+}
+
+/** The regional-variety rule: the language's own (app file), else one read from its pack note. */
+export function regionRule(pack: LanguagePack): string {
+  return (
+    appData(pack).contentPrompt?.regionRule ??
+    "Use one regional variety per lesson, matching the setting, and never mix them: the variety, spellings and vocabulary named in the language note above (never a form it says to avoid)."
+  );
+}
+
+/** The direct-speech rule, with the language's own examples when its app file has them. */
+export function directSpeechRule(pack: LanguagePack): string {
+  const own = appData(pack).contentPrompt?.directSpeech;
+  return own
+    ? `Direct speech goes at the end of a sentence, after a colon; it never runs into narration (write "${own.good}", never "${own.bad}").`
+    : 'Direct speech goes at the end of a sentence, after a colon; it never runs into narration (write "The lead says: Check the blade.", never "The lead says: Check the blade, and Marta cuts.", each in the target language).';
+}
 
 /** The passage rules added after the 277-lesson blind review (items introduced, coverage, region, speech). */
-export const PASSAGE_QUALITY_RULES: readonly string[] = [
-  "Every item, charge, fee, document or person a sentence refers to, disputes or questions is introduced earlier in that passage; never dispute, confirm or answer something the passage has not raised.",
-  "Every clause of the lesson objective and roleplay is covered by at least one full sentence of its own; a capstone's listed beats each get their own sentence (a long conversation is several sentences, and an emergency is a sentence that says what happened and what to do, not only a stray phrase).",
-  "Any question about allergies or ingredients is answered in the passage.",
-  REGION_RULE,
-  DIRECT_SPEECH_RULE,
-];
+export function passageQualityRules(pack: LanguagePack): readonly string[] {
+  return [
+    "Every item, charge, fee, document or person a sentence refers to, disputes or questions is introduced earlier in that passage; never dispute, confirm or answer something the passage has not raised.",
+    "Every clause of the lesson objective and roleplay is covered by at least one full sentence of its own; a capstone's listed beats each get their own sentence (a long conversation is several sentences, and an emergency is a sentence that says what happened and what to do, not only a stray phrase).",
+    "Any question about allergies or ingredients is answered in the passage.",
+    regionRule(pack),
+    directSpeechRule(pack),
+  ];
+}
+
+/** How the learner's native language is described in the register note. */
+function nativeDescription(nativeLanguage: string): string {
+  return promptNotes(nativeLanguage)?.asNative ?? nativeLanguage;
+}
 
 // ─── Prompt ──────────────────────────────────────────────────────────────────
 
@@ -112,36 +163,52 @@ export function lessonContentSystemPrompt(
   nativeLanguage: string,
   parts: ContentParts,
 ): string {
-  const spanishTarget = targetLanguage === "Spanish";
-  const registerNote = spanishTarget
-    ? "Spanish register: a crew lead or foreman speaking to a crew uses the plural ustedes imperative (corten, revisen, traigan); speaking to ONE person (a customer, a patient, one worker) uses usted. Use Mexican / US Spanish as working tradespeople and staff in the United States actually say it, including a common loanword when that is what people say on the job (troca, yarda, mopear) but only when it is standard job-site usage. Write ¿ and ¡ properly."
-    : "English register: plain, current American English as used in a US hospital or workplace (short, direct, polite); the learner's native language is Spanish (neutral Latin American Spanish).";
+  if (!usesPackPrompt(targetLanguage))
+    return baseLessonContentSystemPrompt(targetLanguage, nativeLanguage, parts);
+  const pack = requirePackFor(targetLanguage);
+  const notes = appData(pack).contentPrompt;
+  const avoid = pack.variety.avoid.length > 0 ? ` Never use: ${pack.variety.avoid.join("; ")}.` : "";
+  const punctuation = pack.typography.invertedPunctuation ? " Write ¿ and ¡ properly." : "";
+  // A language with its own register note (app file) keeps its exact wording; others build one from
+  // the pack's variety, prompt and typography fields.
+  const registerNote = notes
+    ? notes.registerNote.replace("{native}", nativeDescription(nativeLanguage))
+    : `${pack.name} register and variety: ${pack.variety.standard} ${pack.prompts.varietyNote}${avoid}${punctuation}${pack.prompts.scriptNote ? ` ${pack.prompts.scriptNote}` : ""} Use the ${pack.name} the trade actually uses, including a common loanword when that is what people say on the job, but only when it is standard job-site usage. The learner's native language is ${nativeDescription(nativeLanguage)}.`;
+  const nativeCode = packFor(nativeLanguage)?.code ?? "";
 
   const sections: string[] = [];
   if (parts.passage) {
     sections.push(
-      `PASSAGE: ${CONTENT_LIMITS.minSentences} to ${CONTENT_LIMITS.maxSentences} sentences forming ONE short, coherent, realistic scene about THIS lesson's objective: the situation named in the lesson title and objective, with a speaker, a place and a purpose. Do not drift to the module's generic topic (a lesson called "Morning Crew Meeting" is a crew lead running a morning safety and task meeting, not an irrigation repair). Give it a short title (2 to 6 words) in ${targetLanguage}. Every ${targetLanguage} sentence has exactly one ${nativeLanguage} sentence at the same position: translate sentence by sentence, never merge or split. Each sentence ends with . ? or ! . Do not use quotation marks or dialogue dashes anywhere: report speech with a colon (El jefe dice: Revisen la cuchilla.). If numbers appear, write them as digits and use exactly the same digits in the ${nativeLanguage} sentence. Dialogue is written inline inside one sentence, not as separate speaker lines. The passage must visibly use at least 6 of the lesson's own terms and at least 2 of its phrases, written as they appear in the word list (inflect only where grammar demands it), so the learner reads what they practice next.`,
+      `PASSAGE: ${CONTENT_LIMITS.minSentences} to ${CONTENT_LIMITS.maxSentences} sentences forming ONE short, coherent, realistic scene about THIS lesson's objective: the situation named in the lesson title and objective, with a speaker, a place and a purpose. Do not drift to the module's generic topic (a lesson called "Morning Crew Meeting" is a crew lead running a morning safety and task meeting, not an irrigation repair). Give it a short title (2 to 6 words) in ${targetLanguage}. Every ${targetLanguage} sentence has exactly one ${nativeLanguage} sentence at the same position: translate sentence by sentence, never merge or split. Each sentence ends with . ? or ! . Do not use quotation marks or dialogue dashes anywhere: report speech with a colon (${notes?.reportedSpeech ?? "the lead says: check the blade"}). If numbers appear, write them as digits and use exactly the same digits in the ${nativeLanguage} sentence. Dialogue is written inline inside one sentence, not as separate speaker lines. The passage must visibly use at least 6 of the lesson's own terms and at least 2 of its phrases, written as they appear in the word list (inflect only where grammar demands it), so the learner reads what they practice next.`,
     );
   }
   if (parts.words) {
     sections.push(
-      `WORDS: ${CONTENT_LIMITS.minTerms} to ${CONTENT_LIMITS.maxTerms} job-specific single terms (nouns, tools, parts, short noun phrases of at most 4 words) and ${CONTENT_LIMITS.minPhrases} to ${CONTENT_LIMITS.maxPhrases} short phrases the learner would actually SAY on the job (a sentence or question of at most 12 words, spoken by the learner, never an instruction about practicing). Write terms WITHOUT articles on either side ("césped" and "lawn", not "el césped" and "the lawn"; plural only when the thing is normally plural, like gloves), and each phrase as ONE sentence. Prefer words the lesson's step instructions name. No duplicates on either side; no generic filler (hello, thank you) unless the lesson is about it. Add a short "note" (written in ${nativeLanguage}) only when a usage or register tip really helps.`,
+      `WORDS: ${CONTENT_LIMITS.minTerms} to ${CONTENT_LIMITS.maxTerms} job-specific single terms (nouns, tools, parts, short noun phrases of at most 4 words) and ${CONTENT_LIMITS.minPhrases} to ${CONTENT_LIMITS.maxPhrases} short phrases the learner would actually SAY on the job (a sentence or question of at most 12 words, spoken by the learner, never an instruction about practicing). Write terms WITHOUT articles on either side (${notes?.termsWithoutArticles ?? '"lawn", not "the lawn", each in its own language'}; plural only when the thing is normally plural, like gloves), and each phrase as ONE sentence. Prefer words the lesson's step instructions name. No duplicates on either side; no generic filler (hello, thank you) unless the lesson is about it. Add a short "note" (written in ${nativeLanguage}) only when a usage or register tip really helps.`,
     );
   }
   if (parts.verbs) {
-    const keys = MODEL_FORM_KEYS[targetLanguage === "English" ? "English" : "Spanish"].join(", ");
+    const keys = modelFormKeys(pack).join(", ");
+    const rules = contentRulesFor(pack);
+    const reflexive = pack.grammar.reflexivePronouns.length > 0;
+    const subject = pack.grammar.verbForms.includesSubject
+      ? "give each form with its subject pronoun"
+      : "give the bare verb form with no pronoun in front";
+    const formRules = [
+      reflexive ? "keep the reflexive pronoun for reflexive verbs" : "",
+      rules.distinctForms ? `all ${modelFormKeys(pack).length} forms must be different and correct` : "",
+      ...rules.endings.map(([at, , , text]) => `the ${modelFormKeys(pack)[at]} form ${text}`),
+      ...rules.mustDiffer.map(([, , text]) => text),
+      "mark stem changes and irregularities in \"note\"",
+    ].filter(Boolean);
+    // A language with authored verb wording (app file) keeps it exactly; others read the pack.
+    const nativeMeaning = notes?.nativeMeaning?.[nativeCode] ?? notes?.nativeMeaning?.["*"] ?? "";
+    const verbFields =
+      notes?.infinitive && notes.formsNote !== undefined
+        ? `"infinitive" (${notes.infinitive}), "native" (the meaning in ${nativeLanguage}${nativeMeaning}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; give the bare verb form with no pronoun in front${notes.formsNote})`
+        : `"infinitive" (the ${pack.name} dictionary form, written the way a ${pack.name} dictionary lists it${reflexive ? "; a reflexive verb keeps its pronoun" : ""}), "native" (the meaning in ${nativeLanguage}), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; ${subject}; ${formRules.join("; ")})`;
     sections.push(
-      `VERBS: ${CONTENT_LIMITS.minVerbs} to ${CONTENT_LIMITS.maxVerbs} verbs this lesson's job actually needs (for a crew lead: command and task verbs; for a clinician: the verbs of the encounter). Choose verbs that appear in, or fit naturally with, the passage and the word list. For each: "infinitive" (${
-        targetLanguage === "Spanish"
-          ? "the Spanish infinitive, e.g. cortar, or reflexive lavarse"
-          : 'the bare English verb, e.g. "clean", with no "to"'
-      }), "native" (the meaning in ${nativeLanguage}${
-        targetLanguage === "Spanish" ? ', written like "to cut"' : ', e.g. "limpiar"'
-      }), "forms" (PRESENT TENSE ONLY, one string per key: ${keys}; give the bare verb form with no pronoun in front${
-        targetLanguage === "Spanish"
-          ? ', except the reflexive pronoun for reflexive verbs ("me lavo", "nos lavamos"). All five forms must be different and must be correct: nosotros ends in -mos, ellos/ustedes ends in -n, tú ends in -s. Mark stem changes in "note" (o to ue)'
-          : '; the he/she form takes the -s ("cleans"). "i", "you", "we", "they" are the base verb'
-      }), "example" (one short natural sentence from this lesson's scene that uses one form of the verb, with its ${nativeLanguage} translation), and an optional short "note" (written in ${nativeLanguage}, the learner's own language, never in ${targetLanguage}) for an irregularity or register tip. The example must use the PRESENT tense (or a command) so it matches the forms the learner is practicing, never the past tense.`,
+      `VERBS: ${CONTENT_LIMITS.minVerbs} to ${CONTENT_LIMITS.maxVerbs} verbs this lesson's job actually needs (for a crew lead: command and task verbs; for a clinician: the verbs of the encounter). Choose verbs that appear in, or fit naturally with, the passage and the word list. For each: ${verbFields}, "example" (one short natural sentence from this lesson's scene that uses one form of the verb, with its ${nativeLanguage} translation), and an optional short "note" (written in ${nativeLanguage}, the learner's own language, never in ${targetLanguage}) for an irregularity or register tip. The example must use the PRESENT tense (or a command) so it matches the forms the learner is practicing, never the past tense.`,
     );
   }
 
@@ -152,14 +219,14 @@ ${registerNote}
 ${sections.join("\n\n")}
 
 Rules for everything you write:
-- Translate, never convert: numbers, units, times, names and quantities must be identical on both sides (90 centímetros is 90 centimeters, not 36 inches).
-- Never invent procedures, doses, product amounts, measurements, regulations or specifications and state them as universal facts. When a figure or step matters, attribute it: the manufacturer's label, the job spec, the plan, local code, the supervisor, the clinician or the policy. This holds even when the lesson's step instructions state a figure or specification as a flat fact: keep the figure if it helps, but have a speaker attribute it ("según el plano", "la etiqueta dice", "as the job spec says"). A worker repeating "la etiqueta dice..." is correct; a flat claim is not.
+- Translate, never convert: numbers, units, times, names and quantities must be identical on both sides (${notes?.unitsExample ?? "90 centimeters stays 90 centimeters, never 36 inches"}).
+- Never invent procedures, doses, product amounts, measurements, regulations or specifications and state them as universal facts. When a figure or step matters, attribute it: the manufacturer's label, the job spec, the plan, local code, the supervisor, the clinician or the policy. This holds even when the lesson's step instructions state a figure or specification as a flat fact: keep the figure if it helps, but have a speaker attribute it (${notes?.attribution?.examples ?? '"according to the plan", "the label says", "as the job spec says"'}). A worker repeating ${notes?.attribution?.repeated ?? '"the label says..."'} is correct; a flat claim is not.
 - Medical, legal and safety topics teach communication and verification, never an unsupported dose, diagnosis or legal conclusion.
 - Use the word people in this trade actually say in ${targetLanguage}; never coin a literal word-for-word phrase. If you are unsure of the right ${targetLanguage} term, choose a different, safer term instead of guessing.
 - Level for this lesson is given in the request. Keep the language inside it. Avoid stereotypes, slang the learner could misuse, and anything unsafe.
 - Stay consistent: the passage, words and verbs of this lesson must belong together.${
     parts.words || parts.verbs ? `\n- ${NOTE_FINAL_RULE}` : ""
-  }${parts.passage ? PASSAGE_QUALITY_RULES.map((rule) => `\n- ${rule}`).join("") : ""}`;
+  }${parts.passage ? passageQualityRules(pack).map((rule) => `\n- ${rule}`).join("") : ""}`;
 }
 
 /**
@@ -176,7 +243,7 @@ export function lessonContentCliSystemPrompt(system: string): string {
 export function lessonContentUserContent(args: ContentRequestArgs): string {
   const { module, lesson, lessonCount, previousTitle, targetLanguage, nativeLanguage, authored } =
     args;
-  const level = levelFor(lesson.n, lessonCount);
+  const level = levelFor(lesson.n, lessonCount, targetLanguage);
   return JSON.stringify({
     module: module.name,
     moduleDescription: module.blurb,
@@ -226,7 +293,7 @@ const PAIR_SCHEMA = {
 };
 
 function verbSchema(targetLanguage: string) {
-  const keys = MODEL_FORM_KEYS[targetLanguage === "English" ? "English" : "Spanish"];
+  const keys = modelFormKeys(targetLanguage);
   return {
     type: "object",
     properties: {
@@ -253,6 +320,7 @@ function verbSchema(targetLanguage: string) {
 }
 
 export function lessonContentTools(targetLanguage: string, parts: ContentParts) {
+  if (!usesPackPrompt(targetLanguage)) return baseLessonContentTools(targetLanguage, parts);
   const properties: Record<string, unknown> = {};
   const required: string[] = [];
   if (parts.passage) {

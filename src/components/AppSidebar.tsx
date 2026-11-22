@@ -1,4 +1,5 @@
 import { useSyncedStudyStreak } from "@/hooks/use-study-cloud";
+import { nativeAfterTargetChange } from "@/lib/language-menu";
 import { NavigationMenu } from "./navigation/NavigationMenu";
 import { navigationVersion, type NavigationVersion } from "@/lib/navigation-menu";
 import { appBuildInfo } from "@/lib/app-build-info";
@@ -639,9 +640,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   key={lang}
                   onSelect={() => {
                     dispatch({ type: "SET_LANGUAGE", payload: lang });
-                    if (lang === "English" && state.nativeLanguage === "English") {
-                      dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
-                    }
+                    const native = nativeAfterTargetChange(lang, state.nativeLanguage);
+                    if (native) dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
                   }}
                   className="font-mono text-xs uppercase tracking-[0.16em]"
                 >
@@ -801,9 +801,8 @@ export function AppSidebar({ onOpenMatch }: { onOpenMatch?: () => void }) {
                   onChange={(e) => {
                     const lang = e.target.value as Language;
                     dispatch({ type: "SET_LANGUAGE", payload: lang });
-                    if (lang === "English" && state.nativeLanguage === "English") {
-                      dispatch({ type: "SET_NATIVE_LANGUAGE", payload: "Spanish" });
-                    }
+                    const native = nativeAfterTargetChange(lang, state.nativeLanguage);
+                    if (native) dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
                   }}
                   className="min-h-11 cursor-pointer rounded-xl border border-border/40 bg-card/30 px-3 py-2 text-sm text-foreground transition-colors focus:border-gold/40 focus:outline-none"
                 >

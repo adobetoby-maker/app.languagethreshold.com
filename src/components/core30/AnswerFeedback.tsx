@@ -10,6 +10,7 @@ import {
   type SegmentStatus,
 } from "@/lib/answer-feedback";
 import { languageTag } from "@/lib/lesson-words-core";
+import { packFor } from "@/data/language-packs/registry";
 
 // Explains an answer: a verdict line, the expected word with each letter marked against what
 // the learner gave, what the app read from handwriting (when that is where the answer came
@@ -100,10 +101,13 @@ export function AnswerFeedback({
   action,
   className,
 }: AnswerFeedbackProps) {
+  const pack = packFor(language);
   const comparison = useMemo(
-    () => compareAnswer(given, expected, language),
-    [given, expected, language],
+    () => (pack ? compareAnswer(given, expected, pack) : null),
+    [given, expected, pack],
   );
+  // Fail closed: no pack, no language-specific feedback.
+  if (!comparison) return null;
   const tag = languageTag(language);
   const read = recognizedText?.trim();
   const slip = scoredCorrect && comparison.verdict !== "correct";

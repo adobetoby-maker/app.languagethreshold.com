@@ -64,7 +64,7 @@ export function lessonReviewSnapshot(
   native: string,
   generated?: GeneratedReviewMaterial,
 ): LessonReviewSnapshot | null {
-  const curriculum = getCurriculum(moduleId);
+  const curriculum = getCurriculum(moduleId, target, native);
   if (!curriculum) return null;
   if (
     generated?.file &&

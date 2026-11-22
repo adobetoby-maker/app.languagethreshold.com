@@ -21,6 +21,7 @@ import {
 import { toast } from "sonner";
 import type { Language } from "./app-state";
 import { decodeGoogleVoicePreference } from "@/data/mission-tts";
+import { accentsFor, defaultAccentFor, type AccentOption } from "@/lib/speech-accents";
 import { DEVICE_DEFAULT_VOICE } from "@/data/mobile-voice";
 import { configureUtterance } from "@/lib/voices";
 import { hasRecordedListeningAudio, needsRemoteTTS, speakRemote, stopRemoteTTS } from "@/lib/tts";
@@ -37,52 +38,8 @@ import {
 
 export type SpeechMode = "word" | "sentence" | "paragraph";
 
-export interface AccentOption {
-  code: string;
-  label: string;
-}
-
-export const ACCENTS_BY_LANGUAGE: Record<Language, AccentOption[]> = {
-  Spanish: [
-    { code: "es-CR", label: "Costa Rica · default" },
-    { code: "es-MX", label: "México (es-MX)" },
-    { code: "es-GT", label: "Guatemala (es-GT)" },
-    { code: "es-CO", label: "Colombia (es-CO)" },
-    { code: "es-PE", label: "Perú (es-PE)" },
-    { code: "es-CL", label: "Chile (es-CL)" },
-    { code: "es-AR", label: "Argentina (es-AR)" },
-    { code: "es-419", label: "Latin America · general" },
-    { code: "es-US", label: "US Spanish (es-US)" },
-    { code: "es-ES", label: "Spain (es-ES)" },
-  ],
-  French: [
-    { code: "fr-FR", label: "France (fr-FR)" },
-    { code: "fr-CA", label: "Québec (fr-CA)" },
-  ],
-  German: [
-    { code: "de-DE", label: "Germany (de-DE)" },
-    { code: "de-AT", label: "Austria (de-AT)" },
-    { code: "de-CH", label: "Switzerland (de-CH)" },
-  ],
-  Italian: [{ code: "it-IT", label: "Italy (it-IT)" }],
-  Japanese: [{ code: "ja-JP", label: "Japan (ja-JP)" }],
-  Chinese: [{ code: "zh-CN", label: "Mainland China (zh-CN)" }],
-  Korean: [{ code: "ko-KR", label: "South Korea (ko-KR)" }],
-  Portuguese: [
-    { code: "pt-BR", label: "Brazil (pt-BR)" },
-    { code: "pt-PT", label: "Portugal (pt-PT)" },
-  ],
-  Pashto: [{ code: "ps-AF", label: "Afghanistan (ps-AF)" }],
-  English: [
-    { code: "en-US", label: "United States (en-US)" },
-    { code: "en-GB", label: "United Kingdom (en-GB)" },
-    { code: "en-CA", label: "Canada (en-CA)" },
-    { code: "en-IE", label: "Ireland (en-IE)" },
-    { code: "en-AU", label: "Australia (en-AU)" },
-    { code: "en-NZ", label: "New Zealand (en-NZ)" },
-    { code: "en-ZA", label: "South Africa (en-ZA)" },
-  ],
-};
+export type { AccentOption };
+export { ACCENTS_BY_LANGUAGE } from "@/lib/speech-accents";
 
 interface PlaybackInfo {
   mode: SpeechMode;
@@ -230,9 +187,10 @@ export function SpeechProvider({
   const device = useLearnerDeviceStore("speech");
   const recentDevice = useLearnerDeviceStore("heardWords");
   const [historyHydrated, setHistoryHydrated] = useState(false);
-  const accentsForLanguage = ACCENTS_BY_LANGUAGE[language];
+  const accentsForLanguage = accentsFor(language);
+  const defaultAccent = defaultAccentFor(language);
   const [rate, setRateState] = useState(1);
-  const [accent, setAccentState] = useState(accentsForLanguage[0].code);
+  const [accent, setAccentState] = useState(defaultAccent);
   const [voiceURI, setVoiceURIState] = useState<string | null>(null);
   const voiceURIRef = useRef(voiceURI);
   voiceURIRef.current = voiceURI;
@@ -330,12 +288,12 @@ export function SpeechProvider({
         typeof savedAccent === "string" &&
           accentsForLanguage.some((option) => option.code === savedAccent)
           ? savedAccent
-          : accentsForLanguage[0].code,
+          : defaultAccent,
       );
     } catch {
       setVoiceURIState(null);
       setVoiceSettingsState(DEFAULT_STANDARD_VOICES);
-      setAccentState(accentsForLanguage[0].code);
+      setAccentState(defaultAccent);
     }
     invalidatePlayback();
     // Stop any active speech

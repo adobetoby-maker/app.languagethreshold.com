@@ -1,10 +1,13 @@
 /**
  * Deterministic regular-verb conjugator.
- * Covers the bulk of dictionary verbs (ES ~77% -ar, IT -are/-ere/-ire).
+ * Covers the bulk of dictionary verbs (ES ~77% -ar, IT -are/-ere/-ire, FR first-group -er).
+ * Engines write only the persons a language teaches; withPackPersons fills the rest from the pack.
  * Irregulars live in IRREGULAR_OVERRIDES (conjugation-atlas) and FREQUENCY_CONJUGATIONS.
  */
 
-import type { Language } from "@/state/app-state";
+import { packFor, type LanguagePack } from "../data/language-packs/registry.ts";
+import { appData } from "../data/language-packs/app-data.ts";
+import { carrierPerson } from "./person-carrier.ts";
 import type { ConjugationSet, PersonForms } from "@/data/frequency-conjugations";
 
 function emptyPersons(): PersonForms {
@@ -15,6 +18,22 @@ function emptyPersons(): PersonForms {
     firstPlural: "",
     secondPlural: "",
     thirdPlural: "",
+  };
+}
+
+/**
+ * Five taught persons (no second-person plural). The second-person plural cell is filled from the
+ * pack by withPackPersons, or left empty. (The Spanish engine keeps the six persons it has always
+ * written, vosotros included: its offline tables are unchanged.)
+ */
+function mapFive(forms: [string, string, string, string, string]): PersonForms {
+  return {
+    firstSingular: forms[0],
+    secondSingular: forms[1],
+    thirdSingular: forms[2],
+    firstPlural: forms[3],
+    secondPlural: "",
+    thirdPlural: forms[4],
   };
 }
 
@@ -134,7 +153,7 @@ function conjugateSpanish(infinitive: string): ConjugationSet | null {
     pronunciation: "",
     presentTense: present,
     pastTense: past,
-    pastLabel: "Preterite",
+    pastLabel: "",
     futureTense: future,
     conditionalTense: conditional,
     gerund: gerundFixed,
@@ -256,7 +275,7 @@ function conjugateItalian(infinitive: string): ConjugationSet | null {
     pronunciation: "",
     presentTense: present,
     pastTense: past,
-    pastLabel: "Imperfect",
+    pastLabel: "",
     futureTense: future,
     conditionalTense: conditional,
     gerund,
@@ -266,20 +285,107 @@ function conjugateItalian(infinitive: string): ConjugationSet | null {
   };
 }
 
+// ── French (first group, -er) ────────────────────────────────────────────────
+
+/** -er verbs whose stem changes (acheter, préférer, appeler) or that are irregular are not handled. */
+const FRENCH_NOT_REGULAR = /(?:[eé][bcdfghjklmnpqrstvwxz]er|yer)$/;
+const FRENCH_IRREGULAR_ER = new Set(["aller", "envoyer", "renvoyer"]);
+
+function conjugateFrench(infinitive: string): ConjugationSet | null {
+  const inf = infinitive.toLowerCase().trim();
+  if (!inf.endsWith("er") || inf.length < 4) return null;
+  if (FRENCH_IRREGULAR_ER.has(inf) || FRENCH_NOT_REGULAR.test(inf)) return null;
+  const stem = inf.slice(0, -2);
+  // Before a or o the stem keeps its soft sound: mangeons, commençons, mangeait.
+  const soft = (ending: string) =>
+    /^[ao]/.test(ending)
+      ? stem.endsWith("g")
+        ? `${stem}e${ending}`
+        : stem.endsWith("c")
+          ? `${stem.slice(0, -1)}ç${ending}`
+          : stem + ending
+      : stem + ending;
+  return {
+    infinitive: inf,
+    pronunciation: "",
+    presentTense: mapPersons([stem + "e", stem + "es", stem + "e", soft("ons"), stem + "ez", stem + "ent"]),
+    pastTense: mapPersons([soft("ais"), soft("ais"), soft("ait"), stem + "ions", stem + "iez", soft("aient")]),
+    pastLabel: "",
+    futureTense: mapPersons([inf + "ai", inf + "as", inf + "a", inf + "ons", inf + "ez", inf + "ont"]),
+    conditionalTense: mapPersons([inf + "ais", inf + "ais", inf + "ait", inf + "ions", inf + "iez", inf + "aient"]),
+    gerund: soft("ant"),
+    pastParticiple: stem + "é",
+    perfectExample: "ai " + stem + "é",
+    commonUses: [],
+  };
+}
+
+/** The six table persons and their grammatical person. */
+const TABLE_PERSONS = [
+  ["firstSingular", 1, "singular"],
+  ["secondSingular", 2, "singular"],
+  ["thirdSingular", 3, "singular"],
+  ["firstPlural", 1, "plural"],
+  ["secondPlural", 2, "plural"],
+  ["thirdPlural", 3, "plural"],
+] as const;
+
 /**
- * Produce a full ConjugationSet for a regular verb, or null if the ending
- * is not recognized / language unsupported.
+ * An engine's table for its language's pack: a person the engine left empty (one the course does not
+ * teach) takes the form of the taught key that carries it (Spanish ustedes: the ellos / ustedes
+ * form), else stays empty; the past table takes the language's own name (app file pastTenseLabel)
+ * and is dropped when the language names none.
  */
-export function conjugateRegular(
-  language: Language,
-  infinitive: string,
-): ConjugationSet | null {
-  const lang = language.toLowerCase();
-  if (lang.includes("spanish") || lang === "es" || lang === "español") {
-    return conjugateSpanish(infinitive);
-  }
-  if (lang.includes("italian") || lang === "it" || lang === "italiano") {
-    return conjugateItalian(infinitive);
-  }
-  return null;
+function withPackPersons(set: ConjugationSet, pack: LanguagePack): ConjugationSet {
+  const fill = (forms: PersonForms | undefined): PersonForms | undefined => {
+    if (!forms) return forms;
+    const out = { ...forms };
+    for (const [field, person, number] of TABLE_PERSONS) {
+      if (out[field]) continue;
+      const carrier = carrierPerson(pack, person, number);
+      const from = carrier
+        ? TABLE_PERSONS.find(([, p, n]) => p === carrier.person && n === carrier.number)?.[0]
+        : undefined;
+      out[field] = from ? out[from] : "";
+    }
+    return out;
+  };
+  const pastLabel = appData(pack).pastTenseLabel ?? undefined;
+  return {
+    ...set,
+    presentTense: fill(set.presentTense)!,
+    pastTense: pastLabel ? fill(set.pastTense) : undefined,
+    pastLabel,
+    futureTense: fill(set.futureTense),
+    conditionalTense: fill(set.conditionalTense),
+  };
+}
+
+/**
+ * Offline regular-conjugation engines, by the morphology plugin id a pack names in
+ * `dictionary.morphology` (language-pack model section 19: a morphology plugin is engine code, not
+ * a field read). A pack that names none uses `<code>-verbs`, the id its own engine registers under.
+ */
+const MORPHOLOGY_ENGINES: Record<string, (infinitive: string) => ConjugationSet | null> = {
+  "es-verbs": conjugateSpanish,
+  "it-verbs": conjugateItalian,
+  "fr-verbs": conjugateFrench,
+};
+
+/**
+ * Produce a full ConjugationSet for a regular verb, or null if the ending is not recognized or
+ * the language's pack has no morphology engine (fail closed: no other language's rules).
+ */
+export function conjugateRegular(language: string, infinitive: string): ConjugationSet | null {
+  const pack = packFor(language);
+  if (!pack) return null;
+  const engine = MORPHOLOGY_ENGINES[pack.dictionary.morphology ?? `${pack.code}-verbs`];
+  const set = engine ? engine(infinitive) : null;
+  return set ? withPackPersons(set, pack) : null;
+}
+
+/** One engine's raw table (the persons it writes), for code inside that morphology plugin. */
+export function conjugateWithEngine(engineId: string, infinitive: string): ConjugationSet | null {
+  const engine = MORPHOLOGY_ENGINES[engineId];
+  return engine ? engine(infinitive) : null;
 }

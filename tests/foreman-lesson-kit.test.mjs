@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { loadModule } from "./helpers/bundle.mjs";
 const {getLessonDefinition,modulePracticeVersion} = await loadModule("src/lib/lesson-definition.ts");
-const {getCurriculum} = await loadModule("src/data/curriculum.ts");
+const {authoredCurriculum} = await loadModule("src/data/curriculum.ts");
 const {findSpeakingMission} = await loadModule("src/data/speaking-missions.ts");
 const {lessonSourceCoverage} = await loadModule("src/lib/lesson-source-coverage.ts");
 const {publicLessonOfflinePack} = await loadModule("src/lib/lesson-offline-pack.ts");
@@ -45,13 +45,14 @@ test("Foreman level drives listening, response length, writing and the exact spe
 });
 
 test("Foreman changes do not rewrite Framer or cross translation pairs", () => {
-  const framing=getCurriculum("framer");
+  const framing=authoredCurriculum("framer");
   assert.equal(framing.lessons[0].readingTemplate,"seed-{lang}-framer-layout");
   assert.equal(framing.lessons[0].words,undefined);
   assert.match(framing.lessons[7].steps.map(s=>s.instruction).join(" "),/7 días/);
   assert.equal(definition(8).source.steps.some(s=>/7 días/.test(s.instruction)),false);
   for(const [target,native] of [["French","English"],["Spanish","French"],["English","Spanish"]]) {
     const d=definition(15,target,native);
+    if(target==="French"){assert.equal(d,null);continue;}
     assert.deepEqual(d.words,[]); assert.equal(d.reading,null); assert.equal(d.teaching,null);
   }
   assert.equal(definition(31),null);

@@ -5,12 +5,14 @@ import { createHash } from "node:crypto";
 import { loadModule } from "../tests/helpers/bundle.mjs";
 const [
   { MODULES, moduleSupportsLearningPair },
-  { getCurriculum },
+  { authoredCurriculum },
   { ALL_SEEDS },
   { getAvailableModuleLessons },
   { LANGUAGES, NATIVE_LANGUAGES },
   { lessonSourceCoverage },
   { parseLessonContent, lessonContentPath, contentNativeLanguage },
+  { packFor },
+  { authoredWordsPairForModule },
 ] = await Promise.all([
   loadModule("src/data/modules.ts"),
   loadModule("src/data/curriculum.ts"),
@@ -19,6 +21,8 @@ const [
   loadModule("src/state/app-state.tsx", { stubs: [/^sonner$/, /supabase\/client$/] }),
   loadModule("src/lib/lesson-source-coverage.ts"),
   loadModule("src/lib/lesson-content-core.ts"),
+  loadModule("src/data/language-packs/registry.ts"),
+  loadModule("src/lib/lesson-words-core.ts"),
 ]);
 // This public runtime layer is separate from frozen lesson definitions and release records.
 const contentFiles = new Map();
@@ -63,17 +67,14 @@ function generatedContent(moduleId, target, native, lessons) {
     releaseApproval: "not-inferred",
   };
 }
-const codes = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
+// A language's code is its pack's code (registry), never a hand-kept table.
+const codes = new Proxy(
+  {},
+  { get: (_, name) => (typeof name === "string" ? (packFor(name)?.code ?? name.toLowerCase()) : undefined) },
+);
+const sameAuthoredPair = (module, target, native) => {
+  const pair = authoredWordsPairForModule(module);
+  return pair.language === target && pair.nativeLanguage === native;
 };
 const canonicalLanguage = (language) =>
   language === "Chinese (Simplified)" ? "Chinese" : language;
@@ -90,7 +91,8 @@ const meetsVocabularyBaseline = (words) => {
   return terms >= 8 && terms <= 12 && phrases >= 4 && phrases <= 6;
 };
 const modules = MODULES.map((module) => {
-  const lessons = getCurriculum(module.id)?.lessons ?? [];
+  // The module's own lessons (its authored pair); each track below is checked for its own pair.
+  const lessons = authoredCurriculum(module.id)?.lessons ?? [];
   const missingRecallSteps = lessons
     .filter((l) => !l.steps.some((s) => ["wordMatch", "games"].includes(s.tab)))
     .map((l) => l.n);
@@ -104,7 +106,7 @@ const modules = MODULES.map((module) => {
         continue;
       const ids = getAvailableModuleLessons(module.id, target, ALL_SEEDS);
       const authoredLists =
-        target === "Spanish" && native === "English"
+        sameAuthoredPair(module, target, native)
           ? lessons.filter((l) => l.words?.length).map((l) => l.n)
           : [];
       const mapped = lessons
@@ -134,7 +136,7 @@ const modules = MODULES.map((module) => {
         instructionLanguage: native,
         authoredWordLists: authoredLists.length,
         authoredListsWithinVocabularyBaseline:
-          target === "Spanish" && native === "English"
+          sameAuthoredPair(module, target, native)
             ? lessons.filter((l) => meetsVocabularyBaseline(l.words)).length
             : 0,
         generatedPackWordLists: packLessons.length,

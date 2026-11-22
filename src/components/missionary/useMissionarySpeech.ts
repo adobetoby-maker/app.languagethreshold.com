@@ -3,23 +3,12 @@ import { needsRemoteTTS, speakRemote } from "@/lib/tts";
 import { useSpeech } from "@/state/speech-state";
 import { useAuth } from "@/state/auth-state";
 import type { Language } from "@/state/app-state";
+import { packFor } from "@/data/language-packs/registry";
+import { listeningLocaleFor } from "@/lib/language-pack-text";
 
 const RATE_KEY = "lt.missionary.rate.v1";
 export const MISSIONARY_RATES = [0.5, 0.75, 1] as const;
 export type MissionaryRate = (typeof MISSIONARY_RATES)[number];
-
-const LOCALE: Record<Language, string> = {
-  Spanish: "es-CR",
-  French: "fr-FR",
-  German: "de-DE",
-  Italian: "it-IT",
-  Japanese: "ja-JP",
-  Chinese: "zh-CN",
-  Korean: "ko-KR",
-  Portuguese: "pt-PT",
-  Pashto: "ps-AF",
-  English: "en-US",
-};
 
 /**
  * Shared TTS helper for the Missionary tab. Speaks a phrase one word at a
@@ -117,7 +106,11 @@ export function useMissionarySpeech(context?: string) {
         }, ms);
         timer.current = handle;
       };
-      const localeCode = accent || LOCALE[lang];
+      // The locale of the language being spoken: the learner's accent only when it belongs to that
+      // language, else the language's default accent. No pack, no voice locale: nothing plays.
+      const pack = packFor(lang);
+      const localeCode = pack ? listeningLocaleFor(accent, pack) : null;
+      if (!localeCode) return;
       const remote = needsRemoteTTS(localeCode, voiceURI);
       const finish = () => {
         if (!current()) return;

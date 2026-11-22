@@ -4,6 +4,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { ensureStageForModule, stageLoadFailed } from "@/data/core60-stages";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { NATIVE_LANGUAGES } from "@/data/languages";
+import { packFor } from "@/data/language-packs/registry";
 import { getCurriculum } from "@/data/curriculum";
 import type { LessonWord } from "@/data/curriculum";
 import { getModule, moduleSupportsLearningPair } from "@/data/modules";
@@ -24,37 +26,15 @@ import { usageReceipt, cacheReceipt } from "@/lib/usage-cost";
 const Input = z.object({
   moduleId: z.string().min(1).max(80),
   lessonNumber: z.number().int().min(1).max(60),
-  language: z.enum([
-    "Spanish",
-    "French",
-    "German",
-    "Italian",
-    "Japanese",
-    "Chinese",
-    "Korean",
-    "Portuguese",
-    "Pashto",
-    "English",
-  ]),
-  nativeLanguage: z
-    .enum([
-      "English",
-      "Spanish",
-      "French",
-      "German",
-      "Italian",
-      "Portuguese",
-      "Dutch",
-      "Polish",
-      "Russian",
-      "Turkish",
-      "Arabic",
-      "Hindi",
-      "Chinese (Simplified)",
-      "Japanese",
-      "Korean",
-    ])
-    .optional(),
+  // The target is any registered language (a pack name or code); the native is required, never
+  // inferred from the target (no default pair).
+  language: z
+    .string()
+    .min(1)
+    .max(40)
+    .refine((value) => packFor(value) !== null, "Unknown language")
+    .transform((value) => packFor(value)!.name),
+  nativeLanguage: z.enum(NATIVE_LANGUAGES as [NativeLanguage, ...NativeLanguage[]]),
 });
 
 /**
@@ -81,8 +61,7 @@ export const generateLessonWords = createServerFn({ method: "POST" })
     }
     const module = getModule(data.moduleId);
     if (!module) return { words: null, error: "Unknown module" };
-    const nativeLanguage: NativeLanguage =
-      data.nativeLanguage ?? (data.language === "English" ? "Spanish" : "English");
+    const nativeLanguage: NativeLanguage = data.nativeLanguage;
     if (!moduleSupportsLearningPair(module, data.language, nativeLanguage)) {
       return { words: null, error: "This language is not available for this module" };
     }

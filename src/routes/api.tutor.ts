@@ -15,6 +15,9 @@ import { ensureStageForModule, stageLoadFailed } from "@/data/core60-stages";
 import { anthropicTextStream } from "@/lib/anthropic-text-stream";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
+import { packFor } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { nativeLanguageName } from "@/data/languages";
 import { initSentry, Sentry } from "../lib/sentry";
 initSentry();
 
@@ -177,7 +180,15 @@ export function buildSystemPrompt(ctx: z.infer<typeof BodySchema>["context"]) {
   const isEnTarget = lesson
     ? lesson.targetLanguage === "English"
     : ctx.module?.learnDirection === "en-target";
-  const native = lesson?.instructionLanguage ?? ctx.nativeLanguage ?? "Spanish";
+  // An unstated native language is Spanish, as always; a language whose lessons come from its pack
+  // catalog (French, Italian) uses its pack's default native instead.
+  const tutorTarget = lesson?.targetLanguage ?? ctx.language;
+  const native =
+    lesson?.instructionLanguage ??
+    ctx.nativeLanguage ??
+    (catalogLessonPack(tutorTarget)
+      ? (nativeLanguageName(packFor(tutorTarget)?.native.default) ?? "English")
+      : "Spanish");
 
   const base = isEnTarget
     ? [

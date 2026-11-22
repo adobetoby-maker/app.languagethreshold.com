@@ -1,7 +1,9 @@
+// es-verbs morphology plugin (src/lib/verb-games/morphology.ts): Spanish present-tense endings and
+// stem changes. Reached only through a pack whose dictionary.morphology names es-verbs.
 // Built by TAC — 2026-10-20
 // Verb Games: per-form classifier. Pure, deterministic, no runtime AI.
 
-import { conjugateRegular } from "../conjugate-regular.ts";
+import { conjugateWithEngine } from "../conjugate-regular.ts";
 import type { FamilyId, Person } from "./types.ts";
 
 /** Regular present-tense endings per person. The single owner of this table. */
@@ -27,7 +29,7 @@ function norm(value: string): string {
 
 /** The regular present-tense form per person, or null when no regular prediction exists. */
 export function regularPresent(infinitive: string): Record<Person, string> | null {
-  const set = conjugateRegular("Spanish", norm(infinitive));
+  const set = conjugateWithEngine("es-verbs", norm(infinitive));
   const p = set?.presentTense;
   if (!p) return null;
   return {

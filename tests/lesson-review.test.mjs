@@ -36,9 +36,13 @@ test("missing lessons and language materials stay visible as gaps rather than in
   const travel = lessonReviewSnapshot("travel-breakfast", "Spanish", "English");
   assert.equal(travel.lessons.length, 30);
   assert.ok(!travel.gaps.some((gap) => /requires 30/.test(gap)));
-  const french = lessonReviewSnapshot("roofing", "French", "English");
-  assert.ok(french.lessons.every((lesson) => !lesson.words.length && !lesson.reading && !lesson.teaching));
-  assert.equal(french.sourceVersion, "unversioned-app-draft");
+  // A target the module was not written for has no lesson snapshot (no Spanish lesson shell).
+  assert.equal(lessonReviewSnapshot("roofing", "French", "English"), null);
+  const frenchNative = lessonReviewSnapshot("roofing", "Spanish", "French");
+  assert.ok(
+    frenchNative.lessons.every((lesson) => !lesson.words.length && !lesson.reading && !lesson.teaching),
+  );
+  assert.equal(frenchNative.sourceVersion, "unversioned-app-draft");
   assert.equal(lessonReviewSnapshot("missing-module", "Spanish", "English"), null);
 });
 

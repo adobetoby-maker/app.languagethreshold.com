@@ -4,7 +4,11 @@
 import { useId, useRef } from "react";
 import type { AnswerPayload, PublicItemView } from "./types";
 import { cn } from "@/lib/utils";
+import type { LanguagePack } from "@/data/language-packs/registry";
+import { specialCharacters } from "@/lib/language-pack-text";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 
+// The base app's row, shown only when the exam target is Spanish (owner decisions 2 and 3).
 const SPANISH_KEYS = ["á", "é", "í", "ó", "ú", "ü", "ñ", "¿", "¡"];
 
 const field =
@@ -63,18 +67,26 @@ export function TypedInput({
   item,
   draft,
   disabled,
-  spanish,
+  pack,
   onChange,
   labelId,
 }: {
   item: PublicItemView;
   draft: AnswerPayload | null;
   disabled: boolean;
-  spanish: boolean;
+  /** The exam's target language pack: its accent row (none for an IME script or no pack). */
+  pack: LanguagePack | null;
   onChange: (answer: AnswerPayload) => void;
   labelId: string;
 }) {
   const ref = useRef<HTMLInputElement>(null);
+  // French and Italian get their pack's row; Spanish keeps the base row; every other language
+  // keeps the base (no row).
+  const keys = followsPackRules(pack)
+    ? specialCharacters(pack!)
+    : pack?.code === "es"
+      ? SPANISH_KEYS
+      : [];
   const text = draft?.type === "typed" ? draft.text : "";
   function insert(char: string) {
     const input = ref.current;
@@ -109,9 +121,9 @@ export function TypedInput({
       {item.accentsRequired ? (
         <p className="text-sm text-muted-foreground">Accents count in this answer.</p>
       ) : null}
-      {spanish ? (
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Spanish letters">
-          {SPANISH_KEYS.map((char) => (
+      {keys.length > 0 ? (
+        <div className="flex flex-wrap gap-2" role="group" aria-label={`${pack?.name} letters`}>
+          {keys.map((char) => (
             <button
               key={char}
               type="button"

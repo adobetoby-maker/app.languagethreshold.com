@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { loadModule } from "./helpers/bundle.mjs";
 
 const languages = [
@@ -15,13 +16,27 @@ const languages = [
 ];
 
 test("every published module has a lesson plan and field material for cards", async () => {
-  const [{ MODULES }, { getCurriculum }, { MODULE_DECKS }] = await Promise.all([
+  const [{ MODULES }, { getCurriculum }, { MODULE_DECKS }, lessons, catalog] = await Promise.all([
     loadModule("src/data/modules.ts"),
     loadModule("src/data/curriculum.ts"),
     loadModule("src/data/deck-modules.ts"),
+    import("../src/data/language-packs/catalog-lessons.ts"),
+    import("../src/data/language-packs/catalog.ts"),
   ]);
+  // French and Italian modules read their lesson plan from the pack catalog (fetched on demand in
+  // the app); read the same file from disk here.
+  const catalogPlan = (module) => {
+    const pack = lessons.catalogLessonPack(module.languages?.[0]);
+    const where = pack && lessons.catalogStageOf(module.id, pack);
+    if (!where) return null;
+    const raw = JSON.parse(
+      readFileSync(new URL(`../content/language-packs/${pack.code}/${where.base}.json`, import.meta.url), "utf8"),
+    );
+    const file = catalog.parseCatalogModuleFile(raw, pack, where.base);
+    return file && lessons.catalogCurriculum(file, where.stage, module.id);
+  };
   for (const module of MODULES) {
-    const curriculum = getCurriculum(module.id);
+    const curriculum = getCurriculum(module.id) ?? catalogPlan(module);
     assert.ok(curriculum?.lessons.length, `${module.id} has no lesson plan`);
     assert.ok(module.vocabFocus.length, `${module.id} has no field vocabulary`);
     assert.ok(module.challengePrompts.length, `${module.id} has no field scenarios`);

@@ -7,6 +7,11 @@ import {
   editDistance,
   isHandwritingReadLanguage,
 } from "../src/lib/handwriting-check.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
+
+// Every check runs with a pack; Latin examples are Spanish, the CJK ones Japanese.
+const ES = packFor("es");
+const JA = packFor("ja");
 
 test("editDistance counts insertions, deletions and substitutions", () => {
   assert.equal(editDistance("techo", "techo"), 0);
@@ -32,75 +37,75 @@ test("editBudget: terms accept only exact, phrases scale with length", () => {
 });
 
 test("a term read exactly is correct, ignoring case, accents and punctuation", () => {
-  assert.equal(checkHandwritten("Techo", "techo", "term").verdict, "correct");
-  assert.equal(checkHandwritten("  TEJA asfaltica ", "Teja asfáltica", "term").verdict, "correct");
-  assert.equal(checkHandwritten("cañon", "cañón", "term").accepted, true);
-  assert.equal(checkHandwritten("techo.", "techo", "term").accepted, true);
+  assert.equal(checkHandwritten("Techo", "techo", "term", ES).verdict, "correct");
+  assert.equal(checkHandwritten("  TEJA asfaltica ", "Teja asfáltica", "term", ES).verdict, "correct");
+  assert.equal(checkHandwritten("cañon", "cañón", "term", ES).accepted, true);
+  assert.equal(checkHandwritten("techo.", "techo", "term", ES).accepted, true);
 });
 
 test("a term accepts any side of a slash entry and the part before a parenthesis", () => {
   assert.equal(
-    checkHandwritten("forro de techo", "Cubierta / Forro de techo", "term").accepted,
+    checkHandwritten("forro de techo", "Cubierta / Forro de techo", "term", ES).accepted,
     true,
   );
-  assert.equal(checkHandwritten("teja", "Teja (de barro/concreto)", "term").accepted, true);
+  assert.equal(checkHandwritten("teja", "Teja (de barro/concreto)", "term", ES).accepted, true);
 });
 
 test("a term one letter off is close, not correct", () => {
-  const result = checkHandwritten("tecno", "techo", "term");
+  const result = checkHandwritten("tecno", "techo", "term", ES);
   assert.equal(result.verdict, "close");
   assert.equal(result.accepted, false);
   assert.equal(result.distance, 1);
 });
 
 test("a short term never gets a near-miss pass", () => {
-  assert.equal(checkHandwritten("tua", "tub", "term").verdict, "wrong");
+  assert.equal(checkHandwritten("tua", "tub", "term", ES).verdict, "wrong");
 });
 
 test("a term that is far off is wrong", () => {
-  const result = checkHandwritten("martillo", "techo", "term");
+  const result = checkHandwritten("martillo", "techo", "term", ES);
   assert.equal(result.verdict, "wrong");
   assert.equal(result.accepted, false);
 });
 
 test("a long phrase with one misread letter is accepted", () => {
   assert.equal(
-    checkHandwritten("¿Dónde está el tejado?", "¿Dónde está el tejado?", "phrase").verdict,
+    checkHandwritten("¿Dónde está el tejado?", "¿Dónde está el tejado?", "phrase", ES).verdict,
     "correct",
   );
-  const result = checkHandwritten("Donde esta el tejads", "¿Dónde está el tejado?", "phrase");
+  const result = checkHandwritten("Donde esta el tejads", "¿Dónde está el tejado?", "phrase", ES);
   assert.equal(result.verdict, "correct");
   assert.equal(result.accepted, true);
   assert.equal(result.distance, 1);
 });
 
 test("a phrase with several misread letters is close, with many it is wrong", () => {
-  const close = checkHandwritten("Donde esta el tjdadi", "¿Dónde está el tejado?", "phrase");
+  const close = checkHandwritten("Donde esta el tjdadi", "¿Dónde está el tejado?", "phrase", ES);
   assert.equal(close.verdict, "close");
   assert.equal(close.accepted, false);
   assert.equal(
-    checkHandwritten("necesito más tejas", "¿Dónde está el tejado?", "phrase").verdict,
+    checkHandwritten("necesito más tejas", "¿Dónde está el tejado?", "phrase", ES).verdict,
     "wrong",
   );
 });
 
 test("a short phrase is held to an exact match", () => {
-  assert.equal(checkHandwritten("Cuidado!", "¡Cuidado!", "phrase").accepted, true);
-  assert.equal(checkHandwritten("Cuidada", "¡Cuidado!", "phrase").accepted, false);
-  assert.equal(checkHandwritten("Hola", "Hola", "phrase").accepted, true);
+  assert.equal(checkHandwritten("Cuidado!", "¡Cuidado!", "phrase", ES).accepted, true);
+  assert.equal(checkHandwritten("Cuidada", "¡Cuidado!", "phrase", ES).accepted, false);
+  assert.equal(checkHandwritten("Hola", "Hola", "phrase", ES).accepted, true);
 });
 
 test("empty or blank ink reads as empty", () => {
-  assert.equal(checkHandwritten("", "techo", "term").verdict, "empty");
-  assert.equal(checkHandwritten("  ?! ", "techo", "term").verdict, "empty");
-  assert.equal(checkHandwritten("", "techo", "term").accepted, false);
+  assert.equal(checkHandwritten("", "techo", "term", ES).verdict, "empty");
+  assert.equal(checkHandwritten("  ?! ", "techo", "term", ES).verdict, "empty");
+  assert.equal(checkHandwritten("", "techo", "term", ES).accepted, false);
 });
 
 test("non-Latin scripts are compared exactly, not accent-stripped", () => {
-  assert.equal(checkHandwritten("屋根", "屋根", "term").accepted, true);
-  assert.equal(checkHandwritten("屋 根", "屋根", "term").accepted, true);
-  assert.equal(checkHandwritten("屋板", "屋根", "term").accepted, false);
-  assert.equal(checkHandwritten("やね", "屋根", "term").accepted, false);
+  assert.equal(checkHandwritten("屋根", "屋根", "term", JA).accepted, true);
+  assert.equal(checkHandwritten("屋 根", "屋根", "term", JA).accepted, true);
+  assert.equal(checkHandwritten("屋板", "屋根", "term", JA).accepted, false);
+  assert.equal(checkHandwritten("やね", "屋根", "term", JA).accepted, false);
 });
 
 test("the supported language list matches the reader and rejects others", () => {

@@ -1,6 +1,9 @@
 import { ModuleAnswerReview } from "@/components/exams/ModuleAnswerReview";
 import { useEffect, useRef, useState } from "react";
 import { useApp } from "@/state/app-state";
+import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { specialCharacters } from "@/lib/language-pack-text";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { useAuth } from "@/state/auth-state";
 import { getModule } from "@/data/modules";
 import { core60PathOfPair, stageLessonLabel } from "@/lib/core60-path";
@@ -64,6 +67,10 @@ function PlacementRunner({
   const { user } = useAuth();
   const target = state.selectedLanguage;
   const native = state.nativeLanguage;
+  const pack = packFor(target);
+  // Only a released course pack (French, Italian) offers its keyboard letters under the answer;
+  // Spanish, Japanese and languages without a pack keep the base input, with no letter row.
+  const specialChars = followsPackRules(pack) ? specialCharacters(pack!) : [];
   const storageKey = JSON.stringify([PLACEMENT_VERSION, user?.id ?? "guest", base, target, native]);
   const [open, setOpen] = useState(false);
   const [loaded, setLoaded] = useState<Loaded | null>(null);
@@ -219,10 +226,10 @@ function PlacementRunner({
           Take placement test
         </button>
       )}
-      {target === "Spanish" && native === "English" && (
+      {pack?.features.placementGame && sameLanguage(native, pack.native.default) && (
         <a
           className={`${button} mt-3 inline-flex items-center`}
-          href={`/exams?module=${encodeURIComponent(base)}&target=Spanish&native=English&test=post-core`}
+          href={`/exams?module=${encodeURIComponent(base)}&target=${encodeURIComponent(target)}&native=${encodeURIComponent(native)}&test=post-core`}
         >
           Take the free post-Core test · unlimited retakes
         </a>
@@ -365,7 +372,10 @@ function PlacementRunner({
                 ) : (
                   <div>
                     <label htmlFor="placement-answer" className="mb-2 block text-sm">
-                      Type the missing word or phrase. Accents matter; case and punctuation do not.
+                      Type the missing word or phrase.{" "}
+                      {question.accents === "ignore"
+                        ? "Case, accents and punctuation do not matter."
+                        : "Accents matter; case and punctuation do not."}
                     </label>
                     <input
                       id="placement-answer"
@@ -378,6 +388,20 @@ function PlacementRunner({
                       maxLength={200}
                       className="min-h-12 w-full rounded-xl border border-border bg-background p-3 text-base"
                     />
+                    {specialChars.length > 0 && (
+                      <div className="mt-2 flex flex-wrap gap-2" aria-label={`${target} letters`}>
+                        {specialChars.map((char) => (
+                          <button
+                            key={char}
+                            type="button"
+                            className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg border border-border px-2 text-base font-semibold transition-colors duration-200 hover:border-gold"
+                            onClick={() => setValue((v) => v + char)}
+                          >
+                            {char}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
                 <button type="submit" className={gold} disabled={!value.trim()}>

@@ -20,6 +20,7 @@ import { useSpeech } from "@/state/speech-state";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import {
@@ -70,22 +71,6 @@ const MODULE_META: Record<
   },
 };
 
-// ── Locale helpers ────────────────────────────────────────────────────────────
-
-function speechLocale(language: string): string {
-  const map: Record<string, string> = {
-    Spanish: "es-419",
-    French: "fr-FR",
-    German: "de-DE",
-    Italian: "it-IT",
-    Japanese: "ja-JP",
-    Korean: "ko-KR",
-    Portuguese: "pt-BR",
-    English: "en-US",
-  };
-  return map[language] ?? "es-419";
-}
-
 // ── Main component ────────────────────────────────────────────────────────────
 
 export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
@@ -93,7 +78,12 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
   const { voiceURI } = useSpeech();
   const scenarios = getPracticeScenarios(moduleGroup);
   const meta = MODULE_META[moduleGroup];
-  const locale = speechLocale(state.selectedLanguage);
+  // The partner speaks and is heard in the pack's own variety (its neutral standard, es-419 for
+  // Spanish), as before packs. A language without a pack fails closed: no spoken partner lines
+  // and no microphone button.
+  const pack = usePack(state.selectedLanguage);
+  const locale = pack?.variety.tag || null;
+  const recognitionLocale = pack && pack.speech.recognition.mode !== "none" ? locale : null;
 
   const [phase, setPhase] = useState<"select" | "roleplay">("select");
   const [scenario, setScenario] = useState<PracticeScenario | null>(null);
@@ -192,6 +182,10 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
     };
     const clean = text.replace(/[*_`~#[\]]/g, "").trim();
     if (!clean) {
+      done(false);
+      return;
+    }
+    if (!locale) {
       done(false);
       return;
     }
@@ -404,8 +398,12 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
       toast.error("Speech recognition not available in this browser.");
       return;
     }
+    if (!recognitionLocale) {
+      toast.error(`${pack?.name ?? "This language"} speech recognition is unavailable.`);
+      return;
+    }
     const rec = new SR();
-    rec.lang = locale;
+    rec.lang = recognitionLocale;
     rec.interimResults = true;
     let consumed = false;
     const current = () => lease.isCurrent() && recRef.current === rec;
@@ -789,7 +787,7 @@ export function ModuleFieldPrep({ moduleGroup }: { moduleGroup: ModuleGroup }) {
               disabled={streaming || speaking}
               className="custom-scroll max-h-32 flex-1 resize-none rounded-xl border border-border/70 bg-card/60 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold/60 focus:outline-none disabled:opacity-50"
             />
-            {!voiceMode && (
+            {!voiceMode && recognitionLocale && (
               <button
                 type="button"
                 onClick={listening ? stopListening : () => startListening(false)}
@@ -886,7 +884,7 @@ function PartnerBubble({
   // then the HD voice) with their accent and speed. The replay belongs to this message.
   const { speak: listenAgain } = useListeningSpeaker(
     JSON.stringify(["module-field-prep", message.id]),
-    language,
+    usePack(language),
   );
   return (
     <div className="flex gap-2.5">
@@ -899,7 +897,11 @@ function PartnerBubble({
         </p>
         <div className="rounded-2xl rounded-tl-sm border border-border/40 bg-card/60 px-4 py-2.5 text-sm text-foreground/90 leading-relaxed">
           {message.content ? (
-            <ClickableText text={message.content.replace(/[*_`~#]/g, "")} onWordClick={onWordTap} />
+            <ClickableText
+              text={message.content.replace(/[*_`~#]/g, "")}
+              language={language}
+              onWordClick={onWordTap}
+            />
           ) : (
             <span className="text-muted-foreground/40 italic">…</span>
           )}

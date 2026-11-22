@@ -20,6 +20,7 @@ import { useSpeech } from "@/state/speech-state";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
 import { getMissionArea } from "@/data/missionary-content";
@@ -171,7 +172,7 @@ export function FieldPrepMode() {
       if (success) onEnd?.();
     };
     const clean = text.replace(/[*_`~#[\]]/g, "").trim();
-    if (!clean) {
+    if (!clean || !locale) {
       done(false);
       return;
     }
@@ -432,6 +433,10 @@ export function FieldPrepMode() {
     const SR = w.SpeechRecognition ?? w.webkitSpeechRecognition;
     if (!SR) {
       toast.error("Speech recognition not available in this browser.");
+      return;
+    }
+    if (!locale) {
+      toast.error("Voice input is unavailable for this language.");
       return;
     }
     const rec = new SR();
@@ -927,7 +932,7 @@ function InvestigatorBubble({
   // then the HD voice) with their accent and speed. The replay belongs to this message.
   const { speak: listenAgain } = useListeningSpeaker(
     JSON.stringify(["field-prep", message.id]),
-    language,
+    usePack(language),
   );
   return (
     <div className="flex gap-2.5">
@@ -940,7 +945,11 @@ function InvestigatorBubble({
         </p>
         <div className="rounded-2xl rounded-tl-sm border border-border/40 bg-card/60 px-4 py-2.5 text-sm text-foreground/90 leading-relaxed">
           {message.content ? (
-            <ClickableText text={message.content.replace(/[*_`~#]/g, "")} onWordClick={onWordTap} />
+            <ClickableText
+              text={message.content.replace(/[*_`~#]/g, "")}
+              language={language}
+              onWordClick={onWordTap}
+            />
           ) : (
             <span className="text-muted-foreground/40 italic">…</span>
           )}

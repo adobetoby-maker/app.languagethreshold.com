@@ -33,6 +33,7 @@ import { LibraryDrawer } from "@/components/library/LibraryDrawer";
 import { ModuleMatchPanel } from "@/components/modules/ModuleMatchPanel";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
 import { getAvailableModuleLessons } from "@/data/module-starters";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { ActionHint } from "@/components/onboarding/AppTour";
 import { recordPaneTap } from "@/lib/learning-guidance";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
@@ -692,6 +693,18 @@ export function ParallelReader() {
         </div>
       )}
 
+      {/* French and Italian: the module's course readings are not in the Reader yet. Each lesson's
+          own reading opens from its lesson page ("Open in full Reader"). */}
+      {lessonIds.length <= 1 && catalogLessonPack(state.selectedLanguage) && (
+        <p
+          data-testid="reader-course-readings-unavailable"
+          className="reader-reading-nav mb-3 rounded-xl border border-border/50 bg-card/40 px-3 py-2 text-xs text-muted-foreground"
+        >
+          Course readings are not available in the {catalogLessonPack(state.selectedLanguage)!.name}{" "}
+          Reader yet. Each lesson's reading opens from its lesson page.
+        </p>
+      )}
+
       {/* Library bar */}
       <div className="mb-3 flex flex-nowrap items-center justify-between gap-2 rounded-2xl border border-border/60 bg-card/50 px-3 py-2 sm:px-5 sm:py-3 backdrop-blur">
         <button
@@ -1000,6 +1013,7 @@ export function ParallelReader() {
               >
                 <Pane
                   pane="left"
+                  language={state.nativeLanguage}
                   sentences={activeSentences.map((s) => s.en)}
                   size={size}
                   annotations={annotations}
@@ -1074,6 +1088,7 @@ export function ParallelReader() {
             >
               <Pane
                 pane="right"
+                language={state.selectedLanguage}
                 sentences={activeSentences.map((s) => s.target)}
                 size={size}
                 annotations={annotations}
@@ -1169,8 +1184,11 @@ function Pane({
   furiganaScript = "hiragana",
   romajaMode = "off",
   pinyinMode = "off",
+  language,
 }: {
   pane: "left" | "right";
+  /** Language this pane's text is written in. */
+  language?: string;
   sentences: string[];
   size: TextSize;
   annotations: ReturnType<typeof useNotes>["annotations"];
@@ -1272,6 +1290,7 @@ function Pane({
                 text={s}
                 annotations={sentenceAnns}
                 onWordClick={wrappedWordClick}
+                language={language}
               />
             )}
           </p>

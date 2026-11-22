@@ -361,7 +361,8 @@ test("verb card: the back spells out the authored conjugations, each line is rea
     assert.ok(R.speakers.length > 0);
     for (const speaker of R.speakers) {
       assert.equal(speaker.scope, "lesson-kit");
-      assert.equal(speaker.language, "Spanish");
+      // The kit hands its speaker the lesson's pack, never a language name.
+      assert.equal(speaker.language?.code, "es");
     }
   }));
 
@@ -400,7 +401,7 @@ test("Recall: the card's speaker is told which card it speaks for, so a notice n
     assert.equal(R.speakers.at(-1).card, 0, "the match step's speaker is told its round");
   }));
 
-test("a plain vocabulary card has no conjugation list, and an unknown lesson language falls back safely", () =>
+test("a plain vocabulary card has no conjugation list, and an unknown lesson language fails closed", () =>
   fixture(async ({ R, host, mount }) => {
     mount({ words: TERMS, verbs: [], mode: "study" });
     host.click(host.one("flashcard"));
@@ -408,5 +409,7 @@ test("a plain vocabulary card has no conjugation list, and an unknown lesson lan
     assert.equal(host.all("recall-verb-form").length, 0);
     R.speakers.length = 0;
     mount({ words: TERMS, verbs: [], mode: "study", language: "Klingon" });
-    assert.ok(R.speakers.every((speaker) => speaker.language === "Spanish"));
+    // No pack for the language: the speaker gets no pack (no voice), never a Spanish one.
+    assert.ok(R.speakers.length > 0);
+    assert.ok(R.speakers.every((speaker) => speaker.language === null));
   }));

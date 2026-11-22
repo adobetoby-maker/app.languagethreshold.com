@@ -1,3 +1,4 @@
+import { catalogLessonPack } from "../data/language-packs/catalog-lessons.ts";
 import { soundLesson, type SoundLesson } from "../data/sound-like-a-native.ts";
 import { spanishPatternWords } from "../data/spanish-basics.ts";
 import { getCurriculum, type Lesson, type LessonWord } from "../data/curriculum.ts";
@@ -44,20 +45,22 @@ export function getLessonDefinition(input: {
   contentVersion: string;
 }): LessonDefinition | null {
   const { moduleId, lessonNumber, targetLanguage, instructionLanguage, contentVersion } = input;
-  // Keep the stable objective/lesson shell even for an unsupported pair; authored words, reading,
-  // teaching and sound below are each gated by the requested pair. This preserves existing lesson
-  // identity without borrowing a Spanish lesson's actual practice content.
-  const source = getCurriculum(moduleId)?.lessons.find((l) => l.n === lessonNumber);
+  // A catalog language (French, Italian) reads its own catalog lesson only. Every other language
+  // keeps the stable objective/lesson shell even for an unsupported pair, as it always has;
+  // authored words, reading, teaching and sound below are each gated by the requested pair.
+  const source = (
+    catalogLessonPack(targetLanguage)
+      ? getCurriculum(moduleId, targetLanguage, instructionLanguage)
+      : getCurriculum(moduleId, "", "")
+  )?.lessons.find((l) => l.n === lessonNumber);
   if (!source) return null;
+  const writtenFor = authoredWordsPairForModule(getModule(moduleId));
   const roofingTrack =
-    moduleId === "roofing" && targetLanguage === "Spanish" && instructionLanguage === "English";
+    moduleId === "roofing" &&
+    targetLanguage === writtenFor.language &&
+    instructionLanguage === writtenFor.nativeLanguage;
   const sourceWords =
-    pickAuthoredWords(
-      source.words,
-      targetLanguage,
-      instructionLanguage,
-      authoredWordsPairForModule(getModule(moduleId)),
-    ) ?? [];
+    pickAuthoredWords(source.words, targetLanguage, instructionLanguage, writtenFor) ?? [];
   const patternWords = spanishPatternWords(
     moduleId,
     lessonNumber,
@@ -110,7 +113,7 @@ export function getLessonDefinition(input: {
   );
   return {
     id: `${moduleId}.${targetLanguage}.${instructionLanguage}.lesson.${lessonNumber}`,
-    objectiveId: lessonObjectiveId(moduleId, lessonNumber),
+    objectiveId: lessonObjectiveId(moduleId, lessonNumber, targetLanguage, instructionLanguage),
     moduleId,
     lessonNumber,
     title: source.title,
@@ -118,7 +121,10 @@ export function getLessonDefinition(input: {
     targetLanguage,
     instructionLanguage,
     contentVersion,
-    prerequisites: lessonNumber > 1 ? [lessonObjectiveId(moduleId, lessonNumber - 1)] : [],
+    prerequisites:
+      lessonNumber > 1
+        ? [lessonObjectiveId(moduleId, lessonNumber - 1, targetLanguage, instructionLanguage)]
+        : [],
     expectedMinutes: source.steps.reduce((sum, step) => sum + step.durationMin, 0),
     source,
     words,

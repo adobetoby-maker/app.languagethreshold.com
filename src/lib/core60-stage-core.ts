@@ -12,6 +12,8 @@ import type { Lesson, LessonGrammar, LessonWord, ModuleCurriculum } from "../dat
 import type { AppModule } from "../data/modules.ts";
 import { r, sp, wm } from "../data/curriculum-helpers.ts";
 import { languageTag } from "./lesson-words-core.ts";
+import { packFor, sameLanguage, type LanguagePack } from "../data/language-packs/registry.ts";
+import { nativeLanguageName } from "../data/languages.ts";
 
 export const CORE60_STAGE_FILE_VERSION = 1;
 
@@ -85,7 +87,7 @@ export interface Core60ManifestEntry {
   base: string;
   /** Target language of both stage files ("Spanish"); also the only language the stages are offered in. */
   language: string;
-  /** Native/support language; defaults to Spanish for English targets and English otherwise. */
+  /** Native/support language; defaults to the target pack's native.default (en; es for English). */
   nativeLanguage?: string;
   /** Short trade name on the path card and eyebrow; defaults to the base module's name. */
   tradeLabel?: string;
@@ -97,8 +99,29 @@ export function stageModuleId(stage: Core60StageKind, base: string): string {
   return `${stage}-${base}`;
 }
 
+/** The language pack of a manifest entry's target language, or null (the validator rejects it). */
+export function entryPack(entry: Core60ManifestEntry): LanguagePack | null {
+  return packFor(entry.language);
+}
+
+/** The entry's native language: as listed, else its pack's default native. Null if unknown. */
+export function entryNativeLanguage(entry: Core60ManifestEntry): string | null {
+  return entry.nativeLanguage ?? nativeLanguageName(entryPack(entry)?.native.default) ?? null;
+}
+
+/**
+ * A stage's module id (language-pack model section 6): the manifest override, else
+ * "<stage>-<base>" for a pack whose ids predate packs (ids.legacyUnscopedStorage: Spanish,
+ * Japanese and English keep every stored id), else "<stage>-<base>-<code>", so two languages that
+ * share a base module never share a stage id.
+ */
 export function manifestStageModuleId(entry: Core60ManifestEntry, stage: Core60StageKind): string {
-  return entry[stage]?.moduleId ?? stageModuleId(stage, entry.base);
+  const override = entry[stage]?.moduleId;
+  if (override) return override;
+  const pack = entryPack(entry);
+  return pack && !pack.ids.legacyUnscopedStorage
+    ? `${stageModuleId(stage, entry.base)}-${pack.code}`
+    : stageModuleId(stage, entry.base);
 }
 
 /** Path of a stage file relative to the stage data root: "es/foundation-electrician.json". */
@@ -116,13 +139,8 @@ export function findStageEntry(
   if (!moduleId) return null;
   const matches: { entry: Core60ManifestEntry; stage: Core60StageKind }[] = [];
   for (const entry of manifest) {
-    if (targetLanguage && entry.language !== targetLanguage) continue;
-    if (
-      nativeLanguage &&
-      (entry.nativeLanguage ?? (entry.language === "English" ? "Spanish" : "English")) !==
-        nativeLanguage
-    )
-      continue;
+    if (targetLanguage && !sameLanguage(entry.language, targetLanguage)) continue;
+    if (nativeLanguage && entryNativeLanguage(entry) !== nativeLanguage) continue;
     if (entry.foundation && moduleId === manifestStageModuleId(entry, "foundation"))
       matches.push({ entry, stage: "foundation" });
     if (entry.master && moduleId === manifestStageModuleId(entry, "master"))
@@ -269,8 +287,7 @@ export function deriveStageModule(
   // reused for another target language. Never inherit the base's Spanish pair.
   derived.authoredPair = {
     target: language as NonNullable<AppModule["authoredPair"]>["target"],
-    native: (entry.nativeLanguage ??
-      (language === "English" ? "Spanish" : "English")) as NonNullable<
+    native: entryNativeLanguage(entry) as NonNullable<
       AppModule["authoredPair"]
     >["native"],
   };

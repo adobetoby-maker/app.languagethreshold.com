@@ -3,9 +3,20 @@ import { placeLesson } from "./place-directions.ts";
 import { soundLesson } from "./sound-like-a-native.ts";
 import { spanishBasicsLesson } from "./spanish-basics.ts";
 import { japaneseBasicsLesson } from "./japanese-basics.ts";
-import { MODULES, moduleSupportsLearningPair, type AppModule } from "./modules.ts";
-import type { NativeLanguage } from "@/state/app-state";
-import { getCurriculum, type Lesson } from "./curriculum.ts";
+import {
+  CATALOG_LIBRARY_MODULE_IDS,
+  MODULES,
+  moduleSupportsLanguage,
+  moduleSupportsLearningPair,
+  type AppModule,
+} from "./modules.ts";
+import type { Language, NativeLanguage } from "@/state/app-state";
+import {
+  authoredCurriculum,
+  getCurriculum,
+  moduleAuthoredPair,
+  type Lesson,
+} from "./curriculum.ts";
 import { pendingStageLessonMissionCount, stageCurriculaVersion } from "./core60-stages.ts";
 import {
   CORE_SPEAKING_MODULE,
@@ -21,6 +32,11 @@ import {
 } from "./core-speaking.ts";
 import { isFoundationModule, isMasterModule } from "../lib/core30-plan.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
+import { packFor } from "./language-packs/registry.ts";
+import { catalogLessonPack } from "./language-packs/catalog-lessons.ts";
+import { appData, type MissionLines } from "./language-packs/app-data.ts";
+import { LANGUAGES, nativeLanguageName } from "./languages.ts";
+import { packOffersSpeakingMissions } from "../lib/speaking-review.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
 import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
@@ -28,9 +44,11 @@ import { interestLesson } from "./interests-spanish.ts";
 import { militaryLessonPractice } from "./military-practice.ts";
 
 export type SpeakingMissionSpecialty = "Core" | AppModule["category"];
-export type SpeakingMissionLanguage = "Spanish" | "Italian" | "Japanese" | "Chinese" | "English";
-export type SpeakingMissionLocale = "es-419" | "it-IT" | "ja-JP" | "zh-CN" | "en-US";
-type SpeakingMissionCode = "es" | "it" | "ja" | "zh" | "en";
+/** A registered language name (SPEAKING_LANGUAGES lists the ones with missions in this build). */
+export type SpeakingMissionLanguage = string;
+/** A BCP 47 tag: the pack's variety tag (es-419, ja-JP ...). */
+export type SpeakingMissionLocale = string;
+type SpeakingMissionCode = string;
 export type SpeakingMissionRisk =
   "medical" | "emergency" | "financial" | "legal" | "minor-data" | "intimacy";
 
@@ -598,29 +616,46 @@ const CURATED_SPEAKING_MISSIONS: SpeakingMission[] = [
   },
 ];
 
-export const SPEAKING_LANGUAGES: Array<{
-  language: SpeakingMissionLanguage;
-  code: SpeakingMissionCode;
-  locale: SpeakingMissionLocale;
-}> = [
-  { language: "Spanish", code: "es", locale: "es-419" },
-  { language: "Italian", code: "it", locale: "it-IT" },
-  { language: "Japanese", code: "ja", locale: "ja-JP" },
-  { language: "Chinese", code: "zh", locale: "zh-CN" },
-  { language: "English", code: "en", locale: "en-US" },
-];
+/** True when `text` quotes words of `language` (quotes, inverted marks or its special letters). */
+function quotesLanguageText(text: string, language: string): boolean {
+  if (/['‘’"“”«»]/.test(text)) return true;
+  const pack = packFor(language);
+  const marks = [
+    ...(pack?.keyboard.specialCharacters ?? []),
+    ...(pack?.typography.invertedPunctuation ? ["¿", "¡"] : []),
+  ];
+  const lower = text.toLocaleLowerCase();
+  return marks.some((mark) => lower.includes(mark.toLocaleLowerCase()));
+}
+
+/** The language names mission text is rewritten from ("in Spanish" → "in Italian"), as always. */
+const PROJECTED_LANGUAGE_NAMES = "Spanish|Italian|Japanese|Chinese|Portuguese|English";
 
 function projectTextForLanguage(text: string, language: SpeakingMissionLanguage): string {
-  return text
+  const projected = text
     .replace(
-      /\b(?:Spanish|Italian|Japanese|Chinese|Portuguese|English)-speaking\b/g,
+      new RegExp(`\\b(?:${PROJECTED_LANGUAGE_NAMES})-speaking\\b`, "g"),
       `${language}-speaking`,
     )
-    .replace(/\bin (?:Spanish|Italian|Japanese|Chinese|Portuguese|English)\b/g, `in ${language}`)
+    .replace(new RegExp(`\\bin (?:${PROJECTED_LANGUAGE_NAMES})\\b`, "g"), `in ${language}`)
     .replace(
-      /\bwithout (?:Spanish|Italian|Japanese|Chinese|Portuguese|English)\b/g,
+      new RegExp(`\\bwithout (?:${PROJECTED_LANGUAGE_NAMES})\\b`, "g"),
       `without switching away from ${language}`,
     );
+  // A learner whose lessons come from a pack catalog (French, Italian) never reads another
+  // language named beside theirs ("in Italian or Spanish" → "in Italian"), never reads Spanish
+  // named as the language they practice ("plain Spanish", "clear Spanish commands"), and never
+  // reads a Spanish word for a celebration (owner rule 1).
+  return catalogLessonPack(language)
+    ? projected
+        .replace(
+          new RegExp(`\\bin ${language}(?: or (?:${PROJECTED_LANGUAGE_NAMES}))+\\b`, "g"),
+          `in ${language}`,
+        )
+        .replace(/\bSpanish\b/g, language)
+        .replace(/\bQuinceañera Mass\b/g, "fifteenth-birthday Mass")
+        .replace(/\bQuinceañera\b/g, "Fifteenth-Birthday Celebration")
+    : projected;
 }
 
 function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): string {
@@ -630,184 +665,46 @@ function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): s
     : `${language}-speaking ${module.name.toLowerCase()} conversation partner`;
 }
 
-const OPENING_LINES: Record<SpeakingMissionLanguage, Record<SpeakingMissionSpecialty, string>> = {
-  Spanish: {
-    Core: "Hola. ¿En qué puedo ayudarle hoy?",
-    "Core Basics": "Hola. ¿En qué puedo ayudarle hoy?",
-    Faith: "Hola. Gracias por venir. ¿De qué le gustaría hablar conmigo?",
-    Medical: "Hola. Gracias por atenderme. ¿Qué necesita saber para ayudarme hoy?",
-    Trades: "Buenos días. ¿Qué tenemos que hacer primero en esta situación?",
-    Service: "Hola. Necesito ayuda con esta situación. ¿Podemos hablar?",
-    Education: "Hola. Quisiera entender mejor la situación. ¿Podemos revisarla juntos?",
-    Agriculture: "Buenos días. ¿Cuál es el plan de trabajo y qué necesita que haga?",
-    Sports: "Entrenador, ¿cuál es el plan y qué quiere que haga?",
-    Travel: "Disculpe, necesito ayuda con esta situación. ¿Qué debo hacer?",
-    "English for Work": "Hello. What workplace situation would you like to practice?",
-  },
-  Italian: {
-    Core: "Buongiorno. Come posso aiutarla oggi?",
-    "Core Basics": "Buongiorno. Come posso aiutarla oggi?",
-    Faith: "Buongiorno. Grazie di essere venuto. Di che cosa vorrebbe parlare?",
-    Medical: "Buongiorno. Grazie per avermi ricevuto. Che cosa deve sapere per aiutarmi?",
-    Trades: "Buongiorno. Che cosa dobbiamo fare per prima cosa in questa situazione?",
-    Service: "Buongiorno. Ho bisogno di aiuto con questa situazione. Possiamo parlarne?",
-    Education: "Buongiorno. Vorrei capire meglio la situazione. Possiamo esaminarla insieme?",
-    Agriculture: "Buongiorno. Qual è il piano di lavoro e che cosa devo fare?",
-    Sports: "Mister, qual è il piano e che cosa vuole che faccia?",
-    Travel: "Mi scusi, ho bisogno di aiuto. Che cosa devo fare?",
-    "English for Work": "Hello. What workplace situation would you like to practice?",
-  },
-  Japanese: {
-    Core: "こんにちは。今日はどうされましたか。",
-    "Core Basics": "こんにちは。今日はどうされましたか。",
-    Faith: "こんにちは。来てくださってありがとうございます。今日は何について話しましょうか。",
-    Medical: "こんにちは。診ていただきありがとうございます。まず何をお伝えすればよいですか。",
-    Trades: "おはようございます。この状況では、まず何をすればよいですか。",
-    Service: "こんにちは。この件で助けが必要です。少しお話しできますか。",
-    Education: "こんにちは。状況をよく理解したいです。一緒に確認していただけますか。",
-    Agriculture: "おはようございます。今日の作業計画と、私がすることを教えてください。",
-    Sports: "コーチ、今日の作戦と私の役割を教えてください。",
-    Travel: "すみません、助けていただけますか。どうすればよいですか。",
-    "English for Work": "Hello. What workplace situation would you like to practice?",
-  },
-  Chinese: {
-    Core: "你好。今天有什么可以帮您的？",
-    "Core Basics": "你好。今天有什么可以帮您的？",
-    Faith: "你好。谢谢你来。今天想聊些什么？",
-    Medical: "你好。谢谢您接待我。您需要先了解什么情况？",
-    Trades: "早上好。这种情况下我们应该先做什么？",
-    Service: "你好。这件事我需要帮忙，我们可以谈谈吗？",
-    Education: "你好。我想更好地了解情况，我们可以一起看看吗？",
-    Agriculture: "早上好。今天的工作计划是什么，需要我做什么？",
-    Sports: "教练，今天的计划是什么，您需要我做什么？",
-    Travel: "对不起，我需要帮助，我应该怎么做？",
-    "English for Work": "Hello. What workplace situation would you like to practice?",
-  },
-  English: {
-    Core: "Hello. How can I help you today?",
-    "Core Basics": "Hello. How can I help you today?",
-    Faith: "Hello. Thank you for coming. What would you like to talk about?",
-    Medical: "Hello. Thank you for seeing me. What do you need to know first?",
-    Trades: "Good morning. What should we do first in this situation?",
-    Service: "Hello. I need some help with this situation. Can we talk?",
-    Education: "Hello. I would like to understand the situation better. Can we review it together?",
-    Agriculture: "Good morning. What is today's work plan, and what do you need me to do?",
-    Sports: "Coach, what is the plan, and what do you want me to do?",
-    Travel: "Excuse me, I need some help. What should I do?",
-    "English for Work": "Hello. Let's practice the English you need for this workplace situation.",
-  },
-};
+/**
+ * The languages Say it missions are offered in: a registered pack that offers speaking missions
+ * (speaking-review.ts: status, features.speakingMissions, review sign-off pending is a separate,
+ * environment-aware check) AND has authored mission content here. A pack with no content (French,
+ * Portuguese ...) is simply not listed, so no screen can reach a table that has no row for it.
+ * The mission locale is the pack's own variety tag.
+ */
+export const SPEAKING_LANGUAGES: Array<{
+  language: SpeakingMissionLanguage;
+  code: SpeakingMissionCode;
+  locale: SpeakingMissionLocale;
+}> = LANGUAGES.flatMap((name) => packFor(name) ?? []).flatMap((pack) =>
+  // Registry order (LANGUAGES). A language offers missions when its app file carries authored opening lines (app/<code>.json
+  // missions) and its pack offers speaking missions in this build.
+  appData(pack).missions && packOffersSpeakingMissions(pack)
+    ? [{ language: pack.name, code: pack.code, locale: pack.variety.tag }]
+    : [],
+);
+
+/** The language's authored mission lines (app/<code>.json missions); every listed language has them. */
+function missionLines(language: SpeakingMissionLanguage): MissionLines {
+  const pack = packFor(language);
+  const lines = pack ? appData(pack).missions : null;
+  if (!lines) throw new Error(`No authored mission lines for ${language}`);
+  return lines;
+}
 
 function openingLineFor(
   language: SpeakingMissionLanguage,
   category: SpeakingMissionSpecialty,
 ): string {
-  return OPENING_LINES[language][category];
+  return missionLines(language).opening[category];
 }
-
-const TRAVEL_MODULE_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string, string>> = {
-  Spanish: {
-    "travel-breakfast": "Buenos días. ¿Qué le gustaría tomar para empezar?",
-    "travel-lunch": "Buenas tardes. ¿Quiere ver el menú del día?",
-    "travel-dinner": "Buenas noches. ¿Tiene reserva o busca una mesa?",
-    "travel-shopping-essentials": "Hola. ¿Qué necesita encontrar y qué talla usa?",
-    "travel-daily-life-services": "Buenos días. Dígame qué servicio necesita hoy.",
-    "travel-markets-souvenirs": "Hola. Todo esto es de la región. ¿Qué está buscando?",
-    "travel-hotels-lodging": "Bienvenido. ¿Tiene una reserva a su nombre?",
-    "travel-taxi-rideshare": "Buenas. ¿A dónde vamos y lleva equipaje?",
-    "travel-trains-transit": "Buenos días. ¿A dónde necesita viajar?",
-    "travel-scooter-car-rental": "Hola. ¿Busca una Vespa, una moto o un coche, y por cuántos días?",
-    "travel-roadside-mechanics": "Buenos días. Cuénteme qué hace el vehículo y cuándo empezó.",
-    "travel-guides-attractions": "Bienvenidos. Antes de empezar, ¿qué les interesa conocer más?",
-    "travel-airport-luggage": "Buenos días. ¿Cuál es su vuelo y en qué puedo ayudarle?",
-    "travel-pharmacy-health": "Buenos días. ¿Qué síntomas tiene y desde cuándo?",
-    "travel-social-dating": "Hola. Creo que no nos conocemos. ¿Está de visita?",
-    "travel-problems-services": "Buenos días. Explíqueme qué pasó y qué necesita primero.",
-  },
-  Italian: {
-    "travel-breakfast": "Buongiorno. Che cosa desidera bere per iniziare?",
-    "travel-lunch": "Buongiorno. Vuole vedere il menù del giorno?",
-    "travel-dinner": "Buonasera. Ha una prenotazione o cerca un tavolo?",
-    "travel-shopping-essentials": "Buongiorno. Che cosa cerca e che taglia porta?",
-    "travel-daily-life-services": "Buongiorno. Mi dica di quale servizio ha bisogno oggi.",
-    "travel-markets-souvenirs": "Buongiorno. Questi prodotti sono locali. Che cosa cerca?",
-    "travel-hotels-lodging": "Benvenuto. Ha una prenotazione a suo nome?",
-    "travel-taxi-rideshare": "Buongiorno. Dove andiamo e ha dei bagagli?",
-    "travel-trains-transit": "Buongiorno. Dove deve andare?",
-    "travel-scooter-car-rental":
-      "Buongiorno. Cerca una Vespa, uno scooter o un'auto, e per quanti giorni?",
-    "travel-roadside-mechanics": "Buongiorno. Mi descriva che cosa fa il veicolo e da quando.",
-    "travel-guides-attractions": "Benvenuti. Prima di iniziare, che cosa vi interessa di più?",
-    "travel-airport-luggage": "Buongiorno. Qual è il suo volo e come posso aiutarla?",
-    "travel-pharmacy-health": "Buongiorno. Quali sintomi ha e da quanto tempo?",
-    "travel-social-dating": "Ciao. Non credo che ci conosciamo. Sei qui in visita?",
-    "travel-problems-services":
-      "Buongiorno. Mi spieghi che cosa è successo e di cosa ha bisogno subito.",
-  },
-  Japanese: {
-    "travel-breakfast": "おはようございます。まず、お飲み物は何になさいますか。",
-    "travel-lunch": "いらっしゃいませ。本日のランチメニューをご覧になりますか。",
-    "travel-dinner": "こんばんは。ご予約はございますか。",
-    "travel-shopping-essentials": "いらっしゃいませ。何をお探しで、サイズはいくつですか。",
-    "travel-daily-life-services": "いらっしゃいませ。今日はどのようなご用件でしょうか。",
-    "travel-markets-souvenirs": "いらっしゃいませ。こちらは地元の商品です。何をお探しですか。",
-    "travel-hotels-lodging": "ようこそ。ご予約のお名前をお願いします。",
-    "travel-taxi-rideshare": "こんにちは。どちらまでですか。お荷物はありますか。",
-    "travel-trains-transit": "こんにちは。どちらまで行かれますか。",
-    "travel-scooter-car-rental": "いらっしゃいませ。スクーターと車のどちらを、何日間ご希望ですか。",
-    "travel-roadside-mechanics": "こんにちは。車の状態と、いつからかを教えてください。",
-    "travel-guides-attractions": "ようこそ。始める前に、特に何に興味があるか教えてください。",
-    "travel-airport-luggage": "こんにちは。便名と、ご用件を教えてください。",
-    "travel-pharmacy-health": "こんにちは。どのような症状が、いつからありますか。",
-    "travel-social-dating": "こんにちは。初めまして。旅行で来ているんですか。",
-    "travel-problems-services": "こんにちは。何が起きて、まず何が必要か教えてください。",
-  },
-  Chinese: {
-    "travel-breakfast": "早上好。您想先喝点什么？",
-    "travel-lunch": "欢迎光临。要看看今天的午餐菜单吗？",
-    "travel-dinner": "晚上好。您有预订吗，还是需要一张桌子？",
-    "travel-shopping-essentials": "您好。您想找什么，穿多大号？",
-    "travel-daily-life-services": "您好。请问今天需要什么服务？",
-    "travel-markets-souvenirs": "您好。这些都是本地产品，您想找什么？",
-    "travel-hotels-lodging": "欢迎。请问您有预订吗？",
-    "travel-taxi-rideshare": "您好。请问去哪里？有行李吗？",
-    "travel-trains-transit": "早上好。请问您要去哪里？",
-    "travel-scooter-car-rental": "您好。您想租电动车、摩托车还是汽车？租几天？",
-    "travel-roadside-mechanics": "您好。请告诉我车子出了什么问题，什么时候开始的？",
-    "travel-guides-attractions": "欢迎。开始之前，您最想了解什么？",
-    "travel-airport-luggage": "早上好。请问您的航班号是多少，需要什么帮助？",
-    "travel-pharmacy-health": "早上好。请问您有什么症状，从什么时候开始的？",
-    "travel-social-dating": "你好，初次见面。你是来旅游的吗？",
-    "travel-problems-services": "早上好。请告诉我发生了什么，您现在最需要什么？",
-  },
-  English: {
-    "travel-breakfast": "Good morning. What would you like to drink first?",
-    "travel-lunch": "Good afternoon. Would you like to see today's lunch menu?",
-    "travel-dinner": "Good evening. Do you have a reservation, or do you need a table?",
-    "travel-shopping-essentials": "Hello. What do you need, and what size do you wear?",
-    "travel-daily-life-services": "Good morning. What service do you need today?",
-    "travel-markets-souvenirs": "Hello. These are locally made. What are you looking for?",
-    "travel-hotels-lodging": "Welcome. Do you have a reservation?",
-    "travel-taxi-rideshare": "Hello. Where are you going, and do you have luggage?",
-    "travel-trains-transit": "Good morning. Where do you need to travel?",
-    "travel-scooter-car-rental":
-      "Hello. Are you looking for a scooter or a car, and for how many days?",
-    "travel-roadside-mechanics":
-      "Good morning. Tell me what the vehicle is doing and when it started.",
-    "travel-guides-attractions": "Welcome. Before we begin, what are you most interested in?",
-    "travel-airport-luggage": "Good morning. What is your flight, and how can I help?",
-    "travel-pharmacy-health": "Good morning. What symptoms do you have, and when did they start?",
-    "travel-social-dating": "Hi. I don't think we've met. Are you visiting?",
-    "travel-problems-services": "Good morning. Tell me what happened and what you need first.",
-  },
-};
 
 function openingLineForModule(
   module: AppModule,
   language: SpeakingMissionLanguage,
   specialty: SpeakingMissionSpecialty,
 ): string {
-  return TRAVEL_MODULE_OPENING_LINES[language][module.id] ?? openingLineFor(language, specialty);
+  return missionLines(language).travel[module.id] ?? openingLineFor(language, specialty);
 }
 
 function riskClassForModule(module: AppModule): SpeakingMissionRisk | undefined {
@@ -988,85 +885,13 @@ function safetyRulesForDailyLiving(topic: DailyLivingTopic): string[] {
   }
 }
 
-const RELATIONSHIP_OPENING_LINES: Record<SpeakingMissionLanguage, Record<string, string>> = {
-  Spanish: {
-    "meeting-family": "Qué gusto conocerte. Nos han hablado mucho de ti. ¿Cómo estuvo el viaje?",
-    "dating-interest": "Me caes muy bien. ¿Te gustaría tomar un café conmigo algún día?",
-    "defining-relationship":
-      "Me gustaría hablar de lo nuestro. ¿Cómo describirías nuestra relación?",
-    "affection-appreciation":
-      "Quiero decirte que te aprecio mucho. ¿Cómo te sientes cuando te lo digo?",
-    "living-together": "Quisiera saber qué esperas de nuestra relación. ¿Podemos hablarlo?",
-    "consent-boundaries": "¿Te parece bien si te abrazo? Puedes decirme que no.",
-    "sexual-health-conversation":
-      "Antes de tener intimidad, quiero hablar de lo que nos hace sentir seguros y cómodos.",
-    "disagreement-repair": "Me dolió lo que pasó, pero quiero escucharte y resolverlo contigo.",
-    "ending-relationship": "Quiero hablar con honestidad. He decidido terminar nuestra relación.",
-  },
-  Italian: {
-    "meeting-family":
-      "Piacere di conoscerti. Ci hanno parlato molto di te. Com’è andato il viaggio?",
-    "dating-interest": "Mi piaci molto. Ti andrebbe di prendere un caffè insieme un giorno?",
-    "defining-relationship": "Vorrei parlare di noi. Come descriveresti il nostro rapporto?",
-    "affection-appreciation": "Voglio dirti che tengo molto a te. Come ti senti quando te lo dico?",
-    "living-together": "Vorrei capire che cosa ti aspetti dal nostro rapporto. Possiamo parlarne?",
-    "consent-boundaries": "Ti va se ti abbraccio? Puoi dirmi di no.",
-    "sexual-health-conversation":
-      "Prima di avere rapporti intimi, vorrei parlare di ciò che ci fa sentire al sicuro e a nostro agio.",
-    "disagreement-repair":
-      "Quello che è successo mi ha ferito, ma voglio ascoltarti e risolverlo insieme.",
-    "ending-relationship":
-      "Voglio parlarti con sincerità. Ho deciso di concludere la nostra relazione.",
-  },
-  Japanese: {
-    "meeting-family":
-      "お会いできてうれしいです。お話はよく聞いています。ここまでの道のりはどうでしたか。",
-    "dating-interest": "もっとあなたのことを知りたいです。今度、一緒にお茶しませんか。",
-    "defining-relationship":
-      "私たちの関係について話したいです。あなたは今の関係をどう考えていますか。",
-    "affection-appreciation": "あなたのことをとても大切に思っています。いつもありがとう。",
-    "living-together": "この関係に何を望んでいるか、お互いに話しませんか。",
-    "consent-boundaries": "抱きしめてもいいですか。嫌なら、遠慮なく言ってください。",
-    "sexual-health-conversation":
-      "親密な関係になる前に、お互いが安心できることや健康について話したいです。",
-    "disagreement-repair":
-      "さっきのことで傷つきました。でも、あなたの話を聞いて一緒に解決したいです。",
-    "ending-relationship": "正直に話したいことがあります。私たちの関係を終わりにしたいです。",
-  },
-  Chinese: {
-    "meeting-family": "很高兴见到你。我们常听到你的事。路上还顺利吗？",
-    "dating-interest": "我很喜欢和你聊天。改天想不想一起喝杯咖啡？",
-    "defining-relationship": "我想聊聊我们的关系。你会怎么形容我们现在的关系？",
-    "affection-appreciation": "我想告诉你，我很珍惜你。听到这句话你有什么感觉？",
-    "living-together": "我想了解你对我们这段关系的期待，我们可以聊聊吗？",
-    "consent-boundaries": "我可以抱你一下吗？你可以说不要。",
-    "sexual-health-conversation": "在更进一步之前，我想聊聊怎样让我们都感到安全和自在。",
-    "disagreement-repair": "刚才的事让我有点难过，但我想听你说，我们一起解决。",
-    "ending-relationship": "我想跟你说实话。我决定结束我们的这段关系。",
-  },
-  English: {
-    "meeting-family": "It is lovely to meet you. We have heard a lot about you. How was your trip?",
-    "dating-interest": "I enjoy talking with you. Would you like to get coffee sometime?",
-    "defining-relationship":
-      "I would like to talk about us. How would you describe our relationship?",
-    "affection-appreciation": "I care about you very much, and I appreciate you.",
-    "living-together":
-      "I would like to understand what you expect from our relationship. Can we talk about it?",
-    "consent-boundaries": "Would it be okay if I hugged you? You can say no.",
-    "sexual-health-conversation":
-      "Before we become intimate, I would like to talk about what helps both of us feel safe and comfortable.",
-    "disagreement-repair":
-      "What happened hurt me, but I want to listen and work through it together.",
-    "ending-relationship": "I want to be honest with you. I have decided to end our relationship.",
-  },
-};
-
 function dailyLivingOpeningLine(
   topic: DailyLivingTopic,
   language: SpeakingMissionLanguage,
 ): string {
-  if (topic.openingLines) return topic.openingLines[language];
-  const relationshipLine = RELATIONSHIP_OPENING_LINES[language][topic.id];
+  const authored = topic.openingLines?.[language];
+  if (authored) return authored;
+  const relationshipLine = missionLines(language).relationship[topic.id];
   if (relationshipLine) return relationshipLine;
 
   const lines = {
@@ -1107,6 +932,8 @@ function dailyLivingOpeningLine(
     },
   }[language];
 
+  // A language with no authored phone lines uses its Core opening line (never another language's).
+  if (!lines) return openingLineFor(language, "Core");
   if (["answer-phone", "wrong-number"].includes(topic.id)) return lines.caller;
   if (topic.id === "take-message") return lines.unavailable;
   if (topic.id === "voicemail") return lines.voicemail;
@@ -1182,12 +1009,12 @@ const LESSON_MISSION_VOCABULARY_CAP = 12;
 const MASTER_MISSION_VOCABULARY_CAP = 24;
 
 // A lesson that carries its own word list drills those exact words in its mission: terms first,
-// then phrases, capped at 12 (24 for a Master lesson). Spanish missions show the Spanish forms; every other language keeps
-// the English headwords that module.vocabFocus already uses (lesson words only exist as en/es).
+// then phrases, capped at 12 (24 for a Master lesson). lessonVocabularyForm picks the column.
 function lessonMissionVocabulary(
   module: AppModule,
   lesson: Lesson,
   language: SpeakingMissionLanguage,
+  projectedFrom: string | null,
 ): string[] {
   const words = lesson.words;
   if (!words || words.length === 0) return module.vocabFocus.slice(0, 8);
@@ -1201,10 +1028,7 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    const authoredTarget =
-      module.authoredPair?.target ??
-      (module.learnDirection === "en-target" ? "English" : "Spanish");
-    const form = (language === authoredTarget ? word.es : word.en).trim();
+    const form = lessonVocabularyForm(module, language, word, projectedFrom);
     const key = form.toLocaleLowerCase();
     if (!form || seen.has(key)) continue;
     seen.add(key);
@@ -1214,6 +1038,38 @@ function lessonMissionVocabulary(
   return out.length > 0 ? out : module.vocabFocus.slice(0, 8);
 }
 
+/**
+ * The form of a lesson word a mission in `language` drills. A catalog-pack language (French,
+ * Italian) shows the target column of its own catalog lesson. Every other lesson is read by its
+ * authored columns as it always has: the target column when the mission's language is the
+ * module's authored target, else the meaning column (English headwords, never another language).
+ */
+function lessonVocabularyForm(
+  module: AppModule,
+  language: SpeakingMissionLanguage,
+  word: NonNullable<Lesson["words"]>[number],
+  projectedFrom: string | null,
+): string {
+  if (catalogLessonPack(language) && !projectedFrom) return word.es.trim();
+  const authoredTarget =
+    module.authoredPair?.target ?? (module.learnDirection === "en-target" ? "English" : "Spanish");
+  return (language === authoredTarget ? word.es : word.en).trim();
+}
+
+/** The native language a mission in `language` explains in by default: the pack's native.default. */
+export function missionNativeLanguage(language: SpeakingMissionLanguage): NativeLanguage {
+  return defaultNativeFor(language);
+}
+
+function defaultNativeFor(language: SpeakingMissionLanguage): NativeLanguage {
+  const code = packFor(language)?.native.default;
+  const native =
+    nativeLanguageName(code) ?? nativeLanguageName(packFor(language)?.native.supported[0]);
+  // Missions are built only for registered languages; one without a native pairing has none.
+  if (!native) throw new Error(`No native language pairing for ${language} missions`);
+  return native;
+}
+
 function missionFromLesson(
   module: AppModule,
   specialty: SpeakingMissionSpecialty,
@@ -1221,32 +1077,40 @@ function missionFromLesson(
   languageCode: SpeakingMissionCode,
   locale: SpeakingMissionLocale,
   lesson: Lesson,
+  projectedFrom: string | null = null,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
+  // A catalog-pack language (French, Italian) explains in its pack's default native; every other
+  // language keeps the natives its missions have always been built with.
+  const catalog = catalogLessonPack(language) !== null;
+  const nativeDefault = defaultNativeFor(language);
+  const helperNative = catalog ? nativeDefault : "English";
   const teaching = moduleTeachingSettings(
     module.id,
     lesson.n,
     language,
-    module.learnDirection === "en-target" ? "Spanish" : "English",
+    catalog ? nativeDefault : module.learnDirection === "en-target" ? "Spanish" : "English",
   );
   const cleaning = orCleaningLesson(
     module.id,
     lesson.n,
     language,
-    language === "English" ? "Spanish" : "English",
+    catalog ? nativeDefault : language === "English" ? "Spanish" : "English",
   );
-  const interest = interestLesson(module.id, lesson.n, language, "English");
+  const interest = interestLesson(module.id, lesson.n, language, helperNative);
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics =
-    spanishBasicsLesson(module.id, lesson.n, language, "English") ??
-    japaneseBasicsLesson(module.id, lesson.n, language, "English");
-  const place = placeLesson(module.id, lesson.n, language, "English");
-  const sound = soundLesson(module.id, lesson.n, language, "English");
+    spanishBasicsLesson(module.id, lesson.n, language, helperNative) ??
+    japaneseBasicsLesson(module.id, lesson.n, language, helperNative);
+  const place = placeLesson(module.id, lesson.n, language, helperNative);
+  const sound = soundLesson(module.id, lesson.n, language, helperNative);
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
-  const projectedSteps = lesson.steps.map((step) =>
-    projectTextForLanguage(step.instruction, language),
-  );
+  // A scenario projected from another language's lesson keeps only steps that quote none of that
+  // language's words (never another language's phrases in this language's mission).
+  const projectedSteps = lesson.steps
+    .filter((step) => !projectedFrom || !quotesLanguageText(step.instruction, projectedFrom))
+    .map((step) => projectTextForLanguage(step.instruction, language));
   const riskClass = riskClassForMission(
     module,
     `${module.blurb} ${lesson.title} ${lesson.objective} ${lesson.steps.map((step) => step.instruction).join(" ")}`,
@@ -1295,7 +1159,7 @@ function missionFromLesson(
     targetMinutes: 12,
     language,
     locale,
-    vocabulary: lessonMissionVocabulary(module, lesson, language),
+    vocabulary: lessonMissionVocabulary(module, lesson, language, projectedFrom),
     sourcePrompts: sound
       ? [
           ...projectedSteps,
@@ -1308,7 +1172,7 @@ function missionFromLesson(
             ...(lesson.words ?? []).filter((w) => w.note).map((w) => `${w.es}: ${w.note}`),
           ]
         : projectedSteps,
-    sourceObjectiveId: lessonObjectiveId(module.id, lesson.n),
+    sourceObjectiveId: lessonObjectiveId(module.id, lesson.n, language, nativeDefault),
     ...(teaching ? { lessonTeaching: { stage: teaching.stage, speaking: teaching.speaking } } : {}),
     objectives: [
       {
@@ -1516,16 +1380,25 @@ function getSpecialtySpeakingModules(
   language: SpeakingMissionLanguage,
   nativeLanguage?: NativeLanguage,
 ) {
+  // A language whose lessons come from its pack catalog (Italian) is offered missions only for
+  // the modules in its own Study library, as every other learner is (owner decision 1).
+  const catalog = catalogLessonPack(language) !== null;
   return MODULES.filter((module): module is SpecialtySpeakingModule =>
-    language === "English" && nativeLanguage
-      ? moduleSupportsLearningPair(module, language, nativeLanguage)
-      : language === "English"
-        ? module.learnDirection === "en-target" ||
-          (module.learnDirection !== "en-target" &&
-            (!module.languages || module.languages.includes(language)))
-        : module.learnDirection !== "en-target" &&
+    CATALOG_LIBRARY_MODULE_IDS.has(module.id)
+      ? false
+      : catalog
+        ? module.learnDirection !== "en-target" &&
           module.category !== "English for Work" &&
-          (!module.languages || module.languages.includes(language)),
+          moduleSupportsLanguage(module, language as Language)
+        : language === "English" && nativeLanguage
+          ? moduleSupportsLearningPair(module, language, nativeLanguage)
+          : language === "English"
+            ? module.learnDirection === "en-target" ||
+              (module.learnDirection !== "en-target" &&
+                (!module.languages || module.languages.includes(language)))
+            : module.learnDirection !== "en-target" &&
+              module.category !== "English for Work" &&
+              (!module.languages || module.languages.includes(language)),
   );
 }
 
@@ -1651,10 +1524,19 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
         challengeIndex,
       ),
     );
-    // getCurriculum includes data-driven Core 60 stages once their curriculum has loaded.
-    const curriculum = getCurriculum(module.id);
+    // getCurriculum includes data-driven Core 60 stages once their curriculum has loaded. Every
+    // language reads a module's authored curriculum, as it always has; a language whose lessons
+    // come from its pack catalog (French, Italian) reads its own catalog lessons first, and a
+    // module with none offers its scenarios projected from the authored pair with every step that
+    // quotes the authored language's words removed.
+    const catalog = catalogLessonPack(language) !== null;
+    const own = catalog ? getCurriculum(module.id, language, defaultNativeFor(language)) : null;
+    const projectedFrom = catalog && !own ? (moduleAuthoredPair(module.id)?.target ?? null) : null;
+    const curriculum = catalog
+      ? (own ?? (projectedFrom ? authoredCurriculum(module.id) : null))
+      : authoredCurriculum(module.id);
     const lessonMissions = (curriculum?.lessons ?? []).map((lesson) =>
-      missionFromLesson(module, module.category, language, code, locale, lesson),
+      missionFromLesson(module, module.category, language, code, locale, lesson, projectedFrom),
     );
     return [...challengeMissions, ...lessonMissions];
   });
@@ -1692,7 +1574,7 @@ export function getAllSpeakingMissions() {
 }
 
 export function findSpeakingMission(id: string) {
-  const code = id.match(/_(es|it|ja|zh|en)_v1$/)?.[1];
+  const code = id.match(/_([a-z]{2,3})_v1$/)?.[1];
   const language = SPEAKING_LANGUAGES.find((entry) => entry.code === code)?.language;
   if (!language) return null;
   getSpeakingMissions(language);

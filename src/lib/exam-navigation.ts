@@ -2,9 +2,11 @@ import { moduleLessonUrl } from "./learning-link.ts";
 import {
   LANGUAGES,
   NATIVE_LANGUAGES,
+  nativeLanguageName,
   type Language,
   type NativeLanguage,
 } from "../data/languages.ts";
+import { packFor } from "../data/language-packs/registry.ts";
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -20,12 +22,17 @@ export function examsLocation(context: {
   lesson?: number;
   way?: string | null;
 }): string {
-  const params = new URLSearchParams({
-    target: LANGUAGES.includes(context.target as Language) ? context.target : "Spanish",
-    native: NATIVE_LANGUAGES.includes(context.native as NativeLanguage)
-      ? context.native
-      : "English",
-  });
+  // An unknown target or native is left out: /exams then asks for it (no default pair). A known
+  // target with no valid native takes its course's default native.
+  const params = new URLSearchParams();
+  const target = LANGUAGES.includes(context.target as Language) ? context.target : null;
+  if (target) params.set("target", target);
+  const native = NATIVE_LANGUAGES.includes(context.native as NativeLanguage)
+    ? context.native
+    : target
+      ? nativeLanguageName(packFor(target)?.native.default)
+      : null;
+  if (native) params.set("native", native);
   if (context.moduleId && context.moduleId !== "core" && context.moduleId.length <= 80)
     params.set("module", context.moduleId);
   if (context.orgId && uuid.test(context.orgId)) params.set("org", context.orgId);
@@ -51,8 +58,8 @@ export function legacyExamsLocation(current: string): string | null {
   const params = url.searchParams;
   return examsLocation({
     moduleId: params.get("module"),
-    target: params.get("target") ?? "Spanish",
-    native: params.get("native") ?? "English",
+    target: params.get("target") ?? "",
+    native: params.get("native") ?? "",
     orgId: params.get("org"),
     attemptId: params.get("attempt"),
     review: params.get("review") === "1" || params.get("review") === "true",

@@ -1,4 +1,5 @@
 import { TRAVEL_PHRASES, KNOT_STEPS } from "@/data/climbing-practice.ts";
+import { translationFor, NOT_YET_TRANSLATED } from "@/lib/phrase-translation";
 import { useState } from "react";
 import { useApp } from "@/state/app-state";
 import { ModuleStudyGuide } from "@/components/modules/ModuleStudyGuide";
@@ -99,7 +100,7 @@ export function ClimbingHome() {
                     <div>
                       <p className="text-white text-sm font-medium">{s.en}</p>
                       <p className="text-white/60 text-sm mt-0.5">
-                        {s.translations[lang] ?? s.translations["Spanish"]}
+                        {translationFor(s.translations, lang) ?? NOT_YET_TRANSLATED}
                       </p>
                     </div>
                   </div>
@@ -121,7 +122,7 @@ export function ClimbingHome() {
                   >
                     <p className="text-white text-sm font-medium">{p.en}</p>
                     <p className="text-white/60 text-sm mt-0.5">
-                      {p.translations[lang] ?? p.translations["Spanish"]}
+                      {translationFor(p.translations, lang) ?? NOT_YET_TRANSLATED}
                     </p>
                   </div>
                 ))}

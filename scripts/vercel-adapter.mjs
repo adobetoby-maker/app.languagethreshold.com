@@ -15,7 +15,7 @@ cpSync("public/lesson-content", `${out}/functions/index.func/lesson-content`, { 
 
 // Static client assets → served from Vercel's CDN
 cpSync("dist/client", `${out}/static`, { recursive: true });
-await buildOfflineLessonPack(`${out}/static`);
+await buildOfflineLessonPack(`${out}/static`, "roofing-es-en");
 await buildOfflineLessonPack(`${out}/static`, "landscaper-es-en");
 await buildOfflineLessonPack(`${out}/static`, "construction-foreman-es-en");
 for (const pack of [

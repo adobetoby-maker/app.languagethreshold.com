@@ -17,6 +17,7 @@ import { MODULES } from "@/data/modules";
 import { useListeningDrill, type LDLeaderboardKey } from "@/state/listening-drill-state";
 import { generateListeningDrill, type ListeningDrillLevel } from "@/fns/listening-drill.functions";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
+import { usePack } from "@/hooks/use-language-pack";
 
 const LEVEL_LABELS: Record<ListeningDrillLevel, { name: string; sub: string }> = {
   1: { name: "Level 1", sub: "Easy — 4-7 words, A2" },
@@ -58,7 +59,7 @@ export function ListeningDrill() {
       run?.index,
       cur?.question.phrase,
     ]),
-    run?.language ?? app.selectedLanguage,
+    usePack(run?.language ?? app.selectedLanguage),
   );
 
   // Auto-load next question when index advances.

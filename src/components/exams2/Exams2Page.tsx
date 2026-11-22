@@ -5,6 +5,7 @@
 // the result. The page holds no exam rules: windows, the 45-second clock and scoring are all
 // decided and enforced by the server.
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { packFor } from "@/data/language-packs/registry";
 import { LogIn } from "lucide-react";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { useAuth } from "@/state/auth-state";
@@ -38,7 +39,7 @@ function examModules(target: Language, native: NativeLanguage, bankIds: Set<stri
     (module) =>
       bankIds.has(module.id) ||
       (hasCore30Checkpoints(module.id) &&
-        Boolean(getCurriculum(module.id)) &&
+        Boolean(getCurriculum(module.id, target, native)) &&
         moduleSupportsLearningPair(module, target, native)),
   );
   const rank = (module: AppModule) =>
@@ -324,7 +325,7 @@ function SessionHost({
     <Runner
       view={view}
       moduleName={moduleName}
-      spanish={view.target === "Spanish"}
+      pack={packFor(view.target)}
       onView={setView}
       onLeave={onExit}
     />

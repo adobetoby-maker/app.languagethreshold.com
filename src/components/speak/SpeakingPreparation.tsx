@@ -1,5 +1,12 @@
-import { useState } from "react";
-import { speakingPreparationPhrases, type SpeakingStep } from "@/lib/speaking-preparation";
+import { useEffect, useState } from "react";
+import {
+  missionSourceLessonNumber,
+  speakingPreparationPhrases,
+  type PreparationCatalogLine,
+  type SpeakingStep,
+} from "@/lib/speaking-preparation";
+import { loadCatalogModule } from "@/data/language-packs/catalog";
+import { packFor } from "@/data/language-packs/registry";
 import type { SpeakingMission } from "@/data/speaking-missions";
 
 /** An unsaved warm-up using this mission's authored words and goals. No recording or grading. */
@@ -20,7 +27,25 @@ export function SpeakingPreparation({
 }) {
   const [index, setIndex] = useState(0);
   const [help, setHelp] = useState(false);
-  const phrases = speakingPreparationPhrases(mission);
+  // A bundled pack's catalog supplies the phrases when the authored lesson words do not cover the
+  // mission's language; a legacy adapter or an unlisted module resolves to nothing.
+  const [catalogLines, setCatalogLines] = useState<PreparationCatalogLine[]>([]);
+  useEffect(() => {
+    let live = true;
+    const pack = packFor(mission.language);
+    const number = missionSourceLessonNumber(mission);
+    setCatalogLines([]);
+    if (!pack || number === null) return;
+    void loadCatalogModule(pack, mission.moduleId).then((module) => {
+      if (!live) return;
+      const lesson = module?.lessons.find((item) => item.number === number);
+      setCatalogLines(lesson?.items ?? []);
+    });
+    return () => {
+      live = false;
+    };
+  }, [mission]);
+  const phrases = speakingPreparationPhrases(mission, catalogLines);
   const words = phrases.map((item) => item.target);
   const prompts = mission.objectives.slice(0, 3);
   const count = Math.max(1, step === "hear" ? words.length : prompts.length);

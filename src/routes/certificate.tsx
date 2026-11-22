@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { historicalCoursePack, packFor } from "@/data/language-packs/registry";
+import { getModule } from "@/data/modules";
 
 export const Route = createFileRoute("/certificate")({ component: CertificatePage });
 type Certificate = {
@@ -13,7 +15,25 @@ type Certificate = {
   status: string;
   issued_at: string;
   revoked_at: string | null;
+  /** Language the module was taught in; certificates issued before language packs omit it. */
+  target_language?: string | null;
 };
+
+// Certificates of the historical course (stored without a language, or with its code) keep the exact
+// titles they were printed with; a certificate earned in another language stores it
+// (team_certificates.target_language) and is titled "<Module> - <Language>", so a French
+// certificate can never be read as a Spanish one.
+const HISTORICAL_CERTIFICATE_TITLES: Record<string, string> = { roofing: "Roofing Spanish" };
+
+function credentialTitle(certificate: Certificate): string {
+  const pack = certificate.target_language ? packFor(certificate.target_language) : null;
+  if (certificate.target_language && !pack) return certificate.module_id;
+  if (!pack || pack === historicalCoursePack())
+    return HISTORICAL_CERTIFICATE_TITLES[certificate.module_id] ?? certificate.module_id;
+  const language = pack.name;
+  const moduleName = getModule(certificate.module_id)?.name ?? certificate.module_id;
+  return `${moduleName} - ${language}`;
+}
 
 function CertificatePage() {
   const [certificate, setCertificate] = useState<Certificate | null>(null);
@@ -72,7 +92,7 @@ function CertificatePage() {
             <p className="mt-7 text-lg">
               for completing{" "}
               <strong>
-                {certificate.module_id === "roofing" ? "Roofing Spanish" : certificate.module_id}
+                {credentialTitle(certificate)}
               </strong>
             </p>
             <p className="mt-3 text-sm">

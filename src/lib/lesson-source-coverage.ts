@@ -64,7 +64,7 @@ export function lessonSourceCoverage(
   targetLanguage: string,
   instructionLanguage: string,
 ) {
-  const definitions = (getCurriculum(moduleId)?.lessons ?? [])
+  const definitions = (getCurriculum(moduleId, targetLanguage, instructionLanguage)?.lessons ?? [])
     .map((lesson) =>
       getLessonDefinition({
         moduleId,

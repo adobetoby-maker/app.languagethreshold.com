@@ -1,0 +1,927 @@
+{
+ "schemaVersion": 1,
+ "code": "es",
+ "name": "Spanish",
+ "endonym": "español",
+ "legacyNames": [
+  "Spanish"
+ ],
+ "native": {
+  "default": "en",
+  "supported": [
+   "en"
+  ],
+  "names": {
+   "en": "English"
+  }
+ },
+ "variety": {
+  "tag": "es-419",
+  "label": "Latin American Spanish",
+  "standard": "Neutral Latin American Spanish as used with patients, customers and crews in the United States. ustedes is the only plural you; vosotros is never taught (core60-validate.ts vosotros gate). Mexican pronunciation and vocabulary are the default for device voices and recognition.",
+  "alternates": [
+   {
+    "tag": "es-MX",
+    "label": "Mexico",
+    "taught": true,
+    "note": "Default device voice and recognizer locale (LocalVoice es-MX)."
+   },
+   {
+    "tag": "es-US",
+    "label": "US Spanish",
+    "taught": true,
+    "note": "Partner voice locale (Google Chirp 3 HD es-US)."
+   },
+   {
+    "tag": "es-ES",
+    "label": "Spain",
+    "taught": false,
+    "note": "Recognised and read, never authored. Handwriting OCR uses es-ES."
+   }
+  ],
+  "avoid": [
+   "vosotros / vosotras forms and their verb endings (habláis, coméis)",
+   "Peninsular-only vocabulary when a Latin American word exists (coger, ordenador, móvil)"
+  ]
+ },
+ "status": {
+  "availability": "native",
+  "speakAvailability": "native",
+  "statusText": "Lessons on this device"
+ },
+ "script": {
+  "iso15924": [
+   "Latn"
+  ],
+  "direction": "ltr",
+  "wordSeparator": "space",
+  "hasCase": true,
+  "capitalizeNouns": false,
+  "segmenterLocale": "es",
+  "readingAid": "none"
+ },
+ "typography": {
+  "apostrophe": "'",
+  "apostropheVariants": [
+   "’",
+   "ʼ",
+   "‘"
+  ],
+  "spaceVariants": [
+   " ",
+   " "
+  ],
+  "quotes": [
+   "“",
+   "”",
+   "«",
+   "»"
+  ],
+  "spaceBeforePunctuation": [],
+  "punctuationSpace": "",
+  "trimCharacters": ".!?¿¡,;:\"“”«»()…",
+  "invertedPunctuation": true,
+  "wordInnerCharacters": [],
+  "numberStyle": "Digits for times, doses and measurements; words in beginner number lessons."
+ },
+ "keyboard": {
+  "autocapitalization": "never",
+  "ime": false,
+  "specialCharacters": [
+   "á",
+   "é",
+   "í",
+   "ó",
+   "ú",
+   "ü",
+   "ñ",
+   "¿",
+   "¡"
+  ],
+  "alphabet": "abcdefghijklmnñopqrstuvwxyzáéíóúü"
+ },
+ "grammar": {
+  "verbForms": {
+   "axis": "person",
+   "keys": [
+    {
+     "key": "yo",
+     "label": "yo",
+     "order": 1,
+     "required": true,
+     "person": 1,
+     "number": "singular",
+     "subjects": [
+      "yo"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "tú",
+     "label": "tú",
+     "order": 2,
+     "required": true,
+     "person": 2,
+     "number": "singular",
+     "formal": false,
+     "subjects": [
+      "tú"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "él_ella_usted",
+     "label": "él / ella / usted",
+     "order": 3,
+     "required": true,
+     "person": 3,
+     "number": "singular",
+     "subjects": [
+      "él",
+      "ella",
+      "usted"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "nosotros",
+     "label": "nosotros",
+     "order": 4,
+     "required": true,
+     "person": 1,
+     "number": "plural",
+     "subjects": [
+      "nosotros",
+      "nosotras"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "ellos_ustedes",
+     "label": "ellos / ustedes",
+     "order": 5,
+     "required": true,
+     "person": 3,
+     "number": "plural",
+     "subjects": [
+      "ellos",
+      "ellas",
+      "ustedes"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "usted",
+     "label": "usted",
+     "order": 6,
+     "required": false,
+     "person": 2,
+     "number": "singular",
+     "formal": true,
+     "subjects": [
+      "usted"
+     ]
+    },
+    {
+     "key": "ustedes",
+     "label": "ustedes",
+     "order": 7,
+     "required": false,
+     "person": 2,
+     "number": "plural",
+     "formal": true,
+     "subjects": [
+      "ustedes"
+     ]
+    }
+   ],
+   "includesSubject": false,
+   "imperativeIncludesSubject": false,
+   "formLeadWords": [],
+   "imperativeKeys": [
+    "tú",
+    "usted",
+    "ustedes"
+   ],
+   "referenceTableTitle": "Present tense",
+   "assessmentPrompt": "Which form goes with {label}?",
+   "joinRules": []
+  },
+  "proDrop": "full",
+  "subjectPronouns": {
+   "yo": [
+    "yo"
+   ],
+   "tú": [
+    "tú"
+   ],
+   "él": [
+    "él_ella_usted"
+   ],
+   "ella": [
+    "él_ella_usted"
+   ],
+   "usted": [
+    "él_ella_usted"
+   ],
+   "nosotros": [
+    "nosotros"
+   ],
+   "nosotras": [
+    "nosotros"
+   ],
+   "ellos": [
+    "ellos_ustedes"
+   ],
+   "ellas": [
+    "ellos_ustedes"
+   ],
+   "ustedes": [
+    "ellos_ustedes"
+   ],
+   "vos": [
+    "vos"
+   ],
+   "vosotros": [
+    "vosotros"
+   ],
+   "vosotras": [
+    "vosotros"
+   ]
+  },
+  "preVerbParticles": [
+   "no",
+   "nunca",
+   "jamás",
+   "jamas",
+   "siempre",
+   "ya",
+   "todavía",
+   "todavia",
+   "aún",
+   "aun",
+   "también",
+   "tambien",
+   "me",
+   "te",
+   "se",
+   "nos",
+   "os",
+   "lo",
+   "la",
+   "los",
+   "las",
+   "le",
+   "les"
+  ],
+  "reflexivePronouns": [
+   "me",
+   "te",
+   "se",
+   "nos",
+   "os"
+  ],
+  "nounSystem": {
+   "type": "gender",
+   "contentRule": "article-with-noun",
+   "genders": [
+    "masculine",
+    "feminine"
+   ],
+   "cases": [],
+   "classes": [],
+   "articles": {
+    "definite": [
+     "el",
+     "la",
+     "los",
+     "las"
+    ],
+    "indefinite": [
+     "un",
+     "una",
+     "unos",
+     "unas"
+    ],
+    "partitive": [],
+    "contractions": {
+     "a el": "al",
+     "de el": "del"
+    }
+   },
+   "hiddenGenderMarkers": {
+    "masculine": "(m.)",
+    "feminine": "(f.)"
+   }
+  },
+  "formality": {
+   "forms": [
+    {
+     "id": "informal",
+     "pronoun": "tú",
+     "verbKey": "tú",
+     "use": "Friends, peers and crew mates where the scene is informal."
+    },
+    {
+     "id": "formal",
+     "pronoun": "usted",
+     "verbKey": "él_ella_usted",
+     "use": "Patients, customers, supervisors, elders."
+    },
+    {
+     "id": "plural",
+     "pronoun": "ustedes",
+     "verbKey": "ellos_ustedes",
+     "use": "Any group, formal or informal. Never vosotros."
+    }
+   ],
+   "fromSpanish": {
+    "tú": "tú",
+    "usted": "usted",
+    "ustedes": "ustedes"
+   },
+   "patients": "usted",
+   "crew": "tú among crew mates; usted to a supervisor"
+  },
+  "impersonalForms": [
+   "hay"
+  ],
+  "extraVerbForms": [
+   {
+    "yo": "fui",
+    "tú": "fuiste",
+    "él_ella_usted": "fue",
+    "nosotros": "fuimos",
+    "ellos_ustedes": "fueron"
+   },
+   {
+    "yo": "estuve",
+    "tú": "estuviste",
+    "él_ella_usted": "estuvo",
+    "nosotros": "estuvimos",
+    "ellos_ustedes": "estuvieron"
+   },
+   {
+    "yo": "tuve",
+    "tú": "tuviste",
+    "él_ella_usted": "tuvo",
+    "nosotros": "tuvimos",
+    "ellos_ustedes": "tuvieron"
+   },
+   {
+    "yo": "hice",
+    "tú": "hiciste",
+    "él_ella_usted": "hizo",
+    "nosotros": "hicimos",
+    "ellos_ustedes": "hicieron"
+   },
+   {
+    "yo": "dije",
+    "tú": "dijiste",
+    "él_ella_usted": "dijo",
+    "nosotros": "dijimos",
+    "ellos_ustedes": "dijeron"
+   },
+   {
+    "yo": "puse",
+    "tú": "pusiste",
+    "él_ella_usted": "puso",
+    "nosotros": "pusimos",
+    "ellos_ustedes": "pusieron"
+   },
+   {
+    "yo": "pude",
+    "tú": "pudiste",
+    "él_ella_usted": "pudo",
+    "nosotros": "pudimos",
+    "ellos_ustedes": "pudieron"
+   },
+   {
+    "yo": "supe",
+    "tú": "supiste",
+    "él_ella_usted": "supo",
+    "nosotros": "supimos",
+    "ellos_ustedes": "supieron"
+   },
+   {
+    "yo": "quise",
+    "tú": "quisiste",
+    "él_ella_usted": "quiso",
+    "nosotros": "quisimos",
+    "ellos_ustedes": "quisieron"
+   },
+   {
+    "yo": "vine",
+    "tú": "viniste",
+    "él_ella_usted": "vino",
+    "nosotros": "vinimos",
+    "ellos_ustedes": "vinieron"
+   },
+   {
+    "yo": "di",
+    "tú": "diste",
+    "él_ella_usted": "dio",
+    "nosotros": "dimos",
+    "ellos_ustedes": "dieron"
+   },
+   {
+    "yo": "vi",
+    "tú": "viste",
+    "él_ella_usted": "vio",
+    "nosotros": "vimos",
+    "ellos_ustedes": "vieron"
+   },
+   {
+    "yo": "traje",
+    "tú": "trajiste",
+    "él_ella_usted": "trajo",
+    "nosotros": "trajimos",
+    "ellos_ustedes": "trajeron"
+   },
+   {
+    "yo": "anduve",
+    "tú": "anduviste",
+    "él_ella_usted": "anduvo",
+    "nosotros": "anduvimos",
+    "ellos_ustedes": "anduvieron"
+   }
+  ]
+ },
+ "answerRules": {
+  "tokenizer": "words",
+  "unicodeNormalization": "NFC",
+  "caseHint": false,
+  "accentPolicy": {
+   "typed": "strict",
+   "speech": "fold",
+   "handwriting": "strict"
+  },
+  "accentHint": true,
+  "markName": "accent marks",
+  "fold": {
+   "á": "a",
+   "é": "e",
+   "í": "i",
+   "ó": "o",
+   "ú": "u",
+   "ü": "u"
+  },
+  "neverFold": [
+   "ñ"
+  ],
+  "ligatures": {},
+  "typedAlternates": {},
+  "protectedPairs": [
+   [
+    "si",
+    "sí"
+   ],
+   [
+    "tu",
+    "tú"
+   ],
+   [
+    "el",
+    "él"
+   ],
+   [
+    "mas",
+    "más"
+   ],
+   [
+    "se",
+    "sé"
+   ],
+   [
+    "de",
+    "dé"
+   ],
+   [
+    "te",
+    "té"
+   ],
+   [
+    "mi",
+    "mí"
+   ],
+   [
+    "esta",
+    "está"
+   ],
+   [
+    "ano",
+    "año"
+   ]
+  ],
+  "articleOptional": "off",
+  "soundRules": [
+   {
+    "from": "que",
+    "to": "ke",
+    "at": "any"
+   },
+   {
+    "from": "qui",
+    "to": "ki",
+    "at": "any"
+   },
+   {
+    "from": "gue",
+    "to": "ɡe",
+    "at": "any"
+   },
+   {
+    "from": "gui",
+    "to": "ɡi",
+    "at": "any"
+   },
+   {
+    "from": "ce",
+    "to": "se",
+    "at": "any"
+   },
+   {
+    "from": "ci",
+    "to": "si",
+    "at": "any"
+   },
+   {
+    "from": "ge",
+    "to": "je",
+    "at": "any"
+   },
+   {
+    "from": "gi",
+    "to": "ji",
+    "at": "any"
+   },
+   {
+    "from": "ll",
+    "to": "y",
+    "at": "any"
+   },
+   {
+    "from": "ch",
+    "to": "§",
+    "at": "any"
+   },
+   {
+    "from": "h",
+    "to": "",
+    "at": "any"
+   },
+   {
+    "from": "v",
+    "to": "b",
+    "at": "any"
+   },
+   {
+    "from": "z",
+    "to": "s",
+    "at": "any"
+   },
+   {
+    "from": "c",
+    "to": "k",
+    "at": "any"
+   },
+   {
+    "from": "ɡ",
+    "to": "g",
+    "at": "any"
+   }
+  ],
+  "homophoneSets": [],
+  "speechScoring": {
+   "soundEquivalentCredit": 0.85,
+   "similarityFloor": 0.65,
+   "similarityCredit": 0.75,
+   "minWordLength": 4
+  },
+  "ocrConfusables": [
+   [
+    "á",
+    "a"
+   ],
+   [
+    "é",
+    "e"
+   ],
+   [
+    "í",
+    "i"
+   ],
+   [
+    "ó",
+    "o"
+   ],
+   [
+    "ú",
+    "ü",
+    "u"
+   ]
+  ],
+  "moreDetailKeywords": [
+   "más detalle",
+   "mas detalle",
+   "más largo",
+   "mas largo",
+   "explica",
+   "historia",
+   "cuento"
+  ]
+ },
+ "speech": {
+  "recognition": {
+   "mode": "on-device",
+   "languageCode": "es",
+   "locales": [
+    "es-MX",
+    "es-ES",
+    "es-US"
+   ],
+   "dictationName": "Spanish (Mexico)",
+   "keyboardName": "Spanish (Mexico)",
+   "fallback": "listen-and-compare"
+  },
+  "tts": {
+   "languageCode": "es",
+   "locales": [
+    "es-MX",
+    "es-US",
+    "es-ES"
+   ],
+   "deviceVoice": true,
+   "rate": {
+    "normal": 0.45,
+    "slow": 0.33
+   }
+  },
+  "accents": [
+   {
+    "tag": "es-CR",
+    "label": "Costa Rica",
+    "default": true
+   },
+   {
+    "tag": "es-MX",
+    "label": "México",
+    "default": false
+   },
+   {
+    "tag": "es-GT",
+    "label": "Guatemala",
+    "default": false
+   },
+   {
+    "tag": "es-CO",
+    "label": "Colombia",
+    "default": false
+   },
+   {
+    "tag": "es-PE",
+    "label": "Perú",
+    "default": false
+   },
+   {
+    "tag": "es-CL",
+    "label": "Chile",
+    "default": false
+   },
+   {
+    "tag": "es-AR",
+    "label": "Argentina",
+    "default": false
+   },
+   {
+    "tag": "es-419",
+    "label": "Latin America · general",
+    "default": false
+   },
+   {
+    "tag": "es-US",
+    "label": "US Spanish",
+    "default": false
+   },
+   {
+    "tag": "es-ES",
+    "label": "Spain",
+    "default": false
+   }
+  ],
+  "handwriting": {
+   "mode": "vision",
+   "visionLanguages": [
+    "es-ES",
+    "en-US"
+   ]
+  },
+  "partnerVoice": {
+   "available": true,
+   "provider": "google-chirp3-hd",
+   "locale": "es-US",
+   "female": "Aoede",
+   "male": "Charon"
+  },
+  "offlineVoices": {
+   "defaultEngine": "phonon",
+   "phonon": {
+    "language": "spanish",
+    "folder": "SpanishPhonon",
+    "voices": [
+     {
+      "id": "mexico-female",
+      "label": "Mexico · Regina",
+      "voice": "Regina",
+      "locale": "es-MX"
+     },
+     {
+      "id": "mexico-male",
+      "label": "Mexico · Leonel",
+      "voice": "Leonel",
+      "locale": "es-MX"
+     },
+     {
+      "id": "spain-female",
+      "label": "Spain · Noa",
+      "voice": "Noa",
+      "locale": "es-ES"
+     },
+     {
+      "id": "spain-male",
+      "label": "Spain · Iker",
+      "voice": "default",
+      "locale": "es-ES"
+     }
+    ]
+   },
+   "kokoro": {
+    "language": "es",
+    "voices": [
+     {
+      "label": "Dora",
+      "voiceName": "ef_dora",
+      "speakerID": 28
+     },
+     {
+      "label": "Alex",
+      "voiceName": "em_alex",
+      "speakerID": 29
+     },
+     {
+      "label": "Santa",
+      "voiceName": "em_santa",
+      "speakerID": 53
+     }
+    ]
+   }
+  },
+  "remoteFallback": null
+ },
+ "audio": {
+  "folder": "RecordedAudio/es",
+  "manifest": "RecordedAudio/es/recordings.json",
+  "watchFolder": "WatchAudioLite/es",
+  "voices": [
+   {
+    "id": "female",
+    "label": "Female",
+    "gender": "female",
+    "locale": "es-MX"
+   },
+   {
+    "id": "male",
+    "label": "Male",
+    "gender": "male",
+    "locale": "es-MX"
+   }
+  ],
+  "coverage": "full",
+  "requireReviewed": false,
+  "legacy": {
+   "manifest": "recordings.json",
+   "folder": "RecordedAudio",
+   "watchFolder": "WatchAudioLite"
+  }
+ },
+ "dictionary": {
+  "file": "TutorDictionary/es-en.json",
+  "supplement": "dictionary_supplement.es.json",
+  "morphology": "es-verbs",
+  "lookup": {
+   "elisionPrefixes": [],
+   "stripArticles": true,
+   "stripPrefixes": []
+  },
+  "crossModuleIndex": true
+ },
+ "content": {
+  "catalog": "core60_es.json",
+  "lessonSourceRoot": "public/lesson-content/es",
+  "missions": "speaking_missions_es.json",
+  "readerLibrary": "reader_library_es.json",
+  "partnerPack": "partner/es.json",
+  "sentencePatterns": "sentence_patterns_es.json",
+  "placementGame": "games/placement_es.json",
+  "cmeActivities": "cme_activities_es.json",
+  "guideTips": "guide_tips_es.json",
+  "readingTracks": "reading_tracks_es.json",
+  "settingsGuide": "SettingsGuide/es"
+ },
+ "library": {
+  "defaultModule": "spanish-basics",
+  "coreBasics": [
+   "spanish-basics",
+   "spanish-102",
+   "spanish-frequent-verbs",
+   "spanish-usage-verbs",
+   "spanish-common-patterns",
+   "spanish-conjugation-patterns",
+   "spanish-cognates",
+   "sound-like-a-native"
+  ],
+  "intro": "Start with Spanish 101, then 102. Use the verb, grammar, conjugation, and cognate courses alongside them. Every course includes 10 Foundation, 30 Working, and 20 Master lessons.",
+  "guidance": {
+   "spanish-basics": "Start here · sounds, first words, and everyday sentences.",
+   "spanish-102": "Continue after 101 · expand grammar and everyday vocabulary.",
+   "spanish-frequent-verbs": "Build fluency · one useful spoken verb in each lesson.",
+   "spanish-usage-verbs": "Frequency order · practice the highest-use verbs first.",
+   "spanish-common-patterns": "Build sentences · tener que, ir a, and other useful structures.",
+   "spanish-conjugation-patterns": "Focus your practice · 28 patterns, ten verbs per lesson.",
+   "spanish-cognates": "Grow vocabulary · word families, pronunciation, and false friends."
+  }
+ },
+ "ids": {
+  "lessonPrefix": "",
+  "activity": "core60:{code}:{native}:{module}:{n}",
+  "legacyActivityPrefixes": [
+   "core60:Spanish:English:",
+   "native:"
+  ],
+  "mission": "scenario_version_{module}_lesson_{n}_{missionCode}_v1",
+  "missionCode": "es",
+  "storageNamespace": "es",
+  "legacyUnscopedStorage": true
+ },
+ "phrases": {
+  "register": "informal",
+  "soundCheckWord": "hola",
+  "soundCheckSentence": "Hola, buenos días.",
+  "voicePreview": "el techo",
+  "partnerPreview": "Hola. Vamos a conversar en español. ¿Qué te gustaría practicar hoy?",
+  "clarification": "Perdón, no entendí. ¿Puede repetirlo, por favor?",
+  "greeting": "Hola",
+  "paceCommands": {
+   "slower": [
+    "más despacio",
+    "más lento",
+    "más lenta"
+   ],
+   "normal": [
+    "velocidad normal",
+    "ritmo normal"
+   ],
+   "faster": [
+    "más rápido",
+    "más rápida"
+   ],
+   "simpler": [
+    "palabras más sencillas",
+    "palabras más simples",
+    "más fácil"
+   ]
+  }
+ },
+ "prompts": {
+  "languageName": "Spanish",
+  "replyInstruction": "Reply in Spanish.",
+  "scriptNote": "",
+  "varietyNote": "Use neutral Latin American Spanish; ustedes for every plural you, never vosotros."
+ },
+ "contentChecks": {
+  "targetMarkers": "\\b(es|muy|verbo|cambio|mandato|los|las|para|del|cuando|forma|la|el|que|con|se|una|un|en|por|pero|este|esta|tiene|persona|significa|termina)\\b",
+  "nativeMarkers": {
+   "en": "\\b(the|and|with|is|are|use|form|verb|command|stem|change|to|of|it|in|for|this|when|means|your|as|say|not|he|his|her|used|usually|often|like|after|before|also|only|than)\\b"
+  },
+  "infinitivePattern": "^[a-záéíóúüñ]*(ar|er|ir|ír)(se)?$",
+  "pronounFirstPattern": "^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|ustedes|ellos|ellas)\\s"
+ },
+ "features": {
+  "speaking": "native",
+  "speakingMissions": true,
+  "partnerChat": true,
+  "onlineTutor": true,
+  "verbsTab": true,
+  "placementGame": true,
+  "kanaPad": false,
+  "verbGames": true,
+  "handwriting": true
+ },
+ "branding": {
+  "medical": {
+   "productName": "Medical Spanish",
+   "tagline": "Clinical Spanish for patient care",
+   "filePrefix": "MedicalSpanish"
+  }
+ }
+}

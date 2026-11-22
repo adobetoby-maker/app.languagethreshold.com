@@ -1,6 +1,7 @@
 import type { LessonWord } from "../data/curriculum.ts";
 import type { LessonVerb } from "./lesson-content-core.ts";
 import type { SpanishPattern } from "../data/spanish-basics.ts";
+import type { LanguagePack } from "../data/language-packs/types.ts";
 import { shuffle } from "./lesson-practice.ts";
 import { gameRoundItems, lessonGameBank, type LessonGameItem } from "./lesson-verb-games.ts";
 
@@ -38,12 +39,31 @@ export interface RecallFormLine {
 }
 
 /**
+ * Subject and form written as one line (language-pack model section 10). A pack whose forms
+ * carry their subject (`includesSubject`) shows the form as authored. Otherwise the subject is
+ * joined with a space, except where a join rule elides it ("je" + "aime" → "j'aime").
+ */
+export function joinSubjectAndForm(subject: string, form: string, pack: LanguagePack): string {
+  const { includesSubject, joinRules } = pack.grammar.verbForms;
+  if (!subject || includesSubject) return form;
+  const first = subject.split(" / ")[0].trim();
+  for (const rule of joinRules) {
+    if (rule.subject === first && new RegExp(rule.beforePattern, "iu").test(form))
+      return `${rule.replaceWith}${form}`;
+  }
+  return `${subject} ${form}`;
+}
+
+/**
  * The authored conjugations of a verb card, each written out with its subject:
  * conectar → yo conecto, tú conectas, él / ella / usted conecta, nosotros conectamos,
  * ellos / ustedes conectan. Forms come only from the lesson's authored verbs or pattern;
  * a card without authored forms has no lines, and nothing is ever generated.
  */
-export function recallFormLines(card: Pick<RecallCard, "forms">): RecallFormLine[] {
+export function recallFormLines(
+  card: Pick<RecallCard, "forms">,
+  pack: LanguagePack,
+): RecallFormLine[] {
   return card.forms.flatMap((item) => {
     const form = item.answer.trim();
     if (!form) return [];
@@ -57,7 +77,7 @@ export function recallFormLines(card: Pick<RecallCard, "forms">): RecallFormLine
         id: item.id,
         subject,
         form,
-        text: subject && !carriesSubject ? `${subject} ${form}` : form,
+        text: subject && !carriesSubject ? joinSubjectAndForm(subject, form, pack) : form,
       },
     ];
   });
@@ -69,7 +89,6 @@ export function buildLessonRecall(
   verbs: readonly LessonVerb[],
   language: string,
   pattern?: SpanishPattern,
-  nativeLanguage = "English",
 ): RecallItem[] {
   const bank = lessonGameBank(verbs, language, pattern);
   const byPair = new Map<string, RecallCard>();
@@ -87,8 +106,8 @@ export function buildLessonRecall(
   }
   for (const verb of bank.meanings) {
     if (!verb.answer.trim() || !verb.meaning.trim()) continue;
-    const gloss = (text: string) =>
-      nativeLanguage === "English" ? key(text).replace(/^to\s+/, "") : key(text);
+    // A gloss may carry a leading infinitive marker ("to speak"); a card matches without it.
+    const gloss = (text: string) => key(text).replace(/^to\s+/, "");
     const existing = [...byPair.values()].find(
       (card) =>
         card.word.kind === "term" &&

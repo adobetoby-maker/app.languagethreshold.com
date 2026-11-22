@@ -25,9 +25,11 @@ import { usePracticeViewport } from "@/hooks/use-practice-viewport";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUp, Mic, Square, RotateCcw, Send } from "lucide-react";
 import { toast } from "sonner";
-import { useApp, type Language } from "@/state/app-state";
+import { useApp } from "@/state/app-state";
 import { useSpeak } from "@/state/speak-state";
-import { ACCENTS_BY_LANGUAGE, useSpeech } from "@/state/speech-state";
+import { useSpeech } from "@/state/speech-state";
+import { defaultAccentFor } from "@/lib/speech-accents";
+import { packFor } from "@/data/language-packs/registry";
 import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 
@@ -43,62 +45,63 @@ import { setSpeakingPrivacyMode } from "@/lib/speaking-privacy";
 import { LessonReturnPill } from "@/components/core30/LessonReturnPill";
 import { browserReturnStorage, clearLessonReturn } from "@/lib/lesson-return";
 
-const TOPIC_CHIPS: Record<Language, string[]> = {
-  Spanish: [
+// Authored topic starters, keyed by pack code. A language with none shows no "Topic starters" row.
+const TOPIC_CHIPS: Record<string, string[]> = {
+  es: [
     "Cuéntame sobre tu ciudad 🏙️",
     "Describe tu mañana ☀️",
     "¿Cuál es tu comida favorita? 🍽️",
     "Hablemos de viajes ✈️",
   ],
-  French: [
+  fr: [
     "Parle-moi de ta ville 🏙️",
     "Décris ta matinée ☀️",
     "Quel est ton plat préféré ? 🍽️",
     "Parlons de voyages ✈️",
   ],
-  German: [
+  de: [
     "Erzähl mir von deiner Stadt 🏙️",
     "Beschreibe deinen Morgen ☀️",
     "Was ist dein Lieblingsessen? 🍽️",
     "Lass uns über Reisen reden ✈️",
   ],
-  Italian: [
+  it: [
     "Raccontami della tua città 🏙️",
     "Descrivi la tua mattina ☀️",
     "Qual è il tuo piatto preferito? 🍽️",
     "Parliamo di viaggi ✈️",
   ],
-  Japanese: [
+  ja: [
     "あなたの街について教えて 🏙️",
     "朝のことを話して ☀️",
     "好きな食べ物は? 🍽️",
     "旅行について話そう ✈️",
   ],
-  Chinese: [
+  zh: [
     "跟我说说你的城市 🏙️",
     "描述一下你的早晨 ☀️",
     "你最喜欢的食物是什么? 🍽️",
     "我们聊聊旅行吧 ✈️",
   ],
-  Korean: [
+  ko: [
     "당신의 도시에 대해 말해주세요 🏙️",
     "아침에 대해 이야기해 봅시다 ☀️",
     "좋아하는 음식이 무엇입니까? 🍽️",
     "여행에 대해 이야기합시다 ✈️",
   ],
-  Portuguese: [
+  pt: [
     "Fale sobre sua cidade 🏙️",
     "Descreva sua manhã ☀️",
     "Qual é sua comida favorita? 🍽️",
     "Vamos falar sobre viagens ✈️",
   ],
-  Pashto: [
+  ps: [
     "خپل ښار راته وښایه 🏙️",
     "خپل سهار تشریح کړه ☀️",
     "ستا خوښ خواړه کوم دي؟ 🍽️",
     "راځه چې د سفر خبرې وکړو ✈️",
   ],
-  English: [
+  en: [
     "Tell me about your city 🏙️",
     "Describe your morning ☀️",
     "What's your favorite food? 🍽️",
@@ -172,7 +175,7 @@ export function SpeakLearn() {
   };
 
   // Saved speaking practice advances the next session, never a running session.
-  const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce(
+  const practiceSeconds = Object.values(state.speakSecondsByLang ?? {}).reduce<number>(
     (sum, seconds) => sum + (seconds ?? 0),
     0,
   );
@@ -183,18 +186,16 @@ export function SpeakLearn() {
   useEffect(() => {
     const controller = new AbortController();
     setConversationVoices(null);
-    void getMissionTtsCapabilities(
-      chosenAccent || ACCENTS_BY_LANGUAGE[language][0].code,
-      controller.signal,
-    )
+    void getMissionTtsCapabilities(chosenAccent || defaultAccentFor(language), controller.signal)
       .then((value) => {
         if (!controller.signal.aborted) setConversationVoices(value);
       })
       .catch(() => {});
     return () => controller.abort();
   }, [chosenAccent, language]);
-  const accent = chosenAccent || ACCENTS_BY_LANGUAGE[language][0].code;
-  const chips = TOPIC_CHIPS[language];
+  const accent = chosenAccent || defaultAccentFor(language);
+  const pack = packFor(language);
+  const chips = (pack && TOPIC_CHIPS[pack.code]) || [];
 
   const [useRecordedAudio, setUseRecordedAudio] = useState(false);
   const [audioCaptureBusy, setAudioCaptureBusy] = useState(false);
@@ -824,6 +825,7 @@ export function SpeakLearn() {
                         ) : t.text ? (
                           <LongPressWordText
                             text={t.text}
+                            language={language}
                             onWordLookup={(word, sentence) => {
                               if (!micActive && !audioCaptureBusy)
                                 setTutorSelection({
@@ -996,43 +998,45 @@ export function SpeakLearn() {
                   );
                 })()}
 
-                <div className="mt-6">
-                  <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
-                    Topic starters
-                  </p>
-                  <div className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
-                    {(() => {
-                      const mod = getModule(state.activeModuleId);
-                      const focus = mod?.vocabFocus ?? null;
-                      const ordered = focus
-                        ? [...chips].sort((a, b) => {
-                            const am = matchesFocus(a, focus) ? 1 : 0;
-                            const bm = matchesFocus(b, focus) ? 1 : 0;
-                            return bm - am;
-                          })
-                        : chips;
-                      return ordered.map((chip) => {
-                        const inMod = !!focus && matchesFocus(chip, focus);
-                        return (
-                          <button
-                            key={chip}
-                            onClick={() => sendChip(chip)}
-                            disabled={micActive || thinking}
-                            className={
-                              "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
-                              (inMod
-                                ? "border-gold/60 hover:border-gold"
-                                : "border-gold/30 hover:border-gold/60")
-                            }
-                          >
-                            {inMod && <span className="mr-1 text-gold">◈</span>}
-                            {chip}
-                          </button>
-                        );
-                      });
-                    })()}
+                {chips.length > 0 && (
+                  <div className="mt-6">
+                    <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
+                      Topic starters
+                    </p>
+                    <div className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
+                      {(() => {
+                        const mod = getModule(state.activeModuleId);
+                        const focus = mod?.vocabFocus ?? null;
+                        const ordered = focus
+                          ? [...chips].sort((a, b) => {
+                              const am = matchesFocus(a, focus) ? 1 : 0;
+                              const bm = matchesFocus(b, focus) ? 1 : 0;
+                              return bm - am;
+                            })
+                          : chips;
+                        return ordered.map((chip) => {
+                          const inMod = !!focus && matchesFocus(chip, focus);
+                          return (
+                            <button
+                              key={chip}
+                              onClick={() => sendChip(chip)}
+                              disabled={micActive || thinking}
+                              className={
+                                "shrink-0 rounded-full border bg-background/60 px-4 py-1.5 text-sm text-foreground transition-all hover:bg-gold/10 disabled:opacity-40 " +
+                                (inMod
+                                  ? "border-gold/60 hover:border-gold"
+                                  : "border-gold/30 hover:border-gold/60")
+                              }
+                            >
+                              {inMod && <span className="mr-1 text-gold">◈</span>}
+                              {chip}
+                            </button>
+                          );
+                        });
+                      })()}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </details>
           )}

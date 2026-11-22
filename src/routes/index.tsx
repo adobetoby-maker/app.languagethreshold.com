@@ -28,6 +28,8 @@ import { SaveProgressBanner } from "@/components/SaveProgressBanner";
 import { MobilePwaPrompt } from "@/components/MobilePwaPrompt";
 import { SubscriptionGate } from "@/components/SubscriptionGate";
 import { SubscriptionProvider } from "@/state/subscription-state";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { onrampFor } from "@/lib/language-onramp";
 import { AiGateProvider } from "@/state/ai-gate-state";
 import { TabShell } from "@/components/TabShell";
 import { TutorPanel } from "@/components/tutor/TutorPanel";
@@ -40,8 +42,13 @@ import { FirstRunEntry } from "@/components/onboarding/FirstRunEntry";
 import { PushReminderSync } from "@/components/PushReminderSync";
 import { GlobalVocabCapture } from "@/components/vocab/GlobalVocabCapture";
 import { TeamActivityBridge } from "@/components/team/TeamActivityBridge";
-import { getModule, moduleSupportsLearningPair } from "@/data/modules";
-import { LANGUAGES, NATIVE_LANGUAGES, type Language, type NativeLanguage } from "@/data/languages";
+import {
+  getModule,
+  linkLearningPair,
+  moduleSupportsLearningPair,
+  packCourseModuleId,
+} from "@/data/modules";
+import type { Language, NativeLanguage } from "@/data/languages";
 import { learningLinkIdentity } from "@/lib/learning-link";
 import { appNavigationLocation, appTab } from "@/lib/app-navigation";
 import { useLessonReturnGuard } from "@/lib/lesson-return";
@@ -111,6 +118,10 @@ function GatedTabShell() {
 }
 
 function ProductIntro() {
+  // A French or Italian learner is pointed at their own 101 course, never at Spanish 101.
+  const { state } = useApp();
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
+  const onramp = catalogPack ? onrampFor(state.selectedLanguage, state.nativeLanguage) : null;
   return (
     <section className="mx-auto mb-8 mt-4 max-w-5xl rounded-3xl border border-gold/25 bg-card/60 px-6 py-10 sm:px-10">
       <p className="mb-3 text-sm font-semibold text-gold-ink">
@@ -121,8 +132,16 @@ function ProductIntro() {
       </h1>
       <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
         Build enough confidence to hold a basic conversation, then use it while you are learning it.
-        Choose role-specific lessons, practice with an AI speaking partner, and rehearse real
-        situations in Field Prep.
+        {catalogPack ? (
+          // French and Italian have no Field Prep scenarios yet: the intro promises only what opens.
+          " Choose role-specific lessons and practice with an AI speaking partner."
+        ) : (
+          <>
+            {" "}
+            Choose role-specific lessons, practice with an AI speaking partner, and rehearse real
+            situations in Field Prep.
+          </>
+        )}
       </p>
       <div className="mt-7 flex flex-wrap gap-3">
         <Link
@@ -137,12 +156,21 @@ function ProductIntro() {
         >
           Try the free lessons
         </a>
-        <a
-          href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
-          className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
-        >
-          New to Spanish? Start Spanish 101
-        </a>
+        {!catalogPack ? (
+          <a
+            href="/?tab=core30&module=foundation-spanish-basics&target=Spanish&native=English"
+            className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
+          >
+            New to Spanish? Start Spanish 101
+          </a>
+        ) : onramp ? (
+          <a
+            href={onramp.start.href}
+            className="rounded-xl border border-gold/50 px-5 py-3 font-semibold text-foreground hover:bg-gold/10"
+          >
+            New to {catalogPack.name}? Start {onramp.start.label}
+          </a>
+        ) : null}
       </div>
       <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
         {[
@@ -186,10 +214,23 @@ function UrlModuleBridge() {
     const coreLink = moduleId === "core";
     const tab = appTab(params.get("tab"));
     if (!tab && state.currentTab === "speak") dispatch({ type: "SET_TAB", payload: "core30" });
-    const linkedModule = getModule(moduleId);
+    // A French or Italian link may leave out `native` (the pack default is used).
+    const linkPair = linkLearningPair(params.get("target"), params.get("native"));
+    const requestedPair = linkPair !== null;
+    const requestedTarget = (linkPair?.target ?? "") as Language,
+      requestedNative = (linkPair?.native ?? "") as NativeLanguage;
+    // A French or Italian learner (or a link that asks for French or Italian) opens the same
+    // course in their own language ("roofing" → "roofing-fr"); a module their library does not
+    // have is not opened, so the link never switches them to another language's course.
+    const packModuleId =
+      moduleId && !coreLink
+        ? packCourseModuleId(moduleId, requestedPair ? requestedTarget : state.selectedLanguage)
+        : undefined;
+    const linkedModule = getModule(packModuleId === undefined ? moduleId : packModuleId);
     const targetLanguage =
       linkedModule?.learnDirection === "en-target" ? "English" : linkedModule?.languages?.[0];
     if (
+      packModuleId === undefined &&
       targetLanguage &&
       (linkedModule?.learnDirection === "en-target" ||
         !linkedModule?.languages?.includes(state.selectedLanguage)) &&
@@ -197,12 +238,10 @@ function UrlModuleBridge() {
     ) {
       dispatch({ type: "SET_LANGUAGE", payload: targetLanguage });
     }
-    const requestedTarget = params.get("target") as Language,
-      requestedNative = params.get("native") as NativeLanguage;
     if (
-      LANGUAGES.includes(requestedTarget) &&
-      NATIVE_LANGUAGES.includes(requestedNative) &&
+      requestedPair &&
       (coreLink ||
+        packModuleId !== undefined ||
         (linkedModule &&
           moduleSupportsLearningPair(linkedModule, requestedTarget, requestedNative)))
     ) {
@@ -227,6 +266,16 @@ function UrlModuleBridge() {
     // Apply the URL once per identity, after local and cloud state are ready.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.hydrated, authLoading, userId, profileReadyUserId]);
+
+  // A French or Italian learner never keeps another language's module active (a course switch
+  // from Spanish with Soccer open, or older saved state): the same course in their language opens
+  // instead, or none when their library has no such module.
+  useEffect(() => {
+    if (navigationReadyFor === null || !state.hydrated) return;
+    const own = packCourseModuleId(state.activeModuleId, state.selectedLanguage);
+    if (own === undefined || own === state.activeModuleId) return;
+    dispatch({ type: "SET_ACTIVE_MODULE", payload: own });
+  }, [navigationReadyFor, state.hydrated, state.activeModuleId, state.selectedLanguage, dispatch]);
 
   useEffect(() => {
     const identity = userId ?? "guest";

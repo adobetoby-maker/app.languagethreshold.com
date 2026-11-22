@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
-import { getCurriculum } from "../src/data/curriculum.ts";
+import { authoredCurriculum } from "../src/data/curriculum.ts";
 import {
   CONTENT_LIMITS,
   MASTER_CONTENT_LIMITS,
@@ -24,6 +24,7 @@ import {
   verbFormLabel,
   verbsFromModelOutput,
 } from "../src/lib/lesson-content-core.ts";
+import { isBundledPack, packFor } from "../src/data/language-packs/registry.ts";
 import {
   LESSON_CONTENT_MODEL,
   buildLessonContentRequest,
@@ -425,7 +426,11 @@ test("verb form keys and labels per language", () => {
     "ellos_ustedes",
   ]);
   assert.deepEqual(verbFormKeys("English"), ["i", "you", "he_she", "we", "they"]);
-  assert.equal(verbFormKeys("French"), null);
+  // French has verb keys only where its pack is registered (a QA build, VITE_LT_QA / LT_QA=1); a
+  // normal build keeps its legacy adapter, which carries none.
+  if (isBundledPack(packFor("French")))
+    assert.deepEqual(verbFormKeys("French"), ["je", "tu", "il_elle_on", "nous", "vous", "ils_elles"]);
+  else assert.equal(verbFormKeys("French"), null);
   assert.equal(verbFormLabel("él_ella_usted"), "él / ella / usted");
   assert.equal(verbFormLabel("he_she"), "he / she");
 });
@@ -555,16 +560,16 @@ test("conjugationItems is one item per form per verb, labelled with the pronoun"
 });
 
 test("stripReflexive and the typed-answer rule accept a form with or without the pronoun", () => {
-  assert.equal(stripReflexive("se lava"), "lava");
-  assert.equal(stripReflexive("nos lavamos"), "lavamos");
-  assert.equal(stripReflexive("corta"), "corta");
+  assert.equal(stripReflexive("se lava", packFor("es")), "lava");
+  assert.equal(stripReflexive("nos lavamos", packFor("es")), "lavamos");
+  assert.equal(stripReflexive("corta", packFor("es")), "corta");
   // The drill accepts the full form or the bare one, accents optional.
-  assert.ok(isCorrectForm("se lava", "se lava"));
-  assert.ok(isCorrectForm("lava", "se lava"));
-  assert.ok(isCorrectForm("ESTAS", "estás"));
-  assert.ok(isCorrectForm(" Corta ", "corta"));
-  assert.ok(!isCorrectForm("lavan", "se lava"));
-  assert.ok(!isCorrectForm("", "corta"));
+  assert.ok(isCorrectForm("se lava", "se lava", packFor("es")));
+  assert.ok(isCorrectForm("lava", "se lava", packFor("es")));
+  assert.ok(isCorrectForm("ESTAS", "estás", packFor("es")));
+  assert.ok(isCorrectForm(" Corta ", "corta", packFor("es")));
+  assert.ok(!isCorrectForm("lavan", "se lava", packFor("es")));
+  assert.ok(!isCorrectForm("", "corta", packFor("es")));
 });
 
 // ─── Prompt ──────────────────────────────────────────────────────────────────
@@ -656,7 +661,7 @@ test("request: authored passage and words are passed as context for verbs-only l
 });
 
 test("levels scale with position: 30, 15 and 10 lesson modules", () => {
-  const band = (n, total) => levelFor(n, total).band;
+  const band = (n, total) => levelFor(n, total, "Spanish").band;
   const expected = ["A1-A2", "A1-A2", "A2-B1", "A2-B1", "B1", "B1"];
   assert.deepEqual([1, 10, 11, 20, 21, 30].map((n) => band(n, 30)), expected);
   assert.deepEqual([1, 5, 6, 10, 11, 15].map((n) => band(n, 15)), expected);
@@ -738,7 +743,7 @@ for (const { dir, name } of generated) {
 
   // A Core 60 stage file whose stage is not in src/data/core60/manifest.ts has no curriculum to
   // cover (the Sonnet pilot Masters of electrician and nursing: kept on disk, not shipped).
-  const unlisted = /^(foundation|master)-/.test(moduleId) && !getCurriculum(moduleId);
+  const unlisted = /^(foundation|master)-/.test(moduleId) && !authoredCurriculum(moduleId);
   test(
     `lesson-content ${dir}/${moduleId}: covers every lesson and passes the validator`,
     { skip: unlisted ? "stage not listed in the Core 60 manifest (not shipped)" : false },
@@ -749,7 +754,7 @@ for (const { dir, name } of generated) {
     assert.ok(file, "parses as a lesson-content file");
     assert.equal(file.nativeLanguage, contentNativeLanguage(language));
     assert.equal(typeof raw.reviewed, "boolean", "reviewed flag is present");
-    const curriculum = getCurriculum(moduleId);
+    const curriculum = authoredCurriculum(moduleId);
     assert.ok(curriculum, "module has a curriculum");
     // Plan-only lessons (tests/fixtures/content-pending.mjs) may await their generated content;
     // every other planned lesson must be present, and the file may not cover unplanned lessons.
@@ -803,7 +808,7 @@ for (const { dir, name } of generated) {
 
 test("stale-regenerate lessons are planned, disjoint from pending, and still ship their content", () => {
   for (const [moduleId, lessons] of Object.entries(STALE_REGENERATE)) {
-    const curriculum = getCurriculum(moduleId);
+    const curriculum = authoredCurriculum(moduleId);
     assert.ok(curriculum, `${moduleId} has a curriculum`);
     const planned = new Set(curriculum.lessons.map((l) => l.n));
     const pending = contentPendingFor(moduleId);
@@ -828,7 +833,7 @@ test("GENERATOR_LESSON_ARGS is exactly pending ∪ stale, one span ending at the
       (a, b) => a - b,
     );
     if (lessons.length === 0) continue;
-    const curriculum = getCurriculum(moduleId);
+    const curriculum = authoredCurriculum(moduleId);
     assert.ok(curriculum, `${moduleId} has a curriculum`);
     const first = lessons[0];
     const last = lessons[lessons.length - 1];

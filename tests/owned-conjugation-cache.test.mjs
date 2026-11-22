@@ -6,6 +6,7 @@ import {
   getFrequencyConjugation,
 } from "../src/lib/conjugation-cache.ts";
 import { createLearnerDeviceStore, learnerDeviceKey } from "../src/lib/learner-device-store.ts";
+import { verbProfileFromAuthored } from "../src/components/dictionary/types.ts";
 const person = Object.fromEntries(
   [
     "firstSingular",
@@ -373,7 +374,7 @@ test("private cache and pending requests remain bounded, including synchronous f
 test("profile-derived seeds stay owned and cannot replace a richer existing table or enter the authored catalog", () => {
   const f = fixture(),
     a = f.owner("A"),
-    profile = {
+    authored = {
       phase1: {
         presentYo: { full: "yo qa" },
         presentTu: { full: "tu qa" },
@@ -387,7 +388,13 @@ test("profile-derived seeds stay owned and cannot replace a richer existing tabl
       },
       phase3: {},
     };
-  assert.ok(a.seedFromVerbProfile("Spanish", "qa-profile", profile).data);
+  const profile = verbProfileFromAuthored(authored);
+  // Every cell is the profile's own form or the one the pack names for it (ustedes takes the
+  // ellos / ustedes form): no fabricated person.
+  const seeded = a.seedFromVerbProfile("Spanish", "qa-profile", profile).data;
+  assert.ok(seeded);
+  assert.equal(seeded.presentTense.secondPlural, "ellos qa");
+  assert.equal(seeded.pastTense, undefined);
   assert.equal(isInCatalog("Spanish", "qa-profile"), false);
   f.actor = "B";
   assert.equal(f.owner("B").getCachedConjugation("Spanish", "qa-profile"), undefined);

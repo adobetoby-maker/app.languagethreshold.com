@@ -41,8 +41,9 @@ export function authReturnPath(value: string): string | null {
   if (url.pathname === "/exams") {
     return examsLocation({
       moduleId: url.searchParams.get("module"),
-      target: url.searchParams.get("target") ?? "Spanish",
-      native: url.searchParams.get("native") ?? "English",
+      // No default pair: a missing target or native stays missing and /exams asks for it.
+      target: url.searchParams.get("target") ?? "",
+      native: url.searchParams.get("native") ?? "",
       orgId: url.searchParams.get("org"),
       attemptId: url.searchParams.get("attempt"),
       returnPlanId: url.searchParams.get("fromPlan"),

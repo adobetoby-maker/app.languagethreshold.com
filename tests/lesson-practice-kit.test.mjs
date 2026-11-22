@@ -17,6 +17,7 @@ import {
   tapMatchTile,
   wordsToAdd,
 } from "../src/lib/lesson-practice.ts";
+import { packFor } from "../src/data/language-packs/registry.ts";
 import { ROOFING_LESSON_WORDS } from "../src/data/roofing-lesson-words.ts";
 
 // Deterministic LCG so shuffles are reproducible.
@@ -29,32 +30,33 @@ const seeded = (seed = 1) => {
 };
 
 const word = (en, es, kind = "term") => ({ en, es, kind });
+const es = packFor("es");
 
 test("normalizeAnswer strips accents, punctuation, case and extra spaces", () => {
-  assert.equal(normalizeAnswer("  ¿Dónde   está el TEJADO? "), "donde esta el tejado");
-  assert.equal(normalizeAnswer("¡Cuidado!"), "cuidado");
-  assert.equal(normalizeAnswer("ñandú"), "nandu");
+  assert.equal(normalizeAnswer("  ¿Dónde   está el TEJADO? ", es), "donde esta el tejado");
+  assert.equal(normalizeAnswer("¡Cuidado!", es), "cuidado");
+  assert.equal(normalizeAnswer("ñandú", es), "nandu");
 });
 
 test("isCorrectAnswer accepts accent-free, mis-cased, and padded input", () => {
-  assert.ok(isCorrectAnswer("  TEJADO ", "tejado"));
-  assert.ok(isCorrectAnswer("canalon", "canalón"));
-  assert.ok(isCorrectAnswer("donde esta", "¿Dónde está?"));
-  assert.ok(!isCorrectAnswer("techo", "tejado"));
-  assert.ok(!isCorrectAnswer("", "tejado"));
-  assert.ok(!isCorrectAnswer("   ", "tejado"));
+  assert.ok(isCorrectAnswer("  TEJADO ", "tejado", es));
+  assert.ok(isCorrectAnswer("canalon", "canalón", es));
+  assert.ok(isCorrectAnswer("donde esta", "¿Dónde está?", es));
+  assert.ok(!isCorrectAnswer("techo", "tejado", es));
+  assert.ok(!isCorrectAnswer("", "tejado", es));
+  assert.ok(!isCorrectAnswer("   ", "tejado", es));
 });
 
 test("answers accept the part before ' (' and either side of ' / '", () => {
-  assert.ok(isCorrectAnswer("la teja", "la teja (de asfalto)"));
-  assert.ok(isCorrectAnswer("la teja de asfalto", "la teja (de asfalto)"));
-  assert.ok(isCorrectAnswer("alero", "alero / voladizo"));
-  assert.ok(isCorrectAnswer("Voladizo", "alero / voladizo"));
-  assert.ok(isCorrectAnswer("alero / voladizo", "alero / voladizo"));
-  assert.ok(isCorrectAnswer("alero", "alero / voladizo (techo)"));
-  assert.ok(isCorrectAnswer("voladizo", "alero / voladizo (techo)"));
-  assert.ok(!isCorrectAnswer("techo", "alero / voladizo (techo)"));
-  assert.deepEqual(answerVariants("a / b"), ["a b", "a", "b"]);
+  assert.ok(isCorrectAnswer("la teja", "la teja (de asfalto)", es));
+  assert.ok(isCorrectAnswer("la teja de asfalto", "la teja (de asfalto)", es));
+  assert.ok(isCorrectAnswer("alero", "alero / voladizo", es));
+  assert.ok(isCorrectAnswer("Voladizo", "alero / voladizo", es));
+  assert.ok(isCorrectAnswer("alero / voladizo", "alero / voladizo", es));
+  assert.ok(isCorrectAnswer("alero", "alero / voladizo (techo)", es));
+  assert.ok(isCorrectAnswer("voladizo", "alero / voladizo (techo)", es));
+  assert.ok(!isCorrectAnswer("techo", "alero / voladizo (techo)", es));
+  assert.deepEqual(answerVariants("a / b", es), ["a b", "a", "b"]);
 });
 
 test("shuffle is a permutation, does not mutate, and is deterministic with injected random", () => {
@@ -150,7 +152,7 @@ test("real roofing lessons: every word is answerable and listen options build fo
     const words = ROOFING_LESSON_WORDS[n];
     assert.ok(words.length >= 4, `lesson ${n}`);
     for (const w of words) {
-      assert.ok(isCorrectAnswer(w.es, w.es), `lesson ${n}: ${w.es} accepts itself`);
+      assert.ok(isCorrectAnswer(w.es, w.es, es), `lesson ${n}: ${w.es} accepts itself`);
       const options = buildListenOptions(words, w, seeded(n));
       assert.ok(options.includes(w.en));
       assert.equal(new Set(options).size, options.length);

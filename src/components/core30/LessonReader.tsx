@@ -9,7 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ExternalLink, Languages, Pause, Play, Turtle, Volume2 } from "lucide-react";
 import { ClickableText } from "@/components/reader/ClickableText";
 import { WordCard, type WordCardRequest } from "@/components/reader/WordCard";
-import { useApp, type Language } from "@/state/app-state";
+import { useApp } from "@/state/app-state";
 import { useLibrary } from "@/state/library-state";
 import { useSpeech } from "@/state/speech-state";
 import { useReadingNoticeScope } from "@/hooks/use-listening-speaker";
@@ -23,21 +23,20 @@ import {
 import { useLessonContent } from "@/lib/lesson-content";
 import { pickContentPassage } from "@/lib/lesson-content-core";
 import { languageTag } from "@/lib/lesson-words-core";
+import { packFor } from "@/data/language-packs/registry";
 import { cn } from "@/lib/utils";
 import { currentTutorLesson } from "@/lib/lesson-tutor-context";
-
-const LANGUAGE_CODES: Record<Language, string> = {
-  Spanish: "es",
-  French: "fr",
-  German: "de",
-  Italian: "it",
-  Japanese: "ja",
-  Chinese: "zh",
-  Korean: "ko",
-  Portuguese: "pt",
-  Pashto: "ps",
-  English: "en",
-};
+import {
+  historicalCoursePair,
+  sameLanguage,
+  workplaceCoursePack,
+} from "@/data/language-packs/registry";
+import { nativeLanguageName } from "@/data/languages";
+import { catalogCourseLesson, catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { flagOf } from "@/data/language-packs/app-data";
+import { getModule } from "@/data/modules";
+import type { LibraryEntry } from "@/state/library-state";
+import type { Language } from "@/state/app-state";
 
 /** How long to wait for the reading library before treating a missing passage as absent. */
 const LIBRARY_WAIT_MS = 6000;
@@ -67,7 +66,7 @@ export function LessonReader({
   onRoundFinished?: () => void;
 }) {
   const { state, dispatch } = useApp();
-  const { state: lib } = useLibrary();
+  const { state: lib, dispatch: libDispatch } = useLibrary();
   const { speakSentence, speakSentences, stop, playing, activeSentenceIndex, rate, setRate } =
     useSpeech();
   const language = state.selectedLanguage;
@@ -88,13 +87,13 @@ export function LessonReader({
   const authoredContent = useLessonContent(moduleId, language, state.nativeLanguage);
 
   const sharedLessonCount = readingTemplate
-    ? (getCurriculum(moduleId)?.lessons.filter(
+    ? (getCurriculum(moduleId, state.selectedLanguage, state.nativeLanguage)?.lessons.filter(
         (lesson) => lesson.readingTemplate === readingTemplate,
       ).length ?? 0)
     : 0;
   const passageId = exactLessonLibraryId(
     readingTemplate,
-    LANGUAGE_CODES[language],
+    languageTag(language),
     getAvailableModuleLessons(moduleId, language, lib.entries),
     sharedLessonCount,
   );
@@ -138,39 +137,71 @@ export function LessonReader({
   const contentPending = !lessonPassage && !contentPassage && authoredContent.status === "loading";
   const sentences = useMemo(() => shown?.sentences ?? [], [shown]);
   // Chinese has no spaces to tap on; the full Reader adds pinyin and word lookup there.
-  const tappable = language !== "Chinese";
   const lang = languageTag(language);
+  const tappable = packFor(language)?.script.wordSeparator !== "none";
+  // Reader library ids are seed-<code>-<module>-lesson-<n> for every authored track.
+  const seedId = (n: number) => `seed-${lang}-${moduleId}-lesson-${n}`;
   // Only offer the exact passage shown; authored inline content has no library counterpart.
+  // The military course is written in the workplace course with its default native.
+  const workplace = workplaceCoursePack();
   const militaryReaderId =
-    language === "English" &&
-    state.nativeLanguage === "Spanish" &&
+    sameLanguage(language, workplace.code) &&
+    state.nativeLanguage === nativeLanguageName(workplace.native.default) &&
     ["military", "foundation-military", "master-military"].includes(moduleId) &&
     lessonNumber
-      ? `seed-en-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
+  // The basics, place, sound and interest courses are written in the historical course pair.
   const basicsReaderId =
-    language === "Spanish" &&
-    state.nativeLanguage === "English" &&
+    language === historicalCoursePair().target &&
+    state.nativeLanguage === historicalCoursePair().native &&
     lessonNumber &&
     (interestLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       placeLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       spanishBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage) ||
       soundLesson(moduleId, lessonNumber, language, state.nativeLanguage)) &&
     lessonNumber
-      ? `seed-es-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
   const japaneseReaderId =
     language === "Japanese" &&
     state.nativeLanguage === "English" &&
     lessonNumber &&
     japaneseBasicsLesson(moduleId, lessonNumber, language, state.nativeLanguage)
-      ? `seed-ja-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
   const cleaningReaderId =
     lessonNumber && orCleaningLesson(moduleId, lessonNumber, language, state.nativeLanguage)
-      ? `seed-${language === "English" ? "en" : "es"}-${moduleId}-lesson-${lessonNumber}`
+      ? seedId(lessonNumber)
       : null;
+  // A French or Italian course lesson (French 101 … Cognates) opens its own reading in the full
+  // Reader, as Spanish course lessons open theirs (seed-<code>-<module>-lesson-<n>).
+  const catalogPack = catalogLessonPack(language);
+  const catalogReader: LibraryEntry | null =
+    catalogPack &&
+    contentPassage &&
+    lessonNumber &&
+    catalogCourseLesson(moduleId, lessonNumber, language)
+      ? {
+          id: seedId(lessonNumber),
+          title: `${getModule(moduleId)?.name.split(" · ")[0] ?? catalogPack.name} ${lessonNumber}: ${contentPassage.title}`,
+          subtitle: `${catalogPack.name} with ${state.nativeLanguage} support`,
+          language: language as Language,
+          targetLabel: catalogPack.name,
+          flag: flagOf(catalogPack),
+          section: "culture",
+          category: "Culture",
+          available: true,
+          sentences: contentPassage.sentences.map(({ target, en }) => ({ target, en })),
+        }
+      : null;
+  const openFullReader = (id: string) => {
+    if (catalogReader && id === catalogReader.id)
+      libDispatch({ type: "APPEND_LANGUAGE_SEEDS", language, payload: [catalogReader] });
+    onOpenFullReader(id);
+  };
   const fullReaderId =
+    catalogReader?.id ??
     cleaningReaderId ??
     japaneseReaderId ??
     basicsReaderId ??
@@ -274,6 +305,7 @@ export function LessonReader({
             {tappable ? (
               <ClickableText
                 text={line.target}
+                language={language}
                 onWordClick={(word, sentence, x, y) => onWordClick(word, sentence, index, x, y)}
               />
             ) : (
@@ -320,11 +352,13 @@ export function LessonReader({
             <button
               type="button"
               data-testid="lesson-open-full-reader"
-              onClick={() => onOpenFullReader(fullReaderId)}
+              onClick={() => openFullReader(fullReaderId)}
               className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm underline underline-offset-4"
             >
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              {contentPassage ? "Open the longer module reading" : "Open in full Reader"}
+              {contentPassage && !catalogReader
+                ? "Open the longer module reading"
+                : "Open in full Reader"}
             </button>
           </details>
         )}
@@ -398,6 +432,7 @@ export function LessonReader({
                 {tappable ? (
                   <ClickableText
                     text={s.target}
+                    language={language}
                     onWordClick={(w, sentence, x, y) => onWordClick(w, sentence, index, x, y)}
                   />
                 ) : (
@@ -406,7 +441,7 @@ export function LessonReader({
               </p>
               {showEnglish && translationAvailable && (
                 <p
-                  lang={translationLanguage === "Spanish" ? "es" : "en"}
+                  lang={languageTag(translationLanguage)}
                   className="mt-1 text-sm leading-relaxed text-muted-foreground"
                 >
                   {s.en}
@@ -438,11 +473,13 @@ export function LessonReader({
         <button
           type="button"
           data-testid="lesson-open-full-reader"
-          onClick={() => onOpenFullReader(fullReaderId)}
+          onClick={() => openFullReader(fullReaderId)}
           className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg px-1 text-xs font-semibold text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold"
         >
           <ExternalLink className="h-4 w-4" aria-hidden="true" />
-          {contentPassage ? "Open the longer module reading" : "Open in full Reader"}
+          {contentPassage && !catalogReader
+            ? "Open the longer module reading"
+            : "Open in full Reader"}
         </button>
       )}
 

@@ -11,7 +11,9 @@ import {
   type LessonVerb,
 } from "@/lib/lesson-content-core";
 import { shuffle } from "@/lib/lesson-practice";
-import { languageTag, SPECIAL_CHARS_BY_LANGUAGE } from "@/lib/lesson-words-core";
+import { languageTag } from "@/lib/lesson-words-core";
+import { packFor } from "@/data/language-packs/registry";
+import { practiceKeys, typeFormPlaceholder } from "@/data/language-packs/ui-text";
 
 // The lesson's verbs, two ways. Study: a card per verb with its meaning, the five present-tense
 // forms and an example from the lesson. Conjugate: one pass through every form of every verb,
@@ -117,11 +119,11 @@ function VerbCard({
               <button
                 type="button"
                 onClick={() => speak(form)}
-                aria-label={`Play ${verbFormLabel(key)} ${form}`}
+                aria-label={`Play ${verbFormLabel(key, language)} ${form}`}
                 className="grid min-h-11 w-full cursor-pointer grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1 px-3 py-3 text-left transition-colors hover:bg-gold/5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto]"
               >
                 <span className="min-w-0 break-words text-xs font-semibold text-muted-foreground">
-                  {verbFormLabel(key)}
+                  {verbFormLabel(key, language)}
                 </span>
                 <span
                   lang={lang}
@@ -222,7 +224,8 @@ function ConjugateVerbs({
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const specialChars = SPECIAL_CHARS_BY_LANGUAGE[language] ?? [];
+  const pack = packFor(language);
+  const specialChars = pack ? practiceKeys(pack) : [];
 
   const current = order[index];
   if (!current) return null;
@@ -230,7 +233,7 @@ function ConjugateVerbs({
   const submit = (event: FormEvent) => {
     event.preventDefault();
     if (result !== null || !value.trim()) return;
-    const correct = isCorrectForm(value, current.expected);
+    const correct = pack !== null && isCorrectForm(value, current.expected, pack);
     setResult(correct ? "right" : "wrong");
     if (correct) setScore((s) => s + 1);
     speak(current.expected);
@@ -319,7 +322,7 @@ function ConjugateVerbs({
         spellCheck={false}
         enterKeyHint="done"
         aria-label={`Your ${language} verb form`}
-        placeholder={language === "Spanish" ? "Escribe la forma" : "Type the form"}
+        placeholder={typeFormPlaceholder(pack)}
         className={cn(
           "min-h-12 w-full rounded-xl border bg-background px-3 text-base text-foreground outline-none transition-colors duration-200 focus:border-gold",
           result === "right" && "border-emerald-500/60",

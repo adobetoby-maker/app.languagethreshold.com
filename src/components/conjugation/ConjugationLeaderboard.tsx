@@ -65,8 +65,12 @@ export function ConjugationLeaderboard({ language }: { language: Language }) {
         };
       })
       .filter((r) => r.totalAttempts > 0)
+      // A French or Italian learner's board names no Spanish row.
+      .filter(
+        (r) => !(r.language === "Spanish" && (language === "French" || language === "Italian")),
+      )
       .sort((a, b) => b.bestStreak - a.bestStreak);
-  }, [conj.state.leaderboard]);
+  }, [conj.state.leaderboard, language]);
 
   const hasAny = rows.some((r) => r.totalAttempts > 0);
 

@@ -4,7 +4,12 @@ import { Search, Sparkles, CheckCircle2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
-import { MODULES, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
+import {
+  MODULES,
+  moduleBlurbFor,
+  moduleSupportsLearningPair,
+  type AppModule,
+} from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
 import { moduleLearningPaths, type ModuleLearningPath } from "@/lib/module-order";
 import { ModuleLearningStages } from "./ModuleLearningStages";
@@ -12,6 +17,22 @@ import { getCurriculum } from "@/data/curriculum";
 import { NextTripBanner } from "@/components/travel/NextTripBanner";
 import { useLibrary } from "@/state/library-state";
 import { getAvailableModuleLessons } from "@/data/module-starters";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { historicalCoursePack } from "@/data/language-packs/registry";
+
+/**
+ * The categories the historical course (Spanish, English support) shows. French and Italian keep
+ * the same category row; a category they have no modules in yet shows its unavailable state
+ * (owner decision 1: same structure, never fewer screens).
+ */
+function historicalCategories(): Set<AppModule["category"]> {
+  const course = historicalCoursePack().name;
+  return new Set(
+    MODULES.filter((module) => moduleSupportsLearningPair(module, course, "English")).map(
+      (module) => module.category,
+    ),
+  );
+}
 
 const CATEGORY_ORDER: AppModule["category"][] = [
   "Core Basics",
@@ -73,6 +94,7 @@ function ModuleCard({
   onSelectStage,
   onStudyCards,
 }: ModuleCardProps) {
+  const { state } = useApp();
   const meta = CATEGORY_META[module.category];
   const topVocab = module.vocabFocus.slice(0, 5);
 
@@ -118,7 +140,9 @@ function ModuleCard({
       </p>
 
       {/* Blurb */}
-      <p className="mb-4 flex-1 text-xs leading-relaxed text-foreground/75">{module.blurb}</p>
+      <p className="mb-4 flex-1 text-xs leading-relaxed text-foreground/75">
+        {moduleBlurbFor(module, state.selectedLanguage)}
+      </p>
 
       {/* Vocab focus chips */}
       <div className="mb-4 flex flex-wrap gap-1">
@@ -200,7 +224,8 @@ export function ModulesPage() {
   const handleActivate = (module: AppModule) => {
     dispatch({ type: "SET_ACTIVE_MODULE", payload: module.id });
     const destination =
-      getCurriculum(module.id) || /^(foundation|master)-/.test(module.id)
+      getCurriculum(module.id, state.selectedLanguage, state.nativeLanguage) ||
+      /^(foundation|master)-/.test(module.id)
         ? "core30"
         : state.selectedLanguage === "English" && module.learnDirection !== "en-target"
           ? "reader"
@@ -217,14 +242,14 @@ export function ModulesPage() {
   const totalModules = paths.length;
   // English for Work teaches English to speakers of other languages, so a learner studying Spanish
   // has none of its modules (moduleSupportsLearningPair). Show only categories with modules.
-  const categoryCounts = useMemo(
-    () =>
-      CATEGORY_ORDER.map((category) => ({
-        category,
-        count: paths.filter((path) => path.module.category === category).length,
-      })).filter(({ count }) => count > 0),
-    [paths],
-  );
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
+  const categoryCounts = useMemo(() => {
+    const kept = catalogPack ? historicalCategories() : null;
+    return CATEGORY_ORDER.map((category) => ({
+      category,
+      count: paths.filter((path) => path.module.category === category).length,
+    })).filter(({ category, count }) => count > 0 || Boolean(kept?.has(category)));
+  }, [paths, catalogPack]);
   return (
     <div className="flex h-full flex-col overflow-hidden">
       {/* Page header */}
@@ -277,6 +302,17 @@ export function ModulesPage() {
               </button>
               {categoryCounts.map(({ category: cat, count }) => {
                 const meta = CATEGORY_META[cat];
+                if (count === 0 && catalogPack)
+                  return (
+                    <span
+                      key={cat}
+                      aria-disabled="true"
+                      data-testid={`category-unavailable-${cat}`}
+                      className="rounded-full border border-border/40 bg-background/20 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground opacity-70"
+                    >
+                      {meta.emoji} {cat} · Coming soon in {catalogPack.name}
+                    </span>
+                  );
                 return (
                   <button
                     key={cat}

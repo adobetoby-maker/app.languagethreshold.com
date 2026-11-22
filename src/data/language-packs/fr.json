@@ -1,0 +1,822 @@
+{
+ "schemaVersion": 1,
+ "code": "fr",
+ "name": "French",
+ "endonym": "français",
+ "legacyNames": [
+  "French"
+ ],
+ "native": {
+  "default": "en",
+  "supported": [
+   "en"
+  ],
+  "names": {
+   "en": "English"
+  }
+ },
+ "variety": {
+  "tag": "fr-FR",
+  "label": "France",
+  "standard": "Standard European French as a teacher in Lyon or Paris would publish it: neutral, correct, not slangy. Questions with est-ce que or rising intonation; inversion only in fixed polite requests (Pouvez-vous… ?). ne is always written in negatives. France vocabulary for meals and objects.",
+  "alternates": [
+   {
+    "tag": "fr-CA",
+    "label": "Québec",
+    "taught": false,
+    "note": "Recognised and read; never authored."
+   },
+   {
+    "tag": "fr-BE",
+    "label": "Belgium",
+    "taught": false
+   },
+   {
+    "tag": "fr-CH",
+    "label": "Switzerland",
+    "taught": false
+   }
+  ],
+  "avoid": [
+   "Québec meal names (déjeuner = breakfast, dîner = lunch, souper = dinner); use le petit-déjeuner, le déjeuner, le dîner",
+   "Belgian/Swiss numbers septante, huitante, nonante; use soixante-dix, quatre-vingts, quatre-vingt-dix",
+   "Spoken negation without ne (je comprends pas)",
+   "Spanish punctuation ¿ ¡ and the letter ñ",
+   "Calques from the Spanish source (je reste content for estoy contento; use je suis content)"
+  ]
+ },
+ "status": {
+  "availability": "native",
+  "speakAvailability": "native",
+  "statusText": "Lessons on this device"
+ },
+ "script": {
+  "iso15924": [
+   "Latn"
+  ],
+  "direction": "ltr",
+  "wordSeparator": "space",
+  "hasCase": true,
+  "capitalizeNouns": false,
+  "segmenterLocale": "fr",
+  "readingAid": "none"
+ },
+ "typography": {
+  "apostrophe": "'",
+  "apostropheVariants": [
+   "’",
+   "ʼ",
+   "‘"
+  ],
+  "spaceVariants": [
+   " ",
+   " "
+  ],
+  "quotes": [
+   "«",
+   "»",
+   "“",
+   "”"
+  ],
+  "spaceBeforePunctuation": [
+   "?",
+   "!",
+   ":",
+   ";"
+  ],
+  "punctuationSpace": " ",
+  "trimCharacters": ".!?,;:\"«»‹›“”()…",
+  "invertedPunctuation": false,
+  "wordInnerCharacters": [
+   "-"
+  ],
+  "numberStyle": "Words in beginner number lessons with traditional hyphenation (dix-huit, vingt et un); digits with a decimal comma for doses and measurements (2,5 mg); 24-hour clock in writing (15 h 30)."
+ },
+ "keyboard": {
+  "autocapitalization": "never",
+  "ime": false,
+  "specialCharacters": [
+   "à",
+   "â",
+   "ç",
+   "é",
+   "è",
+   "ê",
+   "ë",
+   "î",
+   "ï",
+   "ô",
+   "ù",
+   "û",
+   "œ",
+   "À",
+   "Ç",
+   "É",
+   "È",
+   "Ê",
+   "«",
+   "»"
+  ],
+  "alphabet": "abcdefghijklmnopqrstuvwxyzàâæçéèêëîïôœùûüÿ"
+ },
+ "grammar": {
+  "verbForms": {
+   "axis": "person",
+   "keys": [
+    {
+     "key": "je",
+     "label": "je",
+     "order": 1,
+     "required": true,
+     "person": 1,
+     "number": "singular",
+     "subjects": [
+      "je",
+      "j'"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "tu",
+     "label": "tu",
+     "order": 2,
+     "required": true,
+     "person": 2,
+     "number": "singular",
+     "formal": false,
+     "subjects": [
+      "tu"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "il_elle_on",
+     "label": "il / elle / on",
+     "order": 3,
+     "required": true,
+     "person": 3,
+     "number": "singular",
+     "subjects": [
+      "il",
+      "elle",
+      "on"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "nous",
+     "label": "nous",
+     "order": 4,
+     "required": true,
+     "person": 1,
+     "number": "plural",
+     "subjects": [
+      "nous"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "vous",
+     "label": "vous",
+     "order": 5,
+     "required": true,
+     "person": 2,
+     "number": "plural",
+     "formal": true,
+     "subjects": [
+      "vous"
+     ],
+     "assessment": true
+    },
+    {
+     "key": "ils_elles",
+     "label": "ils / elles",
+     "order": 6,
+     "required": true,
+     "person": 3,
+     "number": "plural",
+     "subjects": [
+      "ils",
+      "elles"
+     ],
+     "assessment": true
+    }
+   ],
+   "includesSubject": true,
+   "imperativeIncludesSubject": false,
+   "formLeadWords": [
+    "que",
+    "qu'",
+    "si",
+    "s'"
+   ],
+   "imperativeKeys": [
+    "tu",
+    "nous",
+    "vous"
+   ],
+   "referenceTableTitle": "Present tense",
+   "assessmentPrompt": "Which form goes with {label}?",
+   "joinRules": [
+    {
+     "subject": "je",
+     "beforePattern": "^[aeiouyàâæéèêëîïôœùûü]",
+     "replaceWith": "j'"
+    }
+   ]
+  },
+  "proDrop": "none",
+  "subjectPronouns": {
+   "je": [
+    "je"
+   ],
+   "j'": [
+    "je"
+   ],
+   "tu": [
+    "tu"
+   ],
+   "il": [
+    "il_elle_on"
+   ],
+   "elle": [
+    "il_elle_on"
+   ],
+   "on": [
+    "il_elle_on"
+   ],
+   "nous": [
+    "nous"
+   ],
+   "vous": [
+    "vous"
+   ],
+   "ils": [
+    "ils_elles"
+   ],
+   "elles": [
+    "ils_elles"
+   ]
+  },
+  "preVerbParticles": [],
+  "reflexivePronouns": [
+   "me",
+   "m'",
+   "te",
+   "t'",
+   "se",
+   "s'",
+   "nous",
+   "vous"
+  ],
+  "nounSystem": {
+   "type": "gender",
+   "contentRule": "article-with-noun",
+   "genders": [
+    "masculine",
+    "feminine"
+   ],
+   "cases": [],
+   "classes": [],
+   "articles": {
+    "definite": [
+     "le",
+     "la",
+     "l'",
+     "les"
+    ],
+    "indefinite": [
+     "un",
+     "une",
+     "des"
+    ],
+    "partitive": [
+     "du",
+     "de la",
+     "de l'",
+     "des"
+    ],
+    "contractions": {
+     "à le": "au",
+     "à les": "aux",
+     "de le": "du",
+     "de les": "des"
+    }
+   },
+   "hiddenGenderMarkers": {
+    "masculine": "(m.)",
+    "feminine": "(f.)"
+   }
+  },
+  "formality": {
+   "forms": [
+    {
+     "id": "informal",
+     "pronoun": "tu",
+     "verbKey": "tu",
+     "use": "Classmates, friends, family, crew mates where Spanish uses tú. s'il te plaît goes with tu."
+    },
+    {
+     "id": "formal",
+     "pronoun": "vous",
+     "verbKey": "vous",
+     "use": "One adult in a formal role: patients, customers, supervisors, staff. s'il vous plaît goes with vous."
+    },
+    {
+     "id": "plural",
+     "pronoun": "vous",
+     "verbKey": "vous",
+     "use": "Any group, formal or informal."
+    }
+   ],
+   "fromSpanish": {
+    "tú": "tu",
+    "usted": "vous",
+    "ustedes": "vous",
+    "vosotros": "vous"
+   },
+   "patients": "vous (Monsieur / Madame + surname, Docteur in direct address)",
+   "crew": "tu where Spanish uses tú; vous to a supervisor unless the Spanish uses tú"
+  },
+  "impersonalForms": [
+   "il y a",
+   "il faut"
+  ],
+  "extraVerbForms": []
+ },
+ "answerRules": {
+  "tokenizer": "words",
+  "unicodeNormalization": "NFC",
+  "caseHint": false,
+  "accentPolicy": {
+   "typed": "strict",
+   "speech": "fold",
+   "handwriting": "strict"
+  },
+  "accentHint": true,
+  "markName": "accent marks",
+  "fold": {
+   "à": "a",
+   "â": "a",
+   "ç": "c",
+   "é": "e",
+   "è": "e",
+   "ê": "e",
+   "ë": "e",
+   "î": "i",
+   "ï": "i",
+   "ô": "o",
+   "ù": "u",
+   "û": "u",
+   "ü": "u",
+   "ÿ": "y"
+  },
+  "neverFold": [],
+  "ligatures": {
+   "œ": "oe",
+   "æ": "ae"
+  },
+  "typedAlternates": {
+   "œ": "oe",
+   "æ": "ae"
+  },
+  "protectedPairs": [
+   [
+    "ou",
+    "où"
+   ],
+   [
+    "a",
+    "à"
+   ],
+   [
+    "la",
+    "là"
+   ],
+   [
+    "sur",
+    "sûr"
+   ],
+   [
+    "du",
+    "dû"
+   ],
+   [
+    "mur",
+    "mûr"
+   ],
+   [
+    "des",
+    "dès"
+   ],
+   [
+    "cote",
+    "côte",
+    "côté"
+   ],
+   [
+    "tache",
+    "tâche"
+   ],
+   [
+    "jeune",
+    "jeûne"
+   ]
+  ],
+  "articleOptional": "hint",
+  "soundRules": [
+   {
+    "from": "eaux",
+    "to": "o",
+    "at": "end"
+   },
+   {
+    "from": "eau",
+    "to": "o",
+    "at": "any"
+   },
+   {
+    "from": "aux",
+    "to": "o",
+    "at": "end"
+   },
+   {
+    "from": "au",
+    "to": "o",
+    "at": "any"
+   },
+   {
+    "from": "ez",
+    "to": "é",
+    "at": "end"
+   },
+   {
+    "from": "ph",
+    "to": "f",
+    "at": "any"
+   },
+   {
+    "from": "qu",
+    "to": "k",
+    "at": "any"
+   },
+   {
+    "from": "h",
+    "to": "",
+    "at": "start"
+   }
+  ],
+  "homophoneSets": [
+   [
+    "et",
+    "est",
+    "ai"
+   ],
+   [
+    "ou",
+    "où"
+   ],
+   [
+    "a",
+    "à"
+   ],
+   [
+    "son",
+    "sont"
+   ],
+   [
+    "on",
+    "ont"
+   ],
+   [
+    "ces",
+    "ses",
+    "c'est",
+    "s'est"
+   ],
+   [
+    "ce",
+    "se"
+   ],
+   [
+    "mais",
+    "mes"
+   ],
+   [
+    "vers",
+    "verre",
+    "vert"
+   ],
+   [
+    "cent",
+    "sang",
+    "sans"
+   ],
+   [
+    "sur",
+    "sûr"
+   ],
+   [
+    "la",
+    "là"
+   ],
+   [
+    "peu",
+    "peut",
+    "peux"
+   ],
+   [
+    "quand",
+    "quant",
+    "qu'en"
+   ],
+   [
+    "du",
+    "dû"
+   ],
+   [
+    "mur",
+    "mûr"
+   ]
+  ],
+  "speechScoring": {
+   "soundEquivalentCredit": 0.85,
+   "similarityFloor": 0.65,
+   "similarityCredit": 0.75,
+   "minWordLength": 4
+  },
+  "ocrConfusables": [
+   [
+    "é",
+    "è",
+    "ê",
+    "ë",
+    "e"
+   ],
+   [
+    "à",
+    "â",
+    "a"
+   ],
+   [
+    "ç",
+    "c"
+   ],
+   [
+    "ù",
+    "û",
+    "u"
+   ],
+   [
+    "î",
+    "ï",
+    "i"
+   ],
+   [
+    "ô",
+    "o"
+   ]
+  ],
+  "moreDetailKeywords": [
+   "plus de détails",
+   "plus long",
+   "dis-m'en plus",
+   "dites-m'en plus",
+   "explique",
+   "expliquez",
+   "raconte",
+   "racontez",
+   "histoire"
+  ]
+ },
+ "speech": {
+  "recognition": {
+   "mode": "on-device",
+   "languageCode": "fr",
+   "locales": [
+    "fr-FR",
+    "fr-CA",
+    "fr-BE",
+    "fr-CH"
+   ],
+   "dictationName": "French (France)",
+   "keyboardName": "French (France)",
+   "fallback": "listen-and-compare"
+  },
+  "tts": {
+   "languageCode": "fr",
+   "locales": [
+    "fr-FR",
+    "fr-CA"
+   ],
+   "deviceVoice": true,
+   "rate": {
+    "normal": 0.45,
+    "slow": 0.33
+   }
+  },
+  "accents": [
+   {
+    "tag": "fr-FR",
+    "label": "France",
+    "default": true
+   },
+   {
+    "tag": "fr-CA",
+    "label": "Québec",
+    "default": false
+   }
+  ],
+  "handwriting": {
+   "mode": "vision",
+   "visionLanguages": [
+    "fr-FR",
+    "en-US"
+   ]
+  },
+  "partnerVoice": {
+   "available": true,
+   "provider": "google-chirp3-hd",
+   "locale": "fr-FR",
+   "female": "Aoede",
+   "male": "Charon"
+  },
+  "offlineVoices": {
+   "defaultEngine": "device",
+   "phonon": null,
+   "kokoro": {
+    "language": "fr-fr",
+    "voices": [
+     {
+      "label": "Siwis",
+      "voiceName": "ff_siwis",
+      "speakerID": null
+     }
+    ]
+   }
+  },
+  "remoteFallback": null
+ },
+ "audio": {
+  "folder": "RecordedAudio/fr",
+  "manifest": "RecordedAudio/fr/recordings.json",
+  "watchFolder": "WatchAudioLite/fr",
+  "voices": [
+   {
+    "id": "female",
+    "label": "Female",
+    "gender": "female",
+    "locale": "fr-FR"
+   },
+   {
+    "id": "male",
+    "label": "Male",
+    "gender": "male",
+    "locale": "fr-FR"
+   }
+  ],
+  "coverage": "partial",
+  "requireReviewed": true,
+  "legacy": {
+   "manifest": "FrenchRecordedAudio/recordings.json",
+   "folder": "FrenchRecordedAudio",
+   "watchFolder": "FrenchRecordedAudio"
+  }
+ },
+ "dictionary": {
+  "file": "TutorDictionary/fr-en.json",
+  "supplement": null,
+  "morphology": null,
+  "lookup": {
+   "elisionPrefixes": [
+    "l'",
+    "d'",
+    "j'",
+    "m'",
+    "t'",
+    "s'",
+    "n'",
+    "c'",
+    "qu'",
+    "jusqu'",
+    "lorsqu'",
+    "puisqu'",
+    "quoiqu'"
+   ],
+   "stripArticles": true,
+   "stripPrefixes": []
+  },
+  "crossModuleIndex": true
+ },
+ "content": {
+  "catalog": "core60_fr.json",
+  "lessonSourceRoot": "private/lesson-content/fr",
+  "missions": null,
+  "readerLibrary": null,
+  "partnerPack": null,
+  "sentencePatterns": null,
+  "placementGame": null,
+  "cmeActivities": null,
+  "guideTips": null,
+  "readingTracks": null,
+  "settingsGuide": null
+ },
+ "library": {
+  "defaultModule": "french-basics",
+  "coreBasics": [
+   "french-basics",
+   "french-102",
+   "french-frequent-verbs",
+   "french-usage-verbs",
+   "french-common-patterns",
+   "french-conjugation-patterns",
+   "french-cognates",
+   "sound-like-a-native"
+  ],
+  "intro": "Start with French 101, then 102. Use the verb, grammar, conjugation, and cognate courses alongside them. Every course includes 10 Foundation, 30 Working, and 20 Master lessons.",
+  "guidance": {
+   "french-basics": "Start here · sounds, first words, and everyday sentences.",
+   "french-102": "Continue after 101 · expand grammar and everyday vocabulary.",
+   "french-frequent-verbs": "Build fluency · one useful spoken verb in each lesson.",
+   "french-usage-verbs": "Frequency order · practice the highest-use verbs first.",
+   "french-common-patterns": "Build sentences · devoir, il faut, aller + infinitive, and other useful structures.",
+   "french-conjugation-patterns": "Focus your practice · one pattern, ten verbs per lesson.",
+   "french-cognates": "Grow vocabulary · word families, pronunciation, and false friends.",
+   "sound-like-a-native": "Sound clear · nasal vowels, liaison, the French r, and silent letters."
+  }
+ },
+ "ids": {
+  "lessonPrefix": "fr:",
+  "activity": "core60:{code}:{native}:{module}:{n}",
+  "legacyActivityPrefixes": [
+   "core60:French:English:"
+  ],
+  "mission": "scenario_version_{module}_lesson_{n}_{missionCode}_v1",
+  "missionCode": "fr",
+  "storageNamespace": "fr",
+  "legacyUnscopedStorage": false
+ },
+ "phrases": {
+  "register": "formal",
+  "soundCheckWord": "bonjour",
+  "soundCheckSentence": "Bonjour, comment ça va ?",
+  "voicePreview": "le toit",
+  "partnerPreview": "Bonjour. Parlons en français. Qu'est-ce que vous aimeriez pratiquer aujourd'hui ?",
+  "clarification": "Pardon, je n'ai pas compris. Vous pouvez répéter, s'il vous plaît ?",
+  "greeting": "Bonjour",
+  "paceCommands": {
+   "slower": [
+    "plus lentement",
+    "parle plus lentement",
+    "parlez plus lentement",
+    "moins vite"
+   ],
+   "normal": [
+    "vitesse normale",
+    "rythme normal"
+   ],
+   "faster": [
+    "plus vite",
+    "parle plus vite",
+    "parlez plus vite"
+   ],
+   "simpler": [
+    "mots plus simples",
+    "plus simple",
+    "plus simplement"
+   ]
+  }
+ },
+ "prompts": {
+  "languageName": "French",
+  "replyInstruction": "Reply in French.",
+  "scriptNote": "",
+  "varietyNote": "Use standard European French (France) with ne in every negative; vous with the learner unless the scene uses tu."
+ },
+ "contentChecks": {
+  "targetMarkers": "\\b(est|très|verbe|les|des|pour|quand|avec|une|dans|mais|cette|signifie|personne)\\b",
+  "nativeMarkers": {
+   "en": "\\b(the|and|with|is|are|use|form|verb|command|stem|change|to|of|it|in|for|this|when|means|your|as|say|not|he|his|her|used|usually|often|like|after|before|also|only|than)\\b"
+  },
+  "infinitivePattern": "^(se |s')?[a-zàâæçéèêëîïôœùûüÿ]*(er|ir|re|oir)$",
+  "pronounFirstPattern": ""
+ },
+ "features": {
+  "speaking": "native",
+  "speakingMissions": false,
+  "partnerChat": false,
+  "onlineTutor": false,
+  "verbsTab": true,
+  "placementGame": false,
+  "kanaPad": false,
+  "verbGames": true,
+  "handwriting": true
+ },
+ "branding": {
+  "medical": {
+   "productName": "Medical French",
+   "tagline": "Clinical French for patient care",
+   "filePrefix": "MedicalFrench"
+  }
+ }
+}

@@ -73,6 +73,7 @@ import { fileURLToPath } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
 import { runClaudeCli } from "../src/lib/claude-cli-runner.ts";
 import { getCurriculum } from "../src/data/curriculum.ts";
+import { historicalCoursePair } from "../src/data/language-packs/registry.ts";
 import { MODULES, moduleSupportsLearningPair } from "../src/data/modules.ts";
 import { CORE60_MANIFEST } from "../src/data/core60/manifest.ts";
 import {
@@ -266,8 +267,8 @@ interface StagePlan {
 }
 
 /** The trade's Core 30 titles, objectives and target-language terms, for every prompt. */
-function core30Context(moduleId: string, language: string) {
-  const curriculum = getCurriculum(moduleId)!;
+function core30Context(moduleId: string, language: string, nativeLanguage: string) {
+  const curriculum = getCurriculum(moduleId, language, nativeLanguage)!;
   const content = readJson<LessonContentFile>(join(CONTENT_ROOT, languageTag(language), `${moduleId}.json`));
   const terms = new Set<string>();
   for (const lesson of Object.values(content?.lessons ?? {})) {
@@ -301,16 +302,16 @@ function buildPlan(): { plans: StagePlan[]; skipped: Skipped[] } {
   for (const module of MODULES) {
     if (module.id.startsWith("foundation-") || module.id.startsWith("master-")) continue;
     if (WANT_MODULES.length > 0 && !WANT_MODULES.includes(module.id)) continue;
-    const curriculum = getCurriculum(module.id);
-    if (!curriculum) continue;
+    const historical = historicalCoursePair();
     const pair: Core60Pair | null = core60PairFor(
       module,
-      moduleSupportsLearningPair(module, "Spanish", "English"),
+      moduleSupportsLearningPair(module, historical.target, historical.native),
     );
     if (!pair) {
-      skipped.push({ module: module.id, reason: "no Spanish or English-for-work pair" });
+      skipped.push({ module: module.id, reason: "no historical-course or English-for-work pair" });
       continue;
     }
+    if (!getCurriculum(module.id, pair.language, pair.nativeLanguage)) continue;
     const tag = languageTag(pair.language);
     if (!existsSync(join(CONTENT_ROOT, tag, `${module.id}.json`))) {
       skipped.push({ module: module.id, reason: `no Core 30 content (${tag}/${module.id}.json)` });
@@ -323,7 +324,7 @@ function buildPlan(): { plans: StagePlan[]; skipped: Skipped[] } {
         skipped.push({ module: moduleId, reason: "hand-written stage" });
         continue;
       }
-      const ctx: StageContext = { module, stage, pair, core30: core30Context(module.id, pair.language) };
+      const ctx: StageContext = { module, stage, pair, core30: core30Context(module.id, pair.language, pair.nativeLanguage) };
       const stageFile = join(STAGE_ROOT, stageFileRelativePath(pair.language, moduleId));
       const contentFile = join(CONTENT_ROOT, tag, `${moduleId}.json`);
       const published =

@@ -1,7 +1,7 @@
 | Spec item            | Observed                          | Result |
 |---|---|---|
-| Layout / spacing     | pwa-r4 fr/it Verbs (375, 1440, 2560): one notice card ("Not available in French yet: …" / "Ready in French: …") with an "Open French Conjugation Patterns · Core 60" button, then Conjugation Drills; no timer, counter or game cards. Practice Lab 1440-end: Verbs card shows "Coming soon" pill only, no Play, no stats; Soccer/Baseball cards in the unavailable state. Reader 2560-end: "Course readings are not available in the French Reader yet" strip above the library bar, reading reaches the bottom bar | PASS   |
-| Colors / contrast    | Unavailable states use muted foreground on card background; the course button keeps the gold border; Spanish roofing lesson and Spanish module picker match base colours | PASS   |
-| Typography           | Verbs notice body text in the app sans at the same size as base notices; Cognate Bridge prose (fr 1440-end) reads "common but risky, or rare but bulletproof" with no ñ example; "You already know" chips English/French/Portuguese (it 375) | PASS   |
-| Mobile (375px)       | fr Verbs 375, it Type it 375 (Italian letter row à è é ì ò ù È), it Practice Lab 375-end, it Reader 375 (intro without Field Prep, "New to Italian? Start Italian 101"), fr module picker 375-end: no clipped or overlapping text; achievement label ellipsis and lesson-end dock overlap are base behaviour | PASS   |
-| Animations / motion  | No animation changed this round; only gating and static unavailable states | PASS   |
+| Layout / spacing     | Desktop V6 pages now end above the fixed Study/Speak bar: fr Reader "Study guide and practice ideas" (pwa-r5/pwa-fr-05-reader-{1440,2560,5k}-end), Verbs "Streak rewards" at 1440, library last row; lesson workspaces unchanged | PASS |
+| Colors / contrast    | unchanged theme; gold CTAs and dock readable at all widths | PASS |
+| Typography           | unchanged; /exams for a saved French learner shows the neutral "Exams" card, no Spanish placement test (pwa-fr-09/10 at 375/1440/2560/5K) | PASS |
+| Mobile (375px)       | top and end frames read for every page; reader end shows the study guide above the bar | PASS |
+| Animations / motion  | no motion change in this round (CSS reserve + route logic only) | PASS |

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { usePack } from "@/hooks/use-language-pack";
 import type { LanguagePack } from "@/data/language-packs/registry";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 import { useServerFn } from "@tanstack/react-start";
 import {
   CheckCircle2,
@@ -348,10 +349,20 @@ function QuestionCard({
   const allPlaced = q.placed.length === q.question.tokens.length;
   const reveal = q.submitted;
 
-  // Placed tokens are joined the way the language writes: no space for a script without word
-  // spaces, the pack's narrow space before punctuation that takes one (French « ? »).
+  // For Japanese / Korean, render placed tokens with no joining space.
+  const isCJK = useMemo(
+    () => /^[぀-ヿ一-鿿가-힯]+$/.test(q.question.tokens.join("")),
+    [q.question.tokens],
+  );
+  // A released course pack (French, Italian) joins tokens the way it writes: the pack's narrow
+  // space before punctuation that takes one (French « ? »). Spanish and every other language keep
+  // the base join above.
   const pack = usePack(language);
-  const joinedPlaced = joinTokens(q.placed, pack);
+  const joinedPlaced = followsPackRules(pack)
+    ? joinTokens(q.placed, pack)
+    : isCJK
+      ? q.placed.join("")
+      : q.placed.join(" ");
 
   return (
     <div className="rounded-2xl border border-border/60 bg-card/40 p-6">

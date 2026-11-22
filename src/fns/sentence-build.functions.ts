@@ -9,6 +9,7 @@ import type { CefrLevel } from "./grammar.functions";
 import { checkSentenceBuildQuestion } from "@/lib/sentence-build-core";
 import { packFor, type LanguagePack } from "@/data/language-packs/registry";
 import { appData } from "@/data/language-packs/app-data";
+import { followsPackRules } from "@/data/language-packs/pack-rules";
 
 // Levels, the question shape and its checks live in src/lib/sentence-build-core.ts, shared with
 // the trade-pack loader and generator.
@@ -21,6 +22,21 @@ const Input = z.object({
   avoid: z.array(z.string().min(1).max(200)).max(20).optional(),
   topic: z.string().min(1).max(200).optional(),
 });
+
+// The base prompt, unchanged for Spanish and every language that is not a released pack.
+const SYSTEM = `You are a precise sentence-builder drill author. You generate natural target-language sentences for adult language learners and decompose each sentence into ordered tokens. The learner gets the tokens shuffled and must reorder them.
+
+Rules — non-negotiable:
+1. The "targetSentence" must be natural, idiomatic, and grammatically complete in the target language. No textbook stiffness.
+2. "tokens" is the ENTIRE sentence split into discrete reorderable units. The unit IS what the user sees and drags:
+   - For Spanish/French/German/Italian/Portuguese/English: split on whitespace; keep punctuation attached to the word it follows (e.g. "Hola,"). Articles + nouns are SEPARATE tokens (so "el café" → ["el", "café"]).
+   - For Japanese: split into meaningful chunks (bunsetsu-like), e.g. "私は学生です" → ["私は", "学生", "です"]. Each chunk is one token.
+   - For Korean: split on natural spaces, e.g. "저는 학생입니다" → ["저는", "학생입니다"].
+3. Concatenating the "tokens" with single spaces (or no separator for Japanese; single spaces for Korean) MUST reproduce the sentence as a learner would expect to read it. Verify before responding.
+4. "scrambled" is "tokens" shuffled into a different order. It MUST be a permutation — same elements, different order. Do not include the correct order.
+5. "explanation" is ONE short English sentence calling out the most likely sticking point — word-order rule, agreement, particle placement, etc.
+6. Keep "topic" to 1-3 words (e.g. "morning routine", "asking directions", "ordering coffee").
+7. Always respond by calling the provided tool.`;
 
 /**
  * How a sentence is cut into tokens, and joined back, for this language: read from its pack
@@ -88,10 +104,10 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
         setResponseStatus(originError.status);
         return { data: null, error: originError.error };
       }
-      // Fail closed: a language without a pack has no tokenization rules to teach the model.
-      const pack = packFor(data.language);
-      if (!pack)
-        return { data: null, error: "Sentence builder is not available for this language." };
+      // Released course packs (French, Italian) get their own tokenization rules; Spanish and
+      // every other language keep the base prompt and message.
+      const packRules = packFor(data.language);
+      const pack = followsPackRules(packRules) ? packRules : null;
       const signal = AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]);
       const KEY = process.env.ANTHROPIC_API_KEY;
       if (!KEY) return { data: null, error: "AI is not configured" };
@@ -118,7 +134,7 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
         ? `\nDomain: the sentence MUST be one a "${data.topic}" practitioner would actually say — use domain-specific vocabulary.`
         : "";
 
-      const userMsg = `Generate ONE ${pack.name} sentence-builder question at CEFR ${cefr}.\n${lengthGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
+      const userMsg = `Generate ONE ${pack ? pack.name : data.language} sentence-builder question at CEFR ${cefr}.\n${lengthGuidance}${topicLine}${avoidLine}\n\nReturn the structured question via the tool.`;
 
       try {
         const client = new Anthropic({
@@ -134,7 +150,7 @@ export const generateSentenceBuilder = createServerFn({ method: "POST" })
             // the game. Sonnet is reliable here.
             model: "claude-haiku-5-5",
             max_tokens: 850,
-            system: systemPrompt(pack),
+            system: pack ? systemPrompt(pack) : SYSTEM,
             messages: [{ role: "user", content: userMsg }],
             tools: [
               {

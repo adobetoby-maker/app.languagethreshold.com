@@ -1,4 +1,5 @@
 import { PlaceDirectionsGame } from "@/components/games/PlaceDirectionsGame";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import {
   Trophy,
   Swords,
@@ -252,9 +253,15 @@ export function GamesHub() {
   const todays = daily.todaysGame();
   const completedToday = daily.isCompletedToday();
   const dailyBadge = daily.badge();
+  // French and Italian learners get the narrow-screen card layout (stats that fit at 375 px);
+  // every other learner keeps the Practice Lab layout as it has always been.
+  const fitLayout = catalogLessonPack(state.selectedLanguage) !== null;
 
   return (
-    <div data-games-hub="" className="mx-auto max-w-4xl space-y-3 pb-20 sm:space-y-6">
+    <div
+      data-games-hub=""
+      className={`mx-auto max-w-4xl space-y-3 sm:space-y-6${fitLayout ? " pb-20" : ""}`}
+    >
       <div>
         <h1 className="font-display text-2xl sm:text-3xl font-semibold">Practice Lab</h1>
         <p className="mt-1 text-sm text-muted-foreground">
@@ -368,10 +375,16 @@ export function GamesHub() {
                 </h3>
                 <p className="mt-1 text-xs leading-snug text-muted-foreground">{g.blurb}</p>
               </div>
-              <div className="mt-auto flex justify-between gap-1 border-t border-border/40 pt-3 sm:grid sm:grid-cols-3">
-                <MiniStat label="Best" value={stats.bestStreak} />
-                <MiniStat label="Perfect" value={stats.perfectRuns} />
-                <MiniStat label="Acc" value={`${acc}%`} />
+              <div
+                className={
+                  fitLayout
+                    ? "mt-auto flex justify-between gap-1 border-t border-border/40 pt-3 sm:grid sm:grid-cols-3"
+                    : "mt-auto grid grid-cols-3 gap-1 border-t border-border/40 pt-3"
+                }
+              >
+                <MiniStat label="Best" value={stats.bestStreak} fit={fitLayout} />
+                <MiniStat label="Perfect" value={stats.perfectRuns} fit={fitLayout} />
+                <MiniStat label="Acc" value={`${acc}%`} fit={fitLayout} />
               </div>
               <span className="inline-flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-all group-hover:bg-gold/20">
                 Play
@@ -516,10 +529,24 @@ function Stat({
   );
 }
 
-function MiniStat({ label, value }: { label: string; value: string | number }) {
+function MiniStat({
+  label,
+  value,
+  fit,
+}: {
+  label: string;
+  value: string | number;
+  fit: boolean;
+}) {
   return (
-    <div className="min-w-0">
-      <div className="whitespace-nowrap font-mono text-[8px] uppercase tracking-normal text-muted-foreground sm:tracking-[0.18em]">
+    <div className={fit ? "min-w-0" : undefined}>
+      <div
+        className={
+          fit
+            ? "whitespace-nowrap font-mono text-[8px] uppercase tracking-normal text-muted-foreground sm:tracking-[0.18em]"
+            : "font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground"
+        }
+      >
         {label}
       </div>
       <div className="font-display text-sm font-semibold text-foreground">{value}</div>

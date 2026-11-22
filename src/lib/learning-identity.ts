@@ -1,12 +1,13 @@
-import { packFor } from "../data/language-packs/registry.ts";
+import { isBundledPack, packFor } from "../data/language-packs/registry.ts";
 import { nativeLanguageCode } from "../data/languages.ts";
 
 /**
  * Stable lesson objective identity shared by practice, speaking and assessment mappings, for one
  * learning pair. A module id may repeat across languages (the French and Spanish catalogs both
- * have `orthopedics`), so the id carries the pair: `<target>.<native>.<module>.lesson.<n>`. A
- * language whose records predate packs (ids.legacyUnscopedStorage) keeps the unscoped id
- * `<module>.lesson.<n>` it has always stored, so its mastery and exam records keep matching.
+ * have `orthopedics`), so a language whose lessons come from its pack catalog (a bundled pack
+ * without legacy ids: French, Italian) carries the pair: `<target>.<native>.<module>.lesson.<n>`.
+ * Every other language (Spanish, Japanese, and the languages still on the legacy adapter) keeps
+ * the unscoped id `<module>.lesson.<n>` it has always stored, so its records keep matching.
  * An unregistered target throws (never another language's objective).
  */
 export function lessonObjectiveId(
@@ -26,7 +27,9 @@ export function lessonObjectiveId(
   const native = nativeLanguageCode(nativeLanguage) ?? packFor(nativeLanguage)?.code ?? null;
   if (!pack || !native) throw new Error("Invalid lesson identity.");
   const unscoped = `${moduleId}.lesson.${lessonNumber}`;
-  return pack.ids.legacyUnscopedStorage ? unscoped : `${pack.code}.${native}.${unscoped}`;
+  return isBundledPack(pack) && !pack.ids.legacyUnscopedStorage
+    ? `${pack.code}.${native}.${unscoped}`
+    : unscoped;
 }
 
 /** The module and lesson number of an objective id, scoped (`fr.en.<module>.lesson.<n>`) or not. */

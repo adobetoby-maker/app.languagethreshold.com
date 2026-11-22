@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { useServerFn } from "@tanstack/react-start";
 import {
   CheckCircle2,
@@ -295,13 +296,28 @@ function LevelPicker({
 }) {
   const accuracy =
     stats.totalAttempts === 0 ? 0 : Math.round((stats.totalCorrect / stats.totalAttempts) * 100);
+  // French and Italian learners get the narrow-screen level cards (text inside its card at 375 px);
+  // every other learner keeps the layout as it has always been.
+  const fit = catalogLessonPack(language) !== null;
   return (
     <div className="rounded-2xl border border-border/60 bg-card/30 p-5">
-      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+      <div
+        className={
+          fit
+            ? "mb-3 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1"
+            : "mb-3 flex items-baseline justify-between"
+        }
+      >
         <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           Difficulty · {language}
         </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <div
+          className={
+            fit
+              ? "flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
+              : "flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
+          }
+        >
           <span>
             Best <span className="text-foreground">{stats.bestStreak}</span>
           </span>
@@ -319,14 +335,31 @@ function LevelPicker({
             key={l}
             onClick={() => onPick(l)}
             data-active={selected === l}
-            className="min-w-0 rounded-xl border border-border/70 bg-background/40 p-2.5 text-left transition-all hover:border-gold/60 data-[active=true]:border-gold/80 data-[active=true]:bg-gold/[0.08] sm:p-3"
+            className={
+              fit
+                ? "min-w-0 rounded-xl border border-border/70 bg-background/40 p-2.5 text-left transition-all hover:border-gold/60 data-[active=true]:border-gold/80 data-[active=true]:bg-gold/[0.08] sm:p-3"
+                : "rounded-xl border border-border/70 bg-background/40 p-3 text-left transition-all hover:border-gold/60 data-[active=true]:border-gold/80 data-[active=true]:bg-gold/[0.08]"
+            }
           >
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold sm:tracking-[0.22em]">
+            <div
+              className={
+                fit
+                  ? "font-mono text-[10px] uppercase tracking-[0.12em] text-gold sm:tracking-[0.22em]"
+                  : "font-mono text-[10px] uppercase tracking-[0.22em] text-gold"
+              }
+            >
               {LEVEL_LABELS[l].name}
             </div>
-            <div lang="en" className="mt-1 hyphens-auto text-xs text-foreground/80 [overflow-wrap:anywhere]">
-              {LEVEL_LABELS[l].sub}
-            </div>
+            {fit ? (
+              <div
+                lang="en"
+                className="mt-1 hyphens-auto text-xs text-foreground/80 [overflow-wrap:anywhere]"
+              >
+                {LEVEL_LABELS[l].sub}
+              </div>
+            ) : (
+              <div className="mt-1 text-xs text-foreground/80">{LEVEL_LABELS[l].sub}</div>
+            )}
           </button>
         ))}
       </div>

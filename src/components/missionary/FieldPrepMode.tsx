@@ -17,8 +17,6 @@ import {
 import { toast } from "sonner";
 import { useApp } from "@/state/app-state";
 import { useSpeech } from "@/state/speech-state";
-import { accentRegionName } from "@/lib/speech-accents";
-import { packFor } from "@/data/language-packs/registry";
 import { speakRemote } from "@/lib/tts";
 import { usePracticeLifecycle } from "@/hooks/use-practice-lifecycle";
 import { useListeningSpeaker } from "@/hooks/use-listening-speaker";
@@ -49,34 +47,24 @@ interface FieldPrepMessage {
   createdAt: number;
 }
 
-// Mission-area names that stand for a region the area name does not spell out ("Iberia & France").
-const AREA_REGION_ALIASES: Record<string, string> = { iberia: "ES" };
-
-const foldName = (text: string) =>
-  text
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
-
-/**
- * BCP-47 locale for the language's pack, biased toward the mission area: the first accent whose
- * region the area name mentions ("Mexico" -> es-MX, "Brazil" -> pt-BR), otherwise the pack's
- * own variety tag. A language with no pack has no locale (voice and dictation are hidden).
- */
-function speechLocale(language: string, missionAreaName?: string): string | null {
-  const pack = packFor(language);
-  if (!pack) return null;
-  const area = foldName(missionAreaName ?? "");
-  const aliasRegions = Object.entries(AREA_REGION_ALIASES)
-    .filter(([word]) => area.includes(word))
-    .map(([, region]) => region);
-  const hit = pack.speech.accents.find((entry) => {
-    const region = entry.tag.split("-").at(-1)?.toUpperCase() ?? "";
-    if (aliasRegions.includes(region)) return true;
-    const name = foldName(accentRegionName(entry.tag));
-    return area.includes(name);
-  });
-  return hit?.tag ?? pack.variety.tag;
+// Maps Language → BCP-47 locale, biased toward the mission area's dialect
+function speechLocale(language: string, missionAreaName?: string): string {
+  if (language === "Spanish") {
+    const area = missionAreaName?.toLowerCase() ?? "";
+    if (area.includes("mexico")) return "es-MX";
+    if (area.includes("spain") || area.includes("iberia")) return "es-ES";
+    return "es-419";
+  }
+  const map: Record<string, string> = {
+    French: "fr-FR",
+    German: "de-DE",
+    Italian: "it-IT",
+    Japanese: "ja-JP",
+    Korean: "ko-KR",
+    Portuguese: missionAreaName?.toLowerCase().includes("brazil") ? "pt-BR" : "pt-PT",
+    English: "en-US",
+  };
+  return map[language] ?? "es-419";
 }
 
 export function FieldPrepMode() {

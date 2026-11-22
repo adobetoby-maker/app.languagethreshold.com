@@ -1,8 +1,7 @@
 import { useOverlayHistory } from "@/hooks/use-overlay-history";
-import { isCorrectGrammarAnswer } from "@/lib/grammar-quiz";
-import { packFor } from "@/data/language-packs/registry";
+import { isCorrectGrammarAnswer, normalizeGrammarAnswer as normalize } from "@/lib/grammar-quiz";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { specialCharacters } from "@/lib/language-pack-text";
-import { typedAccentMode } from "@/lib/lesson-practice";
 import { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import { useServerFn } from "@tanstack/react-start";
@@ -132,11 +131,13 @@ export function QuizCard({
   };
 
   const q = questions[idx];
-  const pack = packFor(state.selectedLanguage);
-  // Packs still on the pre-pack typing behaviour (model section 18 delta 2) keep their input as it
-  // was, without a letter row.
-  const specialChars = pack && typedAccentMode(pack) !== "legacy" ? specialCharacters(pack) : [];
-  const sameAnswer = (a: string, b: string) => (pack ? isCorrectGrammarAnswer(a, b, pack) : false);
+  // A language whose lessons come from its pack catalog (French, Italian) is graded by its pack's
+  // own normalization and gets its letter row. Every other language keeps the quiz as it has
+  // always been: lowercase, trimmed, edge punctuation only, and no letter row.
+  const pack = catalogLessonPack(state.selectedLanguage);
+  const specialChars = pack ? specialCharacters(pack) : [];
+  const sameAnswer = (a: string, b: string) =>
+    pack ? isCorrectGrammarAnswer(a, b, pack) : normalize(a) === normalize(b);
   const isCorrect = q ? sameAnswer(input, q.answer) : false;
 
   const submit = () => {

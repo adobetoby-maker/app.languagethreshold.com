@@ -153,6 +153,103 @@ export function catalogCurriculum(
   };
 }
 
+// ─── Course practice (grammar checks and ten-verb pattern models) ──────────────
+
+/** One exact cloze gap of a course lesson's check (the BasicsCheck shape). */
+export interface CatalogCheck {
+  prompt: string;
+  hint: string;
+  answer: string;
+  explanation: string;
+}
+
+/** A lesson's ten-verb pattern. `isImperative`: the forms are commands, for the persons listed. */
+export interface CatalogPattern {
+  id: string;
+  title: string;
+  isImperative: boolean;
+  verbs: { infinitive: string; native: string; forms: Record<string, string> }[];
+}
+
+/** The practice a catalog course lesson carries, as its Spanish twin's course lessons do. */
+export interface CatalogPractice {
+  checks: CatalogCheck[];
+  pattern?: CatalogPattern;
+}
+
+const text = (value: unknown): value is string => typeof value === "string" && value.trim() !== "";
+
+function practiceChecks(raw: unknown): CatalogCheck[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((entry) => {
+    const check = entry as Record<string, unknown>;
+    return check &&
+      text(check.prompt) &&
+      text(check.answer) &&
+      typeof check.hint === "string" &&
+      typeof check.explanation === "string"
+      ? [
+          {
+            prompt: check.prompt,
+            hint: check.hint,
+            answer: check.answer,
+            explanation: check.explanation,
+          },
+        ]
+      : [];
+  });
+}
+
+function practicePattern(raw: unknown): CatalogPattern | undefined {
+  const pattern = raw as Record<string, unknown> | null;
+  if (!pattern || !text(pattern.id) || !text(pattern.title) || !Array.isArray(pattern.verbs))
+    return undefined;
+  const verbs = pattern.verbs.flatMap((entry) => {
+    const verb = entry as Record<string, unknown>;
+    const forms = verb?.forms as Record<string, unknown> | undefined;
+    if (!verb || !text(verb.infinitive) || typeof verb.native !== "string" || !forms) return [];
+    const kept = Object.fromEntries(
+      Object.entries(forms).filter((pair): pair is [string, string] => text(pair[1])),
+    );
+    return Object.keys(kept).length > 0
+      ? [{ infinitive: verb.infinitive, native: verb.native, forms: kept }]
+      : [];
+  });
+  return verbs.length > 0
+    ? { id: pattern.id, title: pattern.title, isImperative: pattern.isImperative === true, verbs }
+    : undefined;
+}
+
+const practices = new Map<string, CatalogPractice[]>();
+
+function rememberPractice(key: string, module: CatalogModule, stage: CatalogStage): void {
+  practices.set(
+    key,
+    stageLessons(module, stage).map((lesson) => {
+      const practice: CatalogPractice = { checks: practiceChecks(lesson.grammarChecks) };
+      const pattern = practicePattern(lesson.conjugationPattern);
+      if (pattern) practice.pattern = pattern;
+      return practice;
+    }),
+  );
+}
+
+/**
+ * The grammar or cognate check and pattern models of a catalog course lesson (French 101, French
+ * Frequent Verbs, …, any stage), once its curriculum has loaded. Null for a language whose lessons
+ * do not come from its catalog, and for a lesson with no check.
+ */
+export function catalogLessonPractice(
+  moduleId: string,
+  lessonNumber: number,
+  language: string,
+): CatalogPractice | null {
+  const pack = catalogLessonPack(language);
+  if (!pack) return null;
+  const practice = practices.get(keyOf(pack, moduleId))?.[lessonNumber - 1];
+  return practice && practice.checks.length > 0 ? practice : null;
+}
+
 // ─── Registry for the synchronous getCurriculum() callers ─────────────────────
 
 const curricula = new Map<string, ModuleCurriculum | null>();
@@ -184,6 +281,7 @@ export function loadCatalogCurriculum(
   const promise = (async () => {
     const module = where ? await loadCatalogModule(pack, where.base) : null;
     const curriculum = module && where ? catalogCurriculum(module, where.stage, moduleId) : null;
+    if (module && where) rememberPractice(key, module, where.stage);
     // A failed fetch is not remembered (loadCatalogModule retries); a missing module is.
     if (curriculum || !where || module) curricula.set(key, curriculum);
     version += 1;

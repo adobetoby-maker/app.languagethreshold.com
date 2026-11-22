@@ -28,27 +28,20 @@ import { useOwnedPlayback } from "@/hooks/use-owned-speaker";
 import { useSiteVoice } from "@/hooks/use-site-voice";
 import { useSpeech } from "@/state/speech-state";
 import { accentRegionName } from "@/lib/speech-accents";
-import type { LanguagePack } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 
-// Preview sentences, keyed by pack code. A pack with none uses its own sound-check sentence
-// (pack.phrases.soundCheckSentence); a pack with neither previews nothing rather than "Hello".
-const PREVIEW_SAMPLES: Record<string, string> = {
+const SAMPLES: Record<string, string> = {
   es: "Hola, ¿cómo estás?",
   fr: "Bonjour, comment ça va ?",
   de: "Hallo, wie geht es dir?",
   it: "Ciao, come stai?",
   ja: "こんにちは、お元気ですか。",
-  zh: "你好，你好吗？",
   ko: "안녕하세요, 어떻게 지내세요?",
   pt: "Olá, como vai?",
   ps: "سلام، تاسو څنګه یاست؟",
   en: "Hello, how are you?",
 };
 
-function previewSample(pack: LanguagePack | null): string | null {
-  if (!pack) return null;
-  return PREVIEW_SAMPLES[pack.code] ?? (pack.phrases.soundCheckSentence.trim() || null);
-}
 
 export function VoicePicker({
   compact = false,
@@ -84,10 +77,12 @@ export function VoicePicker({
     () => googleVoices.find((voice) => voice.name === googlePreference?.voiceName) ?? null,
     [googlePreference?.voiceName, googleVoices],
   );
+  const family = accent.split("-")[0].toLowerCase();
+  const sample = SAMPLES[family] ?? "Hello";
+  // A language whose lessons come from its pack catalog (French, Italian) is named in the accent
+  // label and the iPhone voice note; every other language keeps the wording it has always had.
   const accentPack = packForVoiceLocale(accent);
-  const sample = previewSample(accentPack);
-  // "your learning language" when the accent belongs to no registered pack.
-  const languageName = accentPack?.name ?? "your learning language";
+  const catalogPack = accentPack ? catalogLessonPack(accentPack.code) : null;
   const normalizedSearch = voiceSearch.trim().toLocaleLowerCase();
   const visibleGoogleVoices = useMemo(
     () =>
@@ -142,12 +137,10 @@ export function VoicePicker({
   const previewDevice = (voice: SpeechSynthesisVoice) => {
     previewRef.current?.abort();
     previewRef.current = null;
-    if (!sample) return;
     speakDevice(sample, voice.lang, voice.voiceURI, rate);
   };
 
   const previewGoogle = async (voice: GoogleTtsVoice) => {
-    if (!sample) return;
     if (mountedPreviewScope.current !== previewScope || !user || !isCurrentUser(user.id)) return;
     const languageCode = voice.languageCodes[0];
     if (!languageCode) return;
@@ -270,7 +263,11 @@ export function VoicePicker({
             htmlFor="site-voice-accent"
             className="mb-1 block font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground"
           >
-            {accentPack ? `${accentPack.name} accent / region` : "Accent / region"}
+            {catalogPack
+              ? `${catalogPack.name} accent / region`
+              : family === "es"
+                ? "Spanish accent / region"
+                : "Accent / region"}
           </label>
           <select
             id="site-voice-accent"
@@ -357,7 +354,7 @@ export function VoicePicker({
             ) : null}
             <p className="mt-2 text-muted-foreground">
               For an offline option, open iPhone Settings → Accessibility → Read &amp; Speak →
-              Voices → {languageName}. Download an Enhanced voice over Wi-Fi if offered, then reopen
+              Voices → {catalogPack?.name ?? "Spanish"}. Download an Enhanced voice over Wi-Fi if offered, then reopen
               this page and preview it.
             </p>
             <a

@@ -139,7 +139,7 @@ export function FreeSpanishExams({
       <div>
         <h1 className="font-serif text-3xl">Free {languageName} placement test</h1>
         <p className="mt-3">
-          Test your skills and get an estimated starting lesson. Choose {defaultCourseName} for general
+          Test your skills and get an estimated starting lesson. Choose {defaultCourseName} for general{" "}
           {languageName}, or a module for the language you use at work and in daily life.
         </p>
         <p className="mt-2 font-semibold">

@@ -14,7 +14,7 @@ import { spanishBasicsLesson } from "@/data/spanish-basics";
 import { japaneseBasicsLesson } from "@/data/japanese-basics";
 import { onrampFor, isDefaultCourse } from "@/lib/language-onramp";
 import { moduleBaseId } from "@/lib/module-order";
-import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
+import { catalogLessonPack, catalogLessonPractice } from "@/data/language-packs/catalog-lessons";
 import { usePack } from "@/hooks/use-language-pack";
 import { packFor, sameLanguage } from "@/data/language-packs/registry";
 import { appData } from "@/data/language-packs/app-data";
@@ -827,8 +827,11 @@ function OwnedLessonRunner({
     state.selectedLanguage,
     state.nativeLanguage,
   );
-  const coursePractice = basics ?? japanese;
-  const grammar = coursePractice?.grammar ?? lesson.grammar;
+  // French and Italian course lessons (French 101 … Cognates) carry the same check and pattern
+  // models in their catalog; null for every other language.
+  const catalogPractice = catalogLessonPractice(moduleId, lesson.n, state.selectedLanguage);
+  const coursePractice = basics ?? japanese ?? catalogPractice;
+  const grammar = (basics ?? japanese)?.grammar ?? lesson.grammar;
   const [grammarPassed, setGrammarPassed] = useState(false);
   const [marking, setMarking] = useState(false);
   // In-flight guard: a completion (team post + counter + chain) must never run twice at once.
@@ -1615,6 +1618,13 @@ function OwnedLessonRunner({
               />
             )}
             {basics?.pattern && <SpanishPatternModels pattern={basics.pattern} />}
+            {catalogPractice?.pattern && (
+              <SpanishPatternModels
+                pattern={catalogPractice.pattern}
+                lang={packFor(state.selectedLanguage)?.code ?? "es"}
+                imperative={catalogPractice.pattern.isImperative}
+              />
+            )}
             {basics && verbs.length > 0 && (
               <LessonVerbGames
                 key={`${moduleId}:${lesson.n}`}
@@ -1836,7 +1846,12 @@ function OwnedLessonRunner({
       >
         {coursePractice && (!masteredAt || needsPractice) && (
           <BasicsCheck
-            topic={moduleId.includes("spanish-cognates") ? "Cognate" : "Grammar"}
+            topic={
+              moduleId.includes("spanish-cognates") ||
+              (catalogPractice && /-cognates(-[a-z]{2,3})?$/.test(moduleId))
+                ? "Cognate"
+                : "Grammar"
+            }
             language={state.selectedLanguage}
             checks={coursePractice.checks}
             onPassed={() => setGrammarPassed(true)}
@@ -1890,7 +1905,7 @@ function OwnedLessonRunner({
               {needsPractice ? "I've mastered it again" : "I've mastered this lesson"}
             </button>
             <p className="mt-2 text-center text-[11px] text-white/40">
-              {basics
+              {basics || catalogPractice
                 ? "Complete the grammar check, then confirm you can use the lesson. Opened steps alone do not establish mastery."
                 : "Only you decide this. Opened steps are recorded automatically."}
             </p>

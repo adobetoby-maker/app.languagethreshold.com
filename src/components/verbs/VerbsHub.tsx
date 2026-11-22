@@ -3,7 +3,7 @@ import { Repeat2, Clock3, Volume2 } from "lucide-react";
 import { useApp } from "@/state/app-state";
 import { packFor, sameLanguage } from "@/data/language-packs/registry";
 import { hasVerbPatterns } from "@/lib/verb-games/load-patterns";
-import { SPEAKING_PATTERNS } from "@/lib/verb-speaking-practice";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { useVerbHabit } from "@/hooks/use-verb-habit";
 import { SpeakingPatternPractice } from "./SpeakingPatternPractice";
 import { FINISH_STUDY_EVENT } from "./VerbHabitSettings";
@@ -41,11 +41,9 @@ export function VerbsHub() {
   // pack's own native default; every other pair keeps only the generic drills.
   const pack = packFor(state.selectedLanguage);
   const supported = hasVerbPatterns(pack) && sameLanguage(state.nativeLanguage, pack.native.default);
-  const frameSamples = [0, 7, 9]
-    .map((i) => SPEAKING_PATTERNS[i]?.frame)
-    .filter(Boolean)
-    .map((frame) => `${frame}…`)
-    .join(" ");
+  // A learner whose lessons come from a pack catalog (French, Italian) reads copy that names no
+  // other language; every other learner reads the copy the hub has always shown.
+  const catalogPack = catalogLessonPack(state.selectedLanguage);
   useEffect(() => {
     const read = () => {
       const p = new URLSearchParams(window.location.search),
@@ -141,14 +139,21 @@ export function VerbsHub() {
           </button>
         ))}
       </nav>
-      {!supported && (
-        <p className="rounded-xl border p-4">
-          The authored ten-minute games and shortcut drills are not available in{" "}
-          {state.selectedLanguage} yet. Use the conjugation drills and the pattern library for{" "}
-          {state.selectedLanguage}.
-        </p>
-      )}
-      {supported && area === "daily" && (
+      {!supported &&
+        (catalogPack ? (
+          <p className="rounded-xl border p-4">
+            The authored ten-minute games and shortcut drills are not available in{" "}
+            {state.selectedLanguage} yet. Use the conjugation drills and the pattern library for{" "}
+            {state.selectedLanguage}.
+          </p>
+        ) : (
+          <p className="rounded-xl border p-4">
+            Your selected language is {state.selectedLanguage}. The authored ten-minute games and
+            shortcut drills here currently cover Spanish with English support. Use the conjugation
+            drills and available pattern library for your selected language.
+          </p>
+        ))}
+      {area === "daily" && (
         <section className="space-y-4">
           <h2 className="font-display text-2xl">Your daily verb habit</h2>
           <div className="grid gap-3 md:grid-cols-3">
@@ -169,7 +174,9 @@ export function VerbsHub() {
                 area: "patterns" as Area,
                 time: "4 minutes",
                 title: "Make it speakable",
-                copy: `${frameSamples} Useful frames with ten verbs each.`,
+                copy: catalogPack
+                  ? "Useful frames with ten verbs each."
+                  : "Tengo que… Estoy hablando… He hecho… Useful frames with ten verbs each.",
               },
             ].map((p) => (
               <button

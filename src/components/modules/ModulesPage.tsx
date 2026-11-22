@@ -4,7 +4,7 @@ import { Search, Sparkles, CheckCircle2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useApp } from "@/state/app-state";
 import { useSubscription } from "@/state/subscription-state";
-import { MODULES, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
+import { MODULES, moduleBlurbFor, moduleSupportsLearningPair, type AppModule } from "@/data/modules";
 import type { TabKey } from "@/state/app-state";
 import { moduleLearningPaths, type ModuleLearningPath } from "@/lib/module-order";
 import { ModuleLearningStages } from "./ModuleLearningStages";
@@ -73,6 +73,7 @@ function ModuleCard({
   onSelectStage,
   onStudyCards,
 }: ModuleCardProps) {
+  const { state } = useApp();
   const meta = CATEGORY_META[module.category];
   const topVocab = module.vocabFocus.slice(0, 5);
 
@@ -118,7 +119,9 @@ function ModuleCard({
       </p>
 
       {/* Blurb */}
-      <p className="mb-4 flex-1 text-xs leading-relaxed text-foreground/75">{module.blurb}</p>
+      <p className="mb-4 flex-1 text-xs leading-relaxed text-foreground/75">
+        {moduleBlurbFor(module, state.selectedLanguage)}
+      </p>
 
       {/* Vocab focus chips */}
       <div className="mb-4 flex flex-wrap gap-1">

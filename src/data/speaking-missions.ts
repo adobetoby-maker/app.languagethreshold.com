@@ -26,11 +26,11 @@ import {
 } from "./core-speaking.ts";
 import { isFoundationModule, isMasterModule } from "../lib/core30-plan.ts";
 import { lessonObjectiveId } from "../lib/learning-identity.ts";
-import { PACKS, packFor } from "./language-packs/registry.ts";
+import { packFor } from "./language-packs/registry.ts";
+import { catalogLessonPack } from "./language-packs/catalog-lessons.ts";
 import { appData, type MissionLines } from "./language-packs/app-data.ts";
 import { LANGUAGES, nativeLanguageName } from "./languages.ts";
 import { packOffersSpeakingMissions } from "../lib/speaking-review.ts";
-import { lessonWordForm } from "../lib/speaking-lesson-words.ts";
 import { getPatternsForLanguage } from "./grammar-patterns.ts";
 import { moduleTeachingSettings } from "./module-teaching.ts";
 import type { LessonTeachingSettings } from "../lib/teaching-settings.ts";
@@ -622,17 +622,28 @@ function quotesLanguageText(text: string, language: string): boolean {
   return marks.some((mark) => lower.includes(mark.toLocaleLowerCase()));
 }
 
-/** "Spanish|Italian|…": every registered language name, for rewriting "in <language>" phrases. */
-const LANGUAGE_NAME_PATTERN = PACKS.map((pack) => pack.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+/** The language names mission text is rewritten from ("in Spanish" → "in Italian"), as always. */
+const PROJECTED_LANGUAGE_NAMES = "Spanish|Italian|Japanese|Chinese|Portuguese|English";
 
 function projectTextForLanguage(text: string, language: SpeakingMissionLanguage): string {
-  return text
-    .replace(new RegExp(`\\b(?:${LANGUAGE_NAME_PATTERN})-speaking\\b`, "g"), `${language}-speaking`)
-    .replace(new RegExp(`\\bin (?:${LANGUAGE_NAME_PATTERN})\\b`, "g"), `in ${language}`)
+  const projected = text
     .replace(
-      new RegExp(`\\bwithout (?:${LANGUAGE_NAME_PATTERN})\\b`, "g"),
+      new RegExp(`\\b(?:${PROJECTED_LANGUAGE_NAMES})-speaking\\b`, "g"),
+      `${language}-speaking`,
+    )
+    .replace(new RegExp(`\\bin (?:${PROJECTED_LANGUAGE_NAMES})\\b`, "g"), `in ${language}`)
+    .replace(
+      new RegExp(`\\bwithout (?:${PROJECTED_LANGUAGE_NAMES})\\b`, "g"),
       `without switching away from ${language}`,
     );
+  // A learner whose lessons come from a pack catalog (French, Italian) never reads another
+  // language named beside theirs ("in Italian or Spanish" → "in Italian").
+  return catalogLessonPack(language)
+    ? projected.replace(
+        new RegExp(`\\bin ${language}(?: or (?:${PROJECTED_LANGUAGE_NAMES}))+\\b`, "g"),
+        `in ${language}`,
+      )
+    : projected;
 }
 
 function partnerRoleFor(module: AppModule, language: SpeakingMissionLanguage): string {
@@ -990,12 +1001,12 @@ const LESSON_MISSION_VOCABULARY_CAP = 12;
 const MASTER_MISSION_VOCABULARY_CAP = 24;
 
 // A lesson that carries its own word list drills those exact words in its mission: terms first,
-// then phrases, capped at 12 (24 for a Master lesson). Lesson words exist in two columns only
-// (lessonWordForm); a mission in any other language keeps the headwords module.vocabFocus already uses.
+// then phrases, capped at 12 (24 for a Master lesson). lessonVocabularyForm picks the column.
 function lessonMissionVocabulary(
   module: AppModule,
   lesson: Lesson,
   language: SpeakingMissionLanguage,
+  projectedFrom: string | null,
 ): string[] {
   const words = lesson.words;
   if (!words || words.length === 0) return module.vocabFocus.slice(0, 8);
@@ -1009,17 +1020,32 @@ function lessonMissionVocabulary(
   const seen = new Set<string>();
   const out: string[] = [];
   for (const word of ordered) {
-    // A language with no lesson-word column (and a module that names a different authored pair)
-    // gets no form here: it never shows the other side as its own words.
-    const form = lessonWordForm(module, language, word)?.trim();
-    if (!form) continue;
+    const form = lessonVocabularyForm(module, language, word, projectedFrom);
     const key = form.toLocaleLowerCase();
-    if (seen.has(key)) continue;
+    if (!form || seen.has(key)) continue;
     seen.add(key);
     out.push(form);
     if (out.length >= cap) break;
   }
   return out.length > 0 ? out : module.vocabFocus.slice(0, 8);
+}
+
+/**
+ * The form of a lesson word a mission in `language` drills. A catalog-pack language (French,
+ * Italian) shows the target column of its own catalog lesson. Every other lesson is read by its
+ * authored columns as it always has: the target column when the mission's language is the
+ * module's authored target, else the meaning column (English headwords, never another language).
+ */
+function lessonVocabularyForm(
+  module: AppModule,
+  language: SpeakingMissionLanguage,
+  word: NonNullable<Lesson["words"]>[number],
+  projectedFrom: string | null,
+): string {
+  if (catalogLessonPack(language) && !projectedFrom) return word.es.trim();
+  const authoredTarget =
+    module.authoredPair?.target ?? (module.learnDirection === "en-target" ? "English" : "Spanish");
+  return (language === authoredTarget ? word.es : word.en).trim();
 }
 
 /** The native language a mission in `language` explains in by default: the pack's native.default. */
@@ -1046,16 +1072,30 @@ function missionFromLesson(
   projectedFrom: string | null = null,
 ): SpeakingMission {
   const stableBase = `${module.id}_lesson_${lesson.n}_${languageCode}`;
+  // A catalog-pack language (French, Italian) explains in its pack's default native; every other
+  // language keeps the natives its missions have always been built with.
+  const catalog = catalogLessonPack(language) !== null;
   const nativeDefault = defaultNativeFor(language);
-  const teaching = moduleTeachingSettings(module.id, lesson.n, language, nativeDefault);
-  const cleaning = orCleaningLesson(module.id, lesson.n, language, nativeDefault);
-  const interest = interestLesson(module.id, lesson.n, language, nativeDefault);
+  const helperNative = catalog ? nativeDefault : "English";
+  const teaching = moduleTeachingSettings(
+    module.id,
+    lesson.n,
+    language,
+    catalog ? nativeDefault : module.learnDirection === "en-target" ? "Spanish" : "English",
+  );
+  const cleaning = orCleaningLesson(
+    module.id,
+    lesson.n,
+    language,
+    catalog ? nativeDefault : language === "English" ? "Spanish" : "English",
+  );
+  const interest = interestLesson(module.id, lesson.n, language, helperNative);
   const military = language === "English" ? militaryLessonPractice(module.id, lesson.n) : null;
   const basics =
-    spanishBasicsLesson(module.id, lesson.n, language, nativeDefault) ??
-    japaneseBasicsLesson(module.id, lesson.n, language, nativeDefault);
-  const place = placeLesson(module.id, lesson.n, language, nativeDefault);
-  const sound = soundLesson(module.id, lesson.n, language, nativeDefault);
+    spanishBasicsLesson(module.id, lesson.n, language, helperNative) ??
+    japaneseBasicsLesson(module.id, lesson.n, language, helperNative);
+  const place = placeLesson(module.id, lesson.n, language, helperNative);
+  const sound = soundLesson(module.id, lesson.n, language, helperNative);
   const projectedTitle = projectTextForLanguage(lesson.title, language);
   const projectedObjective = projectTextForLanguage(lesson.objective, language);
   // A scenario projected from another language's lesson keeps only steps that quote none of that
@@ -1111,7 +1151,7 @@ function missionFromLesson(
     targetMinutes: 12,
     language,
     locale,
-    vocabulary: lessonMissionVocabulary(module, lesson, language),
+    vocabulary: lessonMissionVocabulary(module, lesson, language, projectedFrom),
     sourcePrompts: sound
       ? [
           ...projectedSteps,
@@ -1469,13 +1509,18 @@ function buildSpeakingMissions(language: SpeakingMissionLanguage) {
         challengeIndex,
       ),
     );
-    // getCurriculum includes data-driven Core 60 stages once their curriculum has loaded. A module
-    // with no curriculum in this language offers its lesson scenarios projected from its own
-    // authored pair (titles and objectives are situations, not language), with every step that
+    // getCurriculum includes data-driven Core 60 stages once their curriculum has loaded. Every
+    // language reads a module's authored curriculum, as it always has; a language whose lessons
+    // come from its pack catalog (French, Italian) reads its own catalog lessons first, and a
+    // module with none offers its scenarios projected from the authored pair with every step that
     // quotes the authored language's words removed.
-    const own = getCurriculum(module.id, language, defaultNativeFor(language));
-    const projectedFrom = own ? null : (moduleAuthoredPair(module.id)?.target ?? null);
-    const curriculum = own ?? (projectedFrom ? authoredCurriculum(module.id) : null);
+    const catalog = catalogLessonPack(language) !== null;
+    const own = catalog ? getCurriculum(module.id, language, defaultNativeFor(language)) : null;
+    const projectedFrom =
+      catalog && !own ? (moduleAuthoredPair(module.id)?.target ?? null) : null;
+    const curriculum = catalog
+      ? (own ?? (projectedFrom ? authoredCurriculum(module.id) : null))
+      : authoredCurriculum(module.id);
     const lessonMissions = (curriculum?.lessons ?? []).map((lesson) =>
       missionFromLesson(module, module.category, language, code, locale, lesson, projectedFrom),
     );

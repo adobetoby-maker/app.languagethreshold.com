@@ -243,8 +243,8 @@ export function masterComplicationRule(language: string): string {
 }
 
 /** The patient A1 rule a Foundation persona adds to its trade's persona. */
-export function foundationBeginnerRule(language: string, nativeLanguage: string): string {
-  return `The learner is a true beginner: be patient and speak simple, slow A1 ${language} in short sentences with common words from this work. Offer ${nativeLanguage} help only when the learner is stuck, then return to ${language} right away.`;
+export function foundationBeginnerRule(language: string): string {
+  return `The learner is a true beginner: be patient and speak simple, slow A1 ${language} in short sentences with common words from this work. Offer English help only when the learner is stuck, then return to ${language} right away.`;
 }
 
 /**
@@ -273,7 +273,7 @@ export function deriveStageModule(
     priceCents: foundation ? 0 : base.priceCents,
     languages: [language as NonNullable<AppModule["languages"]>[number]],
     aiPersona: foundation
-      ? `${base.aiPersona} ${foundationBeginnerRule(language, entryNativeLanguage(entry) ?? "their own language")}`
+      ? `${base.aiPersona} ${foundationBeginnerRule(language)}`
       : `${base.aiPersona} Speak natural B1-B2 ${language}. ${masterComplicationRule(language)}`,
     userRole:
       own.userRole ??

@@ -1,10 +1,10 @@
 import { LearningEntryModal } from "./LearningEntryModal";
 import { useState } from "react";
 import { Sparkle, ArrowRight, Check } from "lucide-react";
-import { useApp, type Language, type Level, type NativeLanguage } from "@/state/app-state";
+import { useApp, type Language, type Level } from "@/state/app-state";
 import { cn } from "@/lib/utils";
-import { languageOptions, nativeChoicesFor, needsNativeQuestion } from "@/lib/language-menu";
-import { packFor } from "@/data/language-packs/registry";
+import { languageOptions, nativeOnPick } from "@/lib/language-menu";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 
 const FIELD_PREP_IDS = new Set([
   "orthopedics",
@@ -98,10 +98,16 @@ const LEVELS: { value: Level; label: string; sub: string }[] = [
   { value: "Advanced", label: "Advanced", sub: "I speak well but want to refine" },
 ];
 
-/** True when the language's pack ships speaking missions (Core Speaking is ready for it). */
+/**
+ * True when the onboarding summary may say Core Speaking is ready: the languages it has always
+ * named, and a language whose lessons come from its pack catalog when its pack ships missions.
+ */
 function hasCoreSpeaking(language: Language | null): boolean {
-  const pack = packFor(language);
-  return Boolean(pack?.features.speakingMissions);
+  if (!language) return false;
+  const catalogPack = catalogLessonPack(language);
+  return catalogPack
+    ? Boolean(catalogPack.features.speakingMissions)
+    : ["Spanish", "Italian", "Japanese", "English"].includes(language);
 }
 
 export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
@@ -111,38 +117,19 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   // the "Spanish" default. DUO-002 P0-4.
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [language, setLanguage] = useState<Language | null>(null);
-  // The learner's own answer when the chosen course is not explained in their current native.
-  const [native, setNative] = useState<NativeLanguage | null>(null);
-  const [askNative, setAskNative] = useState(false);
   const [level, setLevel] = useState<Level | null>(null);
   const [levelLabel, setLevelLabel] = useState<string>("");
   const [professionId, setProfessionId] = useState<string | null>(undefined as unknown as null);
   const [professionLabel, setProfessionLabel] = useState<string>("");
 
-  // The native the learner chose for a course not explained in their current native language
-  // (never inferred from the target).
-  function applyNativeDefault() {
+  // The native language a pick sets silently (language-menu.ts nativeOnPick), as English always has.
+  function applyNativeOnPick() {
+    const native = language ? nativeOnPick(language, state.nativeLanguage) : null;
     if (native) dispatch({ type: "SET_NATIVE_LANGUAGE", payload: native });
-  }
-
-  /** True when the learner's course explains in a native other than the one they started with. */
-  function pairsWithOtherNative(): boolean {
-    return Boolean(native && native !== state.nativeLanguage);
   }
 
   function pickLanguage(l: Language) {
     setLanguage(l);
-    setNative(null);
-    if (needsNativeQuestion(l, state.nativeLanguage)) {
-      setAskNative(true);
-      return;
-    }
-    setStep(2);
-  }
-
-  function pickNative(n: NativeLanguage) {
-    setNative(n);
-    setAskNative(false);
     setStep(2);
   }
 
@@ -161,16 +148,14 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function finish() {
     // Language first — the Reader's passage selection keys off it.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
-    applyNativeDefault();
+    applyNativeOnPick();
     if (level) dispatch({ type: "SET_LEVEL", payload: level });
     if (professionId) {
       dispatch({ type: "PURCHASE_MODULE", payload: professionId });
       dispatch({ type: "SET_ACTIVE_MODULE", payload: professionId });
     }
     dispatch({ type: "COMPLETE_ONBOARDING" });
-    if (pairsWithOtherNative()) {
-      // The course explains in another native language by default (an English-as-target course):
-      // profession tabs are not authored for it, so start in the Reader.
+    if (language === "English") {
       dispatch({ type: "SET_TAB", payload: "reader" });
     } else if (professionId === "lds-missionary") {
       dispatch({ type: "SET_TAB", payload: "discussions" });
@@ -189,7 +174,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
   function skip() {
     // Preserve a language picked before the learner bailed out of setup.
     if (language) dispatch({ type: "SET_LANGUAGE", payload: language });
-    applyNativeDefault();
+    applyNativeOnPick();
     dispatch({ type: "COMPLETE_ONBOARDING" });
     dispatch({ type: "SET_TAB", payload: "reader" });
     onClose?.();
@@ -236,27 +221,7 @@ export function OnboardingWizard({ onClose }: { onClose?: () => void }) {
           {/* Step 1 — Language. Asked first: the Reader text, Tutor context and
               vocab gate all key off it. Previously never asked, which left every
               learner on the Spanish default regardless of intent. */}
-          {step === 1 && askNative && language && (
-            <div data-testid="native-question">
-              <h2 className="text-xl font-semibold mb-1">What is your native language?</h2>
-              <p className="text-sm text-muted-foreground mb-4">
-                {language} lessons are explained in your own language. Choose it.
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {nativeChoicesFor(language).map((choice) => (
-                  <button
-                    key={choice}
-                    type="button"
-                    onClick={() => pickNative(choice)}
-                    className="cursor-pointer rounded-xl border border-border/60 bg-background/40 p-3 text-left text-sm font-medium transition-colors hover:border-gold/60 hover:bg-gold/[0.06]"
-                  >
-                    {choice}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-          {step === 1 && !askNative && (
+          {step === 1 && (
             <>
               <h2 className="text-xl font-semibold mb-1">What are you learning?</h2>
               <p className="text-sm text-muted-foreground mb-4">

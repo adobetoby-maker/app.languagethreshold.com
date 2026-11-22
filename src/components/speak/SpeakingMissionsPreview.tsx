@@ -34,7 +34,7 @@ import {
   X,
 } from "lucide-react";
 import { isMissionTtsSpeed, type MissionPartnerVersion } from "@/data/mission-tts";
-import { packFor, sameLanguage } from "@/data/language-packs/registry";
+import { packFor } from "@/data/language-packs/registry";
 import { appData } from "@/data/language-packs/app-data";
 import { isSpeakingMissionLanguageEnabled, speakingAwaitsReview } from "@/lib/speaking-review";
 import {
@@ -309,8 +309,9 @@ export function SpeakingMissionsPreview({
   const enabledSpeakingNames = SPEAKING_LANGUAGES.filter((entry) =>
     isSpeakingMissionLanguageEnabled(entry.language, import.meta.env),
   ).map((entry) => entry.language);
-  // A language cannot also be the learner's native coaching language.
-  const sameLanguagePair = sameLanguage(appState.selectedLanguage, appState.nativeLanguage);
+  // English cannot also be the learner's native coaching language.
+  const sameLanguagePair =
+    appState.selectedLanguage === "English" && appState.nativeLanguage === "English";
   const hasValidLanguagePair = !sameLanguagePair;
   const missionLanguage =
     enabledSpeakingNames.some((name) => name === appState.selectedLanguage) && hasValidLanguagePair
@@ -1370,10 +1371,6 @@ export function SpeakingMissionsPreview({
   if (!selectedMission) {
     if (!missionLanguage) {
       const awaitingReviewNow = awaitingReview;
-      const liveLanguages = new Intl.ListFormat("en", {
-        style: "long",
-        type: "conjunction",
-      }).format(enabledSpeakingNames);
       return (
         <section
           ref={viewTopRef}
@@ -1386,15 +1383,15 @@ export function SpeakingMissionsPreview({
             {awaitingReviewNow
               ? `${appState.selectedLanguage} missions are awaiting curriculum review`
               : sameLanguagePair
-                ? `Choose your native language to study ${appState.selectedLanguage}`
+                ? "Choose your native language to study English"
                 : `${appState.selectedLanguage} missions are next in the rollout`}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {awaitingReviewNow
-              ? `The ${appState.selectedLanguage} catalog is built but remains hidden until its curriculum review flag is approved. ${liveLanguages} missions can be used now.`
+              ? `The ${appState.selectedLanguage} catalog is built but remains hidden until its curriculum review flag is approved. Spanish, Italian, and English missions can be used now.`
               : sameLanguagePair
-                ? `${appState.selectedLanguage} cannot also be your native coaching language. Choose your actual native language from the native-language menu, then return here for the complete ${appState.selectedLanguage} catalog.`
-                : `The complete topic catalog is currently available for ${liveLanguages}. Choose one of those languages from the language menu to practice its full set.`}
+                ? "English cannot also be your native coaching language. Choose your actual native language from the native-language menu, then return here for the complete English catalog."
+                : "The complete topic catalog is currently available for Spanish, Italian, and English. Choose one of those languages from the language menu to practice its full set."}
           </p>
         </section>
       );

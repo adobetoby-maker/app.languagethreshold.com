@@ -7,6 +7,7 @@ import { withSpeakingProvider, SpeakingProviderError } from "../lib/speaking-pro
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { packFor } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { NATIVE_LANGUAGES, nativeLanguageName, type NativeLanguage } from "@/data/languages";
 import { readPrivateJson, PrivateJsonRequestError } from "../lib/private-json-request";
 import { withSpeechPreflight, SpeechPreflightError } from "../lib/speech-preflight";
@@ -350,12 +351,13 @@ export const Route = createFileRoute("/api/speak")({
           });
         }
 
-        // No native language sent: the target pack's own default (never a fixed language).
+        // No native language sent: English, as always. A language whose lessons come from its
+        // pack catalog (French, Italian) uses its pack's default native instead.
         const nativeLanguage =
-          payload.nativeLanguage ?? nativeLanguageName(packFor(payload.language)?.native.default);
-        if (!nativeLanguage) {
-          return Response.json({ error: "Choose a native language." }, { status: 400 });
-        }
+          payload.nativeLanguage ??
+          (catalogLessonPack(payload.language)
+            ? (nativeLanguageName(packFor(payload.language)?.native.default) ?? "English")
+            : "English");
 
         if (nativeLanguage === payload.language) {
           return new Response(

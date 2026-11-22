@@ -6,7 +6,8 @@
 
 import { getModule } from "@/data/modules";
 import { nativeLanguageName } from "@/data/languages";
-import { packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { historicalCoursePack, packFor, type LanguagePack } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { moduleBaseId } from "@/lib/module-order";
 
 export interface OnrampCourse {
@@ -40,10 +41,15 @@ function foundationId(pack: LanguagePack, base: string): string {
   return pack.ids.legacyUnscopedStorage ? `foundation-${base}` : `foundation-${base}-${pack.code}`;
 }
 
-/** The on-ramp for a learning pair, or null when the pack declares none for that native language. */
+/**
+ * The on-ramp for a learning pair, or null when the pack declares none for that native language.
+ * Only the historical course (Spanish) and the languages whose lessons come from their pack catalog
+ * (French, Italian) have one; every other language keeps the generic library line it always had.
+ */
 export function onrampFor(target: string, native: string): Onramp | null {
   const pack = packFor(target);
   if (!pack || !pack.library.defaultModule || pack.library.coreBasics.length === 0) return null;
+  if (pack !== historicalCoursePack() && !catalogLessonPack(pack.code)) return null;
   if (native !== nativeLanguageName(pack.native.default)) return null;
   const course = (id: string): OnrampCourse | null => {
     const stage = foundationId(pack, id);

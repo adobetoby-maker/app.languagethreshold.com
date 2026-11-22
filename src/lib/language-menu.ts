@@ -7,8 +7,10 @@ import {
   listedPacks,
   packFor,
   sameLanguage,
+  workplaceCoursePack,
   type LanguagePack,
 } from "@/data/language-packs/registry";
+import { catalogLessonPack } from "@/data/language-packs/catalog-lessons";
 import { nativeLanguageName, type Language, type NativeLanguage } from "@/data/languages";
 import { appData } from "@/data/language-packs/app-data";
 
@@ -59,30 +61,33 @@ export function nativeAfterTargetChange(
   native: string | null | undefined,
 ): NativeLanguage | null {
   if (!target || !native || !sameLanguage(target, native)) return null;
+  // Only the workplace course (English) and the catalog-pack languages (French, Italian) switch;
+  // every other language leaves the setting as it always has.
+  const pack = packFor(target);
+  if (!pack) return null;
+  if (!sameLanguage(pack.code, workplaceCoursePack().code) && !catalogLessonPack(pack.code))
+    return null;
   const paired = defaultNativeFor(target);
   return paired && !sameLanguage(paired, native) ? paired : null;
 }
 
-/** The native (explanation) languages a target's course is written for (its pack's native.supported). */
-export function nativeChoicesFor(target: string | null | undefined): NativeLanguage[] {
-  const pack = packFor(target);
-  if (!pack) return [];
-  return pack.native.supported
-    .map((code) => nativeLanguageName(code))
-    .filter((name): name is NativeLanguage => name !== null && !sameLanguage(name, pack.code));
-}
-
 /**
- * True when picking `target` must ask the learner's native language: their current native is not
- * one the target's course is explained in (an English learner whose setting is still English).
- * The app never guesses it from the target (fail closed: ask).
+ * The native language to set silently when a learner picks `target` in a language chooser, or
+ * null to leave it. The workplace course (English) has always paired with its default native
+ * (Spanish). A language whose lessons come from its pack catalog (French, Italian) switches to its
+ * default native when the learner's current one is not a native its catalog is written for. Every
+ * other language leaves the setting as it is, as it always has.
  */
-export function needsNativeQuestion(
+export function nativeOnPick(
   target: string | null | undefined,
   currentNative: string | null | undefined,
-): boolean {
-  const choices = nativeChoicesFor(target);
-  return choices.length > 0 && !choices.some((choice) => choice === currentNative);
+): NativeLanguage | null {
+  const pack = packFor(target);
+  if (!pack) return null;
+  if (sameLanguage(pack.code, workplaceCoursePack().code)) return defaultNativeFor(pack.code);
+  if (!catalogLessonPack(pack.code)) return null;
+  const supported = pack.native.supported.some((code) => sameLanguage(code, currentNative));
+  return supported ? null : defaultNativeFor(pack.code);
 }
 
 /** True when the pack's script needs Character Studio (kanji / hanzi + radicals). */

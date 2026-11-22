@@ -8,7 +8,7 @@ import { FOUNDATION_ROOFING_MODULE_ID } from "./foundation-roofing-curriculum.ts
 import { MASTER_ROOFING_MODULE_ID } from "./master-roofing-curriculum.ts";
 import { core60FixtureModules, core60Manifest } from "./core60-stages.ts";
 import { withDerivedStageModules } from "../lib/core60-stage-core.ts";
-import { packFor, sameLanguage, workplaceCoursePack } from "./language-packs/registry.ts";
+import { PACKS, packFor, sameLanguage, workplaceCoursePack } from "./language-packs/registry.ts";
 import { catalogHasModule } from "./language-packs/catalog.ts";
 import { catalogLessonPack } from "./language-packs/catalog-lessons.ts";
 import {
@@ -458,7 +458,7 @@ const CATALOG: AppModule[] = [
     emoji: "🏠",
     category: "Trades",
     blurb:
-      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in the language you are learning.",
+      "Roofing materials, tear-off, installation calls, fall protection, quality checks, and crew closeout in English or Spanish.",
     priceCents: 999,
     languages: ["Spanish"],
     aiPersona:
@@ -1635,7 +1635,7 @@ const CATALOG: AppModule[] = [
     emoji: "🦿",
     category: "Medical",
     blurb:
-      "Exercise instruction, mobility assessments, pain scales, and home program teaching with patients in the language you are learning.",
+      "Exercise instruction, mobility assessments, pain scales, and home program teaching with patients in English or Spanish.",
     priceCents: 1999,
     aiPersona:
       "You are a patient recovering from surgery or injury, speaking the learner's target language. Ask realistic questions about your exercises, pain, and limitations.",
@@ -1666,7 +1666,7 @@ const CATALOG: AppModule[] = [
     emoji: "📋",
     category: "Medical",
     blurb:
-      "Scheduling, insurance verification, intake forms, copays, and front-desk communication with patients in the language you are learning.",
+      "Scheduling, insurance verification, intake forms, copays, and front-desk communication with patients in English or Spanish.",
     priceCents: 999,
     aiPersona:
       "You are a patient speaking the learner's target language, calling to schedule an appointment or arriving at the front desk. You have questions about your insurance, copay, and forms.",
@@ -1697,7 +1697,7 @@ const CATALOG: AppModule[] = [
     emoji: "🤝",
     category: "Medical",
     blurb:
-      "Discharge planning, housing resources, mental health screening, and connecting patients with community services in the language you are learning.",
+      "Discharge planning, housing resources, mental health screening, and connecting patients with community services in English or Spanish.",
     priceCents: 1999,
     aiPersona:
       "You are a patient or family member speaking the learner's target language while navigating discharge, housing, or mental health services. Respond with realistic concerns and questions.",
@@ -1728,7 +1728,7 @@ const CATALOG: AppModule[] = [
     emoji: "⚠️",
     category: "Trades",
     blurb:
-      "OSHA-critical safety commands, hazard communication, PPE requirements, and incident reporting with crews in the language you are learning.",
+      "OSHA-critical safety commands, hazard communication, PPE requirements, and incident reporting with crews in English or Spanish.",
     priceCents: 999,
     aiPersona:
       "You are a construction crew member speaking the learner's target language. Ask questions about safety procedures, PPE, and hazard communication.",
@@ -1907,9 +1907,9 @@ const CATALOG: AppModule[] = [
       "Give route beta to a climber who can't figure out the crux sequence.",
       "Teach a beginner to tie a figure-eight follow-through — step by step.",
       "Respond to a fall and assess whether the climber is injured.",
-      "Negotiate a guided day with a local guide, in the language you are learning.",
+      "Negotiate a guided day with a local Portuguese-speaking guide.",
       "Describe the pain in your finger tendon to a local sports medicine clinic.",
-      "Coach a climbing partner's footwork on a friction slab, in the language you are learning.",
+      "Coach a Spanish-speaking climber's footwork on a friction slab.",
     ],
     vocabFocus: [
       "harness",
@@ -2004,6 +2004,24 @@ export const CATALOG_LIBRARY_MODULE_IDS: ReadonlySet<string> = new Set([
     entry.master?.moduleId ?? "",
   ]),
 ]);
+
+/** "Spanish|English|…": every registered language name. */
+const LANGUAGE_NAMES = PACKS.map((pack) => pack.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+
+/**
+ * The blurb a learner of `language` reads on a module card. A shared hand-written module's blurb
+ * may name the historical course's languages ("… with patients in English or Spanish."); a
+ * learner whose lessons come from a pack catalog (French, Italian) reads it with those names
+ * replaced by the language they are learning. Every other learner reads the blurb as written.
+ */
+export function moduleBlurbFor(module: Pick<AppModule, "blurb">, language: string): string {
+  const pack = catalogLessonPack(language);
+  if (!pack) return module.blurb;
+  return module.blurb.replace(
+    new RegExp(`\\bin (?:${LANGUAGE_NAMES})(?: or (?:${LANGUAGE_NAMES}))*\\b`, "g"),
+    `in ${pack.name}`,
+  );
+}
 
 export function getModule(id: string | null | undefined): AppModule | null {
   if (!id) return null;

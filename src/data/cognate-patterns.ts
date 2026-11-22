@@ -334,7 +334,7 @@ const EN_TO_IT: CognateRule[] = [
     targetPattern: "-bile",
     name: "Possibility adjectives",
     reliability: 85,
-    hook: "Add -e after the b and you've built the Italian word.",
+    hook: "Change -ble to -bile (add an i before the final -le) and you've built the Italian word.",
     examples: [
       { source: "possible", target: "possibile", gloss: "possible" },
       { source: "terrible", target: "terribile", gloss: "terrible" },

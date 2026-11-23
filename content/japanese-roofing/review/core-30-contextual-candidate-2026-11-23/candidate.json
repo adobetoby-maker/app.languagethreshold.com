@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:30:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-30-source-decision-2026-11-18/packet.json",
+    "sha256": "7700b0869964bf9c68f9f5e1df2ad768afefced07d6ad572f1f898386028797f"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "objectiveEnglish": "Name selected briefing and closeout terms and describe a punch-list record.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語の語と意味を確認しましょう。「briefing」は「打ち合わせ・説明」（作業の内容や予定を共有する話し合い）という意味です。",
+      "targetEnglish": "briefing",
+      "sourceAnchor": "roofing:30:ja-en:card:1",
+      "id": "core-roofing:30:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「既存の屋根材をはがす作業」を表す英語の語を思い出して、英語で答えましょう。",
+      "targetEnglish": "tear-off",
+      "sourceAnchor": "roofing:30:ja-en:card:2",
+      "id": "core-roofing:30:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「取り付ける・設置する」という動詞を表す英語の語を三つの選択肢から選びましょう。",
+      "targetEnglish": "install",
+      "sourceAnchor": "roofing:30:ja-en:card:3",
+      "candidateOptionsEnglish": [
+        "install",
+        "closeout",
+        "crew lead"
+      ],
+      "id": "core-roofing:30:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "install",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「屋根の接合部などから水が入るのを防ぐ部材（水切り・雨押さえ）」を表す英語の語を入力しましょう。",
+      "targetEnglish": "flashing",
+      "sourceAnchor": "roofing:30:ja-en:card:8",
+      "id": "core-roofing:30:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "打ち合わせの始めに、今日の屋根の計画を確認しようと呼びかける英語の文を、声に出して言いましょう。",
+      "targetEnglish": "Let's review today's roof plan before we start.",
+      "sourceAnchor": "roofing:30:ja-en:card:11",
+      "id": "core-roofing:30:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「作業班のリーダー」を表す英語の語句を書きましょう。",
+      "targetEnglish": "crew lead",
+      "sourceAnchor": "roofing:30:ja-en:card:6",
+      "id": "core-roofing:30:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "the foreman opens the briefing",
+      "explanationJapanese": "主語 the foreman が三人称単数なので、動詞 open に -s が付いて opens になります。「現場監督が打ち合わせを始める」という描写です。",
+      "sourceAnchor": "roofing:30:ja-en:line:1",
+      "id": "core-roofing:30:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the crew lead checks each step",
+      "explanationJapanese": "主語が三人称単数なので checks になります。each の後には単数形の名詞（step）が続きます。",
+      "sourceAnchor": "roofing:30:ja-en:line:5",
+      "id": "core-roofing:30:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Whatever is left stays on the punch list",
+      "explanationJapanese": "Whatever is left は「残っているものは何でも」という意味で、文の主語になっています。単数扱いなので動詞は stays です。stays on the punch list は「残作業リストに載ったままになる」を表します。",
+      "sourceAnchor": "roofing:30:ja-en:line:9",
+      "id": "core-roofing:30:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "closeout",
+      "glossJapanese": "工事の締めくくり・完了手続き",
+      "senseJapanese": "工事の最後に行う締めくくりの段階を表す名詞。",
+      "sourceAnchor": "roofing:30:ja-en:card:5",
+      "id": "core-roofing:30:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "tear-off",
+      "glossJapanese": "既存屋根材の撤去・はがし作業",
+      "senseJapanese": "既存の屋根材をはがして取り除く作業を表す名詞。",
+      "sourceAnchor": "roofing:30:ja-en:card:2",
+      "id": "core-roofing:30:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "install",
+      "glossJapanese": "取り付ける・設置する",
+      "senseJapanese": "部材などを取り付けることを表す動詞。名詞形は installation（取り付け・設置）です。",
+      "sourceAnchor": "roofing:30:ja-en:card:3",
+      "id": "core-roofing:30:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "用語を言い、残作業リストに残るものについての説明を言う作業員",
+      "partner": "打ち合わせを始め、用語や残作業リストの項目について尋ねる現場監督"
+    },
+    "openingEnglish": "Let's review today's roof plan before we start.",
+    "closureEnglish": "Whatever is left stays on the punch list for the closeout.",
+    "objectivesEnglish": [
+      "Name source terms such as briefing, tear-off, install, underlayment, and flashing.",
+      "Name the crew lead role.",
+      "Say the source description: Whatever is left stays on the punch list for the closeout."
+    ],
+    "wordBankEnglish": [
+      "briefing",
+      "tear-off",
+      "install",
+      "closeout",
+      "crew lead",
+      "underlayment",
+      "flashing",
+      "punch list"
+    ],
+    "sourceAnchors": [
+      "roofing:30:ja-en:card:1",
+      "roofing:30:ja-en:card:2",
+      "roofing:30:ja-en:card:3",
+      "roofing:30:ja-en:card:5",
+      "roofing:30:ja-en:card:6",
+      "roofing:30:ja-en:card:7",
+      "roofing:30:ja-en:card:8",
+      "roofing:30:ja-en:card:10",
+      "roofing:30:ja-en:card:11",
+      "roofing:30:ja-en:line:9"
+    ],
+    "id": "core-roofing:30:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing source anchors; no progress migration.",
+    "Partial selected terminology/question/source-report supplement only. Absolute every-nail/cleaner-yard claims, cleanup completion, safe storage, roof walk/access and weather/tarp/tie-off actions remain qualified source/trade decisions.",
+    "Core30 original Spanish-capstone versus English-target objective conflict remains HELD. Safety, access/tie-off, weather stop, tarping and roof-walk strands are not completed or substituted by this supplement.",
+    "Core28 card magnetic-nail-sweep request and Reader picking-up-nails request differ; no completion/sufficiency assertion selected.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete",
+  "capstoneObjectiveDecision": {
+    "status": "held",
+    "sourceObjectiveEnglish": "Lead a complete roofing day in Spanish",
+    "targetObjectiveDecision": null,
+    "capstoneCompletionClaimed": false
+  }
+}

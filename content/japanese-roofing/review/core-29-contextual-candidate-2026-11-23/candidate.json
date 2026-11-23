@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:29:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-29-source-decision-2026-11-18/packet.json",
+    "sha256": "1b55620fd05281f24737ecee4729eb4e06fd4d61405acaf713a0126710976e39"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "objectiveEnglish": "Name open items and remaining materials and report an unfinished section.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語の語句と意味を確認しましょう。「punch list」は「残作業リスト」（まだ残っている項目をまとめた一覧）という意味です。",
+      "targetEnglish": "punch list",
+      "sourceAnchor": "roofing:29:ja-en:card:1",
+      "id": "core-roofing:29:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「終わっていない・未完了の」を表す英語の語を思い出して、英語で答えましょう。",
+      "targetEnglish": "unfinished",
+      "sourceAnchor": "roofing:29:ja-en:card:2",
+      "id": "core-roofing:29:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「終わった・完了した」を表す英語の語を三つの選択肢から選びましょう。",
+      "targetEnglish": "finished",
+      "sourceAnchor": "roofing:29:ja-en:card:5",
+      "candidateOptionsEnglish": [
+        "finished",
+        "unfinished",
+        "open item"
+      ],
+      "id": "core-roofing:29:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "finished",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「未対応の項目・残っている項目」を表す英語の語句を入力しましょう。",
+      "targetEnglish": "open item",
+      "sourceAnchor": "roofing:29:ja-en:card:4",
+      "id": "core-roofing:29:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "明日に残っている場所はどこかを尋ねる英語の質問を、声に出して言いましょう。",
+      "targetEnglish": "Which areas are still open for tomorrow?",
+      "sourceAnchor": "roofing:29:ja-en:card:10",
+      "id": "core-roofing:29:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「残りの資材」を表す英語の語句を書きましょう。",
+      "targetEnglish": "remaining materials",
+      "sourceAnchor": "roofing:29:ja-en:card:6",
+      "id": "core-roofing:29:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "still open",
+      "explanationJapanese": "still は「まだ」、open はここでは「未完了の・残っている」という意味です。still open で「まだ残っている」を表します。",
+      "sourceAnchor": "roofing:29:ja-en:line:5",
+      "id": "core-roofing:29:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the first task is to finish",
+      "explanationJapanese": "is to の後に動詞の原形を続けると、「最初の作業は〜することだ」という説明になります。",
+      "sourceAnchor": "roofing:29:ja-en:line:7",
+      "id": "core-roofing:29:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "next to the chimney",
+      "explanationJapanese": "next to は「〜の隣に」という位置を表します。the chimney は話題になっている特定の煙突を指します。",
+      "sourceAnchor": "roofing:29:ja-en:line:4",
+      "id": "core-roofing:29:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "punch list",
+      "glossJapanese": "残作業リスト・指摘事項リスト",
+      "senseJapanese": "まだ残っている作業項目をまとめた一覧。",
+      "sourceAnchor": "roofing:29:ja-en:card:1",
+      "id": "core-roofing:29:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "open item",
+      "glossJapanese": "未対応の項目・残っている項目",
+      "senseJapanese": "まだ済んでいない作業項目。open はここでは「未完了の」という意味です。",
+      "sourceAnchor": "roofing:29:ja-en:card:4",
+      "id": "core-roofing:29:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "remaining materials",
+      "glossJapanese": "残りの資材",
+      "senseJapanese": "使われずに残っている材料。",
+      "sourceAnchor": "roofing:29:ja-en:card:6",
+      "id": "core-roofing:29:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "まだ残っている項目を用語で答える作業員",
+      "partner": "明日に残っている場所を尋ねる現場監督"
+    },
+    "openingEnglish": "Which areas are still open for tomorrow?",
+    "closureEnglish": "Add it to the punch list.",
+    "objectivesEnglish": [
+      "Understand the source question: Which areas are still open for tomorrow?",
+      "Answer with the source report: This is still open.",
+      "Name the terms punch list, open item, unfinished, and remaining materials."
+    ],
+    "wordBankEnglish": [
+      "punch list",
+      "unfinished",
+      "tomorrow",
+      "open item",
+      "finished",
+      "remaining materials",
+      "task",
+      "today",
+      "job"
+    ],
+    "sourceAnchors": [
+      "roofing:29:ja-en:card:1",
+      "roofing:29:ja-en:card:2",
+      "roofing:29:ja-en:card:3",
+      "roofing:29:ja-en:card:4",
+      "roofing:29:ja-en:card:5",
+      "roofing:29:ja-en:card:6",
+      "roofing:29:ja-en:card:7",
+      "roofing:29:ja-en:card:8",
+      "roofing:29:ja-en:card:9",
+      "roofing:29:ja-en:card:10",
+      "roofing:29:ja-en:card:13",
+      "roofing:29:ja-en:card:15"
+    ],
+    "id": "core-roofing:29:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing source anchors; no progress migration.",
+    "Partial selected terminology/question/source-report supplement only. Absolute every-nail/cleaner-yard claims, cleanup completion, safe storage, roof walk/access and weather/tarp/tie-off actions remain qualified source/trade decisions.",
+    "Core30 original Spanish-capstone versus English-target objective conflict remains HELD. Safety, access/tie-off, weather stop, tarping and roof-walk strands are not completed or substituted by this supplement.",
+    "Core28 card magnetic-nail-sweep request and Reader picking-up-nails request differ; no completion/sufficiency assertion selected.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

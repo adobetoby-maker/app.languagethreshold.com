@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "core-roofing:28:ja-en",
+  "identityStatus": "proposed core-roofing stage IDs; exact legacy roofing source anchors retained; no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/core-28-source-decision-2026-11-18/packet.json",
+    "sha256": "538ef9302105cfd14faa55aab7a7a45b66dcde325a9fec4d24a681ccacb6052f"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/roofing-curriculum.ts",
+      "sha256": "d950f71c54263d58d7b0e86b4b84cdb76635ce25dacd8d11e6d8b0002c301ae5"
+    },
+    "words": {
+      "path": "src/data/roofing-lesson-words.ts",
+      "sha256": "f116696302dba011dea4767e31dd6ed410f452fc26b78e2073259d8b67f6ed53"
+    },
+    "passage": {
+      "path": "src/data/roofing-lesson-passages.ts",
+      "sha256": "01d435f2603b4c580da087c2883c4460d64d0f8be2b6cee88bb1300d431ddeb7"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/core-27-30-draft.json",
+      "sha256": "bbded38ccbf62e844d27598d5da3565300b3e73afcce1b2f5cf54f52b674afdd"
+    }
+  },
+  "objectiveEnglish": "Name cleanup components and ask whether a dumpster is full.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語の語と意味を確認しましょう。「gutter」は「雨どい」（屋根の雨水を受けて流す部材）という意味です。",
+      "targetEnglish": "gutter",
+      "sourceAnchor": "roofing:28:ja-en:card:1",
+      "id": "core-roofing:28:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「縦どい」（雨どいから下へ雨水を流す管）を表す英語の語を思い出して、英語で答えましょう。",
+      "targetEnglish": "downspout",
+      "sourceAnchor": "roofing:28:ja-en:card:10",
+      "id": "core-roofing:28:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「大型ごみ容器」を表す英語の語を三つの選択肢から選びましょう。",
+      "targetEnglish": "dumpster",
+      "sourceAnchor": "roofing:28:ja-en:card:2",
+      "candidateOptionsEnglish": [
+        "dumpster",
+        "magnet",
+        "broom"
+      ],
+      "id": "core-roofing:28:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "dumpster",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「磁石」を表す英語の語を入力しましょう。",
+      "targetEnglish": "magnet",
+      "sourceAnchor": "roofing:28:ja-en:card:5",
+      "id": "core-roofing:28:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "大型ごみ容器がいっぱいかどうかを尋ねる英語の質問を、声に出して言いましょう。",
+      "targetEnglish": "Is the dumpster full?",
+      "sourceAnchor": "roofing:28:ja-en:card:15",
+      "id": "core-roofing:28:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「ごみ」を表す英語の語を書きましょう。",
+      "targetEnglish": "trash",
+      "sourceAnchor": "roofing:28:ja-en:card:9",
+      "id": "core-roofing:28:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Is the dumpster full?",
+      "explanationJapanese": "Is で始めると、状態を尋ねる疑問文になります。full は「いっぱいの」という意味の形容詞です。",
+      "sourceAnchor": "roofing:28:ja-en:line:7",
+      "id": "core-roofing:28:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "can block the downspout",
+      "explanationJapanese": "can の後には動詞の原形が続き、「〜することがある・〜しうる」という可能性を表します。ここでは「縦どいを詰まらせることがある」という説明です。",
+      "sourceAnchor": "roofing:28:ja-en:line:4",
+      "id": "core-roofing:28:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "nails and debris",
+      "explanationJapanese": "nails は数えられる名詞 nail の複数形です。debris は数えられない名詞なので、複数形の -s は付きません。",
+      "sourceAnchor": "roofing:28:ja-en:line:3",
+      "id": "core-roofing:28:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "cleanup",
+      "glossJapanese": "片付け・清掃",
+      "senseJapanese": "作業のあとに現場を片付けてきれいにする作業を表す名詞。",
+      "sourceAnchor": "roofing:28:ja-en:card:4",
+      "id": "core-roofing:28:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "gutter",
+      "glossJapanese": "雨どい",
+      "senseJapanese": "屋根の雨水を受けて流すための溝状の部材。",
+      "sourceAnchor": "roofing:28:ja-en:card:1",
+      "id": "core-roofing:28:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "debris",
+      "glossJapanese": "廃材・がれき",
+      "senseJapanese": "作業で出た破片や廃材。数えられない名詞として使います。",
+      "sourceAnchor": "roofing:28:ja-en:card:7",
+      "id": "core-roofing:28:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "片付けに関する用語を言い、大型ごみ容器について質問する作業員",
+      "partner": "片付けの場面で会話を始める現場監督"
+    },
+    "openingEnglish": "Let's check the gutters and clean the site before leaving.",
+    "closureEnglish": "A full gutter can block the downspout.",
+    "objectivesEnglish": [
+      "Name cleanup terms such as cleanup, gutter, downspout, nail, and debris.",
+      "Ask the source question: Is the dumpster full?",
+      "Say the source description: A full gutter can block the downspout."
+    ],
+    "wordBankEnglish": [
+      "gutter",
+      "dumpster",
+      "nail",
+      "cleanup",
+      "magnet",
+      "broom",
+      "debris",
+      "yard",
+      "trash",
+      "downspout"
+    ],
+    "sourceAnchors": [
+      "roofing:28:ja-en:card:1",
+      "roofing:28:ja-en:card:2",
+      "roofing:28:ja-en:card:3",
+      "roofing:28:ja-en:card:4",
+      "roofing:28:ja-en:card:5",
+      "roofing:28:ja-en:card:6",
+      "roofing:28:ja-en:card:7",
+      "roofing:28:ja-en:card:8",
+      "roofing:28:ja-en:card:9",
+      "roofing:28:ja-en:card:10",
+      "roofing:28:ja-en:card:11",
+      "roofing:28:ja-en:card:15",
+      "roofing:28:ja-en:line:4"
+    ],
+    "id": "core-roofing:28:ja-en:speaking:contextual",
+    "reviewed": false
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; proposed core IDs retain exact legacy roofing source anchors; no progress migration.",
+    "Partial selected terminology/question/source-report supplement only. Absolute every-nail/cleaner-yard claims, cleanup completion, safe storage, roof walk/access and weather/tarp/tie-off actions remain qualified source/trade decisions.",
+    "Core30 original Spanish-capstone versus English-target objective conflict remains HELD. Safety, access/tie-off, weather stop, tarping and roof-walk strands are not completed or substituted by this supplement.",
+    "Core28 card magnetic-nail-sweep request and Reader picking-up-nails request differ; no completion/sufficiency assertion selected.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

@@ -1,0 +1,860 @@
+{
+  "lessonId": "core-roofing:29:fr-en",
+  "kind": "inert-authored-supplement",
+  "status": "proposal only; no runtime, scoring, audio, progress or V4 registration",
+  "candidateObjectiveEnglish": "Use unfinished, finished, today, tomorrow, remaining materials and task in status and scheduling language.",
+  "grammarExplanationEnglish": "The + noun + is + adjective describes a labelled status. The task is for tomorrow schedules a task. A plural noun phrase such as the remaining materials takes are.",
+  "grammarExplanationFrench": "« The » + nom + « is » + adjectif décrit un statut indiqué. « The task is for tomorrow » prévoit une tâche pour demain. Un sujet pluriel tel que the remaining materials prend are.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "unfinished",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:2"
+      ],
+      "expectedMeaningFrench": "non terminé",
+      "provenance": "Exact source English unfinished, card2; French non terminé is a new everyday candidate, distinct from archived inachevé. See prompt newly composed.",
+      "id": "core-roofing:29:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le terme anglais pour « terminé ».",
+      "candidateTargetEnglish": "finished",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:5"
+      ],
+      "expectedMeaningFrench": "terminé",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:29:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "tomorrow",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "demain",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:29:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « aujourd’hui »",
+      "candidateTargetEnglish": "today",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "aujourd’hui",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:29:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « les matériaux restants »",
+      "candidateTargetEnglish": "remaining materials",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "les matériaux restants",
+      "provenance": "Exact source English term remaining materials from card6; source-derived French les matériaux restants and newly composed spoken-practice prompt.",
+      "id": "core-roofing:29:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « La tâche est prévue pour demain. »",
+      "candidateTargetEnglish": "The task is for tomorrow.",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:7",
+        "core-roofing:29:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "La tâche est prévue pour demain.",
+      "provenance": "New English/French grammar composition using exact unheld source vocabulary.",
+      "id": "core-roofing:29:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "candidateEnglishAlternatives": [
+        "The task is scheduled for tomorrow.",
+        "The task is planned for tomorrow."
+      ],
+      "answerStatus": "Unreviewed semantic alternatives, no scoring registration; canonical sentence practises for + time word without treating natural French prévue as a rigid word-for-word key."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:29:fr-en:form:1",
+      "englishForm": "The [noun] is [adjective].",
+      "meaningFrench": "Le/la/l’ + nom est + adjectif.",
+      "candidateExampleEnglish": "The task is unfinished.",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:7",
+        "core-roofing:29:fr-en:card:2"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:29:fr-en:form:2",
+      "englishForm": "The [noun] is for [time word].",
+      "meaningFrench": "Le/la/l’ + nom est prévu(e) pour + repère temporel.",
+      "candidateExampleEnglish": "The task is for tomorrow.",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:7",
+        "core-roofing:29:fr-en:card:3"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:29:fr-en:form:3",
+      "englishForm": "The [plural noun phrase] are here.",
+      "meaningFrench": "Les + nom pluriel + sont ici.",
+      "candidateExampleEnglish": "The remaining materials are here.",
+      "sourceAnchors": [
+        "core-roofing:29:fr-en:card:6"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "exampleContextEnglish": "New agreement exercise only; not actual material placement, storage instruction or site inventory.",
+      "practicePromptFrench": "Complétez avec is ou are : The remaining materials ___ here.",
+      "candidateResponseEnglish": "are"
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner initiating and answering vocabulary-picture questions.",
+    "partnerRole": "A partner holding and displaying all pictures and word cards.",
+    "candidateOpeningEnglish": "Is the task finished?",
+    "candidateOpeningFrench": "La tâche est-elle terminée ?",
+    "goalEnglish": "Read task-status and tomorrow cards, then read remaining materials from card C.",
+    "goalFrench": "Lisez les cartes de statut et de demain, puis remaining materials sur la carte C.",
+    "practiceContextEnglish": "In a classroom card exercise, A says task: unfinished, B says task: tomorrow, C says remaining materials. The partner holds up A first.",
+    "contextFrench": "Dans un exercice de cartes, A porte task: unfinished, B task: tomorrow et C remaining materials. Le partenaire montre A d’abord.",
+    "candidateWordBankEnglish": [
+      "task",
+      "unfinished",
+      "tomorrow",
+      "remaining materials",
+      "The task is unfinished.",
+      "The task is for tomorrow."
+    ],
+    "partnerCuesEnglish": [
+      "No. What is the status on card A?",
+      "When is the task on card B?",
+      "What words are on card C?"
+    ],
+    "partnerCueSupportFrench": [
+      "Non. Quel statut figure sur la carte A ?",
+      "Quand est prévue la tâche sur la carte B ?",
+      "Quels mots figurent sur la carte C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The task is unfinished.",
+      "The task is for tomorrow.",
+      "Remaining materials. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "La tâche n’est pas terminée.",
+      "La tâche est prévue pour demain.",
+      "Matériaux restants. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW ordinary closure merged into final expected turn",
+    "sourceAnchors": [
+      "core-roofing:29:fr-en:card:2",
+      "core-roofing:29:fr-en:card:3",
+      "core-roofing:29:fr-en:card:5",
+      "core-roofing:29:fr-en:card:6",
+      "core-roofing:29:fr-en:card:7"
+    ],
+    "id": "core-roofing:29:fr-en:speaking:1",
+    "reviewed": false,
+    "provenance": "New English/French word/picture-card exchange, not a source work procedure, inspection finding or completion certificate.",
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:29:fr-en:card:1",
+      "core-roofing:29:fr-en:card:10",
+      "core-roofing:29:fr-en:card:11",
+      "core-roofing:29:fr-en:card:12",
+      "core-roofing:29:fr-en:card:13",
+      "core-roofing:29:fr-en:card:15",
+      "core-roofing:29:fr-en:card:4",
+      "core-roofing:29:fr-en:card:9",
+      "core-roofing:29:fr-en:reader:2",
+      "core-roofing:29:fr-en:reader:3",
+      "core-roofing:29:fr-en:reader:5",
+      "core-roofing:29:fr-en:reader:6",
+      "core-roofing:29:fr-en:reader:8",
+      "core-roofing:29:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French classroom word/picture-card exercise, not a source site finding, work instruction or acceptance decision.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is the task finished?"
+      },
+      {
+        "speaker": "partner",
+        "text": "No. What is the status on card A?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The task is unfinished."
+      },
+      {
+        "speaker": "partner",
+        "text": "When is the task on card B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The task is for tomorrow."
+      },
+      {
+        "speaker": "partner",
+        "text": "What words are on card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Remaining materials. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture": "image",
+      "word card": "carte de vocabulaire",
+      "here": "ici",
+      "say": "indiquer/dire",
+      "where": "où"
+    }
+  },
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "core-roofing:29:fr-en:card:1",
+      "candidateFrenchOptions": [
+        "la liste des points à terminer"
+      ],
+      "meaningEnglish": "punch list",
+      "reviewQuestion": "Closeout terminology and scope need trade and regional dictionary review; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Lista de pendientes"
+    },
+    {
+      "sourceAnchor": "core-roofing:29:fr-en:card:4",
+      "candidateFrenchOptions": [
+        "le point en suspens"
+      ],
+      "meaningEnglish": "open item",
+      "reviewQuestion": "Confirm task/status sense rather than an unresolved technical question; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Pendiente"
+    },
+    {
+      "sourceAnchor": "core-roofing:29:fr-en:card:9",
+      "candidateFrenchOptions": [
+        "le chantier",
+        "le travail",
+        "l’ouvrage"
+      ],
+      "meaningEnglish": "job",
+      "reviewQuestion": "Site-specific completion scope; held. Source Trabajo/job versus chantier/site/work scope must be chosen contextually; these are not automatically equivalent.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Trabajo"
+    }
+  ],
+  "internalReviewNotes": [
+    "Open, punch list, job, roof-walk and storage commands remain held and are excluded.",
+    "Question card 10 and reader 9 remain held and are excluded.",
+    "No completion certification and no overnight-storage answer are given."
+  ],
+  "schema": 1,
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-29-source-decision-2026-11-18/packet.json",
+    "sha256": "e7f451cd206dce662b3a6d975fdfe718ffbc443b02aa43d64217fbf8042ab961"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:29:fr-en:card:1",
+      "sourceEnglish": "punch list",
+      "candidateFrench": null,
+      "hold": "The source's punch list/lista de pendientes is a remaining-work list. The archived liste des points à terminer may fit, but France/Québec closeout terminology and the implied scope need qualified trade and regional dictionary review before a scored French term is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:29:fr-en:card:2",
+      "sourceEnglish": "unfinished",
+      "candidateFrench": "non terminé",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New everyday French candidate from source Sin terminar/unfinished; contextual gender variation and source Reader pas terminé remain unreviewed."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:29:fr-en:card:3",
+      "sourceEnglish": "tomorrow",
+      "candidateFrench": "demain",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:29:fr-en:card:4",
+      "sourceEnglish": "open item",
+      "candidateFrench": null,
+      "hold": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:29:fr-en:card:5",
+      "sourceEnglish": "finished",
+      "candidateFrench": "terminé",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:29:fr-en:card:6",
+      "sourceEnglish": "remaining materials",
+      "candidateFrench": "les matériaux restants",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:29:fr-en:card:7",
+      "sourceEnglish": "task",
+      "candidateFrench": "la tâche",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:29:fr-en:card:8",
+      "sourceEnglish": "today",
+      "candidateFrench": "aujourd’hui",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:29:fr-en:card:9",
+      "sourceEnglish": "job",
+      "candidateFrench": null,
+      "hold": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof. Source Trabajo/job may denote work or project rather than physical chantier; qualified contextual dictionary scope required.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:29:fr-en:card:10",
+      "sourceEnglish": "Which areas are still open for tomorrow?",
+      "candidateFrench": null,
+      "hold": "Open areas/pendientes mean unfinished work, not physical openings; contextual French task/status and source-objective meaning remain unresolved.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:29:fr-en:card:11",
+      "sourceEnglish": "Store the remaining materials in a safe place.",
+      "candidateFrench": null,
+      "hold": "Store remaining materials in a safe place is the source instruction. The actual overnight storage, tie-down and roof-load plan are unspecified. Preserve the source's general meaning while keeping the site decision out of learner-facing assertions. Archived speaking additionally asks to verify an unfinished area and confirm material storage; the current source speaking objective only asks to tell the crew lead what remains open and confirm tomorrow's first task. Keep those additions as unapproved evidence.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:29:fr-en:card:12",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "candidateFrench": null,
+      "hold": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:29:fr-en:card:13",
+      "sourceEnglish": "This is still open.",
+      "candidateFrench": null,
+      "hold": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:29:fr-en:card:14",
+      "sourceEnglish": "Tomorrow the first task is to finish this section.",
+      "candidateFrench": "Demain, la première tâche est de terminer cette section.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New French present-tense scheduling proposal follows source is; archived future rendering remains separate evidence, not a selected work plan."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:29:fr-en:card:15",
+      "sourceEnglish": "Add it to the punch list.",
+      "candidateFrench": null,
+      "hold": "The source's punch list/lista de pendientes is a remaining-work list. The archived liste des points à terminer may fit, but France/Québec closeout terminology and the implied scope need qualified trade and regional dictionary review before a scored French term is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:1",
+      "sourceEnglish": "It is the end of the day and the crew packs up its tools.",
+      "candidateFrench": "C’est la fin de la journée et l’équipe range ses outils.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:2",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "candidateFrench": null,
+      "hold": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:3",
+      "sourceEnglish": "The foreman asks: Which areas are still open for tomorrow?",
+      "candidateFrench": null,
+      "hold": "Open areas/pendientes mean unfinished work, not physical openings; contextual French task/status and source-objective meaning remain unresolved.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:4",
+      "sourceEnglish": "One section next to the chimney is unfinished.",
+      "candidateFrench": "Une section à côté de la cheminée n’est pas terminée.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New source-aligned French proposal retains next to as à côté de."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:5",
+      "sourceEnglish": "This is still open.",
+      "candidateFrench": null,
+      "hold": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:6",
+      "sourceEnglish": "Add it to the punch list.",
+      "candidateFrench": null,
+      "hold": "The source's punch list/lista de pendientes is a remaining-work list. The archived liste des points à terminer may fit, but France/Québec closeout terminology and the implied scope need qualified trade and regional dictionary review before a scored French term is selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:7",
+      "sourceEnglish": "Tomorrow the first task is to finish this section.",
+      "candidateFrench": "Demain, la première tâche est de terminer cette section.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New French present-tense scheduling proposal follows source is; archived future rendering remains separate evidence, not a selected work plan."
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:8",
+      "sourceEnglish": "Store the remaining materials in a safe place.",
+      "candidateFrench": null,
+      "hold": "Store remaining materials in a safe place is the source instruction. The actual overnight storage, tie-down and roof-load plan are unspecified. Preserve the source's general meaning while keeping the site decision out of learner-facing assertions.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:29:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:29:fr-en:reader:9",
+      "sourceEnglish": "With the punch list, everyone knows what to do tomorrow.",
+      "candidateFrench": null,
+      "hold": "Dependent punch-list/lista de pendientes regional closeout meaning remains unresolved; no completion certificate or job access selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:29:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:29:fr-en:card:1",
+      "englishHeadword": "punch list",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "The source's punch list/lista de pendientes is a remaining-work list. The archived liste des points à terminer may fit, but France/Québec closeout terminology and the implied scope need qualified trade and regional dictionary review before a scored French term is selected.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Lista de pendientes"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:29:fr-en:card:2",
+      "englishHeadword": "unfinished",
+      "candidateFrenchSense": "non terminé",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sin terminar"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:29:fr-en:card:3",
+      "englishHeadword": "tomorrow",
+      "candidateFrenchSense": "demain",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Mañana"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:29:fr-en:card:4",
+      "englishHeadword": "open item",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Pendiente"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:29:fr-en:card:5",
+      "englishHeadword": "finished",
+      "candidateFrenchSense": "terminé",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Terminado"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:29:fr-en:card:6",
+      "englishHeadword": "remaining materials",
+      "candidateFrenchSense": "les matériaux restants",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Materiales restantes"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:29:fr-en:card:7",
+      "englishHeadword": "task",
+      "candidateFrenchSense": "la tâche",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tarea"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:29:fr-en:card:8",
+      "englishHeadword": "today",
+      "candidateFrenchSense": "aujourd’hui",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Hoy"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:29:fr-en:card:9",
+      "englishHeadword": "job",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof. Source Trabajo/job may denote work or project rather than physical chantier; qualified contextual dictionary scope required.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Trabajo"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:29:fr-en:card:10",
+      "englishHeadword": "Which areas are still open for tomorrow?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "Open areas/pendientes mean unfinished work, not physical openings; contextual French task/status and source-objective meaning remain unresolved.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Qué áreas quedan pendientes para mañana?"
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:29:fr-en:card:11",
+      "englishHeadword": "Store the remaining materials in a safe place.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "Store remaining materials in a safe place is the source instruction. The actual overnight storage, tie-down and roof-load plan are unspecified. Preserve the source's general meaning while keeping the site decision out of learner-facing assertions. Archived speaking additionally asks to verify an unfinished area and confirm material storage; the current source speaking objective only asks to tell the crew lead what remains open and confirm tomorrow's first task. Keep those additions as unapproved evidence.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Guarden los materiales restantes en un lugar seguro."
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:29:fr-en:card:12",
+      "englishHeadword": "Walk the roof with me before we call the job complete.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Recorran el techo conmigo antes de dar el trabajo por terminado."
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:29:fr-en:card:13",
+      "englishHeadword": "This is still open.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Esto sigue pendiente."
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:29:fr-en:card:14",
+      "englishHeadword": "Tomorrow the first task is to finish this section.",
+      "candidateFrenchSense": "Demain, la première tâche est de terminer cette section.",
+      "contextEnglish": "Report Open Items",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Mañana la primera tarea es terminar esta sección."
+    },
+    {
+      "id": "core-roofing:29:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:29:fr-en:card:15",
+      "englishHeadword": "Add it to the punch list.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Report Open Items",
+      "status": "held",
+      "hold": "The source's punch list/lista de pendientes is a remaining-work list. The archived liste des points à terminer may fit, but France/Québec closeout terminology and the implied scope need qualified trade and regional dictionary review before a scored French term is selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Agréguenlo a la lista de pendientes."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a open-item/closeout source decision, settle a work method, or select a technical answer.",
+    "Opus corrections checked against exact bilingual source: qualified lexical sense candidates remain unselected, source-dependent holds made specific, picture roles corrected, no actual material storage or completion finding asserted.",
+    "Natural French prévue pour demain can correspond to English is for tomorrow or is scheduled/planned for tomorrow; alternatives remain unreviewed and unscored. Form3 demonstrates agreement in a separate labelled grammar exercise, not overnight placement. The opening question reuses cumulative English question language.",
+    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval."
+  ],
+  "sourceObjectiveEnglish": "Hand off remaining work clearly",
+  "sourceSpeakingEnglish": "Tell the crew lead what remains open and confirm tomorrow's first task.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

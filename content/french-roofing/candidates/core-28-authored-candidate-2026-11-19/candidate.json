@@ -1,0 +1,888 @@
+{
+  "lessonId": "core-roofing:28:fr-en",
+  "kind": "inert-authored-supplement",
+  "status": "proposal only; no runtime, scoring, audio, progress or V4 registration",
+  "candidateObjectiveEnglish": "Recognise and produce nail, gutter, cleanup, debris, trash and broom as words and in location, presence and identification sentences.",
+  "grammarExplanationEnglish": "The + noun + is here locates an item in a shared context. There is a + count noun states presence. These are + plural noun identifies multiple items. A introduces one item; the marks a specific item both speakers can identify. Trash and debris are uncountable and take is in English; their French supports les déchets and les débris are plural.",
+  "grammarExplanationFrench": "« The » + nom + « is here » situe un élément dans le contexte partagé. « There is a » + nom dénombrable indique une présence. « These are » + nom pluriel identifie plusieurs éléments. A correspond à un/une ; the à le/la/l’/les pour un élément précis identifiable. Trash et debris sont indénombrables et prennent is en anglais ; leurs supports français les déchets et les débris sont pluriels et prennent sont.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "nail",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "le clou",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:28:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le terme anglais pour « la gouttière ».",
+      "candidateTargetEnglish": "gutter",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "la gouttière",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:28:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "cleanup",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "le nettoyage",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:28:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais : « les débris »",
+      "candidateTargetEnglish": "debris",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "les débris",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:28:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Les déchets sont ici. »",
+      "candidateTargetEnglish": "The trash is here.",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "Les déchets sont ici.",
+      "provenance": "New English/French grammar composition using exact unheld source vocabulary.",
+      "id": "core-roofing:28:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Il y a un balai. »",
+      "candidateTargetEnglish": "There is a broom.",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "Il y a un balai.",
+      "provenance": "New English/French grammar composition using exact unheld source vocabulary.",
+      "id": "core-roofing:28:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:28:fr-en:form:1",
+      "englishForm": "The [singular or uncountable noun] is here.",
+      "meaningFrench": "Le/la/l’/les + nom + est/sont ici selon le nombre français.",
+      "candidateExampleEnglish": "The trash is here.",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:9"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:28:fr-en:form:2",
+      "englishForm": "There is a [count noun].",
+      "meaningFrench": "Il y a un/une + nom dénombrable.",
+      "candidateExampleEnglish": "There is a broom.",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:6"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:28:fr-en:form:3",
+      "englishForm": "These are [plural noun].",
+      "meaningFrench": "Ce sont des + nom pluriel.",
+      "candidateExampleEnglish": "These are nails.",
+      "sourceAnchors": [
+        "core-roofing:28:fr-en:card:3"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner initiating and answering vocabulary-picture questions.",
+    "partnerRole": "A partner holding and displaying all pictures and word cards.",
+    "candidateOpeningEnglish": "Here are the pictures.",
+    "candidateOpeningFrench": "Voici les images.",
+    "goalEnglish": "Describe the broom picture, identify nails and read cleanup on a word card.",
+    "goalFrench": "Décrivez l’image du balai, identifiez les clous et lisez cleanup sur la carte.",
+    "practiceContextEnglish": "Picture A shows a broom, B shows nails; word card C says cleanup.",
+    "contextFrench": "L’image A montre un balai, B des clous ; la carte C porte cleanup.",
+    "candidateWordBankEnglish": [
+      "broom",
+      "nails",
+      "cleanup",
+      "Where is the broom?",
+      "There is a broom.",
+      "These are nails."
+    ],
+    "partnerCuesEnglish": [
+      "What is in picture A?",
+      "What are these in picture B?",
+      "What word is on card C?"
+    ],
+    "partnerCueSupportFrench": [
+      "Qu’y a-t-il sur l’image A ?",
+      "Que sont ces objets sur l’image B ?",
+      "Quel mot figure sur la carte C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "There is a broom.",
+      "These are nails.",
+      "Cleanup. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Il y a un balai.",
+      "Ce sont des clous.",
+      "Nettoyage. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW ordinary closure merged into final expected turn",
+    "sourceAnchors": [
+      "core-roofing:28:fr-en:card:3",
+      "core-roofing:28:fr-en:card:4",
+      "core-roofing:28:fr-en:card:6"
+    ],
+    "id": "core-roofing:28:fr-en:speaking:1",
+    "reviewed": false,
+    "provenance": "New English/French word/picture-card exchange, not a source work procedure, inspection finding or completion certificate.",
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:28:fr-en:card:10",
+      "core-roofing:28:fr-en:card:11",
+      "core-roofing:28:fr-en:card:12",
+      "core-roofing:28:fr-en:card:13",
+      "core-roofing:28:fr-en:card:14",
+      "core-roofing:28:fr-en:card:15",
+      "core-roofing:28:fr-en:card:16",
+      "core-roofing:28:fr-en:card:2",
+      "core-roofing:28:fr-en:card:5",
+      "core-roofing:28:fr-en:card:8",
+      "core-roofing:28:fr-en:reader:2",
+      "core-roofing:28:fr-en:reader:3",
+      "core-roofing:28:fr-en:reader:4",
+      "core-roofing:28:fr-en:reader:5",
+      "core-roofing:28:fr-en:reader:6",
+      "core-roofing:28:fr-en:reader:7",
+      "core-roofing:28:fr-en:reader:8",
+      "core-roofing:28:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French classroom word/picture-card exercise, not a source site finding, work instruction or acceptance decision.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Here are the pictures."
+      },
+      {
+        "speaker": "partner",
+        "text": "What is in picture A?"
+      },
+      {
+        "speaker": "learner",
+        "text": "There is a broom."
+      },
+      {
+        "speaker": "partner",
+        "text": "What are these in picture B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "These are nails."
+      },
+      {
+        "speaker": "partner",
+        "text": "What word is on card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Cleanup. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture": "image",
+      "word card": "carte de vocabulaire",
+      "here": "ici",
+      "say": "indiquer/dire",
+      "where": "où"
+    }
+  },
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "core-roofing:28:fr-en:card:2",
+      "candidateFrenchOptions": [
+        "la benne à déchets"
+      ],
+      "meaningEnglish": "dumpster",
+      "reviewQuestion": "Confirm regional trade sense and disposal system; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Contenedor de escombros"
+    },
+    {
+      "sourceAnchor": "core-roofing:28:fr-en:card:5",
+      "candidateFrenchOptions": [
+        "l’aimant",
+        "l’aimant de ramassage"
+      ],
+      "meaningEnglish": "magnet (generic card5 noun; pickup-process scope occurs separately in card12/Reader6)",
+      "reviewQuestion": "Pickup tool/process and site acceptance need qualified review; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Imán",
+      "optionProvenance": "Aimant is a new literal generic noun candidate. Aimant de ramassage is archived pickup-tool evidence; not an accepted synonym without scope review."
+    },
+    {
+      "sourceAnchor": "core-roofing:28:fr-en:card:8",
+      "candidateFrenchOptions": [
+        "la cour"
+      ],
+      "meaningEnglish": "yard (source Spanish patio; yard/courtyard/site sense unresolved)",
+      "reviewQuestion": "Property-dependent meaning; confirm local and regional usage; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Patio"
+    },
+    {
+      "sourceAnchor": "core-roofing:28:fr-en:card:10",
+      "candidateFrenchOptions": [
+        "la descente pluviale"
+      ],
+      "meaningEnglish": "downspout",
+      "reviewQuestion": "Regional trade sense; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Bajada de agua"
+    }
+  ],
+  "internalReviewNotes": [
+    "Gutter-check commands (cards 11, 13; reader 3) inherit access-review hold and are excluded.",
+    "Yard, downspout, dumpster and magnet pickup statements remain held and are excluded.",
+    "Source nail-pickup commands are excluded; no site-acceptance or safety verdict is implied."
+  ],
+  "schema": 1,
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-28-source-decision-2026-11-18/packet.json",
+    "sha256": "9a9a21bc521606f44c50a1c25cdb1e0f1e0d7413ddeded000e62b8766e68bfa6"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:28:fr-en:card:1",
+      "sourceEnglish": "gutter",
+      "candidateFrench": "la gouttière",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "scopeNote": "Generic gutter/gouttière lexical candidate only. Qualified regional trade sense remains open; no access, downspout type or approved regional answer selected.",
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:28:fr-en:card:2",
+      "sourceEnglish": "dumpster",
+      "candidateFrench": null,
+      "hold": "Dumpster/contenedor de escombros regional and disposal-system French sense remains unresolved; no selected disposal method or capacity acceptance.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:28:fr-en:card:3",
+      "sourceEnglish": "nail",
+      "candidateFrench": "le clou",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:28:fr-en:card:4",
+      "sourceEnglish": "cleanup",
+      "candidateFrench": "le nettoyage",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:28:fr-en:card:5",
+      "sourceEnglish": "magnet",
+      "candidateFrench": null,
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:28:fr-en:card:6",
+      "sourceEnglish": "broom",
+      "candidateFrench": "le balai",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:28:fr-en:card:7",
+      "sourceEnglish": "debris",
+      "candidateFrench": "les débris",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:28:fr-en:card:8",
+      "sourceEnglish": "yard",
+      "candidateFrench": null,
+      "hold": "Yard/patio may mean a yard, courtyard or surrounding site depending on the property; archived la cour is a candidate, not an approved universal equivalent. Confirm local site and French regional usage.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:28:fr-en:card:9",
+      "sourceEnglish": "trash",
+      "candidateFrench": "les déchets",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:28:fr-en:card:10",
+      "sourceEnglish": "downspout",
+      "candidateFrench": null,
+      "hold": "Dumpster, downspout and gutter are regional trade senses. Confirm whether archived benne à déchets and descente pluviale fit the selected locale and disposal system; do not silently narrow the English source in scored vocabulary.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:28:fr-en:card:11",
+      "sourceEnglish": "Let's check the gutters and clean the site before leaving.",
+      "candidateFrench": null,
+      "hold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:28:fr-en:card:12",
+      "sourceEnglish": "Tell me when the magnetic nail sweep is finished.",
+      "candidateFrench": null,
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:28:fr-en:card:13",
+      "sourceEnglish": "Check the gutters for nails and debris.",
+      "candidateFrench": null,
+      "hold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:28:fr-en:card:14",
+      "sourceEnglish": "Pick up every nail around the house.",
+      "candidateFrench": null,
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:28:fr-en:card:15",
+      "sourceEnglish": "Is the dumpster full?",
+      "candidateFrench": null,
+      "hold": "Dumpster/contenedor de escombros regional and disposal-system French sense remains unresolved; no selected disposal method or capacity acceptance.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:cards:16",
+      "sourceAnchor": "core-roofing:28:fr-en:card:16",
+      "sourceEnglish": "Leave the yard cleaner than you found it.",
+      "candidateFrench": null,
+      "hold": "Yard/patio versus courtyard/surrounding site locale sense remains unresolved; final cleanliness comparison does not select site acceptance.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:1",
+      "sourceEnglish": "The roof is already finished, but the cleanup is still missing.",
+      "candidateFrench": "La toiture est déjà terminée, mais il reste encore le nettoyage.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New source-aligned French proposal retains already and still; this is the source scene, not an actual job-completion certificate."
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:2",
+      "sourceEnglish": "The foreman says: Let's check the gutters and clean the site before leaving.",
+      "candidateFrench": null,
+      "hold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:3",
+      "sourceEnglish": "Check the gutters for nails and debris.",
+      "candidateFrench": null,
+      "hold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:4",
+      "sourceEnglish": "A full gutter can block the downspout.",
+      "candidateFrench": null,
+      "hold": "Dependent downspout regional sense and gutter/downspout context remain unresolved; no product/system scope selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:5",
+      "sourceEnglish": "Pick up every nail around the house.",
+      "candidateFrench": null,
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:6",
+      "sourceEnglish": "Tell me when you finish picking up the nails with the magnet.",
+      "candidateFrench": null,
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:7",
+      "sourceEnglish": "Is the dumpster full?",
+      "candidateFrench": null,
+      "hold": "Dumpster/contenedor de escombros regional and disposal-system French sense remains unresolved; no selected disposal method or capacity acceptance.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:8",
+      "sourceEnglish": "Use the broom on the yard and put the trash in the dumpster.",
+      "candidateFrench": null,
+      "hold": "Dependent yard/patio locale sense and dumpster/disposal-system sense remain unresolved; no cleanup acceptance or disposal method selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:28:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:28:fr-en:reader:9",
+      "sourceEnglish": "Leave the yard cleaner than you found it.",
+      "candidateFrench": null,
+      "hold": "Yard/patio versus courtyard/surrounding site locale sense remains unresolved; final cleanliness comparison does not select site acceptance.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:28:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:28:fr-en:card:1",
+      "englishHeadword": "gutter",
+      "candidateFrenchSense": "la gouttière",
+      "contextEnglish": "Ground Cleanup",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Canal / Canalón"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:28:fr-en:card:2",
+      "englishHeadword": "dumpster",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Dumpster/contenedor de escombros regional and disposal-system French sense remains unresolved; no selected disposal method or capacity acceptance.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Contenedor de escombros"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:28:fr-en:card:3",
+      "englishHeadword": "nail",
+      "candidateFrenchSense": "le clou",
+      "contextEnglish": "Ground Cleanup",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Clavo"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:28:fr-en:card:4",
+      "englishHeadword": "cleanup",
+      "candidateFrenchSense": "le nettoyage",
+      "contextEnglish": "Ground Cleanup",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Limpieza"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:28:fr-en:card:5",
+      "englishHeadword": "magnet",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Imán"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:28:fr-en:card:6",
+      "englishHeadword": "broom",
+      "candidateFrenchSense": "le balai",
+      "contextEnglish": "Ground Cleanup",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Escoba"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:28:fr-en:card:7",
+      "englishHeadword": "debris",
+      "candidateFrenchSense": "les débris",
+      "contextEnglish": "Ground Cleanup",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Escombros"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:28:fr-en:card:8",
+      "englishHeadword": "yard",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Yard/patio may mean a yard, courtyard or surrounding site depending on the property; archived la cour is a candidate, not an approved universal equivalent. Confirm local site and French regional usage.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Patio"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:28:fr-en:card:9",
+      "englishHeadword": "trash",
+      "candidateFrenchSense": "les déchets",
+      "contextEnglish": "Ground Cleanup",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Basura"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:28:fr-en:card:10",
+      "englishHeadword": "downspout",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Dumpster, downspout and gutter are regional trade senses. Confirm whether archived benne à déchets and descente pluviale fit the selected locale and disposal system; do not silently narrow the English source in scored vocabulary.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Bajada de agua"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:28:fr-en:card:11",
+      "englishHeadword": "Let's check the gutters and clean the site before leaving.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revisemos las canaletas y limpiemos el sitio antes de irnos."
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:28:fr-en:card:12",
+      "englishHeadword": "Tell me when the magnetic nail sweep is finished.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Avísenme cuando terminen de recoger los clavos con el imán."
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:28:fr-en:card:13",
+      "englishHeadword": "Check the gutters for nails and debris.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revisen si hay clavos y escombros en las canaletas."
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:28:fr-en:card:14",
+      "englishHeadword": "Pick up every nail around the house.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Recojan todos los clavos alrededor de la casa."
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:28:fr-en:card:15",
+      "englishHeadword": "Is the dumpster full?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Dumpster/contenedor de escombros regional and disposal-system French sense remains unresolved; no selected disposal method or capacity acceptance.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Está lleno el contenedor?"
+    },
+    {
+      "id": "core-roofing:28:fr-en:dictionary:16",
+      "sourceAnchor": "core-roofing:28:fr-en:card:16",
+      "englishHeadword": "Leave the yard cleaner than you found it.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Ground Cleanup",
+      "status": "held",
+      "hold": "Yard/patio versus courtyard/surrounding site locale sense remains unresolved; final cleanliness comparison does not select site acceptance.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Dejen el patio más limpio que como lo encontraron."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a cleanup-access/source decision, settle a work method, or select a technical answer.",
+    "Source question mentions regional gutter senses but does not mark source card1 held; retained generic gutter/gouttière as unselected lexical candidate with explicit pending regional review. It cannot clear the separate access/procedure/downspout holds. Word tasks convention: French citation articles support bare English lemmas unless prompt expressly asks for an article or sentence.",
+    "Opus corrections checked against exact bilingual source: qualified lexical sense candidates remain unselected, source-dependent holds made specific, picture roles corrected, no actual material storage or completion finding asserted.",
+    "Gutter access/final-check holds cover source card11 and Reader2, card13 and Reader3. Generic gutter noun remains explicitly unselected pending locale review; no access rule inferred. Opening and ordinary scaffold reuse previous-course language rather than introduce a new site objective.",
+    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval."
+  ],
+  "sourceObjectiveEnglish": "Assign gutters and site cleanup",
+  "sourceSpeakingEnglish": "Assign a final gutter check and ground cleanup before leaving.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

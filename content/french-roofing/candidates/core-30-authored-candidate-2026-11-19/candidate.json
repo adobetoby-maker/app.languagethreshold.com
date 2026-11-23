@@ -1,0 +1,951 @@
+{
+  "lessonId": "core-roofing:30:fr-en",
+  "kind": "inert-authored-supplement",
+  "status": "proposal only; no runtime, scoring, audio, progress or V4 registration",
+  "candidateObjectiveEnglish": "Identify briefing, safety and crew lead vocabulary and use the time phrase in the morning.",
+  "grammarExplanationEnglish": "A statement such as the briefing is in the morning puts is after its subject. A yes/no question moves is before the subject. Where is the + noun phrase asks for location. The identifies a particular item shared in the context.",
+  "grammarExplanationFrench": "Dans une affirmation comme the briefing is in the morning, is suit le sujet. Une question oui/non place is avant le sujet. « Where is the » + groupe nominal demande un emplacement. The vise un élément précis partagé dans le contexte.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "safety",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:4"
+      ],
+      "expectedMeaningFrench": "la sécurité",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:30:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez le terme anglais pour « la réunion d’information ».",
+      "candidateTargetEnglish": "briefing",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "la réunion d’information",
+      "provenance": "Exact source English briefing, card1. French réunion d’information is a new unselected bilingual candidate supported by source reunión informativa; archived réunion d’équipe and other options remain pending qualified sense review.",
+      "id": "core-roofing:30:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "crew lead",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "le chef d’équipe",
+      "provenance": "Exact source English term; unreviewed source-derived French candidate, except explicitly noted new compositions.",
+      "id": "core-roofing:30:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Formez une question en anglais avec Is the ... ? : « La réunion d’information a-t-elle lieu le matin ? »",
+      "candidateTargetEnglish": "Is the briefing in the morning?",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:1",
+        "core-roofing:30:fr-en:reader:1"
+      ],
+      "expectedMeaningFrench": "La réunion d’information a-t-elle lieu le matin ?",
+      "provenance": "New English/French time-language composition; in the morning occurs in exact source Reader1. No source site fact inferred.",
+      "id": "core-roofing:30:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "candidateEnglishAlternatives": [
+        "Does the briefing take place in the morning?"
+      ]
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais le complément de temps, avec sa préposition : « le matin ».",
+      "candidateTargetEnglish": "in the morning",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:reader:1"
+      ],
+      "expectedMeaningFrench": "le matin",
+      "provenance": "Exact source span in the morning from Reader1 (case-normalized); French le matin support and spoken-practice prompt are newly composed.",
+      "id": "core-roofing:30:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : « Où est le chef d’équipe ? »",
+      "candidateTargetEnglish": "Where is the crew lead?",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:6"
+      ],
+      "expectedMeaningFrench": "Où est le chef d’équipe ?",
+      "provenance": "New English/French grammar composition using exact unheld source vocabulary.",
+      "id": "core-roofing:30:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "forms": [
+    {
+      "id": "core-roofing:30:fr-en:form:1",
+      "englishForm": "The [noun] is [time phrase].",
+      "meaningFrench": "Le/la/l’ + nom a lieu + repère temporel (ici : la réunion a lieu le matin).",
+      "candidateExampleEnglish": "The briefing is in the morning.",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:1",
+        "core-roofing:30:fr-en:reader:1"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:30:fr-en:form:2",
+      "englishForm": "Where is the [noun phrase]?",
+      "meaningFrench": "Où est le/la/l’ + groupe nominal ?",
+      "candidateExampleEnglish": "Where is the crew lead?",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:6"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "core-roofing:30:fr-en:form:3",
+      "englishForm": "Is the [noun] [time phrase]?",
+      "meaningFrench": "Question avec inversion is + sujet.",
+      "candidateExampleEnglish": "Is the briefing in the morning?",
+      "sourceAnchors": [
+        "core-roofing:30:fr-en:card:1",
+        "core-roofing:30:fr-en:reader:1"
+      ],
+      "provenance": "New English/French grammar composition derived from the indicated unheld source words; not an exact source sentence.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "A learner initiating and answering vocabulary-picture questions.",
+    "partnerRole": "A partner holding and displaying all pictures and word cards.",
+    "candidateOpeningEnglish": "Where is the crew lead?",
+    "candidateOpeningFrench": "Où est le chef d’équipe ?",
+    "goalEnglish": "Ask about the crew-lead picture, say when the depicted briefing is and read safety.",
+    "goalFrench": "Interrogez sur l’image du chef d’équipe, dites quand a lieu la réunion représentée et lisez safety.",
+    "practiceContextEnglish": "Picture A depicts a morning briefing, B a crew lead; word card C says safety. This is vocabulary-picture practice.",
+    "contextFrench": "L’image A représente une réunion d’information le matin, B un chef d’équipe ; C porte safety. C’est un exercice de vocabulaire.",
+    "candidateWordBankEnglish": [
+      "briefing",
+      "crew lead",
+      "safety",
+      "Where is the crew lead?",
+      "The briefing is in the morning."
+    ],
+    "partnerCuesEnglish": [
+      "Picture B. Who is that?",
+      "When is the briefing in picture A?",
+      "What word is on card C?"
+    ],
+    "partnerCueSupportFrench": [
+      "Sur l’image B. Qui est-ce ?",
+      "Quand a lieu la réunion sur l’image A ?",
+      "Quel mot figure sur la carte C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The crew lead.",
+      "The briefing is in the morning.",
+      "Safety. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Le chef d’équipe.",
+      "La réunion d’information a lieu le matin.",
+      "Sécurité. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW ordinary closure merged into final expected turn",
+    "sourceAnchors": [
+      "core-roofing:30:fr-en:card:1",
+      "core-roofing:30:fr-en:card:4",
+      "core-roofing:30:fr-en:card:6",
+      "core-roofing:30:fr-en:reader:1"
+    ],
+    "id": "core-roofing:30:fr-en:speaking:1",
+    "reviewed": false,
+    "provenance": "New English/French word/picture-card exchange, not a source work procedure, inspection finding or completion certificate.",
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:30:fr-en:card:10",
+      "core-roofing:30:fr-en:card:12",
+      "core-roofing:30:fr-en:card:13",
+      "core-roofing:30:fr-en:card:14",
+      "core-roofing:30:fr-en:card:15",
+      "core-roofing:30:fr-en:card:2",
+      "core-roofing:30:fr-en:card:3",
+      "core-roofing:30:fr-en:card:5",
+      "core-roofing:30:fr-en:card:7",
+      "core-roofing:30:fr-en:card:8",
+      "core-roofing:30:fr-en:card:9",
+      "core-roofing:30:fr-en:reader:3",
+      "core-roofing:30:fr-en:reader:4",
+      "core-roofing:30:fr-en:reader:5",
+      "core-roofing:30:fr-en:reader:6",
+      "core-roofing:30:fr-en:reader:7",
+      "core-roofing:30:fr-en:reader:8",
+      "core-roofing:30:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French classroom word/picture-card exercise, not a source site finding, work instruction or acceptance decision.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where is the crew lead?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Picture B. Who is that?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The crew lead."
+      },
+      {
+        "speaker": "partner",
+        "text": "When is the briefing in picture A?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The briefing is in the morning."
+      },
+      {
+        "speaker": "partner",
+        "text": "What word is on card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Safety. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture": "image",
+      "word card": "carte de vocabulaire",
+      "here": "ici",
+      "say": "indiquer/dire",
+      "where": "où"
+    }
+  },
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:2",
+      "candidateFrenchOptions": [
+        "la dépose"
+      ],
+      "meaningEnglish": "tear-off",
+      "reviewQuestion": "Trade process term; sequence is job-specific; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Desmontaje"
+    },
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:3",
+      "candidateFrenchOptions": [
+        "poser (archived verb, unselected)",
+        "la pose (noun, not archived)"
+      ],
+      "meaningEnglish": "install (verb) / installation (noun)",
+      "reviewQuestion": "Conflict: English source install vs Spanish noun Instalación; part of speech unresolved. Do not choose silently; qualified review required.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Instalación"
+    },
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:5",
+      "candidateFrenchOptions": [
+        "la clôture du chantier"
+      ],
+      "meaningEnglish": "closeout",
+      "reviewQuestion": "Closeout scope and terminology need regional review; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Cierre de obra"
+    },
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:7",
+      "candidateFrenchOptions": [
+        "la sous-couche"
+      ],
+      "meaningEnglish": "underlayment",
+      "reviewQuestion": "Roof-system scope; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Sub-capa / Fieltro"
+    },
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:8",
+      "candidateFrenchOptions": [
+        "le solin"
+      ],
+      "meaningEnglish": "flashing",
+      "reviewQuestion": "Product and assembly scope; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Tapajuntas / Flashing"
+    },
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:9",
+      "candidateFrenchOptions": [
+        "la bâche"
+      ],
+      "meaningEnglish": "tarp",
+      "reviewQuestion": "Weather and access conditions; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Lona"
+    },
+    {
+      "sourceAnchor": "core-roofing:30:fr-en:card:10",
+      "candidateFrenchOptions": [
+        "la liste des points à terminer"
+      ],
+      "meaningEnglish": "punch list",
+      "reviewQuestion": "Closeout and inspection scope; held.",
+      "status": "unselected-held-terminology-options",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "selectedOption": null,
+      "sourceSpanishEvidence": "Lista de pendientes"
+    }
+  ],
+  "internalReviewNotes": [
+    "Source capstone objective says 'Lead a complete roofing day in Spanish' while English is the target. This conflict is preserved; no replacement capstone objective is authored here.",
+    "Install vs Instalación part-of-speech conflict is explicit and unresolved.",
+    "No tear-off/install resolution, tarp/weather/access answer, or punch list/closeout/assembly inspection answer is given.",
+    "Tie-off, stop-work, roof-walk and sequence commands remain held and are excluded."
+  ],
+  "schema": 1,
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "core-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/core-30-source-decision-2026-11-18/packet.json",
+    "sha256": "9d950495a8d9c9086bbaab8bd9d6227511db1de55e384051eef61fac561915b9"
+  },
+  "candidateRows": [
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:1",
+      "sourceAnchor": "core-roofing:30:fr-en:card:1",
+      "sourceEnglish": "briefing",
+      "candidateFrench": "la réunion d’information",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New direct French candidate supported by source Spanish reunión informativa; archived réunion d’équipe remains evidence, not selected universal equivalence."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:2",
+      "sourceAnchor": "core-roofing:30:fr-en:card:2",
+      "sourceEnglish": "tear-off",
+      "candidateFrench": null,
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:3",
+      "sourceAnchor": "core-roofing:30:fr-en:card:3",
+      "sourceEnglish": "install",
+      "candidateFrench": null,
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:4",
+      "sourceAnchor": "core-roofing:30:fr-en:card:4",
+      "sourceEnglish": "safety",
+      "candidateFrench": "la sécurité",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:5",
+      "sourceAnchor": "core-roofing:30:fr-en:card:5",
+      "sourceEnglish": "closeout",
+      "candidateFrench": null,
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:6",
+      "sourceAnchor": "core-roofing:30:fr-en:card:6",
+      "sourceEnglish": "crew lead",
+      "candidateFrench": "le chef d’équipe",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:7",
+      "sourceAnchor": "core-roofing:30:fr-en:card:7",
+      "sourceEnglish": "underlayment",
+      "candidateFrench": null,
+      "hold": "Underlayment, flashing, deck and tarp require roof-system/product scope; the Reader says the lead checks each step. Archived platelage, sous-couche and solin may be conditional but cannot select a specific assembly or inspection approval.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:8",
+      "sourceAnchor": "core-roofing:30:fr-en:card:8",
+      "sourceEnglish": "flashing",
+      "candidateFrench": null,
+      "hold": "Underlayment, flashing, deck and tarp require roof-system/product scope; the Reader says the lead checks each step. Archived platelage, sous-couche and solin may be conditional but cannot select a specific assembly or inspection approval.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:9",
+      "sourceAnchor": "core-roofing:30:fr-en:card:9",
+      "sourceEnglish": "tarp",
+      "candidateFrench": null,
+      "hold": "Lona/tarp/bâche needs roof-system/product context and the held weather/tarp-access timing from source Reader7; no permission to cover or re-access the roof selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:10",
+      "sourceAnchor": "core-roofing:30:fr-en:card:10",
+      "sourceEnglish": "punch list",
+      "candidateFrench": null,
+      "hold": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:11",
+      "sourceAnchor": "core-roofing:30:fr-en:card:11",
+      "sourceEnglish": "Let's review today's roof plan before we start.",
+      "candidateFrench": "Passons en revue le plan de toiture d’aujourd’hui avant de commencer.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval.",
+      "qualifiedSenseReviewNote": "Today’s roof plan may denote day work plan rather than a drawing; French plan de toiture must not silently select the drawing sense."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:12",
+      "sourceAnchor": "core-roofing:30:fr-en:card:12",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "candidateFrench": null,
+      "hold": "The source Spanish tie-off command mentions a harness; English is bare Tie off without an approved anchor, fall-clearance or site system. Archived attachez-vous is broader and can obscure the tie-off requirement. Hold for qualified fall-protection and French terminology review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:13",
+      "sourceAnchor": "core-roofing:30:fr-en:card:13",
+      "sourceEnglish": "Stop work and come down if the weather changes.",
+      "candidateFrench": null,
+      "hold": "The source storm warning is followed by a conditional order to stop and descend if weather changes, then an unfinished-section tarp action. Archived Reader 7 changes its English anchor by adding 'once conditions allow safe work under the approved plan'; preserve the current source exact text and hold the timing, weather stop and tarp access sequence for qualified safety/source review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:14",
+      "sourceAnchor": "core-roofing:30:fr-en:card:14",
+      "sourceEnglish": "Walk the roof with me before we call the job complete.",
+      "candidateFrench": null,
+      "hold": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:15",
+      "sourceAnchor": "core-roofing:30:fr-en:card:15",
+      "sourceEnglish": "Tear-off first, then installation.",
+      "candidateFrench": null,
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:cards:16",
+      "sourceAnchor": "core-roofing:30:fr-en:card:16",
+      "sourceEnglish": "Safety comes first today.",
+      "candidateFrench": "Aujourd’hui, la sécurité passe avant tout.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:1",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:1",
+      "sourceEnglish": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+      "candidateFrench": "Le matin, le contremaître ouvre la réunion d’information : « Passons en revue le plan de toiture d’aujourd’hui avant de commencer. »",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Source-aligned French proposal makes briefing information sense explicit; capstone target-language conflict remains held."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:2",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:2",
+      "sourceEnglish": "Safety comes first today.",
+      "candidateFrench": "Aujourd’hui, la sécurité passe avant tout.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Copied source packet conditionalFrench as unreviewed candidate support; no selection or qualified approval."
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:3",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:3",
+      "sourceEnglish": "Tie off before you go on the roof.",
+      "candidateFrench": null,
+      "hold": "The source tie-off command mentions a harness without an approved anchor, fall-clearance or site system. Archived attachez-vous is broader and can obscure the tie-off requirement. Hold for qualified fall-protection and French terminology review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:4",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:4",
+      "sourceEnglish": "Tear-off first, then installation.",
+      "candidateFrench": null,
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:5",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:5",
+      "sourceEnglish": "When the deck is ready, the crew puts down the underlayment and the flashing, and the crew lead checks each step.",
+      "candidateFrench": null,
+      "hold": "Underlayment, flashing, deck and tarp require roof-system/product scope; the Reader says the lead checks each step. Archived platelage, sous-couche and solin may be conditional but cannot select a specific assembly or inspection approval.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:6",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:6",
+      "sourceEnglish": "In the afternoon a storm warning arrives, and the foreman orders: Stop work and come down if the weather changes.",
+      "candidateFrench": null,
+      "hold": "The source storm warning is followed by a conditional order to stop and descend if weather changes, then an unfinished-section tarp action. Archived Reader 7 changes its English anchor by adding 'once conditions allow safe work under the approved plan'; preserve the current source exact text and hold the timing, weather stop and tarp access sequence for qualified safety/source review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:7",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:7",
+      "sourceEnglish": "The crew covers the unfinished section with a tarp.",
+      "candidateFrench": null,
+      "hold": "The source storm warning is followed by a conditional order to stop and descend if weather changes, then an unfinished-section tarp action. Archived Reader 7 changes its English anchor by adding 'once conditions allow safe work under the approved plan'; preserve the current source exact text and hold the timing, weather stop and tarp access sequence for qualified safety/source review.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:8",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:8",
+      "sourceEnglish": "At the end of the day, the foreman asks: Walk the roof with me before we call the job complete.",
+      "candidateFrench": null,
+      "hold": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "core-roofing:30:fr-en:candidate:reader:9",
+      "sourceAnchor": "core-roofing:30:fr-en:reader:9",
+      "sourceEnglish": "Whatever is left stays on the punch list for the closeout.",
+      "candidateFrench": null,
+      "hold": "Dependent punch-list remaining-work and closeout/day-end scope remain unresolved; no roof-access permission or completion certification selected.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "core-roofing:30:fr-en:dictionary:1",
+      "sourceAnchor": "core-roofing:30:fr-en:card:1",
+      "englishHeadword": "briefing",
+      "candidateFrenchSense": "la réunion d’information",
+      "contextEnglish": "Full Roofing Day",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Reunión informativa",
+      "qualifiedFrenchOptions": [
+        "réunion d’information",
+        "réunion d’équipe",
+        "briefing",
+        "réunion préparatoire"
+      ],
+      "optionStatus": "Unselected contextual options; qualified French/source review required."
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:2",
+      "sourceAnchor": "core-roofing:30:fr-en:card:2",
+      "englishHeadword": "tear-off",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Desmontaje"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:3",
+      "sourceAnchor": "core-roofing:30:fr-en:card:3",
+      "englishHeadword": "install",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Instalación"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:4",
+      "sourceAnchor": "core-roofing:30:fr-en:card:4",
+      "englishHeadword": "safety",
+      "candidateFrenchSense": "la sécurité",
+      "contextEnglish": "Full Roofing Day",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Seguridad"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:5",
+      "sourceAnchor": "core-roofing:30:fr-en:card:5",
+      "englishHeadword": "closeout",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Cierre de obra"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:6",
+      "sourceAnchor": "core-roofing:30:fr-en:card:6",
+      "englishHeadword": "crew lead",
+      "candidateFrenchSense": "le chef d’équipe",
+      "contextEnglish": "Full Roofing Day",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Jefe de cuadrilla"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:7",
+      "sourceAnchor": "core-roofing:30:fr-en:card:7",
+      "englishHeadword": "underlayment",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Underlayment, flashing, deck and tarp require roof-system/product scope; the Reader says the lead checks each step. Archived platelage, sous-couche and solin may be conditional but cannot select a specific assembly or inspection approval.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sub-capa / Fieltro"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:8",
+      "sourceAnchor": "core-roofing:30:fr-en:card:8",
+      "englishHeadword": "flashing",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Underlayment, flashing, deck and tarp require roof-system/product scope; the Reader says the lead checks each step. Archived platelage, sous-couche and solin may be conditional but cannot select a specific assembly or inspection approval.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Tapajuntas / Flashing"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:9",
+      "sourceAnchor": "core-roofing:30:fr-en:card:9",
+      "englishHeadword": "tarp",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Lona/tarp/bâche needs roof-system/product context and the held weather/tarp-access timing from source Reader7; no permission to cover or re-access the roof selected.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Lona"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:10",
+      "sourceAnchor": "core-roofing:30:fr-en:card:10",
+      "englishHeadword": "punch list",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Lista de pendientes"
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:11",
+      "sourceAnchor": "core-roofing:30:fr-en:card:11",
+      "englishHeadword": "Let's review today's roof plan before we start.",
+      "candidateFrenchSense": "Passons en revue le plan de toiture d’aujourd’hui avant de commencer.",
+      "contextEnglish": "Full Roofing Day",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Repasemos el plan del techo de hoy antes de empezar."
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:12",
+      "sourceAnchor": "core-roofing:30:fr-en:card:12",
+      "englishHeadword": "Tie off before you go on the roof.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "The source Spanish tie-off command mentions a harness; English is bare Tie off without an approved anchor, fall-clearance or site system. Archived attachez-vous is broader and can obscure the tie-off requirement. Hold for qualified fall-protection and French terminology review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Anclen el arnés antes de subir al techo."
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:13",
+      "sourceAnchor": "core-roofing:30:fr-en:card:13",
+      "englishHeadword": "Stop work and come down if the weather changes.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "The source storm warning is followed by a conditional order to stop and descend if weather changes, then an unfinished-section tarp action. Archived Reader 7 changes its English anchor by adding 'once conditions allow safe work under the approved plan'; preserve the current source exact text and hold the timing, weather stop and tarp access sequence for qualified safety/source review.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Detengan el trabajo y bajen si cambia el tiempo."
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:14",
+      "sourceAnchor": "core-roofing:30:fr-en:card:14",
+      "englishHeadword": "Walk the roof with me before we call the job complete.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Recorran el techo conmigo antes de dar el trabajo por terminado."
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:15",
+      "sourceAnchor": "core-roofing:30:fr-en:card:15",
+      "englishHeadword": "Tear-off first, then installation.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Full Roofing Day",
+      "status": "held",
+      "hold": "Tear-off and closeout are trade process terms; the source has an install/instalación part-of-speech mismatch, while archived poser is a verb for a term labeled instalación. Confirm English target, French support and dictionary senses, and whether the tear-off/install sequence is job-specific rather than universal.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Primero el desmontaje, luego la instalación."
+    },
+    {
+      "id": "core-roofing:30:fr-en:dictionary:16",
+      "sourceAnchor": "core-roofing:30:fr-en:card:16",
+      "englishHeadword": "Safety comes first today.",
+      "candidateFrenchSense": "Aujourd’hui, la sécurité passe avant tout.",
+      "contextEnglish": "Full Roofing Day",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "La seguridad es lo primero hoy."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a capstone-language/roofing-source decision, settle a work method, or select a technical answer.",
+    "Opus corrections checked against exact bilingual source: qualified lexical sense candidates remain unselected, source-dependent holds made specific, picture roles corrected, no actual material storage or completion finding asserted.",
+    "Opus/Fable disagree on French briefing support: réunion d’information, réunion d’équipe, briefing and réunion préparatoire are unselected contextual options. No model preference qualifies one as approved. Exact Spanish reunión informativa and English briefing remain preserved. French roof-plan sense and foreman/crew-lead locale review remain open. Source Spanish, not bare English Tie off, supplies harness.",
+    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval."
+  ],
+  "sourceObjectiveLanguageConflict": {
+    "sourceObjectiveEnglish": "Lead a complete roofing day in Spanish",
+    "targetLanguage": "English",
+    "selectedReplacementObjective": null,
+    "status": "held; source capstone specifies Spanish; no substitute capstone authored"
+  },
+  "sourceObjectiveEnglish": "Lead a complete roofing day in Spanish",
+  "sourceSpeakingEnglish": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+}

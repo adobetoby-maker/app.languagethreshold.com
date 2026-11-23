@@ -1,0 +1,33 @@
+{
+  "authoring": "safe-mode Haiku source-grounded authoring and Codex assembly",
+  "haikuCalls": 1,
+  "haikuModel": "claude-haiku-5-5",
+  "haikuSessionId": "d46884de-43df-420a-afa3-fb6413ba8394",
+  "haikuSafeMode": true,
+  "haikuTools": [],
+  "opusCalls": 1,
+  "fableCalls": 1,
+  "qualifiedReview": false,
+  "claudeCliVersionObserved": "2.1.329",
+  "sharedBatchLessons": [
+    "core-roofing:28:fr-en",
+    "core-roofing:29:fr-en",
+    "core-roofing:30:fr-en"
+  ],
+  "callCountScope": "one shared session per model per three-lesson batch",
+  "opusModel": "claude-opus-5-5",
+  "opusSessionId": "7e55ccef-b04a-417a-a997-ed5b3e7a4995",
+  "opusSafeMode": true,
+  "opusTools": [],
+  "fableModel": "claude-fable-5-2",
+  "fableSessionId": "d67352c3-878e-4848-a6d9-cab451bdde66",
+  "fableSafeMode": true,
+  "fableTools": [],
+  "reviewSequence": "Haiku candidate authoring \u2192 exact-lesson source-anchor correction/self-check \u2192 Opus read-only critique/corrections \u2192 Fable read-only critique of corrected snapshot \u2192 bilingual source self-check",
+  "selfCheckCorrections": [
+    "Rejected Core28 safety anchor from another lesson",
+    "Rejected non-source scaffold anchors",
+    "Removed invented Tuesday and future-status details",
+    "Preserved Core30 Spanish-capstone/English-target conflict"
+  ]
+}

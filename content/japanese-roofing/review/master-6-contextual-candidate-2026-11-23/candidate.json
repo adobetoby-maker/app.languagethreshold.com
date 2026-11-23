@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:6:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-6-source-decision-2026-11-18/packet.json",
+    "sha256": "23d4bf0d2d22345ff7236131cc16cdfb38e0cdf6a83fbcd77e5ec05383bff9c2"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-4-6-draft.json",
+      "sha256": "4b08dda641541c9bba9eaea7bddad381917015b877a3e9509028b607bc2de05c"
+    }
+  },
+  "objectiveEnglish": "Confirm an incomplete order, ask when the rest will arrive and communicate a pending decision.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "朝7時に電話をかけてきた、資材を納める「業者」を表す英語はどれでしょう。the の付いた形で確認しましょう。",
+      "targetEnglish": "the supplier",
+      "sourceAnchor": "master-roofing:6:ja-en:card:1",
+      "id": "master-roofing:6:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "業者に頼んだ「注文（品）」を、the を付けた英語で思い出しましょう。",
+      "targetEnglish": "the order",
+      "sourceAnchor": "master-roofing:6:ja-en:card:2",
+      "id": "master-roofing:6:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "予定より遅れること、つまり「遅れ」はどれですか。音声を聞いて、the の付いた形で選びましょう。",
+      "targetEnglish": "the delay",
+      "sourceAnchor": "master-roofing:6:ja-en:card:8",
+      "candidateOptionsEnglish": [
+        "the delivery",
+        "the delay",
+        "the warehouse"
+      ],
+      "id": "master-roofing:6:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the delay",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「代わりの品（代替品）」を、the を付けた英語で入力しましょう。",
+      "targetEnglish": "the substitute",
+      "sourceAnchor": "master-roofing:6:ja-en:card:4",
+      "id": "master-roofing:6:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "業者に「残りはいつ届きますか。」と英語で尋ねてみましょう。",
+      "targetEnglish": "When will the rest arrive?",
+      "sourceAnchor": "master-roofing:6:ja-en:card:16",
+      "id": "master-roofing:6:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "業者からの知らせ「注文は全部そろっては届きません。」を英語で書きましょう。",
+      "targetEnglish": "The order won't arrive complete.",
+      "sourceAnchor": "master-roofing:6:ja-en:card:15",
+      "id": "master-roofing:6:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The order won't arrive complete.",
+      "explanationJapanese": "「won't」は「will not」の短縮形で、「～しないでしょう」という意味です。ここでは業者からの知らせを伝える文です。",
+      "sourceAnchor": "master-roofing:6:ja-en:card:15",
+      "id": "master-roofing:6:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "When will the rest arrive?",
+      "explanationJapanese": "「When will ～ + 動詞?」は「～はいつ…しますか」と時期を尋ねる疑問文です。自分で日付を言うのではなく、相手に確認する言い方です。",
+      "sourceAnchor": "master-roofing:6:ja-en:card:16",
+      "id": "master-roofing:6:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "before deciding I'm going to talk to the customer",
+      "explanationJapanese": "「before + ～ing」は「～する前に」、「be going to + 動詞」は「～するつもりです」という意味です。まだ決めていないこと、先にお客様と話すことを伝える言い方です。",
+      "sourceAnchor": "master-roofing:6:ja-en:line:9",
+      "id": "master-roofing:6:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the supplier",
+      "glossJapanese": "業者（資材の納入業者）",
+      "senseJapanese": "工事に使う資材を納める業者。",
+      "sourceAnchor": "master-roofing:6:ja-en:card:1",
+      "id": "master-roofing:6:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the order",
+      "glossJapanese": "注文（注文した品）",
+      "senseJapanese": "業者に頼んだ資材のまとまり。",
+      "sourceAnchor": "master-roofing:6:ja-en:card:2",
+      "id": "master-roofing:6:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "in stock",
+      "glossJapanese": "在庫がある",
+      "senseJapanese": "業者の手元に品物がある状態。the は付けずに使う。",
+      "sourceAnchor": "master-roofing:6:ja-en:card:7",
+      "id": "master-roofing:6:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio（現場の責任者。朝7時に業者から電話を受ける）",
+      "partner": "Supplier（資材の業者。注文について悪い知らせを伝え、届く時期は確かではないと答える）"
+    },
+    "openingEnglish": "The order won't arrive complete.",
+    "closureEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+    "objectivesEnglish": [
+      "Listen to the report that the order won't arrive complete and say it back to confirm it.",
+      "Ask when the rest will arrive, and treat the answer as not certain.",
+      "Ask for the spec sheet and say you will talk to the customer before deciding, without promising a brand or a delivery date."
+    ],
+    "wordBankEnglish": [
+      "the supplier",
+      "the order",
+      "the delay",
+      "in stock",
+      "The order won't arrive complete.",
+      "When will the rest arrive?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:6:ja-en:card:1",
+      "master-roofing:6:ja-en:card:2",
+      "master-roofing:6:ja-en:card:7",
+      "master-roofing:6:ja-en:card:8",
+      "master-roofing:6:ja-en:card:15",
+      "master-roofing:6:ja-en:card:16",
+      "master-roofing:6:ja-en:line:1",
+      "master-roofing:6:ja-en:line:2",
+      "master-roofing:6:ja-en:line:3",
+      "master-roofing:6:ja-en:line:4",
+      "master-roofing:6:ja-en:line:9"
+    ],
+    "id": "master-roofing:6:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:6:ja-en:line:4",
+      "sourceEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "languageGoalEnglish": "Ask for clarification of the uncertain arrival report without promising a date.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; stable proposed Master IDs retain source anchors, no runtime/progress migration.",
+    "Partial selected communication/report/question supplement only. Product spec interpretation, overlap/fastener method, structural repair recommendation, cost/day estimate and authorization requirements remain qualified source/trade/contract decisions.",
+    "Material-substitute durability/weight/color suitability, brand acceptance, approval text sufficiency and delivery/ETA promises remain held; no invented replacement date or product decision.",
+    "Source complication exact; roles distinguish Kevin asking Rogelio, Rogelio speaking to MrRamírez, and supplier speaking to Rogelio.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

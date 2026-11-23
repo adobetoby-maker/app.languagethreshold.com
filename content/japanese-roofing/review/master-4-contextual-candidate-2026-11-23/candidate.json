@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:4:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-4-source-decision-2026-11-18/packet.json",
+    "sha256": "c679e0950d05e24e2e977eb8dd66eca1cdcb0d0307f9e033469f5601647ffd2a"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-4-6-draft.json",
+      "sha256": "4b08dda641541c9bba9eaea7bddad381917015b877a3e9509028b607bc2de05c"
+    }
+  },
+  "objectiveEnglish": "Ask about reading a spec sheet, ask what it says and politely request a moment.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "ロヘリオが箱から取り出す、製品の技術資料を表す英語はどれでしょう。the の付いた形で確認しましょう。",
+      "targetEnglish": "the spec sheet",
+      "sourceAnchor": "master-roofing:4:ja-en:card:1",
+      "id": "master-roofing:4:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「メーカーの説明書（施工手順）」を、the を付けた英語で思い出しましょう。",
+      "targetEnglish": "the manufacturer instructions",
+      "sourceAnchor": "master-roofing:4:ja-en:card:2",
+      "id": "master-roofing:4:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「ステップフラッシング」という部材名を聞いて、the の付いた形で選びましょう。",
+      "targetEnglish": "the step flashing",
+      "sourceAnchor": "master-roofing:4:ja-en:card:3",
+      "candidateOptionsEnglish": [
+        "the step flashing",
+        "the pipe boot",
+        "the fastener"
+      ],
+      "id": "master-roofing:4:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the step flashing",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「最小の重ね幅」を、the を付けた英語で入力しましょう。数値は入れません。",
+      "targetEnglish": "the minimum overlap",
+      "sourceAnchor": "master-roofing:4:ja-en:card:7",
+      "id": "master-roofing:4:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "同僚に「ねえ、もうそれ読んだ？」と英語で聞いてみましょう。",
+      "targetEnglish": "Hey, have you already read it?",
+      "sourceAnchor": "master-roofing:4:ja-en:card:20",
+      "id": "master-roofing:4:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "いつ始めるのかと聞かれた場面です。「少しお時間をいただけますか。」と丁寧な英語で書きましょう。",
+      "targetEnglish": "Could you give me a moment, please?",
+      "sourceAnchor": "master-roofing:4:ja-en:card:21",
+      "id": "master-roofing:4:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Hey, have you already read it?",
+      "explanationJapanese": "「Have you already + 過去分詞?」は「もう～しましたか」と確認する言い方です。ここの read は過去分詞で、「レッド」と発音します。",
+      "sourceAnchor": "master-roofing:4:ja-en:card:20",
+      "id": "master-roofing:4:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "What does the sheet say about the overlap?",
+      "explanationJapanese": "「What does ～ say about ～?」は「～には…について何と書いてありますか」と、資料の内容を尋ねる言い方です。自分の記憶ではなく、資料を根拠にするときに使います。",
+      "sourceAnchor": "master-roofing:4:ja-en:card:17",
+      "id": "master-roofing:4:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Could you give me a moment, please?",
+      "explanationJapanese": "「Could you ～, please?」は丁寧な依頼です。すぐに答えを約束せず、少し待ってもらいたいときに使えます。",
+      "sourceAnchor": "master-roofing:4:ja-en:card:21",
+      "id": "master-roofing:4:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the spec sheet",
+      "glossJapanese": "技術資料（スペックシート）",
+      "senseJapanese": "製品の仕様や施工手順をまとめた資料。施工前に読む。",
+      "sourceAnchor": "master-roofing:4:ja-en:card:1",
+      "id": "master-roofing:4:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the specification",
+      "glossJapanese": "仕様",
+      "senseJapanese": "製品や施工について決められている内容。「the spec sheet」はそれをまとめた資料のこと。",
+      "sourceAnchor": "master-roofing:4:ja-en:card:6",
+      "id": "master-roofing:4:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the step flashing",
+      "glossJapanese": "ステップフラッシング（水切り部材）",
+      "senseJapanese": "この場面では、屋根と側壁の取り合い部分に使う部材の名称です。",
+      "sourceAnchor": "master-roofing:4:ja-en:card:3",
+      "id": "master-roofing:4:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio（現場の責任者。側壁にステップフラッシングを付ける前に、箱から技術資料を取り出して読んでいる）",
+      "partner": "Kevin（同じ班の作業員。最初に質問する）。最後に、いつ始めるのかを尋ねる施主の役もする"
+    },
+    "openingEnglish": "Hey, have you already read it?",
+    "closureEnglish": "Could you give me a moment, please?",
+    "objectivesEnglish": [
+      "Respond to the question about reading the sheet and remind the partner that the sheet rules, not habit.",
+      "Ask what the sheet says about the overlap, without stating any overlap number yourself.",
+      "When the homeowner asks when work is starting, ask for a moment instead of promising a start time."
+    ],
+    "wordBankEnglish": [
+      "the spec sheet",
+      "the manufacturer instructions",
+      "the minimum overlap",
+      "The sheet rules, not habit.",
+      "What does the sheet say about the overlap?",
+      "Could you give me a moment, please?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:4:ja-en:card:1",
+      "master-roofing:4:ja-en:card:2",
+      "master-roofing:4:ja-en:card:7",
+      "master-roofing:4:ja-en:card:16",
+      "master-roofing:4:ja-en:card:17",
+      "master-roofing:4:ja-en:card:20",
+      "master-roofing:4:ja-en:card:21",
+      "master-roofing:4:ja-en:line:1",
+      "master-roofing:4:ja-en:line:10",
+      "master-roofing:4:ja-en:line:13",
+      "master-roofing:4:ja-en:line:15"
+    ],
+    "id": "master-roofing:4:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:4:ja-en:line:15",
+      "sourceEnglish": "Then the homeowner asks when they're starting, and Rogelio answers: Could you give me a moment, please?",
+      "languageGoalEnglish": "Politely ask for a moment when the homeowner asks about starting.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; stable proposed Master IDs retain source anchors, no runtime/progress migration.",
+    "Partial selected communication/report/question supplement only. Product spec interpretation, overlap/fastener method, structural repair recommendation, cost/day estimate and authorization requirements remain qualified source/trade/contract decisions.",
+    "Material-substitute durability/weight/color suitability, brand acceptance, approval text sufficiency and delivery/ETA promises remain held; no invented replacement date or product decision.",
+    "Source complication exact; roles distinguish Kevin asking Rogelio, Rogelio speaking to MrRamírez, and supplier speaking to Rogelio.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

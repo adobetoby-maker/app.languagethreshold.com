@@ -1,0 +1,5 @@
+# French Roofing Master2 contextual authored supplement
+
+English target/French support. Source-only inert proposal: 36 exact ordered source faces, 9 French candidates/27 held faces; six concrete activities, three English grammar forms, a held-dependent reference dialogue with French support and an optional unscripted complication, 21 source-linked dictionary mappings, three unselected archived technical-term options. Full source work/speaking objective remains incomplete; the new-hire language-reference role is an explicit unreviewed inversion of the source trainer role.
+
+Run `python3 validate.py` for current source hashes, exact English/Spanish anchors/order, stable Master IDs, held isolation and null/false gates. Underlying sources were also checked against origin/main 8a3b974472df0f20733fa48a5c5e7243e2b2d3ae at authoring start. No selected French/audio, recording, runtime/owner route, saved-item/progress migration or V4 registration. Qualified language/source/trade/dictionary review remains open; actual CLI metadata and AI critiques are distinct from qualified approval.

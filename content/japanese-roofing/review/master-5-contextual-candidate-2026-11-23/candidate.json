@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:5:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-5-source-decision-2026-11-18/packet.json",
+    "sha256": "38386f3706d49bc9eb4657345efe06abc45c0ec6072547e971f8c5504d80f970"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-4-6-draft.json",
+      "sha256": "4b08dda641541c9bba9eaea7bddad381917015b877a3e9509028b607bc2de05c"
+    }
+  },
+  "objectiveEnglish": "Report source observations and offer to show damage photos.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "屋根材をはがしたときに見つかった「腐った木材」を表す英語はどれでしょう。the の付いた形で確認しましょう。",
+      "targetEnglish": "the rotten wood",
+      "sourceAnchor": "master-roofing:5:ja-en:card:2",
+      "id": "master-roofing:5:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "見積もりになかった作業を書面にする「変更注文書」を、the を付けた英語で思い出しましょう。",
+      "targetEnglish": "the change order",
+      "sourceAnchor": "master-roofing:5:ja-en:card:3",
+      "id": "master-roofing:5:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "工事の前に出した「見積もり」はどれですか。音声を聞いて、the の付いた形で選びましょう。",
+      "targetEnglish": "the estimate",
+      "sourceAnchor": "master-roofing:5:ja-en:card:4",
+      "candidateOptionsEnglish": [
+        "the estimate",
+        "the contract",
+        "the signature"
+      ],
+      "id": "master-roofing:5:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the estimate",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「損傷の写真」を、the を付けた英語で入力しましょう。",
+      "targetEnglish": "the photo of the damage",
+      "sourceAnchor": "master-roofing:5:ja-en:card:10",
+      "id": "master-roofing:5:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "施主に「写真をお見せしましょうか。」と英語で申し出てみましょう。",
+      "targetEnglish": "Shall I show you the photos?",
+      "sourceAnchor": "master-roofing:5:ja-en:card:19",
+      "id": "master-roofing:5:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「屋根材（シングル）をはがしたとき、腐った木材が見つかりました。」と英語で書きましょう。",
+      "targetEnglish": "When we removed the shingles, we found rotten wood.",
+      "sourceAnchor": "master-roofing:5:ja-en:card:15",
+      "id": "master-roofing:5:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "When we removed the shingles, we found rotten wood.",
+      "explanationJapanese": "「When + 過去形, 過去形」は「～したとき、…した」と、起きたことを順に報告する言い方です。removed と found はどちらも過去形です。",
+      "sourceAnchor": "master-roofing:5:ja-en:card:15",
+      "id": "master-roofing:5:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The deck was soft in this section.",
+      "explanationJapanese": "「was + 形容詞」は、見つけたときの状態を説明する過去の言い方です。「in this section」で場所を示します。",
+      "sourceAnchor": "master-roofing:5:ja-en:card:16",
+      "id": "master-roofing:5:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Shall I show you the photos?",
+      "explanationJapanese": "「Shall I + 動詞?」は「（私が）～しましょうか」と相手に申し出る言い方です。判断を押しつけず、まず見てもらうときに使えます。",
+      "sourceAnchor": "master-roofing:5:ja-en:card:19",
+      "id": "master-roofing:5:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the rotten wood",
+      "glossJapanese": "腐った木材",
+      "senseJapanese": "腐ってしまった木材。この場面では、屋根材をはがすまで誰にも見えなかった。",
+      "sourceAnchor": "master-roofing:5:ja-en:card:2",
+      "id": "master-roofing:5:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the change order",
+      "glossJapanese": "変更注文書",
+      "senseJapanese": "見積もりになかった作業を、書面で示すための書類。",
+      "sourceAnchor": "master-roofing:5:ja-en:card:3",
+      "id": "master-roofing:5:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the tear-off",
+      "glossJapanese": "既存屋根材のはがし（撤去）作業",
+      "senseJapanese": "古い屋根材をはがして取り除く作業。",
+      "sourceAnchor": "master-roofing:5:ja-en:card:11",
+      "id": "master-roofing:5:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio（現場の責任者。北側の屋根材をはがした後、損傷の写真を撮ってから施主に説明しに下りてきた）",
+      "partner": "Mr. Ramírez（施主。説明を聞き、見積もりに入っていなかったのかと尋ねる）"
+    },
+    "openingEnglish": "When we removed the shingles, we found rotten wood.",
+    "closureEnglish": "Shall I show you the photos?",
+    "objectivesEnglish": [
+      "Report that rotten wood was found when the shingles were removed.",
+      "Describe that the deck was soft in this section, without recommending a repair or stating a cost or a time.",
+      "Offer to show the photos and, if asked about the estimate, explain that nobody could see it before the tear-off."
+    ],
+    "wordBankEnglish": [
+      "the rotten wood",
+      "the photo of the damage",
+      "the estimate",
+      "the change order",
+      "the tear-off",
+      "The deck was soft in this section.",
+      "Shall I show you the photos?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:5:ja-en:card:2",
+      "master-roofing:5:ja-en:card:3",
+      "master-roofing:5:ja-en:card:4",
+      "master-roofing:5:ja-en:card:10",
+      "master-roofing:5:ja-en:card:11",
+      "master-roofing:5:ja-en:card:15",
+      "master-roofing:5:ja-en:card:16",
+      "master-roofing:5:ja-en:card:19",
+      "master-roofing:5:ja-en:line:1",
+      "master-roofing:5:ja-en:line:7",
+      "master-roofing:5:ja-en:line:9",
+      "master-roofing:5:ja-en:line:10",
+      "master-roofing:5:ja-en:line:11"
+    ],
+    "id": "master-roofing:5:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:5:ja-en:line:10",
+      "sourceEnglish": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+      "languageGoalEnglish": "Offer photos and report the source discovery when the homeowner asks about the estimate.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; stable proposed Master IDs retain source anchors, no runtime/progress migration.",
+    "Partial selected communication/report/question supplement only. Product spec interpretation, overlap/fastener method, structural repair recommendation, cost/day estimate and authorization requirements remain qualified source/trade/contract decisions.",
+    "Material-substitute durability/weight/color suitability, brand acceptance, approval text sufficiency and delivery/ETA promises remain held; no invented replacement date or product decision.",
+    "Source complication exact; roles distinguish Kevin asking Rogelio, Rogelio speaking to MrRamírez, and supplier speaking to Rogelio.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

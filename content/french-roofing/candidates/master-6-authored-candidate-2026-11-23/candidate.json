@@ -1,0 +1,1112 @@
+{
+  "lessonId": "master-roofing:6:fr-en",
+  "candidateObjectiveEnglish": "Ask a supplier for arrival information and practice future-call and stock questions without choosing a delivery date.",
+  "grammarExplanationEnglish": "When will + subject + base verb asks a future-time question. Be going to + base verb states an intention. Is + noun phrase + in stock asks about availability. Could you + base verb adds a polite request.",
+  "grammarExplanationFrench": "When will + sujet + base verbale pose une question sur une échéance future. Be going to + base verbale exprime une intention. Is + groupe nominal + in stock interroge sur la disponibilité. Could you + base verbale ajoute une demande polie.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "the supplier",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "le fournisseur",
+      "provenance": "SOURCE card:1 ‘el proveedor’ → ‘the supplier’; French from archived conditional ‘le fournisseur’.",
+      "id": "master-roofing:6:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered; qualified wording/meaning/punctuation review remains, no rigid selected key."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez l’expression anglaise complète, avec son article le cas échéant, pour « le retard ».",
+      "candidateTargetEnglish": "the delay",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le retard",
+      "provenance": "SOURCE card:8 ‘el retraso’ → ‘the delay’; French from archived conditional ‘le retard’.",
+      "id": "master-roofing:6:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered; qualified wording/meaning/punctuation review remains, no rigid selected key."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "When will the rest arrive?",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:16",
+        "master-roofing:6:fr-en:reader:3"
+      ],
+      "expectedMeaningFrench": "Quand arrivera le reste ?",
+      "provenance": "SOURCE card:16 and reader:3 exact question ‘¿Cuándo llegará el resto?’ → ‘When will the rest arrive?’",
+      "id": "master-roofing:6:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered; qualified wording/meaning/punctuation review remains, no rigid selected key."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez l’expression anglaise complète, avec son article le cas échéant, pour « la facture ».",
+      "candidateTargetEnglish": "the invoice",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:13"
+      ],
+      "expectedMeaningFrench": "la facture",
+      "provenance": "SOURCE card:13 ‘la factura’ → ‘the invoice’; French from archived conditional ‘la facture’.",
+      "id": "master-roofing:6:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered; qualified wording/meaning/punctuation review remains, no rigid selected key."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : Nous allons appeler le fournisseur.",
+      "candidateTargetEnglish": "We're going to call the supplier.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:1"
+      ],
+      "expectedMeaningFrench": "Nous allons appeler le fournisseur.",
+      "provenance": "NEW sentence (hypothetical) using be going to; vocabulary from SOURCE card:1.",
+      "id": "master-roofing:6:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered; qualified wording/meaning/punctuation review remains, no rigid selected key."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais : La couleur est-elle en stock ?",
+      "candidateTargetEnglish": "Is the color in stock?",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:7",
+        "master-roofing:6:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "La couleur est-elle en stock ?",
+      "provenance": "New stock question composed from unheld in stock/card7 and color/card12. The actual color-out-of-stock fact in held Reader2 is not quoted or selected.",
+      "id": "master-roofing:6:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered; qualified wording/meaning/punctuation review remains, no rigid selected key."
+    }
+  ],
+  "forms": [
+    {
+      "id": "master-roofing:6:fr-en:form:1",
+      "englishForm": "When will [subject] [base verb]?",
+      "meaningFrench": "Quand + verbe au futur + sujet ? (ou est-ce que selon la formulation).",
+      "candidateExampleEnglish": "When will the order arrive?",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:2",
+        "master-roofing:6:fr-en:card:16"
+      ],
+      "provenance": "New English/French language-practice composition from exact unheld source vocabulary. Source anchors bind the vocabulary; newly composed English grammar is not claimed as a complete unheld source quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "master-roofing:6:fr-en:form:2",
+      "englishForm": "Be going to + base verb.",
+      "meaningFrench": "Aller + infinitif.",
+      "candidateExampleEnglish": "We're going to call the supplier.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:1"
+      ],
+      "provenance": "New English/French language-practice composition from exact unheld source vocabulary. Source anchors bind the vocabulary; newly composed English grammar is not claimed as a complete unheld source quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "master-roofing:6:fr-en:form:3",
+      "englishForm": "Is [noun phrase] in stock?",
+      "meaningFrench": "[Groupe nominal] + est-il/elle en stock ?",
+      "candidateExampleEnglish": "Is the color in stock?",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:card:7",
+        "master-roofing:6:fr-en:card:12"
+      ],
+      "provenance": "New English/French language-practice composition from exact unheld source vocabulary. Source anchors bind the vocabulary; newly composed English grammar is not claimed as a complete unheld source quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "Crew lead making a practice supplier inquiry.",
+    "partnerRole": "Supplier in the practice call.",
+    "candidateOpeningEnglish": "Could you check the order, please?",
+    "candidateOpeningFrench": "Pourriez-vous vérifier la commande, s’il vous plaît ?",
+    "goalEnglish": "Ask arrival and stock questions, request confirmation and state a future follow-up call.",
+    "goalFrench": "Posez des questions sur l’arrivée et le stock, demandez une confirmation et annoncez un prochain appel.",
+    "practiceContextEnglish": "You call a supplier about an order form with a color field. No stock or arrival status is shown on the form.",
+    "contextFrench": "Vous appelez un fournisseur au sujet d’un bon de commande comportant un champ de couleur. Le document n’indique ni le stock ni l’arrivée.",
+    "candidateWordBankEnglish": [
+      "the order",
+      "the supplier",
+      "the delivery",
+      "When will the order arrive?",
+      "Is the color in stock?",
+      "Could you confirm ...?",
+      "We're going to call again"
+    ],
+    "partnerCuesEnglish": [
+      "I can check. What would you like to know?",
+      "I don't have a confirmed arrival time yet.",
+      "I'll check both in the order information."
+    ],
+    "partnerCueSupportFrench": [
+      "Je peux vérifier. Que souhaitez-vous savoir ?",
+      "Je n’ai pas encore d’heure d’arrivée confirmée.",
+      "Je vérifierai ces deux points dans les informations de la commande."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "When will the order arrive?",
+      "Could you confirm the delivery time when you have it? Is the color in stock?",
+      "We're going to call again about the order. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Quand arrivera la commande ?",
+      "Pourriez-vous confirmer le moment de la livraison quand vous le connaîtrez ? La couleur est-elle en stock ?",
+      "Nous allons rappeler au sujet de la commande. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW closing line. Partner cues are NEW hypothetical turns. No delivery date, quantity, product equivalence or customer consent is asserted. Mrs. Díaz (female customer) appears only in held reader rows and is not rewritten here.",
+    "sourceAnchors": [
+      "master-roofing:6:fr-en:card:1",
+      "master-roofing:6:fr-en:card:2",
+      "master-roofing:6:fr-en:card:3",
+      "master-roofing:6:fr-en:card:7",
+      "master-roofing:6:fr-en:card:12",
+      "master-roofing:6:fr-en:card:16"
+    ],
+    "id": "master-roofing:6:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "master-roofing:6:fr-en:card:10",
+      "master-roofing:6:fr-en:card:11",
+      "master-roofing:6:fr-en:card:15",
+      "master-roofing:6:fr-en:card:17",
+      "master-roofing:6:fr-en:card:18",
+      "master-roofing:6:fr-en:card:19",
+      "master-roofing:6:fr-en:card:20",
+      "master-roofing:6:fr-en:card:21",
+      "master-roofing:6:fr-en:card:4",
+      "master-roofing:6:fr-en:card:5",
+      "master-roofing:6:fr-en:card:6",
+      "master-roofing:6:fr-en:reader:10",
+      "master-roofing:6:fr-en:reader:11",
+      "master-roofing:6:fr-en:reader:12",
+      "master-roofing:6:fr-en:reader:13",
+      "master-roofing:6:fr-en:reader:15",
+      "master-roofing:6:fr-en:reader:16",
+      "master-roofing:6:fr-en:reader:17",
+      "master-roofing:6:fr-en:reader:2",
+      "master-roofing:6:fr-en:reader:4",
+      "master-roofing:6:fr-en:reader:5",
+      "master-roofing:6:fr-en:reader:6",
+      "master-roofing:6:fr-en:reader:7",
+      "master-roofing:6:fr-en:reader:8",
+      "master-roofing:6:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New hypothetical supplier inquiry; not the original source shipment sequence, inventory result or ETA.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Could you check the order, please?"
+      },
+      {
+        "speaker": "partner",
+        "text": "I can check. What would you like to know?"
+      },
+      {
+        "speaker": "learner",
+        "text": "When will the order arrive?"
+      },
+      {
+        "speaker": "partner",
+        "text": "I don't have a confirmed arrival time yet."
+      },
+      {
+        "speaker": "learner",
+        "text": "Could you confirm the delivery time when you have it? Is the color in stock?"
+      },
+      {
+        "speaker": "partner",
+        "text": "I'll check both in the order information."
+      },
+      {
+        "speaker": "learner",
+        "text": "We're going to call again about the order. Thank you."
+      }
+    ],
+    "provenance": "New English/French narrowly scoped language-practice dialogue; original source work objective remains preserved and held, not replaced or completed.",
+    "complicationStatus": "No runtime complication registered; original Master objective remains held/incomplete."
+  },
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-6-source-decision-2026-11-18/packet.json",
+    "sha256": "fc3cf192615408851a228a138e0afacd71d6a9f68d70605a7d2ed6a0ef591353"
+  },
+  "candidateRows": [
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:1",
+      "sourceAnchor": "master-roofing:6:fr-en:card:1",
+      "sourceEnglish": "the supplier",
+      "candidateFrench": "le fournisseur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:2",
+      "sourceAnchor": "master-roofing:6:fr-en:card:2",
+      "sourceEnglish": "the order",
+      "candidateFrench": "la commande",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:3",
+      "sourceAnchor": "master-roofing:6:fr-en:card:3",
+      "sourceEnglish": "the delivery",
+      "candidateFrench": "la livraison",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:4",
+      "sourceAnchor": "master-roofing:6:fr-en:card:4",
+      "sourceEnglish": "the substitute",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:5",
+      "sourceAnchor": "master-roofing:6:fr-en:card:5",
+      "sourceEnglish": "the pallet",
+      "candidateFrench": null,
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:6",
+      "sourceAnchor": "master-roofing:6:fr-en:card:6",
+      "sourceEnglish": "the warehouse",
+      "candidateFrench": null,
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:7",
+      "sourceAnchor": "master-roofing:6:fr-en:card:7",
+      "sourceEnglish": "in stock",
+      "candidateFrench": "en stock",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:8",
+      "sourceAnchor": "master-roofing:6:fr-en:card:8",
+      "sourceEnglish": "the delay",
+      "candidateFrench": "le retard",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:9",
+      "sourceAnchor": "master-roofing:6:fr-en:card:9",
+      "sourceEnglish": "the brand",
+      "candidateFrench": "la marque",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:10",
+      "sourceAnchor": "master-roofing:6:fr-en:card:10",
+      "sourceEnglish": "the architectural shingle",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:11",
+      "sourceAnchor": "master-roofing:6:fr-en:card:11",
+      "sourceEnglish": "the three-tab shingle",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:12",
+      "sourceAnchor": "master-roofing:6:fr-en:card:12",
+      "sourceEnglish": "the color",
+      "candidateFrench": "la couleur",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:13",
+      "sourceAnchor": "master-roofing:6:fr-en:card:13",
+      "sourceEnglish": "the invoice",
+      "candidateFrench": "la facture",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:14",
+      "sourceAnchor": "master-roofing:6:fr-en:card:14",
+      "sourceEnglish": "the price",
+      "candidateFrench": "le prix",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:15",
+      "sourceAnchor": "master-roofing:6:fr-en:card:15",
+      "sourceEnglish": "The order won't arrive complete.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:16",
+      "sourceAnchor": "master-roofing:6:fr-en:card:16",
+      "sourceEnglish": "When will the rest arrive?",
+      "candidateFrench": "Quand arrivera le reste ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:17",
+      "sourceAnchor": "master-roofing:6:fr-en:card:17",
+      "sourceEnglish": "We're going to use another brand.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:18",
+      "sourceAnchor": "master-roofing:6:fr-en:card:18",
+      "sourceEnglish": "It's just as durable, but heavier.",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:19",
+      "sourceAnchor": "master-roofing:6:fr-en:card:19",
+      "sourceEnglish": "This color is closer to the original.",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:20",
+      "sourceAnchor": "master-roofing:6:fr-en:card:20",
+      "sourceEnglish": "I'm going to send you the photo of the color.",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:cards:21",
+      "sourceAnchor": "master-roofing:6:fr-en:card:21",
+      "sourceEnglish": "Can you give me a hand?",
+      "candidateFrench": null,
+      "hold": "The source uses informal crew speech to Kevin after a formal supplier/customer conversation. Confirm French register and six authored activities and speaking aligned to supplier inquiry and revised crew plan before selecting a scored answer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:1",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:1",
+      "sourceEnglish": "At seven, the supplier called Rogelio with bad news.",
+      "candidateFrench": "À sept heures, le fournisseur a appelé Rogelio pour lui annoncer une mauvaise nouvelle.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New source-aligned French wording preserves bad-news purpose without calqued avec une mauvaise nouvelle."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:2",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:2",
+      "sourceEnglish": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:3",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:3",
+      "sourceEnglish": "Rogelio: When will the rest arrive?",
+      "candidateFrench": "Rogelio : « Quand arrivera le reste ? »",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench copied as a contextual candidate, not selected or qualified-approved."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:4",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:4",
+      "sourceEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:5",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:5",
+      "sourceEnglish": "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:6",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:6",
+      "sourceEnglish": "Supplier: I have the same architectural shingle from another brand, at the same price.",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:7",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:7",
+      "sourceEnglish": "Supplier: It's just as durable, but heavier, and the color is very similar.",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:8",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:8",
+      "sourceEnglish": "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:9",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:9",
+      "sourceEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "candidateFrench": null,
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:10",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:10",
+      "sourceEnglish": "Then Rogelio called Mrs. Díaz, the homeowner.",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:11",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:11",
+      "sourceEnglish": "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:12",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:12",
+      "sourceEnglish": "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:13",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:13",
+      "sourceEnglish": "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+      "candidateFrench": null,
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:14",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:14",
+      "sourceEnglish": "Then he gathered the crew next to the truck.",
+      "candidateFrench": "Puis il a rassemblé l’équipe à côté du camion.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New French proposal preserves next to rather than weaker near."
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:15",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:15",
+      "sourceEnglish": "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:16",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:16",
+      "sourceEnglish": "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+      "candidateFrench": null,
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:6:fr-en:candidate:reader:17",
+      "sourceAnchor": "master-roofing:6:fr-en:reader:17",
+      "sourceEnglish": "Rogelio: Kevin, can you give me a hand with these rolls?",
+      "candidateFrench": null,
+      "hold": "The source uses informal crew speech to Kevin after a formal supplier/customer conversation. Confirm French register and six authored activities and speaking aligned to supplier inquiry and revised crew plan before selecting a scored answer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "master-roofing:6:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:6:fr-en:card:1",
+      "englishHeadword": "the supplier",
+      "candidateFrenchSense": "le fournisseur",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el proveedor"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:6:fr-en:card:2",
+      "englishHeadword": "the order",
+      "candidateFrenchSense": "la commande",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el pedido"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:6:fr-en:card:3",
+      "englishHeadword": "the delivery",
+      "candidateFrenchSense": "la livraison",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la entrega"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:6:fr-en:card:4",
+      "englishHeadword": "the substitute",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el sustituto"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:6:fr-en:card:5",
+      "englishHeadword": "the pallet",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la tarima"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:6:fr-en:card:6",
+      "englishHeadword": "the warehouse",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la bodega"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:6:fr-en:card:7",
+      "englishHeadword": "in stock",
+      "candidateFrenchSense": "en stock",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "en existencia"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:6:fr-en:card:8",
+      "englishHeadword": "the delay",
+      "candidateFrenchSense": "le retard",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el retraso"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:6:fr-en:card:9",
+      "englishHeadword": "the brand",
+      "candidateFrenchSense": "la marque",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la marca"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:6:fr-en:card:10",
+      "englishHeadword": "the architectural shingle",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la teja arquitectónica"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:6:fr-en:card:11",
+      "englishHeadword": "the three-tab shingle",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la teja de tres lengüetas"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:6:fr-en:card:12",
+      "englishHeadword": "the color",
+      "candidateFrenchSense": "la couleur",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el color"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:6:fr-en:card:13",
+      "englishHeadword": "the invoice",
+      "candidateFrenchSense": "la facture",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la factura"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:6:fr-en:card:14",
+      "englishHeadword": "the price",
+      "candidateFrenchSense": "le prix",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el precio"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:6:fr-en:card:15",
+      "englishHeadword": "The order won't arrive complete.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "El pedido no llegará completo."
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:6:fr-en:card:16",
+      "englishHeadword": "When will the rest arrive?",
+      "candidateFrenchSense": "Quand arrivera le reste ?",
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Cuándo llegará el resto?"
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:6:fr-en:card:17",
+      "englishHeadword": "We're going to use another brand.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Vamos a usar otra marca."
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:6:fr-en:card:18",
+      "englishHeadword": "It's just as durable, but heavier.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Es igual de resistente, pero más pesada."
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:6:fr-en:card:19",
+      "englishHeadword": "This color is closer to the original.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Este color se parece más al original."
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:6:fr-en:card:20",
+      "englishHeadword": "I'm going to send you the photo of the color.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Le voy a mandar la foto del color."
+    },
+    {
+      "id": "master-roofing:6:fr-en:dictionary:21",
+      "sourceAnchor": "master-roofing:6:fr-en:card:21",
+      "englishHeadword": "Can you give me a hand?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Material Shortage and Substitution",
+      "status": "held",
+      "hold": "The source uses informal crew speech to Kevin after a formal supplier/customer conversation. Confirm French register and six authored activities and speaking aligned to supplier inquiry and revised crew plan before selecting a scored answer.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Me echas la mano?"
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "The rest remains only in exact-source Hear question, not a new speaking assertion of partial delivery. Delay remains lexical source evidence, not an asserted fact in this new inquiry. Stock is asked, never answered; no ETA, substitution or customer approval selected.",
+    "Opus completed AI critique followed by independent bilingual/source self-check and corrections. This is separate from pending qualified English/French/source/domain/dictionary review, with no selected answer or audio.",
+    "Original work mission and scored activities remain subject to the source packet’s qualified-review instruction. These unregistered linguistic proposals do not discharge that instruction or claim original-objective completion.",
+    "When will the rest arrive? is preserved only as an isolated exact-source Hear sentence; its partial-order source scenario remains held. New speaking uses order instead of rest and does not assert delay, inventory, date, quantity, customer consent or product equivalence.",
+    "Completed Haiku authoring, Opus/Fable AI critique and independent exact-bilingual-source/structural checks do not constitute qualified English/French, roofing, legal/source or dictionary review. No full-objective or scored/runtime readiness is claimed."
+  ],
+  "sourceObjectiveEnglish": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "sourceAuditOriginMain": "029b20fe017c514f8c77c2d0fd8d100c97121fde",
+  "identityEvidence": {
+    "sourceHeaderModuleId": "master-roofing",
+    "proposedPairId": "master-roofing:6:fr-en",
+    "status": "No runtime/saved-item/progress migration"
+  },
+  "candidateRoleAdaptation": "Crew-lead language-practice role retained; partner/scenario narrowed to a new linguistic exercise, not completion of original work mission.",
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:card:4",
+      "candidateFrenchOptions": [
+        "le produit de remplacement"
+      ],
+      "meaningEnglish": "the substitute",
+      "sourceSpanishEvidence": "el sustituto",
+      "reviewQuestion": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "origin": "Exact unapproved archivedFrenchEvidence from pinned source packet, not a new translation.",
+      "status": "unselected-held-archive-terminology-evidence",
+      "selectedFrench": null,
+      "audioScript": null,
+      "selectedOption": null,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:card:10",
+      "candidateFrenchOptions": [
+        "le bardeau architectural"
+      ],
+      "meaningEnglish": "the architectural shingle",
+      "sourceSpanishEvidence": "la teja arquitectónica",
+      "reviewQuestion": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "origin": "Exact unapproved archivedFrenchEvidence from pinned source packet, not a new translation.",
+      "status": "unselected-held-archive-terminology-evidence",
+      "selectedFrench": null,
+      "audioScript": null,
+      "selectedOption": null,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:card:11",
+      "candidateFrenchOptions": [
+        "le bardeau à trois pattes"
+      ],
+      "meaningEnglish": "the three-tab shingle",
+      "sourceSpanishEvidence": "la teja de tres lengüetas",
+      "reviewQuestion": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "origin": "Exact unapproved archivedFrenchEvidence from pinned source packet, not a new translation.",
+      "status": "unselected-held-archive-terminology-evidence",
+      "selectedFrench": null,
+      "audioScript": null,
+      "selectedOption": null,
+      "reviewed": false,
+      "registered": false
+    }
+  ],
+  "englishAuthoringConvention": "US English spelling; literal reference-label logical punctuation; no registered exact-match scoring policy."
+}

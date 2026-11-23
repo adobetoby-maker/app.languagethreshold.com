@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:2:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-2-source-decision-2026-11-18/packet.json",
+    "sha256": "453532d7abff1de809f888cdab0c0693b33bb0142fb4e32ea9b4007bca8303cb"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "sourceContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-1-3-draft.json",
+      "sha256": "8dcb2844a21b9fba3c9f843280296324e32d74d0307e9a43462f9b8c69236847"
+    }
+  },
+  "objectiveEnglish": "Name selected joint and leak terms and politely offer an explanation.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「継ぎ目」を表す語です。冠詞 the を含めた形「the joint」を確認しましょう。",
+      "targetEnglish": "the joint",
+      "sourceAnchor": "master-roofing:2:ja-en:card:1",
+      "id": "master-roofing:2:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "お客様に「理由をご説明してもよろしいですか」と丁寧に申し出る一言です。英語で思い出しましょう。",
+      "targetEnglish": "May I explain why?",
+      "sourceAnchor": "master-roofing:2:ja-en:card:20",
+      "id": "master-roofing:2:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「パターン（並び方の型）」を表す語です。どれも the で始まる三つの候補から、聞こえたものを選びましょう。",
+      "targetEnglish": "the pattern",
+      "candidateOptionsEnglish": [
+        "the pattern",
+        "the water path",
+        "the tab"
+      ],
+      "sourceAnchor": "master-roofing:2:ja-en:card:11",
+      "id": "master-roofing:2:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the pattern",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「雨漏り・水漏れ」を表す語です。冠詞 the を付けて英語で入力しましょう。",
+      "targetEnglish": "the leak",
+      "sourceAnchor": "master-roofing:2:ja-en:card:7",
+      "id": "master-roofing:2:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「ほら、見せてあげるよ」と、実物を見せながら説明を始めるときの一言です。Look で始めて英語で言ってみましょう。",
+      "targetEnglish": "Look, I'll show you.",
+      "sourceAnchor": "master-roofing:2:ja-en:card:19",
+      "id": "master-roofing:2:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「湿気・水分」を表す語です。冠詞 the を付けて英語で書きましょう。",
+      "targetEnglish": "the moisture",
+      "sourceAnchor": "master-roofing:2:ja-en:card:9",
+      "id": "master-roofing:2:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "May I explain why?",
+      "explanationJapanese": "「May I ＋ 動詞の原形？」は「〜してもよろしいですか」と丁寧に許可を求める形です。文末の why は「その理由を」という意味です。",
+      "sourceAnchor": "master-roofing:2:ja-en:card:20",
+      "id": "master-roofing:2:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The homeowner is listening from the yard",
+      "explanationJapanese": "「is ＋ 動詞の ing 形」の現在進行形で、今まさに起きていることを伝えます。from the yard は「庭から」と場所を表します。",
+      "sourceAnchor": "master-roofing:2:ja-en:line:12",
+      "id": "master-roofing:2:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Look, I'll show you.",
+      "explanationJapanese": "「I'll ＋ 動詞の原形」は、その場で「〜しますよ」と申し出る形です。文頭の Look は相手の注意を引くひと言です。",
+      "sourceAnchor": "master-roofing:2:ja-en:card:19",
+      "id": "master-roofing:2:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the joint",
+      "glossJapanese": "継ぎ目",
+      "senseJapanese": "部材と部材が接する境目を指します。この課ではシングル材の継ぎ目の話の中で使われます。",
+      "sourceAnchor": "master-roofing:2:ja-en:card:1",
+      "id": "master-roofing:2:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the leak",
+      "glossJapanese": "雨漏り・水漏れ",
+      "senseJapanese": "水が漏れることを指す名詞です。この課では屋根の話の中で使われます。",
+      "sourceAnchor": "master-roofing:2:ja-en:card:7",
+      "id": "master-roofing:2:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the moisture",
+      "glossJapanese": "湿気・水分",
+      "senseJapanese": "物に含まれたり付いたりしている水気を指す名詞です。",
+      "sourceAnchor": "master-roofing:2:ja-en:card:9",
+      "id": "master-roofing:2:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "A crew member, like Rogelio, who notices the homeowner listening and politely offers to explain",
+      "partner": "The homeowner, who is listening from the yard and has a question"
+    },
+    "openingEnglish": "The homeowner is listening from the yard and also has a question.",
+    "closureEnglish": "May I explain why?",
+    "objectivesEnglish": [
+      "Recognize the source scene in which the homeowner is listening and has a question.",
+      "Name what the question is about, using source nouns with their articles, such as \"the joint\", \"the leak\" or \"the moisture\".",
+      "Politely offer an explanation with May I explain why?"
+    ],
+    "wordBankEnglish": [
+      "the joint",
+      "the leak",
+      "the moisture",
+      "the pattern",
+      "Look, I'll show you.",
+      "May I explain why?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:2:ja-en:card:1",
+      "master-roofing:2:ja-en:card:7",
+      "master-roofing:2:ja-en:card:9",
+      "master-roofing:2:ja-en:card:11",
+      "master-roofing:2:ja-en:card:19",
+      "master-roofing:2:ja-en:card:20",
+      "master-roofing:2:ja-en:line:12",
+      "master-roofing:2:ja-en:line:13"
+    ],
+    "id": "master-roofing:2:ja-en:speaking:contextual",
+    "reviewed": false,
+    "sceneTextEnglish": "The homeowner is listening from the yard and also has a question.",
+    "openingDelivery": "scene narration followed by source communication phrases",
+    "complication": {
+      "sourceAnchor": "master-roofing:2:ja-en:line:12",
+      "sourceEnglish": "The homeowner is listening from the yard and also has a question.",
+      "languageGoalEnglish": "Offer to explain politely when the homeowner joins the conversation.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; stable proposed Master IDs retain exact source anchors, no runtime/progress migration.",
+    "Partial selected communication/terminology/observation supplement only. Layer sequence, water absolutes, product overlap/layout/wind claims, nail position/depth/pressure and repair instructions remain qualified source/trade decisions.",
+    "High nail is position; overdriven nail is depth. Shingle is not silently translated as tile.",
+    "Master scene complication uses exact source evidence but does not supply an invented technical answer. Full source-objective parity, Reader expansion and scored acceptance remain open.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

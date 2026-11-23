@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:3:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-3-source-decision-2026-11-18/packet.json",
+    "sha256": "2851125ef6377c43ab9f964021da0c6b13fc3b7746e8a85513fa052f767dd9ce"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-1-3-draft.json",
+      "sha256": "8dcb2844a21b9fba3c9f843280296324e32d74d0307e9a43462f9b8c69236847"
+    }
+  },
+  "objectiveEnglish": "Name tools and distinguish a high-position nail from an overdriven nail in source reports.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「釘打ち機」を表す語です。冠詞 the を含めた形「the nail gun」を確認しましょう。",
+      "targetEnglish": "the nail gun",
+      "sourceAnchor": "master-roofing:3:ja-en:card:1",
+      "id": "master-roofing:3:ja-en:activity:see",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「コンプレッサー」を表す語です。冠詞 the を付けた英語を思い出しましょう。",
+      "targetEnglish": "the compressor",
+      "sourceAnchor": "master-roofing:3:ja-en:card:8",
+      "id": "master-roofing:3:ja-en:activity:recall",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "「ホース」を表す語です。どれも the で始まる、音の似た候補から、聞こえたものを選びましょう。",
+      "targetEnglish": "the hose",
+      "candidateOptionsEnglish": [
+        "the hose",
+        "the hole",
+        "the nail head"
+      ],
+      "sourceAnchor": "master-roofing:3:ja-en:card:10",
+      "id": "master-roofing:3:ja-en:activity:hear",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": "the hose",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "シングル材の上で、打った位置が上すぎる釘を指す語です。位置の話で、深さの話ではありません。冠詞 the を付けて英語で入力しましょう。",
+      "targetEnglish": "the high nail",
+      "sourceAnchor": "master-roofing:3:ja-en:card:5",
+      "id": "master-roofing:3:ja-en:activity:type",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "失敗して恥ずかしそうにしている仲間に「気にしないで、みんな通った道だよ」と声をかける一言です。英語で言ってみましょう。",
+      "targetEnglish": "Don't worry, it happened to all of us.",
+      "sourceAnchor": "master-roofing:3:ja-en:card:19",
+      "id": "master-roofing:3:ja-en:activity:say",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "打ち込みが深すぎて、頭がシングル材に沈んだ釘を指す語です。深さの話で、位置の話ではありません。冠詞 the を付けて英語で書きましょう。",
+      "targetEnglish": "the overdriven nail",
+      "sourceAnchor": "master-roofing:3:ja-en:card:4",
+      "id": "master-roofing:3:ja-en:activity:write",
+      "reviewed": false,
+      "hearScriptCandidateEnglish": null,
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Kevin uses the nail gun for the first time",
+      "explanationJapanese": "「for the first time」は「初めて」という意味のまとまりで、文の終わりに置きます。主語が Kevin なので動詞は uses になります。",
+      "sourceAnchor": "master-roofing:3:ja-en:line:1",
+      "id": "master-roofing:3:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "one nail ends up too high",
+      "explanationJapanese": "「end up ＋ 状態」は「結果として〜になる」と、起きたことを報告する言い方です。「too ＋ 形容詞」は「〜すぎる」で、ここでは位置が上すぎることを表します。",
+      "sourceAnchor": "master-roofing:3:ja-en:line:5",
+      "id": "master-roofing:3:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Don't worry, it happened to all of us.",
+      "explanationJapanese": "「Don't worry」は相手を安心させる決まり文句です。「happen to ＋ 人」は「（人）に起こる」で、all of us は「私たちみんな」です。",
+      "sourceAnchor": "master-roofing:3:ja-en:card:19",
+      "id": "master-roofing:3:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the high nail",
+      "glossJapanese": "位置が高すぎる釘",
+      "senseJapanese": "シングル材の上で、打った位置が上すぎる釘のことです。位置を表す語で、頭が浮いている釘（深さの問題）のことではありません。",
+      "sourceAnchor": "master-roofing:3:ja-en:card:5",
+      "id": "master-roofing:3:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the overdriven nail",
+      "glossJapanese": "打ち込みすぎた釘",
+      "senseJapanese": "深く入りすぎて、頭がシングル材に沈んだ釘のことです。深さを表す語で、打った位置の高さの話ではありません。",
+      "sourceAnchor": "master-roofing:3:ja-en:card:4",
+      "id": "master-roofing:3:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the nail gun",
+      "glossJapanese": "釘打ち機",
+      "senseJapanese": "釘を打つための工具です。この課では Kevin が初めて使う場面に出てきます。",
+      "sourceAnchor": "master-roofing:3:ja-en:card:1",
+      "id": "master-roofing:3:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Kevin, using the nail gun for the first time, who names what he sees and asks questions",
+      "partner": "Rogelio, who stays at Kevin's side, listens and reassures him"
+    },
+    "openingEnglish": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+    "closureEnglish": "Don't worry, it happened to all of us.",
+    "objectivesEnglish": [
+      "Name the tools in front of you with their articles: \"the nail gun\", \"the hose\", \"the compressor\", \"the trigger\".",
+      "Report what you see without deciding what to do about it, choosing \"the high nail\" for position or \"the overdriven nail\" for depth.",
+      "Recognize and repeat Rogelio’s reassurance: Don’t worry, it happened to all of us."
+    ],
+    "wordBankEnglish": [
+      "the nail gun",
+      "the hose",
+      "the compressor",
+      "the trigger",
+      "the nail head",
+      "the high nail",
+      "the overdriven nail",
+      "Don't worry, it happened to all of us."
+    ],
+    "sourceAnchors": [
+      "master-roofing:3:ja-en:card:1",
+      "master-roofing:3:ja-en:card:4",
+      "master-roofing:3:ja-en:card:5",
+      "master-roofing:3:ja-en:card:6",
+      "master-roofing:3:ja-en:card:8",
+      "master-roofing:3:ja-en:card:10",
+      "master-roofing:3:ja-en:card:11",
+      "master-roofing:3:ja-en:card:19",
+      "master-roofing:3:ja-en:line:1",
+      "master-roofing:3:ja-en:line:5",
+      "master-roofing:3:ja-en:line:8",
+      "master-roofing:3:ja-en:line:13"
+    ],
+    "id": "master-roofing:3:ja-en:speaking:contextual",
+    "reviewed": false,
+    "sceneTextEnglish": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+    "openingDelivery": "scene narration followed by source communication phrases",
+    "complication": {
+      "sourceAnchor": "master-roofing:3:ja-en:line:13",
+      "sourceEnglish": "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+      "languageGoalEnglish": "Recognize and repeat reassurance after the new worker becomes embarrassed.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "English target/Japanese support; stable proposed Master IDs retain exact source anchors, no runtime/progress migration.",
+    "Partial selected communication/terminology/observation supplement only. Layer sequence, water absolutes, product overlap/layout/wind claims, nail position/depth/pressure and repair instructions remain qualified source/trade decisions.",
+    "High nail is position; overdriven nail is depth. Shingle is not silently translated as tile.",
+    "Master scene complication uses exact source evidence but does not supply an invented technical answer. Full source-objective parity, Reader expansion and scored acceptance remain open.",
+    "AI assistance is not qualified approval."
+  ],
+  "scope": "partial contextual supplement; source/material/installation objective remains incomplete"
+}

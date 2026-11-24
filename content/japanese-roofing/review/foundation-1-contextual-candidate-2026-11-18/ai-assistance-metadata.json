@@ -30,5 +30,83 @@
   "sonnet55ActualCalls": 1,
   "opus55ActualCalls": 1,
   "fableCalls": 0,
-  "qualifiedApproval": false
+  "qualifiedApproval": false,
+  "reader5ExactSourceAlternative": {
+    "date": "2026-11-24",
+    "qualifiedApproval": false,
+    "scope": "Reader5 exact-source support alternative only; source language objective remains unresolved",
+    "selfCheck": "Chose the model-proposed leaner Japanese version without inferred 英語の framing; preserves ladder and Spanish, while preserving old in-Japanese adaptation unchanged. No selection or audio.",
+    "haiku": {
+      "safeMode": true,
+      "requestedModel": "claude-haiku-5-5",
+      "actualModelUsage": {
+        "claude-haiku-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 896,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 831,
+          "webSearchRequests": 0,
+          "costUSD": 0.0006144,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 688,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 831,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "sessionId": "f1caf5a5-9a94-4ea6-abb0-67718e8071ac",
+      "isError": false
+    },
+    "opus": {
+      "safeMode": true,
+      "requestedModel": "claude-opus-5-5",
+      "actualModelUsage": {
+        "claude-opus-5-5": {
+          "inputTokens": 2,
+          "outputTokens": 1142,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 933,
+          "webSearchRequests": 0,
+          "costUSD": 0.030312,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 373,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 933,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "sessionId": "7a7094b8-3b90-48c5-8016-4a67845d5cc5",
+      "isError": false
+    },
+    "fable": {
+      "safeMode": true,
+      "requestedModel": "claude-fable-5-2",
+      "actualModelUsage": {
+        "claude-fable-5-2": {
+          "inputTokens": 2,
+          "outputTokens": 521,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 1795,
+          "webSearchRequests": 0,
+          "costUSD": 0.049575999999999995,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 198,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 1795,
+          "canonicalModel": "claude-fable-5-2",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "sessionId": "10f22dec-d37c-47c3-b44f-3fc00aa508c0",
+      "isError": false
+    }
+  }
 }

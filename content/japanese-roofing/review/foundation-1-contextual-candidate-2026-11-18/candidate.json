@@ -9,7 +9,7 @@
   "identityStatus": "proposal-only; no runtime or saved-progress change",
   "sourceReview": {
     "path": "content/japanese-roofing/review/foundation-1-source-audit-2026-11-17/packet.json",
-    "sha256": "017a2b92045e5700efac193a6c0106334508b97449fee8aa2028e5ac60e31036"
+    "sha256": "2ff068afb8ce8de57edda385445544fd0393b59ee3f8d8ab463de5d018225b16"
   },
   "source": {
     "curriculum": {
@@ -220,5 +220,13 @@
     "previousSha256": "9e0552a6eee8ed28ba4bf01b105484b02e08d724910b1bf5d5ff7bc117c29064",
     "change": "added explicit selectedJapanese:null to omitted card/Reader rows only; source text, IDs, upstream pins and proposal/review statuses unchanged",
     "rowsNormalized": 19
-  }
+  },
+  "sourceReviewUpdates": [
+    {
+      "baselineMain": "d4eb575198eb2c37dddfce6b1e4050ff867254bc",
+      "previousSha256": "017a2b92045e5700efac193a6c0106334508b97449fee8aa2028e5ac60e31036",
+      "change": "Reader5 exact-source Japanese alternative added alongside preserved in-Japanese adapted draft; source English, Spanish, existing proposals, row IDs/order and upstream pins unchanged",
+      "qualifiedApproval": false
+    }
+  ]
 }

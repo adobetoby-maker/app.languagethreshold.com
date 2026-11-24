@@ -43,3 +43,13 @@ assert p["originalSourceObjective"]["selected"] is p["originalSourceObjective"][
 assert "partial" in p["scope"] and "held" in p["selectionStatus"]
 
 print("PASS explicit null source selections, original incomplete objective and provenance mappings")
+
+# Reader5 separates the preserved adaptation from exact-source support.
+r=next(row for row in old["reader"] if row["id"]=="foundation-roofing:1:ja-en:line:5")
+a=r["candidateJapaneseAlternatives"][0]
+assert a["sourceAnchor"]==r["id"] and a["sourceEnglish"]==r["sourceEnglish"]
+assert a["languageAskedAbout"]=="Spanish" and r["candidateJapaneseProvenance"]["languageAskedAbout"]=="Japanese"
+assert a["selectedJapanese"] is a["audioScript"] is None and a["reviewed"] is False
+assert r["selectedJapanese"] is None and r["reviewed"] is False
+assert "unresolved" in r["objectiveDecisionStatus"]
+print("PASS distinct held exact-source Reader5 alternative and preserved adapted draft")

@@ -230,7 +230,28 @@
       "archivedEnglish": "How do you say 'ladder' in Japanese?",
       "reviewNote": "Adapts the source's in-Spanish question to Japanese-target instruction; preserve the source as provenance.",
       "reviewed": false,
-      "selectedJapanese": null
+      "selectedJapanese": null,
+      "candidateJapaneseProvenance": {
+        "kind": "preserved-language-adaptation",
+        "languageAskedAbout": "Japanese",
+        "exactSourceMeaning": false,
+        "selected": false,
+        "reviewed": false
+      },
+      "candidateJapaneseAlternatives": [
+        {
+          "id": "foundation-roofing:1:ja-en:line:5:alternative:exact-source:1",
+          "kind": "exact-source-support-proposal",
+          "sourceAnchor": "foundation-roofing:1:ja-en:line:5",
+          "sourceEnglish": "How do you say ladder in Spanish?",
+          "candidateJapanese": "「ladder」はスペイン語で何と言いますか。",
+          "languageAskedAbout": "Spanish",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "objectiveDecisionStatus": "unresolved; retain the in-Japanese adapted draft separately from the in-Spanish exact-source alternative; neither selected"
     },
     {
       "id": "foundation-roofing:1:ja-en:line:6",

@@ -1,0 +1,1046 @@
+{
+  "lessonId": "master-roofing:19:fr-en",
+  "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+  "status": "held",
+  "heldDependent": true,
+  "candidateObjectiveEnglish": "Offer to read a printed example and express a readability condition using unless and as long as.",
+  "internalNote": "Narrow language objective only; it does not replace or complete the source work objective. Source warranty, product, installation, insurance, maintenance and source clauses remain unresolved. No coverage assertion is made.",
+  "grammarExplanationEnglish": "Would you like me to + base verb offers to perform an action. Unless introduces an exception, equivalent to if not. As long as can express a condition, here whether a printed word is legible.",
+  "grammarExplanationFrench": "Would you like me to + base verbale propose de faire une action. Unless introduit une exception : sauf si. As long as peut exprimer une condition : à condition que, ici la lisibilité d’un mot.",
+  "lexicalProposals": [
+    {
+      "id": "master-roofing:19:fr-en:lexical-proposal:1",
+      "sourceAnchor": "master-roofing:19:fr-en:card:2",
+      "sourceEnglish": "the final invoice",
+      "candidateFrench": "la facture finale",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct unselected lexical/domain/locale option only; no warranty scope, insurance coverage, capstone proficiency or safety claim.",
+      "proposalKind": "domain-held terminology option"
+    },
+    {
+      "id": "master-roofing:19:fr-en:lexical-proposal:2",
+      "sourceAnchor": "master-roofing:19:fr-en:card:3",
+      "sourceEnglish": "the product warranty",
+      "candidateFrench": "la garantie du produit",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct unselected lexical/domain/locale option only; no warranty scope, insurance coverage, capstone proficiency or safety claim.",
+      "proposalKind": "domain-held terminology option"
+    },
+    {
+      "id": "master-roofing:19:fr-en:lexical-proposal:3",
+      "sourceAnchor": "master-roofing:19:fr-en:card:4",
+      "sourceEnglish": "the installation warranty",
+      "candidateFrench": "la garantie de pose",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct unselected lexical/domain/locale option only; no warranty scope, insurance coverage, capstone proficiency or safety claim.",
+      "proposalKind": "domain-held terminology option"
+    },
+    {
+      "id": "master-roofing:19:fr-en:lexical-proposal:4",
+      "sourceAnchor": "master-roofing:19:fr-en:card:14",
+      "sourceEnglish": "the business card",
+      "candidateFrench": "la carte de visite",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct unselected lexical/domain/locale option only; no warranty scope, insurance coverage, capstone proficiency or safety claim.",
+      "proposalKind": "ordinary lexical option, blocked/unselected"
+    }
+  ],
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Lisez « la carte de visite » et donnez l’équivalent anglais complet, avec l’article.",
+      "candidateTargetEnglish": "the business card",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "la carte de visite",
+      "selectedFrench": null,
+      "audioScript": null,
+      "provenance": "Blocked ordinary/domain lexical proposal coinciding with held source wording; not selected source-face answer or accepted French sense.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "id": "master-roofing:19:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Retrouvez le groupe anglais avec article pour « la carte de visite », sous sa forme courte.",
+      "candidateTargetEnglish": "the card",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:14",
+        "master-roofing:19:fr-en:card:20"
+      ],
+      "expectedMeaningFrench": "la carte",
+      "selectedFrench": null,
+      "audioScript": null,
+      "provenance": "Provisional generic card noun extracted from source business-card/card phrases; not selected source answer.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "id": "master-roofing:19:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais, puis répétez-le.",
+      "candidateTargetEnglish": "The business card is easy to read.",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "La carte de visite est facile à lire.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "provenance": "New readability example using source business-card noun, not warranty assertion.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "id": "master-roofing:19:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le groupe anglais pour « la carte de visite ».",
+      "candidateTargetEnglish": "the business card",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "la carte de visite",
+      "selectedFrench": null,
+      "audioScript": null,
+      "provenance": "Ordinary lexical proposal coinciding with held card14, not selected source-face answer.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "id": "master-roofing:19:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Voulez-vous que je lise la carte à voix haute ? »",
+      "candidateTargetEnglish": "Would you like me to read the card aloud?",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:14",
+        "master-roofing:19:fr-en:card:19"
+      ],
+      "expectedMeaningFrench": "Voulez-vous que je lise la carte à voix haute ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "provenance": "New offer, adapted structural frame plus source card noun; no access/warranty question.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "id": "master-roofing:19:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Proposez poliment, en anglais, de lire vous-même la carte de visite à voix haute à votre interlocuteur. Utilisez would like + complément + to.",
+      "candidateTargetEnglish": "Would you like me to read the business card aloud?",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:19",
+        "master-roofing:19:fr-en:card:14"
+      ],
+      "expectedMeaningFrench": "Voulez-vous que je lise la carte de visite à voix haute ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "provenance": "New English composition; structure anchored to card19 (structural only); term from card14; French unreviewed; held",
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "id": "master-roofing:19:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    }
+  ],
+  "speaking": {
+    "learnerRole": "language learner in supplemental reference exercise",
+    "partnerRole": "language-practice partner",
+    "candidateOpeningEnglish": "Let’s read the printed practice page.",
+    "candidateOpeningFrench": "Lisons la page d’exercice imprimée.",
+    "goalEnglish": "Offer to read a printed example and express a readability condition using unless and as long as.",
+    "goalFrench": "Proposer de lire un exemple imprimé et exprimer une condition de lisibilité avec unless et as long as.",
+    "practiceContextEnglish": "A practice page shows a sample business card with one printed word that may be blurred.",
+    "contextFrench": "Une page d’exercice présente un exemple de carte de visite avec un mot imprimé qui peut être flou.",
+    "candidateWordBankEnglish": [
+      "Let’s read the printed practice page.",
+      "Would you like me to",
+      "read",
+      "the business card",
+      "aloud",
+      "I will ask for",
+      "another copy",
+      "unless",
+      "the printed word",
+      "is legible",
+      "As long as",
+      "I can read it aloud",
+      "Thank you."
+    ],
+    "partnerCuesEnglish": [
+      "What would you like to ask before reading the sample card aloud?",
+      "What will you do if the printed word is not clear?",
+      "Under what condition can you read the word aloud?"
+    ],
+    "partnerCueSupportFrench": [
+      "Que souhaitez-vous demander avant de lire la carte d’exemple à voix haute ?",
+      "Que ferez-vous si le mot imprimé n’est pas lisible ?",
+      "À quelle condition pouvez-vous lire le mot à voix haute ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Would you like me to read the business card aloud?",
+      "I will ask for another copy unless the printed word is legible.",
+      "As long as the printed word is legible, I can read it aloud. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Voulez-vous que je lise la carte de visite à voix haute ?",
+      "Je demanderai un autre exemplaire, sauf si le mot imprimé est lisible.",
+      "À condition que le mot imprimé soit lisible, je peux le lire à voix haute. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary closing, merged once into last learner turn.",
+    "sourceAnchors": [
+      "master-roofing:19:fr-en:card:14",
+      "master-roofing:19:fr-en:card:16",
+      "master-roofing:19:fr-en:card:17",
+      "master-roofing:19:fr-en:card:19"
+    ],
+    "selectedFrench": null,
+    "audioScript": null,
+    "id": "master-roofing:19:fr-en:speaking:1",
+    "reviewed": false,
+    "heldDependent": true,
+    "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+    "proposalSelectionStatus": "blocked, unregistered, unreviewed",
+    "openingProvenance": "New contextual composition.",
+    "heldDecisionRefs": [
+      "master-roofing:19:fr-en:card:1",
+      "master-roofing:19:fr-en:card:2",
+      "master-roofing:19:fr-en:card:3",
+      "master-roofing:19:fr-en:card:4",
+      "master-roofing:19:fr-en:card:5",
+      "master-roofing:19:fr-en:card:6",
+      "master-roofing:19:fr-en:card:7",
+      "master-roofing:19:fr-en:card:8",
+      "master-roofing:19:fr-en:card:9",
+      "master-roofing:19:fr-en:card:10",
+      "master-roofing:19:fr-en:card:11",
+      "master-roofing:19:fr-en:card:12",
+      "master-roofing:19:fr-en:card:13",
+      "master-roofing:19:fr-en:card:14",
+      "master-roofing:19:fr-en:card:15",
+      "master-roofing:19:fr-en:card:16",
+      "master-roofing:19:fr-en:card:17",
+      "master-roofing:19:fr-en:card:18",
+      "master-roofing:19:fr-en:card:19",
+      "master-roofing:19:fr-en:card:20",
+      "master-roofing:19:fr-en:card:21",
+      "master-roofing:19:fr-en:reader:1",
+      "master-roofing:19:fr-en:reader:2",
+      "master-roofing:19:fr-en:reader:3",
+      "master-roofing:19:fr-en:reader:4",
+      "master-roofing:19:fr-en:reader:5",
+      "master-roofing:19:fr-en:reader:6",
+      "master-roofing:19:fr-en:reader:7",
+      "master-roofing:19:fr-en:reader:8",
+      "master-roofing:19:fr-en:reader:9",
+      "master-roofing:19:fr-en:reader:10",
+      "master-roofing:19:fr-en:reader:11",
+      "master-roofing:19:fr-en:reader:12",
+      "master-roofing:19:fr-en:reader:13",
+      "master-roofing:19:fr-en:reader:14",
+      "master-roofing:19:fr-en:reader:15",
+      "master-roofing:19:fr-en:reader:16"
+    ],
+    "holdReason": "held and incomplete; provisional lexical/grammar subset does not replace full source work objective",
+    "scenarioProvenance": "New partial linguistic scenario, not completed original source work objective.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Let’s read the printed practice page."
+      },
+      {
+        "speaker": "partner",
+        "text": "What would you like to ask before reading the sample card aloud?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Would you like me to read the business card aloud?"
+      },
+      {
+        "speaker": "partner",
+        "text": "What will you do if the printed word is not clear?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I will ask for another copy unless the printed word is legible."
+      },
+      {
+        "speaker": "partner",
+        "text": "Under what condition can you read the word aloud?"
+      },
+      {
+        "speaker": "learner",
+        "text": "As long as the printed word is legible, I can read it aloud. Thank you."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Let’s read the printed practice page.",
+      "Would you like me to read the business card aloud?",
+      "I will ask for another copy unless the printed word is legible.",
+      "As long as the printed word is legible, I can read it aloud. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Lisons la page d’exercice imprimée.",
+      "Voulez-vous que je lise la carte de visite à voix haute ?",
+      "Je demanderai un autre exemplaire, sauf si le mot imprimé est lisible.",
+      "À condition que le mot imprimé soit lisible, je peux le lire à voix haute. Merci."
+    ]
+  },
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "forms": [
+    {
+      "englishForm": "would like + object + to + base verb",
+      "meaningFrench": "would like + complément + to + base verbale : souhaiter qu’une personne fasse quelque chose.",
+      "candidateExampleEnglish": "Would you like me to read the business card aloud?",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:19"
+      ],
+      "provenance": "New English composition; structure from card19 only; no warranty content; held",
+      "id": "master-roofing:19:fr-en:form:1",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "englishForm": "unless + clause",
+      "meaningFrench": "unless : sauf si ; if not : si ... ne ... pas.",
+      "candidateExampleEnglish": "I will ask for another copy unless the printed word is legible.",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:17"
+      ],
+      "provenance": "New readability condition adapted from source unless structure, not warranty condition.",
+      "id": "master-roofing:19:fr-en:form:2",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    },
+    {
+      "englishForm": "as long as + clause",
+      "meaningFrench": "as long as : à condition que, du moment que.",
+      "candidateExampleEnglish": "As long as the printed word is legible, I can read it aloud.",
+      "sourceAnchors": [
+        "master-roofing:19:fr-en:card:16"
+      ],
+      "provenance": "New readability condition adapted from source as-long-as frame, not legal guarantee.",
+      "id": "master-roofing:19:fr-en:form:3",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Blocked provisional linguistic proposal, not accepted source-face answer or warranty/insurance/capstone/safety decision.",
+      "proposalSelectionStatus": "BLOCKED provisional linguistic candidate; any coincident source wording and French support are unselected options, not source-face answers"
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-19-source-decision-2026-11-18/packet.json",
+    "sha256": "cf6ac19a33c7e4ce285a77a0bfdbf752a0b7bb44d4c8b0970600351053ecd93d"
+  },
+  "candidateRows": [
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:1",
+      "sourceAnchor": "master-roofing:19:fr-en:card:1",
+      "sourceEnglish": "the final walkthrough",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the final walkthrough",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:2",
+      "sourceAnchor": "master-roofing:19:fr-en:card:2",
+      "sourceEnglish": "the final invoice",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the final invoice",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:3",
+      "sourceAnchor": "master-roofing:19:fr-en:card:3",
+      "sourceEnglish": "the product warranty",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the product warranty",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:4",
+      "sourceAnchor": "master-roofing:19:fr-en:card:4",
+      "sourceEnglish": "the installation warranty",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the installation warranty",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:5",
+      "sourceAnchor": "master-roofing:19:fr-en:card:5",
+      "sourceEnglish": "the certificate",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the certificate",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:6",
+      "sourceAnchor": "master-roofing:19:fr-en:card:6",
+      "sourceEnglish": "the registration",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the registration",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:7",
+      "sourceAnchor": "master-roofing:19:fr-en:card:7",
+      "sourceEnglish": "the coverage",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the coverage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:8",
+      "sourceAnchor": "master-roofing:19:fr-en:card:8",
+      "sourceEnglish": "the exclusion",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the exclusion",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:9",
+      "sourceAnchor": "master-roofing:19:fr-en:card:9",
+      "sourceEnglish": "the normal wear",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the normal wear",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:10",
+      "sourceAnchor": "master-roofing:19:fr-en:card:10",
+      "sourceEnglish": "the storm damage",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the storm damage",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:11",
+      "sourceAnchor": "master-roofing:19:fr-en:card:11",
+      "sourceEnglish": "the installation defect",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the installation defect",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:12",
+      "sourceAnchor": "master-roofing:19:fr-en:card:12",
+      "sourceEnglish": "the warranty claim",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the warranty claim",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:13",
+      "sourceAnchor": "master-roofing:19:fr-en:card:13",
+      "sourceEnglish": "the maintenance",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the maintenance",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:14",
+      "sourceAnchor": "master-roofing:19:fr-en:card:14",
+      "sourceEnglish": "the business card",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the business card",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:15",
+      "sourceAnchor": "master-roofing:19:fr-en:card:15",
+      "sourceEnglish": "The warranty would cover any leak caused by the installation.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: The warranty would cover any leak caused by the installation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:16",
+      "sourceAnchor": "master-roofing:19:fr-en:card:16",
+      "sourceEnglish": "As long as the roof isn't modified.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: As long as the roof isn't modified.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:17",
+      "sourceAnchor": "master-roofing:19:fr-en:card:17",
+      "sourceEnglish": "Unless there's an installation defect.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Unless there's an installation defect.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:18",
+      "sourceAnchor": "master-roofing:19:fr-en:card:18",
+      "sourceEnglish": "If you see a leak, call us right away.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: If you see a leak, call us right away.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:19",
+      "sourceAnchor": "master-roofing:19:fr-en:card:19",
+      "sourceEnglish": "Would you like us to check the attic together?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Would you like us to check the attic together?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:20",
+      "sourceAnchor": "master-roofing:19:fr-en:card:20",
+      "sourceEnglish": "Here's my card.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Here's my card.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:cards:21",
+      "sourceAnchor": "master-roofing:19:fr-en:card:21",
+      "sourceEnglish": "Do you have any questions before signing?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Do you have any questions before signing?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:1",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:1",
+      "sourceEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:2",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:2",
+      "sourceEnglish": "First they walked around the house and checked the gutter, the downspouts and the yard.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: First they walked around the house and checked the gutter, the downspouts and the yard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:3",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:3",
+      "sourceEnglish": "Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:4",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:4",
+      "sourceEnglish": "Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:5",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:5",
+      "sourceEnglish": "Mrs. Novak: And what happens if we get a leak next winter?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Mrs. Novak: And what happens if we get a leak next winter?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:6",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:6",
+      "sourceEnglish": "Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:7",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:7",
+      "sourceEnglish": "Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:8",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:8",
+      "sourceEnglish": "Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:9",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:9",
+      "sourceEnglish": "Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:10",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:10",
+      "sourceEnglish": "Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:11",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:11",
+      "sourceEnglish": "Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:12",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:12",
+      "sourceEnglish": "Rogelio: Would you like us to check the attic together?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Would you like us to check the attic together?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:13",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:13",
+      "sourceEnglish": "In the attic everything was dry and the ventilation was working well.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: In the attic everything was dry and the ventilation was working well.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:14",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:14",
+      "sourceEnglish": "Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:15",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:15",
+      "sourceEnglish": "Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:19:fr-en:candidate:reader:16",
+      "sourceAnchor": "master-roofing:19:fr-en:reader:16",
+      "sourceEnglish": "Rogelio: Here's my business card; do you have any questions before signing?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Here's my business card; do you have any questions before signing?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "master-roofing:19:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:19:fr-en:card:1",
+      "englishHeadword": "the final walkthrough",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the final walkthrough",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el recorrido final"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:19:fr-en:card:2",
+      "englishHeadword": "the final invoice",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the final invoice",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la factura final"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:19:fr-en:card:3",
+      "englishHeadword": "the product warranty",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the product warranty",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la garantía del producto"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:19:fr-en:card:4",
+      "englishHeadword": "the installation warranty",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the installation warranty",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la garantía de instalación"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:19:fr-en:card:5",
+      "englishHeadword": "the certificate",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the certificate",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el certificado"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:19:fr-en:card:6",
+      "englishHeadword": "the registration",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the registration",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el registro"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:19:fr-en:card:7",
+      "englishHeadword": "the coverage",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the coverage",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la cobertura"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:19:fr-en:card:8",
+      "englishHeadword": "the exclusion",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the exclusion",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la exclusión"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:19:fr-en:card:9",
+      "englishHeadword": "the normal wear",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the normal wear",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el desgaste normal"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:19:fr-en:card:10",
+      "englishHeadword": "the storm damage",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the storm damage",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el daño por tormenta"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:19:fr-en:card:11",
+      "englishHeadword": "the installation defect",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the installation defect",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el defecto de instalación"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:19:fr-en:card:12",
+      "englishHeadword": "the warranty claim",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the warranty claim",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la reclamación de garantía"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:19:fr-en:card:13",
+      "englishHeadword": "the maintenance",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the maintenance",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el mantenimiento"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:19:fr-en:card:14",
+      "englishHeadword": "the business card",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: the business card",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la tarjeta de presentación"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:19:fr-en:card:15",
+      "englishHeadword": "The warranty would cover any leak caused by the installation.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: The warranty would cover any leak caused by the installation.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "La garantía cubriría cualquier gotera por la instalación."
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:19:fr-en:card:16",
+      "englishHeadword": "As long as the roof isn't modified.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: As long as the roof isn't modified.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Siempre que no se modifique el techo."
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:19:fr-en:card:17",
+      "englishHeadword": "Unless there's an installation defect.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Unless there's an installation defect.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "A menos que haya un defecto de instalación."
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:19:fr-en:card:18",
+      "englishHeadword": "If you see a leak, call us right away.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: If you see a leak, call us right away.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Si ve una gotera, llámenos de inmediato."
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:19:fr-en:card:19",
+      "englishHeadword": "Would you like us to check the attic together?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Would you like us to check the attic together?",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "¿Le gustaría que revisáramos el ático juntos?"
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:19:fr-en:card:20",
+      "englishHeadword": "Here's my card.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Here's my card.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Aquí tiene mi tarjeta."
+    },
+    {
+      "id": "master-roofing:19:fr-en:dictionary:21",
+      "sourceAnchor": "master-roofing:19:fr-en:card:21",
+      "englishHeadword": "Do you have any questions before signing?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Customer Walkthrough and Warranty",
+      "status": "held",
+      "hold": "Exact source face held for qualified French/source/domain/locale decision: Do you have any questions before signing?",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "¿Tiene alguna pregunta antes de firmar?"
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed master-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "No selected French answer, dictionary key, audio script, insurance/warranty scope or capstone completion. Structural adaptations do not prove source-face approval.",
+    "Direct warranty/product/installation and capstone labels are separate blocked terminology options only, not removed vocabulary or qualified answers. Source-word links and structural adaptations do not assert field truth.",
+    "Full original objective and source role remain private provenance. Opening plus three reply turns explicitly enumerated; fragment word bank supports production. All candidate activity answers and French support remain blocked provisional options."
+  ],
+  "sourceAuditOriginMain": "5a06d822064af477c4d4d6c070297fd941f63763",
+  "sourceObjectiveEnglish": "Walk a homeowner through the finished job and explain what the warranty covers, and under what conditions",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner on the final walkthrough: explain what was done, what each warranty would cover and under what conditions with siempre que and a menos que, and how to reach you.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; provisional lexical/grammar subset does not replace full source work objective",
+  "candidateRoleAdaptation": "Original crew-lead role/source mission retained only as evidence; this narrower linguistic exercise uses neutral learner/partner roles.",
+  "sourceObjectiveInternalOnly": true
+}

@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:12:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-12-source-decision-2026-11-18/packet.json",
+    "sha256": "4226728ae61d606f906fc3d245d17c19db11a64f571f0eaec2e6ac919bcd0ead"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-12-draft.json",
+      "sha256": "01ceda8cb7df0b3ebbc273c12279bd9227157c48fc8178bd81abf5733e752487"
+    }
+  },
+  "objectiveEnglish": "Use Rogelio's English example sentences to show how tone changes by listener (crew, homeowner, company manager): apologizing for the interruption, asking permission, and giving notice of a problem.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「Sorry to bother you, ma'am.」は「お邪魔してすみません」という意味です。この話では、Rogelioが家の持ち主の女性に話しかけるときの言い方で、ma'am は女性への丁寧な呼びかけです。意味を確認しましょう。",
+      "targetEnglish": "Sorry to bother you, ma'am.",
+      "sourceAnchor": "master-roofing:12:ja-en:card:16",
+      "id": "master-roofing:12:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「依頼、頼みごと」にあたる英語を、the を付けて思い出しましょう。",
+      "targetEnglish": "the request",
+      "sourceAnchor": "master-roofing:12:ja-en:card:13",
+      "id": "master-roofing:12:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「礼儀、丁寧さ」にあたる英語を選びましょう。",
+      "targetEnglish": "the courtesy",
+      "sourceAnchor": "master-roofing:12:ja-en:card:5",
+      "candidateOptionsEnglish": [
+        "the courtesy",
+        "the nickname",
+        "the manager"
+      ],
+      "id": "master-roofing:12:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "the courtesy"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「（会社の）マネージャー」にあたる英語を、the を付けて入力しましょう。",
+      "targetEnglish": "the manager",
+      "sourceAnchor": "master-roofing:12:ja-en:card:9",
+      "id": "master-roofing:12:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "家の持ち主の女性に、「その場所をお見せしてもよろしいでしょうか」と控えめに尋ねる英文を声に出して言いましょう。",
+      "targetEnglish": "Would you allow me to show you the area?",
+      "sourceAnchor": "master-roofing:12:ja-en:card:18",
+      "id": "master-roofing:12:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "会社のマネージャーに、「問題が見つかったことをお知らせします」と伝える英文を、I'm letting you know で始めて書きましょう。",
+      "targetEnglish": "I'm letting you know that we found a problem.",
+      "sourceAnchor": "master-roofing:12:ja-en:card:19",
+      "id": "master-roofing:12:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Would you allow me to show you the area",
+      "explanationJapanese": "Would you 〜? は、相手に丁寧に頼んだり許可を求めたりする形です。allow me to + 動詞の原形 は「私が〜するのを許す」という意味で、全体で「〜させていただけますか」という控えめな尋ね方になります。",
+      "sourceAnchor": "master-roofing:12:ja-en:card:18",
+      "id": "master-roofing:12:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "I'd like to mention something we found",
+      "explanationJapanese": "I'd like to 〜 は I would like to 〜 の短い形で、「〜したいのですが」と控えめに切り出す言い方です。something we found は「私たちが見つけたもの」という意味で、something の後ろの that が省略されています。",
+      "sourceAnchor": "master-roofing:12:ja-en:card:17",
+      "id": "master-roofing:12:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "I'm letting you know that we found a problem",
+      "explanationJapanese": "let + 人 + know that 〜 は「（人）に〜を知らせる」という意味です。I'm letting you know 〜 で「〜をお知らせします」と用件をすぐに伝えます。見つけたのは過去のことなので、found と過去形になっています。",
+      "sourceAnchor": "master-roofing:12:ja-en:card:19",
+      "id": "master-roofing:12:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the courtesy",
+      "glossJapanese": "礼儀、丁寧さ",
+      "senseJapanese": "相手に敬意を示す丁寧なふるまいや言葉づかいを指します。この話では、相手に合わせた丁寧な話し方がテーマになっています。文の中では the を付けずに courtesy とも言います。",
+      "sourceAnchor": "master-roofing:12:ja-en:card:5",
+      "id": "master-roofing:12:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the nickname",
+      "glossJapanese": "あだ名、愛称",
+      "senseJapanese": "この話でRogelioは、作業班の仲間どうしではあだ名で呼ぶこともあると説明しています。文の中では a nickname のように a が付くこともあります。",
+      "sourceAnchor": "master-roofing:12:ja-en:card:12",
+      "id": "master-roofing:12:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the manager",
+      "glossJapanese": "マネージャー、管理者",
+      "senseJapanese": "この話では、Rogelioが問題を報告する相手である会社のマネージャーを指します。Rogelioは、この相手には用件をすぐに伝えると言っています。the は、この話に出てくる特定の人を指すために付いています。",
+      "sourceAnchor": "master-roofing:12:ja-en:card:9",
+      "id": "master-roofing:12:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio（家の持ち主やマネージャーにどう話すか、自分が使う例文を言ってKevinに示す役）",
+      "partner": "Kevin（新人として、相手ごとの話し方を尋ね、Rogelioの例を聞く役）"
+    },
+    "openingEnglish": "Sorry to bother you, ma'am.",
+    "closureEnglish": "I'm letting you know that we found a problem.",
+    "objectivesEnglish": [
+      "Show Kevin how Rogelio opens with the homeowner using 'Sorry to bother you, ma'am.' and 'I'd like to mention something we found.'",
+      "Show Kevin how Rogelio asks the homeowner's permission using 'Would you allow me to show you the area?'",
+      "Contrast the crew line 'Look, we found rotten wood.' with the manager notice 'I'm letting you know that we found a problem.' and tell Kevin how the tone changes by listener."
+    ],
+    "wordBankEnglish": [
+      "the tone",
+      "the courtesy",
+      "the request",
+      "the nickname",
+      "the manager",
+      "Look, we found rotten wood.",
+      "Sorry to bother you, ma'am.",
+      "I'd like to mention something we found.",
+      "Would you allow me to show you the area?",
+      "I'm letting you know that we found a problem."
+    ],
+    "sourceAnchors": [
+      "master-roofing:12:ja-en:card:4",
+      "master-roofing:12:ja-en:card:5",
+      "master-roofing:12:ja-en:card:9",
+      "master-roofing:12:ja-en:card:12",
+      "master-roofing:12:ja-en:card:13",
+      "master-roofing:12:ja-en:card:15",
+      "master-roofing:12:ja-en:card:16",
+      "master-roofing:12:ja-en:card:17",
+      "master-roofing:12:ja-en:card:18",
+      "master-roofing:12:ja-en:card:19",
+      "master-roofing:12:ja-en:line:2",
+      "master-roofing:12:ja-en:line:4",
+      "master-roofing:12:ja-en:line:6",
+      "master-roofing:12:ja-en:line:7",
+      "master-roofing:12:ja-en:line:9"
+    ],
+    "id": "master-roofing:12:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:12:ja-en:line:13",
+      "sourceEnglish": "Kevin: And what if someone on the crew is older, like Don Ernesto?",
+      "languageGoalEnglish": "Explain source English request examples when Kevin asks about an older coworker; Spanish address contrast remains incomplete.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "Partial English tone/message supplement. Full source Spanish tú/usted/title/quisiera-me gustaria-podria contrast remains incomplete, not replaced by Japanese honorifics or English politeness.",
+    "Don/Doña/Señor/Señora choices, older-worker address and inspection/access/product decisions remain internal source/register/trade holds. No climb/access instruction is taught.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "Internal draft only: no qualified Japanese, source, or dictionary review has approved this lesson.",
+    "Partial scope: the Spanish tú/usted contrast (card:1, card:2, card:21, card:22) and the title mapping (card:3, card:7, card:8: señor, señora, don, doña) are deferred and not taught or scored.",
+    "English politeness phrases and Japanese honorifics are not equivalents of Spanish tú/usted grammar; learner text teaches the English sentences directly, and the mismatch with the Spanish source forms (for example Disculpe, comentarle, mostrarle, Le aviso) is recorded here only.",
+    "The Japanese glosses お邪魔してすみません, お見せしてもよろしいでしょうか, and お知らせします are meaning aids, not register equivalents of the Spanish usted forms; Japanese review is required.",
+    "The archived Japanese register rewrite removes the exact source contrasts and is not used.",
+    "Line:12 (quisiera, me gustaría, podría as softeners) is not taught; the form note on 'I'd like to' explains the English only.",
+    "The Don Ernesto exchange (line:13 to line:16) is deferred.",
+    "The 'señora or doña Carmen' and 'señor' title choice (line:5) is deferred.",
+    "The inspector example (line:10, line:11, card:20) and card:10 (the formality), card:11 (the rudeness), and card:14 (the slang) are deferred.",
+    "In the speaking task Rogelio demonstrates his own example lines to Kevin; no homeowner or manager reply is role-played because the source gives none.",
+    "The closure line is anchored to card:19; line:9 extends it with 'in the deck' and the photos, which are not taught."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete"
+}

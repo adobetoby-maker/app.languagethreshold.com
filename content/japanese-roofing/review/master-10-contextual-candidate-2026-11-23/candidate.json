@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:10:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-10-source-decision-2026-11-18/packet.json",
+    "sha256": "4c513d67a07cefe3727a4e197c4bb9f4d40dc7a0cf50e2b0271b82690bdb66b3"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-10-11-draft.json",
+      "sha256": "9a66b76f82a3b34ecd267c69bab99d73f5d55fc54f538f696b7e550aaffddd44"
+    }
+  },
+  "objectiveEnglish": "Follow and produce reported speech ('He said ...', 'He explained to me that ...') about what Marcos, Julio, and Kevin each said in the story, using the English words the argument, the version (one side of the story), the misunderstanding, and the witness, without assigning blame.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「the argument」は「口論、言い争い」という意味です。この話では、JulioとMarcosがトラックのそばでしていた激しい言い争いを指します。意味を確認しましょう。",
+      "targetEnglish": "the argument",
+      "sourceAnchor": "master-roofing:10:ja-en:card:2",
+      "id": "master-roofing:10:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "一方の立場から見た話、つまりその人の「言い分」を表す英語を、the を付けて思い出しましょう。",
+      "targetEnglish": "the version (one side of the story)",
+      "sourceAnchor": "master-roofing:10:ja-en:card:4",
+      "id": "master-roofing:10:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「（失敗の）責任、責め」にあたる英語を選びましょう。",
+      "targetEnglish": "the blame",
+      "sourceAnchor": "master-roofing:10:ja-en:card:5",
+      "candidateOptionsEnglish": [
+        "the blame",
+        "the witness",
+        "the rule"
+      ],
+      "id": "master-roofing:10:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "the blame"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「規則、決まり」にあたる英語を、the を付けて入力しましょう。",
+      "targetEnglish": "the rule",
+      "sourceAnchor": "master-roofing:10:ja-en:card:10",
+      "id": "master-roofing:10:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "RogelioがJulioから聞いた説明を伝える場面です。「彼は私に、もう暗かったと説明しました」という意味の英文を、He で始めて声に出して言いましょう。",
+      "targetEnglish": "He explained to me that it was already dark.",
+      "sourceAnchor": "master-roofing:10:ja-en:card:16",
+      "id": "master-roofing:10:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "二人が同時に話しているときに、「一人ずつお願いします」と順番に話すよう頼む英文を書きましょう。",
+      "targetEnglish": "One at a time, please.",
+      "sourceAnchor": "master-roofing:10:ja-en:card:17",
+      "id": "master-roofing:10:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "said the tarp wasn't his job",
+      "explanationJapanese": "said (that) 〜 は「〜と言った」という意味で、that は省略できます。この文では過去の発言を伝えるため、後ろも wasn't（was not）と過去形にしています。",
+      "sourceAnchor": "master-roofing:10:ja-en:card:15",
+      "id": "master-roofing:10:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "explained to me that it was already dark",
+      "explanationJapanese": "explained to me that 〜 は「私に〜と説明した」という意味です。explain の後ろは「to + 人」の形になり、explained me とは言いません。that の後ろは was と過去形です。",
+      "sourceAnchor": "master-roofing:10:ja-en:card:16",
+      "id": "master-roofing:10:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "said that at the end of the day everyone was tired and that nobody checked the tarp",
+      "explanationJapanese": "said that A and that B の形で、伝える内容を二つ並べています。どちらも過去の出来事なので、was、checked と過去形になっています。",
+      "sourceAnchor": "master-roofing:10:ja-en:line:9",
+      "id": "master-roofing:10:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the argument",
+      "glossJapanese": "口論、言い争い",
+      "senseJapanese": "この話では、JulioとMarcosがトラックのそばでしていた激しい言い争いを指します。the は、この話に出てくる特定の口論を指すために付いています。",
+      "sourceAnchor": "master-roofing:10:ja-en:card:2",
+      "id": "master-roofing:10:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the misunderstanding",
+      "glossJapanese": "誤解、行き違い",
+      "senseJapanese": "この話では、Rogelioが上司に、誰にもその作業が割り当てられていなかったために起きた「行き違い」だったと説明する場面で使われます。文の中では a misunderstanding のように a が付くこともあります。",
+      "sourceAnchor": "master-roofing:10:ja-en:card:3",
+      "id": "master-roofing:10:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the witness",
+      "glossJapanese": "証人、その場にいた人",
+      "senseJapanese": "この話では、一日の終わりの現場の様子を知っていて、それをRogelioに話したKevinを指します。文の中では a witness のように a が付くこともあります。",
+      "sourceAnchor": "master-roofing:10:ja-en:card:11",
+      "id": "master-roofing:10:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio（二人の話を順番に聞き、それぞれの言い分を相手に伝え直す役）",
+      "partner": "MarcosとJulio（それぞれ自分の言い分を説明する役。パートナーが二人分を演じる）"
+    },
+    "openingEnglish": "OK, tell me your side.",
+    "closureEnglish": "Here we don't look for someone to blame.",
+    "objectivesEnglish": [
+      "Ask each person for their version using 'OK, tell me your side.'",
+      "Ask the two to speak in turn using 'One at a time, please.'",
+      "Restate to each person what the other said using 'He said the tarp wasn't his job.' and 'He explained to me that it was already dark.', then close with 'Here we don't look for someone to blame.'"
+    ],
+    "wordBankEnglish": [
+      "the argument",
+      "the version (one side of the story)",
+      "the misunderstanding",
+      "OK, tell me your side.",
+      "One at a time, please.",
+      "He said the tarp wasn't his job.",
+      "He explained to me that it was already dark.",
+      "Here we don't look for someone to blame."
+    ],
+    "sourceAnchors": [
+      "master-roofing:10:ja-en:card:2",
+      "master-roofing:10:ja-en:card:3",
+      "master-roofing:10:ja-en:card:4",
+      "master-roofing:10:ja-en:card:15",
+      "master-roofing:10:ja-en:card:16",
+      "master-roofing:10:ja-en:card:17",
+      "master-roofing:10:ja-en:card:18",
+      "master-roofing:10:ja-en:card:20",
+      "master-roofing:10:ja-en:line:4",
+      "master-roofing:10:ja-en:line:5"
+    ],
+    "id": "master-roofing:10:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:10:ja-en:line:3",
+      "sourceEnglish": "When Rogelio arrived, Julio and Marcos were having a heated argument next to the truck.",
+      "languageGoalEnglish": "Hear each account without interruption and summarize who said what; no tarp method prescribed.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "Partial conflict-listening/reported-speech supplement. Source resolves the story assignment as nobody having been assigned; it is not an unresolved claim about the story. No blame is inferred beyond character reports.",
+    "Tarp/tie-down product/method, shift/assignment terminology, last-one-down photo rule and improvised rocks remain internal source/trade/safety holds; no securing instruction is taught.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "Internal draft only: no qualified Japanese, roofing-trade, or safety review has approved this lesson.",
+    "Partial scope: card:1 (the loose tarp), card:6 (the shift), card:13 (the tie-down), card:14 (the person responsible), card:19 (Calm down, buddy.), and card:21 are deferred and not taught or scored.",
+    "The Japanese roofing term for 'tarp' is unresolved; learner text leaves 'tarp' in English inside quoted examples and gives no Japanese equivalent.",
+    "'The shift' means the garage-side assignment in line:6, not necessarily working hours; the archived 担当時間 changes the sense and is not used.",
+    "'The witness' means Kevin as witness to end-of-day circumstances, not an eyewitness to the tarp failure; the gloss 証人、その場にいた人 needs Japanese review.",
+    "Kevin's statement that nobody checked the tarp is his report, not a verified fact.",
+    "The rocks on the tarp edge (line:7) are a reported improvised act, not a securing instruction; tie-down hardware is not specified and no securing advice is given.",
+    "The line:14 last-one-down tie-down/photo rule is a story assignment, not a complete tarp-securing or fall-protection procedure, and is not taught.",
+    "Blame is not assigned beyond what the characters report; the person-responsible role and the nobody-was-assigned conflict (line:11, line:12) need review before card:14 is used.",
+    "Card:19 addresses one person ('buddy') and line:4 addresses one person and then Marcos; the archived Japanese addresses both and must be aligned before use.",
+    "The speaking task has the learner restate each account to the other crew member; the source report to the boss (line:10) is not role-played."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete"
+}

@@ -1,0 +1,1093 @@
+{
+  "lessonId": "master-roofing:7:fr-en",
+  "missionStatus": "Language subset only; does not complete or replace the roofing work mission.",
+  "candidateObjectiveEnglish": "Use repetition requests, past-tense story narration and printed weather vocabulary.",
+  "grammarExplanationEnglish": "Use the simple past for finished events in a storm narration (came through, fell). Use Can you ...? to ask someone to repeat.",
+  "grammarExplanationFrench": "Utilisez le prétérit anglais pour un fait terminé (came through, fell). Utilisez « Can you ...? » pour demander une répétition.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez le texte anglais et son sens français.",
+      "candidateTargetEnglish": "Can you repeat that more slowly?",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:20"
+      ],
+      "expectedMeaningFrench": "Pouvez-vous répéter cela plus lentement ?",
+      "provenance": "Exact source English card20; explicit-object French support newly composed and unreviewed.",
+      "id": "master-roofing:7:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered. Source noun phrases retain articles as citation forms; qualified English review must distinguish citation phrases from natural generic noun use and accept justified paraphrases."
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Donnez l’expression anglaise complète, avec son article le cas échéant, pour « la grêle ».",
+      "candidateTargetEnglish": "the hail",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "la grêle",
+      "provenance": "Exact source English card:3; French from card:3 conditionalFrench.",
+      "id": "master-roofing:7:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered. Source noun phrases retain articles as citation forms; qualified English review must distinguish citation phrases from natural generic noun use and accept justified paraphrases."
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez le texte anglais et donnez son sens en français.",
+      "candidateTargetEnglish": "the storm",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:7"
+      ],
+      "expectedMeaningFrench": "la tempête",
+      "provenance": "Exact source English the storm, card7; la tempête is newly proposed unreviewed generic-weather support, not source conditionalFrench.",
+      "id": "master-roofing:7:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered. Source noun phrases retain articles as citation forms; qualified English review must distinguish citation phrases from natural generic noun use and accept justified paraphrases."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez l’expression anglaise complète, avec son article le cas échéant, pour « la gouttière ».",
+      "candidateTargetEnglish": "the gutter",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:10"
+      ],
+      "expectedMeaningFrench": "la gouttière",
+      "provenance": "Exact source English card:10; French from card:10 conditionalFrench.",
+      "id": "master-roofing:7:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered. Source noun phrases retain articles as citation forms; qualified English review must distinguish citation phrases from natural generic noun use and accept justified paraphrases."
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites l’expression anglaise complète, avec son article, pour « le cercle tracé à la craie ».",
+      "candidateTargetEnglish": "the chalk circle",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:13"
+      ],
+      "expectedMeaningFrench": "le cercle tracé à la craie",
+      "provenance": "Exact source English the chalk circle, card13; clearer French noun support newly composed, no marking rule selected.",
+      "id": "master-roofing:7:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered. Source noun phrases retain articles as citation forms; qualified English review must distinguish citation phrases from natural generic noun use and accept justified paraphrases."
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Traduisez la phrase complète en anglais : La tempête est passée mardi soir.",
+      "candidateTargetEnglish": "The storm came through Tuesday night.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:15"
+      ],
+      "expectedMeaningFrench": "La tempête est passée mardi soir.",
+      "provenance": "Exact source English card15; generic-storm French translation newly composed and unreviewed.",
+      "id": "master-roofing:7:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required",
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+      "answerComparisonStatus": "Unregistered. Source noun phrases retain articles as citation forms; qualified English review must distinguish citation phrases from natural generic noun use and accept justified paraphrases."
+    }
+  ],
+  "speaking": {
+    "learnerRole": "Crew lead practicing English listening.",
+    "partnerRole": "A language-practice partner reading the source story.",
+    "candidateOpeningEnglish": "Can you repeat that more slowly?",
+    "candidateOpeningFrench": "Pouvez-vous répéter cela plus lentement ?",
+    "goalEnglish": "Request repetition, repeat the story and identify a printed term.",
+    "goalFrench": "Demandez une répétition, répétez l’histoire et identifiez un terme imprimé.",
+    "practiceContextEnglish": "The partner has just read The storm came through Tuesday night. The reference page labels A the storm, B the hail and C the chalk circle.",
+    "contextFrench": "Le partenaire vient de lire The storm came through Tuesday night. La page porte A the storm, B the hail et C the chalk circle.",
+    "candidateWordBankEnglish": [
+      "Can you repeat that more slowly?",
+      "came through",
+      "Tuesday night",
+      "the hail",
+      "fell",
+      "about 15 minutes",
+      "the chalk circle"
+    ],
+    "partnerCuesEnglish": [
+      "The storm came through Tuesday night.",
+      "What fell for about 15 minutes in the story?",
+      "Which printed term is on line C?"
+    ],
+    "partnerCueSupportFrench": [
+      "La tempête est passée mardi soir.",
+      "Qu’est-ce qui est tombé pendant environ quinze minutes dans l’histoire ?",
+      "Quel terme imprimé figure à la ligne C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The storm came through Tuesday night.",
+      "The hail fell for about 15 minutes.",
+      "The chalk circle. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "La tempête est passée mardi soir.",
+      "La grêle est tombée pendant environ quinze minutes.",
+      "Le cercle tracé à la craie. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary closing merged into the final expected turn.",
+    "sourceAnchors": [
+      "master-roofing:7:fr-en:card:3",
+      "master-roofing:7:fr-en:card:7",
+      "master-roofing:7:fr-en:card:13",
+      "master-roofing:7:fr-en:card:15",
+      "master-roofing:7:fr-en:card:20",
+      "master-roofing:7:fr-en:reader:1"
+    ],
+    "id": "master-roofing:7:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "master-roofing:7:fr-en:card:1",
+      "master-roofing:7:fr-en:card:11",
+      "master-roofing:7:fr-en:card:12",
+      "master-roofing:7:fr-en:card:14",
+      "master-roofing:7:fr-en:card:16",
+      "master-roofing:7:fr-en:card:17",
+      "master-roofing:7:fr-en:card:18",
+      "master-roofing:7:fr-en:card:19",
+      "master-roofing:7:fr-en:card:2",
+      "master-roofing:7:fr-en:card:21",
+      "master-roofing:7:fr-en:card:4",
+      "master-roofing:7:fr-en:card:5",
+      "master-roofing:7:fr-en:card:6",
+      "master-roofing:7:fr-en:card:8",
+      "master-roofing:7:fr-en:card:9",
+      "master-roofing:7:fr-en:reader:10",
+      "master-roofing:7:fr-en:reader:11",
+      "master-roofing:7:fr-en:reader:13",
+      "master-roofing:7:fr-en:reader:14",
+      "master-roofing:7:fr-en:reader:15",
+      "master-roofing:7:fr-en:reader:16",
+      "master-roofing:7:fr-en:reader:2",
+      "master-roofing:7:fr-en:reader:3",
+      "master-roofing:7:fr-en:reader:4",
+      "master-roofing:7:fr-en:reader:5",
+      "master-roofing:7:fr-en:reader:6",
+      "master-roofing:7:fr-en:reader:7",
+      "master-roofing:7:fr-en:reader:8",
+      "master-roofing:7:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French linguistic exercise, not actual source work authorization or completion. Any exact story quotation is labelled in provenance.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Can you repeat that more slowly?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The storm came through Tuesday night."
+      },
+      {
+        "speaker": "learner",
+        "text": "The storm came through Tuesday night."
+      },
+      {
+        "speaker": "partner",
+        "text": "What fell for about 15 minutes in the story?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The hail fell for about 15 minutes."
+      },
+      {
+        "speaker": "partner",
+        "text": "Which printed term is on line C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The chalk circle. Thank you."
+      }
+    ],
+    "provenance": "Opening exact card20. Cue1 and learner reply1 exact card15. Cue2 is new from card3/Reader1; reply2 is Reader1 extracted span with capitalization. Cue3 new; reply3 source card13 plus new closing. These are story facts, not present inspection findings.",
+    "scaffoldVocabularyFrench": {
+      "reference page": "page de référence",
+      "line": "ligne",
+      "word list": "liste de mots",
+      "printed term": "terme imprimé"
+    }
+  },
+  "forms": [
+    {
+      "englishForm": "came through (simple past of come through)",
+      "meaningFrench": "Prétérit anglais, rendu ici par le passé composé « est passée ».",
+      "candidateExampleEnglish": "The storm came through Tuesday night.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:15"
+      ],
+      "provenance": "Exact source English card:15; source-fiction narration.",
+      "id": "master-roofing:7:fr-en:form:1",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "englishForm": "fell (simple past of fall)",
+      "meaningFrench": "Prétérit anglais, rendu ici par le passé composé « est tombée ».",
+      "candidateExampleEnglish": "The hail fell for about 15 minutes.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:1"
+      ],
+      "provenance": "Extracted span from reader:1 English (the hail fell for about 15 minutes), capitalised; source-fiction narration.",
+      "id": "master-roofing:7:fr-en:form:2",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "englishForm": "Can you + base verb ...? (modal question)",
+      "meaningFrench": "question avec « can » pour demander une répétition",
+      "candidateExampleEnglish": "Can you repeat that more slowly?",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:card:20"
+      ],
+      "provenance": "Exact source English card:20.",
+      "id": "master-roofing:7:fr-en:form:3",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "stageId": "master-roofing",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-7-source-decision-2026-11-18/packet.json",
+    "sha256": "4fe128163c1e6285d10ac44bf6202d202ef020edb51672e093e076193e53482b"
+  },
+  "candidateRows": [
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:1",
+      "sourceAnchor": "master-roofing:7:fr-en:card:1",
+      "sourceEnglish": "the adjuster",
+      "candidateFrench": null,
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:2",
+      "sourceAnchor": "master-roofing:7:fr-en:card:2",
+      "sourceEnglish": "the insurance company",
+      "candidateFrench": null,
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:3",
+      "sourceAnchor": "master-roofing:7:fr-en:card:3",
+      "sourceEnglish": "the hail",
+      "candidateFrench": "la grêle",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench candidate; no selected answer or qualified approval."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:4",
+      "sourceAnchor": "master-roofing:7:fr-en:card:4",
+      "sourceEnglish": "the hit (impact mark)",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:5",
+      "sourceAnchor": "master-roofing:7:fr-en:card:5",
+      "sourceEnglish": "the test square",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:6",
+      "sourceAnchor": "master-roofing:7:fr-en:card:6",
+      "sourceEnglish": "the claim",
+      "candidateFrench": null,
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:7",
+      "sourceAnchor": "master-roofing:7:fr-en:card:7",
+      "sourceEnglish": "the storm",
+      "candidateFrench": "la tempête",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New generic storm candidate distinguishes it from Master8 explicit thunderstorm; weather/context alternatives remain unselected qualified review."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:8",
+      "sourceAnchor": "master-roofing:7:fr-en:card:8",
+      "sourceEnglish": "the granule",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:9",
+      "sourceAnchor": "master-roofing:7:fr-en:card:9",
+      "sourceEnglish": "the dent",
+      "candidateFrench": null,
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:10",
+      "sourceAnchor": "master-roofing:7:fr-en:card:10",
+      "sourceEnglish": "the gutter",
+      "candidateFrench": "la gouttière",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench candidate; no selected answer or qualified approval."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:11",
+      "sourceAnchor": "master-roofing:7:fr-en:card:11",
+      "sourceEnglish": "the roof slope (one face of the roof)",
+      "candidateFrench": null,
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:12",
+      "sourceAnchor": "master-roofing:7:fr-en:card:12",
+      "sourceEnglish": "the scope of work",
+      "candidateFrench": null,
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:13",
+      "sourceAnchor": "master-roofing:7:fr-en:card:13",
+      "sourceEnglish": "the chalk circle",
+      "candidateFrench": "le cercle tracé à la craie",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New explicit unselected chalk-circle French noun candidate; not an impact diagnosis or marking procedure."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:14",
+      "sourceAnchor": "master-roofing:7:fr-en:card:14",
+      "sourceEnglish": "the square foot",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:15",
+      "sourceAnchor": "master-roofing:7:fr-en:card:15",
+      "sourceEnglish": "The storm came through Tuesday night.",
+      "candidateFrench": "La tempête est passée mardi soir.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New unselected French story translation preserving source storm as generic, not automatically thunderstorm."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:16",
+      "sourceAnchor": "master-roofing:7:fr-en:card:16",
+      "sourceEnglish": "We counted 12 hits in this square.",
+      "candidateFrench": null,
+      "hold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:17",
+      "sourceAnchor": "master-roofing:7:fr-en:card:17",
+      "sourceEnglish": "Here the shingle lost granules.",
+      "candidateFrench": null,
+      "hold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:18",
+      "sourceAnchor": "master-roofing:7:fr-en:card:18",
+      "sourceEnglish": "Mark each hit with chalk.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:19",
+      "sourceAnchor": "master-roofing:7:fr-en:card:19",
+      "sourceEnglish": "How many hits do you count?",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:20",
+      "sourceAnchor": "master-roofing:7:fr-en:card:20",
+      "sourceEnglish": "Can you repeat that more slowly?",
+      "candidateFrench": "Pouvez-vous répéter cela plus lentement ?",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New unselected explicit-object French support for source that; formal support remains qualified review."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:cards:21",
+      "sourceAnchor": "master-roofing:7:fr-en:card:21",
+      "sourceEnglish": "Do you agree with the scope?",
+      "candidateFrench": null,
+      "hold": "Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:1",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+      "sourceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+      "candidateFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes.",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "New generic-storm French candidate aligned with card7/15; about remains environ and qualified weather/locale review is open."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:2",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:2",
+      "sourceEnglish": "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim.",
+      "candidateFrench": null,
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:3",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:3",
+      "sourceEnglish": "Rogelio and Kevin went up with him, with the tape measure and the chalk.",
+      "candidateFrench": null,
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:4",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:4",
+      "sourceEnglish": "First they checked the gutter and found dents along the whole west side.",
+      "candidateFrench": null,
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:5",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:5",
+      "sourceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:6",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:6",
+      "sourceEnglish": "Rogelio: Kevin, mark each hit with chalk, please.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:7",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:7",
+      "sourceEnglish": "Kevin drew a chalk circle around each hit.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:8",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+      "sourceEnglish": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:9",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:9",
+      "sourceEnglish": "Adjuster: How many hits do you count on the north side?",
+      "candidateFrench": null,
+      "hold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:10",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+      "sourceEnglish": "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+      "candidateFrench": null,
+      "hold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:11",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:11",
+      "sourceEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "candidateFrench": null,
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:12",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:12",
+      "sourceEnglish": "Rogelio: Sorry, can you repeat that more slowly?",
+      "candidateFrench": "Rogelio : « Pardon, pouvez-vous répéter plus lentement ? »",
+      "hold": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "qualifiedSenseReviewPending": true,
+      "candidateFrenchProvenance": "Unreviewed source packet conditionalFrench candidate; no selected answer or qualified approval."
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:13",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:13",
+      "sourceEnglish": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+      "candidateFrench": null,
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:14",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:14",
+      "sourceEnglish": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "candidateFrench": null,
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim. Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:15",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:15",
+      "sourceEnglish": "Rogelio: Do you agree with the scope of work, including the gutter?",
+      "candidateFrench": null,
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization. Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:7:fr-en:candidate:reader:16",
+      "sourceAnchor": "master-roofing:7:fr-en:reader:16",
+      "sourceEnglish": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "candidateFrench": null,
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim. Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "master-roofing:7:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:7:fr-en:card:1",
+      "englishHeadword": "the adjuster",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el ajustador"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:7:fr-en:card:2",
+      "englishHeadword": "the insurance company",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la aseguradora"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:7:fr-en:card:3",
+      "englishHeadword": "the hail",
+      "candidateFrenchSense": "la grêle",
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el granizo"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:7:fr-en:card:4",
+      "englishHeadword": "the hit (impact mark)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el golpe"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:7:fr-en:card:5",
+      "englishHeadword": "the test square",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el cuadro de prueba"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:7:fr-en:card:6",
+      "englishHeadword": "the claim",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el reclamo"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:7:fr-en:card:7",
+      "englishHeadword": "the storm",
+      "candidateFrenchSense": "la tempête",
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la tormenta",
+      "qualifiedFrenchOptions": [
+        "la tempête",
+        "l’orage de grêle"
+      ],
+      "optionStatus": "Unselected weather-context options; distinct from explicit thunderstorm in Master8."
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:7:fr-en:card:8",
+      "englishHeadword": "the granule",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el gránulo"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:7:fr-en:card:9",
+      "englishHeadword": "the dent",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la abolladura"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:7:fr-en:card:10",
+      "englishHeadword": "the gutter",
+      "candidateFrenchSense": "la gouttière",
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la canaleta"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:7:fr-en:card:11",
+      "englishHeadword": "the roof slope (one face of the roof)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la cara del techo"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:7:fr-en:card:12",
+      "englishHeadword": "the scope of work",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el alcance del trabajo"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:7:fr-en:card:13",
+      "englishHeadword": "the chalk circle",
+      "candidateFrenchSense": "le cercle tracé à la craie",
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el círculo de tiza"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:7:fr-en:card:14",
+      "englishHeadword": "the square foot",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el pie cuadrado"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:7:fr-en:card:15",
+      "englishHeadword": "The storm came through Tuesday night.",
+      "candidateFrenchSense": "La tempête est passée mardi soir.",
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "La tormenta pasó el martes por la noche."
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:7:fr-en:card:16",
+      "englishHeadword": "We counted 12 hits in this square.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Contamos 12 golpes en este cuadro."
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:7:fr-en:card:17",
+      "englishHeadword": "Here the shingle lost granules.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Aquí la teja perdió gránulos."
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:7:fr-en:card:18",
+      "englishHeadword": "Mark each hit with chalk.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Marca cada golpe con tiza."
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:7:fr-en:card:19",
+      "englishHeadword": "How many hits do you count?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Cuántos golpes cuenta usted?"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:7:fr-en:card:20",
+      "englishHeadword": "Can you repeat that more slowly?",
+      "candidateFrenchSense": "Pouvez-vous répéter cela plus lentement ?",
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Me lo puede repetir más despacio?"
+    },
+    {
+      "id": "master-roofing:7:fr-en:dictionary:21",
+      "sourceAnchor": "master-roofing:7:fr-en:card:21",
+      "englishHeadword": "Do you agree with the scope?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Hail Damage Inspection with an Adjuster",
+      "status": "held",
+      "hold": "Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Está de acuerdo con el alcance?"
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed master-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a hail-inspection/insurance source decision, settle a work method, or select a technical answer.",
+    "Completed Opus AI critique and independent source checks are not qualified review. Printed-label grammar and request-strength supports that parallel held statements are explicitly unselected/held-dependent; original work objectives remain incomplete.",
+    "Original source-language grammar directions and source role/technical assertions remain internal provenance and held. Completed Haiku, Opus/Fable AI critique and source/structural self-check do not qualify English/French, insurance, weather, roofing or dictionary approval."
+  ],
+  "sourceObjectiveEnglish": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "sourceAuditOriginMain": "3373fcd337e14aeb7907fcf1e1e1da9b78ca8822",
+  "candidateRoleAdaptation": "Crew-lead language role retained, partner/scenario changed to a supplemental linguistic exercise rather than the original adjuster/homeowner/field-feedback mission. Original work objective remains incomplete.",
+  "terminologyProposals": [
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:card:1",
+      "candidateFrenchOptions": [
+        "l’expert d’assurance"
+      ],
+      "meaningEnglish": "the adjuster",
+      "sourceSpanishEvidence": "el ajustador",
+      "reviewQuestion": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "origin": "Exact unapproved archivedFrenchEvidence from source packet, not a new AI translation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "selectedOption": null,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:card:5",
+      "candidateFrenchOptions": [
+        "le carré d’essai"
+      ],
+      "meaningEnglish": "the test square",
+      "sourceSpanishEvidence": "el cuadro de prueba",
+      "reviewQuestion": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "origin": "Exact unapproved archivedFrenchEvidence from source packet, not a new AI translation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "selectedOption": null,
+      "reviewed": false,
+      "registered": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:card:12",
+      "candidateFrenchOptions": [
+        "la portée des travaux"
+      ],
+      "meaningEnglish": "the scope of work",
+      "sourceSpanishEvidence": "el alcance del trabajo",
+      "reviewQuestion": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "origin": "Exact unapproved archivedFrenchEvidence from source packet, not a new AI translation.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "selectedOption": null,
+      "reviewed": false,
+      "registered": false
+    }
+  ]
+}

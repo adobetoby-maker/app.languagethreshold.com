@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:8:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-8-source-decision-2026-11-18/packet.json",
+    "sha256": "8da6ed72b09bd3fc37e2d81922b41099b9108dcdac0f627009781b856d480120"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-7-9-draft.json",
+      "sha256": "700ee6ee5f7853e3ec58889d8ce977dc54c0ffd6fce8043d8352add5738ac423"
+    }
+  },
+  "objectiveEnglish": "Acknowledge Mrs. Flores's hurry about Saturday and tell her politely but firmly that you can't do what she asks, while naming the thunder and the thunderstorm.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「the hurry」を見て意味を確認しましょう。「急ぎ、急いでいること」という意味の名詞です。ここでは冠詞 the が付いています。",
+      "targetEnglish": "the hurry",
+      "sourceAnchor": "master-roofing:8:ja-en:card:13",
+      "id": "master-roofing:8:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「雷鳴（ゴロゴロという雷の音）」を英語で何と言いますか。冠詞 the を付けて思い出してください。",
+      "targetEnglish": "the thunder",
+      "sourceAnchor": "master-roofing:8:ja-en:card:2",
+      "id": "master-roofing:8:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた語句を3つの候補から選んでください。意味は「雷雨」です。似た語との違いに注意しましょう。",
+      "targetEnglish": "the thunderstorm",
+      "candidateOptionsEnglish": [
+        "the thunderstorm",
+        "the thunder",
+        "the lightning"
+      ],
+      "sourceAnchor": "master-roofing:8:ja-en:card:3",
+      "id": "master-roofing:8:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "the thunderstorm"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「危険、リスク」を英語で入力してください。冠詞 the も入力しましょう。",
+      "targetEnglish": "the risk",
+      "sourceAnchor": "master-roofing:8:ja-en:card:7",
+      "id": "master-roofing:8:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "フロレスさんは土曜日までに終わらせたくて急いでいます。「お急ぎなのは分かりますが、それはできません」と英語で言ってみましょう。",
+      "targetEnglish": "I understand your hurry, but I can't do it.",
+      "sourceAnchor": "master-roofing:8:ja-en:card:17",
+      "id": "master-roofing:8:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「残念ですが、それは私たちにはできないことです」を英語で書いてください。",
+      "targetEnglish": "Unfortunately, that's something we can't do.",
+      "sourceAnchor": "master-roofing:8:ja-en:card:18",
+      "id": "master-roofing:8:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+      "explanationJapanese": "過去の出来事を語る文です。came は come、spoke は speak の過去形です。in a hurry は「急いで」という決まった言い方で、冠詞は a を使います。the house の the は、その場面の特定の家を指します。",
+      "sourceAnchor": "master-roofing:8:ja-en:line:2",
+      "id": "master-roofing:8:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "thunder could be heard far off, to the west",
+      "explanationJapanese": "could be heard は「聞こえた」という受け身の形（could + be + 過去分詞）です。ここでは雷鳴を一般的な音として述べているので、thunder に冠詞が付いていません。the west は方角なので the を付けます。",
+      "sourceAnchor": "master-roofing:8:ja-en:line:1",
+      "id": "master-roofing:8:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Unfortunately, that's something we can't do.",
+      "explanationJapanese": "文頭の Unfortunately（残念ですが）で相手に配慮しながら、はっきり断る文です。something we can't do は「私たちにはできないこと」で、something の後ろに主語 + 動詞を続けて説明します。something には冠詞を付けません。",
+      "sourceAnchor": "master-roofing:8:ja-en:card:18",
+      "id": "master-roofing:8:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the thunderstorm",
+      "glossJapanese": "雷雨",
+      "senseJapanese": "雷を伴う嵐。この場面で近づいている特定の雷雨を指すので the を付けます。",
+      "sourceAnchor": "master-roofing:8:ja-en:card:3",
+      "id": "master-roofing:8:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the hurry",
+      "glossJapanese": "急ぎ",
+      "senseJapanese": "急いでいる状態や気持ち。相手の急ぎは your hurry、「急いで」は in a hurry のように、冠詞や所有格が入れ替わります。",
+      "sourceAnchor": "master-roofing:8:ja-en:card:13",
+      "id": "master-roofing:8:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the risk",
+      "glossJapanese": "危険、リスク",
+      "senseJapanese": "悪いことが起こるおそれ。話題になっている特定の危険を指すときは the を付けます。",
+      "sourceAnchor": "master-roofing:8:ja-en:card:7",
+      "id": "master-roofing:8:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "Mrs. Flores"
+    },
+    "openingEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+    "closureEnglish": "Rogelio: I understand your hurry, but I can't do it.",
+    "objectivesEnglish": [
+      "Acknowledge Mrs. Flores's hurry about Saturday.",
+      "Tell Mrs. Flores politely but firmly that you can't do it.",
+      "Mention the thunder heard far off to the west."
+    ],
+    "wordBankEnglish": [
+      "the hurry",
+      "the thunder",
+      "the thunderstorm",
+      "the risk",
+      "I understand your hurry, but I can't do it.",
+      "Unfortunately, that's something we can't do."
+    ],
+    "sourceAnchors": [
+      "master-roofing:8:ja-en:line:3",
+      "master-roofing:8:ja-en:line:5",
+      "master-roofing:8:ja-en:line:1",
+      "master-roofing:8:ja-en:line:2",
+      "master-roofing:8:ja-en:card:13",
+      "master-roofing:8:ja-en:card:2",
+      "master-roofing:8:ja-en:card:3",
+      "master-roofing:8:ja-en:card:7",
+      "master-roofing:8:ja-en:card:17",
+      "master-roofing:8:ja-en:card:18"
+    ],
+    "id": "master-roofing:8:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:8:ja-en:line:3",
+      "sourceEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+      "languageGoalEnglish": "Acknowledge the request and communicate a firm refusal; no work-resumption decision.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "Full unsafe-request objective remains incomplete. Lightning/weather assessment, work stoppage/resumption, tarp installation, warranty/product and decision authority remain source/domain review questions.",
+    "The refusal is firm; this communication subset does not substitute for an approved safety procedure. Homeowner is not assigned the crew-only decision/responsibility line.",
+    "Opus flagged crew authority misassigned to homeowner and alternative/resumption overclaim; correction limits speaking to refusal and reported thunder.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete"
+}

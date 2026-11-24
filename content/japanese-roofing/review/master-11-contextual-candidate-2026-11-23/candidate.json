@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:11:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-11-source-decision-2026-11-18/packet.json",
+    "sha256": "5886842e82f6af0df637101210dafad4e002452d1aa9c56794eaed341c3a5f52"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-10-11-draft.json",
+      "sha256": "9a66b76f82a3b34ecd267c69bab99d73f5d55fc54f538f696b7e550aaffddd44"
+    }
+  },
+  "objectiveEnglish": "Name the heat exhaustion and the heatstroke as two distinct English terms, list the signs of heat exhaustion given in the story, and tell a new crew member to report dizziness using 'If you get dizzy, tell me right away.'",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「the heat exhaustion」は「熱疲労」という意味です。この話では、めまい・頭痛・吐き気・大量の発汗がその兆候として挙げられています。意味を確認しましょう。",
+      "targetEnglish": "the heat exhaustion",
+      "sourceAnchor": "master-roofing:11:ja-en:card:2",
+      "id": "master-roofing:11:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「熱射病」にあたる英語を、the を付けて思い出しましょう。この話では緊急事態とされていて、「熱疲労」とは別の語です。",
+      "targetEnglish": "the heatstroke",
+      "sourceAnchor": "master-roofing:11:ja-en:card:3",
+      "id": "master-roofing:11:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、「めまい」にあたる英語を選びましょう。",
+      "targetEnglish": "the dizziness",
+      "sourceAnchor": "master-roofing:11:ja-en:card:9",
+      "candidateOptionsEnglish": [
+        "the dizziness",
+        "the hydration",
+        "the shade"
+      ],
+      "id": "master-roofing:11:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "the dizziness"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「水を飲むための休憩」にあたる英語を、the を付けて入力しましょう。",
+      "targetEnglish": "the water break",
+      "sourceAnchor": "master-roofing:11:ja-en:card:5",
+      "id": "master-roofing:11:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "新人のKevinに、「めまいがしたら、すぐに私に知らせて」と伝える英文を声に出して言いましょう。",
+      "targetEnglish": "If you get dizzy, tell me right away.",
+      "sourceAnchor": "master-roofing:11:ja-en:card:19",
+      "id": "master-roofing:11:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「一日中、クーラーボックスに冷たい水を用意しておきます」と伝える英文を、There will be で始めて書きましょう。",
+      "targetEnglish": "There will be cold water in the cooler all day.",
+      "sourceAnchor": "master-roofing:11:ja-en:card:17",
+      "id": "master-roofing:11:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "If you get dizzy, tell me right away",
+      "explanationJapanese": "If + 現在形 は「もし〜したら」という意味です。これから起こるかもしれないことでも、if の後ろは will を使わず現在形（get）にします。後半の tell me は命令形で、「知らせて」と指示しています。",
+      "sourceAnchor": "master-roofing:11:ja-en:card:19",
+      "id": "master-roofing:11:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "There will be cold water in the cooler all day",
+      "explanationJapanese": "There will be 〜 は「〜があるでしょう、〜を用意しておきます」と、これから先のことを伝える形です。There is 〜（〜がある）の未来の言い方です。all day は「一日中」です。",
+      "sourceAnchor": "master-roofing:11:ja-en:card:17",
+      "id": "master-roofing:11:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "are signs of heat exhaustion",
+      "explanationJapanese": "signs of 〜 は「〜の兆候」という意味です。heat exhaustion（熱疲労）は、この話で緊急事態とされる heatstroke（熱射病）とは別の語です。どちらも文の中では the を付けずに使われています。",
+      "sourceAnchor": "master-roofing:11:ja-en:line:11",
+      "id": "master-roofing:11:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the heat exhaustion",
+      "glossJapanese": "熱疲労",
+      "senseJapanese": "暑さが原因で起こる体の不調を指す医学用語です。この話では、めまい・頭痛・吐き気・大量の発汗がその兆候として挙げられています。熱射病（the heatstroke）とは別の語です。文の中では the を付けずに heat exhaustion とも言います。",
+      "sourceAnchor": "master-roofing:11:ja-en:card:2",
+      "id": "master-roofing:11:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the heatstroke",
+      "glossJapanese": "熱射病",
+      "senseJapanese": "暑さが原因で起こる状態を指す医学用語です。この話では緊急事態とされ、Rogelioは、その場合は待たずに緊急通報をすると言っています。熱疲労（the heat exhaustion）とは別の語です。文の中では the を付けずに heatstroke とも言います。",
+      "sourceAnchor": "master-roofing:11:ja-en:card:3",
+      "id": "master-roofing:11:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the dizziness",
+      "glossJapanese": "めまい",
+      "senseJapanese": "この話では、熱疲労の兆候の一つとして挙げられています。Rogelioは新人のKevinに、めまいがしたら（get dizzy）すぐに知らせるよう指示しています。文の中では the を付けずに dizziness とも言います。",
+      "sourceAnchor": "master-roofing:11:ja-en:card:9",
+      "id": "master-roofing:11:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio（作業前に、水と休憩の予定と、体調が悪いときの報告のしかたを伝える役）",
+      "partner": "Kevin（新人として話を聞き、分かったことを確かめる役）"
+    },
+    "openingEnglish": "I know it's been a tough week.",
+    "closureEnglish": "If you get dizzy, tell me right away.",
+    "objectivesEnglish": [
+      "Open the talk by acknowledging a hard week using 'I know it's been a tough week.'",
+      "Describe the story's water and shade plan using 'There will be cold water in the cooler all day.' and 'a water break in the shade'.",
+      "Name the story's signs of heat exhaustion, state 'Heatstroke is an emergency' as a separate term, and close by telling Kevin 'If you get dizzy, tell me right away.'"
+    ],
+    "wordBankEnglish": [
+      "the heat exhaustion",
+      "the heatstroke",
+      "the dizziness",
+      "the water break",
+      "the cooler",
+      "the shade",
+      "There will be cold water in the cooler all day.",
+      "If you get dizzy, tell me right away."
+    ],
+    "sourceAnchors": [
+      "master-roofing:11:ja-en:card:2",
+      "master-roofing:11:ja-en:card:3",
+      "master-roofing:11:ja-en:card:5",
+      "master-roofing:11:ja-en:card:6",
+      "master-roofing:11:ja-en:card:8",
+      "master-roofing:11:ja-en:card:9",
+      "master-roofing:11:ja-en:card:15",
+      "master-roofing:11:ja-en:card:17",
+      "master-roofing:11:ja-en:card:19",
+      "master-roofing:11:ja-en:line:8",
+      "master-roofing:11:ja-en:line:10",
+      "master-roofing:11:ja-en:line:11",
+      "master-roofing:11:ja-en:line:12"
+    ],
+    "id": "master-roofing:11:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:11:ja-en:line:10",
+      "sourceEnglish": "Rogelio: And you, Kevin, since you're new: if you get dizzy, tell me right away.",
+      "languageGoalEnglish": "Communicate the source clinical terms and prompt reporting to the new worker; no new schedule or response algorithm.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "Partial clinical-vocabulary and crew-message supplement; full heat-week objective incomplete. 熱疲労 (heat exhaustion) and 熱射病 (heatstroke) remain distinct; no umbrella substitution or new severity scale.",
+    "Unspecified source temperature scale, 911 locale, six-to-two/hourly break schedule, electrolyte product and work/Friday/without-risk promises remain source/clinical/locale/safety holds. Source urgency is preserved in clinical vocabulary; no new diagnosis or response algorithm authored.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "Internal draft only: no qualified Japanese, clinical, safety, or locale review has approved this lesson.",
+    "Partial scope: card:1, card:7, card:10 to card:14, card:16, card:18, and card:20 to card:22 are deferred and not taught or scored.",
+    "Heat exhaustion 熱疲労 and heatstroke 熱射病 require qualified Japanese and clinical review; the description 医学用語 in the dictionary senses also needs that review.",
+    "熱疲労 and 熱射病 must not be replaced by the umbrella term 熱中症 or by severity grades without clinical review.",
+    "The signs in line:11 and the emergency statement in line:12 are taught as story vocabulary only; no symptom algorithm, diagnosis, or response procedure is provided.",
+    "The source's 911 reference (line:12) is held for locale review; learner text says only 緊急通報 and names no number.",
+    "The temperature scale and locale are unspecified in the source; 'more than 100 degrees' (line:1) is not converted, taught, or scored, and the archived Fahrenheit addition is not used.",
+    "The six-to-two schedule (card:16, line:6) and the hourly water break in the shade (line:8) are scene-specific plans, not universal schedules.",
+    "Cold water and electrolytes (line:7) are source commitments; electrolytes are not taught and must not be presented as replacing water or a medical assessment.",
+    "'Hydration isn't optional' (line:9) is a scene statement, not generic clinical advice.",
+    "The absolute promise 'without risks' (card:20, line:13) and the Friday completion assurance (line:16) are held for safety and source decision.",
+    "'Give it your all, guys!' (card:21, line:15) is held for tone review against the heat-rest message.",
+    "'Count on us, sir.' (card:22, line:16) is Rogelio speaking to the boss, so it is not used in the Rogelio and Kevin speaking task; the archived 社長 reading of 'sir' is not established by the source.",
+    "The Japanese register and symptom wording for the dizziness instruction (card:19, line:10) need review."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete"
+}

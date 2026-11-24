@@ -9,7 +9,7 @@
   "identityStatus": "proposal-only; no runtime or saved-progress change",
   "sourceReview": {
     "path": "content/japanese-roofing/review/foundation-1-source-audit-2026-11-17/packet.json",
-    "sha256": "9e0552a6eee8ed28ba4bf01b105484b02e08d724910b1bf5d5ff7bc117c29064"
+    "sha256": "017a2b92045e5700efac193a6c0106334508b97449fee8aa2028e5ac60e31036"
   },
   "source": {
     "curriculum": {
@@ -202,6 +202,23 @@
     "English target/Japanese support explicitly corrects the reverse pair label in the older source-audit packet without modifying it.",
     "Source Spanish-pronunciation objective is provenance, not the English objective.",
     "Harness/shingle product senses and any equipment or measurement instructions require qualified source/trade review; this supplement does not settle them.",
-    "Hear contains a candidate script only; no recording or listening approval exists."
-  ]
+    "Hear contains a candidate script only; no recording or listening approval exists.",
+    "This is a partial linguistic supplement; the exact original source objective above remains incomplete. Null-selection normalization and provenance metadata are not qualified review or text selection."
+  ],
+  "scope": "partial English-target/Japanese-support linguistic supplement; exact original source objective remains incomplete",
+  "originalSourceObjective": {
+    "textEnglish": "Say Spanish vowels and the sounds English speakers miss, and greet the crew",
+    "sourceReviewPath": "content/japanese-roofing/review/foundation-1-source-audit-2026-11-17/packet.json",
+    "field": "sourceEnglishObjective",
+    "status": "incomplete",
+    "selected": false,
+    "reviewed": false
+  },
+  "selectionStatus": "all source faces held; Japanese proposals unselected and all release gates closed",
+  "sourceReviewNormalization": {
+    "baselineMain": "401d3f520cf6ea54ac900f47375f09be1dd01480",
+    "previousSha256": "9e0552a6eee8ed28ba4bf01b105484b02e08d724910b1bf5d5ff7bc117c29064",
+    "change": "added explicit selectedJapanese:null to omitted card/Reader rows only; source text, IDs, upstream pins and proposal/review statuses unchanged",
+    "rowsNormalized": 19
+  }
 }

@@ -1,0 +1,1000 @@
+{
+  "lessonId": "master-roofing:15:fr-en",
+  "stageId": "master-roofing",
+  "heldDependent": true,
+  "scored": false,
+  "sourceDecisionHold": "master-roofing:15 cards and reader held; radio and weather claims unselected; language drill only",
+  "candidateObjectiveEnglish": "Read an English listening question and use conditionals in a printed-word exercise.",
+  "grammarExplanationEnglish": "Can + subject + base verb makes a question. If + present can introduce a future clause with will or an imperative in a language task.",
+  "grammarExplanationFrench": "Can + sujet + base verbale forme une question. If + présent peut introduire une proposition au futur avec will ou un impératif dans une tâche de langue.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez l’expression anglaise et trouvez son sens français : the sky.",
+      "candidateTargetEnglish": "the sky",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "le ciel",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "source-extracted from card 12; held",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:15:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Retrouvez le groupe anglais complet avec son article pour « la radio », l’appareil.",
+      "candidateTargetEnglish": "the radio",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:3"
+      ],
+      "expectedMeaningFrench": "la radio (l’appareil)",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New idiomatic English target extracted from source card3 without parenthetical disambiguator; device sense internal.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:15:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise, puis répétez-la.",
+      "candidateTargetEnglish": "Can you hear me?",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:20"
+      ],
+      "expectedMeaningFrench": "Vous m’entendez ?",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New ordinary listening question, not a selected source radio-command face.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:15:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "responseDirection": "Repeat the English heard; candidateTargetEnglish is the unrecorded reference target, not selected audio."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez le groupe anglais complet avec article pour « le ciel ».",
+      "candidateTargetEnglish": "the sky",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "le ciel",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "Exact English source noun; French support proposed, not selected.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:15:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Si vous entendez la phrase, répétez-la. »",
+      "candidateTargetEnglish": "If you hear the phrase, repeat it.",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:20"
+      ],
+      "expectedMeaningFrench": "Si vous entendez la phrase, répétez-la.",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New listening-practice conditional, not storm descent instruction.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:15:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Écrivez en anglais « Si le mot imprimé est sky, je le lirai. » Utilisez if au présent puis will.",
+      "candidateTargetEnglish": "If the printed word is sky, I will read it.",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Si le mot imprimé est sky, je le lirai.",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New printed-word conditional; no weather fact.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:15:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    }
+  ],
+  "speaking": {
+    "learnerRole": "crew lead in a supplemental language-reference role, not original field-mission execution",
+    "partnerRole": "language-practice partner",
+    "candidateOpeningEnglish": "Let’s read the printed listening question.",
+    "candidateOpeningFrench": "Lisons la question d’écoute imprimée.",
+    "goalEnglish": "Read an English listening question and use conditionals in a printed-word exercise.",
+    "goalFrench": "Lire une question anglaise sur l’écoute et employer des phrases conditionnelles dans un exercice de mots imprimés.",
+    "practiceContextEnglish": "Language practice: reading a printed listening-phrase card aloud.",
+    "contextFrench": "Pratique de langue : lire à voix haute une fiche imprimée de formules d’écoute.",
+    "candidateWordBankEnglish": [
+      "Let’s read the printed listening question.",
+      "Can you hear me?",
+      "If the printed word is sky",
+      "I will read it",
+      "If you hear the phrase",
+      "repeat it",
+      "Thank you."
+    ],
+    "partnerCuesEnglish": [
+      "Read the question on the card.",
+      "What will you do if the printed word is sky?",
+      "Give the instruction for repeating a phrase you hear."
+    ],
+    "partnerCueSupportFrench": [
+      "Lisez la question sur la fiche.",
+      "Que ferez-vous si le mot imprimé est sky ?",
+      "Donnez la consigne pour répéter une phrase entendue."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Can you hear me?",
+      "If the printed word is sky, I will read it.",
+      "If you hear the phrase, repeat it. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Vous m’entendez ?",
+      "Si le mot imprimé est sky, je le lirai.",
+      "Si vous entendez la phrase, répétez-la. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary closing merged once into final turn.",
+    "sourceAnchors": [
+      "master-roofing:15:fr-en:card:12",
+      "master-roofing:15:fr-en:card:20"
+    ],
+    "id": "master-roofing:15:fr-en:speaking:1",
+    "reviewed": false,
+    "heldDependent": true,
+    "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+    "heldDecisionRefs": [
+      "master-roofing:15:fr-en:card:1",
+      "master-roofing:15:fr-en:card:2",
+      "master-roofing:15:fr-en:card:3",
+      "master-roofing:15:fr-en:card:4",
+      "master-roofing:15:fr-en:card:5",
+      "master-roofing:15:fr-en:card:6",
+      "master-roofing:15:fr-en:card:7",
+      "master-roofing:15:fr-en:card:8",
+      "master-roofing:15:fr-en:card:9",
+      "master-roofing:15:fr-en:card:10",
+      "master-roofing:15:fr-en:card:11",
+      "master-roofing:15:fr-en:card:12",
+      "master-roofing:15:fr-en:card:13",
+      "master-roofing:15:fr-en:card:14",
+      "master-roofing:15:fr-en:card:15",
+      "master-roofing:15:fr-en:card:16",
+      "master-roofing:15:fr-en:card:17",
+      "master-roofing:15:fr-en:card:18",
+      "master-roofing:15:fr-en:card:19",
+      "master-roofing:15:fr-en:card:20",
+      "master-roofing:15:fr-en:card:21",
+      "master-roofing:15:fr-en:reader:1",
+      "master-roofing:15:fr-en:reader:2",
+      "master-roofing:15:fr-en:reader:3",
+      "master-roofing:15:fr-en:reader:4",
+      "master-roofing:15:fr-en:reader:5",
+      "master-roofing:15:fr-en:reader:6",
+      "master-roofing:15:fr-en:reader:7",
+      "master-roofing:15:fr-en:reader:8",
+      "master-roofing:15:fr-en:reader:9",
+      "master-roofing:15:fr-en:reader:10",
+      "master-roofing:15:fr-en:reader:11",
+      "master-roofing:15:fr-en:reader:12",
+      "master-roofing:15:fr-en:reader:13",
+      "master-roofing:15:fr-en:reader:14",
+      "master-roofing:15:fr-en:reader:15",
+      "master-roofing:15:fr-en:reader:16",
+      "master-roofing:15:fr-en:reader:17"
+    ],
+    "holdReason": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+    "scenarioProvenance": "New narrow language-reference exercise, not original work-mission completion or an incident/safety response.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Let’s read the printed listening question."
+      },
+      {
+        "speaker": "partner",
+        "text": "Read the question on the card."
+      },
+      {
+        "speaker": "learner",
+        "text": "Can you hear me?"
+      },
+      {
+        "speaker": "partner",
+        "text": "What will you do if the printed word is sky?"
+      },
+      {
+        "speaker": "learner",
+        "text": "If the printed word is sky, I will read it."
+      },
+      {
+        "speaker": "partner",
+        "text": "Give the instruction for repeating a phrase you hear."
+      },
+      {
+        "speaker": "learner",
+        "text": "If you hear the phrase, repeat it. Thank you."
+      }
+    ],
+    "openingProvenance": "New composition; not source quotation or approved field protocol."
+  },
+  "forms": [
+    {
+      "englishForm": "if + present, will + base verb",
+      "meaningFrench": "si + présent, futur avec will.",
+      "candidateExampleEnglish": "If the printed word is sky, I will read it.",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:12"
+      ],
+      "provenance": "New reading-task condition, not weather access decision.",
+      "id": "master-roofing:15:fr-en:form:1",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "structureProvenanceInternal": "English structure newly authored or adapted; lexical anchors identify lesson relationship, not proof that the source noun contains this grammar."
+    },
+    {
+      "englishForm": "If + present, imperative",
+      "meaningFrench": "si + présent, impératif",
+      "candidateExampleEnglish": "If you hear the phrase, repeat it.",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:20"
+      ],
+      "provenance": "New listening-practice instruction, not field radio protocol.",
+      "id": "master-roofing:15:fr-en:form:2",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "structureProvenanceInternal": "English structure newly authored or adapted; lexical anchors identify lesson relationship, not proof that the source noun contains this grammar."
+    },
+    {
+      "englishForm": "can + subject + base verb?",
+      "meaningFrench": "Question anglaise avec can.",
+      "candidateExampleEnglish": "Can you hear me?",
+      "sourceAnchors": [
+        "master-roofing:15:fr-en:card:20"
+      ],
+      "provenance": "New listening question using source hearing/radio context.",
+      "id": "master-roofing:15:fr-en:form:3",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "structureProvenanceInternal": "English structure newly authored or adapted; lexical anchors identify lesson relationship, not proof that the source noun contains this grammar."
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-15-source-decision-2026-11-18/packet.json",
+    "sha256": "ee05d45de7409c176a6602ca424ffb24812e6972abe04cca9d7a90cf57e1bab7"
+  },
+  "candidateRows": [
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:1",
+      "sourceAnchor": "master-roofing:15:fr-en:card:1",
+      "sourceEnglish": "the radar",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the radar",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:2",
+      "sourceAnchor": "master-roofing:15:fr-en:card:2",
+      "sourceEnglish": "the storm cell",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the storm cell",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:3",
+      "sourceAnchor": "master-roofing:15:fr-en:card:3",
+      "sourceEnglish": "the radio (the device)",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the radio (the device)",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:4",
+      "sourceAnchor": "master-roofing:15:fr-en:card:4",
+      "sourceEnglish": "the tarp",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the tarp",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:5",
+      "sourceAnchor": "master-roofing:15:fr-en:card:5",
+      "sourceEnglish": "the battens (wood strips)",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the battens (wood strips)",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:6",
+      "sourceAnchor": "master-roofing:15:fr-en:card:6",
+      "sourceEnglish": "the gust",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the gust",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:7",
+      "sourceAnchor": "master-roofing:15:fr-en:card:7",
+      "sourceEnglish": "the downpour",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the downpour",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:8",
+      "sourceAnchor": "master-roofing:15:fr-en:card:8",
+      "sourceEnglish": "the open section",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the open section",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:9",
+      "sourceAnchor": "master-roofing:15:fr-en:card:9",
+      "sourceEnglish": "the ground",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the ground",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:10",
+      "sourceAnchor": "master-roofing:15:fr-en:card:10",
+      "sourceEnglish": "the alert",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the alert",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:11",
+      "sourceAnchor": "master-roofing:15:fr-en:card:11",
+      "sourceEnglish": "the plastic cap nails",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the plastic cap nails",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:12",
+      "sourceAnchor": "master-roofing:15:fr-en:card:12",
+      "sourceEnglish": "the sky",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the sky",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:13",
+      "sourceAnchor": "master-roofing:15:fr-en:card:13",
+      "sourceEnglish": "the loose material",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the loose material",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:14",
+      "sourceAnchor": "master-roofing:15:fr-en:card:14",
+      "sourceEnglish": "the pickup truck",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the pickup truck",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:15",
+      "sourceAnchor": "master-roofing:15:fr-en:card:15",
+      "sourceEnglish": "If it starts raining, we come down.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If it starts raining, we come down.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:16",
+      "sourceAnchor": "master-roofing:15:fr-en:card:16",
+      "sourceEnglish": "If it thunders, nobody stays up top.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If it thunders, nobody stays up top.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:17",
+      "sourceAnchor": "master-roofing:15:fr-en:card:17",
+      "sourceEnglish": "If it thunders, everyone down now.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If it thunders, everyone down now.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:18",
+      "sourceAnchor": "master-roofing:15:fr-en:card:18",
+      "sourceEnglish": "Tarp on the open section, now.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Tarp on the open section, now.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:19",
+      "sourceAnchor": "master-roofing:15:fr-en:card:19",
+      "sourceEnglish": "Copy, heading down.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Copy, heading down.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:20",
+      "sourceAnchor": "master-roofing:15:fr-en:card:20",
+      "sourceEnglish": "Do you copy?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Do you copy?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:cards:21",
+      "sourceAnchor": "master-roofing:15:fr-en:card:21",
+      "sourceEnglish": "I confirm that we stopped because of the weather.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: I confirm that we stopped because of the weather.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:1",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:1",
+      "sourceEnglish": "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:2",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:2",
+      "sourceEnglish": "The sky was still clear, but the wind was starting to change.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: The sky was still clear, but the wind was starting to change.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:3",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:3",
+      "sourceEnglish": "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:4",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:4",
+      "sourceEnglish": "Marcos: Copy, I hear you.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Marcos: Copy, I hear you.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:5",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:5",
+      "sourceEnglish": "Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:6",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:6",
+      "sourceEnglish": "Rogelio: But we're not going to wait for the rain: we start closing up now.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: But we're not going to wait for the rain: we start closing up now.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:7",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:7",
+      "sourceEnglish": "Rogelio: Kevin and Julio, tarp on the open section, now.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Kevin and Julio, tarp on the open section, now.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:8",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:8",
+      "sourceEnglish": "Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:9",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:9",
+      "sourceEnglish": "Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:10",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:10",
+      "sourceEnglish": "Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:11",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:11",
+      "sourceEnglish": "At ten to two the first thunder was heard.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: At ten to two the first thunder was heard.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:12",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:12",
+      "sourceEnglish": "Rogelio on the radio: It thundered: everyone down now.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio on the radio: It thundered: everyone down now.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:13",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:13",
+      "sourceEnglish": "Julio: Copy, heading down; the tarp is secured.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Julio: Copy, heading down; the tarp is secured.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:14",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:14",
+      "sourceEnglish": "Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:15",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:15",
+      "sourceEnglish": "At two o'clock sharp the downpour began, with a lot of wind.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: At two o'clock sharp the downpour began, with a lot of wind.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:16",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:16",
+      "sourceEnglish": "From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:15:fr-en:candidate:reader:17",
+      "sourceAnchor": "master-roofing:15:fr-en:reader:17",
+      "sourceEnglish": "Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "master-roofing:15:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:15:fr-en:card:1",
+      "englishHeadword": "the radar",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the radar",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el radar"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:15:fr-en:card:2",
+      "englishHeadword": "the storm cell",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the storm cell",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la celda de tormenta"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:15:fr-en:card:3",
+      "englishHeadword": "the radio (the device)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the radio (the device)",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el radio"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:15:fr-en:card:4",
+      "englishHeadword": "the tarp",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the tarp",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la lona"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:15:fr-en:card:5",
+      "englishHeadword": "the battens (wood strips)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the battens (wood strips)",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "los listones"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:15:fr-en:card:6",
+      "englishHeadword": "the gust",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the gust",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la ráfaga"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:15:fr-en:card:7",
+      "englishHeadword": "the downpour",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the downpour",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el aguacero"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:15:fr-en:card:8",
+      "englishHeadword": "the open section",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the open section",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la parte abierta"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:15:fr-en:card:9",
+      "englishHeadword": "the ground",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the ground",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el suelo"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:15:fr-en:card:10",
+      "englishHeadword": "the alert",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the alert",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la alerta"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:15:fr-en:card:11",
+      "englishHeadword": "the plastic cap nails",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the plastic cap nails",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "los clavos con tapa plástica"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:15:fr-en:card:12",
+      "englishHeadword": "the sky",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the sky",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el cielo"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:15:fr-en:card:13",
+      "englishHeadword": "the loose material",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the loose material",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el material suelto"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:15:fr-en:card:14",
+      "englishHeadword": "the pickup truck",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the pickup truck",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la camioneta"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:15:fr-en:card:15",
+      "englishHeadword": "If it starts raining, we come down.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If it starts raining, we come down.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Si empieza a llover, bajamos."
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:15:fr-en:card:16",
+      "englishHeadword": "If it thunders, nobody stays up top.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If it thunders, nobody stays up top.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Si truena, nadie se queda arriba."
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:15:fr-en:card:17",
+      "englishHeadword": "If it thunders, everyone down now.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If it thunders, everyone down now.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Si truena, todos abajo ya."
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:15:fr-en:card:18",
+      "englishHeadword": "Tarp on the open section, now.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Tarp on the open section, now.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Lona en la parte abierta, ya."
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:15:fr-en:card:19",
+      "englishHeadword": "Copy, heading down.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Copy, heading down.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Copiado, voy para abajo."
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:15:fr-en:card:20",
+      "englishHeadword": "Do you copy?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Do you copy?",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "¿Me copias?"
+    },
+    {
+      "id": "master-roofing:15:fr-en:dictionary:21",
+      "sourceAnchor": "master-roofing:15:fr-en:card:21",
+      "englishHeadword": "I confirm that we stopped because of the weather.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Weather Call: Stop Work and Tarp",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: I confirm that we stopped because of the weather.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Le confirmo que paramos por el clima."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed master-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "France pick-up versus Québec camionnette/camion léger and radio terminology remain locale review options, none selected.",
+    "All activities/forms are held-dependent proposals. Linguistic source-word anchors do not certify source grammar or select incident/near-miss/weather instructions. Clinical/anatomical vocabulary is direct. No audio scope or accepted dictionary key exists."
+  ],
+  "sourceAuditOriginMain": "961bfce2148f330828c457a7594042e059234518",
+  "sourceObjectiveEnglish": "Make the weather call over the radio: stop work, tarp the open section and get everyone off the roof",
+  "sourceSpeakingEnglish": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "lexicalProposals": [
+    {
+      "id": "master-roofing:15:fr-en:lexical-proposal:1",
+      "sourceAnchor": "master-roofing:15:fr-en:card:3",
+      "sourceEnglish": "the radio (the device)",
+      "candidateFrench": "la radio (l’appareil)",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Ordinary lexical proposal with France/Québec sense or terminology choices still pending qualified review; no selected locale or radio procedure."
+    },
+    {
+      "id": "master-roofing:15:fr-en:lexical-proposal:2",
+      "sourceAnchor": "master-roofing:15:fr-en:card:12",
+      "sourceEnglish": "the sky",
+      "candidateFrench": "le ciel",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Ordinary lexical proposal with France/Québec sense or terminology choices still pending qualified review; no selected locale or radio procedure."
+    },
+    {
+      "id": "master-roofing:15:fr-en:lexical-proposal:3",
+      "sourceAnchor": "master-roofing:15:fr-en:card:14",
+      "sourceEnglish": "the pickup truck",
+      "candidateFrench": "le pick-up",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Ordinary lexical proposal with France/Québec sense or terminology choices still pending qualified review; no selected locale or radio procedure."
+    }
+  ]
+}

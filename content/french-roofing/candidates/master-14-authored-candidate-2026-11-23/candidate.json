@@ -1,0 +1,1025 @@
+{
+  "lessonId": "master-roofing:14:fr-en",
+  "stageId": "master-roofing",
+  "heldDependent": true,
+  "scored": false,
+  "sourceDecisionHold": "master-roofing:14 cards and reader held; near-miss term unselected; anchors are pending proposals only",
+  "candidateObjectiveEnglish": "Discuss a copied English word using nearly, could have and a question about the next copying attempt.",
+  "grammarExplanationEnglish": "Nearly + past verb describes something that almost happened. Could have + past participle expresses a past possibility. Was copying describes a past action in progress.",
+  "grammarExplanationFrench": "Nearly + verbe au passé décrit ce qui a failli se passer. Could have + participe passé exprime une possibilité passée. Was copying décrit une action passée en cours.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptFrench": "Regardez l’expression anglaise et trouvez son sens français : the sidewalk.",
+      "candidateTargetEnglish": "the sidewalk",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "le trottoir",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "source-extracted from card 8; held",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:14:fr-en:activity:see",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "recall",
+      "promptFrench": "Retrouvez le groupe anglais complet avec article pour « le piéton ».",
+      "candidateTargetEnglish": "the pedestrian",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:9"
+      ],
+      "expectedMeaningFrench": "le piéton",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "source-extracted from card 9; held",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:14:fr-en:activity:recall",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "hear",
+      "promptFrench": "Écoutez la phrase anglaise, puis répétez-la.",
+      "candidateTargetEnglish": "The printed word is injury.",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "Le mot imprimé est injury.",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New printed-word reference sentence; no actual injury assertion.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:14:fr-en:activity:hear",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": true,
+      "audioStatus": "unrecorded candidate text; no selected audio script",
+      "responseDirection": "Repeat the English heard; candidateTargetEnglish is the unrecorded reference target, not selected audio."
+    },
+    {
+      "mode": "type",
+      "promptFrench": "Tapez en anglais l’expression complète, avec l’article : la blessure.",
+      "candidateTargetEnglish": "the injury",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:12"
+      ],
+      "expectedMeaningFrench": "la blessure",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "source-extracted from card 12; direct injury=blessure pending proposal",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:14:fr-en:activity:type",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "say",
+      "promptFrench": "Dites en anglais : « Comment puis-je recopier le mot correctement la prochaine fois ? »",
+      "candidateTargetEnglish": "How can I copy the word correctly next time?",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:19"
+      ],
+      "expectedMeaningFrench": "Comment puis-je recopier le mot correctement la prochaine fois ?",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New language-copying question, not source prevention wording.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:14:fr-en:activity:say",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    },
+    {
+      "mode": "write",
+      "promptFrench": "Rendez en anglais : « Je recopiais le mot. »",
+      "candidateTargetEnglish": "I was copying the word.",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:9",
+        "master-roofing:14:fr-en:card:8"
+      ],
+      "expectedMeaningFrench": "Je recopiais le mot.",
+      "anchorStatus": "held-pending-proposal",
+      "provenance": "New language-copying example, not held pedestrian incident reconstruction.",
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "id": "master-roofing:14:fr-en:activity:write",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "audioRequired": false,
+      "audioStatus": "not required"
+    }
+  ],
+  "speaking": {
+    "learnerRole": "crew lead in a supplemental language-reference role, not original field-mission execution",
+    "partnerRole": "language-practice partner",
+    "candidateOpeningEnglish": "Let’s check the copied word together.",
+    "candidateOpeningFrench": "Vérifions ensemble le mot recopié.",
+    "goalEnglish": "Discuss a copied English word using nearly, could have and a question about the next copying attempt.",
+    "goalFrench": "Parler d’un mot anglais recopié avec nearly, could have et une question sur la prochaine tentative de copie.",
+    "practiceContextEnglish": "In a language exercise, the learner nearly copied the wrong English word from the printed vocabulary page.",
+    "contextFrench": "Dans un exercice de langue, l’apprenant a failli recopier le mauvais mot anglais de la page de vocabulaire.",
+    "candidateWordBankEnglish": [
+      "Let’s check the copied word together.",
+      "I nearly copied",
+      "the wrong word",
+      "I could have written",
+      "the wrong word",
+      "How can I copy the word correctly next time?",
+      "Thank you."
+    ],
+    "partnerCuesEnglish": [
+      "What nearly happened while you were copying the word?",
+      "What could have happened?",
+      "Ask how to copy the word correctly next time."
+    ],
+    "partnerCueSupportFrench": [
+      "Qu’est-ce qui a failli se passer pendant la copie du mot ?",
+      "Qu’est-ce qui aurait pu se passer ?",
+      "Demandez comment recopier le mot correctement la prochaine fois."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "I nearly copied the wrong word.",
+      "I could have written the wrong word.",
+      "How can I copy the word correctly next time? Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "J’ai failli recopier le mauvais mot.",
+      "J’aurais pu écrire le mauvais mot.",
+      "Comment puis-je recopier le mot correctement la prochaine fois ? Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary closing merged once into final turn.",
+    "sourceAnchors": [
+      "master-roofing:14:fr-en:card:15",
+      "master-roofing:14:fr-en:card:17",
+      "master-roofing:14:fr-en:card:19"
+    ],
+    "id": "master-roofing:14:fr-en:speaking:1",
+    "reviewed": false,
+    "heldDependent": true,
+    "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+    "heldDecisionRefs": [
+      "master-roofing:14:fr-en:card:1",
+      "master-roofing:14:fr-en:card:2",
+      "master-roofing:14:fr-en:card:3",
+      "master-roofing:14:fr-en:card:4",
+      "master-roofing:14:fr-en:card:5",
+      "master-roofing:14:fr-en:card:6",
+      "master-roofing:14:fr-en:card:7",
+      "master-roofing:14:fr-en:card:8",
+      "master-roofing:14:fr-en:card:9",
+      "master-roofing:14:fr-en:card:10",
+      "master-roofing:14:fr-en:card:11",
+      "master-roofing:14:fr-en:card:12",
+      "master-roofing:14:fr-en:card:13",
+      "master-roofing:14:fr-en:card:14",
+      "master-roofing:14:fr-en:card:15",
+      "master-roofing:14:fr-en:card:16",
+      "master-roofing:14:fr-en:card:17",
+      "master-roofing:14:fr-en:card:18",
+      "master-roofing:14:fr-en:card:19",
+      "master-roofing:14:fr-en:card:20",
+      "master-roofing:14:fr-en:card:21",
+      "master-roofing:14:fr-en:card:22",
+      "master-roofing:14:fr-en:reader:1",
+      "master-roofing:14:fr-en:reader:2",
+      "master-roofing:14:fr-en:reader:3",
+      "master-roofing:14:fr-en:reader:4",
+      "master-roofing:14:fr-en:reader:5",
+      "master-roofing:14:fr-en:reader:6",
+      "master-roofing:14:fr-en:reader:7",
+      "master-roofing:14:fr-en:reader:8",
+      "master-roofing:14:fr-en:reader:9",
+      "master-roofing:14:fr-en:reader:10",
+      "master-roofing:14:fr-en:reader:11",
+      "master-roofing:14:fr-en:reader:12",
+      "master-roofing:14:fr-en:reader:13",
+      "master-roofing:14:fr-en:reader:14",
+      "master-roofing:14:fr-en:reader:15",
+      "master-roofing:14:fr-en:reader:16",
+      "master-roofing:14:fr-en:reader:17"
+    ],
+    "holdReason": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+    "scenarioProvenance": "New narrow language-reference exercise, not original work-mission completion or an incident/safety response.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Let’s check the copied word together."
+      },
+      {
+        "speaker": "partner",
+        "text": "What nearly happened while you were copying the word?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I nearly copied the wrong word."
+      },
+      {
+        "speaker": "partner",
+        "text": "What could have happened?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I could have written the wrong word."
+      },
+      {
+        "speaker": "partner",
+        "text": "Ask how to copy the word correctly next time."
+      },
+      {
+        "speaker": "learner",
+        "text": "How can I copy the word correctly next time? Thank you."
+      }
+    ],
+    "openingProvenance": "New composition; not source quotation or approved field protocol."
+  },
+  "forms": [
+    {
+      "englishForm": "could have + past participle",
+      "meaningFrench": "could have + participe passé : possibilité passée, aurait pu + infinitif en français.",
+      "candidateExampleEnglish": "I could have written the wrong word.",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:17"
+      ],
+      "provenance": "New word-copying sentence using source modal structure; no injury counterfactual.",
+      "id": "master-roofing:14:fr-en:form:1",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "structureProvenanceInternal": "English structure newly authored or adapted; lexical anchors identify lesson relationship, not proof that the source noun contains this grammar."
+    },
+    {
+      "englishForm": "nearly + verb",
+      "meaningFrench": "nearly + verbe : presque; avec une action au passé, a failli + infinitif.",
+      "candidateExampleEnglish": "I nearly copied the wrong word.",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:15"
+      ],
+      "provenance": "New word-copying sentence using source nearly structure, not falling object.",
+      "id": "master-roofing:14:fr-en:form:2",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "structureProvenanceInternal": "English structure newly authored or adapted; lexical anchors identify lesson relationship, not proof that the source noun contains this grammar."
+    },
+    {
+      "englishForm": "was + -ing",
+      "meaningFrench": "Action passée en cours : was + forme en -ing.",
+      "candidateExampleEnglish": "I was copying the word.",
+      "sourceAnchors": [
+        "master-roofing:14:fr-en:card:9",
+        "master-roofing:14:fr-en:card:8"
+      ],
+      "provenance": "New language-copying example.",
+      "id": "master-roofing:14:fr-en:form:3",
+      "reviewed": false,
+      "heldDependent": true,
+      "sourceDecisionHold": "Source face remains held. Separate provisional linguistic composition only; no accepted or scored source answer.",
+      "structureProvenanceInternal": "English structure newly authored or adapted; lexical anchors identify lesson relationship, not proof that the source noun contains this grammar."
+    }
+  ],
+  "schema": 1,
+  "kind": "inert-authored-supplement",
+  "pair": {
+    "target": "English",
+    "native": "French"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-14-source-decision-2026-11-18/packet.json",
+    "sha256": "80e403ef68aff44fb93e80895755d90fe2cb6d076bb0bbc554109c05e1e5d161"
+  },
+  "candidateRows": [
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:1",
+      "sourceAnchor": "master-roofing:14:fr-en:card:1",
+      "sourceEnglish": "the near-miss",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the near-miss",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:2",
+      "sourceAnchor": "master-roofing:14:fr-en:card:2",
+      "sourceEnglish": "the bundle of shingles",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the bundle of shingles",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:3",
+      "sourceAnchor": "master-roofing:14:fr-en:card:3",
+      "sourceEnglish": "the stack",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the stack",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:4",
+      "sourceAnchor": "master-roofing:14:fr-en:card:4",
+      "sourceEnglish": "the roof bracket (roof jack)",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the roof bracket (roof jack)",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:5",
+      "sourceAnchor": "master-roofing:14:fr-en:card:5",
+      "sourceEnglish": "the toe board",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the toe board",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:6",
+      "sourceAnchor": "master-roofing:14:fr-en:card:6",
+      "sourceEnglish": "the slope",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the slope",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:7",
+      "sourceAnchor": "master-roofing:14:fr-en:card:7",
+      "sourceEnglish": "the danger zone",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the danger zone",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:8",
+      "sourceAnchor": "master-roofing:14:fr-en:card:8",
+      "sourceEnglish": "the sidewalk",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the sidewalk",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:9",
+      "sourceAnchor": "master-roofing:14:fr-en:card:9",
+      "sourceEnglish": "the pedestrian",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the pedestrian",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:10",
+      "sourceAnchor": "master-roofing:14:fr-en:card:10",
+      "sourceEnglish": "the warning sign",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the warning sign",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:11",
+      "sourceAnchor": "master-roofing:14:fr-en:card:11",
+      "sourceEnglish": "the lesson",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the lesson",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:12",
+      "sourceAnchor": "master-roofing:14:fr-en:card:12",
+      "sourceEnglish": "the injury",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the injury",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:13",
+      "sourceAnchor": "master-roofing:14:fr-en:card:13",
+      "sourceEnglish": "the cause",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the cause",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:14",
+      "sourceAnchor": "master-roofing:14:fr-en:card:14",
+      "sourceEnglish": "the prevention",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the prevention",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:15",
+      "sourceAnchor": "master-roofing:14:fr-en:card:15",
+      "sourceEnglish": "It nearly fell on his head.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: It nearly fell on his head.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:16",
+      "sourceAnchor": "master-roofing:14:fr-en:card:16",
+      "sourceEnglish": "A tragedy almost happened.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: A tragedy almost happened.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:17",
+      "sourceAnchor": "master-roofing:14:fr-en:card:17",
+      "sourceEnglish": "It could have killed someone.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: It could have killed someone.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:18",
+      "sourceAnchor": "master-roofing:14:fr-en:card:18",
+      "sourceEnglish": "If someone had been below, they would be in the hospital.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If someone had been below, they would be in the hospital.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:19",
+      "sourceAnchor": "master-roofing:14:fr-en:card:19",
+      "sourceEnglish": "What can we change so it doesn't happen again?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: What can we change so it doesn't happen again?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:20",
+      "sourceAnchor": "master-roofing:14:fr-en:card:20",
+      "sourceEnglish": "Thanks for speaking up, that helps everyone.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Thanks for speaking up, that helps everyone.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:21",
+      "sourceAnchor": "master-roofing:14:fr-en:card:21",
+      "sourceEnglish": "Are you OK, bro?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Are you OK, bro?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:cards:22",
+      "sourceAnchor": "master-roofing:14:fr-en:card:22",
+      "sourceEnglish": "Sorry for the scare, sir.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Sorry for the scare, sir.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:1",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:1",
+      "sourceEnglish": "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:2",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:2",
+      "sourceEnglish": "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:3",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:3",
+      "sourceEnglish": "Nobody got a single injury, but everyone went quiet.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Nobody got a single injury, but everyone went quiet.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:4",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:4",
+      "sourceEnglish": "Rogelio went down first to talk to the pedestrian.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio went down first to talk to the pedestrian.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:5",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:5",
+      "sourceEnglish": "Rogelio: Sorry for the scare, sir; are you all right?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Sorry for the scare, sir; are you all right?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:6",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:6",
+      "sourceEnglish": "Then he went up with the crew, and Kevin was pale.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Then he went up with the crew, and Kevin was pale.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:7",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:7",
+      "sourceEnglish": "Rogelio: Are you OK, bro?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Are you OK, bro?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:8",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:8",
+      "sourceEnglish": "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: It nearly fell on his head; a tragedy almost happened.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:9",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:9",
+      "sourceEnglish": "Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:10",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:10",
+      "sourceEnglish": "Rogelio: If someone had been below, they would be in the hospital.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If someone had been below, they would be in the hospital.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:11",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:11",
+      "sourceEnglish": "Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:12",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:12",
+      "sourceEnglish": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:13",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:13",
+      "sourceEnglish": "Rogelio: Thanks for speaking up, that helps everyone.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Thanks for speaking up, that helps everyone.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:14",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:14",
+      "sourceEnglish": "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:15",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:15",
+      "sourceEnglish": "Rogelio: What can we change so it doesn't happen again?",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: What can we change so it doesn't happen again?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:16",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:16",
+      "sourceEnglish": "Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:14:fr-en:candidate:reader:17",
+      "sourceAnchor": "master-roofing:14:fr-en:reader:17",
+      "sourceEnglish": "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company.",
+      "candidateFrench": null,
+      "hold": "Exact source face held for qualified source/French/locale/domain review: That afternoon, Rogelio recorded the case as a prevention lesson for the whole company.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "dictionaryMappings": [
+    {
+      "id": "master-roofing:14:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:14:fr-en:card:1",
+      "englishHeadword": "the near-miss",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the near-miss",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el casi accidente"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:14:fr-en:card:2",
+      "englishHeadword": "the bundle of shingles",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the bundle of shingles",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el bulto de tejas"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:14:fr-en:card:3",
+      "englishHeadword": "the stack",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the stack",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la pila"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:14:fr-en:card:4",
+      "englishHeadword": "the roof bracket (roof jack)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the roof bracket (roof jack)",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el soporte de techo"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:14:fr-en:card:5",
+      "englishHeadword": "the toe board",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the toe board",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la tabla de apoyo"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:14:fr-en:card:6",
+      "englishHeadword": "the slope",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the slope",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la pendiente"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:14:fr-en:card:7",
+      "englishHeadword": "the danger zone",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the danger zone",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la zona de peligro"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:14:fr-en:card:8",
+      "englishHeadword": "the sidewalk",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the sidewalk",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la acera"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:14:fr-en:card:9",
+      "englishHeadword": "the pedestrian",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the pedestrian",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el peatón"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:14:fr-en:card:10",
+      "englishHeadword": "the warning sign",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the warning sign",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "el aviso"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:14:fr-en:card:11",
+      "englishHeadword": "the lesson",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the lesson",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la lección"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:14:fr-en:card:12",
+      "englishHeadword": "the injury",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the injury",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la herida"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:14:fr-en:card:13",
+      "englishHeadword": "the cause",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the cause",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la causa"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:14:fr-en:card:14",
+      "englishHeadword": "the prevention",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: the prevention",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "la prevención"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:14:fr-en:card:15",
+      "englishHeadword": "It nearly fell on his head.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: It nearly fell on his head.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Por poco le cae en la cabeza."
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:14:fr-en:card:16",
+      "englishHeadword": "A tragedy almost happened.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: A tragedy almost happened.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Casi pasa una desgracia."
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:14:fr-en:card:17",
+      "englishHeadword": "It could have killed someone.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: It could have killed someone.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Podría haber matado a alguien."
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:14:fr-en:card:18",
+      "englishHeadword": "If someone had been below, they would be in the hospital.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: If someone had been below, they would be in the hospital.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Si alguien hubiera estado abajo, estaría en el hospital."
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:14:fr-en:card:19",
+      "englishHeadword": "What can we change so it doesn't happen again?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: What can we change so it doesn't happen again?",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "¿Qué podemos cambiar para que no vuelva a pasar?"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:14:fr-en:card:20",
+      "englishHeadword": "Thanks for speaking up, that helps everyone.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Thanks for speaking up, that helps everyone.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Gracias por avisar, eso ayuda a todos."
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:21",
+      "sourceAnchor": "master-roofing:14:fr-en:card:21",
+      "englishHeadword": "Are you OK, bro?",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Are you OK, bro?",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "¿Estás bien, carnal?"
+    },
+    {
+      "id": "master-roofing:14:fr-en:dictionary:22",
+      "sourceAnchor": "master-roofing:14:fr-en:card:22",
+      "englishHeadword": "Sorry for the scare, sir.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Near-Miss Conversation",
+      "status": "held",
+      "hold": "Exact source face held for qualified source/French/locale/domain review: Sorry for the scare, sir.",
+      "reviewed": false,
+      "registered": false,
+      "sourceSpanishEvidence": "Disculpe el susto, señor."
+    }
+  ],
+  "selectedFrench": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "internalNotes": [
+    "English target/French support; source Spanish forms are provenance only.",
+    "Proposed master-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
+    "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
+    "No selected text/audio, recording, listening approval, owner route or runtime registration.",
+    "All activities/forms are held-dependent proposals. Linguistic source-word anchors do not certify source grammar or select incident/near-miss/weather instructions. Clinical/anatomical vocabulary is direct. No audio scope or accepted dictionary key exists."
+  ],
+  "sourceAuditOriginMain": "961bfce2148f330828c457a7594042e059234518",
+  "sourceObjectiveEnglish": "Talk a near-miss through with the crew without blame, say what almost happened, and agree on the fix",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "lexicalProposals": [
+    {
+      "id": "master-roofing:14:fr-en:lexical-proposal:1",
+      "sourceAnchor": "master-roofing:14:fr-en:card:8",
+      "sourceEnglish": "the sidewalk",
+      "candidateFrench": "le trottoir",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct ordinary or anatomical vocabulary proposal only; no source incident, locale, system or role decision."
+    },
+    {
+      "id": "master-roofing:14:fr-en:lexical-proposal:2",
+      "sourceAnchor": "master-roofing:14:fr-en:card:9",
+      "sourceEnglish": "the pedestrian",
+      "candidateFrench": "le piéton",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct ordinary or anatomical vocabulary proposal only; no source incident, locale, system or role decision."
+    },
+    {
+      "id": "master-roofing:14:fr-en:lexical-proposal:3",
+      "sourceAnchor": "master-roofing:14:fr-en:card:12",
+      "sourceEnglish": "the injury",
+      "candidateFrench": "la blessure",
+      "selectedFrench": null,
+      "audioScript": null,
+      "reviewed": false,
+      "registered": false,
+      "heldDependent": true,
+      "internalHold": "Direct ordinary or anatomical vocabulary proposal only; no source incident, locale, system or role decision."
+    }
+  ]
+}

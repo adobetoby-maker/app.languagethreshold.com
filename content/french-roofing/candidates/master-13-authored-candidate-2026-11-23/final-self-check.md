@@ -1,0 +1,3 @@
+# Final source-grounded self-check
+
+All exact ordered source faces remain held/null; six activities/forms are explicitly provisional and held-dependent. Corrected incident time assertions to copying a newly authored printed label; removed field radio/weather and prevention instructions from new dialogue. Source injured-person/anatomical and injury terms remain direct unselected lexical proposals. Corrected cue/answer fit, full practice-sheet referents, English/French grammar parity and role attribution. Source anchors/hashes/IDs and false gates independently validated. AI is not qualified approval. Original incident, near-miss and weather work objectives remain held and incomplete.

@@ -1,0 +1,3 @@
+# Source-grounded self-check
+
+All ordered source faces and source hashes independently checked; none unheld or replaced. Warranty/product/installation/invoice and capstone terms remain direct unselected options, not accepted coverage or completion claims. Removed source signing closure, warranty clauses, harness/fall/weather/repair readiness language from new dialogue. Corrected condition logic, source anchor precision, legibility vocabulary, learner-group referents and hypothetical choices; fragment word banks and all four learner turns explicit. Original work objective held/incomplete. Actual Haiku/Opus/Fable metadata recorded; AI is not qualified approval. No audio generated or selected; all gates false.

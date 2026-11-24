@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:16:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-16-source-decision-2026-11-18/packet.json",
+    "sha256": "df4582b79eca4b736e5fb58a3af2cd3aff7882897c4dc815b3bfd53293ed2210"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-16-18-draft.json",
+      "sha256": "98e4983f5cb1af020f7cf968215c3f17e07627fe0ace8262ac51d6c759c00211"
+    }
+  },
+  "objectiveEnglish": "Practice one greeting to the city inspector, four inspection nouns, and one polite question asking what needs to be corrected.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を読んで、意味（市の検査官）を確認しましょう。",
+      "targetEnglish": "the city inspector",
+      "sourceAnchor": "master-roofing:16:ja-en:card:1",
+      "id": "master-roofing:16:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「建築許可証」を、the を付けた英語で思い出して言ってください。",
+      "targetEnglish": "the building permit",
+      "sourceAnchor": "master-roofing:16:ja-en:card:2",
+      "id": "master-roofing:16:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "聞こえた英文を、3つの候補から選んでください。",
+      "targetEnglish": "Good morning, here's the permit.",
+      "sourceAnchor": "master-roofing:16:ja-en:card:15",
+      "candidateOptionsEnglish": [
+        "Good morning, here's the permit.",
+        "Could you tell me what needs to be corrected?",
+        "Let me know if you see the inspector arrive."
+      ],
+      "id": "master-roofing:16:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Good morning, here's the permit."
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「検査カード」を、the を付けた英語で入力してください。",
+      "targetEnglish": "the inspection card",
+      "sourceAnchor": "master-roofing:16:ja-en:card:3",
+      "id": "master-roofing:16:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "検査官に「何を直す必要があるか、教えていただけますか。」と英語で言ってみましょう。",
+      "targetEnglish": "Could you tell me what needs to be corrected?",
+      "sourceAnchor": "master-roofing:16:ja-en:card:19",
+      "id": "master-roofing:16:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「是正通知書」を、the を付けた英語で書いてください。",
+      "targetEnglish": "the correction notice",
+      "sourceAnchor": "master-roofing:16:ja-en:card:7",
+      "id": "master-roofing:16:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "here's the permit",
+      "explanationJapanese": "here's は here is の短縮形です。物を相手に示すときに「こちらが～です」という意味で使います。",
+      "sourceAnchor": "master-roofing:16:ja-en:card:15",
+      "id": "master-roofing:16:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Could you tell me what needs to be corrected?",
+      "explanationJapanese": "Could you tell me ～? は「～を教えていただけますか」という丁寧な依頼です。what needs to be corrected は文の中に入った疑問（間接疑問）で、「何を直す必要があるか」という意味です。",
+      "sourceAnchor": "master-roofing:16:ja-en:card:19",
+      "id": "master-roofing:16:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Let me know if you see the inspector arrive.",
+      "explanationJapanese": "Let me know if ～ は「もし～したら知らせて」という意味です。if の後ろは、これからのことでも現在形（you see）を使います。",
+      "sourceAnchor": "master-roofing:16:ja-en:card:21",
+      "id": "master-roofing:16:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "building permit",
+      "glossJapanese": "建築許可証",
+      "senseJapanese": "建築工事の許可を示す書類。この場面では、検査官に挨拶するときに示します。",
+      "sourceAnchor": "master-roofing:16:ja-en:card:2",
+      "id": "master-roofing:16:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "inspection card",
+      "glossJapanese": "検査カード",
+      "senseJapanese": "検査に関するカード。この場面では、建築許可証と一緒にガレージの窓に掲示されています。",
+      "sourceAnchor": "master-roofing:16:ja-en:card:3",
+      "id": "master-roofing:16:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "correction notice",
+      "glossJapanese": "是正通知書",
+      "senseJapanese": "直すべき点を伝える書面。この場面では、検査官が指摘事項を書き込みます。",
+      "sourceAnchor": "master-roofing:16:ja-en:card:7",
+      "id": "master-roofing:16:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio, the crew lead, greets the city inspector with the permit and asks what needs to be corrected.",
+      "partner": "Mr. Wong, the city inspector, answers the greeting and says what he is there to check."
+    },
+    "openingEnglish": "Inspector: Thank you; I'm here to check the fastening and the flashing.",
+    "closureEnglish": "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+    "objectivesEnglish": [
+      "Greet the inspector with 'Good morning, here's the permit.'",
+      "Name the building permit and the inspection card.",
+      "Ask the inspector exactly what needs to be corrected."
+    ],
+    "wordBankEnglish": [
+      "the city inspector",
+      "the building permit",
+      "the inspection card",
+      "the requirement",
+      "the correction notice"
+    ],
+    "sourceAnchors": [
+      "master-roofing:16:ja-en:line:2",
+      "master-roofing:16:ja-en:line:3",
+      "master-roofing:16:ja-en:line:4",
+      "master-roofing:16:ja-en:line:5",
+      "master-roofing:16:ja-en:line:6",
+      "master-roofing:16:ja-en:line:7",
+      "master-roofing:16:ja-en:line:8",
+      "master-roofing:16:ja-en:line:9",
+      "master-roofing:16:ja-en:line:10",
+      "master-roofing:16:ja-en:line:11",
+      "master-roofing:16:ja-en:line:12",
+      "master-roofing:16:ja-en:card:1",
+      "master-roofing:16:ja-en:card:2",
+      "master-roofing:16:ja-en:card:3",
+      "master-roofing:16:ja-en:card:7",
+      "master-roofing:16:ja-en:card:13",
+      "master-roofing:16:ja-en:card:15",
+      "master-roofing:16:ja-en:card:19"
+    ],
+    "id": "master-roofing:16:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:16:ja-en:line:11",
+      "sourceEnglish": "Inspector: On the garage wall the step flashing is missing on two courses.",
+      "languageGoalEnglish": "Ask the inspector to clarify the source finding; no installation criterion or approval decision selected.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL inspection/code source faces remain held. Partial inspector greeting/document/clarification proposals only; full inspection objective incomplete.",
+    "Code jurisdiction, permit/document requirements, site access, product fastening/nail count/flashing/ventilation, correction/reinspection/approval decisions remain internal source/domain holds.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "Partial scope: greeting, role and document nouns, and one clarification question only. Nailing, course checks, roof access, same-day correction, re-inspection and approval language are excluded from productive practice.",
+    "In the source the building permit and the inspection card are in the garage window (line 3); only the permit is mentioned in the greeting. No hand-over of the inspection card is taught.",
+    "The greeting (line 2) precedes the speaking opening (line 4); lines 2-3 are anchored as context. Lines 5-11 are context only and are not learner production targets.",
+    "The missing step flashing, the inspector's finding and the conditional approval in line 15 are source scene content, not a verified defect, completed correction or approval.",
+    "Fastening and nail counts, step flashing, access and re-inspection terms depend on jurisdiction and product; roofing/code and locale review remains open.",
+    "Japanese terms 建築許可証, 検査カード, 是正通知書 and 市の検査官 need Japanese and locale term review, including the equivalence between a US building permit and Japanese permit procedures.",
+    "Form 3 (card 21) is informal speech to Kevin in the source, not speech to the inspector; register review remains open."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only"
+}

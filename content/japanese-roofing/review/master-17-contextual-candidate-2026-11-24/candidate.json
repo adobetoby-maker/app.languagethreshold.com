@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:17:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-17-source-decision-2026-11-18/packet.json",
+    "sha256": "eee0aaf0c58f058bb422a8a5d62a23bf61dd1a3ec7c55a569149abde6cab7f8b"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-16-18-draft.json",
+      "sha256": "98e4983f5cb1af020f7cf968215c3f17e07627fe0ace8262ac51d6c759c00211"
+    }
+  },
+  "objectiveEnglish": "Practice four daily-report nouns, recognize the sentence about attached photos, and make one informal request for photos.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "次の英語を読んで、意味（日報）を確認しましょう。",
+      "targetEnglish": "the daily report",
+      "sourceAnchor": "master-roofing:17:ja-en:card:1",
+      "id": "master-roofing:17:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「要約（まとめ）」を、the を付けた英語で思い出して言ってください。",
+      "targetEnglish": "the summary",
+      "sourceAnchor": "master-roofing:17:ja-en:card:2",
+      "id": "master-roofing:17:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "聞こえた英文を、3つの候補から選んでください。",
+      "targetEnglish": "Before and after photos are attached.",
+      "sourceAnchor": "master-roofing:17:ja-en:card:19",
+      "candidateOptionsEnglish": [
+        "Before and after photos are attached.",
+        "Hey, send me the photos of the plywood.",
+        "With nothing further, I sign off."
+      ],
+      "id": "master-roofing:17:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Before and after photos are attached."
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「記録写真（証拠写真）」を、the を付けた英語で入力してください。",
+      "targetEnglish": "the photo evidence",
+      "sourceAnchor": "master-roofing:17:ja-en:card:11",
+      "id": "master-roofing:17:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "仲間に気軽な言い方で「ねえ、合板の写真を送って。」と英語で言ってみましょう。",
+      "targetEnglish": "Hey, send me the photos of the plywood.",
+      "sourceAnchor": "master-roofing:17:ja-en:card:21",
+      "id": "master-roofing:17:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「未完了事項」を、the を付けた英語で書いてください。",
+      "targetEnglish": "the open items",
+      "sourceAnchor": "master-roofing:17:ja-en:card:10",
+      "id": "master-roofing:17:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "he wrote the report",
+      "explanationJapanese": "wrote は write（書く）の過去形です。終わったことを述べるときに使います。",
+      "sourceAnchor": "master-roofing:17:ja-en:line:3",
+      "id": "master-roofing:17:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Before and after photos are attached.",
+      "explanationJapanese": "are attached は「添付されている」という受け身です。報告書では、誰が添付したかを言わずにこの形をよく使います。",
+      "sourceAnchor": "master-roofing:17:ja-en:card:19",
+      "id": "master-roofing:17:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "send me the photos of the plywood",
+      "explanationJapanese": "動詞の原形で始める命令文です。send me ～ は「私に～を送って」という、仲間同士の気軽な頼み方です。",
+      "sourceAnchor": "master-roofing:17:ja-en:card:21",
+      "id": "master-roofing:17:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "daily report",
+      "glossJapanese": "日報",
+      "senseJapanese": "その日の作業についてまとめた報告書。",
+      "sourceAnchor": "master-roofing:17:ja-en:card:1",
+      "id": "master-roofing:17:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "summary",
+      "glossJapanese": "要約（まとめ）",
+      "senseJapanese": "内容を短くまとめたもの。この課では、日報の中の項目名として使います。",
+      "sourceAnchor": "master-roofing:17:ja-en:card:2",
+      "id": "master-roofing:17:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "photo evidence",
+      "glossJapanese": "記録写真（証拠写真）",
+      "senseJapanese": "作業の記録として残す写真。この課では、日報に添付する写真を指します。",
+      "sourceAnchor": "master-roofing:17:ja-en:card:11",
+      "id": "master-roofing:17:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio, the crew lead, asks Kevin for the plywood photos and then reads report wording aloud.",
+      "partner": "Kevin receives the photo request and listens; he has no scripted reply."
+    },
+    "openingEnglish": "Hey, send me the photos of the plywood.",
+    "closureEnglish": "Before and after photos are attached.",
+    "objectivesEnglish": [
+      "Ask Kevin informally to send the photos of the plywood.",
+      "Say the report nouns: the daily report, the summary, the photo evidence and the open items.",
+      "Read aloud the report sentence about the attached photos."
+    ],
+    "wordBankEnglish": [
+      "the daily report",
+      "the summary",
+      "the photo evidence",
+      "the open items",
+      "the materials used"
+    ],
+    "sourceAnchors": [
+      "master-roofing:17:ja-en:line:1",
+      "master-roofing:17:ja-en:line:2",
+      "master-roofing:17:ja-en:line:3",
+      "master-roofing:17:ja-en:card:21",
+      "master-roofing:17:ja-en:card:1",
+      "master-roofing:17:ja-en:card:2",
+      "master-roofing:17:ja-en:card:11",
+      "master-roofing:17:ja-en:card:10",
+      "master-roofing:17:ja-en:card:8",
+      "master-roofing:17:ja-en:card:19"
+    ],
+    "id": "master-roofing:17:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:17:ja-en:line:16",
+      "sourceEnglish": "Before sending it, Rogelio read the report again and corrected two numbers.",
+      "languageGoalEnglish": "Review the source report/photo wording after two numbers were corrected; no completeness or repair authorization inferred.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL report/structural source faces remain held. Partial report/photo/register language proposals only; full daily-report objective incomplete.",
+    "Roofing square/quantity and material reconciliation, deck repair/replacement authorization, structural condition, photo sufficiency, forecast/work schedule and signoff scope remain internal source/domain holds.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "Partial scope: report nouns, the attached-photos sentence and one informal photo request only. Quantities, deck replacement, ridge cap, membrane, underlayment, change-order and sign-off language are excluded from productive practice.",
+    "Card 20 ('With nothing further, I sign off.') appears only as a receptive hear distractor. It is a letter closing in the source, not an approval or sign-off of work.",
+    "The speaking task is a provisional practice adaptation: Rogelio's photo request plus reading report wording aloud. The source does not establish Kevin as a recipient of the report, gives him no reply and does not state his job role.",
+    "Square, deck/sheet, ridge cap, membrane and underlayment senses need product, locale and dictionary review before any of them is taught.",
+    "Change-order, weather and quantity lines are source scene facts, not authorization or verified figures; line 16 says Rogelio corrected two numbers before sending.",
+    "Japanese terms 日報, 要約, 記録写真, 未完了事項 and 合板 (plywood) need Japanese and roofing term review."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only"
+}

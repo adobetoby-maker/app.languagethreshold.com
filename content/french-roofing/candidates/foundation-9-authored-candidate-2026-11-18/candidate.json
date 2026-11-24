@@ -1,6 +1,6 @@
 {
   "lessonId": "foundation-roofing:9:fr-en",
-  "candidateObjectiveEnglish": "Make polite requests with 'Can you ...?' and give short, clear English instructions with base-form verbs.",
+  "candidateObjectiveEnglish": "Ask a practice partner politely for the hammer prop, give one short wait-here instruction and thank the partner.",
   "grammarExplanationEnglish": "Use 'Can you' + base verb to make a polite request, as in 'Can you pass me the hammer?' Add 'please' at the end to sound more polite. For a short instruction, use the imperative: the base form of the verb with no subject, such as 'Wait', 'Come', 'Bring', or 'Be careful'. Put 'here' after the verb to say where, as in 'Wait here.' Use 'Excuse me' when you need to pass someone, and 'Thank you' after someone helps you. Keep each instruction short: verb first, then the object or place.",
   "activities": [
     {
@@ -138,38 +138,112 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A crew member asking for a hammer.",
-    "partnerRole": "A coworker who hands over the hammer.",
     "candidateOpeningEnglish": "Can you pass me the hammer, please?",
-    "goalEnglish": "Ask politely for a tool, give one short instruction, and thank your coworker.",
+    "candidateOpeningFrench": "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+    "learnerRole": "learner requesting a hammer prop",
+    "partnerRole": "practice partner handing over a hammer prop",
+    "goalEnglish": "Ask a practice partner politely for the hammer prop, give one short wait-here instruction and thank the partner.",
+    "goalFrench": "Demander poliment un accessoire représentant un marteau à votre partenaire, donner une brève consigne d'attente et remercier votre partenaire.",
+    "practiceContextEnglish": "A language-practice partner hands over a hammer prop. The learner asks the partner to wait while copying the English word hammer.",
+    "contextFrench": "Un partenaire de langue tend un accessoire représentant un marteau. L'apprenant demande au partenaire d'attendre le temps de recopier le mot anglais « hammer ».",
+    "partnerCuesEnglish": [
+      "Here is the hammer.",
+      "Should I wait here?",
+      "All right. I will wait while you copy the word."
+    ],
+    "partnerCueSupportFrench": [
+      "Voici le marteau.",
+      "Dois-je attendre ici ?",
+      "Très bien. J'attendrai pendant que vous recopiez le mot."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Thank you.",
+      "Wait here, please.",
+      "Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Merci.",
+      "Attendez ici, s'il vous plaît.",
+      "Merci."
+    ],
     "candidateWordBankEnglish": [
-      "excuse me",
-      "can you pass me",
-      "please",
-      "thank you",
-      "wait here",
-      "come here",
-      "bring",
-      "be careful"
+      "Can you pass me the hammer, please?",
+      "Thank you.",
+      "Wait here, please."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "Exact card2 courtesy phrase; an instruction is not a closing.",
     "sourceAnchors": [
       "foundation-roofing:9:fr-en:card:2",
-      "foundation-roofing:9:fr-en:card:3",
       "foundation-roofing:9:fr-en:card:6",
-      "foundation-roofing:9:fr-en:card:7",
-      "foundation-roofing:9:fr-en:card:9",
-      "foundation-roofing:9:fr-en:card:10",
-      "foundation-roofing:9:fr-en:card:11",
-      "foundation-roofing:9:fr-en:card:12",
-      "foundation-roofing:9:fr-en:card:1",
       "foundation-roofing:9:fr-en:card:8",
-      "foundation-roofing:9:fr-en:line:2"
+      "foundation-roofing:9:fr-en:card:9",
+      "foundation-roofing:9:fr-en:card:11",
+      "foundation-roofing:9:fr-en:line:2",
+      "foundation-roofing:9:fr-en:line:5",
+      "foundation-roofing:9:fr-en:card:1"
     ],
-    "id": "foundation-roofing:9:fr-en:speaking:1",
+    "provenance": "Exact source Reader2 hammer request, card11/Reader5 wait-here instruction and card2 thanks. New prop/word-copying context and partner cues. One tool and one neutral wait instruction, no ladder-setup directions or roof-edge procedure; original two-tool/three-ladder-instruction objective incomplete.",
     "reviewed": false,
-    "wordBankProvenance": "Reduced source phrases and new combinations of wait/come/bring/here from the cited source rows; not all are verbatim full rows."
+    "id": "foundation-roofing:9:fr-en:speaking:1",
+    "internalDecisionHolds": [
+      "Sorry and be-careful semantic choices remain held.",
+      "Roof-edge and ladder-setup safety content remains held.",
+      "Course-level tu/vous request register remains held; vous here is a candidate for this polite-command lesson only."
+    ],
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "foundation-roofing:9:fr-en:card:4",
+      "foundation-roofing:9:fr-en:card:5",
+      "foundation-roofing:9:fr-en:line:3",
+      "foundation-roofing:9:fr-en:line:6"
+    ],
+    "heldRefsInterpretation": "Existing supplement-level candidate holds, not a statement that every source decision holds the same face.",
+    "holdReason": "Unmet: two tools and three ladder-setup instructions; sorry/careful and roof-edge semantics remain held. One neutral hammer-prop exchange does not replace full objective.",
+    "closureProvenance": "Exact card2 courtesy phrase; an instruction is not a closing.",
+    "closureFrench": "Merci.",
+    "frenchRegisterStatusInternal": "French vous in support is one unselected candidate register, not course-wide tu/vous approval.",
+    "expectedAllLearnerTurnsEnglish": [
+      "Can you pass me the hammer, please?",
+      "Thank you.",
+      "Wait here, please.",
+      "Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Pouvez-vous me passer le marteau, s'il vous plaît ?",
+      "Merci.",
+      "Attendez ici, s'il vous plaît.",
+      "Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Can you pass me the hammer, please?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the hammer."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      },
+      {
+        "speaker": "partner",
+        "text": "Should I wait here?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Wait here, please."
+      },
+      {
+        "speaker": "partner",
+        "text": "All right. I will wait while you copy the word."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ]
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -500,7 +574,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish grammar is provenance only.",
@@ -508,7 +583,48 @@
     "No recorded audio, progress migration, owner page or runtime registration.",
     "French vous is proposed for this polite-command lesson only; course-level request register across Foundation5/6 remains a separate qualified decision.",
     "No ladder setup method is proposed.",
-    "Card3 excusez-moi and Reader1 pardon differ in the to-pass sense; qualified register review must harmonize or document variants."
+    "Card3 excusez-moi and Reader1 pardon differ in the to-pass sense; qualified register review must harmonize or document variants.",
+    "Speaking/scope reconciliation only; exact source faces/activities/forms/dictionary/IDs/pins unchanged, prior speaking draft retained. No invented job facts, location/stop reason, ladder method.",
+    "Older excuse-me/Reader1 provenance note refers to a historical alternative; current candidate Reader1 Excusez-moi stays unchanged, as do card3 and dictionary rows. No new selection resolves register."
   ],
-  "grammarExplanationFrench": "Utilisez « Can you » + verbe à la forme de base pour une demande polie. Ajoutez « please » à la fin pour être plus poli. Pour une consigne courte, mettez le verbe en premier, sans sujet : « Wait here, please. » « Here » indique le lieu. Utilisez « Excuse me » pour passer et « Thank you » pour remercier."
+  "grammarExplanationFrench": "Utilisez « Can you » + verbe à la forme de base pour une demande polie. Ajoutez « please » à la fin pour être plus poli. Pour une consigne courte, mettez le verbe en premier, sans sujet : « Wait here, please. » « Here » indique le lieu. Utilisez « Excuse me » pour passer et « Thank you » pour remercier.",
+  "speakingPriorDraft20261118": {
+    "learnerRole": "A crew member asking for a hammer.",
+    "partnerRole": "A coworker who hands over the hammer.",
+    "candidateOpeningEnglish": "Can you pass me the hammer, please?",
+    "goalEnglish": "Ask politely for a tool, give one short instruction, and thank your coworker.",
+    "candidateWordBankEnglish": [
+      "excuse me",
+      "can you pass me",
+      "please",
+      "thank you",
+      "wait here",
+      "come here",
+      "bring",
+      "be careful"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Exact card2 courtesy phrase; an instruction is not a closing.",
+    "sourceAnchors": [
+      "foundation-roofing:9:fr-en:card:2",
+      "foundation-roofing:9:fr-en:card:3",
+      "foundation-roofing:9:fr-en:card:6",
+      "foundation-roofing:9:fr-en:card:7",
+      "foundation-roofing:9:fr-en:card:9",
+      "foundation-roofing:9:fr-en:card:10",
+      "foundation-roofing:9:fr-en:card:11",
+      "foundation-roofing:9:fr-en:card:12",
+      "foundation-roofing:9:fr-en:card:1",
+      "foundation-roofing:9:fr-en:card:8",
+      "foundation-roofing:9:fr-en:line:2"
+    ],
+    "id": "foundation-roofing:9:fr-en:speaking:1",
+    "reviewed": false,
+    "wordBankProvenance": "Reduced source phrases and new combinations of wait/come/bring/here from the cited source rows; not all are verbatim full rows."
+  },
+  "sourceObjectiveEnglish": "Ask politely and give short, clear instructions",
+  "sourceSpeakingEnglish": "Politely ask a crew member for two tools, then give three short instructions to set up the ladder.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower contextual speaking does not fulfill unresolved original source work objective",
+  "sourceAuditOriginMain": "77fdfd037d846e3173fbcca23c98b046d6f9279e"
 }

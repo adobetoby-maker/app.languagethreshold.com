@@ -1,6 +1,6 @@
 {
   "lessonId": "foundation-roofing:7:fr-en",
-  "candidateObjectiveEnglish": "Ask location and reason questions in English and recognize question words.",
+  "candidateObjectiveEnglish": "Ask where the ladder is and why we are stopping at eleven in the printed account.",
   "grammarExplanationEnglish": "Use where and why to ask about location and reason. With be, put is/are before the subject: Where is the ladder? With progressive be, keep the -ing verb after the subject: Why are we stopping? Who is there? uses who as the subject, so it has a different pattern.",
   "activities": [
     {
@@ -131,29 +131,120 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A crew member practicing location and reason questions.",
-    "partnerRole": "A coworker who asks the learner to repeat each question.",
     "candidateOpeningEnglish": "Excuse me, where is the ladder?",
-    "goalEnglish": "Ask where the ladder is and why work is stopping at eleven.",
+    "candidateOpeningFrench": "Excusez-moi, où est l'échelle ?",
+    "learnerRole": "learner practicing printed location and reason questions",
+    "partnerRole": "practice partner requesting repetition or combination of questions",
+    "goalEnglish": "Ask where the ladder is and why we are stopping at eleven in the printed account.",
+    "goalFrench": "Demander où est l'échelle et pourquoi on s'arrête à onze heures dans le récit imprimé.",
+    "practiceContextEnglish": "Two learners read fictional location and reason questions on a printed lesson sheet. The partner requests one repetition, prompts the stopping question, then asks for both questions together.",
+    "contextFrench": "Deux apprenants lisent les questions fictives de lieu et de raison sur une fiche imprimée. Le partenaire demande une répétition, invite à poser la question sur l'arrêt, puis demande les deux questions ensemble.",
+    "partnerCuesEnglish": [
+      "Could you repeat the question about the ladder?",
+      "Now ask the question about stopping.",
+      "Can you ask both questions together?"
+    ],
+    "partnerCueSupportFrench": [
+      "Pourriez-vous répéter la question sur l'échelle ?",
+      "Maintenant, posez la question sur l'arrêt.",
+      "Pouvez-vous poser les deux questions ensemble ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Where is the ladder?",
+      "Why are we stopping at eleven?",
+      "Where is the ladder, and why are we stopping at eleven? Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Où est l'échelle ?",
+      "Pourquoi on s'arrête à onze heures ?",
+      "Où est l'échelle, et pourquoi on s'arrête à onze heures ? Merci."
+    ],
     "candidateWordBankEnglish": [
-      "where",
-      "why",
-      "ladder",
-      "stopping",
-      "eleven"
+      "Excuse me, where is the ladder?",
+      "Where is",
+      "the ladder",
+      "why are we stopping",
+      "at eleven",
+      "and",
+      "Thank you.",
+      "Why are we stopping"
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "Ordinary closing phrase authored for this supplement; not drawn from a held row.",
     "sourceAnchors": [
       "foundation-roofing:7:fr-en:card:3",
       "foundation-roofing:7:fr-en:card:7",
       "foundation-roofing:7:fr-en:card:9",
+      "foundation-roofing:7:fr-en:card:12",
       "foundation-roofing:7:fr-en:line:3",
       "foundation-roofing:7:fr-en:line:7"
     ],
-    "id": "foundation-roofing:7:fr-en:speaking:1",
+    "provenance": "Existing opener combines exact source location question with newly authored attention-getting Excuse me, not the passing-through sense in Foundation9. Reason question is exact Reader7; card12 is its base question without time. New partner cues/replies use no invented location, reason, boss or arrival facts. One named mission category (where) practiced; why-stopping is an additional Reader item. Who remains held, and start-time question has no matching source row. Original objective incomplete.",
     "reviewed": false,
-    "openingProvenance": "Source-anchored question with newly authored polite opener."
+    "id": "foundation-roofing:7:fr-en:speaking:1",
+    "internalDecisionHolds": [
+      "Ladder location, stoppage reason, boss identity, material arrival and harness instruction remain held and unanswered.",
+      "No qualified French, trade or dictionary approval is implied."
+    ],
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "foundation-roofing:7:fr-en:card:1",
+      "foundation-roofing:7:fr-en:card:5",
+      "foundation-roofing:7:fr-en:card:8",
+      "foundation-roofing:7:fr-en:card:10",
+      "foundation-roofing:7:fr-en:card:11",
+      "foundation-roofing:7:fr-en:line:1",
+      "foundation-roofing:7:fr-en:line:2",
+      "foundation-roofing:7:fr-en:line:4",
+      "foundation-roofing:7:fr-en:line:5",
+      "foundation-roofing:7:fr-en:line:6"
+    ],
+    "heldRefsInterpretation": "Existing supplement-level candidate holds, not a statement that every source decision holds the same face.",
+    "holdReason": "Unmet: original five-question job objective, boss/material/count/color and harness instruction source decisions; printed location/reason repetition is narrower. One named source mission category (where) practiced; why-stopping is an additional source item; who held and start-time source row missing.",
+    "closureProvenance": "New ordinary closing based on earlier draft; no source safety/technical answer.",
+    "closureFrench": "Merci.",
+    "frenchRegisterStatusInternal": "French vous in support is one unselected candidate register, not course-wide tu/vous approval.",
+    "expectedAllLearnerTurnsEnglish": [
+      "Excuse me, where is the ladder?",
+      "Where is the ladder?",
+      "Why are we stopping at eleven?",
+      "Where is the ladder, and why are we stopping at eleven? Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Excusez-moi, où est l'échelle ?",
+      "Où est l'échelle ?",
+      "Pourquoi on s'arrête à onze heures ?",
+      "Où est l'échelle, et pourquoi on s'arrête à onze heures ? Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Excuse me, where is the ladder?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Could you repeat the question about the ladder?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the ladder?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Now ask the question about stopping."
+      },
+      {
+        "speaker": "learner",
+        "text": "Why are we stopping at eleven?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you ask both questions together?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the ladder, and why are we stopping at eleven? Thank you."
+      }
+    ]
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -494,7 +585,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish grammar is provenance only.",
@@ -502,7 +594,38 @@
     "No recorded audio, progress migration, owner page or runtime registration.",
     "French vous in interface prompts is a candidate instruction convention, separate from held tu/vous in learner utterances.",
     "French spoken on and question-form choices remain candidate register decisions; on/nous and est-ce que must receive course-level qualified review before selection.",
-    "Role/material/harness questions remain held; partner supplies repetition cues only, no unreviewed factual answer."
+    "Role/material/harness questions remain held; partner supplies repetition cues only, no unreviewed factual answer.",
+    "Speaking/scope reconciliation only; exact source faces/activities/forms/dictionary/IDs/pins unchanged, prior speaking draft retained. No invented job facts, location/stop reason, ladder method."
   ],
-  "grammarExplanationFrench": "Pour demander où : Where is the ladder? Pour demander pourquoi une action est en cours : Why are we stopping? Dans ces exemples, is ou are se place avant le sujet. Who is there? emploie who comme sujet."
+  "grammarExplanationFrench": "Pour demander où : Where is the ladder? Pour demander pourquoi une action est en cours : Why are we stopping? Dans ces exemples, is ou are se place avant le sujet. Who is there? emploie who comme sujet.",
+  "speakingPriorDraft20261118": {
+    "learnerRole": "A crew member practicing location and reason questions.",
+    "partnerRole": "A coworker who asks the learner to repeat each question.",
+    "candidateOpeningEnglish": "Excuse me, where is the ladder?",
+    "goalEnglish": "Ask where the ladder is and why work is stopping at eleven.",
+    "candidateWordBankEnglish": [
+      "where",
+      "why",
+      "ladder",
+      "stopping",
+      "eleven"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Ordinary closing phrase authored for this supplement; not drawn from a held row.",
+    "sourceAnchors": [
+      "foundation-roofing:7:fr-en:card:3",
+      "foundation-roofing:7:fr-en:card:7",
+      "foundation-roofing:7:fr-en:card:9",
+      "foundation-roofing:7:fr-en:line:3",
+      "foundation-roofing:7:fr-en:line:7"
+    ],
+    "id": "foundation-roofing:7:fr-en:speaking:1",
+    "reviewed": false,
+    "openingProvenance": "Source-anchored question with newly authored polite opener."
+  },
+  "sourceObjectiveEnglish": "Ask the questions you need on any job",
+  "sourceSpeakingEnglish": "Ask a new crew lead five questions: where things are, who is in charge, and when you start.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower contextual speaking does not fulfill unresolved original source work objective",
+  "sourceAuditOriginMain": "77fdfd037d846e3173fbcca23c98b046d6f9279e"
 }

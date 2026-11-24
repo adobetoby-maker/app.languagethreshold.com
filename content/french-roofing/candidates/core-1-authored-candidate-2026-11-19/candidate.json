@@ -427,7 +427,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:2",
@@ -437,7 +438,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:3",
@@ -447,7 +449,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:4",
@@ -457,7 +460,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:5",
@@ -467,7 +471,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:6",
@@ -477,7 +482,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:7",
@@ -487,7 +493,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:8",
@@ -497,7 +504,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:9",
@@ -507,7 +515,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:10",
@@ -517,7 +526,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Select a contextual French skylight term; fenêtre de toit may narrow the type of opening compared with source tragaluz/skylight.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:11",
@@ -527,7 +537,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "The source asks what material the roof has; decide whether the archived question about what covers the roof preserves the intended material distinction and card/Reader alignment.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:12",
@@ -537,7 +548,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Linked asphalt-shingle material/locale decision is propagated into this sentence; no dependent activity uses this face.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:13",
@@ -547,7 +559,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "held",
       "hold": "Decide whether this metal-panel roof phrase denotes the roof material or a count of panels before selecting a scored French form.",
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:14",
@@ -557,7 +570,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     },
     {
       "id": "core-roofing:1:fr-en:dictionary:15",
@@ -567,7 +581,8 @@
       "contextEnglish": "Name the Roof System",
       "status": "candidate",
       "hold": null,
-      "reviewed": false
+      "reviewed": false,
+      "registered": false
     }
   ],
   "selectedFrench": null,
@@ -584,7 +599,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish forms are provenance only.",
@@ -592,5 +608,8 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison."
-  ]
+  ],
+  "sourceObjectiveEnglish": "Identify the job's roof system and main materials",
+  "sourceSpeakingEnglish": "Tell a crew member which roof system and materials today's job uses.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
 }

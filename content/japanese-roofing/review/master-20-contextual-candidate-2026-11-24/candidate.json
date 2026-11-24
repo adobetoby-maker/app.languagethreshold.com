@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:20:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-20-source-decision-2026-11-18/packet.json",
+    "sha256": "d85f0ddf2511172830c4aa413105ce43dabd3541d463057f44fe682aec283c18"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-19-20-draft.json",
+      "sha256": "9bc4527827f88e145712b18951b859af53117430b239d9cbe3ec4950816186cc"
+    }
+  },
+  "objectiveEnglish": "Name planning and follow-up terms, ask permission to explain a plan and quote the source crew closing.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語の表現を見て確認してください。「作業班の全員」を表す、the で始まる名詞句です。",
+      "targetEnglish": "the whole crew",
+      "sourceAnchor": "master-roofing:20:ja-en:card:2",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:activity:see",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「その日の計画」を英語で思い出して答えてください。the を付けた名詞句で答えます。",
+      "targetEnglish": "the day's plan",
+      "sourceAnchor": "master-roofing:20:ja-en:card:3",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:activity:recall",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞き、聞こえた英語の文を選んでください。",
+      "targetEnglish": "Sir, is it all right if I explain the plan to you?",
+      "sourceAnchor": "master-roofing:20:ja-en:card:21",
+      "candidateOptionsEnglish": [
+        "Sir, is it all right if I explain the plan to you?",
+        "We found rotten wood and it would cost one more day.",
+        "Good work, team; tomorrow we keep going."
+      ],
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:activity:hear",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Sir, is it all right if I explain the plan to you?"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「優先事項」を英語で入力してください。the を付けた名詞句で答えます。",
+      "targetEnglish": "the priority",
+      "sourceAnchor": "master-roofing:20:ja-en:card:4",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:activity:type",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "作業班への言葉「チームのみんな、よくやった。明日も続けよう。」を英語で声に出して言ってください。team への呼びかけを入れます。",
+      "targetEnglish": "Good work, team; tomorrow we keep going.",
+      "sourceAnchor": "master-roofing:20:ja-en:card:22",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:activity:say",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「一日の締めくくり」を英語で書いてください。the を付け、ハイフンも入れた名詞句で答えます。",
+      "targetEnglish": "the end-of-day wrap-up",
+      "sourceAnchor": "master-roofing:20:ja-en:card:12",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:activity:write",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "the day's plan",
+      "explanationJapanese": "the day's は「その日の」を表す所有の形です。「the＋名詞's＋名詞」で、the day's plan は「その日の計画」という名詞句になります。",
+      "sourceAnchor": "master-roofing:20:ja-en:card:3",
+      "id": "master-roofing:20:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the follow-up",
+      "explanationJapanese": "follow-up は、最初の対応の後に行う連絡や確認を表す名詞です。名詞ではハイフンを入れて書きます。",
+      "sourceAnchor": "master-roofing:20:ja-en:card:13",
+      "id": "master-roofing:20:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Sir, is it all right if I explain the plan to you?",
+      "explanationJapanese": "Is it all right if I ～? は「～してもよろしいでしょうか」と、丁寧に許可を求める形です。Sir は男性への丁寧な呼びかけです。",
+      "sourceAnchor": "master-roofing:20:ja-en:card:21",
+      "id": "master-roofing:20:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "plan",
+      "glossJapanese": "計画",
+      "senseJapanese": "これから行うことを、あらかじめ決めてまとめたもの",
+      "sourceAnchor": "master-roofing:20:ja-en:card:3",
+      "id": "master-roofing:20:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "follow-up",
+      "glossJapanese": "フォローアップ（事後の連絡）",
+      "senseJapanese": "最初の対応の後に、状況を確認するために行う連絡や対応",
+      "sourceAnchor": "master-roofing:20:ja-en:card:13",
+      "id": "master-roofing:20:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "wrap-up",
+      "glossJapanese": "締めくくり",
+      "senseJapanese": "物事の終わりに行う、まとめや締めくくり",
+      "sourceAnchor": "master-roofing:20:ja-en:card:12",
+      "id": "master-roofing:20:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "the owner, then the crew"
+    },
+    "openingEnglish": "Sir, is it all right if I explain the plan to you?",
+    "closureEnglish": "Good work, team; tomorrow we keep going.",
+    "objectivesEnglish": [
+      "Ask the owner the permission question Sir, is it all right if I explain the plan to you?",
+      "Name the follow-up and the end-of-day wrap-up.",
+      "Thank the crew with Good work, team; tomorrow we keep going."
+    ],
+    "wordBankEnglish": [
+      "Sir, is it all right if I explain the plan to you?",
+      "the follow-up",
+      "the end-of-day wrap-up",
+      "Good work, team; tomorrow we keep going."
+    ],
+    "sourceAnchors": [
+      "master-roofing:20:ja-en:card:12",
+      "master-roofing:20:ja-en:card:13",
+      "master-roofing:20:ja-en:card:21",
+      "master-roofing:20:ja-en:card:22"
+    ],
+    "id": "master-roofing:20:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:20:ja-en:line:17",
+      "sourceEnglish": "Then he sent the owner a message as a follow-up, because customer satisfaction is also part of the job.",
+      "languageGoalEnglish": "Distinguish the source owner follow-up from the separate crew closing; no capstone or technical decision selected.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL capstone source faces remain held. Partial communication/reporting-language proposals only; original capstone and technical objectives remain incomplete.",
+    "Harness/lifeline/near-miss/weather/insurance/repair/structural quantity/change-order and schedule decisions remain internal source/domain holds. End-of-day tomorrow wording is a source quotation, not a release or guaranteed work schedule.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "all capstone faces held (card 1-22; line 1-18) pending qualified review; every used face, including Hear distractors, is provisional and unselected",
+    "provisionally used: card 2, 3, 4, 12, 13, 21, 22; card 17 appears only as an untaught Hear distractor",
+    "excluded from teaching: card 1, 5-11, 14-16, 18-20; line 1-18",
+    "card 21 used standalone as a permission question only; line 7-8 rotten wood, added day and change-order authorization held; no authorization claim",
+    "card 22 used as source closing quote only; tomorrow we keep going is not treated as a guaranteed schedule",
+    "speaking and dialogue use two separate source frames (owner, then crew); not a continuous conversation; no invented partner reply",
+    "no harness, near-miss, lifeline, weather, repair, insurance, quantity or authorization content taught",
+    "capstone mastery not claimed; full original lesson objective is incomplete; only partial provisional objectives are covered",
+    "audioRef is null on all activities; the Hear item cannot function until audio exists and is reviewed",
+    "Japanese renderings of Sir (お客様), crew (作業班), wrap-up (締めくくり vs. 終礼) and owner (施主) are unconfirmed"
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only",
+  "dialogueTurns": [
+    {
+      "speaker": "Rogelio (to the owner)",
+      "sourceAnchor": "master-roofing:20:ja-en:card:21",
+      "sourceEnglish": "Sir, is it all right if I explain the plan to you?",
+      "supportJapanese": "（場面１：男性の施主に向けて）お客様、計画についてご説明してもよろしいでしょうか。",
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:dialogue:1",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "speaker": "Rogelio (to the crew)",
+      "sourceAnchor": "master-roofing:20:ja-en:card:22",
+      "sourceEnglish": "Good work, team; tomorrow we keep going.",
+      "supportJapanese": "（場面２：別の場面で、作業班に向けて）チームのみんな、よくやった。明日も続けよう。",
+      "reviewed": false,
+      "id": "master-roofing:20:ja-en:dialogue:2",
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "audio": null
+}

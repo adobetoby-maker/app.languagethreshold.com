@@ -1,0 +1,250 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:19:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-19-source-decision-2026-11-18/packet.json",
+    "sha256": "525018700580177309fa356960bbe591d596eded2d6d2ee85f088d9587dbc1f1"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-19-20-draft.json",
+      "sha256": "9bc4527827f88e145712b18951b859af53117430b239d9cbe3ec4950816186cc"
+    }
+  },
+  "objectiveEnglish": "Name the final walkthrough and its invoice, offer a business card and invite the customer’s questions.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "英語の表現を見て確認してください。「最終確認の立ち会い」を表す、the で始まる名詞句です。",
+      "targetEnglish": "the final walkthrough",
+      "sourceAnchor": "master-roofing:19:ja-en:card:1",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:activity:see",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「最終請求書」を英語で思い出して答えてください。the を付けた名詞句で答えます。",
+      "targetEnglish": "the final invoice",
+      "sourceAnchor": "master-roofing:19:ja-en:card:2",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:activity:recall",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞き、聞こえた英語の文を選んでください。",
+      "targetEnglish": "Here's my card.",
+      "sourceAnchor": "master-roofing:19:ja-en:card:20",
+      "candidateOptionsEnglish": [
+        "Here's my card.",
+        "Do you have any questions before signing?",
+        "Would you like us to check the attic together?"
+      ],
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:activity:hear",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Here's my card."
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「名刺」を英語で入力してください。the を付けた名詞句で答えます。",
+      "targetEnglish": "the business card",
+      "sourceAnchor": "master-roofing:19:ja-en:card:14",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:activity:type",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「ご署名の前に、何かご質問はありますか？」を英語で声に出して言ってください。",
+      "targetEnglish": "Do you have any questions before signing?",
+      "sourceAnchor": "master-roofing:19:ja-en:card:21",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:activity:say",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「金曜日の午後、ロヘリオはノバックご夫妻と最終確認の立ち会いを行いました。」を英語の文で書いてください。the final walkthrough を使います。",
+      "targetEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "sourceAnchor": "master-roofing:19:ja-en:line:1",
+      "audioRef": null,
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:activity:write",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "the final walkthrough",
+      "explanationJapanese": "「the＋形容詞＋名詞」で、特定のひとつを指す名詞句になります。final は「最後の」という意味です。",
+      "sourceAnchor": "master-roofing:19:ja-en:card:1",
+      "id": "master-roofing:19:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Do you have any questions before signing?",
+      "explanationJapanese": "Do you have ～? は「～はありますか」と相手に尋ねる形です。before signing は「ご署名の前に」の意味で、before の後ろは動詞の -ing 形になります。",
+      "sourceAnchor": "master-roofing:19:ja-en:card:21",
+      "id": "master-roofing:19:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Here's my business card",
+      "explanationJapanese": "Here's は Here is の短縮形で、「こちらが～です」と物を差し出しながら言う表現です。短く Here's my card. とも言います。",
+      "sourceAnchor": "master-roofing:19:ja-en:line:16",
+      "id": "master-roofing:19:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "walkthrough",
+      "glossJapanese": "立ち会い確認",
+      "senseJapanese": "関係者が一緒に見て回り、状態を確認すること",
+      "sourceAnchor": "master-roofing:19:ja-en:card:1",
+      "id": "master-roofing:19:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "invoice",
+      "glossJapanese": "請求書",
+      "senseJapanese": "代金の支払いを求めるために相手に渡す書類",
+      "sourceAnchor": "master-roofing:19:ja-en:card:2",
+      "id": "master-roofing:19:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "business card",
+      "glossJapanese": "名刺",
+      "senseJapanese": "氏名、会社名、連絡先などを記した、相手に渡す小さなカード",
+      "sourceAnchor": "master-roofing:19:ja-en:card:14",
+      "id": "master-roofing:19:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "Mr. and Mrs. Novak"
+    },
+    "openingEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+    "closureEnglish": "Rogelio: Here's my business card; do you have any questions before signing?",
+    "objectivesEnglish": [
+      "Name the final walkthrough as the setting.",
+      "Offer contact details with Here's my card. and name the business card.",
+      "Ask the question Do you have any questions before signing?"
+    ],
+    "wordBankEnglish": [
+      "the final walkthrough",
+      "the business card",
+      "Here's my card.",
+      "Do you have any questions before signing?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:19:ja-en:card:1",
+      "master-roofing:19:ja-en:card:14",
+      "master-roofing:19:ja-en:card:20",
+      "master-roofing:19:ja-en:card:21",
+      "master-roofing:19:ja-en:line:1",
+      "master-roofing:19:ja-en:line:16"
+    ],
+    "id": "master-roofing:19:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:19:ja-en:line:5",
+      "sourceEnglish": "Mrs. Novak: And what happens if we get a leak next winter?",
+      "languageGoalEnglish": "Invite the customer’s questions without supplying an approved warranty, insurance or signing answer.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL warranty/insurance source faces remain held. Partial document/contact/question-language proposals only; original warranty/walkthrough objective remains incomplete.",
+    "Coverage/exclusions/product-vs-installation warranty, insurance, registration, leak response timeframe, maintenance, attic access and signing/contract decisions remain source/domain holds. No coverage or consent selected.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "all faces held pending qualified review; every used face, including Hear distractors, is provisional and unselected",
+    "warranty, certificate, coverage, exclusion, wear, defect, claim and leak faces (card 3-5, 7-9, 11-12, 15-18; line 5-10, 14) held; not taught",
+    "insurance and storm damage faces (card 10; line 10) held",
+    "registration faces (card 6; line 11) held",
+    "maintenance faces (card 13; line 15) held",
+    "attic faces (card 19; line 12-13) held; card 19 appears only as an untaught Hear distractor",
+    "walkthrough checks, magnet/nail and replacement scope/quantity faces (line 2-4) held",
+    "line 1 used as neutral narrative setting (opening, write target, dialogue); no approved inspection or completion claim",
+    "line 16 and card 21 used for question elicitation only; no signing consent or coverage assurance claimed",
+    "full original lesson objective is incomplete; only partial provisional objectives are covered",
+    "audioRef is null on all activities; the Hear item cannot function until audio exists and is reviewed",
+    "Japanese renderings of walkthrough (立ち会い確認 vs. 竣工立会い) and customer-facing register are unconfirmed"
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only",
+  "dialogueTurns": [
+    {
+      "speaker": "Narrator",
+      "sourceAnchor": "master-roofing:19:ja-en:line:1",
+      "sourceEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "supportJapanese": "金曜日の午後、ロヘリオはノバックご夫妻と最終確認の立ち会いを行いました。",
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:dialogue:1",
+      "selectedJapanese": null,
+      "audioScript": null
+    },
+    {
+      "speaker": "Rogelio",
+      "sourceAnchor": "master-roofing:19:ja-en:line:16",
+      "sourceEnglish": "Rogelio: Here's my business card; do you have any questions before signing?",
+      "supportJapanese": "ロヘリオ：こちらが私の名刺です。ご署名の前に、何かご質問はありますか？",
+      "reviewed": false,
+      "id": "master-roofing:19:ja-en:dialogue:2",
+      "selectedJapanese": null,
+      "audioScript": null
+    }
+  ],
+  "audio": null
+}

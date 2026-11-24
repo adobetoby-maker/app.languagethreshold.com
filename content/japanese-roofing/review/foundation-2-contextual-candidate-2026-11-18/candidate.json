@@ -9,7 +9,7 @@
   "identityStatus": "proposal-only; no runtime or saved-progress change",
   "sourceReview": {
     "path": "content/japanese-roofing/review/foundation-2-source-audit-2026-11-17/packet.json",
-    "sha256": "ae8876ac63c46b0bd0743a513f24b48dced7d90a997bb60987fb8669917b1337"
+    "sha256": "1741f69d18a6c3df9012aba9aa7a1878204bec1e486452c1b8173632f578fdbd"
   },
   "source": {
     "curriculum": {
@@ -63,6 +63,37 @@
         "The truck arrives in twenty minutes.",
         "The truck arrives in thirty minutes.",
         "We start at six."
+      ],
+      "candidateOptionsProvenance": [
+        {
+          "textEnglish": "The truck arrives in twenty minutes.",
+          "kind": "exact-source",
+          "sourceAnchor": "foundation-roofing:2:ja-en:line:2",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "textEnglish": "The truck arrives in thirty minutes.",
+          "kind": "authored-distractor",
+          "derivedFromSourceAnchor": "foundation-roofing:2:ja-en:line:2",
+          "changedElement": {
+            "sourceEnglish": "twenty",
+            "distractorEnglish": "thirty"
+          },
+          "isSourceFace": false,
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "textEnglish": "We start at six.",
+          "kind": "exact-source",
+          "sourceAnchor": "foundation-roofing:2:ja-en:card:12",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
       ]
     },
     {
@@ -129,7 +160,21 @@
       "headEnglish": "foot / feet",
       "glossJapanese": "フィート",
       "senseJapanese": "ここでは長さの単位です。身体の足の意味とは区別します。",
-      "reviewed": false
+      "reviewed": false,
+      "aliasMappings": [
+        {
+          "aliasEnglish": "foot",
+          "number": "singular",
+          "sourceAnchor": "foundation-roofing:2:ja-en:card:3",
+          "reviewed": false
+        },
+        {
+          "aliasEnglish": "feet",
+          "number": "plural",
+          "sourceAnchor": "foundation-roofing:2:ja-en:card:11",
+          "reviewed": false
+        }
+      ]
     },
     {
       "id": "foundation-roofing:2:ja-en:dictionary:2",
@@ -169,7 +214,10 @@
     "sourceAnchors": [
       "foundation-roofing:2:ja-en:line:1",
       "foundation-roofing:2:ja-en:line:7",
-      "foundation-roofing:2:ja-en:card:9"
+      "foundation-roofing:2:ja-en:card:9",
+      "foundation-roofing:2:ja-en:card:3",
+      "foundation-roofing:2:ja-en:card:11",
+      "foundation-roofing:2:ja-en:line:6"
     ],
     "roles": {
       "learner": "New crew member",
@@ -189,12 +237,43 @@
     ],
     "closureEnglish": "Thank you.",
     "reviewed": false,
-    "scaffoldNoteEnglish": "Opening and closure are added conversational scaffolds; source anchors identify lesson-specific content only."
+    "scaffoldNoteEnglish": "Opening and closure are added conversational scaffolds; source anchors identify lesson-specific content only.",
+    "wordBankMappings": [
+      {
+        "wordEnglish": "feet",
+        "mappingType": "singular-plural-alias",
+        "dictionaryId": "foundation-roofing:2:ja-en:dictionary:1",
+        "sourceAnchors": [
+          "foundation-roofing:2:ja-en:card:3",
+          "foundation-roofing:2:ja-en:card:11",
+          "foundation-roofing:2:ja-en:line:6"
+        ],
+        "reviewed": false
+      }
+    ]
   },
   "internalReviewNotes": [
     "English target/Japanese support explicitly corrects the reverse pair label in the older source-audit packet without modifying it.",
     "Source Spanish-pronunciation objective is provenance, not the English objective.",
     "Bundle product senses and measurement context require qualified source/trade review; this supplement does not settle them.",
-    "Hear contains a candidate script only; no recording or listening approval exists."
-  ]
+    "Hear contains a candidate script only; no recording or listening approval exists.",
+    "This is a partial linguistic supplement; the exact original source objective above remains incomplete. Null-selection normalization and provenance metadata are not qualified review or text selection.",
+    "The thirty-minute Hear option is an authored contrast derived from the twenty-minute source sentence, not a source face or approved audio text. foot/feet mappings identify singular/plural length-unit forms without changing the dictionary sense."
+  ],
+  "scope": "partial English-target/Japanese-support linguistic supplement; exact original source objective remains incomplete",
+  "originalSourceObjective": {
+    "textEnglish": "Count, tell time, and give measurements and quantities on the job",
+    "sourceReviewPath": "content/japanese-roofing/review/foundation-2-source-audit-2026-11-17/packet.json",
+    "field": "sourceEnglishObjective",
+    "status": "incomplete",
+    "selected": false,
+    "reviewed": false
+  },
+  "selectionStatus": "all source faces held; Japanese proposals unselected and all release gates closed",
+  "sourceReviewNormalization": {
+    "baselineMain": "401d3f520cf6ea54ac900f47375f09be1dd01480",
+    "previousSha256": "ae8876ac63c46b0bd0743a513f24b48dced7d90a997bb60987fb8669917b1337",
+    "change": "added explicit selectedJapanese:null to omitted card/Reader rows only; source text, IDs, upstream pins and proposal/review statuses unchanged",
+    "rowsNormalized": 20
+  }
 }

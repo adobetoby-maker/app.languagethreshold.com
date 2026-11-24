@@ -34,3 +34,12 @@ assert len({a['targetEnglish'] for a in p['activities']})==6
 assert all(a['id']==p['lessonId']+':activity:'+a['mode'] for a in p['activities'])
 assert set(p['gates'])=={'qualifiedJapanese','qualifiedRoofing','qualifiedDictionary','learnerRuntime','scoring','audioRegistered','listeningReviewed','offline','savedProgress','browser','v4'}
 assert json.loads((h/'ai-assistance-metadata.json').read_text())['qualifiedApproval'] is False
+
+# Explicit normalization/provenance contract: no selection or original-objective completion.
+assert all("selectedJapanese" in row and row["selectedJapanese"] is None for row in old["cards"]+old["reader"])
+assert p["originalSourceObjective"]["textEnglish"]==old["sourceEnglishObjective"]
+assert p["originalSourceObjective"]["status"]=="incomplete"
+assert p["originalSourceObjective"]["selected"] is p["originalSourceObjective"]["reviewed"] is False
+assert "partial" in p["scope"] and "held" in p["selectionStatus"]
+
+print("PASS explicit null source selections, original incomplete objective and provenance mappings")

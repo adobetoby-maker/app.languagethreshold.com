@@ -38,3 +38,12 @@ assert json.loads((h/'ai-assistance-metadata.json').read_text())['qualifiedAppro
 source_texts={x["sourceEnglish"] for x in rows.values()}
 assert set(hear["candidateOptionsEnglish"]) <= source_texts
 assert p["speaking"]["openingEnglish"] in source_texts and p["speaking"]["closureEnglish"] in source_texts
+
+# Explicit normalization/provenance contract: no selection or original-objective completion.
+assert all("selectedJapanese" in row and row["selectedJapanese"] is None for row in old["cards"]+old["reader"])
+assert p["originalSourceObjective"]["textEnglish"]==old["sourceEnglishObjective"]
+assert p["originalSourceObjective"]["status"]=="incomplete"
+assert p["originalSourceObjective"]["selected"] is p["originalSourceObjective"]["reviewed"] is False
+assert "partial" in p["scope"] and "held" in p["selectionStatus"]
+
+print("PASS explicit null source selections, original incomplete objective and provenance mappings")

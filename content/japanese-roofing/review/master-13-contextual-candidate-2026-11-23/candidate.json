@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:13:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-13-source-decision-2026-11-18/packet.json",
+    "sha256": "a8f321103cca1dfe4aa3cb4e55dbd11f9afa335b5fc29ecaf4a5159980aa7f16"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-13-15-draft.json",
+      "sha256": "7c45fda6eb8d2b4e2ad6a5f4e106e5e2db8642d5d7426f481e7fd2b880028991"
+    }
+  },
+  "objectiveEnglish": "Answer what time an incident happened with an approximate time range, and name the incident report, the injured person, and the scene.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「屋根の端」を表す英語を、the を付けた形で見て確認しましょう。",
+      "targetEnglish": "the roof edge",
+      "sourceAnchor": "master-roofing:13:ja-en:card:13",
+      "id": "master-roofing:13:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "長さを伸ばして使う「伸縮式はしご」を、the を付けた英語で思い出しましょう。",
+      "targetEnglish": "the extension ladder",
+      "sourceAnchor": "master-roofing:13:ja-en:card:12",
+      "id": "master-roofing:13:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "英語を聞いて、「正確には何時に起きたのですか」と尋ねる文を選びましょう。",
+      "targetEnglish": "What time exactly did it happen?",
+      "sourceAnchor": "master-roofing:13:ja-en:card:20",
+      "candidateOptionsEnglish": [
+        "At a quarter past ten, Julio was at the roof edge.",
+        "I'm informing you that we had an accident.",
+        "What time exactly did it happen?"
+      ],
+      "id": "master-roofing:13:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "What time exactly did it happen?"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「インシデント報告書（事故報告書）」を、the を付けた英語で入力しましょう。",
+      "targetEnglish": "the incident report",
+      "sourceAnchor": "master-roofing:13:ja-en:card:2",
+      "id": "master-roofing:13:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「負傷者」を、the を付けた英語で声に出して言いましょう。",
+      "targetEnglish": "the injured person",
+      "sourceAnchor": "master-roofing:13:ja-en:card:9",
+      "id": "master-roofing:13:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "出来事が起きた「現場」を、the を付けた英語で書きましょう。",
+      "targetEnglish": "the scene",
+      "sourceAnchor": "master-roofing:13:ja-en:card:8",
+      "id": "master-roofing:13:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "Afterwards, Rogelio called the supervisor",
+      "explanationJapanese": "called は call の過去形で、過去の行動を表します。the supervisor は、この現場の特定の監督者を指すので the を使います。",
+      "sourceAnchor": "master-roofing:13:ja-en:line:10",
+      "id": "master-roofing:13:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "At a quarter past ten, Julio was at the roof edge.",
+      "explanationJapanese": "was は過去の状態を表します。a quarter past ten は 10:15 を意味する時刻の言い方です。",
+      "sourceAnchor": "master-roofing:13:ja-en:card:15",
+      "id": "master-roofing:13:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "That afternoon, Rogelio wrote the incident report on the fall",
+      "explanationJapanese": "wrote は write の過去形です。the incident report は、この出来事についての報告書を指すので the を使います。on the fall の on は「〜について」という意味です。",
+      "sourceAnchor": "master-roofing:13:ja-en:line:13",
+      "id": "master-roofing:13:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "injured person",
+      "glossJapanese": "負傷者",
+      "senseJapanese": "けがをした人",
+      "sourceAnchor": "master-roofing:13:ja-en:card:9",
+      "id": "master-roofing:13:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "ankle",
+      "glossJapanese": "足首",
+      "senseJapanese": "足と脚をつなぐ関節の部分",
+      "sourceAnchor": "master-roofing:13:ja-en:card:11",
+      "id": "master-roofing:13:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "paramedics",
+      "glossJapanese": "救急隊員（救急救命士）",
+      "senseJapanese": "救急の現場に来て負傷者に対応し、病院へ運ぶ隊員",
+      "sourceAnchor": "master-roofing:13:ja-en:card:10",
+      "id": "master-roofing:13:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "Supervisor"
+    },
+    "openingEnglish": "Supervisor: What time exactly did it happen?",
+    "closureEnglish": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+    "objectivesEnglish": [
+      "Understand the supervisor's question 'What time exactly did it happen?'",
+      "Say that you do not know the exact time using 'I don't know the exact time'.",
+      "Give an approximate time range using 'between a quarter past ten and twenty past ten'."
+    ],
+    "wordBankEnglish": [
+      "I don't know the exact time",
+      "the exact time",
+      "between a quarter past ten and twenty past ten",
+      "a quarter past ten",
+      "twenty past ten"
+    ],
+    "sourceAnchors": [
+      "master-roofing:13:ja-en:line:11",
+      "master-roofing:13:ja-en:line:12",
+      "master-roofing:13:ja-en:card:14",
+      "master-roofing:13:ja-en:card:20"
+    ],
+    "id": "master-roofing:13:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:13:ja-en:line:12",
+      "sourceEnglish": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+      "languageGoalEnglish": "Report uncertainty about the time using the source time range; no medical or fall-protection action prescribed.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL source incident faces remain held. This is provisional incident-report/time/clinical vocabulary evidence, not selected Japanese or a full accident-response objective.",
+    "Fall/transfer/disconnection cause, fall-protection system, triage/movement/first aid, paramedic timings and emergency locale are source/trade/clinical review questions; no new procedure authored.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "All source incident faces are held as provisional; no Japanese, audio, or release is selected, and no approval is claimed.",
+    "Fall-transfer, disconnection, probable cause, first-aid actions, paramedic timing, and 911 locale require qualified safety, clinical, source, and Japanese review; no site-specific transfer method is selected.",
+    "The Japanese role term for 'paramedics' (救急隊員 / 救急救命士) and the gloss for 'incident report' are provisional pending locale and dictionary review.",
+    "Objective scope is narrow (time question and approximate-time answer); targets, prompts, and glosses are provisional text proposals only."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only"
+}

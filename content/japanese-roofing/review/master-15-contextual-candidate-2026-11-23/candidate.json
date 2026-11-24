@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:15:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-15-source-decision-2026-11-18/packet.json",
+    "sha256": "a893127707476d9b72a0c3cd19f4a89a49fb573c8ae40a1710c87b81137a0ed5"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-13-15-draft.json",
+      "sha256": "7c45fda6eb8d2b4e2ad6a5f4e106e5e2db8642d5d7426f481e7fd2b880028991"
+    }
+  },
+  "objectiveEnglish": "Give a storm alert by radio, check that a crew member copies, and name the radar, the storm cell, and the downpour.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「（気象）レーダー」を表す英語を、the を付けた形で見て確認しましょう。",
+      "targetEnglish": "the radar",
+      "sourceAnchor": "master-roofing:15:ja-en:card:1",
+      "id": "master-roofing:15:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "Rogelio がスマートフォンのレーダーで見つけた「雷雨セル」を、the を付けた英語で思い出しましょう。",
+      "targetEnglish": "the storm cell",
+      "sourceAnchor": "master-roofing:15:ja-en:card:2",
+      "id": "master-roofing:15:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "英語を聞いて、無線で了解し、下りていくと伝える文を選びましょう。",
+      "targetEnglish": "Copy, heading down.",
+      "sourceAnchor": "master-roofing:15:ja-en:card:19",
+      "candidateOptionsEnglish": [
+        "Copy, heading down.",
+        "Do you copy?",
+        "I confirm that we stopped because of the weather."
+      ],
+      "id": "master-roofing:15:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Copy, heading down."
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "警戒を知らせる「アラート」を、the を付けた英語で入力しましょう。",
+      "targetEnglish": "the alert",
+      "sourceAnchor": "master-roofing:15:ja-en:card:10",
+      "id": "master-roofing:15:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "無線で相手に聞こえているかを確認する質問を、英語で声に出して言いましょう。",
+      "targetEnglish": "Do you copy?",
+      "sourceAnchor": "master-roofing:15:ja-en:card:20",
+      "id": "master-roofing:15:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「土砂降り」を、the を付けた英語で書きましょう。",
+      "targetEnglish": "the downpour",
+      "sourceAnchor": "master-roofing:15:ja-en:card:7",
+      "id": "master-roofing:15:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "At half past one, Rogelio checked the radar on his phone",
+      "explanationJapanese": "checked は check の過去形で、過去の行動を表します。the radar は、スマートフォンで見る天気レーダーの画面という特定のものを指すので the を使います。half past one は 1:30 のことです。",
+      "sourceAnchor": "master-roofing:15:ja-en:line:1",
+      "id": "master-roofing:15:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "The sky was still clear, but the wind was starting to change.",
+      "explanationJapanese": "was still clear は過去の状態を表します。was starting to change は過去進行形で、変わり始めていたことを表します。",
+      "sourceAnchor": "master-roofing:15:ja-en:line:2",
+      "id": "master-roofing:15:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "At two o'clock sharp the downpour began, with a lot of wind.",
+      "explanationJapanese": "began は begin の過去形です。at two o'clock sharp は「ちょうど2時に」という時刻の言い方です。",
+      "sourceAnchor": "master-roofing:15:ja-en:line:15",
+      "id": "master-roofing:15:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "radar",
+      "glossJapanese": "（気象）レーダー",
+      "senseJapanese": "雨雲などの位置を示す気象レーダーの画像。ここではスマートフォンで見るもの",
+      "sourceAnchor": "master-roofing:15:ja-en:card:1",
+      "id": "master-roofing:15:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "storm cell",
+      "glossJapanese": "雷雨セル（雷雨のまとまり）",
+      "senseJapanese": "レーダー上でひとまとまりとして見える雷雨の領域",
+      "sourceAnchor": "master-roofing:15:ja-en:card:2",
+      "id": "master-roofing:15:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "radio",
+      "glossJapanese": "無線機",
+      "senseJapanese": "離れた場所にいる作業員と音声で連絡を取る機器",
+      "sourceAnchor": "master-roofing:15:ja-en:card:3",
+      "id": "master-roofing:15:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "Marcos"
+    },
+    "openingEnglish": "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+    "closureEnglish": "Marcos: Copy, I hear you.",
+    "objectivesEnglish": [
+      "Start a radio call with 'Attention, crew, we have a storm alert'.",
+      "Check that the crew member received the message by asking 'do you copy, Marcos?'",
+      "Understand the partner's confirmation 'Copy, I hear you.'"
+    ],
+    "wordBankEnglish": [
+      "Attention, crew",
+      "we have a storm alert",
+      "do you copy, Marcos?",
+      "Do you copy?",
+      "the alert",
+      "the radio"
+    ],
+    "sourceAnchors": [
+      "master-roofing:15:ja-en:line:3",
+      "master-roofing:15:ja-en:line:4",
+      "master-roofing:15:ja-en:card:20",
+      "master-roofing:15:ja-en:card:10",
+      "master-roofing:15:ja-en:card:3"
+    ],
+    "id": "master-roofing:15:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:15:ja-en:line:2",
+      "sourceEnglish": "The sky was still clear, but the wind was starting to change.",
+      "languageGoalEnglish": "Check radio receipt while reporting the source weather observations; no forecast, shelter or tarp action prescribed.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL source weather faces remain held. Partial radio receipt/weather-report language only; no weather action selected.",
+    "Radar distance/timing, lightning/thunder triggers, shelter/vehicle, access, tarp/product fastening and return-to-work conditions remain source/domain holds; no weather procedure authored.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "All source weather faces are held as provisional; no Japanese, audio, or release is selected, and no approval is claimed.",
+    "Thunder and rain instructions, shelter in the pickup, the radar arrival forecast, the tarp and fastening method, ladder and site-access advice, and the homeowner report are excluded from learner content and require qualified safety, weather, and source review.",
+    "Japanese equivalents for 'storm cell', 'the alert', 'the downpour', and radio phrases ('Do you copy?', 'Copy') are provisional pending Japanese, weather, locale, and dictionary review.",
+    "Objective scope is narrow (radio alert and receipt check between Rogelio and Marcos); targets, prompts, and glosses are provisional text proposals only."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only"
+}

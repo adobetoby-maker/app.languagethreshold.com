@@ -1,6 +1,6 @@
 {
   "lessonId": "foundation-roofing:8:fr-en",
-  "candidateObjectiveEnglish": "Describe not-yet readiness, non-understanding and absence in English.",
+  "candidateObjectiveEnglish": "Say the roof is not ready yet and that there is nothing in the wheelbarrow.",
   "grammarExplanationEnglish": "English never, nobody and nothing express negation without an extra negative: We never work on a wet roof; There's nothing in the wheelbarrow. For standard English, do not say We don't never work or There isn't nothing. Yet goes at the end here: The roof isn't ready yet.",
   "activities": [
     {
@@ -138,32 +138,120 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A crew member reporting readiness and an empty wheelbarrow.",
-    "partnerRole": "A coworker asking whether the roof is ready and whether anything is in the wheelbarrow.",
     "candidateOpeningEnglish": "The roof isn't ready yet.",
+    "candidateOpeningFrench": "Le toit n'est pas encore prêt.",
+    "learnerRole": "learner reading printed negative-status statements",
+    "partnerRole": "practice partner asking about the printed account",
     "goalEnglish": "Say the roof is not ready yet and that there is nothing in the wheelbarrow.",
+    "goalFrench": "Dire que le toit n'est pas encore prêt et qu'il n'y a rien dans la brouette.",
+    "practiceContextEnglish": "Two learners read negative status sentences from a printed fictional account: the roof is not ready yet and the wheelbarrow is empty.",
+    "contextFrench": "Deux apprenants lisent les phrases négatives d'un récit fictif imprimé : le toit n'est pas encore prêt et la brouette est vide.",
+    "partnerCuesEnglish": [
+      "Can you repeat that, please?",
+      "Is there anything in the wheelbarrow?",
+      "Can you say both sentences together?"
+    ],
+    "partnerCueSupportFrench": [
+      "Pouvez-vous répéter, s'il vous plaît ?",
+      "Y a-t-il quelque chose dans la brouette ?",
+      "Pouvez-vous dire les deux phrases ensemble ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The roof isn't ready yet.",
+      "There's nothing in the wheelbarrow.",
+      "The roof is not ready yet, and there is nothing in the wheelbarrow. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Le toit n'est pas encore prêt.",
+      "Il n'y a rien dans la brouette.",
+      "Le toit n'est pas encore prêt, et il n'y a rien dans la brouette. Merci."
+    ],
     "candidateWordBankEnglish": [
-      "not yet",
-      "nothing",
-      "ready",
-      "wheelbarrow"
+      "The roof isn't ready yet.",
+      "The roof",
+      "is not ready yet",
+      "There's nothing",
+      "in the wheelbarrow",
+      "and",
+      "Thank you.",
+      "there is nothing"
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "Newly authored ordinary closure; no clarification or register decision implied.",
     "sourceAnchors": [
       "foundation-roofing:8:fr-en:card:3",
       "foundation-roofing:8:fr-en:card:10",
       "foundation-roofing:8:fr-en:line:1",
       "foundation-roofing:8:fr-en:line:4"
     ],
-    "id": "foundation-roofing:8:fr-en:speaking:1",
+    "provenance": "Exact source Reader1 opening and Reader4 empty-wheelbarrow sentence; new partner repetition request, new Reader4 question transformation and combination prompt. Card10 Not yet is structural base for source sentence yet, not a separate used turn. Not-ready task practiced; harness and more-material source objectives unfulfilled. Empty-wheelbarrow phrase is an additional source item, not replacement mission completion. No readiness, roof-access or equipment determination.",
     "reviewed": false,
-    "openingProvenance": "Exact source Reader1.",
-    "partnerCuesEnglish": [
-      "Is the roof ready?",
-      "Is there anything in the wheelbarrow?"
+    "id": "foundation-roofing:8:fr-en:speaking:1",
+    "internalDecisionHolds": [
+      "No affirmative readiness, roof access or harness rule is endorsed.",
+      "The wet-roof 'never' statement is not endorsed and is not used in this speaking item.",
+      "Material quantities, bundle and shingle senses, and the held clarification phrase remain unselected."
     ],
-    "partnerCuesProvenance": "Newly authored question transformations from Reader1 and Reader4; not exact source quotations."
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "foundation-roofing:8:fr-en:card:4",
+      "foundation-roofing:8:fr-en:card:5",
+      "foundation-roofing:8:fr-en:card:6",
+      "foundation-roofing:8:fr-en:card:7",
+      "foundation-roofing:8:fr-en:card:8",
+      "foundation-roofing:8:fr-en:card:11",
+      "foundation-roofing:8:fr-en:card:12",
+      "foundation-roofing:8:fr-en:line:2",
+      "foundation-roofing:8:fr-en:line:5",
+      "foundation-roofing:8:fr-en:line:6",
+      "foundation-roofing:8:fr-en:line:7"
+    ],
+    "heldRefsInterpretation": "Existing supplement-level candidate holds, not a statement that every source decision holds the same face.",
+    "holdReason": "Unmet: source more/less/another material objective and harness/access claim; negative-status printed subset is not safety or full-mission approval.",
+    "closureProvenance": "New ordinary closing based on earlier draft; no source safety/technical answer.",
+    "closureFrench": "Merci.",
+    "frenchRegisterStatusInternal": "French vous in support is one unselected candidate register, not course-wide tu/vous approval.",
+    "expectedAllLearnerTurnsEnglish": [
+      "The roof isn't ready yet.",
+      "The roof isn't ready yet.",
+      "There's nothing in the wheelbarrow.",
+      "The roof is not ready yet, and there is nothing in the wheelbarrow. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Le toit n'est pas encore prêt.",
+      "Le toit n'est pas encore prêt.",
+      "Il n'y a rien dans la brouette.",
+      "Le toit n'est pas encore prêt, et il n'y a rien dans la brouette. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "The roof isn't ready yet."
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you repeat that, please?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The roof isn't ready yet."
+      },
+      {
+        "speaker": "partner",
+        "text": "Is there anything in the wheelbarrow?"
+      },
+      {
+        "speaker": "learner",
+        "text": "There's nothing in the wheelbarrow."
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you say both sentences together?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The roof is not ready yet, and there is nothing in the wheelbarrow. Thank you."
+      }
+    ]
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -505,7 +593,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish grammar is provenance only.",
@@ -513,7 +602,41 @@
     "No recorded audio, progress migration, owner page or runtime registration.",
     "French vous in interface prompts is a candidate instruction convention, separate from held tu/vous in learner utterances.",
     "French spoken on and question-form choices remain candidate register decisions; on/nous and est-ce que must receive course-level qualified review before selection.",
-    "Harness/material quantities and tu/vous repair requests remain held. Exact wet-roof source claim is unselected and requires trade review; no universal safety procedure is inferred."
+    "Harness/material quantities and tu/vous repair requests remain held. Exact wet-roof source claim is unselected and requires trade review; no universal safety procedure is inferred.",
+    "Speaking/scope reconciliation only; exact source faces/activities/forms/dictionary/IDs/pins unchanged, prior speaking draft retained. No invented job facts, location/stop reason, ladder method."
   ],
-  "grammarExplanationFrench": "Never, nobody et nothing portent déjà la négation en anglais standard. On n'ajoute pas don't devant never dans l'exemple. I don't understand signifie Je ne comprends pas. Dans The roof isn't ready yet, yet se place à la fin et donne le sens de pas encore."
+  "grammarExplanationFrench": "Never, nobody et nothing portent déjà la négation en anglais standard. On n'ajoute pas don't devant never dans l'exemple. I don't understand signifie Je ne comprends pas. Dans The roof isn't ready yet, yet se place à la fin et donne le sens de pas encore.",
+  "speakingPriorDraft20261118": {
+    "learnerRole": "A crew member reporting readiness and an empty wheelbarrow.",
+    "partnerRole": "A coworker asking whether the roof is ready and whether anything is in the wheelbarrow.",
+    "candidateOpeningEnglish": "The roof isn't ready yet.",
+    "goalEnglish": "Say the roof is not ready yet and that there is nothing in the wheelbarrow.",
+    "candidateWordBankEnglish": [
+      "not yet",
+      "nothing",
+      "ready",
+      "wheelbarrow"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Newly authored ordinary closure; no clarification or register decision implied.",
+    "sourceAnchors": [
+      "foundation-roofing:8:fr-en:card:3",
+      "foundation-roofing:8:fr-en:card:10",
+      "foundation-roofing:8:fr-en:line:1",
+      "foundation-roofing:8:fr-en:line:4"
+    ],
+    "id": "foundation-roofing:8:fr-en:speaking:1",
+    "reviewed": false,
+    "openingProvenance": "Exact source Reader1.",
+    "partnerCuesEnglish": [
+      "Is the roof ready?",
+      "Is there anything in the wheelbarrow?"
+    ],
+    "partnerCuesProvenance": "Newly authored question transformations from Reader1 and Reader4; not exact source quotations."
+  },
+  "sourceObjectiveEnglish": "Say no, not yet and never, and ask for more or less",
+  "sourceSpeakingEnglish": "Tell a crew member what is not ready yet, that nobody goes up without a harness, and ask for more material.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower contextual speaking does not fulfill unresolved original source work objective",
+  "sourceAuditOriginMain": "77fdfd037d846e3173fbcca23c98b046d6f9279e"
 }

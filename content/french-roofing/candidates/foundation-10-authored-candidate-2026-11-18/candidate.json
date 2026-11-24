@@ -1,6 +1,6 @@
 {
   "lessonId": "foundation-roofing:10:fr-en",
-  "candidateObjectiveEnglish": "Recognize English help-related vocabulary, ask for help and ask the meaning of an English word.",
+  "candidateObjectiveEnglish": "Ask a practice partner for help with an English word, ask what inspection means, then repeat it and thank the partner.",
   "grammarExplanationEnglish": "English nouns inspection, protection and construction share spelling with French but differ in pronunciation. \"I need help\" uses need with an uncountable noun. In questions, do/does comes before the subject and the following verb stays in its base form: \"Do you speak English?\" and \"What does inspection mean?\"",
   "activities": [
     {
@@ -130,26 +130,114 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A crew member practicing help requests and English word meanings.",
-    "partnerRole": "A coworker giving the French meaning of inspection in a language practice exchange.",
     "candidateOpeningEnglish": "I need help.",
-    "goalEnglish": "Ask a coworker for help understanding the English word inspection, then ask its meaning.",
+    "candidateOpeningFrench": "J'ai besoin d'aide.",
+    "learnerRole": "learner asking about an English word",
+    "partnerRole": "practice partner proposing a contextual word gloss",
+    "goalEnglish": "Ask a practice partner for help with an English word, ask what inspection means, then repeat it and thank the partner.",
+    "goalFrench": "Demander à un partenaire de l'aide pour un mot anglais, demander le sens d'inspection, puis répéter le mot et remercier le partenaire.",
+    "practiceContextEnglish": "In a language-practice exchange, the learner asks a practice partner for help with the printed English word inspection.",
+    "contextFrench": "Dans un échange de langue, l'apprenant demande à un partenaire de l'aide pour le mot anglais imprimé inspection.",
+    "partnerCuesEnglish": [
+      "What do you need help with?",
+      "Ask me what the word inspection means.",
+      "Inspection means a check. In French: inspection."
+    ],
+    "partnerCueSupportFrench": [
+      "Vous avez besoin d'aide pour quoi ?",
+      "Demandez-moi ce que veut dire le mot anglais « inspection ».",
+      "En français, le mot anglais « inspection » correspond ici à inspection."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "I need help with the word inspection.",
+      "What does inspection mean?",
+      "Inspection. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "J'ai besoin d'aide pour le mot anglais « inspection ».",
+      "Que veut dire le mot anglais « inspection » ?",
+      "Inspection. Merci."
+    ],
     "candidateWordBankEnglish": [
       "I need help.",
-      "inspection",
-      "What does … mean?"
+      "I need help with",
+      "the word inspection",
+      "What does",
+      "mean?",
+      "Inspection.",
+      "Thank you.",
+      "inspection"
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "Reuses Foundation9 card2 courtesy phrase; not in this source packet.",
     "sourceAnchors": [
       "foundation-roofing:10:fr-en:card:5",
       "foundation-roofing:10:fr-en:card:9",
       "foundation-roofing:10:fr-en:card:10"
     ],
-    "id": "foundation-roofing:10:fr-en:speaking:1",
+    "provenance": "Existing I need help opener is exact source card10; first reply newly extends it with the English word inspection (card5), not an adoption of held Reader7 Spanish-word objective. Meaning question adapts card9 with inspection. French le mot anglais scaffolding deliberately disambiguates the cognate, not extra target content. Partner gloss repeats existing candidate/dictionary inspection sense as proposed lexical support only, no technical finding. Accident reporting not performed: roof mission versus Reader3 ladder scene mismatch, emergency/911 and Spanish/English cognate direction unresolved. Original objective incomplete.",
     "reviewed": false,
-    "partnerCueFrench": "Le mot anglais « inspection » veut dire « inspection » en français.",
-    "partnerCueProvenance": "New explicit cognate gloss; no inspection procedure or technical finding.",
+    "id": "foundation-roofing:10:fr-en:speaking:1",
+    "internalDecisionHolds": [
+      "Call 911, emergency, ambulance and hospital vocabulary are not adapted or instructed here.",
+      "The caída/chute Reader7 decision remains open and unselected.",
+      "Fall-protection inspection terminology remains held for qualified roofing safety review.",
+      "New inspection/examination/check contextual gloss is a proposed linguistic sense, not technical finding or dictionary selection. Source emergency/accident/ambulance/hospital terms remain unchanged and direct.",
+      "Inspection/inspection cognate support remains an unselected contextual candidate, not qualified dictionary approval; earlier draft/alternative gloss evidence preserved."
+    ],
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "foundation-roofing:10:fr-en:card:11",
+      "foundation-roofing:10:fr-en:line:2",
+      "foundation-roofing:10:fr-en:line:5",
+      "foundation-roofing:10:fr-en:line:7"
+    ],
+    "heldRefsInterpretation": "Existing supplement-level candidate holds, not a statement that every source decision holds the same face.",
+    "holdReason": "Unmet: original Spanish/English cognate direction, accident reporting and source emergency/911/caída decisions. Language word-help exercise is only a narrower proposal.",
+    "closureProvenance": "Reuses Foundation9 card2 courtesy phrase, not an exact row in this lesson packet.",
+    "closureFrench": "Merci.",
+    "frenchRegisterStatusInternal": "French vous in support is one unselected candidate register, not course-wide tu/vous approval.",
+    "expectedAllLearnerTurnsEnglish": [
+      "I need help.",
+      "I need help with the word inspection.",
+      "What does inspection mean?",
+      "Inspection. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "J'ai besoin d'aide.",
+      "J'ai besoin d'aide pour le mot anglais « inspection ».",
+      "Que veut dire le mot anglais « inspection » ?",
+      "Inspection. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "I need help."
+      },
+      {
+        "speaker": "partner",
+        "text": "What do you need help with?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I need help with the word inspection."
+      },
+      {
+        "speaker": "partner",
+        "text": "Ask me what the word inspection means."
+      },
+      {
+        "speaker": "learner",
+        "text": "What does inspection mean?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Inspection means a check. In French: inspection."
+      },
+      {
+        "speaker": "learner",
+        "text": "Inspection. Thank you."
+      }
+    ],
     "crossLessonCourtesyRef": "foundation-roofing:9:fr-en:card:2"
   },
   "schema": 1,
@@ -491,7 +579,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish grammar is provenance only.",
@@ -499,7 +588,8 @@
     "No recorded audio, progress migration, owner page or runtime registration.",
     "Small accident and not an emergency are preserved exact source scene claims, not a learner triage assignment. Their contextual clinical/trade review remains required; no emergency-number or injury-severity decision is selected.",
     "French vous and intonation questions remain candidate register choices consistent with the polite-request lesson; course-level qualification remains open.",
-    "Only vous address is consistent with Foundation9; inversion and intonation-question forms differ and require the course register decision. Source English articles in the construction/protection are headword conventions, not required articles in all English uses. Candidate wording dans la construction and neutral coworker paraphrase require locale/French confirmation."
+    "Only vous address is consistent with Foundation9; inversion and intonation-question forms differ and require the course register decision. Source English articles in the construction/protection are headword conventions, not required articles in all English uses. Candidate wording dans la construction and neutral coworker paraphrase require locale/French confirmation.",
+    "Speaking/scope reconciliation only; exact source faces/activities/forms/dictionary/IDs/pins unchanged, prior speaking draft retained. No invented job facts, location/stop reason, ladder method or emergency/triage judgment. Direct clinical vocabulary preserved in existing source faces."
   ],
   "grammarExplanationFrench": "« Inspection », « protection » et « construction » ressemblent aux mots français, mais leur prononciation anglaise diffère. « I need help » signifie « J'ai besoin d'aide ». Dans une question, placez « do » ou « does » avant le sujet ; le verbe reste à la forme de base : « Do you speak English? » ; « What does inspection mean? »",
   "adaptationProvenance": {
@@ -512,5 +602,33 @@
       "speaking.candidateWordBankEnglish"
     ],
     "decision": "English-word meaning question is newly instantiated from card9 plus inspection card5; held caída/chute Reader7 decision remains open."
-  }
+  },
+  "speakingPriorDraft20261118": {
+    "learnerRole": "A crew member practicing help requests and English word meanings.",
+    "partnerRole": "A coworker giving the French meaning of inspection in a language practice exchange.",
+    "candidateOpeningEnglish": "I need help.",
+    "goalEnglish": "Ask a coworker for help understanding the English word inspection, then ask its meaning.",
+    "candidateWordBankEnglish": [
+      "I need help.",
+      "inspection",
+      "What does … mean?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "Reuses Foundation9 card2 courtesy phrase; not in this source packet.",
+    "sourceAnchors": [
+      "foundation-roofing:10:fr-en:card:5",
+      "foundation-roofing:10:fr-en:card:9",
+      "foundation-roofing:10:fr-en:card:10"
+    ],
+    "id": "foundation-roofing:10:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCueFrench": "Le mot anglais « inspection » veut dire « inspection » en français.",
+    "partnerCueProvenance": "New explicit cognate gloss; no inspection procedure or technical finding.",
+    "crossLessonCourtesyRef": "foundation-roofing:9:fr-en:card:2"
+  },
+  "sourceObjectiveEnglish": "Use Spanish words that look like English and ask for help when you are stuck",
+  "sourceSpeakingEnglish": "Report a small accident on the roof, ask for help, and ask what one word means.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower contextual speaking does not fulfill unresolved original source work objective",
+  "sourceAuditOriginMain": "77fdfd037d846e3173fbcca23c98b046d6f9279e"
 }

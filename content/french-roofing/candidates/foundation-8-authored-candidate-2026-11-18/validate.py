@@ -34,3 +34,16 @@ nested(p)
 held={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
 for item in p['activities']+p['forms']+[p['speaking']]:assert not held.intersection(item['sourceAnchors'])
 assert len(p['activities'])==6 and len(p['forms'])==3 and len(p['dictionaryMappings'])==12
+
+# Speaking reconciliation contract 2026-11-24
+
+sp=p['speaking']
+assert len(sp['partnerCuesEnglish'])==len(sp['partnerCueSupportFrench'])==len(sp['expectedLearnerTurnsEnglish'])==len(sp['expectedLearnerTurnsFrench'])==3
+assert sp['candidateOpeningFrench'] and len(sp['turnSequenceEnglish'])==7
+assert len(sp['expectedAllLearnerTurnsEnglish'])==len(sp['expectedAllLearnerTurnsFrench'])==4
+assert sp['expectedAllLearnerTurnsEnglish'][0]==sp['candidateOpeningEnglish']
+assert p['sourceObjectiveEnglish']==s['sourceObjectiveEnglish'] and p['sourceSpeakingEnglish']==s['sourceSpeakingEnglish']
+assert p['sourceObjectiveCompletionStatus'].startswith('held and incomplete') and p['sourceObjectiveInternalOnly'] is True
+assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
+assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
+assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])

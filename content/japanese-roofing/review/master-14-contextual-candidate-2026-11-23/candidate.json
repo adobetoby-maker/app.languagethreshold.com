@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:14:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-14-source-decision-2026-11-18/packet.json",
+    "sha256": "713017dc69a1f52ef4531dc1b1b59403038eb8b3c49b45a5c42f88522bb76dbd"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-13-15-draft.json",
+      "sha256": "7c45fda6eb8d2b4e2ad6a5f4e106e5e2db8642d5d7426f481e7fd2b880028991"
+    }
+  },
+  "objectiveEnglish": "Ask a crew member if he is OK, describe a near-miss, and thank him for speaking up.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「ヒヤリハット」を表す英語を、the を付けた形で見て確認しましょう。",
+      "targetEnglish": "the near-miss",
+      "sourceAnchor": "master-roofing:14:ja-en:card:1",
+      "id": "master-roofing:14:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "屋根の斜面を滑って落ちた「シングル屋根材の束」を、the を付けた英語で思い出しましょう。",
+      "targetEnglish": "the bundle of shingles",
+      "sourceAnchor": "master-roofing:14:ja-en:card:2",
+      "id": "master-roofing:14:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "英語を聞いて、正直に話してくれた人に感謝する文を選びましょう。",
+      "targetEnglish": "Thanks for speaking up, that helps everyone.",
+      "sourceAnchor": "master-roofing:14:ja-en:card:20",
+      "candidateOptionsEnglish": [
+        "Thanks for speaking up, that helps everyone.",
+        "Sorry for the scare, sir.",
+        "Are you OK, bro?"
+      ],
+      "id": "master-roofing:14:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Thanks for speaking up, that helps everyone."
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「原因」を、the を付けた英語で入力しましょう。",
+      "targetEnglish": "the cause",
+      "sourceAnchor": "master-roofing:14:ja-en:card:13",
+      "id": "master-roofing:14:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "「警告看板」を、the を付けた英語で声に出して言いましょう。",
+      "targetEnglish": "the warning sign",
+      "sourceAnchor": "master-roofing:14:ja-en:card:10",
+      "id": "master-roofing:14:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「教訓」を、the を付けた英語で書きましょう。",
+      "targetEnglish": "the lesson",
+      "sourceAnchor": "master-roofing:14:ja-en:card:11",
+      "id": "master-roofing:14:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "a bundle of shingles slid down the slope and fell from the roof",
+      "explanationJapanese": "slid は slide、fell は fall の過去形で、過去に起きた出来事を表します。a bundle は、ここで初めて話に出てくる束なので a を使います。",
+      "sourceAnchor": "master-roofing:14:ja-en:line:1",
+      "id": "master-roofing:14:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Nobody got a single injury, but everyone went quiet.",
+      "explanationJapanese": "Nobody は「誰も〜ない」という意味の主語で、文全体を否定にします。got は get、went は go の過去形です。",
+      "sourceAnchor": "master-roofing:14:ja-en:line:3",
+      "id": "master-roofing:14:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Thanks for speaking up, that helps everyone.",
+      "explanationJapanese": "Thanks for の後には動詞の -ing 形（speaking up）が続きます。speak up は「はっきり口に出して言う」という意味で、that は相手が話してくれたことを指します。",
+      "sourceAnchor": "master-roofing:14:ja-en:card:20",
+      "id": "master-roofing:14:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "near-miss",
+      "glossJapanese": "ヒヤリハット",
+      "senseJapanese": "事故には至らなかったものの、危険があった出来事",
+      "sourceAnchor": "master-roofing:14:ja-en:card:1",
+      "id": "master-roofing:14:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "bundle of shingles",
+      "glossJapanese": "シングル屋根材の束",
+      "senseJapanese": "束ねてひとまとめにしたシングル屋根材",
+      "sourceAnchor": "master-roofing:14:ja-en:card:2",
+      "id": "master-roofing:14:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "injury",
+      "glossJapanese": "けが、負傷",
+      "senseJapanese": "体に受けた傷",
+      "sourceAnchor": "master-roofing:14:ja-en:card:12",
+      "id": "master-roofing:14:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "Kevin"
+    },
+    "openingEnglish": "Rogelio: Are you OK, bro?",
+    "closureEnglish": "Rogelio: Thanks for speaking up, that helps everyone.",
+    "objectivesEnglish": [
+      "Ask a crew member if he is OK using 'Are you OK, bro?'",
+      "Describe the near-miss using 'It nearly fell on his head; a tragedy almost happened.'",
+      "Thank the crew member for speaking up about the cause using 'Thanks for speaking up, that helps everyone.'"
+    ],
+    "wordBankEnglish": [
+      "Are you OK, bro?",
+      "It nearly fell on his head.",
+      "A tragedy almost happened.",
+      "the near-miss",
+      "the cause",
+      "Thanks for speaking up, that helps everyone."
+    ],
+    "sourceAnchors": [
+      "master-roofing:14:ja-en:line:7",
+      "master-roofing:14:ja-en:line:8",
+      "master-roofing:14:ja-en:line:11",
+      "master-roofing:14:ja-en:line:12",
+      "master-roofing:14:ja-en:line:13",
+      "master-roofing:14:ja-en:card:21",
+      "master-roofing:14:ja-en:card:15",
+      "master-roofing:14:ja-en:card:16",
+      "master-roofing:14:ja-en:card:1",
+      "master-roofing:14:ja-en:card:13",
+      "master-roofing:14:ja-en:card:20"
+    ],
+    "id": "master-roofing:14:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:14:ja-en:line:12",
+      "sourceEnglish": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "languageGoalEnglish": "Acknowledge Kevin’s account and thank him for speaking up; no prevention method prescribed.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL source near-miss faces remain held. Partial report/thanks language proposals only; no cause or prevention decision selected.",
+    "Roof bracket/toe-board/material weight and storage system, punishment promise and prevention guarantees require source/domain review; no safe stacking method inferred.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "All source near-miss faces are held as provisional; no Japanese, audio, or release is selected, and no approval is claimed.",
+    "Toe board, roof bracket, stacking, danger-zone marking, the bundle-weight claim, and the counterfactual injury statements are excluded from learner content and require qualified roofing, safety, and source review; no prevention or stacking method is endorsed.",
+    "Japanese equivalents for 'near-miss', 'bundle of shingles', 'warning sign', and the register of 'bro' are provisional pending Japanese, locale, and dictionary review.",
+    "Objective scope is narrow (check on a crew member, describe the near-miss, thank him); targets, prompts, and glosses are provisional text proposals only."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only"
+}

@@ -326,23 +326,108 @@
   ],
   "speaking": {
     "id": "foundation-roofing:1:fr-en:speaking:1",
-    "learnerRole": "new roofing crew member",
-    "partnerRole": "crew lead",
-    "candidateOpeningEnglish": "Good morning, my name is Luis and I’m new.",
-    "goalEnglish": "Greet a coworker in English, introduce Luis, ask for slower speech and request repetition.",
+    "learnerRole": "new roofing crew member (fictional Luis)",
+    "partnerRole": "coworker",
+    "candidateOpeningEnglish": "Good morning, my name is Luis and I'm new.",
+    "goalEnglish": "Greet a coworker in English, introduce yourself as Luis, request repetition and ask for slower speech.",
     "candidateWordBankEnglish": [
-      "Good morning.",
-      "My name is Luis.",
+      "Good morning, my name is Luis and I'm new.",
+      "Please repeat",
+      "the list",
       "Slower, please.",
-      "Please repeat."
+      "Thank you."
     ],
-    "closureEnglish": "Thank you. Please repeat the details if I missed anything.",
+    "closureEnglish": "Thank you.",
     "sourceAnchors": [
       "foundation-roofing:1:fr-en:line:1",
+      "foundation-roofing:1:fr-en:line:3",
+      "foundation-roofing:1:fr-en:line:6",
+      "foundation-roofing:1:fr-en:line:7",
       "foundation-roofing:1:fr-en:card:11",
-      "foundation-roofing:1:fr-en:card:12"
+      "foundation-roofing:1:fr-en:card:12",
+      "foundation-roofing:1:fr-en:card:9"
     ],
-    "reviewed": false
+    "reviewed": false,
+    "candidateOpeningFrench": "Bonjour, je m'appelle Luis et je suis nouveau.",
+    "goalFrench": "Saluer un collègue en anglais, vous présenter comme Luis, demander une répétition puis de parler plus lentement.",
+    "practiceContextEnglish": "The learner plays fictional Luis meeting a coworker. The coworker talks very fast while reading a printed tool list: harness, rope and hammer.",
+    "contextFrench": "L'apprenant joue Luis, un personnage fictif qui rencontre un collègue. Le collègue parle très vite en lisant une liste d'outils imprimée : harness, rope et hammer.",
+    "partnerCuesEnglish": [
+      "Good morning, Luis. Welcome to the crew. The list says: the harness, the rope and the hammer.",
+      "The list says: the harness, the rope and the hammer.",
+      "Of course. The harness… the rope… and the hammer."
+    ],
+    "partnerCueSupportFrench": [
+      "Bonjour, Luis. Bienvenue dans l'équipe. La liste indique : le harnais, la corde et le marteau.",
+      "La liste indique : le harnais, la corde et le marteau.",
+      "Bien sûr. Le harnais… la corde… et le marteau."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Please repeat the list.",
+      "Slower, please.",
+      "Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Répétez la liste, s'il vous plaît.",
+      "Plus lentement, s'il vous plaît.",
+      "Merci."
+    ],
+    "provenance": "Existing English opening preserved with original candidate apostrophe typography, not byte-exact quote. Source greeting/name and tool nouns retained; crew-lead fast delivery adapts Reader6. Newly composed partner cues/replies, no work instructions or new named partner. Original source objective remains incomplete; this speaking reconciliation is not qualified approval or specialist mission completion.",
+    "internalDecisionHolds": [
+      "Card 2 shingle / roof tile face held: qualified roofing, locale and dictionary review must decide it. Not used in speaking.",
+      "Line 4 shingle sentence held: archived le bardeau selects a narrower regional material. Not used in speaking.",
+      "Line 5 ladder-in-Spanish source adaptation held: the source objective and English support line must be decided together. Not used in speaking."
+    ],
+    "heldDependent": true,
+    "holdReason": "Unmet: original Spanish pronunciation objective; asking how to say two tools (card10 unused pending Reader5 adaptation decision); shingle/tile meaning card2 and Reader4.",
+    "heldDecisionRefs": [
+      "foundation-roofing:1:fr-en:card:2",
+      "foundation-roofing:1:fr-en:line:4",
+      "foundation-roofing:1:fr-en:line:5"
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Good morning, my name is Luis and I'm new.",
+      "Please repeat the list.",
+      "Slower, please.",
+      "Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Bonjour, je m'appelle Luis et je suis nouveau.",
+      "Répétez la liste, s'il vous plaît.",
+      "Plus lentement, s'il vous plaît.",
+      "Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Good morning, my name is Luis and I'm new."
+      },
+      {
+        "speaker": "partner",
+        "text": "Good morning, Luis. Welcome to the crew. The list says: the harness, the rope and the hammer."
+      },
+      {
+        "speaker": "learner",
+        "text": "Please repeat the list."
+      },
+      {
+        "speaker": "partner",
+        "text": "The list says: the harness, the rope and the hammer."
+      },
+      {
+        "speaker": "learner",
+        "text": "Slower, please."
+      },
+      {
+        "speaker": "partner",
+        "text": "Of course. The harness… the rope… and the hammer."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "closureProvenance": "New ordinary closure; no selected/scored source answer."
   },
   "dictionaryMappings": [
     {
@@ -469,7 +554,8 @@
   "internalNotes": [
     "English is the learning target; French is support. The archived French-learning pronunciation objective is not adopted.",
     "Stable references are proposed source anchors only, not runtime or progress keys.",
-    "Hear has an authored prompt and text target but no selected audio script or recording."
+    "Hear has an authored prompt and text target but no selected audio script or recording.",
+    "Speaking-only reconciliation adds three English cue/reply pairs and French scaffolding while preserving exact source pins, IDs, all candidateRows/forms/activities/dictionary alternatives and false gates. Original source objective and mission retained verbatim as internal provenance, not claimed completed."
   ],
   "selectedFrench": null,
   "audioScript": null,
@@ -485,6 +571,32 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "sourceObjectiveEnglish": "Say Spanish vowels and the sounds English speakers miss, and greet the crew",
+  "sourceSpeakingEnglish": "Greet a roofing crew member, say your name, and ask how to say two tools in Spanish.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; English-target/French-support linguistic reconciliation does not fulfill unresolved source-language and specialist objectives",
+  "sourceAuditOriginMain": "401d3f520cf6ea54ac900f47375f09be1dd01480",
+  "speakingPriorDraft20261118": {
+    "id": "foundation-roofing:1:fr-en:speaking:1",
+    "learnerRole": "new roofing crew member",
+    "partnerRole": "crew lead",
+    "candidateOpeningEnglish": "Good morning, my name is Luis and I’m new.",
+    "goalEnglish": "Greet a coworker in English, introduce Luis, ask for slower speech and request repetition.",
+    "candidateWordBankEnglish": [
+      "Good morning.",
+      "My name is Luis.",
+      "Slower, please.",
+      "Please repeat."
+    ],
+    "closureEnglish": "Thank you. Please repeat the details if I missed anything.",
+    "sourceAnchors": [
+      "foundation-roofing:1:fr-en:line:1",
+      "foundation-roofing:1:fr-en:card:11",
+      "foundation-roofing:1:fr-en:card:12"
+    ],
+    "reviewed": false
   }
 }

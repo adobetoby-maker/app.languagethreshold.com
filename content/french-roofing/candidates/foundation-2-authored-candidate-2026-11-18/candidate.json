@@ -339,21 +339,113 @@
     "learnerRole": "new roofing crew member",
     "partnerRole": "crew lead",
     "candidateOpeningEnglish": "We start at six in the morning.",
-    "goalEnglish": "Tell the crew lead in English the start time, the time until the truck arrives and the wall or nail measurement. Bundle quantity wording is held for the linked terminology decision.",
+    "goalEnglish": "Tell the crew lead in English the start time, the time until the truck arrives and the wall and nail measurement.",
     "candidateWordBankEnglish": [
+      "We start at six in the morning.",
+      "The sheet says",
+      "we start",
       "six in the morning",
-      "twenty minutes",
+      "the truck arrives",
+      "in twenty minutes",
+      "the wall measures",
       "ten feet",
-      "one and a half inches"
+      "or about three meters",
+      "Thank you.",
+      "the nail is",
+      "one and a half inches long"
     ],
-    "closureEnglish": "Thank you. Please repeat the details if I missed anything.",
+    "closureEnglish": "Thank you.",
     "sourceAnchors": [
       "foundation-roofing:2:fr-en:line:1",
       "foundation-roofing:2:fr-en:line:2",
       "foundation-roofing:2:fr-en:line:6",
       "foundation-roofing:2:fr-en:line:7"
     ],
-    "reviewed": false
+    "reviewed": false,
+    "candidateOpeningFrench": "On commence à six heures du matin.",
+    "goalFrench": "Dire au chef d'équipe en anglais l'heure de début, le délai avant l'arrivée du camion et la mesure du mur et du clou.",
+    "practiceContextEnglish": "The learner and crew lead read fictional time and length figures on a printed lesson sheet: start time, truck arrival, wall measurement and nail length. The learner reads the first line aloud as the opening.",
+    "contextFrench": "L'apprenant et le chef d'équipe lisent, sur une fiche de leçon imprimée, des données fictives : l'heure de début, le délai avant l'arrivée du camion, la mesure du mur et la longueur du clou. L'apprenant lit la première ligne à voix haute en ouverture.",
+    "partnerCuesEnglish": [
+      "Thanks. And how long until the truck arrives?",
+      "What does the sheet say about the wall?",
+      "And the nail?"
+    ],
+    "partnerCueSupportFrench": [
+      "Merci. Et dans combien de temps le camion arrive-t-il ?",
+      "Que dit la fiche à propos du mur ?",
+      "Et le clou ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The sheet says the truck arrives in twenty minutes.",
+      "The sheet says the wall measures ten feet, or about three meters.",
+      "The sheet says the nail is one and a half inches long. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "La fiche indique que le camion arrive dans vingt minutes.",
+      "La fiche indique que le mur mesure dix pieds, ou à peu près trois mètres.",
+      "La fiche indique que le clou fait un pouce et demi de long. Merci."
+    ],
+    "provenance": "Speaking reconciled from the candidate speaking row and reader lines 1, 2, 6 and 7. Printed time, length and unit figures are used only as quoted source statements. Partner cues and expected learner turns are newly authored. The original objective is not completed by this speaking task while bundle quantity wording remains held. Pending qualified review. Not approved. Original source objective remains incomplete; this speaking reconciliation is not qualified approval or specialist mission completion.",
+    "internalDecisionHolds": [
+      "Bundle quantity wording is held for the linked terminology decision (cards 6 and 9; reader lines 3 and 4). Not used in speaking.",
+      "Pound and weight wording is held (card 5; reader line 5). Not used in speaking.",
+      "Printed start time, truck time, wall and nail figures are quoted from the lesson only. They do not approve a job measurement or schedule.",
+      "Card9/Reader3 bundle-question holds originated in earlier supplemental candidate review even though pinned source offers French without a review note; no source packet or candidate face changed in this reconciliation."
+    ],
+    "heldDependent": true,
+    "holdReason": "Unmet: how many bundles are needed (cards6/9, Reader3/4); pound/weight wording (card5, Reader5); counting only practiced through quoted printed figures.",
+    "heldDecisionRefs": [
+      "foundation-roofing:2:fr-en:card:5",
+      "foundation-roofing:2:fr-en:card:6",
+      "foundation-roofing:2:fr-en:card:9",
+      "foundation-roofing:2:fr-en:line:3",
+      "foundation-roofing:2:fr-en:line:4",
+      "foundation-roofing:2:fr-en:line:5"
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "We start at six in the morning.",
+      "The sheet says the truck arrives in twenty minutes.",
+      "The sheet says the wall measures ten feet, or about three meters.",
+      "The sheet says the nail is one and a half inches long. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "On commence à six heures du matin.",
+      "La fiche indique que le camion arrive dans vingt minutes.",
+      "La fiche indique que le mur mesure dix pieds, ou à peu près trois mètres.",
+      "La fiche indique que le clou fait un pouce et demi de long. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "We start at six in the morning."
+      },
+      {
+        "speaker": "partner",
+        "text": "Thanks. And how long until the truck arrives?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The sheet says the truck arrives in twenty minutes."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does the sheet say about the wall?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The sheet says the wall measures ten feet, or about three meters."
+      },
+      {
+        "speaker": "partner",
+        "text": "And the nail?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The sheet says the nail is one and a half inches long. Thank you."
+      }
+    ],
+    "closureProvenance": "New ordinary closure; no selected/scored source answer."
   },
   "dictionaryMappings": [
     {
@@ -480,7 +572,8 @@
   "internalNotes": [
     "English is the learning target; French is support. The archived French-learning pronunciation objective is not adopted.",
     "Stable references are proposed source anchors only, not runtime or progress keys.",
-    "Hear has an authored prompt and text target but no selected audio script or recording."
+    "Hear has an authored prompt and text target but no selected audio script or recording.",
+    "Speaking-only reconciliation adds three English cue/reply pairs and French scaffolding while preserving exact source pins, IDs, all candidateRows/forms/activities/dictionary alternatives and false gates. Original source objective and mission retained verbatim as internal provenance, not claimed completed."
   ],
   "selectedFrench": null,
   "audioScript": null,
@@ -496,6 +589,33 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "sourceObjectiveEnglish": "Count, tell time, and give measurements and quantities on the job",
+  "sourceSpeakingEnglish": "Tell the crew lead what time you start, how many bundles you need, and one measurement.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; English-target/French-support linguistic reconciliation does not fulfill unresolved source-language and specialist objectives",
+  "sourceAuditOriginMain": "401d3f520cf6ea54ac900f47375f09be1dd01480",
+  "speakingPriorDraft20261118": {
+    "id": "foundation-roofing:2:fr-en:speaking:1",
+    "learnerRole": "new roofing crew member",
+    "partnerRole": "crew lead",
+    "candidateOpeningEnglish": "We start at six in the morning.",
+    "goalEnglish": "Tell the crew lead in English the start time, the time until the truck arrives and the wall or nail measurement. Bundle quantity wording is held for the linked terminology decision.",
+    "candidateWordBankEnglish": [
+      "six in the morning",
+      "twenty minutes",
+      "ten feet",
+      "one and a half inches"
+    ],
+    "closureEnglish": "Thank you. Please repeat the details if I missed anything.",
+    "sourceAnchors": [
+      "foundation-roofing:2:fr-en:line:1",
+      "foundation-roofing:2:fr-en:line:2",
+      "foundation-roofing:2:fr-en:line:6",
+      "foundation-roofing:2:fr-en:line:7"
+    ],
+    "reviewed": false
   }
 }

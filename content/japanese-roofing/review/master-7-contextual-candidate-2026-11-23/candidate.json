@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:7:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-7-source-decision-2026-11-18/packet.json",
+    "sha256": "9bd0fb3cbc6dbd0fd2cb270eea86f851836caf7e8055d0ed7a79bc995197969c"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-7-9-draft.json",
+      "sha256": "700ee6ee5f7853e3ec58889d8ce977dc54c0ffd6fce8043d8352add5738ac423"
+    }
+  },
+  "objectiveEnglish": "Tell the adjuster when the storm came through, name the adjuster, the claim, and the insurance company, and ask him to repeat more slowly when he speaks fast.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「the adjuster」を見て意味を確認しましょう。保険会社から来た損害保険の査定担当者（アジャスター）のことです。この場面の特定の一人なので、冠詞 the が付いています。",
+      "targetEnglish": "the adjuster",
+      "sourceAnchor": "master-roofing:7:ja-en:card:1",
+      "id": "master-roofing:7:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「（保険の）請求・申し立て」を英語で何と言いますか。冠詞 the を付けて思い出してください。",
+      "targetEnglish": "the claim",
+      "sourceAnchor": "master-roofing:7:ja-en:card:6",
+      "id": "master-roofing:7:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた語句を3つの候補から選んでください。意味は「雹（ひょう）」です。",
+      "targetEnglish": "the hail",
+      "candidateOptionsEnglish": [
+        "the hail",
+        "the storm",
+        "the gutter"
+      ],
+      "sourceAnchor": "master-roofing:7:ja-en:card:3",
+      "id": "master-roofing:7:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "the hail"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「嵐」を英語で入力してください。冠詞 the も忘れずに入力しましょう。",
+      "targetEnglish": "the storm",
+      "sourceAnchor": "master-roofing:7:ja-en:card:7",
+      "id": "master-roofing:7:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "アジャスターが早口で聞き取れませんでした。「もう少しゆっくり繰り返してもらえますか」と英語で言ってみましょう。",
+      "targetEnglish": "Can you repeat that more slowly?",
+      "sourceAnchor": "master-roofing:7:ja-en:card:20",
+      "id": "master-roofing:7:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「嵐は火曜日の夜に通過しました」を英語で書いてください。文頭の冠詞 The に注意しましょう。",
+      "targetEnglish": "The storm came through Tuesday night.",
+      "sourceAnchor": "master-roofing:7:ja-en:card:15",
+      "id": "master-roofing:7:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "explanationJapanese": "過去の出来事を語る文です。spoke は speak、gave は give の過去形で、どちらも不規則動詞です。The adjuster の the は、この場面に来ている特定の査定担当者を指します。several measurements は複数形なので冠詞は付きません。",
+      "sourceAnchor": "master-roofing:7:ja-en:line:11",
+      "id": "master-roofing:7:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Can you repeat that more slowly?",
+      "explanationJapanese": "Can you + 動詞の原形で、相手に丁寧に頼む疑問文です。that は相手が今言った内容を指します。more slowly は副詞 slowly の比較級で、「もっとゆっくり」という意味です。",
+      "sourceAnchor": "master-roofing:7:ja-en:card:20",
+      "id": "master-roofing:7:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "the hail fell for about 15 minutes",
+      "explanationJapanese": "fell は fall の過去形です。for + 時間で「〜の間」という続いた長さを表します。the hail の the は、その嵐で降った特定の雹を指します。hail は数えられない名詞なので、a は付けません。",
+      "sourceAnchor": "master-roofing:7:ja-en:line:1",
+      "id": "master-roofing:7:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the adjuster",
+      "glossJapanese": "損害保険の査定担当者（アジャスター）",
+      "senseJapanese": "保険会社の側で損害の状況を確認しに来る人。この場面の特定の一人なので the を付けます。",
+      "sourceAnchor": "master-roofing:7:ja-en:card:1",
+      "id": "master-roofing:7:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the claim",
+      "glossJapanese": "（保険の）請求、申し立て",
+      "senseJapanese": "損害について保険会社に出す申し立て。ここではオルティス家の一件を指すので the を付けます。",
+      "sourceAnchor": "master-roofing:7:ja-en:card:6",
+      "id": "master-roofing:7:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the insurance company",
+      "glossJapanese": "保険会社",
+      "senseJapanese": "保険を扱う会社。ここでは請求を確認する側です。話題になっている特定の会社なので the を付けます。",
+      "sourceAnchor": "master-roofing:7:ja-en:card:2",
+      "id": "master-roofing:7:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "the adjuster"
+    },
+    "openingEnglish": "Adjuster: How many hits do you count on the north side?",
+    "closureEnglish": "Rogelio: Sorry, can you repeat that more slowly?",
+    "objectivesEnglish": [
+      "Tell the adjuster when the storm came through.",
+      "Name the adjuster, the insurance company, and the claim with their articles.",
+      "Ask the adjuster to repeat more slowly when he speaks fast and gives several measurements."
+    ],
+    "wordBankEnglish": [
+      "the adjuster",
+      "the insurance company",
+      "the claim",
+      "the storm",
+      "the hail",
+      "The storm came through Tuesday night.",
+      "Can you repeat that more slowly?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:7:ja-en:line:2",
+      "master-roofing:7:ja-en:line:12",
+      "master-roofing:7:ja-en:line:1",
+      "master-roofing:7:ja-en:line:11",
+      "master-roofing:7:ja-en:card:1",
+      "master-roofing:7:ja-en:card:2",
+      "master-roofing:7:ja-en:card:6",
+      "master-roofing:7:ja-en:card:7",
+      "master-roofing:7:ja-en:card:3",
+      "master-roofing:7:ja-en:card:15",
+      "master-roofing:7:ja-en:card:20",
+      "master-roofing:7:ja-en:line:9"
+    ],
+    "id": "master-roofing:7:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:7:ja-en:line:11",
+      "sourceEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "languageGoalEnglish": "Ask for repetition when the adjuster speaks fast; no coverage or measurement decision.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "Full hail-inspection objective remains incomplete. Weather history, inspection authority, insurance scope agreement, test-square size/count threshold and repair/replacement decisions are held for qualified source/roofing review.",
+    "Do not turn source report quantities into field-method guidance or infer coverage/payment from insurance company.",
+    "Opus flagged hit terminology, insurance authority and unrelated field method; revised supplement uses storm report and repetition request only.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete"
+}

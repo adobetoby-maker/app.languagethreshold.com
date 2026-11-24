@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:9:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-9-source-decision-2026-11-18/packet.json",
+    "sha256": "4d95f6be2aaafdafc87093cc962d95069697db1feb99a50feaa38eccabf8f3f8"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-7-9-draft.json",
+      "sha256": "700ee6ee5f7853e3ec58889d8ce977dc54c0ffd6fce8043d8352add5738ac423"
+    }
+  },
+  "objectiveEnglish": "Call Julio aside in private, reassure him that it's not to scold him, and ask for his view of what happened with the crooked course.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "「the crooked course」を見て意味を確認しましょう。シングル（屋根材）の列が曲がっている状態のことです。この場面の特定の列なので、冠詞 the が付いています。",
+      "targetEnglish": "the crooked course",
+      "sourceAnchor": "master-roofing:9:ja-en:card:1",
+      "id": "master-roofing:9:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「（仕事ぶりについての）指摘や評価を相手に伝えること」を英語で何と言いますか。冠詞 the を付けて思い出してください。",
+      "targetEnglish": "the feedback",
+      "sourceAnchor": "master-roofing:9:ja-en:card:8",
+      "id": "master-roofing:9:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "音声を聞いて、聞こえた語句を3つの候補から選んでください。意味は「作業のペース、速さ」です。",
+      "targetEnglish": "the pace",
+      "candidateOptionsEnglish": [
+        "the pace",
+        "the trust",
+        "the worker"
+      ],
+      "sourceAnchor": "master-roofing:9:ja-en:card:13",
+      "id": "master-roofing:9:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "the pace"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「ほかの人のいないところで、二人だけで」を英語で入力してください。この表現には冠詞が付きません。",
+      "targetEnglish": "in private",
+      "sourceAnchor": "master-roofing:9:ja-en:card:9",
+      "id": "master-roofing:9:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "フリオ本人の考えを聞きたい場面です。「ここで何があったと思う？」と英語で言ってみましょう。",
+      "targetEnglish": "What happened here, in your view?",
+      "sourceAnchor": "master-roofing:9:ja-en:card:17",
+      "id": "master-roofing:9:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「叱るためではないよ」を英語で書いてください。",
+      "targetEnglish": "It's not to scold you.",
+      "sourceAnchor": "master-roofing:9:ja-en:card:16",
+      "id": "master-roofing:9:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "What happened here, in your view?",
+      "explanationJapanese": "What が主語になる疑問文です。did を使わず、What のすぐ後に過去形の動詞 happened を置きます。in your view は「あなたの考えでは」という意味で、冠詞の代わりに所有格 your を使います。",
+      "sourceAnchor": "master-roofing:9:ja-en:card:17",
+      "id": "master-roofing:9:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "Rogelio didn't say anything in front of the crew and called him aside.",
+      "explanationJapanese": "過去の出来事を語る文です。否定は didn't + 動詞の原形（say）で作り、否定文では anything を使います。called は規則動詞の過去形です。the crew の the は、その現場の特定の作業班を指します。",
+      "sourceAnchor": "master-roofing:9:ja-en:line:3",
+      "id": "master-roofing:9:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "your pace is good and I trust you",
+      "explanationJapanese": "相手を安心させる現在形の文です。your pace のように所有格 your が付くと、冠詞 the は使いません（the pace → your pace）。trust はここでは動詞「信頼する」で、名詞の the trust（信頼）と形は同じです。",
+      "sourceAnchor": "master-roofing:9:ja-en:line:5",
+      "id": "master-roofing:9:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "the crooked course",
+      "glossJapanese": "曲がった列（シングルの横一列）",
+      "senseJapanese": "まっすぐ並ぶはずのシングル（屋根材）の列が斜めにずれている状態。特定の列を指すときは the、初めて話題に出すときは a crooked course と言います。",
+      "sourceAnchor": "master-roofing:9:ja-en:card:1",
+      "id": "master-roofing:9:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "the feedback",
+      "glossJapanese": "フィードバック（仕事への指摘・評価）",
+      "senseJapanese": "相手の仕事について、良い点や直す点を伝えること。数えられない名詞なので a は付けず、複数形にもしません。",
+      "sourceAnchor": "master-roofing:9:ja-en:card:8",
+      "id": "master-roofing:9:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "in private",
+      "glossJapanese": "二人だけで、内々に",
+      "senseJapanese": "ほかの人の前ではなく、当人だけに話すこと。冠詞を付けない決まった言い方です。",
+      "sourceAnchor": "master-roofing:9:ja-en:card:9",
+      "id": "master-roofing:9:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio",
+      "partner": "Julio"
+    },
+    "openingEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.",
+    "closureEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+    "objectivesEnglish": [
+      "Invite Julio to look at the course with you in private.",
+      "Tell Julio it's not to scold him and that his pace is good.",
+      "Ask Julio for his own view of what happened."
+    ],
+    "wordBankEnglish": [
+      "the crooked course",
+      "the feedback",
+      "in private",
+      "the pace",
+      "the trust",
+      "the worker",
+      "It's not to scold you.",
+      "What happened here, in your view?"
+    ],
+    "sourceAnchors": [
+      "master-roofing:9:ja-en:line:4",
+      "master-roofing:9:ja-en:line:7",
+      "master-roofing:9:ja-en:line:3",
+      "master-roofing:9:ja-en:line:5",
+      "master-roofing:9:ja-en:line:6",
+      "master-roofing:9:ja-en:card:1",
+      "master-roofing:9:ja-en:card:8",
+      "master-roofing:9:ja-en:card:9",
+      "master-roofing:9:ja-en:card:13",
+      "master-roofing:9:ja-en:card:12",
+      "master-roofing:9:ja-en:card:14",
+      "master-roofing:9:ja-en:card:16",
+      "master-roofing:9:ja-en:card:17"
+    ],
+    "id": "master-roofing:9:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:9:ja-en:line:7",
+      "sourceEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+      "languageGoalEnglish": "Ask for the worker’s view privately and acknowledge his account; no corrective method prescribed.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "Full feedback/repair objective remains incomplete. Course exposure/product specification, measurement frequency, removal/correction methods and supervisor authorization remain held.",
+    "Practice only private feedback, reassurance and asking the worker for his view; source rework quantities are not prescribed as field guidance.",
+    "Opus found cross-lesson Hear options and unsupported past-tense explanation for source present ask; replaced with same-lesson options and source question/narrative grammar.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete"
+}

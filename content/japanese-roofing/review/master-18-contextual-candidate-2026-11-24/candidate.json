@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "kind": "inert-contextual-candidate",
+  "pair": {
+    "target": "English",
+    "native": "Japanese"
+  },
+  "lessonId": "master-roofing:18:ja-en",
+  "identityStatus": "existing proposed master stage IDs; review evidence only, no progress migration",
+  "sourceReview": {
+    "path": "content/japanese-roofing/review/master-18-source-decision-2026-11-18/packet.json",
+    "sha256": "9a3609c6dfc3a3399e5b9a0922f1256db2bad0e0c256597bb6b95886c03a0ee6"
+  },
+  "source": {
+    "curriculum": {
+      "path": "src/data/master-roofing-curriculum.ts",
+      "sha256": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353"
+    },
+    "lessonContent": {
+      "path": "public/lesson-content/es/master-roofing.json",
+      "sha256": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65"
+    },
+    "archivedDraft": {
+      "path": "content/review-archive/french-japanese-2026-11-15/japanese-roofing/master-16-18-draft.json",
+      "sha256": "98e4983f5cb1af020f7cf968215c3f17e07627fe0ace8262ac51d6c759c00211"
+    }
+  },
+  "objectiveEnglish": "Practice answering an incoming call, asking who is calling, asking about Friday availability, and recognizing a poor connection.",
+  "activities": [
+    {
+      "mode": "see",
+      "promptJapanese": "お客様に送るテキストメッセージの書き出しです。次の英文を読んで、意味を確認しましょう。",
+      "targetEnglish": "Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "sourceAnchor": "master-roofing:18:ja-en:card:15",
+      "id": "master-roofing:18:ja-en:activity:see",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "recall",
+      "promptJapanese": "「雨天による遅れ」を、the を付けた英語で思い出して言ってください。",
+      "targetEnglish": "the rain delay",
+      "sourceAnchor": "master-roofing:18:ja-en:card:5",
+      "id": "master-roofing:18:ja-en:activity:recall",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "hear",
+      "promptJapanese": "聞こえた英文を、3つの候補から選んでください。",
+      "targetEnglish": "Would it be possible to start on Thursday?",
+      "sourceAnchor": "master-roofing:18:ja-en:card:16",
+      "candidateOptionsEnglish": [
+        "Would it be possible to start on Thursday?",
+        "We could arrive at eight, if that works for you.",
+        "I look forward to your reply."
+      ],
+      "id": "master-roofing:18:ja-en:activity:hear",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": "Would it be possible to start on Thursday?"
+    },
+    {
+      "mode": "type",
+      "promptJapanese": "「すみません、電話が切れてしまいました。」を英語で入力してください。",
+      "targetEnglish": "Sorry, the call dropped.",
+      "sourceAnchor": "master-roofing:18:ja-en:card:20",
+      "id": "master-roofing:18:ja-en:activity:type",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "say",
+      "promptJapanese": "かかってきた電話に出て、相手がどなたかを丁寧に尋ねてみましょう。",
+      "targetEnglish": "Who am I speaking with?",
+      "sourceAnchor": "master-roofing:18:ja-en:card:19",
+      "id": "master-roofing:18:ja-en:activity:say",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    },
+    {
+      "mode": "write",
+      "promptJapanese": "「念のため、私の番号を残しておきます。」と英語で書いてください。",
+      "targetEnglish": "I'll leave you my number just in case.",
+      "sourceAnchor": "master-roofing:18:ja-en:card:21",
+      "id": "master-roofing:18:ja-en:activity:write",
+      "reviewed": false,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "hearScriptCandidateEnglish": null
+    }
+  ],
+  "forms": [
+    {
+      "exampleEnglish": "who am I speaking with?",
+      "explanationJapanese": "電話で相手の名前を丁寧に尋ねる決まった言い方です。文末の with を忘れないようにします。",
+      "sourceAnchor": "master-roofing:18:ja-en:line:8",
+      "id": "master-roofing:18:ja-en:form:1",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "what would your availability be on Friday?",
+      "explanationJapanese": "would を使うと、is よりも控えめで丁寧な尋ね方になります。availability は「都合のつく時間」という意味です。",
+      "sourceAnchor": "master-roofing:18:ja-en:line:10",
+      "id": "master-roofing:18:ja-en:form:2",
+      "reviewed": false
+    },
+    {
+      "exampleEnglish": "I can't hear you well",
+      "explanationJapanese": "can't hear ～ well は「～がよく聞こえない」という意味です。電話の音声が悪いときに使います。",
+      "sourceAnchor": "master-roofing:18:ja-en:line:11",
+      "id": "master-roofing:18:ja-en:form:3",
+      "reviewed": false
+    }
+  ],
+  "dictionary": [
+    {
+      "headEnglish": "text message",
+      "glossJapanese": "テキストメッセージ",
+      "senseJapanese": "携帯電話で送る文字のメッセージ。",
+      "sourceAnchor": "master-roofing:18:ja-en:card:1",
+      "id": "master-roofing:18:ja-en:dictionary:1",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "voicemail",
+      "glossJapanese": "留守番電話",
+      "senseJapanese": "相手が電話に出ないときに、声のメッセージを残せる機能。",
+      "sourceAnchor": "master-roofing:18:ja-en:card:3",
+      "id": "master-roofing:18:ja-en:dictionary:2",
+      "reviewed": false
+    },
+    {
+      "headEnglish": "phone number",
+      "glossJapanese": "電話番号",
+      "senseJapanese": "電話をかけるための番号。",
+      "sourceAnchor": "master-roofing:18:ja-en:card:4",
+      "id": "master-roofing:18:ja-en:dictionary:3",
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedRoofing": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "speaking": {
+    "roles": {
+      "learner": "Rogelio, the crew lead at Mendoza Roofing, answers a call from a number he does not know.",
+      "partner": "Daniel Kim, Mrs. Kim's husband, calls after seeing the text message."
+    },
+    "openingEnglish": "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+    "closureEnglish": "Mr. Kim: Friday works, but sorry, I can't hear you well.",
+    "objectivesEnglish": [
+      "Answer the call with the company name and ask who is speaking.",
+      "Ask what the caller's availability would be on Friday.",
+      "Recognize when the caller says he cannot hear you well."
+    ],
+    "wordBankEnglish": [
+      "the text message",
+      "the phone call",
+      "the voicemail",
+      "the phone number",
+      "the availability"
+    ],
+    "sourceAnchors": [
+      "master-roofing:18:ja-en:line:7",
+      "master-roofing:18:ja-en:line:8",
+      "master-roofing:18:ja-en:line:9",
+      "master-roofing:18:ja-en:line:10",
+      "master-roofing:18:ja-en:line:11",
+      "master-roofing:18:ja-en:card:1",
+      "master-roofing:18:ja-en:card:2",
+      "master-roofing:18:ja-en:card:3",
+      "master-roofing:18:ja-en:card:4",
+      "master-roofing:18:ja-en:card:8"
+    ],
+    "id": "master-roofing:18:ja-en:speaking:contextual",
+    "reviewed": false,
+    "complication": {
+      "sourceAnchor": "master-roofing:18:ja-en:line:12",
+      "sourceEnglish": "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+      "languageGoalEnglish": "Communicate after the dropped call while keeping a proposal distinct from a confirmed appointment; no agreement invented.",
+      "reviewed": false
+    }
+  },
+  "internalReviewNotes": [
+    "ALL scheduling/contract source faces remain held. Partial phone/message/date-proposal language only; full customer-scheduling objective incomplete.",
+    "Conditional proposed dates/times must remain distinct from source reply/confirmation. Broken-call timing, material delivery/driveway availability, contractual authority and arrival-change notice remain internal source/domain holds.",
+    "Japanese, roofing and dictionary qualified review remains open. AI assistance is not qualified approval. No audio generated or registered; Hear remains a text candidate only.",
+    "Partial scope: answering an incoming call, text-message and phone vocabulary, and dropped-call phrases only. No scheduling or confirmation outcome is taught as settled.",
+    "The call is incoming: Mr. Kim calls from a number Rogelio does not know (line 7) and Rogelio answers (line 8). The speaking scene runs from line 8 to line 11 only.",
+    "The Thursday start was proposed by text to Mrs. Kim (line 4), not by phone to Mr. Kim, and Mr. Kim declined it (line 9). Card 16 is practiced receptively only.",
+    "On the call Mr. Kim agreed to Friday without a time (line 11). Eight o'clock was a voicemail proposal ('would be', line 13), confirmed in writing by Rogelio (line 15) and accepted in line 16. The Wednesday delivery is conditional ('would arrive'). All of these are source scene facts, not verified commitments.",
+    "Card 15 opens a text message in the source (Spanish 'le escribe'); it is presented as a message opening, not as a phone greeting. Cards 20 and 21 occur on the voicemail and its follow-up in the source.",
+    "The archived speaking role (crew member) does not match the source role (crew lead); source and role review remains open.",
+    "Telephone register and the Japanese terms テキストメッセージ, 留守番電話 and 雨天による遅れ need Japanese review. Driveway/property vocabulary is excluded until reviewed."
+  ],
+  "scope": "partial contextual supplement; full source roofing objective remains incomplete",
+  "selectionStatus": "all source faces held; provisional contextual proposals only"
+}

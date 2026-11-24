@@ -1,0 +1,3 @@
+# Final source-grounded self-check
+
+Exact ordered English source faces and hashes independently validated. Haiku Spanish-facing prompts corrected to English target/French support; held source/locale/role senses propagated and original work objective explicitly incomplete. Opus/Fable findings corrected for audience/printed-source attribution, clinical-vs-archive provenance, progressive background, full sentence meaning, articles, cue/answer fit, and duplicate closures. Clinical terms taught directly as separate unselected proposals; temperature scale, triage/emergency locale and field plan remain held. AI critique is not qualified approval. All French senses, dictionary links, recordings and progress remain unregistered.

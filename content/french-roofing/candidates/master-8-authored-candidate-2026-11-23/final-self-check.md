@@ -1,0 +1,3 @@
+# Final source-grounded self-check
+
+Validators pass source hashes, exact ordered English/Spanish anchors, stable IDs, held isolation, original objective retention and null/false gates. Exact story narration preserves Tuesday night and about 15 minutes without insurer-count/measurement standards. Refusal practice uses printed labels/document availability, not actual weather access, warranty, tarp or responsibility selection. Private copied-term dialogue does not diagnose field alignment or approve rework; French role/request-strength proposals are explicitly unselected and held-dependent. All archive options remain exact unapproved evidence. Actual safe-mode Haiku5.5 → Opus5.5 → Fable5.2, one shared batch per model; no AI qualified approval.

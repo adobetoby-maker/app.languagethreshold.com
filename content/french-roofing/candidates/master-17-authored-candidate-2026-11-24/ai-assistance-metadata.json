@@ -1,0 +1,28 @@
+{
+  "authoring": "safe-mode Haiku source-grounded authoring and Codex assembly",
+  "haikuCalls": 1,
+  "haikuModel": "claude-haiku-5-5",
+  "haikuSessionId": "1ec15801-d06f-43d0-9fb8-a9aecc97591f",
+  "haikuSafeMode": true,
+  "haikuTools": [],
+  "opusCalls": 1,
+  "fableCalls": 1,
+  "qualifiedReview": false,
+  "opusModel": "claude-opus-5-5",
+  "opusSessionId": "5319c50a-fa8c-4d1e-ba71-1df2bc87b646",
+  "opusSafeMode": true,
+  "opusTools": [],
+  "fableModel": "claude-fable-5-2",
+  "fableSessionId": "0238495d-bde6-47da-b2dd-d6d63e382c4e",
+  "fableSafeMode": true,
+  "fableTools": [],
+  "claudeCliVersionObserved": "2.1.329",
+  "sharedBatchLessons": [
+    "master-roofing:16:fr-en",
+    "master-roofing:17:fr-en",
+    "master-roofing:18:fr-en"
+  ],
+  "callCountScope": "One shared call per model per three-lesson batch",
+  "reviewSequence": "Haiku authoring \u2192 source correction \u2192 Opus read-only critique/corrections \u2192 Fable read-only critique \u2192 final source-grounded corrections/independent validation",
+  "sourceAuditOriginMain": "62cdd239e79ea63e5b4c11582bcff12765f9e930"
+}

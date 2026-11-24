@@ -1,0 +1,3 @@
+# Source-grounded self-check
+
+All ordered source faces and underlying pins independently validated; no source packet changed. Original code/inspection/structural/schedule/contract objective remains held and incomplete. All activities/forms are explicitly blocked proposals, not accepted source answers. Corrected embedded-question word order, document-only passive examples, logical connectors, causal reading problem, phone cue/response and written-vs-spoken closing, source grammar anchors and locale status. Internal notes remain separate from grammar teaching. Actual Haiku/Opus/Fable metadata recorded; AI is not qualified approval. No selected text/audio or runtime/progress registration.

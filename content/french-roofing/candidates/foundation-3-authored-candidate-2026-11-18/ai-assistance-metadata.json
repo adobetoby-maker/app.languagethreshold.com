@@ -17,5 +17,39 @@
   "haikuSafeMode": true,
   "haikuTools": [],
   "haikuContribution": "additional anchored Write composition, self-corrected prompt",
-  "opusReviewedHaikuExtension": false
+  "opusReviewedHaikuExtension": false,
+  "speakingReconciliation20261124": {
+    "claudeCliVersion": "2.1.329",
+    "scope": "Speaking/original-scope reconciliation only; historical fields above describe original authorship, not this batch.",
+    "sharedBatchLessons": [
+      "foundation-roofing:1:fr-en",
+      "foundation-roofing:2:fr-en",
+      "foundation-roofing:3:fr-en"
+    ],
+    "callCountScope": "one shared call per model for three-lesson reconciliation",
+    "qualifiedReview": false,
+    "sourceAuditOriginMain": "401d3f520cf6ea54ac900f47375f09be1dd01480",
+    "reviewSequence": "Haiku authoring → source correction → Opus read-only critique/corrections → Fable read-only critique → source-grounded correction/independent validation",
+    "haiku": {
+      "model": "claude-haiku-5-5",
+      "sessionId": "606b8c6c-bdde-46a0-b4f3-424acea00411",
+      "safeMode": true,
+      "tools": [],
+      "calls": 1
+    },
+    "opus": {
+      "model": "claude-opus-5-5",
+      "sessionId": "e4ab8e5f-2896-4c32-a1c6-91866de9dd69",
+      "safeMode": true,
+      "tools": [],
+      "calls": 1
+    },
+    "fable": {
+      "model": "claude-fable-5-2",
+      "sessionId": "66373a3c-e382-4475-add8-254cf709a9a5",
+      "safeMode": true,
+      "tools": [],
+      "calls": 1
+    }
+  }
 }

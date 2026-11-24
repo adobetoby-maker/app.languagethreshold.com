@@ -346,26 +346,116 @@
   ],
   "speaking": {
     "id": "foundation-roofing:3:fr-en:speaking:1",
-    "learnerRole": "Pedro, crew boss",
+    "learnerRole": "Pedro, crew boss (fictional)",
     "partnerRole": "crew member",
     "candidateOpeningEnglish": "I'm Pedro and I'm the crew boss.",
-    "goalEnglish": "Describe the source roof as wet, slippery and dangerous, introduce Pedro as crew boss and ask whether equipment is ready.",
+    "goalEnglish": "Introduce yourself as Pedro, the crew boss; describe the roof in the reading as wet, slippery and dangerous; report cold/hot conditions and ask whether the equipment is ready.",
     "candidateWordBankEnglish": [
+      "I'm Pedro and I'm the crew boss.",
+      "Today the roof is",
       "wet",
-      "slippery",
-      "dangerous",
-      "crew boss",
-      "Is the equipment ready?"
+      "slippery and dangerous",
+      "The air is cold",
+      "in the morning",
+      "At two in the afternoon",
+      "the roof is hot",
+      "Is the equipment ready?",
+      "That is my report.",
+      "A wet roof is",
+      "Yes."
     ],
     "closureEnglish": "That is my report.",
     "sourceAnchors": [
       "foundation-roofing:3:fr-en:line:1",
       "foundation-roofing:3:fr-en:line:2",
       "foundation-roofing:3:fr-en:line:3",
+      "foundation-roofing:3:fr-en:line:4",
+      "foundation-roofing:3:fr-en:line:5",
       "foundation-roofing:3:fr-en:line:6"
     ],
     "reviewed": false,
-    "closureProvenance": "Newly authored conversational closure, not an exact source quotation; qualified review pending."
+    "closureProvenance": "Newly authored conversational closure, not an exact source quotation; qualified review pending.",
+    "candidateOpeningFrench": "Je suis Pedro et je suis le chef d'équipe.",
+    "goalFrench": "Vous présenter comme Pedro, le chef d'équipe ; décrire le toit du texte comme mouillé, glissant et dangereux ; rapporter les conditions de froid et de chaleur et demander si le matériel est prêt.",
+    "practiceContextEnglish": "The learner plays fictional Pedro reading the printed roof-condition account and its equipment question.",
+    "contextFrench": "L'apprenant joue Pedro, un personnage fictif qui lit le récit imprimé sur l'état du toit et la question concernant le matériel.",
+    "partnerCuesEnglish": [
+      "Good morning. What is the roof like today?",
+      "Thanks. And the temperature?",
+      "Do you have a question?"
+    ],
+    "partnerCueSupportFrench": [
+      "Bonjour. Comment est le toit aujourd'hui ?",
+      "Merci. Et la température ?",
+      "Avez-vous une question ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Today the roof is wet. A wet roof is slippery and dangerous.",
+      "The air is cold in the morning. At two in the afternoon the roof is hot. That is my report.",
+      "Yes. Is the equipment ready?"
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Aujourd'hui, le toit est mouillé. Un toit mouillé est glissant et dangereux.",
+      "L'air est froid le matin. À deux heures de l'après-midi, le toit est chaud. Voilà mon rapport.",
+      "Oui. Est-ce que le matériel est prêt ?"
+    ],
+    "provenance": "Speaking reconciled from the candidate speaking row and reader lines 1 to 6. Line 7 and card 2 are excluded. Partner cues and expected learner turns are newly authored. The closure is a newly authored conversational closure, not an exact source quotation. Pending qualified review. Not approved. Original source objective remains incomplete; this speaking reconciliation is not qualified approval or specialist mission completion.",
+    "internalDecisionHolds": [
+      "Card 2 and line 7: the bare source word 'safe' and the claim that a ready harness is safe are held. Not used in speaking; no safety approval is conveyed.",
+      "Equipment and harness readiness is not answered here. 'Is the equipment ready?' is an inquiry with an unknown outcome.",
+      "No climbing or work authorization is conveyed.",
+      "Exchange ends on an open equipment question; no partner readiness reply is authored or approved.",
+      "Pinned source Reader4 conditionalFrench remains null; existing candidate Reader4 contains supplemental air-subject French pending qualified review. Both unchanged by this speaking pass."
+    ],
+    "heldDependent": true,
+    "holdReason": "Unmet: Spanish ser/estar two-verb contrast, no English contrast selected; safe description card2/Reader7 remains held.",
+    "heldDecisionRefs": [
+      "foundation-roofing:3:fr-en:card:2",
+      "foundation-roofing:3:fr-en:line:7"
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "I'm Pedro and I'm the crew boss.",
+      "Today the roof is wet. A wet roof is slippery and dangerous.",
+      "The air is cold in the morning. At two in the afternoon the roof is hot. That is my report.",
+      "Yes. Is the equipment ready?"
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Je suis Pedro et je suis le chef d'équipe.",
+      "Aujourd'hui, le toit est mouillé. Un toit mouillé est glissant et dangereux.",
+      "L'air est froid le matin. À deux heures de l'après-midi, le toit est chaud. Voilà mon rapport.",
+      "Oui. Est-ce que le matériel est prêt ?"
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "I'm Pedro and I'm the crew boss."
+      },
+      {
+        "speaker": "partner",
+        "text": "Good morning. What is the roof like today?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Today the roof is wet. A wet roof is slippery and dangerous."
+      },
+      {
+        "speaker": "partner",
+        "text": "Thanks. And the temperature?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The air is cold in the morning. At two in the afternoon the roof is hot. That is my report."
+      },
+      {
+        "speaker": "partner",
+        "text": "Do you have a question?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Yes. Is the equipment ready?"
+      }
+    ],
+    "closurePlacement": "Report closure ends learner reply2; reply3 is an open inquiry, no readiness answer."
   },
   "dictionaryMappings": [
     {
@@ -493,7 +583,8 @@
     "English target/French support; source Spanish grammar is provenance, not the proposed learning objective.",
     "No safety or equipment approval is conveyed by candidate vocabulary.",
     "Hear text is proposed, unrecorded and unselected; no playback enabled.",
-    "Proposed stable IDs do not create or migrate saved progress."
+    "Proposed stable IDs do not create or migrate saved progress.",
+    "Speaking-only reconciliation adds three English cue/reply pairs and French scaffolding while preserving exact source pins, IDs, all candidateRows/forms/activities/dictionary alternatives and false gates. Original source objective and mission retained verbatim as internal provenance, not claimed completed."
   ],
   "selectedFrench": null,
   "audioScript": null,
@@ -509,7 +600,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "extensionActivities": [
     {
@@ -528,5 +620,33 @@
       "scoringEnabled": false,
       "provenance": "Haiku 5.5 proposed composition from source anchors; self-corrected French prompt, not an exact source quotation."
     }
-  ]
+  ],
+  "sourceObjectiveEnglish": "Use the two verbs for 'to be' to describe people, conditions and safety",
+  "sourceSpeakingEnglish": "Describe the roof to a crew member: say whether it is wet, slippery or safe, and who the boss is.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; English-target/French-support linguistic reconciliation does not fulfill unresolved source-language and specialist objectives",
+  "sourceAuditOriginMain": "401d3f520cf6ea54ac900f47375f09be1dd01480",
+  "speakingPriorDraft20261118": {
+    "id": "foundation-roofing:3:fr-en:speaking:1",
+    "learnerRole": "Pedro, crew boss",
+    "partnerRole": "crew member",
+    "candidateOpeningEnglish": "I'm Pedro and I'm the crew boss.",
+    "goalEnglish": "Describe the source roof as wet, slippery and dangerous, introduce Pedro as crew boss and ask whether equipment is ready.",
+    "candidateWordBankEnglish": [
+      "wet",
+      "slippery",
+      "dangerous",
+      "crew boss",
+      "Is the equipment ready?"
+    ],
+    "closureEnglish": "That is my report.",
+    "sourceAnchors": [
+      "foundation-roofing:3:fr-en:line:1",
+      "foundation-roofing:3:fr-en:line:2",
+      "foundation-roofing:3:fr-en:line:3",
+      "foundation-roofing:3:fr-en:line:6"
+    ],
+    "reviewed": false,
+    "closureProvenance": "Newly authored conversational closure, not an exact source quotation; qualified review pending."
+  }
 }

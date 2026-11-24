@@ -20,3 +20,15 @@ for r in p['dictionaryMappings']:assert r['sourceAnchor'] in anchors;ids.append(
 assert len(ids)==len(set(ids)) and all(x.startswith(p['lessonId']+':') for x in ids)
 assert p['selectedFrench'] is p['audioScript'] is None and p['reviewed'] is False and all(v is False for v in p['gates'].values())
 print('PASS',p['lessonId'],len(p['candidateRows']),'faces, six activities, three forms, speaking, twelve dictionary mappings; source/IDs/gates')
+
+# Speaking reconciliation contract 2026-11-24
+sp=p['speaking']
+assert len(sp['partnerCuesEnglish'])==len(sp['partnerCueSupportFrench'])==len(sp['expectedLearnerTurnsEnglish'])==len(sp['expectedLearnerTurnsFrench'])==3
+assert sp['candidateOpeningFrench'] and len(sp['turnSequenceEnglish'])==7
+assert len(sp['expectedAllLearnerTurnsEnglish'])==len(sp['expectedAllLearnerTurnsFrench'])==4
+assert sp['expectedAllLearnerTurnsEnglish'][0]==sp['candidateOpeningEnglish']
+assert p['sourceObjectiveEnglish']==s['sourceObjectiveEnglish'] and p['sourceSpeakingEnglish']==s['sourceSpeakingEnglish']
+assert p['sourceObjectiveCompletionStatus'].startswith('held and incomplete') and p['sourceObjectiveInternalOnly'] is True
+assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
+assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
+assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])

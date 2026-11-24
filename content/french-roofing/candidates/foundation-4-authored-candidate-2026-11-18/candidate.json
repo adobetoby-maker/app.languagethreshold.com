@@ -10,7 +10,7 @@
     "path": "content/french-roofing/review/foundation-4-source-decision-2026-11-18/decision.json",
     "sha256": "a7e80c77a891413c6ff64f574a07a037b7471dc4b1f6c0e32650344d927938fd"
   },
-  "candidateObjectiveEnglish": "Tell the crew lead what you have and need; report missing water and request cold water using the exact source scene.",
+  "candidateObjectiveEnglish": "Tell the crew lead what you have and need in the printed report; report missing water and say you want cold water.",
   "candidateRows": [
     {
       "id": "foundation-roofing:4:fr-en:candidate:cards:1",
@@ -345,26 +345,129 @@
     }
   ],
   "speaking": {
-    "id": "foundation-roofing:4:fr-en:speaking:1",
+    "candidateOpeningEnglish": "There's a problem on the jobsite.",
+    "candidateOpeningFrench": "Il y a un problème sur le chantier.",
     "learnerRole": "roofing crew member",
     "partnerRole": "crew lead",
-    "candidateOpeningEnglish": "There's a problem on the jobsite.",
-    "goalEnglish": "Tell the crew lead what you have and need; report missing water and request cold water using the exact source scene.",
-    "candidateWordBankEnglish": [
-      "I have",
-      "I need a tool",
-      "There's no water",
-      "I want cold water"
+    "goalEnglish": "Tell the crew lead what you have and need in the printed report; report missing water and say you want cold water.",
+    "goalFrench": "Dire au chef d'équipe ce que vous avez et ce dont vous avez besoin dans le rapport imprimé ; signaler l'absence d'eau et dire que vous voulez de l'eau froide.",
+    "practiceContextEnglish": "A crew member reads a fictional printed jobsite report to a crew lead, describing missing water, very hot conditions, thirst and gear.",
+    "contextFrench": "Un membre de l'équipe lit au chef d'équipe un rapport de chantier fictif imprimé, décrivant l'absence d'eau, la grande chaleur, la soif et l'équipement.",
+    "partnerCuesEnglish": [
+      "In the printed report, what is the problem?",
+      "What does the report say you have and need?",
+      "What does the report say you want?"
     ],
-    "closureEnglish": "That is my report.",
+    "partnerCueSupportFrench": [
+      "Dans le rapport imprimé, quel est le problème ?",
+      "Selon le rapport, qu'est-ce que vous avez et de quoi avez-vous besoin ?",
+      "Selon le rapport, qu'est-ce que vous voulez ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "There's no water and it's very hot.",
+      "I have the hard hat and the gloves, but I need a tool.",
+      "I'm thirsty and I want cold water. That is my report."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Il n'y a pas d'eau et il fait très chaud.",
+      "J'ai le casque de chantier et les gants, mais j'ai besoin d'un outil.",
+      "J'ai soif et je veux de l'eau froide. Voilà mon rapport."
+    ],
+    "candidateWordBankEnglish": [
+      "There's a problem on the jobsite.",
+      "There's no water",
+      "it's very hot",
+      "I have",
+      "the hard hat",
+      "the gloves",
+      "but I need a tool",
+      "I'm thirsty",
+      "I want cold water",
+      "That is my report.",
+      "and"
+    ],
     "sourceAnchors": [
       "foundation-roofing:4:fr-en:line:1",
       "foundation-roofing:4:fr-en:line:2",
       "foundation-roofing:4:fr-en:line:3",
       "foundation-roofing:4:fr-en:line:4"
     ],
+    "provenance": "Reconciled from the Foundation 4 source decision and existing speaking draft. Cold-water French is proposed per source English; source temperature-wording decision remains open. No heat-illness, hydration, or work-continuation content is added. No qualified French, trade, dictionary, or audio approval is conveyed; reviewed is false.",
     "reviewed": false,
-    "closureProvenance": "Newly authored conversational closure, not an exact source quotation; qualified review pending."
+    "id": "foundation-roofing:4:fr-en:speaking:1",
+    "internalDecisionHolds": [
+      "foundation-roofing:4:fr-en:candidate:cards:5 - held (material sense unresolved); not used",
+      "foundation-roofing:4:fr-en:candidate:cards:6 - held (trash/debris split unresolved); not used",
+      "foundation-roofing:4:fr-en:candidate:cards:12 - held (harness obligation pending qualified trade/safety review); not used",
+      "foundation-roofing:4:fr-en:candidate:reader:5 - held (shingle term and locale); not used",
+      "foundation-roofing:4:fr-en:candidate:reader:6 - held (material/debris locale); not used",
+      "foundation-roofing:4:fr-en:candidate:reader:7 - held (tarp/broom site method); not used",
+      "Reader3 decision conditional French is null for froide/fraîche; existing candidate and speaking propose cold-water rendering, not selected.",
+      "Reader4 French follows existing supplement casque de chantier versus decision casque; unresolved, source/candidate faces unchanged."
+    ],
+    "closureEnglish": "That is my report.",
+    "closureProvenance": "Newly authored conversational closure, not an exact source quotation; qualified review pending. Appears once, in the final expected learner turn.",
+    "heldDependent": true,
+    "holdReason": "Unmet: what is missing on the roof, hay que obligation, material/debris/shingle senses, harness/fall-protection meaning (card12) and Reader3 temperature wording.",
+    "heldDecisionRefs": [
+      "foundation-roofing:4:fr-en:card:5",
+      "foundation-roofing:4:fr-en:card:6",
+      "foundation-roofing:4:fr-en:card:12",
+      "foundation-roofing:4:fr-en:line:5",
+      "foundation-roofing:4:fr-en:line:6",
+      "foundation-roofing:4:fr-en:line:7"
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "There's a problem on the jobsite.",
+      "There's no water and it's very hot.",
+      "I have the hard hat and the gloves, but I need a tool.",
+      "I'm thirsty and I want cold water. That is my report."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Il y a un problème sur le chantier.",
+      "Il n'y a pas d'eau et il fait très chaud.",
+      "J'ai le casque de chantier et les gants, mais j'ai besoin d'un outil.",
+      "J'ai soif et je veux de l'eau froide. Voilà mon rapport."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "There's a problem on the jobsite."
+      },
+      {
+        "speaker": "partner",
+        "text": "In the printed report, what is the problem?"
+      },
+      {
+        "speaker": "learner",
+        "text": "There's no water and it's very hot."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does the report say you have and need?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I have the hard hat and the gloves, but I need a tool."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does the report say you want?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I'm thirsty and I want cold water. That is my report."
+      }
+    ],
+    "heldRefsInterpretation": "heldDecisionRefs contains existing supplement candidate holds; source decisions and supplement-origin holds are distinguished separately, no source face changed.",
+    "additionalSourceDecisionHoldRefs": [
+      "foundation-roofing:4:fr-en:line:3"
+    ],
+    "closureFrench": "Voilà mon rapport.",
+    "frenchRegisterStatusInternal": "French vous support is one unselected candidate register; course/context tu-vs-vous questions remain qualified review decisions.",
+    "supplementHoldOriginNotes": {
+      "foundation-roofing:4:fr-en:line:7": "Supplement-origin method/obligation hold; source conditional French exists without review note."
+    }
   },
   "dictionaryMappings": [
     {
@@ -492,7 +595,9 @@
     "English target/French support; source Spanish grammar is provenance, not the proposed learning objective.",
     "No safety or equipment approval is conveyed by candidate vocabulary.",
     "Hear text is proposed, unrecorded and unselected; no playback enabled.",
-    "Proposed stable IDs do not create or migrate saved progress."
+    "Proposed stable IDs do not create or migrate saved progress.",
+    "Speaking/original-scope reconciliation only. All source faces, activities/forms/dictionary, source pins and IDs unchanged; previous nested speaking draft retained separately. Direct thirst/water vocabulary preserved; no heat illness/work authorization or safety outcome inferred.",
+    "Existing cold-water form3/Write extension depend on unresolved Reader3 froide/fraîche decision. Existing hard-hat candidate card4/dictionary4/Write and speaking use casque de chantier versus decision casque; lexical/locale decision open. These pre-existing arrays are unchanged."
   ],
   "selectedFrench": null,
   "audioScript": null,
@@ -508,7 +613,8 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "extensionActivities": [
     {
@@ -526,5 +632,32 @@
       "scoringEnabled": false,
       "provenance": "Haiku 5.5 proposed composition from source anchors; self-corrected French prompt, not an exact source quotation."
     }
-  ]
+  ],
+  "speakingPriorDraft20261118": {
+    "id": "foundation-roofing:4:fr-en:speaking:1",
+    "learnerRole": "roofing crew member",
+    "partnerRole": "crew lead",
+    "candidateOpeningEnglish": "There's a problem on the jobsite.",
+    "goalEnglish": "Tell the crew lead what you have and need; report missing water and request cold water using the exact source scene.",
+    "candidateWordBankEnglish": [
+      "I have",
+      "I need a tool",
+      "There's no water",
+      "I want cold water"
+    ],
+    "closureEnglish": "That is my report.",
+    "sourceAnchors": [
+      "foundation-roofing:4:fr-en:line:1",
+      "foundation-roofing:4:fr-en:line:2",
+      "foundation-roofing:4:fr-en:line:3",
+      "foundation-roofing:4:fr-en:line:4"
+    ],
+    "reviewed": false,
+    "closureProvenance": "Newly authored conversational closure, not an exact source quotation; qualified review pending."
+  },
+  "sourceObjectiveEnglish": "Say what you have, what is there, what you need and what you want",
+  "sourceSpeakingEnglish": "Tell the crew lead what you have, what you need, and what is missing on the roof.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower linguistic reconciliation does not replace unresolved source work objective",
+  "sourceAuditOriginMain": "713c1e72f25b10b11b57e8ecb0f30ff98b3f8ead"
 }

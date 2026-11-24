@@ -1,7 +1,7 @@
 {
   "lessonId": "foundation-roofing:5:fr-en",
-  "candidateObjectiveEnglish": "Talk about the source work plan, timing and cleanup sequence in English; ability/help requests remain held.",
-  "grammarExplanationEnglish": "English be going to + base verb expresses a plan: I’m going to go up. Compare going to a house (movement) with going to start (a plan). In After that we do the cleanup, use do for the action, not make. Ability/help-request practice remains held with the register decision.",
+  "candidateObjectiveEnglish": "Describe arrival, read the quoted cleanup line and state tomorrow's plan from the printed lesson sheet.",
+  "grammarExplanationEnglish": "English be going to + base verb expresses a plan: I’m going to go up. Compare going to a house (movement) with going to start (a plan). In After that we do the cleanup, use do for the action, not make. ",
   "activities": [
     {
       "id": "foundation-roofing:5:fr-en:activity:see",
@@ -134,108 +134,125 @@
     }
   ],
   "speaking": {
-    "roles": [
-      "You: a crew member explaining today’s plan",
-      "Partner: a coworker listening to the plan"
+    "candidateOpeningEnglish": "Today we get to the jobsite early.",
+    "candidateOpeningFrench": "Aujourd'hui, on arrive tôt au chantier.",
+    "learnerRole": "learner playing a crew member reading a printed lesson sheet",
+    "partnerRole": "practice partner asking about the printed lesson sheet",
+    "goalEnglish": "Describe arrival, read the quoted cleanup line and state tomorrow's plan from the printed lesson sheet.",
+    "goalFrench": "Décrire l'arrivée, lire la phrase de nettoyage citée et énoncer le programme de demain d'après la fiche de leçon imprimée.",
+    "practiceContextEnglish": "A learner plays a crew member reading a fictional printed lesson sheet about arrival, a quoted cleanup line and tomorrow's plan; a practice partner asks about that sheet.",
+    "contextFrench": "Un apprenant joue un membre d'équipe qui lit, sur une fiche de leçon imprimée, les énoncés fictifs sur l'arrivée, la phrase de nettoyage citée et le programme de demain ; un partenaire pose des questions sur cette fiche.",
+    "partnerCuesEnglish": [
+      "How do we get to the jobsite on the printed lesson sheet?",
+      "What does the printed lesson sheet say about cleanup?",
+      "What is tomorrow's plan on the printed lesson sheet?"
     ],
-    "opening": {
-      "french": "Aujourd'hui, on arrive tôt au chantier.",
-      "provenance": "newly-authored composition from today and source arrival line",
-      "sourceAnchors": [
-        "foundation-roofing:5:fr-en:card:1",
-        "foundation-roofing:5:fr-en:card:8",
-        "foundation-roofing:5:fr-en:line:2"
-      ],
-      "english": "Today we get to the jobsite early."
-    },
-    "goal": "Explain the source plan and sequence in English; help-request register remains held.",
-    "wordbank": [
+    "partnerCueSupportFrench": [
+      "Comment arrive-t-on au chantier selon la fiche de leçon imprimée ?",
+      "Que dit la fiche de leçon imprimée sur le nettoyage ?",
+      "Quel est le programme de demain sur la fiche de leçon imprimée ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "We get to the jobsite early in the truck.",
+      "The text says: \"After that we do the cleanup.\"",
+      "Tomorrow we're going to start another roof. That's our plan."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "On arrive tôt au chantier en camion.",
+      "Le texte dit : « Après ça, on fait le nettoyage. »",
+      "Demain, on va commencer un autre toit. Voilà notre programme."
+    ],
+    "candidateWordBankEnglish": [
+      "Today we get to the jobsite early.",
+      "We get to",
+      "the jobsite",
+      "early",
+      "in the truck",
+      "The text says",
+      "After that",
+      "we do the cleanup",
+      "Tomorrow",
+      "we're going to start",
+      "another roof",
+      "That's our plan."
+    ],
+    "sourceAnchors": [
+      "foundation-roofing:5:fr-en:line:2",
+      "foundation-roofing:5:fr-en:line:6",
+      "foundation-roofing:5:fr-en:line:7",
+      "foundation-roofing:5:fr-en:card:1"
+    ],
+    "provenance": "Existing opening retained. Source Reader2 arrival, Reader6 complete quoted cleanup sentence and Reader7 tomorrow statement used in source order. Reader1/new house not used. Source faces/activities/forms/dictionary and prior draft unchanged. Original help/ability objective remains incomplete.",
+    "reviewed": false,
+    "id": "foundation-roofing:5:fr-en:speaking:1",
+    "internalDecisionHolds": [
+      "foundation-roofing:5:fr-en:candidate:cards:4 - held (after, later); only the complete sequence phrase 'after that' is used, bare after/later not selected",
+      "foundation-roofing:5:fr-en:candidate:cards:10 - held (help-request register, tu/vous); not practiced, not replaced",
+      "foundation-roofing:5:fr-en:candidate:reader:5 - held (help request, linked to cards:10); not used",
+      "foundation-roofing:5:fr-en:candidate:reader:4 - held (heat-to-work causal line, safety review); not used",
+      "Held new-house Reader1 not used in canonical exchange; isolated after/later sense remains held, full Reader6 sentence proposed only.",
+      "Reader1 new-house sense: supplement-level hold; source decision has conditional French and no review note. Not used in canonical dialogue."
+    ],
+    "closureEnglish": "That's our plan.",
+    "closureProvenance": "Newly authored conversational closure; not an exact source quotation; qualified review pending. Appears once, in the final expected learner turn.",
+    "heldDependent": true,
+    "holdReason": "Unmet: help request and ability/register objective; new-house sense, after/later contrast and heat-to-fast-work causal claim remain held. Cleanup after-that antecedent refers to omitted intervening source work; quote is preserved without claiming complete work plan. Reader3 today/ascent-plan wording is unheld source evidence but deliberately unused here; no actual roof-access decision made.",
+    "heldDecisionRefs": [
+      "foundation-roofing:5:fr-en:card:4",
+      "foundation-roofing:5:fr-en:card:10",
+      "foundation-roofing:5:fr-en:line:1",
+      "foundation-roofing:5:fr-en:line:4",
+      "foundation-roofing:5:fr-en:line:5"
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Today we get to the jobsite early.",
+      "We get to the jobsite early in the truck.",
+      "The text says: \"After that we do the cleanup.\"",
+      "Tomorrow we're going to start another roof. That's our plan."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Aujourd'hui, on arrive tôt au chantier.",
+      "On arrive tôt au chantier en camion.",
+      "Le texte dit : « Après ça, on fait le nettoyage. »",
+      "Demain, on va commencer un autre toit. Voilà notre programme."
+    ],
+    "turnSequenceEnglish": [
       {
-        "french": "aujourd'hui",
-        "english": "today",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:1"
-        ]
+        "speaker": "learner",
+        "text": "Today we get to the jobsite early."
       },
       {
-        "french": "demain",
-        "english": "tomorrow",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:2"
-        ]
+        "speaker": "partner",
+        "text": "How do we get to the jobsite on the printed lesson sheet?"
       },
       {
-        "french": "maintenant",
-        "english": "now",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:3"
-        ]
+        "speaker": "learner",
+        "text": "We get to the jobsite early in the truck."
       },
       {
-        "french": "le chantier",
-        "english": "the jobsite",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:5"
-        ]
+        "speaker": "partner",
+        "text": "What does the printed lesson sheet say about cleanup?"
       },
       {
-        "french": "le camion",
-        "english": "the truck",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:6"
-        ]
+        "speaker": "learner",
+        "text": "The text says: \"After that we do the cleanup.\""
       },
       {
-        "french": "la maison",
-        "english": "the house",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:7"
-        ]
+        "speaker": "partner",
+        "text": "What is tomorrow's plan on the printed lesson sheet?"
       },
       {
-        "french": "tôt",
-        "english": "early",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:8"
-        ]
-      },
-      {
-        "french": "Je vais monter.",
-        "english": "I'm going to go up.",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:9"
-        ]
-      },
-      {
-        "french": "Il fait chaud.",
-        "english": "It's hot.",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:11"
-        ],
-        "senseNote": "weather"
-      },
-      {
-        "french": "On commence.",
-        "english": "Let's start.",
-        "sourceAnchors": [
-          "foundation-roofing:5:fr-en:card:12"
-        ]
+        "speaker": "learner",
+        "text": "Tomorrow we're going to start another roof. That's our plan."
       }
     ],
-    "closure": {
-      "english": "That is my plan.",
-      "provenance": "newly-authored conversational closure",
-      "sourceAnchors": [],
-      "french": "Voilà mon programme."
+    "heldRefsInterpretation": "heldDecisionRefs contains existing supplement candidate holds; source decisions and supplement-origin holds are distinguished separately, no source face changed.",
+    "supplementHoldOriginNotes": {
+      "foundation-roofing:5:fr-en:line:1": "Supplement-origin hold, not a source decision hold."
     },
-    "sourceAnchors": [
-      "foundation-roofing:5:fr-en:card:1",
-      "foundation-roofing:5:fr-en:card:8",
-      "foundation-roofing:5:fr-en:line:2"
-    ],
-    "provenance": "Source-anchored English opening and wordbank; newly authored closure.",
-    "id": "foundation-roofing:5:fr-en:speaking:1",
-    "reviewed": false
+    "closureFrench": "Voilà notre programme.",
+    "frenchRegisterStatusInternal": "French vous support is one unselected candidate register; course/context tu-vs-vous questions remain qualified review decisions.",
+    "openingProvenance": "Existing opening retained as an authored composition using card1 today and Reader2 arrival, not exact source quotation."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -577,11 +594,123 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish grammar is provenance only.",
     "Held source safety, register and regional senses are not selected.",
-    "No recorded audio, progress migration, owner page or runtime registration."
-  ]
+    "No recorded audio, progress migration, owner page or runtime registration.",
+    "Speaking/original-scope reconciliation only. All source faces, activities/forms/dictionary, source pins and IDs unchanged; previous nested speaking draft retained separately. no heat illness/work authorization or safety outcome inferred.",
+    "Existing grammar help/register limitation recorded internally; original source scope still held. No existing forms/examples were changed."
+  ],
+  "speakingPriorDraft20261118": {
+    "roles": [
+      "You: a crew member explaining today’s plan",
+      "Partner: a coworker listening to the plan"
+    ],
+    "opening": {
+      "french": "Aujourd'hui, on arrive tôt au chantier.",
+      "provenance": "newly-authored composition from today and source arrival line",
+      "sourceAnchors": [
+        "foundation-roofing:5:fr-en:card:1",
+        "foundation-roofing:5:fr-en:card:8",
+        "foundation-roofing:5:fr-en:line:2"
+      ],
+      "english": "Today we get to the jobsite early."
+    },
+    "goal": "Explain the source plan and sequence in English; help-request register remains held.",
+    "wordbank": [
+      {
+        "french": "aujourd'hui",
+        "english": "today",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:1"
+        ]
+      },
+      {
+        "french": "demain",
+        "english": "tomorrow",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:2"
+        ]
+      },
+      {
+        "french": "maintenant",
+        "english": "now",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:3"
+        ]
+      },
+      {
+        "french": "le chantier",
+        "english": "the jobsite",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:5"
+        ]
+      },
+      {
+        "french": "le camion",
+        "english": "the truck",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:6"
+        ]
+      },
+      {
+        "french": "la maison",
+        "english": "the house",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:7"
+        ]
+      },
+      {
+        "french": "tôt",
+        "english": "early",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:8"
+        ]
+      },
+      {
+        "french": "Je vais monter.",
+        "english": "I'm going to go up.",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:9"
+        ]
+      },
+      {
+        "french": "Il fait chaud.",
+        "english": "It's hot.",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:11"
+        ],
+        "senseNote": "weather"
+      },
+      {
+        "french": "On commence.",
+        "english": "Let's start.",
+        "sourceAnchors": [
+          "foundation-roofing:5:fr-en:card:12"
+        ]
+      }
+    ],
+    "closure": {
+      "english": "That is my plan.",
+      "provenance": "newly-authored conversational closure",
+      "sourceAnchors": [],
+      "french": "Voilà mon programme."
+    },
+    "sourceAnchors": [
+      "foundation-roofing:5:fr-en:card:1",
+      "foundation-roofing:5:fr-en:card:8",
+      "foundation-roofing:5:fr-en:line:2"
+    ],
+    "provenance": "Source-anchored English opening and wordbank; newly authored closure.",
+    "id": "foundation-roofing:5:fr-en:speaking:1",
+    "reviewed": false
+  },
+  "sourceObjectiveEnglish": "Talk about plans, actions and what you can do",
+  "sourceSpeakingEnglish": "Explain your plan for today on the jobsite and ask a crew member if they can help you.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower linguistic reconciliation does not replace unresolved source work objective",
+  "sourceAuditOriginMain": "713c1e72f25b10b11b57e8ecb0f30ff98b3f8ead"
 }

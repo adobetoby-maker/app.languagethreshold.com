@@ -1,6 +1,6 @@
 {
   "lessonId": "foundation-roofing:6:fr-en",
-  "candidateObjectiveEnglish": "Describe a crew’s usual workday using English present-simple statements and clock times.",
+  "candidateObjectiveEnglish": "Describe arrival time, days worked per week, the quoted ascent time and end-of-day cleanup in the printed routine.",
   "grammarExplanationEnglish": "Use English present simple for routines: I work, we go up, we clean up. With he, she, it or a singular noun, add -s: The crew gets to the jobsite. Time phrases include five days a week and at six in the morning.",
   "activities": [
     {
@@ -131,91 +131,125 @@
     }
   ],
   "speaking": {
-    "roles": [
-      "You: a roofer describing a normal workday",
-      "Listener: a crew member or new coworker"
+    "candidateOpeningEnglish": "The crew gets to the jobsite at six in the morning.",
+    "candidateOpeningFrench": "L'équipe arrive au chantier à six heures du matin.",
+    "learnerRole": "roofer describing a normal workday",
+    "partnerRole": "crew member or new coworker listening",
+    "goalEnglish": "Describe arrival time, days worked per week, the quoted ascent time and end-of-day cleanup in the printed routine.",
+    "goalFrench": "Décrire l'heure d'arrivée, le nombre de jours travaillés par semaine, l'heure de montée citée et le nettoyage de fin de journée dans la routine imprimée.",
+    "practiceContextEnglish": "A learner reads the arrival sentence of a printed fictional routine. A coworker asks about workdays, the quoted ascent time and cleanup in that text.",
+    "contextFrench": "Un apprenant lit la phrase d'arrivée d'une routine fictive imprimée. Un collègue pose des questions sur les jours de travail, l'heure de montée citée et le nettoyage dans ce texte.",
+    "partnerCuesEnglish": [
+      "In the printed account, how many days a week does the speaker work on roofs?",
+      "What time do we go up in the printed account?",
+      "What do we do at the end of the day in the printed account?"
     ],
-    "opening": {
-      "french": "L'équipe arrive au chantier à six heures du matin.",
-      "provenance": "source",
-      "sourceAnchors": [
-        "foundation-roofing:6:fr-en:line:2"
-      ],
-      "english": "The crew gets to the jobsite at six in the morning."
-    },
-    "goal": "Describe arrival, roof work and end-of-day cleanup using available source rows; midday meal, shingle and old-material lines remain held.",
-    "wordbank": [
-      {
-        "french": "le matin",
-        "english": "the morning",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:2"
-        ]
-      },
-      {
-        "french": "l'après-midi",
-        "english": "the afternoon",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:3"
-        ]
-      },
-      {
-        "french": "l'équipe",
-        "english": "the crew",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:4"
-        ]
-      },
-      {
-        "french": "le collègue",
-        "english": "the coworker",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:5"
-        ]
-      },
-      {
-        "french": "la semaine",
-        "english": "the week",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:7"
-        ]
-      },
-      {
-        "french": "Je travaille sur les toits.",
-        "english": "I work on roofs.",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:9"
-        ]
-      },
-      {
-        "french": "On monte à sept heures.",
-        "english": "We go up at seven.",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:10"
-        ]
-      },
-      {
-        "french": "On nettoie à la fin.",
-        "english": "We clean up at the end.",
-        "sourceAnchors": [
-          "foundation-roofing:6:fr-en:card:12"
-        ]
-      }
+    "partnerCueSupportFrench": [
+      "Dans le récit imprimé, combien de jours par semaine la personne travaille-t-elle sur les toits ?",
+      "À quelle heure monte-t-on dans le récit imprimé ?",
+      "Que fait-on à la fin de la journée dans le récit imprimé ?"
     ],
-    "closure": {
-      "english": "That is our usual routine.",
-      "provenance": "newly-authored conversational closure",
-      "sourceAnchors": [],
-      "french": "Voilà notre routine habituelle."
-    },
+    "expectedLearnerTurnsEnglish": [
+      "I work on roofs five days a week.",
+      "The text says: \"We go up at seven.\"",
+      "We clean up at the end of the day. That's the printed routine."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Je travaille sur les toits cinq jours par semaine.",
+      "Le texte dit : « On monte à sept heures. »",
+      "On nettoie à la fin de la journée. Voilà la routine imprimée."
+    ],
+    "candidateWordBankEnglish": [
+      "The crew gets to the jobsite at six in the morning.",
+      "I work on roofs",
+      "five days a week",
+      "The text says",
+      "We go up at seven.",
+      "We clean up",
+      "at the end of the day",
+      "That's the printed routine."
+    ],
     "sourceAnchors": [
-      "foundation-roofing:6:fr-en:line:1",
       "foundation-roofing:6:fr-en:line:2",
+      "foundation-roofing:6:fr-en:line:1",
+      "foundation-roofing:6:fr-en:line:3",
       "foundation-roofing:6:fr-en:line:7"
     ],
-    "provenance": "Source-anchored English opening and wordbank; newly authored closure.",
+    "provenance": "Reconciled from the Foundation 6 source decision and existing speaking draft. Uses printed fictional routine elements: five days a week, six in the morning, and end-of-day cleanup. Held shingle, material, lunch and register rows are not used. The canonical goal omits the earlier draft's held-line mention so internal holds stay out of learner text; the earlier goal is preserved in speakingPriorDraft20261118. No qualified French, trade, dictionary, or audio approval; reviewed is false. Source Reader3 seven-o'clock ascent is quoted as fictional printed language only, not actual schedule or access approval.",
+    "reviewed": false,
     "id": "foundation-roofing:6:fr-en:speaking:1",
-    "reviewed": false
+    "internalDecisionHolds": [
+      "foundation-roofing:6:fr-en:candidate:cards:1 - held (work/job sense); not used",
+      "foundation-roofing:6:fr-en:candidate:cards:6 - held (bare day sense); not used",
+      "foundation-roofing:6:fr-en:candidate:cards:8 - held (lunch word and regional use); not used",
+      "foundation-roofing:6:fr-en:candidate:cards:11 - held (tu/vous register); not used",
+      "foundation-roofing:6:fr-en:candidate:reader:4 - held (shingle/material locale); not used",
+      "foundation-roofing:6:fr-en:candidate:reader:5 - held (lunch); not used",
+      "foundation-roofing:6:fr-en:candidate:reader:6 - held (old-material mass or plural sense); not used",
+      "Source Reader3 seven-o'clock ascent quoted as fictional text only, no current work timing/access approval."
+    ],
+    "closureEnglish": "That's the printed routine.",
+    "closureProvenance": "Newly authored conversational closure; not an exact source quotation; qualified review pending. Appears once, in the final expected learner turn.",
+    "heldDependent": true,
+    "holdReason": "Unmet: full morning/afternoon routine with shingle/old material/lunch and register/source sense gaps; proposed printed subset does not complete full workday objective.",
+    "heldDecisionRefs": [
+      "foundation-roofing:6:fr-en:card:1",
+      "foundation-roofing:6:fr-en:card:6",
+      "foundation-roofing:6:fr-en:card:8",
+      "foundation-roofing:6:fr-en:card:11",
+      "foundation-roofing:6:fr-en:line:4",
+      "foundation-roofing:6:fr-en:line:5",
+      "foundation-roofing:6:fr-en:line:6"
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "The crew gets to the jobsite at six in the morning.",
+      "I work on roofs five days a week.",
+      "The text says: \"We go up at seven.\"",
+      "We clean up at the end of the day. That's the printed routine."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "L'équipe arrive au chantier à six heures du matin.",
+      "Je travaille sur les toits cinq jours par semaine.",
+      "Le texte dit : « On monte à sept heures. »",
+      "On nettoie à la fin de la journée. Voilà la routine imprimée."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "The crew gets to the jobsite at six in the morning."
+      },
+      {
+        "speaker": "partner",
+        "text": "In the printed account, how many days a week does the speaker work on roofs?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I work on roofs five days a week."
+      },
+      {
+        "speaker": "partner",
+        "text": "What time do we go up in the printed account?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The text says: \"We go up at seven.\""
+      },
+      {
+        "speaker": "partner",
+        "text": "What do we do at the end of the day in the printed account?"
+      },
+      {
+        "speaker": "learner",
+        "text": "We clean up at the end of the day. That's the printed routine."
+      }
+    ],
+    "heldRefsInterpretation": "heldDecisionRefs contains existing supplement candidate holds; source decisions and supplement-origin holds are distinguished separately, no source face changed.",
+    "supplementHoldOriginNotes": {
+      "foundation-roofing:6:fr-en:card:1": "Supplement-origin lexical sense hold; source conditional is available.",
+      "foundation-roofing:6:fr-en:card:11": "Supplement-origin register hold; source conditional is available."
+    },
+    "closureFrench": "Voilà la routine imprimée.",
+    "frenchRegisterStatusInternal": "French vous support is one unselected candidate register; course/context tu-vs-vous questions remain qualified review decisions."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -556,12 +590,107 @@
     "listeningReviewed": false,
     "offline": false,
     "savedProgress": false,
-    "v4Accepted": false
+    "v4Accepted": false,
+    "qualifiedEnglish": false
   },
   "internalNotes": [
     "English target/French support; source Spanish grammar is provenance only.",
     "Held source safety, register and regional senses are not selected.",
     "No recorded audio, progress migration, owner page or runtime registration.",
-    "Calendar jours in line1 and workday journée in line7 are contextual senses; the bare day headword remains held. Source meal article the lunch is preserved only as evidence, not adopted as a usage model."
-  ]
+    "Calendar jours in line1 and workday journée in line7 are contextual senses; the bare day headword remains held. Source meal article the lunch is preserved only as evidence, not adopted as a usage model.",
+    "Speaking/original-scope reconciliation only. All source faces, activities/forms/dictionary, source pins and IDs unchanged; previous nested speaking draft retained separately. no heat illness/work authorization or safety outcome inferred.",
+    "Pre-existing F6 candidate card8/Reader4 hold text and dictionary8 review routing are outside this speaking pass; lunch and nail senses need separate bounded hold-note reconciliation, no faces or dictionary rows changed."
+  ],
+  "speakingPriorDraft20261118": {
+    "roles": [
+      "You: a roofer describing a normal workday",
+      "Listener: a crew member or new coworker"
+    ],
+    "opening": {
+      "french": "L'équipe arrive au chantier à six heures du matin.",
+      "provenance": "source",
+      "sourceAnchors": [
+        "foundation-roofing:6:fr-en:line:2"
+      ],
+      "english": "The crew gets to the jobsite at six in the morning."
+    },
+    "goal": "Describe arrival, roof work and end-of-day cleanup using available source rows; midday meal, shingle and old-material lines remain held.",
+    "wordbank": [
+      {
+        "french": "le matin",
+        "english": "the morning",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:2"
+        ]
+      },
+      {
+        "french": "l'après-midi",
+        "english": "the afternoon",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:3"
+        ]
+      },
+      {
+        "french": "l'équipe",
+        "english": "the crew",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:4"
+        ]
+      },
+      {
+        "french": "le collègue",
+        "english": "the coworker",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:5"
+        ]
+      },
+      {
+        "french": "la semaine",
+        "english": "the week",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:7"
+        ]
+      },
+      {
+        "french": "Je travaille sur les toits.",
+        "english": "I work on roofs.",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:9"
+        ]
+      },
+      {
+        "french": "On monte à sept heures.",
+        "english": "We go up at seven.",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:10"
+        ]
+      },
+      {
+        "french": "On nettoie à la fin.",
+        "english": "We clean up at the end.",
+        "sourceAnchors": [
+          "foundation-roofing:6:fr-en:card:12"
+        ]
+      }
+    ],
+    "closure": {
+      "english": "That is our usual routine.",
+      "provenance": "newly-authored conversational closure",
+      "sourceAnchors": [],
+      "french": "Voilà notre routine habituelle."
+    },
+    "sourceAnchors": [
+      "foundation-roofing:6:fr-en:line:1",
+      "foundation-roofing:6:fr-en:line:2",
+      "foundation-roofing:6:fr-en:line:7"
+    ],
+    "provenance": "Source-anchored English opening and wordbank; newly authored closure.",
+    "id": "foundation-roofing:6:fr-en:speaking:1",
+    "reviewed": false
+  },
+  "sourceObjectiveEnglish": "Say what you and the crew do every day with regular verbs",
+  "sourceSpeakingEnglish": "Describe a normal workday: when the crew arrives, what you do in the morning and afternoon.",
+  "sourceObjectiveInternalOnly": true,
+  "sourceObjectiveCompletionStatus": "held and incomplete; narrower linguistic reconciliation does not replace unresolved source work objective",
+  "sourceAuditOriginMain": "713c1e72f25b10b11b57e8ecb0f30ff98b3f8ead"
 }

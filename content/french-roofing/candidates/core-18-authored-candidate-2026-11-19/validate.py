@@ -35,9 +35,43 @@ print('PASS',p['lessonId'],len(p['candidateRows']),'faces, six activities, three
 assert {r['sourceAnchor'] for r in p['candidateRows']}==set(anchors)
 assert len(p['candidateRows'])==len(anchors)
 assert len(p['speaking']['partnerCuesEnglish'])==len(p['speaking']['expectedLearnerTurnsEnglish'])==3
-assert len(p['speaking']['turnSequenceEnglish'])==8
+assert len(p['speaking']['turnSequenceEnglish'])==7 # courtesy is part of final learner reply
 assert p['speaking']['heldDependent'] is True and set(p['speaking']['heldDecisionRefs'])==held
 for d in p['dictionaryMappings']:
  assert d['registered'] is False and d['contextEnglishInternalOnly'] is True
  assert d['sourceKind']==next(x['kind'] for x in s['cards'] if x['id']==d['sourceAnchor'])
 assert all(f['englishForm'] != f['candidateExampleEnglish'].rstrip('.') for f in p['forms'] if '[' in f['englishForm'])
+
+# Speaking reconciliation contract 2026-11-25
+
+
+sp=p['speaking']
+assert len(sp['partnerCuesEnglish'])==len(sp['partnerCueSupportFrench'])==len(sp['expectedLearnerTurnsEnglish'])==len(sp['expectedLearnerTurnsFrench'])==3
+assert sp['candidateOpeningFrench'] and len(sp['turnSequenceEnglish'])==7
+assert len(sp['expectedAllLearnerTurnsEnglish'])==len(sp['expectedAllLearnerTurnsFrench'])==4
+assert sp['expectedAllLearnerTurnsEnglish'][0]==sp['candidateOpeningEnglish']
+assert p['sourceObjectiveEnglish']==s['sourceObjectiveEnglish'] and p['sourceSpeakingEnglish']==s['sourceSpeakingEnglish']
+assert p['sourceObjectiveCompletionStatus'].startswith('held and incomplete')
+assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
+assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
+assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])
+
+assert sp['turnSequenceEnglish'][0]=={'speaker':'learner','text':sp['candidateOpeningEnglish']}
+assert [t['text'] for t in sp['turnSequenceEnglish'][1::2]]==sp['partnerCuesEnglish']
+assert [t['text'] for t in sp['turnSequenceEnglish'][2::2]]==sp['expectedLearnerTurnsEnglish']
+assert sp['expectedAllLearnerTurnsEnglish'][1:]==sp['expectedLearnerTurnsEnglish']
+assert sp['expectedAllLearnerTurnsFrench']==[sp['candidateOpeningFrench']]+sp['expectedLearnerTurnsFrench']
+for dependency in sp['openSourceQuestionDependencies']:
+ q=s['sourceDecisionQuestions'][dependency['sourceQuestion']-1]
+ assert dependency['question']==q['question']
+ assert dependency['jsonPointer']=='/sourceDecisionQuestions/'+str(dependency['sourceQuestion']-1)
+ assert set(dependency['affectedUsedAnchors']) <= set(sp['sourceAnchors'])
+
+assert len(sp['turnSequenceFrench'])==7
+assert [t['text'] for t in sp['turnSequenceFrench'][1::2]]==sp['partnerCueSupportFrench']
+assert [t['text'] for t in sp['turnSequenceFrench'][2::2]]==sp['expectedLearnerTurnsFrench']
+
+assert sp['turnSequenceFrench'][0]=={'speaker':'learner','text':sp['candidateOpeningFrench']}
+assert sp['turnSequenceEnglish'][-1]['speaker']=='learner'
+assert sp['turnSequenceEnglish'][-1]['text'].endswith(sp['closureEnglish'])
+assert sp['turnSequenceFrench'][-1]['text'].endswith(sp['closureFrench'])

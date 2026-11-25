@@ -23,5 +23,39 @@
   "fableSessionId": "f19a5d22-6743-41ec-a53c-9f98c4d9bd25",
   "fableSafeMode": true,
   "fableTools": [],
-  "reviewSequence": "Haiku candidate authoring \u2192 source-grounded self-check \u2192 Opus read-only critique and corrections \u2192 Fable critique of corrected snapshot \u2192 final source-grounded corrections"
+  "reviewSequence": "Haiku candidate authoring → source-grounded self-check → Opus read-only critique and corrections → Fable critique of corrected snapshot → final source-grounded corrections",
+  "speakingReconciliation20261125": {
+    "claudeCliVersion": "2.1.329",
+    "scope": "Contextual speaking reconciliation only; historical top-level fields retain original authoring.",
+    "sharedBatchLessons": [
+      "core-roofing:16:fr-en",
+      "core-roofing:17:fr-en",
+      "core-roofing:18:fr-en"
+    ],
+    "callCountScope": "One shared call per model per three-lesson batch",
+    "qualifiedReview": false,
+    "sourceAuditOriginMain": "8420cc8f7b551a5425b2ae5e39fe04d2d17140bc",
+    "sequence": "Haiku authoring → source self-check → Opus read-only critique/corrections → Fable read-only critique → source-grounded final corrections/independent validators",
+    "haiku": {
+      "model": "claude-haiku-5-5",
+      "sessionId": "b2b72c71-77ec-40bf-b88e-779bf7e64de0",
+      "safeMode": true,
+      "tools": [],
+      "calls": 1
+    },
+    "opus": {
+      "model": "claude-opus-5-5",
+      "sessionId": "f502d132-e90a-4b24-86f7-b7b347f57978",
+      "safeMode": true,
+      "tools": [],
+      "calls": 1
+    },
+    "fable": {
+      "model": "claude-fable-5-2",
+      "sessionId": "d024cdc0-5e41-4118-8346-cc8a3b757930",
+      "safeMode": true,
+      "tools": [],
+      "calls": 1
+    }
+  }
 }

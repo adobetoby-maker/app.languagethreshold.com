@@ -141,22 +141,33 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A learner identifying a word-card picture.",
-    "partnerRole": "A partner showing a hypothetical picture card.",
-    "candidateOpeningEnglish": "Please show me the nail.",
-    "goalEnglish": "Request the picture, identify nail, ask its spelling and repeat it.",
-    "candidateWordBankEnglish": [
-      "nail",
-      "Is this a nail?",
-      "How do you spell nail?",
-      "Please show me the nail."
-    ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "new: closing line; no source meaning used.",
+    "id": "core-roofing:16:fr-en:speaking:1",
     "sourceAnchors": [
       "core-roofing:16:fr-en:card:4"
     ],
-    "practiceContextEnglish": "The partner has a hypothetical picture card of a single nail, initially face down; no installation position is shown.",
+    "learnerRole": "A learner identifying a picture card.",
+    "learnerRoleFrench": "Une personne qui identifie ce que représente une carte-image.",
+    "partnerRole": "A partner showing a hypothetical picture card.",
+    "partnerRoleFrench": "Un partenaire qui montre une carte-image hypothétique.",
+    "candidateOpeningEnglish": "Please show me the nail.",
+    "candidateOpeningFrench": "Montrez-moi le clou, s’il vous plaît.",
+    "goalEnglish": "Request the nail picture, confirm its pictured identity, ask the spelling of nail and repeat the word.",
+    "goalFrench": "Demander l’image du clou, confirmer ce que représente l’image, demander l’orthographe de « nail » et répéter le mot.",
+    "candidateWordBankEnglish": [
+      "Please show me the",
+      "nail.",
+      "Is this a",
+      "nail?",
+      "How do you spell",
+      "Nail.",
+      "Thank you."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureFrench": "Merci.",
+    "closureProvenance": "new: closing line; no source meaning used. Merged into the final learner reply.",
+    "closureSpeaker": "learner",
+    "practiceContextEnglish": "The partner has a hypothetical picture card of a single nail, initially face down, with no word printed. The learner knows the target word nail and requests its picture, then checks the picture after it is shown.",
+    "practiceContextFrench": "Le partenaire a une carte-image hypothétique représentant un seul clou, d’abord face cachée, sans mot imprimé. La personne qui apprend connaît le mot anglais « nail », demande son image puis vérifie ce que représente la carte montrée.",
     "partnerCuesEnglish": [
       "Here is the picture.",
       "Yes.",
@@ -165,38 +176,13 @@
     "expectedLearnerTurnsEnglish": [
       "Is this a nail?",
       "How do you spell nail?",
-      "Nail."
+      "Nail. Thank you."
     ],
-    "id": "core-roofing:16:fr-en:speaking:1",
-    "reviewed": false,
-    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
-    "heldDependent": true,
-    "heldDecisionRefs": [
-      "core-roofing:16:fr-en:card:1",
-      "core-roofing:16:fr-en:card:10",
-      "core-roofing:16:fr-en:card:11",
-      "core-roofing:16:fr-en:card:12",
-      "core-roofing:16:fr-en:card:13",
-      "core-roofing:16:fr-en:card:14",
-      "core-roofing:16:fr-en:card:15",
-      "core-roofing:16:fr-en:card:2",
-      "core-roofing:16:fr-en:card:3",
-      "core-roofing:16:fr-en:card:5",
-      "core-roofing:16:fr-en:card:6",
-      "core-roofing:16:fr-en:card:7",
-      "core-roofing:16:fr-en:card:8",
-      "core-roofing:16:fr-en:card:9",
-      "core-roofing:16:fr-en:reader:1",
-      "core-roofing:16:fr-en:reader:2",
-      "core-roofing:16:fr-en:reader:3",
-      "core-roofing:16:fr-en:reader:4",
-      "core-roofing:16:fr-en:reader:5",
-      "core-roofing:16:fr-en:reader:6",
-      "core-roofing:16:fr-en:reader:7",
-      "core-roofing:16:fr-en:reader:8"
+    "expectedLearnerTurnsFrench": [
+      "Est-ce un clou ?",
+      "Comment écrit-on « nail » ?",
+      "« Nail ». Merci."
     ],
-    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
-    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
     "turnSequenceEnglish": [
       {
         "speaker": "learner",
@@ -224,19 +210,99 @@
       },
       {
         "speaker": "learner",
-        "text": "Nail."
+        "text": "Nail. Thank you."
+      }
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Montrez-moi le clou, s’il vous plaît."
+      },
+      {
+        "speaker": "partner",
+        "text": "Voici l’image."
       },
       {
         "speaker": "learner",
-        "text": "Thank you."
+        "text": "Est-ce un clou ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Oui."
+      },
+      {
+        "speaker": "learner",
+        "text": "Comment écrit-on « nail » ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "N-A-I-L. Répétez, s’il vous plaît."
+      },
+      {
+        "speaker": "learner",
+        "text": "« Nail ». Merci."
       }
     ],
-    "learnerCuesFrench": [
-      "Demandez si l’image représente un clou.",
-      "Demandez comment s’écrit nail.",
-      "Répétez le mot anglais."
+    "frenchSenseStatus": "Candidate sense le clou for nail is unselected; qualified sense review pending.",
+    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
+    "labelCompositionProvenance": "Exact source noun: nail (card 4). Turn wording, partner cues and closure newly composed. English spelling N-A-I-L retained with French support.",
+    "reconciliationProvenance": "Opening, identification, spelling and repeat chain preserved. French support translates utterances rather than giving instructions to the learner. Final courtesy merged into the last learner reply (seven turns).",
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
+    "sourceObjectiveStatus": "Held and incomplete; this ordinary vocabulary exchange does not complete the source objective.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:16:fr-en:card:1",
+      "core-roofing:16:fr-en:card:2",
+      "core-roofing:16:fr-en:card:3",
+      "core-roofing:16:fr-en:card:5",
+      "core-roofing:16:fr-en:card:6",
+      "core-roofing:16:fr-en:card:7",
+      "core-roofing:16:fr-en:card:8",
+      "core-roofing:16:fr-en:card:9",
+      "core-roofing:16:fr-en:card:10",
+      "core-roofing:16:fr-en:card:11",
+      "core-roofing:16:fr-en:card:12",
+      "core-roofing:16:fr-en:card:13",
+      "core-roofing:16:fr-en:card:14",
+      "core-roofing:16:fr-en:card:15",
+      "core-roofing:16:fr-en:reader:1",
+      "core-roofing:16:fr-en:reader:2",
+      "core-roofing:16:fr-en:reader:3",
+      "core-roofing:16:fr-en:reader:4",
+      "core-roofing:16:fr-en:reader:5",
+      "core-roofing:16:fr-en:reader:6",
+      "core-roofing:16:fr-en:reader:7",
+      "core-roofing:16:fr-en:reader:8"
     ],
-    "closureSpeaker": "learner"
+    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
+    "reviewed": false,
+    "partnerCueSupportFrench": [
+      "Voici l’image.",
+      "Oui.",
+      "N-A-I-L. Répétez, s’il vous plaît."
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; ordinary picture/label exchange does not complete original source speaking mission",
+    "frenchRegisterStatusInternal": "Unselected vous register proposal; all support is unreviewed.",
+    "internalDecisionHolds": [
+      "No installed fastener, nailing zone, corrective demonstration or repair method selected.",
+      "Opus opening change to picture declined: preserved original candidate opening; request names known target word and follow-up checks pictured identity, not first discovery. Exact prior draft retained."
+    ],
+    "heldRefsInterpretation": "All candidate-level held faces remain listed; no additional wording-linked source question identified for the generic nail-picture speaking anchor.",
+    "openSourceQuestionDependencies": [],
+    "expectedAllLearnerTurnsEnglish": [
+      "Please show me the nail.",
+      "Is this a nail?",
+      "How do you spell nail?",
+      "Nail. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Montrez-moi le clou, s’il vous plaît.",
+      "Est-ce un clou ?",
+      "Comment écrit-on « nail » ?",
+      "« Nail ». Merci."
+    ],
+    "frenchSupportConventionInternal": "For English word-card readings/repetition, quote English label and supply French meaning in parentheses where useful. Other support fields translate the complete utterance; target remains English.",
+    "wordBankReusePolicy": "Fragments may be reused across different learner turns; not a single-use tile inventory."
   },
   "schema": 1,
   "pair": {
@@ -731,9 +797,110 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Opus corrections: complete held dependencies recorded on speaking; obsolete Haiku held lists removed. Dictionary lesson-title context is internal only. New ordinary vocabulary practice does not complete full source objective.",
-    "Final Fable/source self-check: packaging distinction propagated, ordinary document-label sense scoped separately, tutor cue support separated, explicit closure speaker; no qualified approval. Full source objectives remain held-dependent."
+    "Final Fable/source self-check: packaging distinction propagated, ordinary document-label sense scoped separately, tutor cue support separated, explicit closure speaker; no qualified approval. Full source objectives remain held-dependent.",
+    "Speaking gap reconciliation retains existing valid pairs and exact historical draft; adds contextual French support and merges courtesy into final reply. Source arrays, exact original objective and incomplete status preserved; no specialist completion or work approval.",
+    "Historical packaging/document-label self-check wording in earlier notes is retained as provenance; it is not a claim that this speaking exchange practices packaging/document labels."
   ],
   "sourceObjectiveEnglish": "Correct nails placed outside the specified zone",
   "sourceSpeakingEnglish": "Tell a worker 'Nail in the strip — not too high' and explain the correction.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner identifying a word-card picture.",
+    "partnerRole": "A partner showing a hypothetical picture card.",
+    "candidateOpeningEnglish": "Please show me the nail.",
+    "goalEnglish": "Request the picture, identify nail, ask its spelling and repeat it.",
+    "candidateWordBankEnglish": [
+      "nail",
+      "Is this a nail?",
+      "How do you spell nail?",
+      "Please show me the nail."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "new: closing line; no source meaning used.",
+    "sourceAnchors": [
+      "core-roofing:16:fr-en:card:4"
+    ],
+    "practiceContextEnglish": "The partner has a hypothetical picture card of a single nail, initially face down; no installation position is shown.",
+    "partnerCuesEnglish": [
+      "Here is the picture.",
+      "Yes.",
+      "N-A-I-L. Please repeat."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Is this a nail?",
+      "How do you spell nail?",
+      "Nail."
+    ],
+    "id": "core-roofing:16:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:16:fr-en:card:1",
+      "core-roofing:16:fr-en:card:10",
+      "core-roofing:16:fr-en:card:11",
+      "core-roofing:16:fr-en:card:12",
+      "core-roofing:16:fr-en:card:13",
+      "core-roofing:16:fr-en:card:14",
+      "core-roofing:16:fr-en:card:15",
+      "core-roofing:16:fr-en:card:2",
+      "core-roofing:16:fr-en:card:3",
+      "core-roofing:16:fr-en:card:5",
+      "core-roofing:16:fr-en:card:6",
+      "core-roofing:16:fr-en:card:7",
+      "core-roofing:16:fr-en:card:8",
+      "core-roofing:16:fr-en:card:9",
+      "core-roofing:16:fr-en:reader:1",
+      "core-roofing:16:fr-en:reader:2",
+      "core-roofing:16:fr-en:reader:3",
+      "core-roofing:16:fr-en:reader:4",
+      "core-roofing:16:fr-en:reader:5",
+      "core-roofing:16:fr-en:reader:6",
+      "core-roofing:16:fr-en:reader:7",
+      "core-roofing:16:fr-en:reader:8"
+    ],
+    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
+    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Please show me the nail."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the picture."
+      },
+      {
+        "speaker": "learner",
+        "text": "Is this a nail?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes."
+      },
+      {
+        "speaker": "learner",
+        "text": "How do you spell nail?"
+      },
+      {
+        "speaker": "partner",
+        "text": "N-A-I-L. Please repeat."
+      },
+      {
+        "speaker": "learner",
+        "text": "Nail."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "learnerCuesFrench": [
+      "Demandez si l’image représente un clou.",
+      "Demandez comment s’écrit nail.",
+      "Répétez le mot anglais."
+    ],
+    "closureSpeaker": "learner"
+  },
+  "sourceAuditOriginMain": "8420cc8f7b551a5425b2ae5e39fe04d2d17140bc"
 }

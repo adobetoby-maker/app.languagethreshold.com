@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "kind": "inert-orthographic-form-alternatives",
+  "moduleId": "master-japanese-basics",
+  "lessonNumber": 14,
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "927ce9d8d39aba3c28eba48126e9d5a154ffc898",
+  "source": {
+    "mainMaster": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    }
+  },
+  "privateSource": {
+    "routineMaster": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    "forms": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "bridge": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "src/data/private-japanese101-form-candidate.ts",
+      "sha256": "3a9ce5712e86f287773854cd1aa90fea0b645c03f6aa563b181aa79a8ad7414c"
+    },
+    "extensions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    }
+  },
+  "ticketEvidence": [
+    {
+      "number": 488,
+      "kind": "pull-request",
+      "state": "OPEN",
+      "isDraft": true,
+      "head": "018e69872875ae15acc7381368bac199bf61171e",
+      "finding": "Routine redesign remains private and unmerged; current main retains delayed meeting. Finally marker is present in private extension14; no missing-marker error claimed."
+    },
+    {
+      "number": 485,
+      "kind": "pull-request",
+      "state": "OPEN",
+      "isDraft": true,
+      "head": "5e8e3cc0bc89849ccbc5a6df2e7c7cde25715d96",
+      "finding": "Acceptable answer variants and qualified review remain open; the draft bridge rejects a known variant differing from the Reader target."
+    }
+  ],
+  "scope": "two shared main/private form faces; orthographic answer proposals only, no routine replacement or runtime acceptance",
+  "authoredGrammarErrorClaimed": false,
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedDictionary": false,
+    "acceptedAnswerVariants": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "rows": [
+    {
+      "id": "master-japanese-basics:14:orthography:1",
+      "sourcePromptId": "form-ja-en-b281e81e401f273f",
+      "mainDialogueTurnOneBased": 4,
+      "privateRoutineDialogueTurnOneBased": 10,
+      "canonicalJapanese": "でも、でんしゃが おくれています。",
+      "canonicalEnglish": "But the train is delayed.",
+      "privateCanonicalPromptEvidence": {
+        "id": "form-ja-en-b281e81e401f273f",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 10,
+        "focus": "delay-result-state",
+        "japaneseAnswer": "でも、でんしゃが おくれています。",
+        "englishPrompt": "But the train is delayed.",
+        "knownJapaneseVariants": [
+          "でも、でんしゃが おくれています。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "meaningPreservationEnglish": "But the train is delayed. Resultative 〜ています is kept: the train is in a delayed state. No change to aspect or tense, and no duration is added.",
+      "alternatives": [
+        {
+          "id": "master-japanese-basics:14:orthography:1:kana-unspaced",
+          "kind": "unspaced-kana",
+          "candidateJapanese": "でも、でんしゃがおくれています。",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "id": "master-japanese-basics:14:orthography:1:mixed-script",
+          "kind": "mixed-script",
+          "candidateJapanese": "でも、電車が遅れています。",
+          "readingMappings": [
+            {
+              "surface": "電車",
+              "readingKana": "でんしゃ"
+            },
+            {
+              "surface": "遅",
+              "readingKana": "おく"
+            }
+          ],
+          "kanaReadingSource": "unchanged canonical kana answer",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "atomicDependencies": [
+        "source form identity",
+        "Reader turn mapping",
+        "accepted-answer variants",
+        "kana reading/group mapping",
+        "exact-text audio identity",
+        "saved-item/progress mapping"
+      ]
+    },
+    {
+      "id": "master-japanese-basics:14:orthography:2",
+      "sourcePromptId": "form-ja-en-e2fe935c347bd01c",
+      "mainDialogueTurnOneBased": 9,
+      "privateRoutineDialogueTurnOneBased": 14,
+      "canonicalJapanese": "そのあと えきに つきました。ともだちは まっていました。",
+      "canonicalEnglish": "After that, I arrived at the station. My friend was waiting.",
+      "privateCanonicalPromptEvidence": {
+        "id": "form-ja-en-e2fe935c347bd01c",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 14,
+        "focus": "past-progressive-matteimashita",
+        "japaneseAnswer": "そのあと えきに つきました。ともだちは まっていました。",
+        "englishPrompt": "After that, I arrived at the station. My friend was waiting.",
+        "knownJapaneseVariants": [
+          "そのあと えきに つきました。ともだちは まっていました。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "meaningPreservationEnglish": "After that, I arrived at the station. My friend was waiting. The past progressive (〜ていました) is kept as-is; the waiting state is not changed and no duration is added.",
+      "alternatives": [
+        {
+          "id": "master-japanese-basics:14:orthography:2:kana-unspaced",
+          "kind": "unspaced-kana",
+          "candidateJapanese": "そのあとえきにつきました。ともだちはまっていました。",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "id": "master-japanese-basics:14:orthography:2:mixed-script",
+          "kind": "mixed-script",
+          "candidateJapanese": "そのあと駅に着きました。友達は待っていました。",
+          "readingMappings": [
+            {
+              "surface": "駅",
+              "readingKana": "えき"
+            },
+            {
+              "surface": "着",
+              "readingKana": "つ"
+            },
+            {
+              "surface": "友達",
+              "readingKana": "ともだち"
+            },
+            {
+              "surface": "待",
+              "readingKana": "ま"
+            }
+          ],
+          "kanaReadingSource": "unchanged canonical kana answer",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "atomicDependencies": [
+        "source form identity",
+        "Reader turn mapping",
+        "accepted-answer variants",
+        "kana reading/group mapping",
+        "exact-text audio identity",
+        "saved-item/progress mapping"
+      ]
+    }
+  ],
+  "internalQuestions": [
+    "Are there other prompts with the same canonical Japanese and English as these two (source dialogue turns 10 and 14) that should share these variants?",
+    "For row 1, should the mixed variant keep 遅 alone with おく as its reading, or should the okurigana れ be included in the surface (遅れ → おくれ)?",
+    "For row 2, should 着 and 待 be mapped as single-kanji surfaces (つ, ま) with the following kana left unchanged, or should the full verb stems be mapped instead?",
+    "Confirm that the small ゃ in でんしゃ and the small っ in まって should stay as written in all variants.",
+    "Confirm that the unspaced variants should keep the 、 and 。 punctuation, removing only the spaces between phrases.",
+    "All variants above are unselected and unreviewed. They are proposals only and are not accepted at runtime. Should a reviewer be assigned before any of them is promoted?"
+  ],
+  "internalReviewNotes": [
+    "The canonical Japanese sentences are already linguistically coherent; this packet addresses an explicit remaining acceptable-answer/reading-map gap, not an invented grammar correction.",
+    "The private routine source/finally extension exists in#488 and is not duplicated. Only two exact faces shared with current main are referenced.",
+    "No knownJapaneseVariants list, form ID, source answer, lesson order, kana-group adapter or runtime scoring code is changed.",
+    "Mixed-script proposals need the explicit reading map before Kana Pad group selection; raw Kanji characters do not supply their kana readings.",
+    "Ordinaryう/い does not automatically indicate a long vowel. Preserve smallゃ inでんしゃ and smallっ inまって. No pronunciation/audio approval follows from orthographic equivalence.",
+    "Form IDs are immutable references to the private proposal, not adopted saved-item/progress IDs. Different Reader positions on main/private routine are mapped explicitly."
+  ]
+}

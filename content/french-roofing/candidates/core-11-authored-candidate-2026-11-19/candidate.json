@@ -206,7 +206,7 @@
   "stageId": "core-roofing",
   "sourcePacket": {
     "path": "content/french-roofing/review/core-11-source-decision-2026-11-18/packet.json",
-    "sha256": "8a1c5c95521ee21d88eccf3ace87b64f5af75703325e634ebf0525eb8d034374"
+    "sha256": "ebffc8bcd7da1871e8ad1b02bd3eb69452da8ac216f410e86076f9254af91c7a"
   },
   "candidateRows": [
     {
@@ -638,5 +638,13 @@
   ],
   "sourceObjectiveEnglish": "Describe the chalk line and first course",
   "sourceSpeakingEnglish": "Show a new worker where to run the first-course chalk line.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "sourceReferenceRepair20261125": {
+    "previousPacketSha256": "8a1c5c95521ee21d88eccf3ace87b64f5af75703325e634ebf0525eb8d034374",
+    "repairedPacketSha256": "ebffc8bcd7da1871e8ad1b02bd3eb69452da8ac216f410e86076f9254af91c7a",
+    "crosswalkPath": "content/french-roofing/review/core-11-source-decision-2026-11-18/legacy-reference-crosswalk-2026-11-25.json",
+    "status": "22 erroneous legacy references repaired by owning section11 row identity; historical refs retained",
+    "savedItemMappingApproved": false,
+    "progressImportApproved": false
+  }
 }

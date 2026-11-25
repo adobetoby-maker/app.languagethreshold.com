@@ -48,3 +48,11 @@ for item in p['activities']+p['forms']:
   assert ref['packetPath']==p['sourcePacket']['path'] and ref['packetSha256']==p['sourcePacket']['sha256']
   assert ref['jsonPointer']=='/sourceVerbExamples/'+str(item['sourceVerbExampleIndex'])
   assert ref['sourceEnglish']==s['sourceVerbExamples'][item['sourceVerbExampleIndex']]['sourceEnglish']
+
+# Dependent review pin and historical-reference crosswalk remain source-only.
+repair = p["sourceReferenceRepair20261125"]
+crosswalk = json.loads((R / repair["crosswalkPath"]).read_text())
+assert repair["repairedPacketSha256"] == p["sourcePacket"]["sha256"] == crosswalk["repairedPacketSha256"]
+assert repair["previousPacketSha256"] == crosswalk["previousPacketSha256"]
+assert repair["savedItemMappingApproved"] is repair["progressImportApproved"] is False
+assert all(row["legacySourceRef"].startswith("roofing:11:") for group in ("cards", "reader") for row in s[group])

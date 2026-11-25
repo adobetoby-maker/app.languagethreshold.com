@@ -57,3 +57,19 @@ assert packet["archivedDraft"]["status"].startswith("separate unapproved")
 assert packet["selectedDecision"] is packet["audioScope"] is None
 assert all(value is False for value in packet["gates"].values())
 print("PASS French Roofing Core 11: 13 exact cards, nine Reader turns, 11 held faces, proposed IDs and closed gates")
+
+# Repaired provenance is section-owned; it is not an approved runtime identity map.
+for group, segment in (("cards", "words"), ("reader", "passage")):
+    for n, row in enumerate(packet[group], 1):
+        assert row["legacySourceRef"] == f"roofing:11:{segment}:{n}"
+        assert row["legacySourceRefHistory"][0]["reference"] == f"roofing:7:{segment}:{n}"
+core7 = json.loads((HERE.parent / "core-7-source-decision-2026-11-18/packet.json").read_text())
+core7_refs = {row["legacySourceRef"] for group in ("cards", "reader") for row in core7[group]}
+assert not {row["legacySourceRef"] for group in ("cards", "reader") for row in packet[group]} & core7_refs
+crosswalk = json.loads((HERE / "legacy-reference-crosswalk-2026-11-25.json").read_text())
+assert crosswalk["repairedPacketSha256"] == hashlib.sha256((HERE / "packet.json").read_bytes()).hexdigest()
+assert len(crosswalk["rows"]) == 22
+assert crosswalk["savedItemMappingApproved"] is crosswalk["progressImportApproved"] is crosswalk["registered"] is crosswalk["reviewed"] is False
+assert packet["legacySourceReferenceRepair"]["savedItemMappingApproved"] is False
+assert packet["legacySourceReferenceRepair"]["progressImportApproved"] is False
+print("PASS Core11 section-11 refs: 22 unique, zero Core7 collisions; history retained, progress mapping unapproved")

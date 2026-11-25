@@ -1,6 +1,6 @@
 {
   "lessonId": "core-roofing:11:fr-en",
-  "candidateObjectiveEnglish": "Ask whether a line is straight and check a measurement with the tape measure.",
+  "candidateObjectiveEnglish": "Name the tape measure, ask whether a line is straight and ask someone to check the measurement.",
   "grammarExplanationEnglish": "Use a base verb without a subject for an imperative: \"Check the measurement.\" Put is before the subject in a yes/no question: \"Is the line straight?\" Then can introduce another instruction: \"Measure with the tape measure. Then check the measurement.\"",
   "grammarExplanationFrench": "L’impératif anglais emploie le verbe à la forme de base, sans sujet : « Check the measurement ». Une question avec « be » inverse le verbe et le sujet : « Is the line straight? ». « Then » introduit ici une autre consigne : « Measure with the tape measure. Then check the measurement. »",
   "activities": [
@@ -153,49 +153,137 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker naming a measuring tool and checking a line description.",
-    "partnerRole": "Another coworker asking about the tool and a labelled example line.",
     "candidateOpeningEnglish": "This is a tape measure.",
+    "candidateOpeningFrench": "C'est un ruban à mesurer.",
+    "learnerRole": "A learner naming a pictured tape measure and asking about a drawn line.",
+    "partnerRole": "A practice partner prompting a drawn-line question and measurement-check request.",
     "goalEnglish": "Name the tape measure, ask if the line is straight and request a measurement check.",
+    "goalFrench": "Nommer le ruban à mesurer, demander si la ligne est droite et demander une vérification de la mesure.",
+    "practiceContextEnglish": "Two learners use a picture of a tape measure and a generic drawn line. The partner prompts for a straightness question and a measurement-check request, then asks the learner to repeat the request.",
+    "contextFrench": "Deux apprenants utilisent une image de ruban à mesurer et une ligne tracée générique. Le partenaire fait formuler une question sur la rectitude de la ligne et une demande de vérification de la mesure, puis fait répéter cette demande.",
+    "partnerCuesEnglish": [
+      "What would you ask about the drawn line?",
+      "How would you ask me to check the measurement?",
+      "Please repeat that."
+    ],
+    "partnerCueSupportFrench": [
+      "Que demanderiez-vous au sujet de la ligne tracée ?",
+      "Comment me demanderiez-vous de vérifier la mesure ?",
+      "Veuillez répéter cela."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Is the line straight?",
+      "Please check the measurement.",
+      "Please check the measurement. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "La ligne est-elle droite ?",
+      "Veuillez vérifier la mesure.",
+      "Veuillez vérifier la mesure. Merci."
+    ],
     "candidateWordBankEnglish": [
-      "tape measure",
-      "measurement",
-      "straight",
-      "line",
-      "check"
+      "This is a tape measure.",
+      "Is the line straight?",
+      "Please check",
+      "the measurement.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "closureFrench": "Merci.",
     "sourceAnchors": [
       "core-roofing:11:fr-en:card:5",
       "core-roofing:11:fr-en:card:6",
       "core-roofing:11:fr-en:card:7",
       "core-roofing:11:fr-en:card:11"
     ],
-    "id": "core-roofing:11:fr-en:speaking:1",
-    "reviewed": false,
-    "partnerCuesEnglish": [
-      "What would you like to check?",
-      "What do you want me to do?",
-      "Please repeat that."
-    ],
-    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
-    "scenarioProvenance": "New generic drawn-line and measuring-tool language practice, not chalk-line layout or actual measurement.",
-    "heldDependent": true,
-    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "provenance": "Opening is a new identification composition from exact source card5 (tape measure). Question 'Is the line straight?' is exact generic source card11, used in a new drawn-line practice context; held reader5 chalk-line scene is not used. Measurement-check request is a new composition from source card6 vocabulary and the source verb check. Cues and closure are new practice language. Corrected sourceRefs, history, crosswalk and packet hash are unchanged by this reconciliation; packet sha256 ebffc8bcd7da1871e8ad1b02bd3eb69452da8ac216f410e86076f9254af91c7a. Verb check comes from /sourceVerbExamples/4; source foreman subject and again are not inherited. The request is newly composed, not an actual measurement action. Please is a newly authored courtesy addition, not from this source packet. Both requests are examples elicited by partner meta-prompts, no measurement action or straightness answer.",
+    "holdReason": "Full source speaking objective remains blocked by chalk-line, first-course, starter-strip, eave/overhang and locale decisions; this is a narrower measuring-tool and question proposal only.",
     "heldDecisionRefs": [
       "core-roofing:11:fr-en:card:1",
       "core-roofing:11:fr-en:card:2",
       "core-roofing:11:fr-en:card:3",
-      "core-roofing:11:fr-en:card:8"
+      "core-roofing:11:fr-en:card:4",
+      "core-roofing:11:fr-en:card:8",
+      "core-roofing:11:fr-en:card:9",
+      "core-roofing:11:fr-en:card:10",
+      "core-roofing:11:fr-en:card:13",
+      "core-roofing:11:fr-en:reader:1",
+      "core-roofing:11:fr-en:reader:2",
+      "core-roofing:11:fr-en:reader:3",
+      "core-roofing:11:fr-en:reader:4",
+      "core-roofing:11:fr-en:reader:5",
+      "core-roofing:11:fr-en:reader:6",
+      "core-roofing:11:fr-en:reader:7",
+      "core-roofing:11:fr-en:reader:8",
+      "core-roofing:11:fr-en:reader:9"
     ],
-    "objectiveProvenance": "Narrower language task; first-course/chalk/starter/overhang objective remains held.",
-    "openingProvenance": "New identification composition from source card5.",
-    "expectedLearnerTurnsEnglish": [
+    "reviewed": false,
+    "approvalStatus": "unreviewed candidate; no qualified approval",
+    "id": "core-roofing:11:fr-en:speaking:1",
+    "heldDependent": true,
+    "heldRefsInterpretation": "Candidate-level held rows; additional open source questions on used unheld faces are separately enumerated.",
+    "openSourceQuestionDependencies": [],
+    "sourceSpeakingCompletionStatus": "held and incomplete; picture-prompt language practice does not complete original source mission",
+    "frenchRegisterStatusInternal": "French vous support is an unselected register candidate, not settled course-wide register.",
+    "internalDecisionHolds": [
+      "No supplied measurement or straightness verdict; chalk-line/first-course/starter/overhang and role/source choices remain open. Corrected legacy-reference metadata/crosswalk/hash preserved exactly.",
+      "Opening French ruban à mesurer versus mètre ruban remains subject to existing card5 dictionary locale review; no sense selected."
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "This is a tape measure.",
       "Is the line straight?",
       "Please check the measurement.",
-      "Please check the measurement."
-    ]
+      "Please check the measurement. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "C'est un ruban à mesurer.",
+      "La ligne est-elle droite ?",
+      "Veuillez vérifier la mesure.",
+      "Veuillez vérifier la mesure. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "This is a tape measure."
+      },
+      {
+        "speaker": "partner",
+        "text": "What would you ask about the drawn line?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Is the line straight?"
+      },
+      {
+        "speaker": "partner",
+        "text": "How would you ask me to check the measurement?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Please check the measurement."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat that."
+      },
+      {
+        "speaker": "learner",
+        "text": "Please check the measurement. Thank you."
+      }
+    ],
+    "cueScaffoldingInternal": "Second partner cue deliberately supplies check the measurement as language scaffolding, not measurement instruction.",
+    "candidateLevelPendingDependencies": [
+      {
+        "sourceAnchor": "core-roofing:11:fr-en:card:5",
+        "status": "localeReviewPending: ruban à mesurer / mètre ruban, no term selected"
+      },
+      {
+        "sourceAnchor": "core-roofing:11:fr-en:card:11",
+        "status": "senseDecisionPending linked chalk-line card1; generic drawn-line phrasing proposed only"
+      }
+    ],
+    "learnerRoleFrench": "Une personne qui nomme un ruban à mesurer sur une image et pose une question sur une ligne tracée.",
+    "partnerRoleFrench": "Une personne qui propose des invites de répétition ou de lecture dans un exercice de langue."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -634,7 +722,9 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Measure/check/again examples are new grammatical compositions from source tool/measurement language; they do not specify a measurement, eave position, chalk-line method or overhang.",
-    "Check/then examples are explicitly new English compositions from ordinary grammar plus source tool/measurement nouns; they do not claim the held foreman/again wording is an approved source frame. The held source role subject and chalk-layout method are not inherited."
+    "Check/then examples are explicitly new English compositions from ordinary grammar plus source tool/measurement nouns; they do not claim the held foreman/again wording is an approved source frame. The held source role subject and chalk-layout method are not inherited.",
+    "Speaking-only reconciliation preserves source/teaching arrays, corrected refs/crosswalk/packet pin, normalized flags/exact original scope and prior speaking. Printed source statements and newly composed requests are distinguished; no specialist objective completion or work/readiness authorization.",
+    "This reconciliation also clarifies candidateObjectiveEnglish to match reading/request/quotation behavior; previous candidate objective retained exactly in candidateObjectivePriorToSpeakingReconciliation20261125. Source objective/speaking/status and all source/teaching arrays remain unchanged."
   ],
   "sourceObjectiveEnglish": "Describe the chalk line and first course",
   "sourceSpeakingEnglish": "Show a new worker where to run the first-course chalk line.",
@@ -646,5 +736,52 @@
     "status": "22 erroneous legacy references repaired by owning section11 row identity; historical refs retained",
     "savedItemMappingApproved": false,
     "progressImportApproved": false
-  }
+  },
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker naming a measuring tool and checking a line description.",
+    "partnerRole": "Another coworker asking about the tool and a labelled example line.",
+    "candidateOpeningEnglish": "This is a tape measure.",
+    "goalEnglish": "Name the tape measure, ask if the line is straight and request a measurement check.",
+    "candidateWordBankEnglish": [
+      "tape measure",
+      "measurement",
+      "straight",
+      "line",
+      "check"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "sourceAnchors": [
+      "core-roofing:11:fr-en:card:5",
+      "core-roofing:11:fr-en:card:6",
+      "core-roofing:11:fr-en:card:7",
+      "core-roofing:11:fr-en:card:11"
+    ],
+    "id": "core-roofing:11:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCuesEnglish": [
+      "What would you like to check?",
+      "What do you want me to do?",
+      "Please repeat that."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
+    "scenarioProvenance": "New generic drawn-line and measuring-tool language practice, not chalk-line layout or actual measurement.",
+    "heldDependent": true,
+    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "heldDecisionRefs": [
+      "core-roofing:11:fr-en:card:1",
+      "core-roofing:11:fr-en:card:2",
+      "core-roofing:11:fr-en:card:3",
+      "core-roofing:11:fr-en:card:8"
+    ],
+    "objectiveProvenance": "Narrower language task; first-course/chalk/starter/overhang objective remains held.",
+    "openingProvenance": "New identification composition from source card5.",
+    "expectedLearnerTurnsEnglish": [
+      "Is the line straight?",
+      "Please check the measurement.",
+      "Please check the measurement."
+    ]
+  },
+  "sourceAuditOriginMain": "fc9275869717bf9af41af88800d33d9285edc86f",
+  "candidateObjectivePriorToSpeakingReconciliation20261125": "Ask whether a line is straight and check a measurement with the tape measure."
 }

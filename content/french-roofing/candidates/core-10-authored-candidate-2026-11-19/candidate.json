@@ -1,6 +1,6 @@
 {
   "lessonId": "core-roofing:10:fr-en",
-  "candidateObjectiveEnglish": "Report windy conditions and an unfinished section, then repeat the report for confirmation.",
+  "candidateObjectiveEnglish": "Read a printed weather/status report, then repeat and summarize it on request.",
   "grammarExplanationEnglish": "Use \"It is\" with time or a weather adjective: \"It is 4:00 in the afternoon and it is windy.\" \"There is\" introduces one thing: \"There is an unfinished section at the back.\" \"To\" + base verb can express purpose: \"We repeat the plan to confirm.\"",
   "grammarExplanationFrench": "« It is » sert ici à donner l’heure ou à décrire le temps. « There is » introduit un élément : « There is an unfinished section at the back ». « To » + verbe de base peut exprimer le but : « We repeat the plan to confirm ».",
   "activities": [
@@ -187,41 +187,122 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker reporting the wind and an unfinished section.",
-    "partnerRole": "Another coworker asking for the report to be repeated.",
     "candidateOpeningEnglish": "It is 4:00 in the afternoon and it is windy.",
-    "goalEnglish": "Report the wind and the unfinished section at the back, then repeat those facts.",
+    "candidateOpeningFrench": "Il est seize heures et il y a du vent.",
+    "learnerRole": "A learner reading a printed fictional status report.",
+    "partnerRole": "A practice partner asking for repetition, the unfinished-section location and a summary.",
+    "goalEnglish": "Read the printed wind/time sentence, repeat it, read the section-location sentence and summarize both.",
+    "goalFrench": "Lire la phrase imprimée sur le vent et l'heure, la répéter, lire la phrase sur l'emplacement de la partie inachevée et résumer les deux.",
+    "practiceContextEnglish": "Two learners read a printed fictional weather/status scene. One reads the four-o'clock wind report, and the partner requests repetition, the unfinished-section location and a summary.",
+    "contextFrench": "Deux apprenants lisent une scène fictive imprimée sur la météo et l'état d'avancement. Une personne lit la phrase du compte rendu sur le vent à seize heures ; le partenaire demande une relecture, l'emplacement de la partie inachevée et un résumé.",
+    "partnerCuesEnglish": [
+      "Please read the first line again.",
+      "Where is the unfinished section?",
+      "Can you summarize the report?"
+    ],
+    "partnerCueSupportFrench": [
+      "Veuillez relire la première ligne.",
+      "Où se trouve la partie inachevée ?",
+      "Pouvez-vous résumer le compte rendu ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "It is 4:00 in the afternoon and it is windy.",
+      "There is an unfinished section at the back.",
+      "The report says it is windy and that there is an unfinished section at the back. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Il est seize heures et il y a du vent.",
+      "Il y a une partie inachevée à l'arrière.",
+      "Le compte rendu indique qu'il y a du vent et qu'il y a une partie inachevée à l'arrière. Merci."
+    ],
     "candidateWordBankEnglish": [
-      "windy",
-      "unfinished section",
-      "at the back",
-      "repeat",
-      "report"
+      "It is 4:00 in the afternoon and it is windy.",
+      "There is an unfinished section at the back.",
+      "The report says",
+      "it is windy",
+      "and that there is",
+      "an unfinished section",
+      "at the back.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "closureFrench": "Merci.",
     "sourceAnchors": [
       "core-roofing:10:fr-en:reader:1",
-      "core-roofing:10:fr-en:reader:3",
-      "core-roofing:10:fr-en:card:14"
+      "core-roofing:10:fr-en:reader:3"
     ],
-    "id": "core-roofing:10:fr-en:speaking:1",
-    "reviewed": false,
-    "partnerCuesEnglish": [
-      "Is it windy?",
-      "Which section is unfinished?",
-      "Please repeat your report."
-    ],
-    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
-    "scenarioProvenance": "New bounded language exchange; no work-method, actual weather forecast or installation measurement is approved.",
-    "heldDependent": true,
-    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "provenance": "Opening and reply1 are exact Reader1 read aloud from a fictional printed account. Reply2 is exact Reader3. Reply3 newly combines shortened Reader1 weather and Reader3 location with explicit report attribution. Cues and courtesy closure newly authored. Card14 plan-confirmation phrase is unused related evidence only. Original tarp/closure objective and source speaking mission remain incomplete.",
+    "holdReason": "Full source speaking objective remains blocked by linked source, product and safety decisions; this is a narrower report-and-repeat proposal only.",
     "heldDecisionRefs": [
+      "core-roofing:10:fr-en:card:8",
       "core-roofing:10:fr-en:card:9",
+      "core-roofing:10:fr-en:card:10",
       "core-roofing:10:fr-en:card:11",
-      "core-roofing:10:fr-en:card:12"
+      "core-roofing:10:fr-en:card:12",
+      "core-roofing:10:fr-en:card:13",
+      "core-roofing:10:fr-en:reader:2",
+      "core-roofing:10:fr-en:reader:4",
+      "core-roofing:10:fr-en:reader:5",
+      "core-roofing:10:fr-en:reader:6",
+      "core-roofing:10:fr-en:reader:7",
+      "core-roofing:10:fr-en:reader:8"
     ],
-    "objectiveProvenance": "New narrower weather/status report-and-repeat exchange, not the held tarp-plan objective."
+    "reviewed": false,
+    "approvalStatus": "unreviewed candidate; no qualified approval",
+    "id": "core-roofing:10:fr-en:speaking:1",
+    "heldDependent": true,
+    "heldRefsInterpretation": "Candidate-level held rows; additional open source questions on used unheld faces are separately enumerated.",
+    "openSourceQuestionDependencies": [],
+    "sourceSpeakingCompletionStatus": "held and incomplete; printed-language practice does not complete original source mission",
+    "frenchRegisterStatusInternal": "French vous support is an unselected register candidate, not settled course-wide register.",
+    "internalDecisionHolds": [
+      "No tarp coverage, wind/rain forecast, rope/tie-down method, departure clearance or actual weather/status claim. Source time/section facts quoted in fiction only.",
+      "Card14 repeat-the-plan confirmation phrase is related unused evidence, not adopted by report repetition."
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "It is 4:00 in the afternoon and it is windy.",
+      "It is 4:00 in the afternoon and it is windy.",
+      "There is an unfinished section at the back.",
+      "The report says it is windy and that there is an unfinished section at the back. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Il est seize heures et il y a du vent.",
+      "Il est seize heures et il y a du vent.",
+      "Il y a une partie inachevée à l'arrière.",
+      "Le compte rendu indique qu'il y a du vent et qu'il y a une partie inachevée à l'arrière. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "It is 4:00 in the afternoon and it is windy."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please read the first line again."
+      },
+      {
+        "speaker": "learner",
+        "text": "It is 4:00 in the afternoon and it is windy."
+      },
+      {
+        "speaker": "partner",
+        "text": "Where is the unfinished section?"
+      },
+      {
+        "speaker": "learner",
+        "text": "There is an unfinished section at the back."
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you summarize the report?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The report says it is windy and that there is an unfinished section at the back. Thank you."
+      }
+    ],
+    "learnerRoleFrench": "Une personne qui lit un compte rendu fictif imprimé.",
+    "partnerRoleFrench": "Une personne qui propose des invites de répétition ou de lecture dans un exercice de langue."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -674,9 +755,50 @@
     "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
-    "Exact repeating verb example is independently validated from pinned sourceVerbExamples[4], despite the models not receiving that source array. It is not relabelled as invented text."
+    "Exact repeating verb example is independently validated from pinned sourceVerbExamples[4], despite the models not receiving that source array. It is not relabelled as invented text.",
+    "Speaking-only reconciliation preserves source/teaching arrays, corrected refs/crosswalk/packet pin, normalized flags/exact original scope and prior speaking. Printed source statements and newly composed requests are distinguished; no specialist objective completion or work/readiness authorization.",
+    "This reconciliation also clarifies candidateObjectiveEnglish to match reading/request/quotation behavior; previous candidate objective retained exactly in candidateObjectivePriorToSpeakingReconciliation20261125. Source objective/speaking/status and all source/teaching arrays remain unchanged."
   ],
   "sourceObjectiveEnglish": "Close an unfinished work area before departure",
   "sourceSpeakingEnglish": "Explain which section needs a tarp and have the crew repeat the plan.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker reporting the wind and an unfinished section.",
+    "partnerRole": "Another coworker asking for the report to be repeated.",
+    "candidateOpeningEnglish": "It is 4:00 in the afternoon and it is windy.",
+    "goalEnglish": "Report the wind and the unfinished section at the back, then repeat those facts.",
+    "candidateWordBankEnglish": [
+      "windy",
+      "unfinished section",
+      "at the back",
+      "repeat",
+      "report"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "sourceAnchors": [
+      "core-roofing:10:fr-en:reader:1",
+      "core-roofing:10:fr-en:reader:3",
+      "core-roofing:10:fr-en:card:14"
+    ],
+    "id": "core-roofing:10:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCuesEnglish": [
+      "Is it windy?",
+      "Which section is unfinished?",
+      "Please repeat your report."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
+    "scenarioProvenance": "New bounded language exchange; no work-method, actual weather forecast or installation measurement is approved.",
+    "heldDependent": true,
+    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "heldDecisionRefs": [
+      "core-roofing:10:fr-en:card:9",
+      "core-roofing:10:fr-en:card:11",
+      "core-roofing:10:fr-en:card:12"
+    ],
+    "objectiveProvenance": "New narrower weather/status report-and-repeat exchange, not the held tarp-plan objective."
+  },
+  "sourceAuditOriginMain": "fc9275869717bf9af41af88800d33d9285edc86f",
+  "candidateObjectivePriorToSpeakingReconciliation20261125": "Report windy conditions and an unfinished section, then repeat the report for confirmation."
 }

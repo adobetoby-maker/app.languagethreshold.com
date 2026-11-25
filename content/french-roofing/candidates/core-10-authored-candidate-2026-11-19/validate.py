@@ -48,3 +48,17 @@ for item in p['activities']+p['forms']:
   assert ref['packetPath']==p['sourcePacket']['path'] and ref['packetSha256']==p['sourcePacket']['sha256']
   assert ref['jsonPointer']=='/sourceVerbExamples/'+str(item['sourceVerbExampleIndex'])
   assert ref['sourceEnglish']==s['sourceVerbExamples'][item['sourceVerbExampleIndex']]['sourceEnglish']
+
+# Speaking reconciliation contract 2026-11-25
+
+
+sp=p['speaking']
+assert len(sp['partnerCuesEnglish'])==len(sp['partnerCueSupportFrench'])==len(sp['expectedLearnerTurnsEnglish'])==len(sp['expectedLearnerTurnsFrench'])==3
+assert sp['candidateOpeningFrench'] and len(sp['turnSequenceEnglish'])==7
+assert len(sp['expectedAllLearnerTurnsEnglish'])==len(sp['expectedAllLearnerTurnsFrench'])==4
+assert sp['expectedAllLearnerTurnsEnglish'][0]==sp['candidateOpeningEnglish']
+assert p['sourceObjectiveEnglish']==s['sourceObjectiveEnglish'] and p['sourceSpeakingEnglish']==s['sourceSpeakingEnglish']
+assert p['sourceObjectiveCompletionStatus'].startswith('held and incomplete')
+assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
+assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
+assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])

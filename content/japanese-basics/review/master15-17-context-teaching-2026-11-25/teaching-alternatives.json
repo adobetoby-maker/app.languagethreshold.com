@@ -1,0 +1,833 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-teaching-context-alternatives",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "fb4291cb4e6f3fb6f43b4e45f09a0260b71c7d42",
+  "mainSource": {
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    }
+  },
+  "privateSource": {
+    "forms": {
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "support": {
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "path": "content/japanese-basics/private-master-11-20-speaking-missions-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "27591479d2d61c2879ed3e44af957cb006c151dfae49e7adbf633b0b53156891"
+    },
+    "builder": {
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "preview": {
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    }
+  },
+  "scope": "three source-only role/context/six-mode teaching alternatives, not source replacement or course release",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "lessons": [
+    {
+      "stableLessonKey": "master-japanese-basics:15",
+      "lessonNumber": 15,
+      "preservedPriorPartnerRole": "Guide a visitor from the station to a classroom",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:15",
+        "role": "Guide a visitor from the station to a classroom",
+        "opening": "この みちを まっすぐ いってください。",
+        "objectives": [
+          "Give the straight-road and right-turn directions in order",
+          "Locate the school next to the station and the class on the second floor",
+          "Ask whether the visitor understands the route and can reach the school"
+        ],
+        "complication": "The visitor knows the school’s location but not which floor the class uses.",
+        "closure": "Confirm the second-floor classroom and the visitor’s route."
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "You are the guide giving a visitor directions. Read the line that tells the visitor to turn right in front of the station.",
+          "roleEnglish": "Guide",
+          "targetJapanese": "えきの まえで みぎに まがってください。",
+          "targetEnglish": "Please turn right in front of the station.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:15:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "As the guide, you have just said where the class is. Now recall the line saying where you study, using the particle for the place of an action.",
+          "roleEnglish": "Guide",
+          "targetJapanese": "にかいで べんきょうします。",
+          "targetEnglish": "We study on the second floor.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "id": "master-japanese-basics:15:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "You are the visitor. Listen for the guide's line telling you where the class is.",
+          "roleEnglish": "Guide",
+          "targetJapanese": "クラスは にかいに あります。",
+          "targetEnglish": "Our class is on the second floor.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "hearOptionsJapanese": [
+            "クラスは にかいに あります。",
+            "にかいで べんきょうします。",
+            "まどの となりに ドアが あります。"
+          ],
+          "id": "master-japanese-basics:15:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "クラスは にかいに あります。"
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "You are the visitor. The guide asks, みちは わかりますか。 Type your reply that you can get to the school.",
+          "roleEnglish": "Visitor",
+          "targetJapanese": "はい、がっこうまで いけます。",
+          "targetEnglish": "Yes, I can get to the school.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "id": "master-japanese-basics:15:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "You are the guide and have just finished giving the directions. Ask the visitor whether they understand the route.",
+          "roleEnglish": "Guide",
+          "targetJapanese": "みちは わかりますか。",
+          "targetEnglish": "Do you understand the route?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:15:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "As the guide, you are still explaining the way and have said there is a door next to the window. Write the line telling the visitor to open the door and enter.",
+          "roleEnglish": "Guide",
+          "targetJapanese": "ドアを あけて はいってください。",
+          "targetEnglish": "Please open the door and enter.",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:15:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-5a9c7e572ac93ca9",
+          "exampleJapanese": "クラスは にかいに あります。",
+          "explanationJapanese": "「あります」や「います」で、ものや人がある場所には「に」を使います。「クラスは にかいに あります。」は、クラスがある場所が二階だと伝えています。",
+          "explanationEnglish": "With あります and います, に marks the place where something exists. \"Our class is on the second floor\" tells where the class is located.",
+          "id": "master-japanese-basics:15:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-5a9c7e572ac93ca9",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "existence-floor-ni",
+            "japaneseAnswer": "クラスは にかいに あります。",
+            "englishPrompt": "Our class is on the second floor.",
+            "knownJapaneseVariants": [
+              "クラスは にかいに あります。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-5982302d5e79b6bf",
+          "exampleJapanese": "にかいで べんきょうします。",
+          "explanationJapanese": "動作（べんきょうします）が行われる場所には「で」を使います。「にかいで べんきょうします。」は、勉強する場所が二階だと伝えています。ものがある場所を言う「に」とは違います。",
+          "explanationEnglish": "Use で for the place where an action happens. \"We study on the second floor\" tells where the studying takes place, not where something exists.",
+          "id": "master-japanese-basics:15:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-5982302d5e79b6bf",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 5,
+            "focus": "action-floor-de",
+            "japaneseAnswer": "にかいで べんきょうします。",
+            "englishPrompt": "We study on the second floor.",
+            "knownJapaneseVariants": [
+              "にかいで べんきょうします。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-2469b5cd7e58ac76",
+          "exampleJapanese": "はい、がっこうまで いけます。",
+          "explanationJapanese": "「いけます」は「いく」の可能形で、「行くことができる」という意味です。「まで」は行き先の終点を示すので、「がっこうまで いけます」は「学校まで行くことができる」という意味になります。",
+          "explanationEnglish": "いけます is the \"can go\" form of いく. まで marks the endpoint of the trip, so the sentence means \"I can get to the school.\"",
+          "id": "master-japanese-basics:15:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-2469b5cd7e58ac76",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "potential-ikemasu",
+            "japaneseAnswer": "はい、がっこうまで いけます。",
+            "englishPrompt": "Yes, I can get to the school.",
+            "knownJapaneseVariants": [
+              "はい、がっこうまで いけます。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "The guide, giving a visitor directions to the classroom.",
+        "partnerRoleEnglish": "The visitor, who knows the school's location but not which floor the class uses.",
+        "openingJapanese": "この みちを まっすぐ いってください。",
+        "openingEnglish": "Please go straight on this road.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "learner",
+        "objectivesEnglish": [
+          "Give the straight-road and right-turn directions in order",
+          "Locate the school next to the station and the class on the second floor",
+          "Ask whether the visitor understands the route and can reach the school"
+        ],
+        "closureJapanese": "はい、がっこうまで いけます。",
+        "closureEnglish": "Yes, I can get to the school.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 7,
+        "closureSpeaker": "partner",
+        "contextFramesEnglish": [
+          "A visitor needs to find a classroom, and you are giving the directions.",
+          "The school is next to the station, and the class is on the second floor.",
+          "After giving the directions, you check whether the visitor understands the route, and the visitor answers that they can get to the school."
+        ],
+        "wordBankJapanese": [
+          "みち",
+          "まっすぐ",
+          "いってください",
+          "みぎ",
+          "まがってください",
+          "にかい",
+          "となり",
+          "いけます"
+        ],
+        "id": "master-japanese-basics:15:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:15",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "Are extension sourceTurnOneBased values the 1-based positions within the extensions array? This proposal assumes so.",
+        "The source does not label speakers. Turns 1, 2, 4, 5 and 6 are assigned to the guide and turn 7 to the visitor by inference. Extension 2 is assumed to be the guide continuing the directions. Please verify.",
+        "The prior mission says 'from the station', but turn 2 has the visitor turning right in front of the station, so the starting point is unclear. The prompts and frames avoid stating where the speakers are standing. Which is intended?",
+        "The hear distractor せんせいは へやに います。 was replaced with turn 5 (にかいで べんきょうします。) so the item tests the に/で contrast. Is reusing the recall target as a distractor acceptable?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "The visitor, who knows the school's location but not which floor the class uses.",
+        "closureLineJapanese": "はい、がっこうまで いけます。",
+        "closureLineEnglish": "Yes, I can get to the school.",
+        "closureSpeaker": "partner",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:16",
+      "lessonNumber": 16,
+      "preservedPriorPartnerRole": "Discuss current work and tomorrow’s visit with a friend",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:16",
+        "role": "Discuss current work and tomorrow’s visit with a friend",
+        "opening": "いま、ほんを よんでいます。",
+        "objectives": [
+          "Describe reading and Aki’s writing as actions happening now",
+          "Separate tomorrow’s intended meeting from the scheduled afternoon station trip",
+          "Say that the meeting time has not yet been decided with まだ きめていません"
+        ],
+        "complication": "The friend treats the undecided meeting time as a past decision.",
+        "closure": "Confirm that another call will happen tonight to set the time."
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "You are telling a friend what is happening right now. Read the line saying Aki is writing a message.",
+          "roleEnglish": "Planner",
+          "targetJapanese": "あきさんは メッセージを かいています。",
+          "targetEnglish": "Aki is writing a message.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:16:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "You move from what is happening now to tomorrow. Recall the line saying you intend to meet a friend tomorrow.",
+          "roleEnglish": "Planner",
+          "targetJapanese": "あした、ともだちに あう つもりです。",
+          "targetEnglish": "Tomorrow I intend to meet a friend.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "id": "master-japanese-basics:16:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "You are the friend. Listen for the line where the planner says the afternoon station trip is scheduled.",
+          "roleEnglish": "Planner",
+          "targetJapanese": "ごご えきへ いく よていです。",
+          "targetEnglish": "I am scheduled to go to the station in the afternoon.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "hearOptionsJapanese": [
+            "ごご えきへ いく よていです。",
+            "あした、ともだちに あう つもりです。",
+            "いま、ほんを よんでいます。"
+          ],
+          "id": "master-japanese-basics:16:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "ごご えきへ いく よていです。"
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "Your friend is treating the meeting time as already decided. Type the line saying the time has not been set yet.",
+          "roleEnglish": "Planner",
+          "targetJapanese": "でも、まだ じかんを きめていません。",
+          "targetEnglish": "But we have not set a time yet.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "id": "master-japanese-basics:16:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "Tell your friend what you did yesterday: you called. Do not say the time was settled.",
+          "roleEnglish": "Planner",
+          "targetJapanese": "きのうは でんわしました。",
+          "targetEnglish": "Yesterday I called.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:16:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "The time is still undecided. Write the line saying you will call again tonight.",
+          "roleEnglish": "Planner",
+          "targetJapanese": "よる また でんわします。",
+          "targetEnglish": "I will call again tonight.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:16:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-3ea2cd24b52ed38e",
+          "exampleJapanese": "あした、ともだちに あう つもりです。",
+          "explanationJapanese": "動詞の辞書形＋「つもりです」は、自分がそうしようと考えていることを表します。「あした、ともだちに あう つもりです。」は、明日友だちに会う考えがあることを伝えています。",
+          "explanationEnglish": "Dictionary form + つもりです expresses your own intention. The sentence says you intend to meet a friend tomorrow.",
+          "id": "master-japanese-basics:16:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-3ea2cd24b52ed38e",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 3,
+            "focus": "intention-tsumori",
+            "japaneseAnswer": "あした、ともだちに あう つもりです。",
+            "englishPrompt": "Tomorrow I intend to meet a friend.",
+            "knownJapaneseVariants": [
+              "あした、ともだちに あう つもりです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-bb94c1124f94eba3",
+          "exampleJapanese": "ごご えきへ いく よていです。",
+          "explanationJapanese": "動詞の辞書形＋「よていです」は、そのことがスケジュールに入っていることを表します。「ごご えきへ いく よていです。」は、午後に駅へ行くことが予定に入っていると伝えています。つもりは本人の考えを、よていはスケジュールに入っていることを表す点が違います。",
+          "explanationEnglish": "Dictionary form + よていです says something is on the schedule. The sentence presents the afternoon station trip as scheduled, not merely intended. つもり expresses your own intention, while よてい refers to something already on the schedule.",
+          "id": "master-japanese-basics:16:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-bb94c1124f94eba3",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "schedule-yotei",
+            "japaneseAnswer": "ごご えきへ いく よていです。",
+            "englishPrompt": "I am scheduled to go to the station in the afternoon.",
+            "knownJapaneseVariants": [
+              "ごご えきへ いく よていです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-e2702f4a2acf4460",
+          "exampleJapanese": "でも、まだ じかんを きめていません。",
+          "explanationJapanese": "「まだ」と「～ていません」を組み合わせると、今までのところ、そのことがまだ起きていないことを表します。「まだ きめていません」は「まだ決めていない」という意味です。「きめませんでした」は過去に「決めなかった」という意味なので、区別して覚えましょう。Master 11 の「はいっていません」と同じ「～ていません」の形です。",
+          "explanationEnglish": "まだ with ～ていません means the thing has not happened so far. まだ きめていません means \"have not decided yet.\" Compare きめませんでした, which means \"did not decide\" in the past. This is the same ～ていません form first practiced with はいっていません in Master 11.",
+          "id": "master-japanese-basics:16:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-e2702f4a2acf4460",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "not-yet-teimasen",
+            "japaneseAnswer": "でも、まだ じかんを きめていません。",
+            "englishPrompt": "But we have not set a time yet.",
+            "knownJapaneseVariants": [
+              "でも、まだ じかんを きめていません。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "The planner, discussing your current work and tomorrow's visit with a friend.",
+        "partnerRoleEnglish": "The planner’s friend, asking about the current activity and whether the meeting time is settled.",
+        "openingJapanese": "いま、ほんを よんでいます。",
+        "openingEnglish": "I am reading a book now.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "learner",
+        "objectivesEnglish": [
+          "Describe reading and Aki’s writing as actions happening now",
+          "Separate tomorrow’s intended meeting from the scheduled afternoon station trip",
+          "Say that the meeting time has not yet been decided with まだ きめていません"
+        ],
+        "closureJapanese": "よる また でんわします。",
+        "closureEnglish": "I will call again tonight.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "learner",
+        "contextFramesEnglish": [
+          "Now: you are reading a book, and Aki is writing a message.",
+          "Yesterday you called. Tomorrow you intend to meet a friend, and a trip to the station is scheduled for the afternoon.",
+          "The meeting time has not been decided yet, and you say you will call again tonight.",
+          "Later, outside this conversation (extension lines): the time is checked, three o'clock works for Aki too, and tomorrow's plan is settled."
+        ],
+        "wordBankJapanese": [
+          "よんでいます",
+          "かいています",
+          "つもりです",
+          "よていです",
+          "でんわしました",
+          "まだ",
+          "きめていません",
+          "また"
+        ],
+        "id": "master-japanese-basics:16:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:16",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "The source does not label speakers. All eight dialogue turns are treated as one speaker (the planner) talking to a friend. Please verify.",
+        "Context frame 4 summarizes extensions 1 to 4 as a later stage, outside the mission and not attributed to the call. Should the speaking frames include this, or stop at 'not yet decided' as the prior mission closure does?",
+        "The planner tells a friend 'I intend to meet a friend'. Is the friend being met the listener, Aki, or a third person? The prompts do not decide this.",
+        "The source does not say whether the afternoon station trip is tomorrow. Frame 2 does not attach it to a day. Is it tomorrow?",
+        "Turn 6 is a past-call target; its prompt tells the learner not to say the time was settled."
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "The planner’s friend, asking about the current activity and whether the meeting time is settled.",
+        "closureLineJapanese": "よる また でんわします。",
+        "closureLineEnglish": "I will call again tonight.",
+        "closureSpeaker": "learner",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:17",
+      "lessonNumber": 17,
+      "preservedPriorPartnerRole": "Clarify which book should be handed to Aki",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:17",
+        "role": "Clarify which book should be handed to Aki",
+        "opening": "この ほんは たなかさんのですか。",
+        "objectives": [
+          "Identify Tanaka’s book and ask permission to show it",
+          "Notice that Aki’s own book is also present",
+          "Ask どの ほんの ことですか when the final handoff reference is unclear"
+        ],
+        "complication": "Two books are now in view and an omitted reference could mean either one.",
+        "closure": "Name the intended book before handing it over."
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "Two books are now in view. The requester asks you to hand it to Aki later. Read the handoff request.",
+          "roleEnglish": "Requester",
+          "targetJapanese": "では、あとで あきさんに わたしてください。",
+          "targetEnglish": "Then please hand it to Aki later.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "id": "master-japanese-basics:17:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "You made the handoff request. The recipient asks, どの ほんの ことですか。 Recall your answer naming the blue book.",
+          "roleEnglish": "Requester",
+          "targetJapanese": "あおい ほんの ことです。",
+          "targetEnglish": "I mean the blue book.",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 1,
+          "id": "master-japanese-basics:17:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "You are the requester and have just asked for the handoff. Listen for the recipient's question asking which book you mean.",
+          "roleEnglish": "Recipient",
+          "targetJapanese": "どの ほんの ことですか。",
+          "targetEnglish": "Which book do you mean?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "hearOptionsJapanese": [
+            "どの ほんの ことですか。",
+            "あきさんの ほんも ここに あります。",
+            "はい、たなかさんのです。"
+          ],
+          "id": "master-japanese-basics:17:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "どの ほんの ことですか。"
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "You have just confirmed that the book is Tanaka's. Type the line asking whether you may show it to Aki.",
+          "roleEnglish": "Recipient",
+          "targetJapanese": "あきさんに みせても いいですか。",
+          "targetEnglish": "May I show it to Aki?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "id": "master-japanese-basics:17:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "The requester has told you Tanaka's name is written in the book. Say that you saw it and understood.",
+          "roleEnglish": "Recipient",
+          "targetJapanese": "わたしは それを みて わかりました。",
+          "targetEnglish": "I saw it and understood.",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 3,
+          "id": "master-japanese-basics:17:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "As the requester, you have said you mean the blue book. Explain how to tell which book it is: write that Tanaka's name is written in it.",
+          "roleEnglish": "Requester",
+          "targetJapanese": "たなかさんの なまえが かいてあります。",
+          "targetEnglish": "Tanaka's name is written in it.",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:17:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-f3042aac29ce9d6a",
+          "exampleJapanese": "この ほんは たなかさんのですか。",
+          "explanationJapanese": "「たなかさんの」の「の」は「ほん」の代わりに使われています。同じ言葉を繰り返さずに、だれの本かを尋ねています。「たなかさんのですか」は「田中さんのものですか」という意味です。",
+          "explanationEnglish": "The の in たなかさんの stands in for ほん, so the noun is not repeated. たなかさんのですか asks whether the book belongs to Tanaka.",
+          "id": "master-japanese-basics:17:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-f3042aac29ce9d6a",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "ownership-context",
+            "japaneseAnswer": "この ほんは たなかさんのですか。",
+            "englishPrompt": "Is this book Tanaka's?",
+            "knownJapaneseVariants": [
+              "この ほんは たなかさんのですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-be7200a4d2f35add",
+          "exampleJapanese": "では、あとで あきさんに わたしてください。",
+          "explanationJapanese": "「わたしてください」は、相手に渡すよう頼む表現です。この文では「ほんを」が省かれています。本が二冊あるので、どの本か分からなくなり、「どの ほんの ことですか。」につながります。",
+          "explanationEnglish": "わたしてください asks the listener to hand something over. ほんを is omitted here; with two books in view the omitted object is unclear, which leads to どの ほんの ことですか.",
+          "id": "master-japanese-basics:17:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-be7200a4d2f35add",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "handover-te-kudasai",
+            "japaneseAnswer": "では、あとで あきさんに わたしてください。",
+            "englishPrompt": "Then please hand it to Aki later.",
+            "knownJapaneseVariants": [
+              "では、あとで あきさんに わたしてください。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-2d92ad61f11ae7ba",
+          "exampleJapanese": "どの ほんの ことですか。",
+          "explanationJapanese": "「どの」は複数の中からどれかを尋ねる言葉です。「～の ことですか」は、何を指しているのかを確認する表現です。二冊の本がある場面で、どちらを指すのか聞くのに使います。",
+          "explanationEnglish": "どの asks which one among several. ～の ことですか checks what the speaker is referring to. When two books are in view, this asks which book is meant.",
+          "id": "master-japanese-basics:17:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-2d92ad61f11ae7ba",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 8,
+            "focus": "clarification-question",
+            "japaneseAnswer": "どの ほんの ことですか。",
+            "englishPrompt": "Which book do you mean?",
+            "knownJapaneseVariants": [
+              "どの ほんの ことですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "The recipient of the handoff request, who must work out which book should go to Aki.",
+        "partnerRoleEnglish": "The requester, who confirms the book is Tanaka's, gives permission to show it, and asks for the handoff.",
+        "openingJapanese": "この ほんは たなかさんのですか。",
+        "openingEnglish": "Is this book Tanaka's?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "learner",
+        "objectivesEnglish": [
+          "Identify Tanaka’s book and ask permission to show it",
+          "Notice that Aki’s own book is also present",
+          "Ask どの ほんの ことですか when the final handoff reference is unclear"
+        ],
+        "closureJapanese": "あおい ほんの ことです。",
+        "closureEnglish": "I mean the blue book.",
+        "closureSourceKind": "extension",
+        "closureSourceTurnOneBased": 1,
+        "closureSpeaker": "partner",
+        "contextFramesEnglish": [
+          "At first you ask about one book, and it is Tanaka's.",
+          "Aki’s own book is also mentioned as being here; possession by either speaker is not specified.",
+          "The handoff request comes after that and leaves out the object, so the reference stays unclear until the requester names which book is meant."
+        ],
+        "wordBankJapanese": [
+          "わたしてください",
+          "あおい",
+          "かえす"
+        ],
+        "id": "master-japanese-basics:17:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:17",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "The source does not label speakers. Turns 1, 4 and 8 and extension 3 are assigned to the recipient (learner); turns 2, 5 and 7 and extensions 1 and 2 to the requester. The speaker of turn 6 is unknown and it is used only as a hear distractor. Please verify.",
+        "The closure line あおい ほんの ことです is assigned to the partner, because 'I mean' belongs to whoever made the request. The prior mission closure ('Name the intended book before handing it over') could be read as a learner action. Which is intended?",
+        "Dialogue turn 3 is excluded: the Japanese has no subject and the English buyer cannot be confirmed from the Japanese face, so any target would rest on an unsupported buyer.",
+        "Extension 4 ('Aki intends to return it later') is not used as a target: its speaker is unclear and it may blur the handoff with the clarification.",
+        "The source does not say who is holding the books or that the requester owns either one; the prompts avoid both claims."
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "The requester, who confirms the book is Tanaka's, gives permission to show it, and asks for the handoff.",
+        "closureLineJapanese": "あおい ほんの ことです。",
+        "closureLineEnglish": "I mean the blue book.",
+        "closureSpeaker": "partner",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    }
+  ],
+  "internalReviewNotes": [
+    "The main/private Master15–17 lesson objects and extensions are identical. New source-only activities add explicit actor/context cues; they do not replace canonical Reader, form answers or known variants.",
+    "The private speaking builder copies learner entry.role into partnerRole and the preview repeats that field. All three prior partnerRole values are learner tasks, not counterparts.",
+    "The existing English closure instructions remain preserved. The proposed Japanese/English closing turns carry exact source anchors and explicit speakers in separate fields.",
+    "roleEnglish on an activity identifies the target utterance speaker. A Hear prompt can ask a different listener role to listen; a standalone drill can practice the counterpart voice without changing the speaking mission learner role.",
+    "Master17 omitted Japanese buyer subject is context-dependent, not declared an unconditional mistranslation. No new target uses that sentence and no buyer is invented.",
+    "No normalization helpers, accepted-answer lists, routes/owner pages, audio synthesis/playback, scoring, offline or saved-item/progress imports are changed."
+  ]
+}

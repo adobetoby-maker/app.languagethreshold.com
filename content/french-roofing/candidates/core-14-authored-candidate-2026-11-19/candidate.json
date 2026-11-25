@@ -141,48 +141,36 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker identifying word cards and asking where a document is.",
-    "partnerRole": "Another coworker asking for item names.",
-    "candidateOpeningEnglish": "This is a roll.",
-    "goalEnglish": "Name a roll and a fastener, then ask where the manufacturer instructions are.",
-    "candidateWordBankEnglish": [
-      "roll",
-      "fastener",
-      "manufacturer instructions",
-      "This is a roll.",
-      "Where are the manufacturer instructions?"
-    ],
-    "closureEnglish": "Thanks, that helps.",
-    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
-    "sourceAnchors": [
-      "core-roofing:14:fr-en:card:3",
-      "core-roofing:14:fr-en:card:4",
-      "core-roofing:14:fr-en:card:9"
-    ],
-    "partnerCuesEnglish": [
-      "What is item B called?",
-      "Do you need anything else?",
-      "Please repeat the document name."
-    ],
-    "partnerCuesProvenance": "New hypothetical item-label and document-request cues; no material conformity or overlap value.",
     "id": "core-roofing:14:fr-en:speaking:1",
     "reviewed": false,
+    "candidateOpeningEnglish": "This is a roll.",
+    "candidateOpeningFrench": "C’est un rouleau.",
+    "learnerRole": "A person naming pictured items, asking a location question and reading a word card.",
+    "partnerRole": "Another person giving the exercise cues and pointing to the pictured or printed labels.",
+    "goalEnglish": "Name a roll and a fastener, then ask where the manufacturer instructions are.",
+    "goalFrench": "Nommer un rouleau et un élément de fixation, puis demander où se trouvent les instructions du fabricant.",
+    "practiceContextEnglish": "Picture A shows a roll. Picture B shows a fastener. Card C says manufacturer instructions. The learner points to picture A. This fictional exercise contains no manufacturer document, only its label.",
+    "practiceContextFrench": "L’image A montre un rouleau. L’image B montre un élément de fixation. La carte C porte l’expression « manufacturer instructions ». La personne qui apprend montre l’image A. Cet exercice fictif ne contient aucun document du fabricant, seulement son étiquette.",
+    "partnerCuesEnglish": [
+      "What is in picture B?",
+      "Do you have a question?",
+      "They are not here. Card C only has the words. Please read the card."
+    ],
+    "partnerCueSupportFrench": [
+      "Qu’y a-t-il sur l’image B ?",
+      "Avez-vous une question ?",
+      "Elles ne sont pas ici. La carte C porte seulement les mots. Lisez la carte, s’il vous plaît."
+    ],
     "expectedLearnerTurnsEnglish": [
       "This is a fastener.",
       "Where are the manufacturer instructions?",
-      "The manufacturer instructions."
+      "The manufacturer instructions. Thank you."
     ],
-    "heldDecisionRefs": [
-      "core-roofing:14:fr-en:card:1",
-      "core-roofing:14:fr-en:card:2",
-      "core-roofing:14:fr-en:card:6",
-      "core-roofing:14:fr-en:card:10"
+    "expectedLearnerTurnsFrench": [
+      "C’est un élément de fixation.",
+      "Où sont les instructions du fabricant ?",
+      "Les instructions du fabricant. Merci."
     ],
-    "heldDependent": true,
-    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
-    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
-    "practiceContextEnglish": "Card A says roll. Card B says fastener. Card C says manufacturer instructions.",
-    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
     "turnSequenceEnglish": [
       {
         "speaker": "learner",
@@ -190,7 +178,7 @@
       },
       {
         "speaker": "partner",
-        "text": "What is item B called?"
+        "text": "What is in picture B?"
       },
       {
         "speaker": "learner",
@@ -198,7 +186,7 @@
       },
       {
         "speaker": "partner",
-        "text": "Do you need anything else?"
+        "text": "Do you have a question?"
       },
       {
         "speaker": "learner",
@@ -206,14 +194,112 @@
       },
       {
         "speaker": "partner",
-        "text": "Please repeat the document name."
+        "text": "They are not here. Card C only has the words. Please read the card."
       },
       {
         "speaker": "learner",
-        "text": "The manufacturer instructions."
+        "text": "The manufacturer instructions. Thank you."
       }
     ],
-    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods."
+    "closureAppliedTo": "final learner turn only",
+    "candidateWordBankEnglish": [
+      "This is",
+      "a roll.",
+      "a fastener.",
+      "Where are",
+      "the manufacturer instructions?",
+      "The manufacturer instructions.",
+      "Thank you."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureFrench": "Merci.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:14:fr-en:card:3",
+      "core-roofing:14:fr-en:card:4",
+      "core-roofing:14:fr-en:card:9"
+    ],
+    "partnerCuesProvenance": "New hypothetical item-label and document-request cues; no material conformity or overlap value.",
+    "practiceContextProvenance": "New hypothetical picture-and-label context; absence of the document is authored exercise context, not a real site finding.",
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate.",
+    "heldDecisionRefs": [
+      "core-roofing:14:fr-en:card:1",
+      "core-roofing:14:fr-en:card:2",
+      "core-roofing:14:fr-en:card:5",
+      "core-roofing:14:fr-en:card:6",
+      "core-roofing:14:fr-en:card:10",
+      "core-roofing:14:fr-en:card:11",
+      "core-roofing:14:fr-en:card:13",
+      "core-roofing:14:fr-en:card:14",
+      "core-roofing:14:fr-en:reader:1",
+      "core-roofing:14:fr-en:reader:2",
+      "core-roofing:14:fr-en:reader:3",
+      "core-roofing:14:fr-en:reader:5",
+      "core-roofing:14:fr-en:reader:6",
+      "core-roofing:14:fr-en:reader:7",
+      "core-roofing:14:fr-en:reader:8",
+      "core-roofing:14:fr-en:reader:9"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "heldRefsInterpretation": "Candidate-level held faces; used-face source questions are separately listed.",
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:14:fr-en:card:9"
+        ],
+        "question": "Six inches is attributed to the guide, then the foreman checks manufacturer instructions. Resolve the approved product overlap; retain the guide example as attributed speech, never a universal installation rule.",
+        "relationship": "Semantic dependency inferred from question wording; affectedIds in immutable source packet are unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "The document noun is used only as a label, not selected product/overlap verification."
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:14:fr-en:card:9"
+        ],
+        "question": "Archived Reader 5 recasts the guide's six-inch phrase as an example; this is a safety-preserving explanation but changes the literal quotation. Qualified source and trade review should decide how to teach attribution while retaining exact meaning.",
+        "relationship": "Semantic dependency inferred from question wording; affectedIds in immutable source packet are unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Label reading does not settle literal six-inch quotation or source attribution."
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:14:fr-en:card:3"
+        ],
+        "question": "Plastic cap nails are an explicit source fastening method, but archive clous à rondelles de plastique may name a different cap/washer form. Confirm the selected product fastener and French term before a scored imperative or audio script.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic fastener noun only; no selected fastener or fastening method."
+      }
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; label/diagram language subset does not complete original source mission",
+    "frenchRegisterStatusInternal": "Unselected vous register candidate; qualified French/locale review remains open.",
+    "internalDecisionHolds": [
+      "Card C is a printed language label, not the selected product instructions or verification of overlap/six-inch/product conformity."
+    ],
+    "learnerRoleFrench": "Une personne qui nomme des objets sur des images, pose une question sur un emplacement et lit une carte.",
+    "partnerRoleFrench": "Une autre personne qui donne les invites de l’exercice et montre les images ou les étiquettes imprimées.",
+    "expectedAllLearnerTurnsEnglish": [
+      "This is a roll.",
+      "This is a fastener.",
+      "Where are the manufacturer instructions?",
+      "The manufacturer instructions. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "C’est un rouleau.",
+      "C’est un élément de fixation.",
+      "Où sont les instructions du fabricant ?",
+      "Les instructions du fabricant. Merci."
+    ],
+    "frenchSensePendingNote": "L’élément de fixation is a proposed generic support form; archived la fixation and product-specific fastener senses remain unselected."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -685,9 +771,87 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "New grammar examples give no actual overlap value or material conformity finding. There are no wrinkles is grammar-only expansion of the source fragment, not a recorded inspection result.",
-    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review."
+    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review.",
+    "Speaking reconciliation only: exact earlier draft retained, source arrays/IDs/pins/objective and incomplete status unchanged. Seven contextual turns and French support do not complete original specialist objective or authorize work.",
+    "Frozen-row questions from Fable retained for later reconciliation: dictionary12 scope/linkedHeldDecisionRefs parity; Pas de plis/le pouce support variants versus archived packet. No face/dictionary alteration in speaking pass."
   ],
   "sourceObjectiveEnglish": "Verify the specified underlayment overlap",
   "sourceSpeakingEnglish": "Practice the guide's six-inch overlap phrase and verify it against the selected product instructions.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker identifying word cards and asking where a document is.",
+    "partnerRole": "Another coworker asking for item names.",
+    "candidateOpeningEnglish": "This is a roll.",
+    "goalEnglish": "Name a roll and a fastener, then ask where the manufacturer instructions are.",
+    "candidateWordBankEnglish": [
+      "roll",
+      "fastener",
+      "manufacturer instructions",
+      "This is a roll.",
+      "Where are the manufacturer instructions?"
+    ],
+    "closureEnglish": "Thanks, that helps.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:14:fr-en:card:3",
+      "core-roofing:14:fr-en:card:4",
+      "core-roofing:14:fr-en:card:9"
+    ],
+    "partnerCuesEnglish": [
+      "What is item B called?",
+      "Do you need anything else?",
+      "Please repeat the document name."
+    ],
+    "partnerCuesProvenance": "New hypothetical item-label and document-request cues; no material conformity or overlap value.",
+    "id": "core-roofing:14:fr-en:speaking:1",
+    "reviewed": false,
+    "expectedLearnerTurnsEnglish": [
+      "This is a fastener.",
+      "Where are the manufacturer instructions?",
+      "The manufacturer instructions."
+    ],
+    "heldDecisionRefs": [
+      "core-roofing:14:fr-en:card:1",
+      "core-roofing:14:fr-en:card:2",
+      "core-roofing:14:fr-en:card:6",
+      "core-roofing:14:fr-en:card:10"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "practiceContextEnglish": "Card A says roll. Card B says fastener. Card C says manufacturer instructions.",
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "This is a roll."
+      },
+      {
+        "speaker": "partner",
+        "text": "What is item B called?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This is a fastener."
+      },
+      {
+        "speaker": "partner",
+        "text": "Do you need anything else?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where are the manufacturer instructions?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the document name."
+      },
+      {
+        "speaker": "learner",
+        "text": "The manufacturer instructions."
+      }
+    ],
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods."
+  },
+  "sourceAuditOriginMain": "3d18bcd6db4805dec410b4359ce7cf76864711f0"
 }

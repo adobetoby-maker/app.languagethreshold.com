@@ -1,0 +1,373 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-context-alternative",
+  "stableLessonKey": "master-japanese-basics:14",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "683113d8e040cabdb81f288f9df02a8237a4ea3b",
+  "privateSource": {
+    "master": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    "extensions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    "forms": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "support": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-master-11-20-speaking-missions-ja-en.json",
+      "sha256": "27591479d2d61c2879ed3e44af957cb006c151dfae49e7adbf633b0b53156891"
+    },
+    "speakingBuilder": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "previewBuilder": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    }
+  },
+  "mainSource": {
+    "path": "content/japanese-basics/master.json",
+    "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+  },
+  "preservedPriorEvidence": {
+    "partnerRole": "Explain a usual weekday and today’s delayed station meeting to a friend",
+    "authoredSpeakingMission": {
+      "stableLessonKey": "master-japanese-basics:14",
+      "role": "Explain a usual weekday and today’s delayed station meeting to a friend",
+      "opening": "ふだんは あさ しちじに おきます。",
+      "objectives": [
+        "Sequence at least three usual actions from morning to after work",
+        "Contrast the usual trip home with today’s planned meeting",
+        "Explain the train delay, quote the message, and recap the arrival and waiting"
+      ],
+      "complication": "A delayed train changes the plan after the usual workday.",
+      "closure": "Describe the final meeting and trip home in order."
+    }
+  },
+  "canonicalFormEvidence": [
+    {
+      "id": "form-ja-en-6e3080062b60d00a",
+      "pairKey": "Japanese:English",
+      "source": "aligned-dialogue",
+      "sourceDialogueTurn": 3,
+      "focus": "sequence-mazu",
+      "japaneseAnswer": "まず、かおを あらって、あさごはんを たべます。",
+      "englishPrompt": "First, I wash my face and eat breakfast.",
+      "knownJapaneseVariants": [
+        "まず、かおを あらって、あさごはんを たべます。"
+      ],
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "form-ja-en-5a8711b33c9b3218",
+      "pairKey": "Japanese:English",
+      "source": "aligned-dialogue",
+      "sourceDialogueTurn": 7,
+      "focus": "changed-plan-yotei",
+      "japaneseAnswer": "でも、きょうは えきで ともだちに あう よていです。",
+      "englishPrompt": "But today I plan to meet a friend at the station.",
+      "knownJapaneseVariants": [
+        "でも、きょうは えきで ともだちに あう よていです。"
+      ],
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false
+    },
+    {
+      "id": "form-ja-en-e2fe935c347bd01c",
+      "pairKey": "Japanese:English",
+      "source": "aligned-dialogue",
+      "sourceDialogueTurn": 14,
+      "focus": "past-progressive-matteimashita",
+      "japaneseAnswer": "そのあと えきに つきました。ともだちは まっていました。",
+      "englishPrompt": "After that, I arrived at the station. My friend was waiting.",
+      "knownJapaneseVariants": [
+        "そのあと えきに つきました。ともだちは まっていました。"
+      ],
+      "practice": [
+        "recognize-meaning",
+        "produce-target"
+      ],
+      "reviewed": false
+    }
+  ],
+  "selectionStatus": "unselected source-only speaking/context alternative; private routine itself remains unmerged",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "slots": [
+    {
+      "sourcePromptId": "form-ja-en-6e3080062b60d00a",
+      "contextEnglish": "Routine frame (ふだん + polite ～ます). Your friend asks about your usual morning, and you give your first actions in order.",
+      "partnerPromptJapanese": "あさは まず なにを しますか。",
+      "partnerPromptEnglish": "What do you do first in the morning?",
+      "promptProvenance": "exact-source",
+      "partnerSourceTurnOneBased": 2,
+      "learnerTargetJapanese": "まず、かおを あらって、あさごはんを たべます。",
+      "learnerTargetEnglish": "First, I wash my face and eat breakfast.",
+      "explanationJapanese": "「まず」は最初の動作を示します。「かおを あらって」の「て形」で二つの動作を順番につなぎ、「あさごはんを たべます」で終わります。ここの「～ます」は、ふだんの習慣を表す丁寧な形です。",
+      "explanationEnglish": "まず marks the first action. The て-form in かおを あらって links two actions in order, and the sentence ends with あさごはんを たべます. Here polite ～ます describes the usual routine.",
+      "sourceDialogueTurnsOneBased": [
+        2,
+        3
+      ],
+      "id": "master-japanese-basics:14:context-slot:1",
+      "roleProvenance": "authored-practice-casting",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-5a8711b33c9b3218",
+      "contextEnglish": "Usual pattern versus today's plan (ふだん + ～ます, then きょう + よていです). Your friend asks what you do after work. First give your usual answer, ふだんは うちに かえります。 (I usually go home.), then continue with the target line about today's changed plan.",
+      "partnerPromptJapanese": "しごとの あとは どう しますか。",
+      "partnerPromptEnglish": "What do you do after work?",
+      "promptProvenance": "exact-source",
+      "partnerSourceTurnOneBased": 5,
+      "learnerTargetJapanese": "でも、きょうは えきで ともだちに あう よていです。",
+      "learnerTargetEnglish": "But today I plan to meet a friend at the station.",
+      "explanationJapanese": "「ふだんは うちに かえります」は、いつもの習慣を表す「～ます」の文です。「きょうは えきで ともだちに あう よていです」は、今日の予定を表します。「ふだん」はいつものパターン、「きょう」は今日の変更を示します。「でも」は、いつもの行動を言ったあとで、それと違う今日の予定を続けるときに使います。",
+      "explanationEnglish": "ふだんは うちに かえります uses ～ます for the usual habit. きょうは えきで ともだちに あう よていです states today's plan. ふだん marks the usual pattern and きょう marks today's change. でも comes after you state the usual action and introduces today's different plan.",
+      "sourceDialogueTurnsOneBased": [
+        5,
+        6,
+        7
+      ],
+      "id": "master-japanese-basics:14:context-slot:2",
+      "roleProvenance": "authored-practice-casting",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "leadInLearnerLines": [
+        {
+          "sourceDialogueTurnOneBased": 6,
+          "japanese": "ふだんは うちに かえります。",
+          "english": "I usually go home.",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "sourcePromptId": "form-ja-en-e2fe935c347bd01c",
+      "contextEnglish": "Past-recap frame (～ました / ～ていました). You have said you will walk to the station and write a message. Now you recap what happened next: you arrived, and the friend you were meeting was waiting. The partner question here is a newly authored scaffold, not a source line.",
+      "partnerPromptJapanese": "それから どう しましたか。",
+      "partnerPromptEnglish": "Then what did you do?",
+      "promptProvenance": "authored-scaffold",
+      "partnerSourceTurnOneBased": null,
+      "learnerTargetJapanese": "そのあと えきに つきました。ともだちは まっていました。",
+      "learnerTargetEnglish": "After that, I arrived at the station. My friend was waiting.",
+      "explanationJapanese": "「そのあと」は、前に話した行動(歩くこと、メッセージを書くこと)のあと、という意味です。「つきました」は、駅に着いたという完了した出来事を表します。「まっていました」は、着いたそのときに友だちが待っている途中だったことを表します。前の「でんしゃが おくれています」は、遅れが続いているあいだの状況を言う形でした。",
+      "explanationEnglish": "そのあと means after the actions mentioned earlier (walking and writing the message). つきました reports the completed arrival at the station. まっていました shows that the friend's waiting was in progress at the moment of arrival. The earlier でんしゃが おくれています described the situation while the delay was happening.",
+      "sourceDialogueTurnsOneBased": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "id": "master-japanese-basics:14:context-slot:3",
+      "roleProvenance": "authored-practice-casting",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "speaking": {
+    "stableLessonKey": "master-japanese-basics:14",
+    "learnerRoleEnglish": "You are the speaker telling the story. You explain your usual weekday, today's changed plan to meet a friend at the station, the train delay, and what happened in the end.",
+    "partnerRoleEnglish": "A friend who listens and asks short questions about your routine, today's plan, and what happened next. This listener is not the friend you meet at the station, and is not a teacher.",
+    "openingJapanese": "ふだんは あさ しちじに おきます。",
+    "openingEnglish": "I usually get up at seven in the morning.",
+    "openingSourceTurnOneBased": 1,
+    "openingSpeaker": "learner",
+    "objectivesEnglish": [
+      "Sequence at least three usual actions from morning to after work.",
+      "Contrast the usual trip home with today's planned meeting at the station.",
+      "Explain the train delay, quote the message you wrote, and recap the arrival and the friend waiting."
+    ],
+    "complicationEnglish": "A delayed train changes the plan after the usual workday.",
+    "closureJapanese": "さいごに ともだちと はなして、うちに かえりました。",
+    "closureEnglish": "Finally, I talked with my friend and went home.",
+    "closureProvenance": "exact-source-extension",
+    "closureSourceExtensionOneBased": 4,
+    "closureSpeaker": "learner",
+    "wordBankJapanese": [
+      "ふだんは あさ",
+      "まず",
+      "それから",
+      "さいごに",
+      "あさごはん",
+      "しごと",
+      "よていです",
+      "でんしゃ",
+      "おくれています",
+      "おそく なります",
+      "まっていました",
+      "つきました"
+    ],
+    "id": "master-japanese-basics:14:speaking-context-alternative",
+    "roleProvenance": "authored-practice-listener-and-narrator",
+    "selectedJapanese": null,
+    "audioScript": null,
+    "reviewed": false,
+    "phases": [
+      {
+        "phase": "usual-routine-and-todays-plan",
+        "sourceDialogueTurnsOneBased": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "phase": "delay-at-that-point",
+        "sourceDialogueTurnsOneBased": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "phase": "later-past-recap",
+        "sourceDialogueTurnsOneBased": [
+          14
+        ],
+        "sourceExtensionTurnsOneBased": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "preClosureNarration": [
+      {
+        "sourceExtensionTurnOneBased": 1,
+        "japanese": "さんじはんに ともだちに あいました。",
+        "english": "I met my friend at three thirty.",
+        "speaker": "learner-narrating-source",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      {
+        "sourceExtensionTurnOneBased": 2,
+        "japanese": "「おそく なって すみません」と いいました。",
+        "english": "I said, “Sorry I am late.”",
+        "speaker": "learner-narrating-source",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      {
+        "sourceExtensionTurnOneBased": 3,
+        "japanese": "ともだちは 「だいじょうぶです」と いいました。",
+        "english": "My friend said, “It is all right.”",
+        "speaker": "learner-narrating-source",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      }
+    ]
+  },
+  "internalQuestions": [
+    "Slot 3's partner question (それから どう しましたか。) is newly authored. It builds on the source's それから and どう しますか, but the polite past しました does not appear in the source. Can a qualified reviewer confirm it before any runtime use?",
+    "In slot 2 the learner must say turn 6 (ふだんは うちに かえります。) before the でも target. Is the instruction in contextEnglish enough, or should turn 6 be a separately presented learner line?",
+    "The prior closure asks the learner to describe the final meeting and trip home in order, but extension 4 alone skips the meeting. Should extensions 1 to 3 come before it? If so, さんじはん in extension 1 must be quoted exactly and not normalized to the planned さんじ.",
+    "The partner role is cast as a listener distinct from the friend met at the station, because the source questions refer to ともだち in the third person. Is that the intended casting?"
+  ],
+  "internalReviewNotes": [
+    "Actual prior support partnerRole is the learner instruction, not a counterpart actor; prior closure is an English task instruction rather than a playable target-language turn. The existing fields are preserved as evidence, not overwritten.",
+    "The partner is an authored practice listener who interviews the learner; this casting does not assert an unstated real-world identity for the source friend.",
+    "The usual routine/current plan and later past recap are separate practice phases. The earlier train delay need not still be ongoing at the later recap.",
+    "The critique’s inherit[16] concern was rejected: scripts/build-japanese-basics.py inherits Core16 terms; it does not change Master14 lesson identity.",
+    "No new answer variant, normalization helper, route, owner page, audio/recording approval, scoring or progress integration is authored. This is actual bilingual teaching/context content.",
+    "Qualified Japanese/source and full lesson/browser/phone/V4 acceptance remain open; this alternative does not claim a complete course or promote the private routine.",
+    "Keep the prior English closure instruction as an instruction; the proposed closureLineJapanese/English are separate utterance fields. Future builders must bind partnerRole to the counterpart field, not the learner role instruction."
+  ],
+  "patchTargets": [
+    {
+      "privateSourceKey": "support",
+      "jsonPointer": "/support/14/partnerRole",
+      "priorValue": "Explain a usual weekday and today’s delayed station meeting to a friend",
+      "proposedValue": "A friend who listens and asks short questions about your routine, today's plan, and what happened next. This listener is not the friend you meet at the station, and is not a teacher.",
+      "selected": false
+    },
+    {
+      "privateSourceKey": "missions",
+      "jsonPointer": "/lessons/3/partnerRole",
+      "priorValue": null,
+      "proposedValue": "A friend who listens and asks short questions about your routine, today's plan, and what happened next. This listener is not the friend you meet at the station, and is not a teacher.",
+      "action": "add-distinct-counterpart-field",
+      "selected": false
+    },
+    {
+      "privateSourceKey": "missions",
+      "jsonPointer": "/lessons/3/closureLineJapanese",
+      "priorValue": null,
+      "proposedValue": "さいごに ともだちと はなして、うちに かえりました。",
+      "action": "add-playable-utterance-separate-from-preserved-English-closure-instruction",
+      "selected": false
+    },
+    {
+      "privateSourceKey": "missions",
+      "jsonPointer": "/lessons/3/closureLineEnglish",
+      "priorValue": null,
+      "proposedValue": "Finally, I talked with my friend and went home.",
+      "action": "add-bilingual-source-utterance",
+      "selected": false
+    }
+  ],
+  "generatorMappingEvidence": {
+    "speakingBuilderStatement": "support['partnerRole'] = entry['role']",
+    "previewBuilderStatement": "next.partnerRole = authored.role;",
+    "finding": "Both map the learner role instruction into the counterpart role field. The source-only alternative supplies a distinct actor; generator/preview must use that counterpart field if promoted.",
+    "selected": false
+  }
+}

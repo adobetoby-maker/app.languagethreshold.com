@@ -149,44 +149,130 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A worker asking a teammate where a downspout goes.",
-    "partnerRole": "A coworker looking at the same labelled practice picture.",
+    "id": "core-roofing:4:fr-en:speaking:1",
+    "reviewed": false,
     "candidateOpeningEnglish": "Where does the downspout go?",
-    "goalEnglish": "Ask the teammate where the downspout goes, then say that the gutter is clogged.",
+    "candidateOpeningFrench": "Où va la descente pluviale ?",
+    "openingProvenance": "Original opening retained from existing speaking row; French from candidate row card 12. The partner's reply points only to the downspout label on the picture and does not state a drain placement. Worker-as-asker role is newly authored; source foreman Reader7/worker Reader8 roles remain held.",
+    "learnerRole": "A worker asking a teammate where a downspout goes.",
+    "partnerRole": "A practice partner playing a coworker looking at the labelled diagram.",
+    "goalEnglish": "Ask about the downspout label, say that the gutter is clogged, say where the ridge is and summarize the diagram.",
+    "goalFrench": "Demander où se trouve l'étiquette de la descente pluviale, dire que la gouttière est bouchée, dire où se trouve le faîtage et résumer le schéma.",
+    "practiceContextEnglish": "Two learners play coworkers using a fictional labelled practice roof diagram showing a clogged gutter and the ridge at the highest part.",
+    "contextFrench": "Deux apprenants jouent des collègues utilisant un schéma de toit fictif étiqueté montrant une gouttière bouchée et le faîtage dans la partie la plus haute.",
+    "partnerCuesEnglish": [
+      "The downspout is labelled here. What do you notice about the gutter?",
+      "Where is the ridge?",
+      "Can you summarize what you see?"
+    ],
+    "partnerCueSupportFrench": [
+      "La descente pluviale est étiquetée ici. Que remarquez-vous à propos de la gouttière ?",
+      "Où se trouve le faîtage ?",
+      "Pouvez-vous résumer ce que vous voyez ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The gutter is clogged.",
+      "The ridge is at the highest part of the roof.",
+      "The gutter is clogged. The ridge is at the highest part of the roof. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "La gouttière est bouchée.",
+      "Le faîtage se trouve dans la partie la plus haute du toit.",
+      "La gouttière est bouchée. Le faîtage se trouve dans la partie la plus haute du toit. Merci."
+    ],
     "candidateWordBankEnglish": [
-      "downspout",
-      "gutter",
-      "ridge",
       "Where does the downspout go?",
       "The gutter is clogged.",
-      "The water must drain away from the house."
+      "The ridge is",
+      "at the highest part",
+      "of the roof.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure.",
+    "closureProvenance": "New ordinary courtesy closure, used only in the final learner turn. Original objective remains incomplete; no terminal confirmation/understanding answer is inferred.",
     "sourceAnchors": [
       "core-roofing:4:fr-en:card:4",
       "core-roofing:4:fr-en:card:12",
       "core-roofing:4:fr-en:card:3",
       "core-roofing:4:fr-en:card:13",
-      "core-roofing:4:fr-en:card:14",
-      "core-roofing:4:fr-en:card:6"
+      "core-roofing:4:fr-en:card:6",
+      "core-roofing:4:fr-en:reader:1",
+      "core-roofing:4:fr-en:reader:5"
     ],
-    "id": "core-roofing:4:fr-en:speaking:1",
-    "reviewed": false,
-    "scenarioProvenance": "New hypothetical labelled practice picture showing a gutter blockage, not actual site data.",
-    "partnerCuesEnglish": [
-      "The downspout is marked here.",
-      "What do you notice about the gutter?"
-    ],
-    "partnerCueProvenance": "New picture-based descriptive cues; no drainage placement or repair method is prescribed.",
-    "objectiveProvenance": "New bounded practice task from unheld source rows; full source objective is not established as complete.",
+    "scenarioProvenance": "New fictional labelled roof picture with a gutter blockage. Gutter statement is exact Reader5 English; ridge-location wording newly reorders Reader1 without changing at relation. French ridge/summary support is new composition based on existing candidate Reader1, not exact conditional quote. No drain/vent installation placement or real site data.",
+    "partnerCueProvenance": "New diagram label pointer, gutter observation question, ridge-location question and summary request. No drainage placement or installation method.",
+    "objectiveProvenance": "Original objective names ridge/drainage components and remains incomplete for ridge-cap/vents/fascia/soffit/attic held senses. Original speaking task asks where ridge vent/downspouts belong; diagram label response does not complete placement task.",
     "heldDependent": true,
     "heldDecisionRefs": [
+      "core-roofing:4:fr-en:card:1",
+      "core-roofing:4:fr-en:card:2",
+      "core-roofing:4:fr-en:card:5",
       "core-roofing:4:fr-en:card:7",
+      "core-roofing:4:fr-en:card:8",
+      "core-roofing:4:fr-en:card:9",
+      "core-roofing:4:fr-en:card:10",
+      "core-roofing:4:fr-en:card:11",
+      "core-roofing:4:fr-en:card:15",
       "core-roofing:4:fr-en:reader:2",
+      "core-roofing:4:fr-en:reader:3",
+      "core-roofing:4:fr-en:reader:4",
+      "core-roofing:4:fr-en:reader:7",
       "core-roofing:4:fr-en:reader:8"
     ],
-    "holdReason": "Source speaking objective/term review is not complete. This authored proposal remains held-dependent and cannot be promoted as a completed speaking lesson."
+    "holdReason": "Source speaking objective/term review is not complete. This authored proposal remains held-dependent and cannot be promoted as a completed speaking lesson.",
+    "heldRefsInterpretation": "Existing candidate-level holds, not a claim every question in source decision maps to an equal held face.",
+    "internalDecisionHolds": [
+      "Ridge-vent/drainage placement objective incomplete; diagram label pointing is not a drainage detail or actual location.",
+      "Existing Hear/Write French provenance differs between source conditional and revised candidate card rows; outside speaking scope, no protected activity changed.",
+      "Ridge card6 faîtage versus faîte in highest-part context remains a qualified trade/locale question; proposed speaking support not selected.",
+      "Source question7 affects downspout card4 before speaking; role and placement interpretation remain open despite candidate face being unheld."
+    ],
+    "frenchRegisterStatusInternal": "French vous support is an unselected candidate register; not qualified course-wide register approval.",
+    "closureFrench": "Merci.",
+    "expectedAllLearnerTurnsEnglish": [
+      "Where does the downspout go?",
+      "The gutter is clogged.",
+      "The ridge is at the highest part of the roof.",
+      "The gutter is clogged. The ridge is at the highest part of the roof. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Où va la descente pluviale ?",
+      "La gouttière est bouchée.",
+      "Le faîtage se trouve dans la partie la plus haute du toit.",
+      "La gouttière est bouchée. Le faîtage se trouve dans la partie la plus haute du toit. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where does the downspout go?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The downspout is labelled here. What do you notice about the gutter?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The gutter is clogged."
+      },
+      {
+        "speaker": "partner",
+        "text": "Where is the ridge?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The ridge is at the highest part of the roof."
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you summarize what you see?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The gutter is clogged. The ridge is at the highest part of the roof. Thank you."
+      }
+    ],
+    "learnerRoleFrench": "Une personne qui joue un membre d'équipe posant des questions sur le schéma étiqueté.",
+    "partnerRoleFrench": "Une personne qui joue un collègue regardant le même schéma étiqueté."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -629,9 +715,51 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Candidate apostrophe variants require comparison normalization before any future scoring; exact source rows and hashes are preserved unchanged.",
-    "Source hold on authoring the ridge-vent/downspout brief remains intact. This separate unscored candidate practices unheld gutter/downspout language only; it neither resolves the ridge-vent product nor fulfills the source speaking objective. Qualified review gates stay false."
+    "Source hold on authoring the ridge-vent/downspout brief remains intact. This separate unscored candidate practices unheld gutter/downspout/ridge language only; it neither resolves the ridge-vent product nor fulfills the source speaking objective. Qualified review gates stay false.",
+    "Speaking-only reconciliation retains source faces/teaching arrays/normalized metadata; gutter/downspout/ridge diagram subset does not complete original drainage-component/placement objective."
   ],
   "sourceObjectiveEnglish": "Name ridge and drainage components",
   "sourceSpeakingEnglish": "Describe where the ridge vent and downspouts belong.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A worker asking a teammate where a downspout goes.",
+    "partnerRole": "A coworker looking at the same labelled practice picture.",
+    "candidateOpeningEnglish": "Where does the downspout go?",
+    "goalEnglish": "Ask the teammate where the downspout goes, then say that the gutter is clogged.",
+    "candidateWordBankEnglish": [
+      "downspout",
+      "gutter",
+      "ridge",
+      "Where does the downspout go?",
+      "The gutter is clogged.",
+      "The water must drain away from the house."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure.",
+    "sourceAnchors": [
+      "core-roofing:4:fr-en:card:4",
+      "core-roofing:4:fr-en:card:12",
+      "core-roofing:4:fr-en:card:3",
+      "core-roofing:4:fr-en:card:13",
+      "core-roofing:4:fr-en:card:14",
+      "core-roofing:4:fr-en:card:6"
+    ],
+    "id": "core-roofing:4:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical labelled practice picture showing a gutter blockage, not actual site data.",
+    "partnerCuesEnglish": [
+      "The downspout is marked here.",
+      "What do you notice about the gutter?"
+    ],
+    "partnerCueProvenance": "New picture-based descriptive cues; no drainage placement or repair method is prescribed.",
+    "objectiveProvenance": "New bounded practice task from unheld source rows; full source objective is not established as complete.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:4:fr-en:card:7",
+      "core-roofing:4:fr-en:reader:2",
+      "core-roofing:4:fr-en:reader:8"
+    ],
+    "holdReason": "Source speaking objective/term review is not complete. This authored proposal remains held-dependent and cannot be promoted as a completed speaking lesson."
+  },
+  "sourceAuditOriginMain": "bab3583eebb259c4a573ada0cd05181231ea9c5a"
 }

@@ -1,0 +1,1139 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-teaching-context-alternatives",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "a90ac6b8bbc423e5c9092ba0855a22504c1bea01",
+  "mainSource": {
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    }
+  },
+  "privateSource": {
+    "forms": {
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    "support": {
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "path": "content/japanese-basics/private-master-1-10-speaking-missions-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "afad8eeda19159ddd4506e9e368b90dee2646927efd2f6cd8f53708ae26866ea"
+    },
+    "builder": {
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "preview": {
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    },
+    "modes": {
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    }
+  },
+  "scope": "three source-only role/context/six-mode teaching alternatives, not source replacement or course release",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "lessons": [
+    {
+      "stableLessonKey": "master-japanese-basics:5",
+      "lessonNumber": 5,
+      "preservedPriorPartnerRole": "Describe a meeting room to a colleague",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:5",
+        "role": "Describe a meeting room to a colleague",
+        "opening": "へやの なかに つくえが あります。",
+        "objectives": [
+          "Locate objects using あります",
+          "Locate people using います",
+          "Describe the light’s on-state with ついています"
+        ],
+        "complication": "The colleague asks whether a person or an object is near the desk.",
+        "closure": "Restate where the relevant objects and people are before the meeting."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 4,
+          "prompt": "Read the teacher's position. Identify the person marked by が and the location near the door."
+        },
+        "recall": {
+          "turn": 2,
+          "prompt": "Recall the sentence locating a book on the desk, using のうえに and あります."
+        },
+        "hear": {
+          "turn": 6,
+          "prompt": "Listen to the next-room sentence and select the meaning that no one is there."
+        },
+        "type": {
+          "turn": 1,
+          "prompt": "Type the sentence saying there is a desk in the room, using なかに and あります."
+        },
+        "say": {
+          "turn": 7,
+          "prompt": "Say the sentence for the meeting happening here, using action-location で."
+        },
+        "write": {
+          "turn": 8,
+          "prompt": "Write the short sentence stating that the light is on, using ついています."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "targetSpeakerRoleEnglish": "Room describer (learner)",
+          "learnerPracticeRoleEnglish": "Room describer",
+          "targetJapanese": "ドアの ちかくに せんせいが います。",
+          "targetEnglish": "The teacher is near the door.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "promptEnglish": "You are telling a colleague who is in the meeting room. Read your line about the teacher: find the person marked by が and where that person is in relation to the door.",
+          "id": "master-japanese-basics:5:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Read the teacher's position. Identify the person marked by が and the location near the door."
+          }
+        },
+        {
+          "mode": "recall",
+          "targetSpeakerRoleEnglish": "Room describer (learner)",
+          "learnerPracticeRoleEnglish": "Room describer",
+          "targetJapanese": "つくえの うえに ほんが あります。",
+          "targetEnglish": "A book is on the desk.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "promptEnglish": "You have told your colleague there is a desk in the room. Now recall the line that places a book on that desk, with うえに and あります.",
+          "id": "master-japanese-basics:5:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Recall the sentence locating a book on the desk, using のうえに and あります."
+          }
+        },
+        {
+          "mode": "hear",
+          "targetSpeakerRoleEnglish": "Room describer (learner)",
+          "learnerPracticeRoleEnglish": "Colleague listening to the room describer",
+          "targetJapanese": "となりの へやには だれも いません。",
+          "targetEnglish": "There is no one in the next room.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "hearOptionsJapanese": [
+            "あきさんも へやに います。",
+            "となりの へやには だれも いません。",
+            "かいぎは ここで します。"
+          ],
+          "promptEnglish": "The description moves from the meeting room to the room next door. Listen to the describer and select the sentence that says no one is there.",
+          "id": "master-japanese-basics:5:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "となりの へやには だれも いません。",
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Listen to the next-room sentence and select the meaning that no one is there."
+          },
+          "hearOptionsEnglish": [
+            "Aki is also in the room.",
+            "There is no one in the next room.",
+            "The meeting will happen here."
+          ]
+        },
+        {
+          "mode": "type",
+          "targetSpeakerRoleEnglish": "Room describer (learner)",
+          "learnerPracticeRoleEnglish": "Room describer",
+          "targetJapanese": "へやの なかに つくえが あります。",
+          "targetEnglish": "There is a desk in the room.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "promptEnglish": "Your colleague has not seen the meeting room. Type your opening line saying there is a desk in the room, using なかに and あります.",
+          "id": "master-japanese-basics:5:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Type the sentence saying there is a desk in the room, using なかに and あります."
+          }
+        },
+        {
+          "mode": "say",
+          "targetSpeakerRoleEnglish": "Room describer (learner)",
+          "learnerPracticeRoleEnglish": "Room describer",
+          "targetJapanese": "かいぎは ここで します。",
+          "targetEnglish": "The meeting will happen here.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "promptEnglish": "Tell your colleague that this room is where the meeting will be held. Say the line aloud with action-location で (ここで) and します.",
+          "id": "master-japanese-basics:5:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Say the sentence for the meeting happening here, using action-location で."
+          }
+        },
+        {
+          "mode": "write",
+          "targetSpeakerRoleEnglish": "Room describer (learner)",
+          "learnerPracticeRoleEnglish": "Room describer",
+          "targetJapanese": "でんきは ついています。",
+          "targetEnglish": "The light is on.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "promptEnglish": "Add the current state of the room to your description. Write the short line saying the light is on, using ついています.",
+          "id": "master-japanese-basics:5:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Write the short sentence stating that the light is on, using ついています."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-444a0f8a6d8cf112",
+          "sourceTurnOneBased": 1,
+          "exampleJapanese": "へやの なかに つくえが あります。",
+          "explanationJapanese": "この ぶんは、へやに なにが あるかを いう ぶんです。「へやの なか」は へやの うちがわの ことです。その あとの「に」は、ものが ある ばしょを しめします。「つくえが」の「が」は、そこに ある ものを しめします。\n\n「あります」は、つくえや ほんの ような ものに つかいます。ひとや どうぶつには「います」を つかいます。つくえは ものですから、この ぶんでは「あります」を つかいます。",
+          "explanationEnglish": "This sentence says what is in the room. へやの なか is the inside of the room, and the に after it marks the place where something is. The が in つくえが marks the thing that is there.\n\nあります is used for things such as desks and books. います is used for people and animals. A desk is a thing, so this sentence uses あります.",
+          "id": "master-japanese-basics:5:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-444a0f8a6d8cf112",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "object-arimasu",
+            "japaneseAnswer": "へやの なかに つくえが あります。",
+            "englishPrompt": "There is a desk in the room.",
+            "knownJapaneseVariants": [
+              "へやの なかに つくえが あります。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-205828590d534825",
+          "sourceTurnOneBased": 4,
+          "exampleJapanese": "ドアの ちかくに せんせいが います。",
+          "explanationJapanese": "この ぶんは、ひとが どこに いるかを いう ぶんです。「ちかく」は、ちかい ところと いう いみです。「ドアの ちかくに」の「に」は、ひとが いる ばしょを しめします。「せんせいが」の「が」は、そこに いる ひとを しめします。\n\n「います」は、ひとや どうぶつに つかいます。ものには「あります」を つかいます。せんせいは ひとですから、この ぶんでは「います」を つかいます。",
+          "explanationEnglish": "This sentence says where a person is. ちかく means a nearby place. The に in ドアの ちかくに marks the place where the person is, and the が in せんせいが marks the person who is there.\n\nいます is used for people and animals. あります is used for things. The teacher is a person, so this sentence uses います.",
+          "id": "master-japanese-basics:5:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-205828590d534825",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "person-imasu",
+            "japaneseAnswer": "ドアの ちかくに せんせいが います。",
+            "englishPrompt": "The teacher is near the door.",
+            "knownJapaneseVariants": [
+              "ドアの ちかくに せんせいが います。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-e41fa283c3a7fcac",
+          "sourceTurnOneBased": 8,
+          "exampleJapanese": "でんきは ついています。",
+          "explanationJapanese": "この ぶんは、でんきの いまの じょうたいを いう ぶんです。「つきます」は、でんきが つく うごきを あらわします。「ついています」は、でんきが ついた あとの じょうたいが いまも つづいて いる ことを あらわします。\n\nですから、いま でんきを つけて いる とちゅうと いう いみでは ありません。「でんきは」の「は」は、この ぶんの わだいを しめします。",
+          "explanationEnglish": "This sentence describes the present state of the light. つきます expresses the event of a light coming on. ついています says that the state after the light came on is still continuing now.\n\nSo it does not mean that someone is in the middle of turning the light on. The は in でんきは marks the topic of the sentence.",
+          "id": "master-japanese-basics:5:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-e41fa283c3a7fcac",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 8,
+            "focus": "resulting-state-tsuiteimasu",
+            "japaneseAnswer": "でんきは ついています。",
+            "englishPrompt": "The light is on.",
+            "knownJapaneseVariants": [
+              "でんきは ついています。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Room describer: tells a colleague where the objects and people in the meeting room are.",
+        "partnerRoleEnglish": "Colleague listening to the room description and distinguishing the people from objects around the desk.",
+        "openingJapanese": "へやの なかに つくえが あります。",
+        "openingEnglish": "There is a desk in the room.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "learner (room describer)",
+        "objectivesEnglish": [
+          "Locate objects using あります",
+          "Locate people using います",
+          "Describe the light’s on-state with ついています"
+        ],
+        "closureJapanese": "ドアの ちかくに せんせいが います。",
+        "closureEnglish": "The teacher is near the door.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 4,
+        "closureSpeaker": "learner (room describer)",
+        "contextFramesEnglish": [
+          "You are describing a meeting room to a colleague before a meeting.",
+          "Say where things are with あります and where people are with います.",
+          "When your colleague asks whether a person or an object is near the desk, you can answer with あきさんは つくえの となりに います。 (a person, so います) and つくえの うえに ほんが あります。 (an object, so あります).",
+          "You can add that the light is on with でんきは ついています。",
+          "To close, restate the locations: first the book on the desk, then the teacher near the door."
+        ],
+        "wordBankJapanese": [
+          "でんき",
+          "ついています",
+          "ちかく",
+          "だれも",
+          "もちぬし",
+          "さがします"
+        ],
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "complicationSourceSupport": {
+          "japanese": "あきさんは つくえの となりに います。",
+          "english": "Aki is next to the desk.",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 2,
+          "speaker": "Room describer (learner)",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        "id": "master-japanese-basics:5:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:5",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false,
+        "preClosingSourceLines": [
+          {
+            "japanese": "つくえの うえに ほんが あります。",
+            "english": "A book is on the desk.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 2,
+            "speaker": "Room describer (learner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          }
+        ]
+      },
+      "internalQuestions": [
+        "The source does not label who speaks each dialogue line. All eight are treated here as the room describer's lines. Is that the intended reading?",
+        "No Japanese is authored for the colleague, so the colleague's question about the desk stays in English. Should a Japanese question line be authored?",
+        "The prior closure asks for a restatement of objects and people, but the closure fields hold one line. Dialogue turn 4 is used as the closing line, with dialogue turn 2 restated just before it in the frames. Should the closure hold both lines?",
+        "The complication asks what is near the desk. The source offers extension 2 (Aki next to the desk) and dialogue turn 2 (book on the desk). Is 'on the desk' an acceptable answer to 'near the desk'?",
+        "The hear options are Japanese sentences, so the prompt now says 'select the sentence' where the prior prompt said 'select the meaning'. Should the options be the source English lines instead?",
+        "The form explanations state that います covers animals as well as people. The source focus says only 'people and objects'. Is the wider statement wanted at this level?",
+        "Form form-ja-en-143d6e2f97b9bf3d (dialogue turn 6, negative いません) has no explanation entry. Is one needed?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Colleague listening to the room description and distinguishing the people from objects around the desk.",
+        "closureLineJapanese": "ドアの ちかくに せんせいが います。",
+        "closureLineEnglish": "The teacher is near the door.",
+        "closureSpeaker": "learner (room describer)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:6",
+      "lessonNumber": 6,
+      "preservedPriorPartnerRole": "Clarify directions to meet a teacher near the station",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:6",
+        "role": "Clarify directions to meet a teacher near the station",
+        "opening": "あした、えきの まえで あいますか。",
+        "objectives": [
+          "Confirm tomorrow’s meeting place and time",
+          "Say that you do not know the route and ask about a map",
+          "Check whether you can travel the road and arrive alone"
+        ],
+        "complication": "The first directions are not enough for you to identify the route.",
+        "closure": "Confirm the route and whether you can get there on your own."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 3,
+          "prompt": "Read the route-repair sentence. Identify what the speaker does not know and the destination まで."
+        },
+        "recall": {
+          "turn": 1,
+          "prompt": "Recall the question confirming a meeting in front of the station tomorrow."
+        },
+        "hear": {
+          "turn": 6,
+          "prompt": "Listen to the direction reply and select the meaning that says to go straight."
+        },
+        "type": {
+          "turn": 5,
+          "prompt": "Type the question asking whether to take this road, keeping このみちを."
+        },
+        "say": {
+          "turn": 7,
+          "prompt": "Say the follow-up question asking whether you can get there alone, using いけますか."
+        },
+        "write": {
+          "turn": 2,
+          "prompt": "Write the affirmative suggestion to meet at three, using さんじに and ～ましょう."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "targetSpeakerRoleEnglish": "Route questioner (learner)",
+          "learnerPracticeRoleEnglish": "Route questioner",
+          "targetJapanese": "すみません、えきまでの みちが わかりません。",
+          "targetEnglish": "Sorry, I do not know the way to the station.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "promptEnglish": "The time is settled, but you realise you cannot find the station. Read your line to the teacher: find what you do not know and the destination marked by まで.",
+          "id": "master-japanese-basics:6:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Read the route-repair sentence. Identify what the speaker does not know and the destination まで."
+          }
+        },
+        {
+          "mode": "recall",
+          "targetSpeakerRoleEnglish": "Route questioner (learner)",
+          "learnerPracticeRoleEnglish": "Route questioner",
+          "targetJapanese": "あした、えきの まえで あいますか。",
+          "targetEnglish": "Are we meeting in front of the station tomorrow?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "promptEnglish": "You are checking tomorrow's plan with your teacher. Recall your question confirming that you will meet in front of the station tomorrow.",
+          "id": "master-japanese-basics:6:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Recall the question confirming a meeting in front of the station tomorrow."
+          }
+        },
+        {
+          "mode": "hear",
+          "targetSpeakerRoleEnglish": "Teacher (partner)",
+          "learnerPracticeRoleEnglish": "Route questioner",
+          "targetJapanese": "はい、まっすぐ いきます。",
+          "targetEnglish": "Yes, you go straight.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "hearOptionsJapanese": [
+            "はい、さんじに あいましょう。",
+            "はい、まっすぐ いきます。",
+            "はい、だいじょうぶです。"
+          ],
+          "promptEnglish": "You have just asked your teacher whether to take this road. Listen to the teacher's reply and select the sentence that tells you to go straight.",
+          "id": "master-japanese-basics:6:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "はい、まっすぐ いきます。",
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Listen to the direction reply and select the meaning that says to go straight."
+          },
+          "hearOptionsEnglish": [
+            "Yes, let us meet at three.",
+            "Yes, you go straight.",
+            "Yes, you will be fine."
+          ]
+        },
+        {
+          "mode": "type",
+          "targetSpeakerRoleEnglish": "Route questioner (learner)",
+          "learnerPracticeRoleEnglish": "Route questioner",
+          "targetJapanese": "この みちを いきますか。",
+          "targetEnglish": "Do I take this road?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "promptEnglish": "You and your teacher are looking at the map together. Type your question asking whether this is the road you take, keeping この みちを.",
+          "id": "master-japanese-basics:6:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Type the question asking whether to take this road, keeping このみちを."
+          }
+        },
+        {
+          "mode": "say",
+          "targetSpeakerRoleEnglish": "Route questioner (learner)",
+          "learnerPracticeRoleEnglish": "Route questioner",
+          "targetJapanese": "ひとりで いけますか。",
+          "targetEnglish": "Can I get there alone?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "promptEnglish": "Your teacher has told you to go straight. Ask aloud whether you can get there by yourself, using いけますか.",
+          "id": "master-japanese-basics:6:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Say the follow-up question asking whether you can get there alone, using いけますか."
+          }
+        },
+        {
+          "mode": "write",
+          "targetSpeakerRoleEnglish": "Teacher (partner)",
+          "learnerPracticeRoleEnglish": "Teacher practicing the meeting-time reply",
+          "targetJapanese": "はい、さんじに あいましょう。",
+          "targetEnglish": "Yes, let us meet at three.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "promptEnglish": "Take the teacher's side for this line. The student has asked about meeting in front of the station tomorrow. Write the teacher's yes and the suggestion to meet at three, using さんじに and ～ましょう.",
+          "id": "master-japanese-basics:6:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Write the affirmative suggestion to meet at three, using さんじに and ～ましょう."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-a7e083bcecff5bb2",
+          "sourceTurnOneBased": 1,
+          "exampleJapanese": "あした、えきの まえで あいますか。",
+          "explanationJapanese": "この ぶんは、あう ばしょを たしかめる しつもんです。「あした」は きょうの つぎの ひです。「えきの まえで」の「で」は、あうと いう うごきを する ばしょを しめします。\n\n「あいます」は「あう」の ていねいな かたちです。さいごに「か」を つけると、しつもんに なります。",
+          "explanationEnglish": "This question checks the meeting place. あした is the day after today. The で in えきの まえで marks the place where the action of meeting happens.\n\nあいます is the polite form of あう. Adding か at the end turns the sentence into a question.",
+          "id": "master-japanese-basics:6:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-a7e083bcecff5bb2",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "meeting-place-de",
+            "japaneseAnswer": "あした、えきの まえで あいますか。",
+            "englishPrompt": "Are we meeting in front of the station tomorrow?",
+            "knownJapaneseVariants": [
+              "あした、えきの まえで あいますか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-ff6054960d87bab2",
+          "sourceTurnOneBased": 5,
+          "exampleJapanese": "この みちを いきますか。",
+          "explanationJapanese": "この ぶんは、とおる みちを たしかめる しつもんです。「この」は、はなす ひとの ちかくに ある ものを さす ことばです。「みちを」の「を」は、とおって いく みちを しめします。\n\n「いきます」は「いく」の ていねいな かたちです。さいごに「か」を つけて、この みちを いくか どうかを たずねます。",
+          "explanationEnglish": "This question checks the road to travel. この points to something close to the speaker. The を in みちを marks the road you travel along.\n\nいきます is the polite form of いく. Adding か at the end asks whether this is the road to go along.",
+          "id": "master-japanese-basics:6:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-ff6054960d87bab2",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 5,
+            "focus": "route-object-wo",
+            "japaneseAnswer": "この みちを いきますか。",
+            "englishPrompt": "Do I take this road?",
+            "knownJapaneseVariants": [
+              "この みちを いきますか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-850f70462ac9fdb2",
+          "sourceTurnOneBased": 7,
+          "exampleJapanese": "ひとりで いけますか。",
+          "explanationJapanese": "この ぶんは、ひとりで いく ことが できるか どうかを たずねる しつもんです。「いけます」は「いきます」の かのうの かたちで、「いく ことが できます」と いう いみです。\n\n「ひとりで」は、ほかの ひとと いっしょでは なく、じぶんだけで、と いう いみです。さいごに「か」を つけると、しつもんに なります。",
+          "explanationEnglish": "This question asks whether it is possible to go alone. いけます is the potential form of いきます and means 'can go'.\n\nひとりで means by yourself, not together with anyone else. Adding か at the end turns the sentence into a question.",
+          "id": "master-japanese-basics:6:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-850f70462ac9fdb2",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "potential-ikemasu",
+            "japaneseAnswer": "ひとりで いけますか。",
+            "englishPrompt": "Can I get there alone?",
+            "knownJapaneseVariants": [
+              "ひとりで いけますか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Route questioner: confirms the meeting place, says the route is unclear, and checks the road and whether going alone is possible.",
+        "partnerRoleEnglish": "Teacher: confirms the time, shows the map, and gives directions.",
+        "openingJapanese": "あした、えきの まえで あいますか。",
+        "openingEnglish": "Are we meeting in front of the station tomorrow?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "learner (route questioner)",
+        "objectivesEnglish": [
+          "Confirm tomorrow’s meeting place and time",
+          "Say that you do not know the route and ask about a map",
+          "Check whether you can travel the road and arrive alone"
+        ],
+        "closureJapanese": "はい、わかりました。ありがとうございます。",
+        "closureEnglish": "Yes, I understand. Thank you.",
+        "closureSourceKind": "extension",
+        "closureSourceTurnOneBased": 6,
+        "closureSpeaker": "learner (route questioner)",
+        "contextFramesEnglish": [
+          "You are arranging to meet your teacher near the station tomorrow.",
+          "Confirm the place first. Your teacher suggests the time.",
+          "When you do not know the way, say so. Your teacher suggests looking at a map.",
+          "If the first directions are not enough, ask この ちずの えきは どこですか。 Your teacher may check with これで わかりますか。",
+          "Confirm the road with この みちを いきますか。 before you close.",
+          "Close by asking whether you can get there alone. Your teacher answers はい、だいじょうぶです。 You can then thank them with はい、わかりました。ありがとうございます。"
+        ],
+        "wordBankJapanese": [
+          "まっすぐ",
+          "みせます"
+        ],
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "id": "master-japanese-basics:6:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:6",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false,
+        "preClosingSourceLines": [
+          {
+            "japanese": "はい、まっすぐ いきます。",
+            "english": "Yes, you go straight.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 6,
+            "speaker": "Teacher (partner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          },
+          {
+            "japanese": "ひとりで いけますか。",
+            "english": "Can I get there alone?",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 7,
+            "speaker": "Route questioner (learner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          },
+          {
+            "japanese": "はい、だいじょうぶです。",
+            "english": "Yes, you will be fine.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 8,
+            "speaker": "Teacher (partner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          }
+        ]
+      },
+      "internalQuestions": [
+        "The source does not label who speaks each dialogue line. Odd turns are treated as the learner's and even turns as the teacher's. Is that the intended split?",
+        "Who speaks the extension lines? Extensions 1 and 4 read as third-person narration about the teacher, and extensions 2, 3, 5 and 6 read as dialogue. The frames use 2 as the learner's line and 5 as the teacher's.",
+        "The prior closure asks the learner to confirm the route and whether they can go alone, but the closure fields hold one line. Dialogue turn 7 is used, with dialogue turn 5 before it and dialogue turn 8 and extension 6 after it in the frames. Should the closure hold more than one line?",
+        "The prior complication ('the first directions are not enough') has no dialogue line of its own. The frames model it with extensions 2 and 5. Is that the intended source?",
+        "The form focus for dialogue turn 1 is 'meeting-place-de', and the sentence contains no clock time. The explanation therefore covers place only, and the time is left to dialogue turn 2. Is that right?",
+        "The hear options are Japanese sentences, so the prompt now says 'select the sentence' where the prior prompt said 'select the meaning'. Should the options be the source English lines instead?",
+        "The explanation for この (close to the speaker) is general grammar and is not stated in the source. Keep or remove?",
+        "Form form-ja-en-92e160269b3b9633 (dialogue turn 2, ～ましょう) has no explanation entry. Is one needed?",
+        "The complete proposed closing exchange includes dialogue6direction,7question,8reply, then extension6thanks. The final closure field names only the terminal thanks, while all prior route/independence evidence is explicitly mapped."
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Teacher: confirms the time, shows the map, and gives directions.",
+        "closureLineJapanese": "はい、わかりました。ありがとうございます。",
+        "closureLineEnglish": "Yes, I understand. Thank you.",
+        "closureSpeaker": "learner (route questioner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:7",
+      "lessonNumber": 7,
+      "preservedPriorPartnerRole": "Explain a method for learning difficult words to a classmate",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:7",
+        "role": "Explain a method for learning difficult words to a classmate",
+        "opening": "まいにち どうやって にほんごを べんきょうしますか。",
+        "objectives": [
+          "Ask how a classmate studies using どうやって",
+          "Describe asking a teacher and writing sentences again",
+          "Explain gradual progress with すこしずつ"
+        ],
+        "complication": "The classmate gives only a daily time, so ask for the method instead.",
+        "closure": "Restate the repeatable study method in order."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 4,
+          "prompt": "Read the strategy sentence. Identify the teacher as the person asked and word meanings as the topic."
+        },
+        "recall": {
+          "turn": 1,
+          "prompt": "Recall the question asking how someone studies Japanese every day, using どうやって."
+        },
+        "hear": {
+          "turn": 8,
+          "prompt": "Listen to both final sentences and choose the meaning that includes writing again and gradual understanding."
+        },
+        "type": {
+          "turn": 2,
+          "prompt": "Type the sentence for writing short sentences every morning, preserving まいあさ."
+        },
+        "say": {
+          "turn": 5,
+          "prompt": "Say the question asking whether the learner also asks about the study method."
+        },
+        "write": {
+          "turn": 6,
+          "prompt": "Write the full affirmative reply about also asking how to study, including も."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "targetSpeakerRoleEnglish": "Classmate (partner)",
+          "learnerPracticeRoleEnglish": "Interviewer",
+          "targetJapanese": "せんせいに ことばの いみを ききます。",
+          "targetEnglish": "I ask the teacher the meanings of words.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "promptEnglish": "You asked your classmate what they do with difficult words. Read their answer: find the teacher as the person they ask, marked by に, and word meanings as what they ask about.",
+          "id": "master-japanese-basics:7:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Read the strategy sentence. Identify the teacher as the person asked and word meanings as the topic."
+          }
+        },
+        {
+          "mode": "recall",
+          "targetSpeakerRoleEnglish": "Interviewer (learner)",
+          "learnerPracticeRoleEnglish": "Interviewer",
+          "targetJapanese": "まいにち どうやって にほんごを べんきょうしますか。",
+          "targetEnglish": "How do you study Japanese every day?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "promptEnglish": "You are interviewing a classmate about how they learn Japanese. Recall your opening question asking how they study Japanese every day, using どうやって.",
+          "id": "master-japanese-basics:7:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Recall the question asking how someone studies Japanese every day, using どうやって."
+          }
+        },
+        {
+          "mode": "hear",
+          "targetSpeakerRoleEnglish": "Classmate (partner)",
+          "learnerPracticeRoleEnglish": "Interviewer",
+          "targetJapanese": "もういちど ぶんを かきます。すこしずつ わかります。",
+          "targetEnglish": "I write the sentences again. Little by little I understand.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "hearOptionsJapanese": [
+            "まいあさ みじかい ぶんを かきます。",
+            "もういちど ぶんを かきます。すこしずつ わかります。",
+            "はい、べんきょうの やりかたも ききます。"
+          ],
+          "promptEnglish": "You asked your classmate what they do after that. Listen to their two-sentence answer and select the one that includes writing again and understanding little by little.",
+          "id": "master-japanese-basics:7:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "もういちど ぶんを かきます。すこしずつ わかります。",
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Listen to both final sentences and choose the meaning that includes writing again and gradual understanding."
+          },
+          "hearOptionsEnglish": [
+            "I write short sentences every morning.",
+            "I write the sentences again. Little by little I understand.",
+            "Yes, I ask about the way to study them too."
+          ]
+        },
+        {
+          "mode": "type",
+          "targetSpeakerRoleEnglish": "Classmate (partner)",
+          "learnerPracticeRoleEnglish": "Classmate practicing the answer voice",
+          "targetJapanese": "まいあさ みじかい ぶんを かきます。",
+          "targetEnglish": "I write short sentences every morning.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "promptEnglish": "Take the classmate's side for this line. The interviewer has asked how you study Japanese every day. Type the answer about writing short sentences every morning, keeping まいあさ.",
+          "id": "master-japanese-basics:7:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Type the sentence for writing short sentences every morning, preserving まいあさ."
+          }
+        },
+        {
+          "mode": "say",
+          "targetSpeakerRoleEnglish": "Interviewer (learner)",
+          "learnerPracticeRoleEnglish": "Interviewer",
+          "targetJapanese": "べんきょうの やりかたも ききますか。",
+          "targetEnglish": "Do you ask about the way to study them too?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "promptEnglish": "Your classmate has said they ask the teacher what words mean. As the interviewer, ask aloud whether they also ask about the study method.",
+          "id": "master-japanese-basics:7:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Say the question asking whether the learner also asks about the study method."
+          }
+        },
+        {
+          "mode": "write",
+          "targetSpeakerRoleEnglish": "Classmate (partner)",
+          "learnerPracticeRoleEnglish": "Classmate practicing the answer voice",
+          "targetJapanese": "はい、べんきょうの やりかたも ききます。",
+          "targetEnglish": "Yes, I ask about the way to study them too.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "promptEnglish": "Take the classmate's side for this line. The interviewer has asked whether you ask about the study method too. Write the full yes-reply, including も.",
+          "id": "master-japanese-basics:7:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Write the full affirmative reply about also asking how to study, including も."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-b4bba1f2e3811c01",
+          "sourceTurnOneBased": 1,
+          "exampleJapanese": "まいにち どうやって にほんごを べんきょうしますか。",
+          "explanationJapanese": "この ぶんは、べんきょうの やりかたを たずねる しつもんです。「どうやって」は、どんな やりかたで するかを たずねる ことばです。「まいにち」は、どの ひも、と いう いみで、べんきょうする ひんどを あらわします。\n\n「にほんごを」の「を」は、べんきょうする ものを しめします。「べんきょうしますか」は ていねいな しつもんの かたちです。この しつもんは、じかんでは なく、やりかたを きいて います。",
+          "explanationEnglish": "This question asks about a way of studying. どうやって asks by what method something is done. まいにち means every day and gives the frequency of the studying.\n\nThe を in にほんごを marks what is studied. べんきょうしますか is the polite question form. The question asks about the method, not about the time.",
+          "id": "master-japanese-basics:7:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-b4bba1f2e3811c01",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "method-douyatte",
+            "japaneseAnswer": "まいにち どうやって にほんごを べんきょうしますか。",
+            "englishPrompt": "How do you study Japanese every day?",
+            "knownJapaneseVariants": [
+              "まいにち どうやって にほんごを べんきょうしますか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-66167c94d0fbf23d",
+          "sourceTurnOneBased": 4,
+          "exampleJapanese": "せんせいに ことばの いみを ききます。",
+          "explanationJapanese": "この ぶんは、せんせいに ことばの いみを きく ことを いう ぶんです。「せんせいに」の「に」は、きく あいてを しめします。「ことばの いみを」の「を」は、きく ないようを しめします。\n\n「ききます」には、「たずねます」と「おとを きく」の ふたつの いみが あります。この ぶんでは「たずねます」の いみです。",
+          "explanationEnglish": "This sentence says that the speaker asks the teacher the meanings of words. The に in せんせいに marks the person who is asked. The を in ことばの いみを marks what is asked about.\n\nききます has two meanings, 'ask' and 'listen'. In this sentence it means 'ask'.",
+          "id": "master-japanese-basics:7:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-66167c94d0fbf23d",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "ask-person-ni",
+            "japaneseAnswer": "せんせいに ことばの いみを ききます。",
+            "englishPrompt": "I ask the teacher the meanings of words.",
+            "knownJapaneseVariants": [
+              "せんせいに ことばの いみを ききます。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-81f378cd2f785052",
+          "sourceTurnOneBased": 8,
+          "exampleJapanese": "もういちど ぶんを かきます。すこしずつ わかります。",
+          "explanationJapanese": "ここには ぶんが ふたつ あります。はじめの ぶんは、ぶんを もう いちど かく ことを いいます。「もういちど」は、まえに した ことを もう いっかい する、と いう いみです。「ぶんを」の「を」は、かく ものを しめします。\n\n「すこしずつ わかります」は、いっぺんに ぜんぶ わかるのでは なく、わかる ぶぶんが だんだん ふえて いく ことです。",
+          "explanationEnglish": "The first sentence says the classmate writes the sentences again: もういちど means once more, and を marks what is written. In the second sentence, すこしずつ marks gradual change in small increments. With わかります it describes understanding more little by little, rather than understanding everything all at once.",
+          "id": "master-japanese-basics:7:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-81f378cd2f785052",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 8,
+            "focus": "gradual-understanding",
+            "japaneseAnswer": "もういちど ぶんを かきます。すこしずつ わかります。",
+            "englishPrompt": "I write the sentences again. Little by little I understand.",
+            "knownJapaneseVariants": [
+              "もういちど ぶんを かきます。すこしずつ わかります。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Interviewer: asks a classmate how they study Japanese and follows up on what they do with difficult words.",
+        "partnerRoleEnglish": "Classmate: answers each question and explains their method for difficult words.",
+        "openingJapanese": "まいにち どうやって にほんごを べんきょうしますか。",
+        "openingEnglish": "How do you study Japanese every day?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "learner (interviewer)",
+        "objectivesEnglish": [
+          "Ask how a classmate studies using どうやって",
+          "Ask the follow-up questions むずかしい ことばは どうしますか。, べんきょうの やりかたも ききますか。 and その あと どうしますか。",
+          "Listen for asking the teacher, writing sentences again, and gradual progress with すこしずつ"
+        ],
+        "closureJapanese": "もういちど ぶんを かきます。すこしずつ わかります。",
+        "closureEnglish": "I write the sentences again. Little by little I understand.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "partner (classmate)",
+        "contextFramesEnglish": [
+          "You are interviewing a classmate about how they learn difficult Japanese words.",
+          "You ask the questions. Your classmate gives the answers.",
+          "ききます means 'ask' in this conversation: your classmate asks the teacher.",
+          "The conversation closes with your classmate's answer about writing the sentences again and understanding little by little."
+        ],
+        "wordBankJapanese": [
+          "どうやって",
+          "ききます",
+          "むずかしい",
+          "やりかた",
+          "みじかい",
+          "ぶん",
+          "いみ",
+          "すこしずつ"
+        ],
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "methodSequenceEvidence": [
+          {
+            "japanese": "まいあさ みじかい ぶんを かきます。",
+            "english": "I write short sentences every morning.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 2,
+            "speaker": "Classmate (partner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          },
+          {
+            "japanese": "せんせいに ことばの いみを ききます。",
+            "english": "I ask the teacher the meanings of words.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 4,
+            "speaker": "Classmate (partner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          },
+          {
+            "japanese": "はい、べんきょうの やりかたも ききます。",
+            "english": "Yes, I ask about the way to study them too.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 6,
+            "speaker": "Classmate (partner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          },
+          {
+            "japanese": "もういちど ぶんを かきます。すこしずつ わかります。",
+            "english": "I write the sentences again. Little by little I understand.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 8,
+            "speaker": "Classmate (partner)",
+            "selectedJapanese": null,
+            "audioScript": null,
+            "reviewed": false
+          }
+        ],
+        "id": "master-japanese-basics:7:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:7",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "The prior role has the learner explaining the method, while the prior opening is the interviewer's question. This version makes the learner the interviewer and the partner the classmate who answers. Is that split confirmed?",
+        "The source does not label who speaks each dialogue line. Odd turns are treated as the interviewer's and even turns as the classmate's. Is that the intended split?",
+        "The prior complication says the classmate first gives only a daily time, but no source line is a time-only answer. Dialogue turn 2 already states a method (writing short sentences every morning). Should a time-only line be authored, or should the complication be dropped?",
+        "The prior closure asks for the method to be restated in order. The closure here is the classmate's dialogue turn 8, which covers only the last step, and the learner does not speak it. Is a partner-only closure acceptable?",
+        "The type and write drills ask the learner to produce classmate lines (dialogue turns 2 and 6) although the speaking role is interviewer. Is taking the other side in standalone drills acceptable?",
+        "The source English for dialogue turns 5 and 6 says 'the way to study them', but the Japanese has no word for 'them'. Should the English be adjusted?",
+        "The hear options are Japanese sentences, so the prompt now says 'select the one' where the prior prompt said 'choose the meaning'. Should the options be the source English lines instead?",
+        "The explanation of ずつ as marking repetition is general grammar and is not stated in the source. Keep or remove?",
+        "Form form-ja-en-e13606b681d9b07b (dialogue turn 5, やりかたも ききますか) has no explanation entry. Is one needed?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Classmate: answers each question and explains their method for difficult words.",
+        "closureLineJapanese": "もういちど ぶんを かきます。すこしずつ わかります。",
+        "closureLineEnglish": "I write the sentences again. Little by little I understand.",
+        "closureSpeaker": "partner (classmate)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    }
+  ],
+  "internalReviewNotes": [
+    "All prior source targets, form identities, missions and mode cues are preserved. Roles are authored practice casting, not canonical speaker additions.",
+    "Verified builder and preview copy learner task into partnerRole; new alternatives identify counterparts.",
+    "Master5 retains exact book/teacher locations and resultant light-on state, without moving teacher to desk or asserting an act of switching on.",
+    "Master6 teacher role is supported by map-showing extensions; exact route question/reply and independence question/reply precede understanding/thanks closure.",
+    "Master7 prior mission mixes interviewer opening with answerer objectives. New interviewer objectives keep partner answers/closure clearly attributed; original mission remains evidence.",
+    "Each original fourth form remains in source; no accepted variants, owner pages, runtime, audio, offline or progress changes."
+  ]
+}

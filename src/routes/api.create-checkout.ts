@@ -1,3 +1,4 @@
+import { applePlan } from "@/lib/apple-billing/access";
 import { configuredIndividualPriceIds, INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";
@@ -28,6 +29,11 @@ export const Route = createFileRoute("/api/create-checkout")({
             user = await authenticatedTeamUser(request, db);
           if (prepared.data.userId !== user.id)
             throw new TeamOperationError("Sign in with the account purchasing this plan.", 403);
+          if (await applePlan(db, user.id))
+            throw new TeamOperationError(
+              "Your account already has an active Apple subscription. Manage it in your Apple account.",
+              409,
+            );
           const prices = configuredIndividualPriceIds();
           if (!prices.includes(prepared.data.priceId))
             throw new TeamOperationError("This plan is not available. Refresh the pricing page.");
@@ -47,8 +53,11 @@ export const Route = createFileRoute("/api/create-checkout")({
             const productId = (price: Stripe.Price) =>
               typeof price.product === "string" ? price.product : price.product.id;
             if (
-              !monthly.active || monthly.currency !== "usd" || monthly.unit_amount !== 3500 ||
-              monthly.recurring?.interval !== "month" || productId(monthly) !== productId(annual)
+              !monthly.active ||
+              monthly.currency !== "usd" ||
+              monthly.unit_amount !== 3500 ||
+              monthly.recurring?.interval !== "month" ||
+              productId(monthly) !== productId(annual)
             ) {
               throw new TeamOperationError("Family monthly checkout is not configured yet.", 503);
             }

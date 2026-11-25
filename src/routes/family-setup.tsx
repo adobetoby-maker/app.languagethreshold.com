@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Users, Plus, CheckCircle, Loader2, ArrowLeft, User } from "lucide-react";
 import { AuthProvider, useAuth } from "@/state/auth-state";
 import { SubscriptionProvider, useSubscription } from "@/state/subscription-state";
@@ -67,7 +67,7 @@ function AddKidForm({ onAdded }: { onAdded: (kid: KidProfile) => void }) {
             type="text"
             required
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder="e.g. SophieLearns"
             maxLength={24}
             className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-gold/40"
@@ -84,7 +84,7 @@ function AddKidForm({ onAdded }: { onAdded: (kid: KidProfile) => void }) {
             pattern="\d{4}"
             maxLength={4}
             value={pin}
-            onChange={e => setPin(e.target.value.replace(/\D/g, "").slice(0, 4))}
+            onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 4))}
             placeholder="1234"
             className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-gold/40 tracking-widest"
           />
@@ -98,7 +98,11 @@ function AddKidForm({ onAdded }: { onAdded: (kid: KidProfile) => void }) {
         disabled={loading}
         className="flex items-center gap-2 rounded-lg bg-gold px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-midnight font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
       >
-        {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Plus className="h-3.5 w-3.5" />}
+        {loading ? (
+          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+        ) : (
+          <Plus className="h-3.5 w-3.5" />
+        )}
         Add kid
       </button>
     </form>
@@ -112,6 +116,24 @@ function FamilySetupPage() {
   const [kids, setKids] = useState<KidProfile[]>([]);
   const [showForm, setShowForm] = useState(false);
 
+  useEffect(() => {
+    const controller = new AbortController();
+    setKids([]);
+    if (user)
+      void (async () => {
+        const session = await supabase.auth.getSession();
+        if (!session.data.session || controller.signal.aborted) return;
+        const res = await fetch("/api/family-add-kid", {
+          headers: { Authorization: "Bearer " + session.data.session.access_token },
+          signal: controller.signal,
+        });
+        if (res.ok) {
+          const data = (await res.json()) as { kids: KidProfile[] };
+          if (!controller.signal.aborted) setKids(data.kids);
+        }
+      })().catch(() => {});
+    return () => controller.abort();
+  }, [user?.id]);
   if (authLoading || subLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -125,7 +147,9 @@ function FamilySetupPage() {
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
           <p className="text-muted-foreground text-sm mb-4">Sign in to manage your family.</p>
-          <Link to="/" className="text-xs text-gold underline underline-offset-2">← Back to app</Link>
+          <Link to="/" className="text-xs text-gold underline underline-offset-2">
+            ← Back to app
+          </Link>
         </div>
       </div>
     );
@@ -152,7 +176,9 @@ function FamilySetupPage() {
             See Family Plan →
           </Link>
           <div className="mt-4">
-            <Link to="/" className="text-xs text-muted-foreground underline underline-offset-2">← Back to app</Link>
+            <Link to="/" className="text-xs text-muted-foreground underline underline-offset-2">
+              ← Back to app
+            </Link>
           </div>
         </div>
       </div>
@@ -184,8 +210,8 @@ function FamilySetupPage() {
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-2">Family Setup</h1>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Add up to {MAX_KIDS} kids. Each gets their own username and 4-digit PIN — no email needed.
-            Kids can sign in at{" "}
+            Add up to {MAX_KIDS} kids. Each gets their own username and 4-digit PIN — no email
+            needed. Kids can sign in at{" "}
             <a
               href="https://juniorlinguist.com"
               target="_blank"
@@ -206,7 +232,9 @@ function FamilySetupPage() {
             </div>
             <div>
               <p className="text-sm font-semibold text-foreground">{user.email}</p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Parent account</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                Parent account
+              </p>
             </div>
           </div>
         </div>
@@ -245,7 +273,7 @@ function FamilySetupPage() {
 
           {kids.length > 0 && (
             <div className="space-y-2 mb-4">
-              {kids.map(kid => (
+              {kids.map((kid) => (
                 <div
                   key={kid.id}
                   className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3"
@@ -255,7 +283,9 @@ function FamilySetupPage() {
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-foreground">{kid.username}</p>
-                    <p className="font-mono text-[10px] text-muted-foreground">Username · PIN login</p>
+                    <p className="font-mono text-[10px] text-muted-foreground">
+                      Username · PIN login
+                    </p>
                   </div>
                   <CheckCircle className="h-4 w-4 text-emerald-400" />
                 </div>
@@ -267,8 +297,8 @@ function FamilySetupPage() {
             <div className="rounded-xl border border-violet-500/30 bg-violet-500/5 px-4 py-4 mt-3">
               <h3 className="text-sm font-semibold text-foreground mb-3">New kid profile</h3>
               <AddKidForm
-                onAdded={kid => {
-                  setKids(prev => [...prev, kid]);
+                onAdded={(kid) => {
+                  setKids((prev) => [...prev, kid]);
                   setShowForm(false);
                 }}
               />
@@ -289,12 +319,17 @@ function FamilySetupPage() {
             How kids sign in
           </p>
           <ol className="space-y-1.5 list-decimal list-inside text-xs">
-            <li>Go to <span className="text-violet-400">juniorlinguist.com</span> (or the JL app)</li>
-            <li>Tap <span className="text-foreground font-medium">Kid login</span></li>
+            <li>
+              Go to <span className="text-violet-400">juniorlinguist.com</span> (or the JL app)
+            </li>
+            <li>
+              Tap <span className="text-foreground font-medium">Kid login</span>
+            </li>
             <li>Enter their username and 4-digit PIN</li>
           </ol>
           <p className="mt-3 text-xs">
-            Progress syncs across devices. PINs can be reset here by deleting and re-adding the profile.
+            Progress syncs across devices. PINs can be reset here by deleting and re-adding the
+            profile.
           </p>
         </div>
 

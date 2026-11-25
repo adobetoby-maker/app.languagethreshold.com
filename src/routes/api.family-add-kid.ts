@@ -1,5 +1,7 @@
+import { teamAdminClient, authenticatedTeamUser, scopedTeamError } from "@/lib/team-server";
 import { createFileRoute } from "@tanstack/react-router";
 import { createClient, type User } from "@supabase/supabase-js";
+import { applePlan } from "@/lib/apple-billing/access";
 import { hasActivePlan } from "@/lib/active-plan";
 import { consumeServerRequestBudget } from "@/lib/speaking-security";
 
@@ -29,6 +31,17 @@ function isKidAccount(user: User) {
 export const Route = createFileRoute("/api/family-add-kid")({
   server: {
     handlers: {
+      GET: async ({ request }) => {
+        try {
+          const db = teamAdminClient(undefined, request);
+          const parent = await authenticatedTeamUser(request, db);
+          const result = await db.rpc("v4_family_roster", { p_parent: parent.id });
+          if (result.error) throw result.error;
+          return json({ kids: result.data }, 200);
+        } catch (error) {
+          return scopedTeamError(error);
+        }
+      },
       POST: async ({ request }) => {
         const url = process.env.SUPABASE_URL;
         const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -62,7 +75,9 @@ export const Route = createFileRoute("/api/family-add-kid")({
         if (!/^\d{4}$/.test(pin)) return json({ error: "PIN must be exactly 4 digits." }, 400);
 
         try {
-          if (!(await hasActivePlan(admin, parent.id)))
+          const apple = await applePlan(admin, parent.id);
+          const familyOwner = apple?.product_id.includes(".family.") && !apple.is_family_member;
+          if (!familyOwner && !(await hasActivePlan(admin, parent.id)))
             return json({ error: "Kid profiles need an active Family plan." }, 403);
         } catch {
           return json({ error: "Could not confirm your plan. Please try again." }, 503);
@@ -75,7 +90,8 @@ export const Route = createFileRoute("/api/family-add-kid")({
             KID_CREATES_PER_HOUR,
             3600,
           );
-          if (!allowed) return json({ error: "Too many kid profiles added. Try again later." }, 429);
+          if (!allowed)
+            return json({ error: "Too many kid profiles added. Try again later." }, 429);
         } catch {
           return json({ error: "Could not add a kid profile right now. Please try again." }, 503);
         }

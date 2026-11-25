@@ -11,6 +11,7 @@ import {
   scopedTeamError,
   TeamOperationError,
 } from "@/lib/team-server";
+import { applePlan } from "@/lib/apple-billing/access";
 import { hasActivePlan } from "@/lib/active-plan";
 
 const requestSchema = z.object({
@@ -48,7 +49,7 @@ export const Route = createFileRoute("/api/module-request")({
         try {
           const db = teamAdminClient(undefined, request);
           const user = await authenticatedTeamUser(request, db);
-          if (!(await hasActivePlan(db, user.id)))
+          if (!(await hasActivePlan(db, user.id)) && !(await applePlan(db, user.id)))
             throw new TeamOperationError(
               "An active Pro or Team plan is required to request a custom module.",
             );

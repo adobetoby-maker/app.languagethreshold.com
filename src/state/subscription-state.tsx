@@ -28,6 +28,9 @@ const Ctx = createContext<SubscriptionContextValue | null>(null);
 export function SubscriptionProvider({ children }: { children: ReactNode }) {
   const { user, loading: authLoading } = useAuth();
   const [status, setStatus] = useState<SubscriptionStatus>("none");
+  const [appleAccess, setAppleAccess] = useState<{ userId: string; expiresAt: string } | null>(
+    null,
+  );
   const [teamActive, setTeamActive] = useState(false);
   const [promoAccess, setPromoAccess] = useState<{
     userId: string;
@@ -38,6 +41,7 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async (userId: string | null) => {
+    setAppleAccess(null);
     if (!userId) {
       setStatus("none");
       setTeamActive(false);
@@ -55,7 +59,8 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
       if (session.data.session?.access_token) {
         try {
           const headers = { Authorization: `Bearer ${session.data.session.access_token}` };
-          const [team, promo] = await Promise.all([
+          const [apple, team, promo] = await Promise.all([
+            supabase.rpc("my_v4_apple_plan" as never).maybeSingle(),
             fetch("/api/team-entitlement", { headers })
               .then(async (r) => (r.ok ? ((await r.json()) as { active?: boolean }) : null))
               .catch(() => null),
@@ -65,6 +70,8 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
               )
               .catch(() => null),
           ]);
+          const currentApple = apple.data as { expires_at: string } | null;
+          if (currentApple) setAppleAccess({ userId, expiresAt: currentApple.expires_at });
           setTeamActive(team?.active === true);
           setPromoAccess({ userId, expiresAt: promo?.redemption?.expires_at ?? null });
         } catch {
@@ -95,17 +102,21 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
   }, [user?.id, load]);
 
   useEffect(() => {
-    if (!promoExpiresAt || !promoActive(promoExpiresAt)) return;
+    const upcoming = [promoExpiresAt, appleAccess?.expiresAt]
+      .filter((v): v is string => !!v && promoActive(v))
+      .map(Date.parse);
+    if (!upcoming.length) return;
     const timer = setTimeout(
       () => tick((n) => n + 1),
-      Math.min(2_147_483_647, Math.max(0, Date.parse(promoExpiresAt) - Date.now())),
+      Math.min(2_147_483_647, Math.max(0, Math.min(...upcoming) - Date.now())),
     );
     return () => clearTimeout(timer);
-  }, [promoExpiresAt, expiryTick]);
+  }, [promoExpiresAt, appleAccess, expiryTick]);
   // Preserve the existing public demo until the operator explicitly enables paid gating.
   const demoMode = import.meta.env.VITE_DEMO_MODE !== "false";
   const isActive =
     demoMode ||
+    (appleAccess?.userId === user?.id && promoActive(appleAccess?.expiresAt)) ||
     teamActive ||
     promoActive(promoExpiresAt) ||
     status === "active" ||

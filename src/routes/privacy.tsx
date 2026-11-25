@@ -53,8 +53,8 @@ function PrivacyPolicy() {
             Core 60 progress, and your exam enrollment and results for that team.
           </li>
           <li>
-            <strong className="text-foreground">Payments:</strong> paid plans are handled by Stripe.
-            We receive your plan and payment status, not your card number.
+            <strong className="text-foreground">Payments:</strong> Apple handles in-app subscriptions on iOS. Stripe handles website payments.
+            We store Apple transaction identifiers, subscription plan, renewal or expiration dates, and refund status with your account to provide and restore access. Neither provider shares your card number with us.
           </li>
           <li>
             <strong className="text-foreground">Email preferences:</strong> whether you have

@@ -142,40 +142,136 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker identifying panel and plywood terms.",
-    "partnerRole": "Another coworker asking for the item names.",
     "candidateOpeningEnglish": "This is a panel.",
-    "goalEnglish": "Name a panel and plywood using short English identification sentences.",
+    "candidateOpeningFrench": "C'est un panneau.",
+    "learnerRole": "A learner identifying labelled image cards.",
+    "partnerRole": "A practice partner offering to show an image again.",
+    "goalEnglish": "Name panel and plywood images and ask to see the panel image again.",
+    "goalFrench": "Nommer les images du panneau et du contreplaqué et demander à revoir l'image du panneau.",
+    "practiceContextEnglish": "Two learners use labelled panel and plywood image cards. After the second card is named, the partner puts the cards back in the set and asks whether the learner wants to see an image again.",
+    "partnerCuesEnglish": [
+      "What does the second card show?",
+      "Do you want to see one of the images again?",
+      "Here is the panel image."
+    ],
+    "partnerCueSupportFrench": [
+      "Que montre la deuxième carte ?",
+      "Voulez-vous revoir une des images ?",
+      "Voici l'image du panneau."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "This is plywood.",
+      "Yes. Please show me the panel image.",
+      "This is a panel. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "C'est du contreplaqué.",
+      "Oui. Montrez-moi l'image du panneau, s'il vous plaît.",
+      "C'est un panneau. Merci."
+    ],
     "candidateWordBankEnglish": [
-      "panel",
-      "plywood",
       "This is a panel.",
-      "This is plywood."
+      "This is plywood.",
+      "Yes.",
+      "Please show me",
+      "the panel image.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
     "sourceAnchors": [
       "core-roofing:8:fr-en:card:7",
       "core-roofing:8:fr-en:card:8"
     ],
-    "id": "core-roofing:8:fr-en:speaking:1",
-    "reviewed": false,
-    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
-    "partnerCuesEnglish": [
-      "What is this material?",
-      "Thank you."
-    ],
-    "partnerCueProvenance": "New label-reading cues, not a repair or marking instruction.",
+    "provenance": "Existing opening and labelled panel and plywood sample cards (card 7 with archived le panneau, card 8 with archived le contreplaqué). Partner cues, learner turns and closure are new composition, not source quotes and not structural findings. Prior-draft openings are new noun-identification frames where indicated; all term support remains unreviewed. Exact original objective and source-speaking task separately remain incomplete.",
     "heldDependent": true,
     "heldDecisionRefs": [
+      "core-roofing:8:fr-en:card:1",
+      "core-roofing:8:fr-en:card:2",
+      "core-roofing:8:fr-en:card:3",
+      "core-roofing:8:fr-en:card:10",
+      "core-roofing:8:fr-en:card:11",
       "core-roofing:8:fr-en:card:12",
       "core-roofing:8:fr-en:card:13",
-      "core-roofing:8:fr-en:card:15"
+      "core-roofing:8:fr-en:card:15",
+      "core-roofing:8:fr-en:reader:1",
+      "core-roofing:8:fr-en:reader:2",
+      "core-roofing:8:fr-en:reader:3",
+      "core-roofing:8:fr-en:reader:4",
+      "core-roofing:8:fr-en:reader:5",
+      "core-roofing:8:fr-en:reader:6",
+      "core-roofing:8:fr-en:reader:8"
     ],
-    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
-    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment.",
-    "openingProvenance": "New identification from source panel headword, not a structural assessment.",
-    "expectedLearnerSecondTurnEnglish": "This is plywood."
+    "holdReason": "Original objective Ask workers to prevent and report deck damage remains incomplete, and original speaking task Stop a worker about to cover a soft panel and request repair also remains incomplete. Term cards rotten wood/repair/replace and cover-command phrase card13 remain unchanged, no structural assessment or accepted work action.",
+    "reviewed": false,
+    "scoringEnabled": false,
+    "audioRequired": false,
+    "qualifiedApproval": false,
+    "id": "core-roofing:8:fr-en:speaking:1",
+    "contextFrench": "Deux apprenants utilisent des cartes d'images de panneau et de contreplaqué étiquetées. Après l'identification de la deuxième carte, le partenaire remet les cartes dans le jeu et demande si l'apprenant souhaite revoir une image.",
+    "closureFrench": "Merci.",
+    "closureProvenance": "New ordinary contextual closing, not exact source; previous speaking and closure remain in prior draft.",
+    "heldRefsInterpretation": "Existing candidate-level dependencies remain unchanged; source questions can remain open beyond these candidate holds.",
+    "frenchRegisterStatusInternal": "French vous support is one unselected register proposal, not a settled course-wide tu/vous decision.",
+    "internalDecisionHolds": [
+      "No structural diagnosis, repair/replacement/covering or marking instruction; direct rotten-wood/repair vocabulary preserved unchanged in source arrays. Original stop-worker/repair objective incomplete.",
+      "Existing Hear Mark the damaged area is a source-sentence recognition item, not a structural instruction adopted here; source question5 archive-added marking remains open.",
+      "Legacy-reference defect: Core8 packet legacySourceRef values incorrectly use roofing:7:* for all rows, colliding Core7. Owning words/passages section8 has Core8 content. Pair-scoped IDs remain unique; no saved-item/progress mapping allowed before separate source-ref reconciliation."
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "This is a panel.",
+      "This is plywood.",
+      "Yes. Please show me the panel image.",
+      "This is a panel. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "C'est un panneau.",
+      "C'est du contreplaqué.",
+      "Oui. Montrez-moi l'image du panneau, s'il vous plaît.",
+      "C'est un panneau. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "This is a panel."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does the second card show?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This is plywood."
+      },
+      {
+        "speaker": "partner",
+        "text": "Do you want to see one of the images again?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Yes. Please show me the panel image."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the panel image."
+      },
+      {
+        "speaker": "learner",
+        "text": "This is a panel. Thank you."
+      }
+    ],
+    "learnerRoleFrench": "Une personne qui identifie des cartes d'images étiquetées.",
+    "partnerRoleFrench": "Une personne qui propose de montrer de nouveau une image.",
+    "additionalOpenSourceQuestions": [
+      {
+        "sourceQuestion": 5,
+        "affectedAnchors": [
+          "core-roofing:8:fr-en:reader:7"
+        ],
+        "status": "open; source marking/archived extra action question, existing Hear recognition item not used as structural instruction here"
+      }
+    ],
+    "openingProvenance": "Prior-draft opening is new This is + card7 panel noun composition; French support newly authored, not exact source quotation.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; contextual linguistic subset does not complete original source speaking mission"
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -641,9 +737,48 @@
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Exact replacement phrase remains direct source vocabulary/grammar evidence, not an approved repair decision. Source stop-worker/soft-panel/repair speaking remains blocked by qualified trade and source review.",
     "Cross-lesson source material qualifiers must be compared verbatim; Core7 and Core9 Spanish wording can differ despite matching English. No source wording was homogenized or changed.",
-    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source."
+    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source.",
+    "Speaking-only reconciliation preserves all source/teaching arrays, normalized schema flags/exact original scope and exact prior speaking. Contextual pictures/printed fiction do not complete removal/repair/cleanup objectives or establish installation, structural, PPE, safety or readiness approval.",
+    "Confirmed source-reference blocker: Core8 packet legacySourceRef values use roofing:7:* and collide23 Core7 refs; owning words/passages section8 contains Core8 content. Pair-scoped IDs stay unique. Separate pin-aware provenance repair required before saved-item/progress mapping; source packet untouched by speaking pass."
   ],
   "sourceObjectiveEnglish": "Ask workers to prevent and report deck damage",
   "sourceSpeakingEnglish": "Stop a worker who is about to cover a soft panel and request a repair.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker identifying panel and plywood terms.",
+    "partnerRole": "Another coworker asking for the item names.",
+    "candidateOpeningEnglish": "This is a panel.",
+    "goalEnglish": "Name a panel and plywood using short English identification sentences.",
+    "candidateWordBankEnglish": [
+      "panel",
+      "plywood",
+      "This is a panel.",
+      "This is plywood."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
+    "sourceAnchors": [
+      "core-roofing:8:fr-en:card:7",
+      "core-roofing:8:fr-en:card:8"
+    ],
+    "id": "core-roofing:8:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
+    "partnerCuesEnglish": [
+      "What is this material?",
+      "Thank you."
+    ],
+    "partnerCueProvenance": "New label-reading cues, not a repair or marking instruction.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:8:fr-en:card:12",
+      "core-roofing:8:fr-en:card:13",
+      "core-roofing:8:fr-en:card:15"
+    ],
+    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
+    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment.",
+    "openingProvenance": "New identification from source panel headword, not a structural assessment.",
+    "expectedLearnerSecondTurnEnglish": "This is plywood."
+  },
+  "sourceAuditOriginMain": "f3e158edf7782559cb6ce57b7b1fee4a6fc38cea"
 }

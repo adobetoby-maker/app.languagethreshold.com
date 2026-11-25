@@ -149,36 +149,134 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker naming a hand tool.",
-    "partnerRole": "Another coworker asking about the description.",
     "candidateOpeningEnglish": "This is a pry bar.",
-    "goalEnglish": "Name the pry bar and ask whether the explanation is clear.",
-    "candidateWordBankEnglish": [
-      "pry bar",
-      "Is that clear?"
+    "candidateOpeningFrench": "C'est un pied-de-biche.",
+    "learnerRole": "A learner naming the tool on an image.",
+    "partnerRole": "A practice partner repeating and acknowledging the tool name.",
+    "goalEnglish": "Name the pry bar and ask whether the tool name is clear.",
+    "goalFrench": "Nommer le pied-de-biche et demander si le nom de l'outil est clair.",
+    "practiceContextEnglish": "Two learners read a labelled pry-bar picture. One names the tool and asks whether the tool name is clear; the partner acknowledges only that name.",
+    "partnerCuesEnglish": [
+      "Can you repeat the name of that tool, please?",
+      "A pry bar.",
+      "Yes, the tool name is clear. Thanks, I have the name now."
     ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
+    "partnerCueSupportFrench": [
+      "Pouvez-vous répéter le nom de cet outil, s'il vous plaît ?",
+      "Un pied-de-biche.",
+      "Oui, le nom de l'outil est clair. Merci, j'ai bien noté le nom."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "It is a pry bar.",
+      "Is that clear?",
+      "You're welcome."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "C'est un pied-de-biche.",
+      "Est-ce clair ?",
+      "Je vous en prie."
+    ],
+    "candidateWordBankEnglish": [
+      "This is a pry bar.",
+      "It is a pry bar.",
+      "Is that clear?",
+      "You're welcome."
+    ],
+    "closureEnglish": "You're welcome.",
     "sourceAnchors": [
       "core-roofing:7:fr-en:card:8",
-      "core-roofing:7:fr-en:card:15"
+      "core-roofing:7:fr-en:card:15",
+      "core-roofing:7:fr-en:reader:9"
     ],
-    "id": "core-roofing:7:fr-en:speaking:1",
-    "reviewed": false,
-    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
-    "partnerCuesEnglish": [
-      "Yes, that is clear."
-    ],
-    "partnerCueProvenance": "New ordinary comprehension reply, not approval of any removal scope.",
-    "openingProvenance": "New This is + source pry-bar headword composition.",
+    "provenance": "Existing opening, labelled pry-bar vocabulary (card 8) and Is that clear? phrase (card 15, reader 9) with archived French. Partner cues, learner turns and closure are new composition, not source quotes and not approval of any removal scope. Prior-draft openings are new noun-identification frames where indicated; all term support remains unreviewed. Exact original objective and source-speaking task separately remain incomplete.",
     "heldDependent": true,
     "heldDecisionRefs": [
+      "core-roofing:7:fr-en:card:1",
+      "core-roofing:7:fr-en:card:2",
+      "core-roofing:7:fr-en:card:3",
+      "core-roofing:7:fr-en:card:4",
       "core-roofing:7:fr-en:card:10",
+      "core-roofing:7:fr-en:card:11",
       "core-roofing:7:fr-en:card:12",
-      "core-roofing:7:fr-en:card:13"
+      "core-roofing:7:fr-en:card:13",
+      "core-roofing:7:fr-en:reader:1",
+      "core-roofing:7:fr-en:reader:2",
+      "core-roofing:7:fr-en:reader:3",
+      "core-roofing:7:fr-en:reader:4",
+      "core-roofing:7:fr-en:reader:5",
+      "core-roofing:7:fr-en:reader:7"
     ],
-    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
-    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment."
+    "holdReason": "The command to tear off everything down to the deck and its confirmation objective remain held; the deck itself is not the removal target. This speaking subset does not state, approve or command removal scope, tear-off method, or confirmation of scope.",
+    "reviewed": false,
+    "scoringEnabled": false,
+    "audioRequired": false,
+    "qualifiedApproval": false,
+    "id": "core-roofing:7:fr-en:speaking:1",
+    "contextFrench": "Deux apprenants lisent une image de pied-de-biche étiquetée. Une personne nomme l'outil et demande si son nom est clair ; le partenaire confirme seulement le nom.",
+    "closureFrench": "Je vous en prie.",
+    "closureProvenance": "New ordinary contextual closing, not exact source; previous speaking and closure remain in prior draft.",
+    "heldRefsInterpretation": "Existing candidate-level dependencies remain unchanged; source questions can remain open beyond these candidate holds.",
+    "frenchRegisterStatusInternal": "French vous support is one unselected register proposal, not a settled course-wide tu/vous decision.",
+    "internalDecisionHolds": [
+      "No removal/tear-off scope, operating method or scope-comprehension approval; original removal command and confirmation objective incomplete.",
+      "Existing candidate objective/write production versus recognize wording and imperative/grammar French-English parity need separate bounded reconciliation; protected activities/forms/dictionary unchanged."
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "This is a pry bar.",
+      "It is a pry bar.",
+      "Is that clear?",
+      "You're welcome."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "C'est un pied-de-biche.",
+      "C'est un pied-de-biche.",
+      "Est-ce clair ?",
+      "Je vous en prie."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "This is a pry bar."
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you repeat the name of that tool, please?"
+      },
+      {
+        "speaker": "learner",
+        "text": "It is a pry bar."
+      },
+      {
+        "speaker": "partner",
+        "text": "A pry bar."
+      },
+      {
+        "speaker": "learner",
+        "text": "Is that clear?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes, the tool name is clear. Thanks, I have the name now."
+      },
+      {
+        "speaker": "learner",
+        "text": "You're welcome."
+      }
+    ],
+    "additionalOpenSourceQuestions": [
+      {
+        "sourceQuestion": 6,
+        "affectedAnchors": [
+          "core-roofing:7:fr-en:card:15",
+          "core-roofing:7:fr-en:reader:9"
+        ],
+        "status": "open; tool-name Is that clear use is newly composed linguistic context, not original removal-scope confirmation"
+      }
+    ],
+    "openingProvenance": "Prior-draft opening is new This is + card8 pry-bar noun composition; French support newly authored, not exact source quotation.",
+    "learnerRoleFrench": "Une personne qui nomme l'outil sur une image.",
+    "partnerRoleFrench": "Une personne qui répète et reconnaît le nom de l'outil.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; contextual linguistic subset does not complete original source speaking mission"
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -662,9 +760,43 @@
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "The source command-and-removal-scope speaking objective remains held; this narrower lexical identification proposal does not complete it.",
     "Cross-lesson source material qualifiers must be compared verbatim; Core7 and Core9 Spanish wording can differ despite matching English. No source wording was homogenized or changed.",
-    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source."
+    "Verbatim source check: Core7 card2 Spanish Tejas asfálticas explicitly specifies asphalt; Core9 disposal wording uses tejas without that qualifier. English shingle wording is retained, and material decisions remain held instead of homogenizing the source.",
+    "Speaking-only reconciliation preserves all source/teaching arrays, normalized schema flags/exact original scope and exact prior speaking. Contextual pictures/printed fiction do not complete removal/repair/cleanup objectives or establish installation, structural, PPE, safety or readiness approval."
   ],
   "sourceObjectiveEnglish": "Tell the crew exactly what to remove",
   "sourceSpeakingEnglish": "Give the command 'Tear off everything down to the deck' and ask for confirmation.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker naming a hand tool.",
+    "partnerRole": "Another coworker asking about the description.",
+    "candidateOpeningEnglish": "This is a pry bar.",
+    "goalEnglish": "Name the pry bar and ask whether the explanation is clear.",
+    "candidateWordBankEnglish": [
+      "pry bar",
+      "Is that clear?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not a quote from this source packet.",
+    "sourceAnchors": [
+      "core-roofing:7:fr-en:card:8",
+      "core-roofing:7:fr-en:card:15"
+    ],
+    "id": "core-roofing:7:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical language practice from labelled examples, not actual work authorization or site findings.",
+    "partnerCuesEnglish": [
+      "Yes, that is clear."
+    ],
+    "partnerCueProvenance": "New ordinary comprehension reply, not approval of any removal scope.",
+    "openingProvenance": "New This is + source pry-bar headword composition.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:7:fr-en:card:10",
+      "core-roofing:7:fr-en:card:12",
+      "core-roofing:7:fr-en:card:13"
+    ],
+    "holdReason": "Full source speaking objective remains unfulfilled pending the linked technical/source decisions; authored subset is an inert proposal only.",
+    "roleAdaptationProvenance": "New peer language-practice roles, not a claim to the held foreman/lead authority or actual job assignment."
+  },
+  "sourceAuditOriginMain": "f3e158edf7782559cb6ce57b7b1fee4a6fc38cea"
 }

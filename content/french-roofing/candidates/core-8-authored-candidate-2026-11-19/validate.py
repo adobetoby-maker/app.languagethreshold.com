@@ -56,3 +56,11 @@ assert p['sourceObjectiveCompletionStatus'].startswith('held and incomplete')
 assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
 assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
 assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])
+
+# Dependent review pin and historical-reference crosswalk remain source-only.
+repair = p["sourceReferenceRepair20261124"]
+crosswalk = json.loads((R / repair["crosswalkPath"]).read_text())
+assert repair["repairedPacketSha256"] == p["sourcePacket"]["sha256"] == crosswalk["repairedPacketSha256"]
+assert repair["previousPacketSha256"] == crosswalk["previousPacketSha256"]
+assert repair["savedItemMappingApproved"] is repair["progressImportApproved"] is False
+assert all(row["legacySourceRef"].startswith("roofing:8:") for group in ("cards", "reader") for row in s[group])

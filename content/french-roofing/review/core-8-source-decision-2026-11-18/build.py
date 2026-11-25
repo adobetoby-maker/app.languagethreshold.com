@@ -18,12 +18,15 @@ VERBS = "public/lesson-content/es/roofing.json"
 ARCHIVE = "content/review-archive/french-japanese-2026-11-15/french-roofing/core-7-9-draft.json"
 FILES = (CURRICULUM, WORDS, PASSAGES, VERBS, ARCHIVE)
 PAIR_ID = "core-roofing:8:fr-en"
+CROSSWALK = HERE / "legacy-reference-crosswalk-2026-11-24.json"
+REPAIR_BASELINE = "a940582fa4eba0f3c14c1251dbcd9a4b705de102"
+PREVIOUS_PACKET_SHA256 = "0851a4b353853ac15174c38890cf5ca651c69096eeda9b7f660088b0b1527337"
 CARD_HOLDS = {1, 2, 3, 10, 11, 12, 13}
 READER_HOLDS = {2, 3, 4, 5, 6}
 
 
 def source() -> dict:
-    code = """const [c,p]=await Promise.all([import('./src/data/roofing-curriculum.ts'),import('./src/data/roofing-lesson-passages.ts')]);console.log(JSON.stringify({lesson:c.ROOFING_LESSONS[7],passage:p.ROOFING_LESSON_PASSAGES[8]}));"""
+    code = """const n=8;const [c,p,w]=await Promise.all([import('./src/data/roofing-curriculum.ts'),import('./src/data/roofing-lesson-passages.ts'),import('./src/data/roofing-lesson-words.ts')]);console.log(JSON.stringify({lesson:c.ROOFING_LESSONS.find(x=>x.n===n),passage:p.ROOFING_LESSON_PASSAGES[n],words:w.ROOFING_LESSON_WORDS[n]}));"""
     data = json.loads(subprocess.check_output(
         ["node", "--experimental-strip-types", "--input-type=module", "-e", code],
         cwd=ROOT, text=True,
@@ -37,6 +40,7 @@ def build() -> dict:
     data = source()
     lesson, passage, archived = data["lesson"], data["passage"], data["archive"]
     assert lesson["n"] == archived["n"] == 8
+    assert lesson["words"] == data["words"], "Curriculum words must equal owning words section 8"
     assert len(lesson["words"]) == len(archived["words"]) == 15
     assert passage["en"] == archived["reading"]["native"]
     assert len(passage["es"]) == len(passage["en"]) == len(archived["reading"]["target"]) == 8
@@ -46,7 +50,8 @@ def build() -> dict:
     cards = [
         {
             "id": f"{PAIR_ID}:card:{i}",
-            "legacySourceRef": f"roofing:7:words:{i}",
+            "legacySourceRef": f"roofing:{lesson['n']}:words:{i}",
+            "legacySourceRefHistory": [{"reference": f"roofing:7:words:{i}", "status": "superseded erroneous provenance; no approved progress mapping"}],
             "sourceSpanish": word["es"],
             "sourceEnglish": word["en"],
             "kind": word["kind"],
@@ -62,7 +67,8 @@ def build() -> dict:
     reader = [
         {
             "id": f"{PAIR_ID}:reader:{i}",
-            "legacySourceRef": f"roofing:7:passage:{i}",
+            "legacySourceRef": f"roofing:{lesson['n']}:passage:{i}",
+            "legacySourceRefHistory": [{"reference": f"roofing:7:passage:{i}", "status": "superseded erroneous provenance; no approved progress mapping"}],
             "sourceSpanish": es,
             "sourceEnglish": en,
             "archivedFrenchEvidence": old,
@@ -88,6 +94,16 @@ def build() -> dict:
         "proposedLessonId": "core-roofing:8",
         "proposedPairId": PAIR_ID,
         "identityStatus": "proposal-only; no runtime, saved-item, progress or V4 migration",
+        "legacySourceReferenceRepair": {
+            "baseline": REPAIR_BASELINE,
+            "previousPacketSha256": PREVIOUS_PACKET_SHA256,
+            "crosswalkPath": str(CROSSWALK.relative_to(ROOT)),
+            "sourceOwnerSection": 8,
+            "scope": "provenance references only; authored text, proposed IDs, order and holds preserved",
+            "savedItemMappingApproved": False,
+            "progressImportApproved": False,
+            "runtimeIdentityChanged": False,
+        },
         "sourceFileSha256": {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in FILES},
         "orderedSourceRowsSha256": hashlib.sha256(json.dumps(ordered_rows, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest(),
         "sourceTitleEnglish": lesson["title"],
@@ -129,11 +145,50 @@ def build() -> dict:
     }
 
 
+def crosswalk(packet: dict, packet_text: str) -> dict:
+    rows = []
+    for group, owner in (("cards", WORDS), ("reader", PASSAGES)):
+        for position, row in enumerate(packet[group], 1):
+            rows.append({
+                "packetRowId": row["id"],
+                "previousLegacySourceRef": row["legacySourceRefHistory"][0]["reference"],
+                "repairedLegacySourceRef": row["legacySourceRef"],
+                "owningSourcePath": owner,
+                "owningSection": 8,
+                "sourcePosition": position,
+                "sourceSpanish": row["sourceSpanish"],
+                "sourceEnglish": row["sourceEnglish"],
+                "sourceContentSha256": hashlib.sha256(json.dumps(
+                    [row["sourceSpanish"], row["sourceEnglish"]],
+                    ensure_ascii=False, separators=(",", ":"),
+                ).encode()).hexdigest(),
+            })
+    return {
+        "schema": "french-roofing-core8-legacy-reference-repair-v1",
+        "baseline": REPAIR_BASELINE,
+        "packetPath": str(OUT.relative_to(ROOT)),
+        "previousPacketSha256": PREVIOUS_PACKET_SHA256,
+        "repairedPacketSha256": hashlib.sha256(packet_text.encode()).hexdigest(),
+        "sourceFileSha256": packet["sourceFileSha256"],
+        "orderedSourceRowsSha256": packet["orderedSourceRowsSha256"],
+        "rows": rows,
+        "savedItemMappingApproved": False,
+        "progressImportApproved": False,
+        "registered": False,
+        "reviewed": False,
+        "scope": "Historical provenance crosswalk only; no learner, saved-item or progress migration",
+    }
+
+
 if __name__ == "__main__":
-    expected = json.dumps(build(), ensure_ascii=False, indent=2) + "\n"
+    packet = build()
+    expected = json.dumps(packet, ensure_ascii=False, indent=2) + "\n"
+    expected_crosswalk = json.dumps(crosswalk(packet, expected), ensure_ascii=False, indent=2) + "\n"
     if "--check" in sys.argv:
         assert OUT.exists() and OUT.read_text() == expected, "Core 8 packet is stale"
-        print("PASS French Roofing Core 8 packet build --check")
+        assert CROSSWALK.exists() and CROSSWALK.read_text() == expected_crosswalk, "Core 8 provenance crosswalk is stale"
+        print("PASS French Roofing Core 8 packet and provenance crosswalk build --check")
     else:
         OUT.write_text(expected)
-        print(f"Wrote {OUT.relative_to(ROOT)}")
+        CROSSWALK.write_text(expected_crosswalk)
+        print(f"Wrote {OUT.relative_to(ROOT)} and {CROSSWALK.relative_to(ROOT)}")

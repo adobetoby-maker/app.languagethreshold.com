@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "baseline": "a940582fa4eba0f3c14c1251dbcd9a4b705de102",
+  "matchedOwningCards": 15,
+  "matchedOwningReaderTurns": 8,
+  "referencesRepaired": 23,
+  "core7CollisionsBefore": 23,
+  "core7CollisionsAfter": 0,
+  "downstreamCandidateHashesChecked": 60,
+  "previousPacketSha256": "0851a4b353853ac15174c38890cf5ca651c69096eeda9b7f660088b0b1527337",
+  "repairedPacketSha256": "0665ba8a5ab12068ff1c8bf800785c2c75eeb50ca1e79107558bd572de8bcb90",
+  "authoredTextIDsOrderHoldsAndSourcePinsPreserved": true,
+  "savedItemMappingApproved": false,
+  "progressImportApproved": false,
+  "allCandidateValidatorsPassed": 60,
+  "allUnderlyingSourcePinsChecked": 240,
+  "otherUnrepairedLegacyRefMismatches": [
+    {
+      "lesson": 11,
+      "count": 22,
+      "examples": [
+        {
+          "id": "core-roofing:11:fr-en:card:1",
+          "legacySourceRef": "roofing:7:words:1"
+        },
+        {
+          "id": "core-roofing:11:fr-en:card:2",
+          "legacySourceRef": "roofing:7:words:2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { DeleteAccountRequest } from "@/components/auth/DeleteAccountRequest";
 import { promoActive } from "@/lib/reddit-offer";
 import { AppVersion } from "@/components/settings/AppVersion";
 import { DeviceVoiceHelp } from "@/components/settings/DeviceVoiceHelp";
@@ -278,6 +279,7 @@ function AccountPage() {
           <PwaInstallControl variant="card" />
           <AppVersion />
 
+          <DeleteAccountRequest />
           <ResetLearningData />
 
           {/* ── Plan card ── */}

@@ -113,7 +113,7 @@ function TermsOfService() {
 
       <LegalSection heading="Ending use">
         <p>
-          You can stop using the app and ask us to delete your account at any time by emailing{" "}
+          You can request permanent account deletion on the <a className="underline" href="/privacy#delete-account">privacy page</a>. For other account questions, email{" "}
           <a className="text-gold underline" href={`mailto:${LEGAL_CONTACT}`}>
             {LEGAL_CONTACT}
           </a>

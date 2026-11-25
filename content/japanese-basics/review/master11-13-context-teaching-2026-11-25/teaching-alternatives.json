@@ -1,0 +1,1037 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-teaching-context-alternatives",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "bec6f3344200499a8a9ca1da2a5eac92b73c57d7",
+  "mainSource": {
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    }
+  },
+  "privateSource": {
+    "forms": {
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "support": {
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "path": "content/japanese-basics/private-master-11-20-speaking-missions-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "27591479d2d61c2879ed3e44af957cb006c151dfae49e7adbf633b0b53156891"
+    },
+    "builder": {
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "preview": {
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    },
+    "modes": {
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    }
+  },
+  "scope": "three source-only role/context/six-mode teaching alternatives, not source replacement or course release",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "lessons": [
+    {
+      "stableLessonKey": "master-japanese-basics:11",
+      "lessonNumber": 11,
+      "preservedPriorPartnerRole": "Order two meals with a restaurant server",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:11",
+        "role": "Order two meals with a restaurant server",
+        "opening": "なにを たべたいですか。",
+        "objectives": [
+          "Ask both diners what they want to eat",
+          "Ask whether the vegetable dish contains meat using はいっていますか",
+          "Record one vegetable dish without meat and one fish dish"
+        ],
+        "complication": "One diner does not want meat, so the ingredient in the vegetable dish must be confirmed.",
+        "closure": "Repeat both dishes and the no-meat detail before placing the order."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 7,
+          "prompt": "Read the ingredient reply. Identify はいっていません as the present state that the dish contains no meat."
+        },
+        "recall": {
+          "turn": 6,
+          "prompt": "Recall the question asking whether this dish contains meat, keeping はいっていますか."
+        },
+        "hear": {
+          "turn": 3,
+          "prompt": "Listen to the preference statement and choose the meaning that the speaker does not eat much meat."
+        },
+        "type": {
+          "turn": 8,
+          "prompt": "Type the full order for one vegetable dish and one fish dish, preserving both ひとつ counts."
+        },
+        "say": {
+          "turn": 1,
+          "prompt": "Say the opening question asking what the other person would like to eat."
+        },
+        "write": {
+          "turn": 4,
+          "prompt": "Write the complete sentence for wanting to eat fish, including を and たべたいです."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "The server answers the coordinator's question about meat in the dish. Read the reply and identify はいっていません as the present state: the dish contains no meat.",
+          "targetSpeakerRoleEnglish": "Server (authored practice role)",
+          "learnerPracticeRoleEnglish": "Coordinator reading the server's ingredient reply",
+          "targetJapanese": "いいえ、にくは はいっていません。やさいだけです。",
+          "targetEnglish": "No, there is no meat in it. Only vegetables.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "id": "master-japanese-basics:11:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Read the ingredient reply. Identify はいっていません as the present state that the dish contains no meat."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "You are the coordinator looking at the menu. Recall the question you ask the server about whether this dish contains meat, keeping はいっていますか.",
+          "targetSpeakerRoleEnglish": "Coordinator asking the server",
+          "learnerPracticeRoleEnglish": "Coordinator asking the server about the dish",
+          "targetJapanese": "この りょうりに にくは はいっていますか。",
+          "targetEnglish": "Does this dish contain meat?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:11:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Recall the question asking whether this dish contains meat, keeping はいっていますか."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "Your companion states a preference. Listen and choose the meaning that the speaker does not eat much meat.",
+          "targetSpeakerRoleEnglish": "Companion (authored practice role)",
+          "learnerPracticeRoleEnglish": "Coordinator listening to the companion's preference",
+          "targetJapanese": "にくは あまり たべません。",
+          "targetEnglish": "I do not eat much meat.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "hearOptionsJapanese": [
+            "にくは あまり たべません。",
+            "わたしは さかなを たべたいです。",
+            "わたしは やさいの りょうりが すきです。"
+          ],
+          "id": "master-japanese-basics:11:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "にくは あまり たべません。",
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Listen to the preference statement and choose the meaning that the speaker does not eat much meat."
+          },
+          "hearOptionsEnglish": [
+            "I do not eat much meat.",
+            "I would like to eat fish.",
+            "I like vegetable dishes."
+          ]
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "You are the coordinator placing the order with the server for two people. Type the full order for one vegetable dish and one fish dish, preserving both ひとつ counts.",
+          "targetSpeakerRoleEnglish": "Coordinator placing the order with the server",
+          "learnerPracticeRoleEnglish": "Coordinator placing the order with the server",
+          "targetJapanese": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+          "targetEnglish": "Then one vegetable dish and one fish dish, please.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:11:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Type the full order for one vegetable dish and one fish dish, preserving both ひとつ counts."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "Open the conversation with your companion. Say the question asking what the other person would like to eat.",
+          "targetSpeakerRoleEnglish": "Coordinator asking the companion",
+          "learnerPracticeRoleEnglish": "Coordinator asking the companion what they would like to eat",
+          "targetJapanese": "なにを たべたいですか。",
+          "targetEnglish": "What would you like to eat?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "id": "master-japanese-basics:11:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Say the opening question asking what the other person would like to eat."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "In this practice cast, the coordinator is the diner who wants fish. Write the complete sentence for wanting to eat fish, including を and たべたいです.",
+          "targetSpeakerRoleEnglish": "Coordinator stating their own wish (authored assignment)",
+          "learnerPracticeRoleEnglish": "Coordinator stating your own wish to eat fish",
+          "targetJapanese": "わたしは さかなを たべたいです。",
+          "targetEnglish": "I would like to eat fish.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "id": "master-japanese-basics:11:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Write the complete sentence for wanting to eat fish, including を and たべたいです."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-e3fd4db3a215b157",
+          "exampleJapanese": "なにを たべたいですか。",
+          "explanationJapanese": "「たべたいです」は、たべたい きもちを ていねいに いう かたちです。「なにを たべたいですか」は、あいてに なにを たべたいかを たずねる しつもんです。",
+          "explanationEnglish": "たべたいです means 'would like to eat' and states a wish politely. なにを asks 'what,' so the question asks what the other person would like to eat.",
+          "id": "master-japanese-basics:11:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-e3fd4db3a215b157",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "want-action-tai",
+            "japaneseAnswer": "なにを たべたいですか。",
+            "englishPrompt": "What would you like to eat?",
+            "knownJapaneseVariants": [
+              "なにを たべたいですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-d059573c25c3577b",
+          "exampleJapanese": "この りょうりに にくは はいっていますか。",
+          "explanationJapanese": "「はいっています」は、りょうりの なかに ある という いまの じょうたいを あらわします。さいごに「か」を つけると、はいっているか どうかを たずねる しつもんに なります。",
+          "explanationEnglish": "はいる becomes はいって, and はいっています describes a present state: 'is in it / contains.' Adding か at the end makes it a question about whether meat is in this dish. This is a present state, not a past event.",
+          "id": "master-japanese-basics:11:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-d059573c25c3577b",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 6,
+            "focus": "contains-result-state",
+            "japaneseAnswer": "この りょうりに にくは はいっていますか。",
+            "englishPrompt": "Does this dish contain meat?",
+            "knownJapaneseVariants": [
+              "この りょうりに にくは はいっていますか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-675a3446eba624c6",
+          "exampleJapanese": "いいえ、にくは はいっていません。やさいだけです。",
+          "explanationJapanese": "「はいっていません」は、りょうりの なかに ない という いまの じょうたいを あらわす ひていの かたちです。「やさいだけです」は、やさいだけ という いみです。",
+          "explanationEnglish": "はいっていません is the negative present state: 'is not in it / does not contain it.' やさいだけです means 'only vegetables.' It describes a present state, not a past event.",
+          "id": "master-japanese-basics:11:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-675a3446eba624c6",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "not-contained-teimasen",
+            "japaneseAnswer": "いいえ、にくは はいっていません。やさいだけです。",
+            "englishPrompt": "No, there is no meat in it. Only vegetables.",
+            "knownJapaneseVariants": [
+              "いいえ、にくは はいっていません。やさいだけです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Coordinator ordering for two people at a small restaurant: ask the companion what they want, ask the server about meat in the dish, and place the order.",
+        "partnerRoleEnglish": "Companion who prefers vegetable dishes and says they do not eat much meat (turns 2–3), then Server who answers the ingredient question (turn 7). One practice partner voices both.",
+        "openingJapanese": "なにを たべたいですか。",
+        "openingEnglish": "What would you like to eat?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Learner (coordinator)",
+        "objectivesEnglish": [
+          "Ask the companion what they would like to eat, then state your own wish for fish",
+          "Ask whether the vegetable dish contains meat using はいっていますか",
+          "Record one vegetable dish without meat and one fish dish"
+        ],
+        "closureJapanese": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+        "closureEnglish": "Then one vegetable dish and one fish dish, please.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "Learner (coordinator)",
+        "contextFramesEnglish": [
+          "A small restaurant. The coordinator is ordering for two people. The coordinator, companion and server are an authored practice cast.",
+          "The companion states a liking for vegetable dishes and that they do not eat much meat (turns 2 and 3). The coordinator states the wish for fish (turn 4).",
+          "The companion prefers the vegetable dish. Ask whether it contains meat, then confirm the no-meat detail before ordering.",
+          "Confirm the ingredient detail with extension turn 4, then place the two-dish order with dialogue turn 8."
+        ],
+        "wordBankJapanese": [
+          "にく",
+          "やさい",
+          "さかな",
+          "りょうり",
+          "はいっています",
+          "はいっていません"
+        ],
+        "practiceCastingProvenance": "Authored role assignments; the source does not label individual speakers.",
+        "id": "master-japanese-basics:11:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:11",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false,
+        "preClosingLearnerLine": {
+          "japanese": "やさいの りょうりに にくは はいっていませんね。",
+          "english": "There is no meat in the vegetable dish, right?",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 4,
+          "speaker": "Learner rehearsing the ingredient confirmation"
+        }
+      },
+      "internalQuestions": [
+        "Turn 3 says にくは あまり たべません (does not eat much meat), while the prior complication says the diner does not want meat. Should the mission wording be softened to match the source line? Unresolved.",
+        "The source does not label speakers. Assigning turns 2 and 3 to a companion, turn 4 to the coordinator and turn 7 to a server is authored. Who says turn 5 (メニューを みましょう。) is unassigned.",
+        "The objective 'Ask both diners' sits awkwardly when the coordinator is one of the two diners and states their own wish at turn 4. Keep the prior wording or revise it?",
+        "The turn 7 reply addresses only meat in this dish. The source says nothing further about dietary needs, so nothing further should be implied to learners.",
+        "Is extension line 4 acceptable as the preclosing no-meat confirmation, given that the closing line stays at turn 8?",
+        "Japanese explanations are written in kana to match the kana-only lesson text. Is that the intended script level?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Companion who prefers vegetable dishes and says they do not eat much meat (turns 2–3), then Server who answers the ingredient question (turn 7). One practice partner voices both.",
+        "closureLineJapanese": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+        "closureLineEnglish": "Then one vegetable dish and one fish dish, please.",
+        "closureSpeaker": "Learner (coordinator)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:12",
+      "lessonNumber": 12,
+      "preservedPriorPartnerRole": "Negotiate an afternoon outing with a friend",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:12",
+        "role": "Negotiate an afternoon outing with a friend",
+        "opening": "あしたの ごご いけますか。",
+        "objectives": [
+          "Set a time the friend can make using さんじなら",
+          "Ask whether the room may be entered",
+          "Distinguish entry permission from the rule against indoor photos"
+        ],
+        "complication": "The friend assumes that permission to enter also permits photos.",
+        "closure": "Confirm the three o’clock station meeting and the no-photo rule inside."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 2,
+          "prompt": "Read the conditional reply. Identify さんじなら as 'if it is at three' and the ability form いけます."
+        },
+        "recall": {
+          "turn": 3,
+          "prompt": "Recall the permission question asking whether the group may enter that room."
+        },
+        "hear": {
+          "turn": 6,
+          "prompt": "Listen to the photo restriction and select the meaning that photos are not allowed inside."
+        },
+        "type": {
+          "turn": 1,
+          "prompt": "Type the question asking whether the listener can go tomorrow afternoon."
+        },
+        "say": {
+          "turn": 7,
+          "prompt": "Say the suggestion that the group should just look, keeping みるだけ."
+        },
+        "write": {
+          "turn": 8,
+          "prompt": "Write the final suggestion to meet at the station at three, including both time and place."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "The friend replies with a condition. Read the reply and identify さんじなら as 'if it is at three' and the ability form いけます.",
+          "targetSpeakerRoleEnglish": "Friend (authored practice role)",
+          "learnerPracticeRoleEnglish": "Planner reading the friend's conditional reply",
+          "targetJapanese": "さんじなら いけます。",
+          "targetEnglish": "I can go if it is at three.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:12:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Read the conditional reply. Identify さんじなら as 'if it is at three' and the ability form いけます."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "You are the planner checking the rules for the outing. Recall the permission question asking whether the group may enter that room.",
+          "targetSpeakerRoleEnglish": "Planner asking the Responder (authored practice role)",
+          "learnerPracticeRoleEnglish": "Planner asking whether the group may enter that room",
+          "targetJapanese": "その へやに はいっても いいですか。",
+          "targetEnglish": "May we enter that room?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "id": "master-japanese-basics:12:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Recall the permission question asking whether the group may enter that room."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "The Responder answers your question about photos. Listen to the photo restriction and select the meaning that photos are not allowed inside.",
+          "targetSpeakerRoleEnglish": "Responder (authored practice role)",
+          "learnerPracticeRoleEnglish": "Planner listening to the photo restriction",
+          "targetJapanese": "いいえ、なかでは とっては いけません。",
+          "targetEnglish": "No, photos are not allowed inside.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "hearOptionsJapanese": [
+            "はい、だいじょうぶです。",
+            "いいえ、なかでは とっては いけません。",
+            "さんじなら いけます。"
+          ],
+          "id": "master-japanese-basics:12:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "いいえ、なかでは とっては いけません。",
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Listen to the photo restriction and select the meaning that photos are not allowed inside."
+          },
+          "hearOptionsEnglish": [
+            "Yes, that is fine.",
+            "No, photos are not allowed inside.",
+            "I can go if it is at three."
+          ]
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "You are the planner asking your friend about the outing. Type the question asking whether the listener can go tomorrow afternoon.",
+          "targetSpeakerRoleEnglish": "Planner asking the friend",
+          "learnerPracticeRoleEnglish": "Planner asking the friend about tomorrow afternoon",
+          "targetJapanese": "あしたの ごご いけますか。",
+          "targetEnglish": "Can you go tomorrow afternoon?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "id": "master-japanese-basics:12:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Type the question asking whether the listener can go tomorrow afternoon."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "You have heard that photos are not allowed inside. As the planner, say the suggestion that the group should just look, keeping みるだけ.",
+          "targetSpeakerRoleEnglish": "Planner suggesting to the friend",
+          "learnerPracticeRoleEnglish": "Planner suggesting that the group just look",
+          "targetJapanese": "では、みるだけに しましょう。",
+          "targetEnglish": "Then let us just look.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "id": "master-japanese-basics:12:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Say the suggestion that the group should just look, keeping みるだけ."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "You are the planner closing the plan with your friend. Write the final suggestion to meet at the station at three, including both time and place.",
+          "targetSpeakerRoleEnglish": "Planner closing the plan with the friend",
+          "learnerPracticeRoleEnglish": "Planner proposing the three o'clock station meeting",
+          "targetJapanese": "さんじに えきで あいましょう。",
+          "targetEnglish": "Let's meet at the station at three.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:12:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Write the final suggestion to meet at the station at three, including both time and place."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-681e0028f4dea3fd",
+          "exampleJapanese": "さんじなら いけます。",
+          "explanationJapanese": "「～なら」は じょうけんを あらわします。「さんじなら」は「さんじで あれば」という いみです。「いけます」は、いく ことが できる という いみの かたちです。",
+          "explanationEnglish": "～なら sets a condition: さんじなら means 'if it is at three.' いけます is the ability form, 'can go.'",
+          "id": "master-japanese-basics:12:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-681e0028f4dea3fd",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 2,
+            "focus": "condition-nara",
+            "japaneseAnswer": "さんじなら いけます。",
+            "englishPrompt": "I can go if it is at three.",
+            "knownJapaneseVariants": [
+              "さんじなら いけます。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-0e548b6ec19baf93",
+          "exampleJapanese": "その へやに はいっても いいですか。",
+          "explanationJapanese": "「～ても いいですか」は、きょかを もとめる しつもんの かたちです。「はいっても いいですか」は、へやに はいって よいか どうかを たずねています。",
+          "explanationEnglish": "～ても いいですか asks for permission: 'May we enter that room?' The form only asks. It does not say who gives the permission.",
+          "id": "master-japanese-basics:12:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-0e548b6ec19baf93",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 3,
+            "focus": "permission-te-mo-ii",
+            "japaneseAnswer": "その へやに はいっても いいですか。",
+            "englishPrompt": "May we enter that room?",
+            "knownJapaneseVariants": [
+              "その へやに はいっても いいですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-db961e6b098cfdd0",
+          "exampleJapanese": "いいえ、なかでは とっては いけません。",
+          "explanationJapanese": "「～ては いけません」は、きんしを あらわします。「なかでは とっては いけません」は、なかで しゃしんを とる ことは できない という きまりを つたえています。",
+          "explanationEnglish": "～ては いけません states a prohibition: photos are not allowed inside (なかでは). This answer is separate from the reply to the room-entry question in turn 3. Being allowed to enter does not mean photos are allowed.",
+          "id": "master-japanese-basics:12:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-db961e6b098cfdd0",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 6,
+            "focus": "prohibition-te-wa-ikemasen",
+            "japaneseAnswer": "いいえ、なかでは とっては いけません。",
+            "englishPrompt": "No, photos are not allowed inside.",
+            "knownJapaneseVariants": [
+              "いいえ、なかでは とっては いけません。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Planner arranging an afternoon outing: set a time with the friend, ask whether the room may be entered, ask about photos, and close with the meeting plan.",
+        "partnerRoleEnglish": "Friend who gives the conditional availability reply in turn 2, plus Responder who gives the room-entry and photo replies in turns 4 and 6. One practice partner voices both.",
+        "openingJapanese": "あしたの ごご いけますか。",
+        "openingEnglish": "Can you go tomorrow afternoon?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Learner (planner)",
+        "objectivesEnglish": [
+          "Set a time the friend can make using さんじなら",
+          "Ask whether the room may be entered",
+          "Distinguish entry permission from the rule against indoor photos"
+        ],
+        "closureJapanese": "さんじに えきで あいましょう。",
+        "closureEnglish": "Let's meet at the station at three.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "Learner (planner)",
+        "contextFramesEnglish": [
+          "Arrange an afternoon trip with a friend who can go if it is at three.",
+          "Ask the room-entry and photo questions; Responder gives the replies in source turns 4 and 6.",
+          "The friend assumes that permission to enter also permits photos. Separate the positive entry reply from the no-photo rule.",
+          "Restate the no-photo rule from turn 6, then propose the station meeting at three with turn 8."
+        ],
+        "wordBankJapanese": [
+          "にせんえん",
+          "さんじなら"
+        ],
+        "practiceCastingProvenance": "Authored role assignments; the source does not label individual speakers.",
+        "id": "master-japanese-basics:12:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:12",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false,
+        "preClosingLearnerLine": {
+          "japanese": "いいえ、なかでは とっては いけません。",
+          "english": "No, photos are not allowed inside.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "speaker": "Planner restating the sourced restriction"
+        }
+      },
+      "internalQuestions": [
+        "Who answers turns 4 and 6 in the source, and on what authority? The source does not say. The Responder is an authored practice role, and the friend answering is equally possible. Unresolved.",
+        "The prior mission has the friend conflate entry permission with photo permission. Is the friend present when turn 6 is answered, and how is that shown without new Japanese?",
+        "Do the permission questions (turns 3 and 5) happen in advance or on site? The dialogue places them before the turn 8 meeting plan and gives no location.",
+        "Turn 5's とっても is the correct permission form of とる (とって + も いい), parallel to はいっても in turn 3. Learners may confuse it with the colloquial とっても ('very'). Is a learner note wanted? The source text stays unchanged.",
+        "The term にせんえん appears only in the extensions and is not practiced in any activity. Keep it in the word bank as is?",
+        "Japanese explanations are written in kana to match the kana-only lesson text. Is that the intended script level?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Friend who gives the conditional availability reply in turn 2, plus Responder who gives the room-entry and photo replies in turns 4 and 6. One practice partner voices both.",
+        "closureLineJapanese": "さんじに えきで あいましょう。",
+        "closureLineEnglish": "Let's meet at the station at three.",
+        "closureSpeaker": "Learner (planner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:13",
+      "lessonNumber": 13,
+      "preservedPriorPartnerRole": "Prepare a study room with two classmates",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:13",
+        "role": "Prepare a study room with two classmates",
+        "opening": "まず、へやを そうじしないと いけません。",
+        "objectives": [
+          "List room cleaning and desk wiping as required tasks",
+          "Count the three notebooks and locate the pens",
+          "Ask whether opening the window is allowed and confirm when preparation is complete"
+        ],
+        "complication": "A classmate treats opening the window as a required task rather than a request for permission.",
+        "closure": "Recap the completed required work and the window decision."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 2,
+          "prompt": "Read the desk task. Identify ふかなければなりません as the obligation to wipe it."
+        },
+        "recall": {
+          "turn": 1,
+          "prompt": "Recall the first required task, cleaning the room, using まず and ～ないといけません."
+        },
+        "hear": {
+          "turn": 5,
+          "prompt": "Listen to the pen answer and choose the meaning that the pens are in the bag."
+        },
+        "type": {
+          "turn": 3,
+          "prompt": "Type the sentence stating that three notebooks are needed, using さんさつ."
+        },
+        "say": {
+          "turn": 6,
+          "prompt": "Say the permission question about opening the window, keeping ～てもいいですか."
+        },
+        "write": {
+          "turn": 8,
+          "prompt": "Write the final sentence saying that preparations are complete."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "You are the coordinator listing tasks for the study room. Read the desk task and identify ふかなければなりません as the obligation to wipe it.",
+          "targetSpeakerRoleEnglish": "Coordinator",
+          "learnerPracticeRoleEnglish": "Coordinator reading the desk task from the task list",
+          "targetJapanese": "つくえも ふかなければ なりません。",
+          "targetEnglish": "We also have to wipe the desk.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:13:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Read the desk task. Identify ふかなければなりません as the obligation to wipe it."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "You are the coordinator starting the task list with your classmate. Recall the first required task, cleaning the room, using まず and ～ないといけません.",
+          "targetSpeakerRoleEnglish": "Coordinator giving the first task",
+          "learnerPracticeRoleEnglish": "Coordinator announcing the first required task",
+          "targetJapanese": "まず、へやを そうじしないと いけません。",
+          "targetEnglish": "First, we have to clean the room.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "id": "master-japanese-basics:13:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Recall the first required task, cleaning the room, using まず and ～ないといけません."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "Your classmate answers your question about the pens. Listen to the pen answer and choose the meaning that the pens are in the bag.",
+          "targetSpeakerRoleEnglish": "Classmate (authored practice role)",
+          "learnerPracticeRoleEnglish": "Coordinator listening to the classmate's answer about the pens",
+          "targetJapanese": "はい、かばんの なかに あります。",
+          "targetEnglish": "Yes, they are in the bag.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "hearOptionsJapanese": [
+            "ノートは さんさつ ひつようです。",
+            "はい、かばんの なかに あります。",
+            "はい、あけてください。"
+          ],
+          "id": "master-japanese-basics:13:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "はい、かばんの なかに あります。",
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Listen to the pen answer and choose the meaning that the pens are in the bag."
+          },
+          "hearOptionsEnglish": [
+            "We need three notebooks.",
+            "Yes, they are in the bag.",
+            "Yes, please open it."
+          ]
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "You are the coordinator checking supplies. Type the sentence stating that three notebooks are needed, using さんさつ.",
+          "targetSpeakerRoleEnglish": "Coordinator stating the notebook requirement",
+          "learnerPracticeRoleEnglish": "Coordinator stating the notebook requirement",
+          "targetJapanese": "ノートは さんさつ ひつようです。",
+          "targetEnglish": "We need three notebooks.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "id": "master-japanese-basics:13:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Type the sentence stating that three notebooks are needed, using さんさつ."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "You are the coordinator asking your classmate about the window. Say the permission question about opening the window, keeping ～てもいいですか.",
+          "targetSpeakerRoleEnglish": "Coordinator asking the classmate",
+          "learnerPracticeRoleEnglish": "Coordinator asking the classmate whether you may open the window",
+          "targetJapanese": "まどを あけても いいですか。",
+          "targetEnglish": "May I open the window?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:13:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Say the permission question about opening the window, keeping ～てもいいですか."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "You are the coordinator closing the preparation. Write the final sentence saying that preparations are complete.",
+          "targetSpeakerRoleEnglish": "Coordinator closing the preparation",
+          "learnerPracticeRoleEnglish": "Coordinator confirming that the preparations are complete",
+          "targetJapanese": "これで じゅんびが できました。",
+          "targetEnglish": "Now the preparations are complete.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:13:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Write the final sentence saying that preparations are complete."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-86c36bb91dbc1736",
+          "exampleJapanese": "まず、へやを そうじしないと いけません。",
+          "explanationJapanese": "「まず」は「さいしょに」という いみです。「～ないと いけません」は、かならず する ひつようが ある ことを あらわします。",
+          "explanationEnglish": "まず means 'first.' ～ないと いけません expresses an obligation: そうじしないと いけません means 'must clean.'",
+          "id": "master-japanese-basics:13:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-86c36bb91dbc1736",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "obligation-naito",
+            "japaneseAnswer": "まず、へやを そうじしないと いけません。",
+            "englishPrompt": "First, we have to clean the room.",
+            "knownJapaneseVariants": [
+              "まず、へやを そうじしないと いけません。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-193261f5c9ca0aea",
+          "exampleJapanese": "つくえも ふかなければ なりません。",
+          "explanationJapanese": "「～なければ なりません」も、かならず する ひつようが ある ことを あらわします。「つくえも」の「も」は、ほかにも する ことが ある ことを しめします。",
+          "explanationEnglish": "～なければ なりません is another obligation pattern: ふかなければ なりません means 'must wipe' (from ふきます, 'wipe'). つくえも means 'the desk too,' adding a second required task.",
+          "id": "master-japanese-basics:13:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-193261f5c9ca0aea",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 2,
+            "focus": "obligation-nakereba",
+            "japaneseAnswer": "つくえも ふかなければ なりません。",
+            "englishPrompt": "We also have to wipe the desk.",
+            "knownJapaneseVariants": [
+              "つくえも ふかなければ なりません。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-be5e420d1072caf2",
+          "exampleJapanese": "まどを あけても いいですか。",
+          "explanationJapanese": "「～ても いいですか」は、きょかを もとめる しつもんです。「まどを あけても いいですか」は、まどを あけて よいか どうかを たずねています。かならず する ひつようが ある ことでは ありません。",
+          "explanationEnglish": "～ても いいですか asks for permission: 'May I open the window?' It is a request for permission, not a required task. The reply in turn 7 (はい、あけてください。) says yes to the request, but it does not turn opening the window into an obligation like those in turns 1 and 2.",
+          "id": "master-japanese-basics:13:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-be5e420d1072caf2",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 6,
+            "focus": "permission-question",
+            "japaneseAnswer": "まどを あけても いいですか。",
+            "englishPrompt": "May I open the window?",
+            "knownJapaneseVariants": [
+              "まどを あけても いいですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Coordinator preparing a study room: list the required tasks, check the notebooks and pens, ask the classmate about the window, and confirm completion.",
+        "partnerRoleEnglish": "Two classmates preparing the room with the coordinator. One practice partner voices their replies about the pens (turn 5) and window request (turn 7).",
+        "openingJapanese": "まず、へやを そうじしないと いけません。",
+        "openingEnglish": "First, we have to clean the room.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Learner (coordinator)",
+        "objectivesEnglish": [
+          "List room cleaning and desk wiping as required tasks",
+          "Count the three notebooks and locate the pens",
+          "Ask whether opening the window is allowed and confirm when preparation is complete"
+        ],
+        "closureJapanese": "これで じゅんびが できました。",
+        "closureEnglish": "Now the preparations are complete.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "Learner (coordinator)",
+        "contextFramesEnglish": [
+          "Prepare the study room with two classmates. List room cleaning and desk wiping as required tasks.",
+          "Three notebooks are needed (turn 3). The coordinator asks about pens (turn 4), and the classmate answers that they are in the bag (turn 5).",
+          "Complication: the classmate treats opening the window as a required task rather than a request for permission. The window question (turn 6) asks permission, and the turn 7 reply says yes. It is not one of the must-do tasks.",
+          "Recap the required work and window decision, then give the completion line from source turn 8."
+        ],
+        "wordBankJapanese": [
+          "そうじしないと いけません",
+          "ふかなければ なりません",
+          "ふきます",
+          "さんさつ"
+        ],
+        "practiceCastingProvenance": "Authored role assignments; the source does not label individual speakers.",
+        "id": "master-japanese-basics:13:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:13",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "The prior mission names two classmates. One partner now voices both in this authored practice cast; which source speaker gives turns 5 and 7 remains unspecified.",
+        "Turns 1 to 7 never show the cleaning or wiping being done. What supports the completion line in turn 8? Unresolved, and no completion evidence should be invented.",
+        "Turn 7's あけてください can sound like an instruction, which may be why the classmate treats the window as a task. Is the note in the third form explanation enough to cover this?",
+        "The lesson focus mentions optional actions, but the source names none apart from the window request. None should be added in practice.",
+        "The extensions bring in a teacher who says だいじょうぶです. That line is not a verified sign-off on the preparation and is not used here.",
+        "Japanese explanations are written in kana to match the kana-only lesson text. Is that the intended script level?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Two classmates preparing the room with the coordinator. One practice partner voices their replies about the pens (turn 5) and window request (turn 7).",
+        "closureLineJapanese": "これで じゅんびが できました。",
+        "closureLineEnglish": "Now the preparations are complete.",
+        "closureSpeaker": "Learner (coordinator)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    }
+  ],
+  "internalReviewNotes": [
+    "All prior source lesson targets, form identities, missions and mode cues are preserved. New roles are authored practice casting, not asserted authority.",
+    "Verified builder and preview copy learner task into partnerRole. Proposed counterparts are separate alternatives.",
+    "Master11 preference is does not eat much meat; prior mission does not want meat is preserved as a source question. No allergy/vegan scope added.",
+    "Master12 responder identity/authority is unresolved. Permission to enter does not imply permission to photograph; sourceとってもいい is valid te+mo grammar.",
+    "Master11 extension4 ingredient confirmation and Master12 turn6 photo restriction are exact sourced preclosing utterances, not invented speech.",
+    "Each original fourth form remains in the immutable source; this bounded batch adds three contextual explanations per lesson. No routes, accepted variants, runtime, audio or progress change."
+  ]
+}

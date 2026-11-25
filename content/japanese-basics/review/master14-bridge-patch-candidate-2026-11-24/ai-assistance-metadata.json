@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-24",
+  "qualifiedApproval": false,
+  "source": {
+    "priorAlternatives": {
+      "path": "content/japanese-basics/review/master14-form-kana-variants-2026-11-24/alternatives.json",
+      "sha256": "0801cb7b1764d34349258e217d79db7e075ac416abc51204739acb1168796cd0"
+    },
+    "mainMaster": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    }
+  },
+  "baselineMain": "81c5931ff06a1a3d68bb04949dfb322286c83789",
+  "selfCheck": "Pinned exact source rows, context hashes/turns and all four finite variants. Added explicit required gate-name contract; removed reviewed-payload wording. Source/semantic text unchanged; executable test results are separate below. No actual adapter or runtime imports modified.",
+  "designNotes": [
+    "Status: review-only candidate. Nothing was executed or tested (no tools were available), it is not reviewed, and it is not approved or qualified for app import, registration or release.",
+    "Inertness: pure ESM with one exported factory, no imports, no load-time side effects, no routes, no audio, no progress writes. The bridge object and every evaluate() result hard-code releaseEnabled:false, scoreable:false and progressWritable:false; the bridge also reports registered:false and reviewed:false.",
+    "Exact fixture only (I1-I6, C1-C3, G2, G3, M3): the module holds a frozen private copy of the SOURCE payload and the factory throws unless every non-gate field of the fixture is structurally identical to it. This pins row ids, sourcePromptIds, turns 4/10 and 9/14, both canonical texts, the full privateCanonicalPromptEvidence, meaningPreservationEnglish, atomicDependencies, kanaReadingSource, alternative ids, kinds and order, and both context SHAs. Unknown or missing keys at any depth fail.",
+    "The pinned rows are built by a helper that types each source string once, so evidence.id, japaneseAnswer, englishPrompt, knownJapaneseVariants and sourceDialogueTurn are bound to the row fields by construction. A reviewer should diff the pin against SOURCE character by character; I could not do that mechanically.",
+    "Finite variants: exactly 2 rows and 4 variants (one unspaced-kana and one mixed-script per row, in that order, with ids `${row.id}:kana-unspaced` and `${row.id}:mixed-script`). Row ids, prompt ids, variant ids and per-context turns must be unique. The canonical and its two variants must be pairwise distinct.",
+    "Same canonical reading, no unlisted normalization (N1-N3): the only normalization is removing U+0020 from the canonical side. The unspaced-kana variant must equal that string exactly. The mixed-script variant must contain no space and at least one Han character, and its positional reading must equal that string exactly. Candidates and inputs are never stripped, folded or Unicode-normalized; the fixture is rejected if any string or key is not already NFC.",
+    "Kanji mapping (K1-K7): the reading is computed by a single left-to-right walk. Mappings are consumed in listed order, each exactly once, at the position where they occur; output is never rescanned, so there is no cascade. Any Han character not consumed by the next mapping fails, unused mappings fail, surfaces must be Han only, readings must be non-empty hiragana (U+3041-U+3096 plus U+30FC), and readingMappings on an unspaced-kana variant fails. This is still not a general reading engine.",
+    "Cloning and mutation (M1, M2): the fixture is cloned once by JSON round-trip and only the clone is validated and used, so later mutation of the caller's object has no effect. A toJSON method or getter on the input decides what is cloned, but the clone must still equal the pin. Top-level keys are checked as own keys before any read, so polluted Object.prototype properties cannot stand in for missing fields. The bridge retains only primitives in private Maps.",
+    "evaluate() (C4, G4): each request field is read exactly once inside try/catch into a primitive snapshot, so throwing getters and revoked proxies yield the frozen reject result instead of throwing, and there is no check/use gap. Acceptance requires exact pair, moduleId, lessonNumber, contextKey (main or privateRoutine), that context's pinned SHA, sourcePromptId, that context's turn, canonicalJapanese, canonicalEnglish, and an input string identical to the canonical or one of that row's two variants.",
+    "Result shape change: results now also carry rowId and matchedVariantId (null when the input is the canonical or on rejection), added for the saved-item/progress mapping dependency raised in G4. Confirm against the contract; remove if the result shape is fixed.",
+    "Open item, gate names (G1): the required gate names were not in the SOURCE or the critique, so they are not enumerated. The factory requires a non-empty gates object whose own values are all strictly false. Supply the gate list to pin names and reject extras.",
+    "Assumption, envelope shape: top-level keys are assumed to be kind, pair, moduleId, lessonNumber, reviewed, registered, releaseEnabled, selectedJapanese, audioScript, gates, contexts, rows, with contexts.main and contexts.privateRoutine each holding sourceSha256 and turnKey. This is carried over from the previous candidate and was not checked against the contract text. If the real fixture uses mainSourceSha/privateSourceSha at top level or has other keys, the factory fails closed and the pin needs adjusting.",
+    "Promotion note (G5): accepted inputs include four unreviewed candidates that are not in knownJapaneseVariants. That is tolerable only because scoring and progress are hard-false. Any later promotion needs reviewed membership in knownJapaneseVariants plus a separate qualified review.",
+    "Runtime assumptions: needs String.prototype.normalize, optional catch binding and trailing commas in call arguments (any current Node or browser). Kanji detection covers BMP Han ranges only, which is sufficient for the pinned text."
+  ],
+  "haiku": {
+    "safeMode": true,
+    "requestedModel": "claude-haiku-5-5",
+    "actualModelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 16264,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 3074,
+        "webSearchRequests": 0,
+        "costUSD": 0.008747000000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 13102,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 3074,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "7b3e0526-9d6a-4a76-aa38-bdbdcc3aaace",
+    "isError": false
+  },
+  "opus": {
+    "safeMode": true,
+    "requestedModel": "claude-opus-5-5",
+    "actualModelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 7432,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 5540,
+        "webSearchRequests": 0,
+        "costUSD": 0.192968,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4211,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 5540,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "16ed8a91-d6af-4c2e-8c71-550e414114c1",
+    "isError": false
+  },
+  "fable": {
+    "safeMode": true,
+    "requestedModel": "claude-fable-5-2",
+    "actualModelUsage": {
+      "claude-fable-5-2": {
+        "inputTokens": 2,
+        "outputTokens": 18551,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 8818,
+        "webSearchRequests": 0,
+        "costUSD": 0.883144,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 10158,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 8818,
+        "canonicalModel": "claude-fable-5-2",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "1d0f67fd-84a7-4643-9608-051230512c6a",
+    "isError": false
+  },
+  "executedValidation": {
+    "date": "2026-11-24",
+    "command": "node content/japanese-basics/review/master14-bridge-patch-candidate-2026-11-24/validate.mjs",
+    "positiveFixtureCases": 12,
+    "rejectedRequestCases": 30,
+    "rejectedAlteredFixtures": 18,
+    "externalMutationIsolated": true,
+    "sourceAndReadingMappings": true,
+    "releaseEnabled": false,
+    "scoreable": false,
+    "progressWritable": false
+  }
+}

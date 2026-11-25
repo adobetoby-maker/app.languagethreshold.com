@@ -246,7 +246,115 @@
       "say": "indiquer/dire"
     },
     "closureFrench": "Merci.",
-    "candidateOpeningFrench": "L’image A représente la pluie."
+    "candidateOpeningFrench": "L’image A représente la pluie.",
+    "learnerRoleFrench": "Une personne qui décrit des images de vocabulaire.",
+    "partnerRoleFrench": "Une autre personne qui présente des images.",
+    "scopedInternalDecisionHolds": [
+      "Pictured rain, wind (moving leaves) and dew are fictional picture vocabulary; they do not state an actual weather condition, warning or site clearance.",
+      "No storm, lightning threshold, stop-work trigger, footing judgement or descent instruction is selected.",
+      "'There is dew' is a presence sentence only; it does not state roof safety, footing or access.",
+      "Source footing, boot-grip instruction (card15/Reader4), lightning, storm and stop-if-weather-changes items remain held. The boots noun (card9) is an unselected candidate, not held and not used here.",
+      "Wet-roof warning (card13/Reader2) remains held; pictured weather supplies no warning/clearance conclusion."
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; existing classroom lexical exchange does not complete original source speaking mission All sourceDecisionQuestions remain open for the full source mission; used-anchor dependencies below are a subset, not a mission approval.",
+    "frenchSupportConventionInternal": "English remains target; all existing French opening/cues/replies/context remain unchanged support. Vous is an unselected register proposal, not inferred approval or a claim about exact Spanish register. French all-turn lists and sequences are meaning support only, never expected or scored learner production. Une personne/une autre personne in new roles is an unselected neutral-role wording proposal.",
+    "sourceCompositionProvenance": "Existing fictional rain/wind/dew pictures and presence sentence newly composed from source nouns, not actual weather reports, warnings or source site instructions.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:23:fr-en:card:1",
+        "exactSourceEnglish": "dew",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:23:fr-en:card:6",
+        "exactSourceEnglish": "rain",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:23:fr-en:card:7",
+        "exactSourceEnglish": "wind",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:23:fr-en:card:1",
+          "core-roofing:23:fr-en:card:6",
+          "core-roofing:23:fr-en:card:7"
+        ],
+        "question": "Dew/wet-roof footing, grip boots and stop-if-weather-changes commands are source examples, not general clearance to work on a wet roof or a universal stop threshold. Obtain qualified site/weather procedure review before selecting learner commands; keep any site plan in internal notes.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Pictured dew, rain and wind only; no wet-roof footing, boot, weather-change threshold or access decision."
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:23:fr-en:card:6",
+          "core-roofing:23:fr-en:card:7"
+        ],
+        "question": "Source tormenta/storm is contextual; archived orage narrows to a thunderstorm. Confirm the intended weather event and descent message with source and qualified safety reviewers.",
+        "relationship": "Inferred weather-sense adjacency, not direct affectedIds; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Pictured rain/wind only; no storm identification or descent trigger."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Picture A shows rain.",
+      "Picture B shows wind.",
+      "There is dew.",
+      "Picture A shows rain. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "L’image A représente la pluie.",
+      "L’image B représente le vent.",
+      "Il y a de la rosée.",
+      "L’image A représente la pluie. Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "L’image A représente la pluie."
+      },
+      {
+        "speaker": "partner",
+        "text": "Que montre l’image B ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "L’image B représente le vent."
+      },
+      {
+        "speaker": "partner",
+        "text": "Qu’y a-t-il sur l’image C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Il y a de la rosée."
+      },
+      {
+        "speaker": "partner",
+        "text": "Répétez la phrase sur l’image A, s’il vous plaît."
+      },
+      {
+        "speaker": "learner",
+        "text": "L’image A représente la pluie. Merci."
+      }
+    ],
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3",
+      "/sourceDecisionQuestions/4"
+    ]
   },
   "terminologyProposals": [
     {
@@ -809,9 +917,119 @@
     "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a weather/footing/source decision, settle a work method, or select a technical answer.",
     "Spanish Botas / English boots retains footwear noun specificity. French bottes versus local work-boot terminology needs contextual review; broader chaussures is not silently substituted. No activity selects grip adequacy or a roof-access rule.",
     "Opus read-only critique corrections applied then checked against exact bilingual source; all French remains unreviewed candidate material and original source objectives remain held/incomplete.",
-    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval."
+    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval.",
+    "Additive speaking-schema/support reconciliation only: existing valid English/French opening, context, goals, cue/reply arrays, word bank, English sequence and holds unchanged. Adds French roles, all-learner/bilingual sequence/provenance and explicit original-mission incomplete status; no new pair/activity or specialist completion claim.",
+    "Opus new-field corrections for Core23: pictured-weather versus warning/command holds and noun-versus-boot-grip instruction distinction clarified. Historical batch clinical/specialist-template notes remain evidence, not a claim that these speaking turns teach clinical terms.",
+    "Fable supplement-only self-check: exact earlier speaking fields and top-level held/objective status retained, rather than rewriting valid prior text or implying new pair authorship. New speaking status explicitly says held and incomplete. All source-mission questions stay open; no qualified approval. Existing support/template concerns remain follow-up evidence, not silent corrections."
   ],
   "sourceObjectiveEnglish": "Warn about slippery conditions and changing weather",
   "sourceSpeakingEnglish": "Warn the crew about slick footing and bring them down when lightning approaches.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner describing vocabulary pictures.",
+    "partnerRole": "A partner presenting pictures.",
+    "candidateOpeningEnglish": "Picture A shows rain.",
+    "goalEnglish": "Describe rain and wind pictures and name dew.",
+    "candidateWordBankEnglish": [
+      "rain",
+      "wind",
+      "dew",
+      "Picture A shows rain.",
+      "Picture B shows wind.",
+      "There is dew."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, merged into the last learner turn; not a work instruction or source event.",
+    "sourceAnchors": [
+      "core-roofing:23:fr-en:card:1",
+      "core-roofing:23:fr-en:card:6",
+      "core-roofing:23:fr-en:card:7"
+    ],
+    "practiceContextEnglish": "Picture A shows rain, B shows wind indicated by moving leaves, C shows dew on grass.",
+    "partnerCuesEnglish": [
+      "What does picture B show?",
+      "What is in picture C?",
+      "Please repeat the sentence about picture A."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Picture B shows wind.",
+      "There is dew.",
+      "Picture A shows rain. Thank you."
+    ],
+    "id": "core-roofing:23:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:23:fr-en:card:10",
+      "core-roofing:23:fr-en:card:11",
+      "core-roofing:23:fr-en:card:12",
+      "core-roofing:23:fr-en:card:13",
+      "core-roofing:23:fr-en:card:14",
+      "core-roofing:23:fr-en:card:15",
+      "core-roofing:23:fr-en:card:2",
+      "core-roofing:23:fr-en:card:3",
+      "core-roofing:23:fr-en:card:8",
+      "core-roofing:23:fr-en:reader:2",
+      "core-roofing:23:fr-en:reader:3",
+      "core-roofing:23:fr-en:reader:4",
+      "core-roofing:23:fr-en:reader:6",
+      "core-roofing:23:fr-en:reader:7",
+      "core-roofing:23:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Picture A shows rain."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does picture B show?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Picture B shows wind."
+      },
+      {
+        "speaker": "partner",
+        "text": "What is in picture C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "There is dew."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the sentence about picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Picture A shows rain. Thank you."
+      }
+    ],
+    "goalFrench": "Décrivez les images de pluie et de vent, puis nommez la rosée.",
+    "contextFrench": "L’image A montre la pluie, B le vent suggéré par des feuilles en mouvement, C de la rosée sur l’herbe.",
+    "partnerCueSupportFrench": [
+      "Que montre l’image B ?",
+      "Qu’y a-t-il sur l’image C ?",
+      "Répétez la phrase sur l’image A, s’il vous plaît."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "L’image B représente le vent.",
+      "Il y a de la rosée.",
+      "L’image A représente la pluie. Merci."
+    ],
+    "scaffoldVocabularyFrench": {
+      "card": "carte",
+      "picture": "image",
+      "show": "montrer",
+      "say": "indiquer/dire"
+    },
+    "closureFrench": "Merci.",
+    "candidateOpeningFrench": "L’image A représente la pluie."
+  },
+  "sourceAuditOriginMain": "6d59fba18bdbf9365ea7c8e3c6dc7109267b09d8"
 }

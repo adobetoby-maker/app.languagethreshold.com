@@ -141,62 +141,50 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A learner asking for a document label and naming word cards.",
-    "partnerRole": "A partner presenting word cards.",
-    "candidateOpeningEnglish": "Where are the manufacturer instructions?",
-    "goalEnglish": "Ask where the instructions card is, identify two labels and say which document is needed.",
-    "candidateWordBankEnglish": [
-      "product",
-      "manufacturer instructions",
-      "number of nails",
-      "Where are the manufacturer instructions?",
-      "This is a product.",
-      "I need the manufacturer instructions."
-    ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "new: closing line.",
+    "id": "core-roofing:17:fr-en:speaking:1",
     "sourceAnchors": [
       "core-roofing:17:fr-en:card:3",
       "core-roofing:17:fr-en:card:8",
       "core-roofing:17:fr-en:card:9"
     ],
-    "practiceContextEnglish": "Word cards show A product, B manufacturer instructions and C number of nails. This is label-reading practice; no fastening quantities or methods appear.",
+    "learnerRole": "A learner asking where a document is and reading word cards.",
+    "learnerRoleFrench": "Une personne qui demande où se trouve un document et lit des cartes-mots.",
+    "partnerRole": "A partner presenting word cards.",
+    "partnerRoleFrench": "Un partenaire qui présente des cartes-mots.",
+    "candidateOpeningEnglish": "Where are the manufacturer instructions?",
+    "candidateOpeningFrench": "Où sont les instructions du fabricant ?",
+    "goalEnglish": "Ask where the manufacturer instructions are, read two card labels and say which document is needed.",
+    "goalFrench": "Demander où sont les instructions du fabricant, lire deux étiquettes de cartes et dire quel document est nécessaire.",
+    "candidateWordBankEnglish": [
+      "Where are the",
+      "manufacturer instructions?",
+      "Product.",
+      "Number of nails.",
+      "I need the",
+      "manufacturer instructions.",
+      "Thank you."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureFrench": "Merci.",
+    "closureProvenance": "new: closing line. Merged into the final learner reply.",
+    "closureSpeaker": "learner",
+    "practiceContextEnglish": "In a fictional exercise, printed word cards A, B and C say product, manufacturer instructions and number of nails. Only the cards are on the exercise table; the actual manufacturer document is not included.",
+    "practiceContextFrench": "Dans un exercice fictif, les cartes imprimées A, B et C portent les expressions anglaises « product », « manufacturer instructions » et « number of nails ». Seules les cartes sont sur la table de l’exercice ; le véritable document du fabricant n’y figure pas.",
     "partnerCuesEnglish": [
-      "Card B. What does card A say?",
+      "The document is not here. Card B is only its label. What does card A say?",
       "What does card C say?",
       "What do you need?"
     ],
     "expectedLearnerTurnsEnglish": [
-      "This is a product.",
+      "Product.",
       "Number of nails.",
-      "I need the manufacturer instructions."
+      "I need the manufacturer instructions. Thank you."
     ],
-    "id": "core-roofing:17:fr-en:speaking:1",
-    "reviewed": false,
-    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
-    "heldDependent": true,
-    "heldDecisionRefs": [
-      "core-roofing:17:fr-en:card:1",
-      "core-roofing:17:fr-en:card:10",
-      "core-roofing:17:fr-en:card:11",
-      "core-roofing:17:fr-en:card:12",
-      "core-roofing:17:fr-en:card:13",
-      "core-roofing:17:fr-en:card:14",
-      "core-roofing:17:fr-en:card:15",
-      "core-roofing:17:fr-en:card:2",
-      "core-roofing:17:fr-en:card:5",
-      "core-roofing:17:fr-en:card:6",
-      "core-roofing:17:fr-en:card:7",
-      "core-roofing:17:fr-en:reader:1",
-      "core-roofing:17:fr-en:reader:2",
-      "core-roofing:17:fr-en:reader:3",
-      "core-roofing:17:fr-en:reader:5",
-      "core-roofing:17:fr-en:reader:6",
-      "core-roofing:17:fr-en:reader:7",
-      "core-roofing:17:fr-en:reader:8"
+    "expectedLearnerTurnsFrench": [
+      "« Product » (produit).",
+      "« Number of nails » (nombre de clous).",
+      "Il me faut les instructions du fabricant. Merci."
     ],
-    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
-    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
     "turnSequenceEnglish": [
       {
         "speaker": "learner",
@@ -204,11 +192,11 @@
       },
       {
         "speaker": "partner",
-        "text": "Card B. What does card A say?"
+        "text": "The document is not here. Card B is only its label. What does card A say?"
       },
       {
         "speaker": "learner",
-        "text": "This is a product."
+        "text": "Product."
       },
       {
         "speaker": "partner",
@@ -224,14 +212,142 @@
       },
       {
         "speaker": "learner",
-        "text": "I need the manufacturer instructions."
+        "text": "I need the manufacturer instructions. Thank you."
+      }
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Où sont les instructions du fabricant ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Le document n’est pas ici. La carte B n’en est que l’étiquette. Que dit la carte A ?"
       },
       {
         "speaker": "learner",
-        "text": "Thank you."
+        "text": "« Product » (produit)."
+      },
+      {
+        "speaker": "partner",
+        "text": "Que dit la carte C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "« Number of nails » (nombre de clous)."
+      },
+      {
+        "speaker": "partner",
+        "text": "De quoi avez-vous besoin ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Il me faut les instructions du fabricant. Merci."
       }
     ],
-    "closureSpeaker": "learner"
+    "frenchSenseStatus": "Candidate senses le produit, les instructions du fabricant and le nombre de clous are unselected; qualified sense review pending. The generic document-label sense is scoped separately from product-specific fastening meanings.",
+    "scenarioProvenance": "New fictional printed word-card exchange and document-location question; no actual product/site finding.",
+    "labelCompositionProvenance": "Exact source nouns: product (card 8), manufacturer instructions (card 3), number of nails (card 9). New label composition: 'Product.' reading and fictional printed card B. No actual document is referenced.",
+    "reconciliationProvenance": "Opening preserved. Partner card-B cue preserved. Mismatch fixed: 'This is a product.' replaced by the label reading 'Product.' to match 'What does card A say?'. Practice context states card B is fictional and no document is present. Final courtesy merged into last reply (seven turns). Learner-facing French is translation only.",
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
+    "sourceObjectiveStatus": "Held and incomplete; this ordinary label-reading exchange does not establish the source objective. No approved nail quantity, pattern or method is implied.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:17:fr-en:card:1",
+      "core-roofing:17:fr-en:card:2",
+      "core-roofing:17:fr-en:card:5",
+      "core-roofing:17:fr-en:card:6",
+      "core-roofing:17:fr-en:card:7",
+      "core-roofing:17:fr-en:card:10",
+      "core-roofing:17:fr-en:card:11",
+      "core-roofing:17:fr-en:card:12",
+      "core-roofing:17:fr-en:card:13",
+      "core-roofing:17:fr-en:card:14",
+      "core-roofing:17:fr-en:card:15",
+      "core-roofing:17:fr-en:reader:1",
+      "core-roofing:17:fr-en:reader:2",
+      "core-roofing:17:fr-en:reader:3",
+      "core-roofing:17:fr-en:reader:5",
+      "core-roofing:17:fr-en:reader:6",
+      "core-roofing:17:fr-en:reader:7",
+      "core-roofing:17:fr-en:reader:8"
+    ],
+    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
+    "reviewed": false,
+    "partnerCueSupportFrench": [
+      "Le document n’est pas ici. La carte B n’en est que l’étiquette. Que dit la carte A ?",
+      "Que dit la carte C ?",
+      "De quoi avez-vous besoin ?"
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; word-card label exchange does not complete original source speaking mission",
+    "frenchRegisterStatusInternal": "Unselected vous register proposal; all support is unreviewed.",
+    "internalDecisionHolds": [
+      "No actual manufacturer document located/consulted, fastener quantity/pattern or method selected."
+    ],
+    "heldRefsInterpretation": "Held refs cover all candidate-level held faces; semantic dependencies on used nouns are listed separately without changing source affectedIds.",
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:17:fr-en:card:3",
+          "core-roofing:17:fr-en:card:8"
+        ],
+        "question": "Source nail pattern, fastener and product instructions need matching trade/dictionary senses. Archived schéma de clouage and fixation may not denote the same fastening detail; confirm product-specific terminology before scoring.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic document label only; product terminology unresolved."
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:17:fr-en:card:9"
+        ],
+        "question": "Four nails per shingle is only the guide's attributed language example. Confirm the actual manufacturer's nail quantity, zones and pattern before any scored construction instruction or audio script.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Quantity noun only; no count selected."
+      },
+      {
+        "sourceQuestion": 5,
+        "jsonPointer": "/sourceDecisionQuestions/4",
+        "affectedUsedAnchors": [
+          "core-roofing:17:fr-en:card:3",
+          "core-roofing:17:fr-en:card:8"
+        ],
+        "question": "The wrapper and product instructions are the source of the actual pattern. Verify regional packaging terminology and how the instruction is presented without implying the package alone resolves site-specific requirements.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Document/product labels only; no packaging or manufacturer requirement verified."
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:17:fr-en:card:3",
+          "core-roofing:17:fr-en:card:8"
+        ],
+        "question": "The source says to use the same pattern on every shingle after confirming this product's instructions. Preserve that order and product scope; do not generalize the pattern across products or roof systems.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Document/product label language only; no confirmed product pattern/order or source decision."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Where are the manufacturer instructions?",
+      "Product.",
+      "Number of nails.",
+      "I need the manufacturer instructions. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Où sont les instructions du fabricant ?",
+      "« Product » (produit).",
+      "« Number of nails » (nombre de clous).",
+      "Il me faut les instructions du fabricant. Merci."
+    ],
+    "frenchSupportConventionInternal": "For English word-card readings/repetition, quote English label and supply French meaning in parentheses where useful. Other support fields translate the complete utterance; target remains English.",
+    "wordBankReusePolicy": "Fragments may be reused across different learner turns; not a single-use tile inventory."
   },
   "schema": 1,
   "pair": {
@@ -735,9 +851,105 @@
     "Card13 Read the wrapper remains a standalone reading-language candidate. Reader5 adds package/product context and inherits the packaging/source decision; neither is an activity target. Full context requires qualified reconciliation.",
     "Opus corrections: complete held dependencies recorded on speaking; obsolete Haiku held lists removed. Dictionary lesson-title context is internal only. New ordinary vocabulary practice does not complete full source objective.",
     "Generic manufacturer instructions document-label sense is outside the held product-specific fastening/pattern meaning. Wrapper/package distinction now propagated to both cards7/13 and Reader5; it is excluded from activities.",
-    "Final Fable/source self-check: packaging distinction propagated, ordinary document-label sense scoped separately, tutor cue support separated, explicit closure speaker; no qualified approval. Full source objectives remain held-dependent."
+    "Final Fable/source self-check: packaging distinction propagated, ordinary document-label sense scoped separately, tutor cue support separated, explicit closure speaker; no qualified approval. Full source objectives remain held-dependent.",
+    "Speaking gap reconciliation retains existing valid pairs and exact historical draft; adds contextual French support and merges courtesy into final reply. Source arrays, exact original objective and incomplete status preserved; no specialist completion or work approval.",
+    "Speaking is a subset of unchanged forms; form1 This is a product remains separate practice. Older candidateObjectiveEnglish describes label-request subset while canonical opening asks for the absent actual document; speaking goal/context explicitly distinguish this. Final Thank you is courtesy after reading/stating a need, not confirmation the need is met. Historical packaging/document-sense note applies specifically here."
   ],
   "sourceObjectiveEnglish": "Confirm the manufacturer's fastener count and pattern",
   "sourceSpeakingEnglish": "Practice 'Four nails per shingle' as a language example, then request the actual product pattern.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner asking for a document label and naming word cards.",
+    "partnerRole": "A partner presenting word cards.",
+    "candidateOpeningEnglish": "Where are the manufacturer instructions?",
+    "goalEnglish": "Ask where the instructions card is, identify two labels and say which document is needed.",
+    "candidateWordBankEnglish": [
+      "product",
+      "manufacturer instructions",
+      "number of nails",
+      "Where are the manufacturer instructions?",
+      "This is a product.",
+      "I need the manufacturer instructions."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "new: closing line.",
+    "sourceAnchors": [
+      "core-roofing:17:fr-en:card:3",
+      "core-roofing:17:fr-en:card:8",
+      "core-roofing:17:fr-en:card:9"
+    ],
+    "practiceContextEnglish": "Word cards show A product, B manufacturer instructions and C number of nails. This is label-reading practice; no fastening quantities or methods appear.",
+    "partnerCuesEnglish": [
+      "Card B. What does card A say?",
+      "What does card C say?",
+      "What do you need?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "This is a product.",
+      "Number of nails.",
+      "I need the manufacturer instructions."
+    ],
+    "id": "core-roofing:17:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:17:fr-en:card:1",
+      "core-roofing:17:fr-en:card:10",
+      "core-roofing:17:fr-en:card:11",
+      "core-roofing:17:fr-en:card:12",
+      "core-roofing:17:fr-en:card:13",
+      "core-roofing:17:fr-en:card:14",
+      "core-roofing:17:fr-en:card:15",
+      "core-roofing:17:fr-en:card:2",
+      "core-roofing:17:fr-en:card:5",
+      "core-roofing:17:fr-en:card:6",
+      "core-roofing:17:fr-en:card:7",
+      "core-roofing:17:fr-en:reader:1",
+      "core-roofing:17:fr-en:reader:2",
+      "core-roofing:17:fr-en:reader:3",
+      "core-roofing:17:fr-en:reader:5",
+      "core-roofing:17:fr-en:reader:6",
+      "core-roofing:17:fr-en:reader:7",
+      "core-roofing:17:fr-en:reader:8"
+    ],
+    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
+    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where are the manufacturer instructions?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Card B. What does card A say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This is a product."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does card C say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Number of nails."
+      },
+      {
+        "speaker": "partner",
+        "text": "What do you need?"
+      },
+      {
+        "speaker": "learner",
+        "text": "I need the manufacturer instructions."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "closureSpeaker": "learner"
+  },
+  "sourceAuditOriginMain": "8420cc8f7b551a5425b2ae5e39fe04d2d17140bc"
 }

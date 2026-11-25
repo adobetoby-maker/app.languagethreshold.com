@@ -144,64 +144,50 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A learner reading word cards.",
-    "partnerRole": "A partner presenting word cards.",
-    "candidateOpeningEnglish": "Is this the compressor?",
-    "goalEnglish": "Identify the compressor label and read three word-card labels.",
-    "candidateWordBankEnglish": [
-      "compressor",
-      "air pressure",
-      "nail head",
-      "depth",
-      "Is this the compressor?"
-    ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "new: closing line.",
+    "id": "core-roofing:18:fr-en:speaking:1",
     "sourceAnchors": [
       "core-roofing:18:fr-en:card:4",
       "core-roofing:18:fr-en:card:5",
       "core-roofing:18:fr-en:card:6",
       "core-roofing:18:fr-en:card:7"
     ],
-    "practiceContextEnglish": "Word cards show A compressor, B air pressure, C nail head and D depth. No dimensions or equipment settings are shown. The partner holds up card A for the opening question.",
+    "learnerRole": "A learner reading word cards.",
+    "learnerRoleFrench": "Un apprenant qui lit des cartes-mots.",
+    "partnerRole": "A partner presenting word cards.",
+    "partnerRoleFrench": "Un partenaire qui présente des cartes-mots.",
+    "candidateOpeningEnglish": "Is this the compressor?",
+    "candidateOpeningFrench": "Est-ce le compresseur ?",
+    "goalEnglish": "Confirm the card that says compressor and read three word-card labels.",
+    "goalFrench": "Confirmer la carte portant le mot « compressor » et lire trois étiquettes de cartes-mots.",
+    "candidateWordBankEnglish": [
+      "Is this the",
+      "compressor?",
+      "Air pressure.",
+      "Nail head.",
+      "Depth.",
+      "Thank you."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureFrench": "Merci.",
+    "closureProvenance": "new: closing line. Merged into the final learner reply.",
+    "closureSpeaker": "learner",
+    "practiceContextEnglish": "Printed word cards A, B, C and D say compressor, air pressure, nail head and depth. The partner holds up card A for the opening question. Only printed cards are present; no equipment or measurement values are shown.",
+    "practiceContextFrench": "Les cartes imprimées A, B, C et D portent les mots anglais « compressor », « air pressure », « nail head » et « depth ». Le partenaire montre la carte A pour la question initiale. Seules les cartes imprimées sont présentes ; aucun équipement ni aucune valeur de mesure n’est montré.",
     "partnerCuesEnglish": [
-      "Yes. What does card B say?",
+      "Yes, card A says compressor. What does card B say?",
       "What does card C say?",
       "What does card D say?"
     ],
     "expectedLearnerTurnsEnglish": [
       "Air pressure.",
       "Nail head.",
-      "Depth."
+      "Depth. Thank you."
     ],
-    "id": "core-roofing:18:fr-en:speaking:1",
-    "reviewed": false,
-    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
-    "heldDependent": true,
-    "heldDecisionRefs": [
-      "core-roofing:18:fr-en:card:1",
-      "core-roofing:18:fr-en:card:10",
-      "core-roofing:18:fr-en:card:11",
-      "core-roofing:18:fr-en:card:12",
-      "core-roofing:18:fr-en:card:13",
-      "core-roofing:18:fr-en:card:14",
-      "core-roofing:18:fr-en:card:15",
-      "core-roofing:18:fr-en:card:2",
-      "core-roofing:18:fr-en:card:3",
-      "core-roofing:18:fr-en:card:8",
-      "core-roofing:18:fr-en:card:9",
-      "core-roofing:18:fr-en:reader:1",
-      "core-roofing:18:fr-en:reader:2",
-      "core-roofing:18:fr-en:reader:3",
-      "core-roofing:18:fr-en:reader:4",
-      "core-roofing:18:fr-en:reader:5",
-      "core-roofing:18:fr-en:reader:6",
-      "core-roofing:18:fr-en:reader:7",
-      "core-roofing:18:fr-en:reader:8",
-      "core-roofing:18:fr-en:reader:9"
+    "expectedLearnerTurnsFrench": [
+      "« Air pressure » (pression d’air).",
+      "« Nail head » (tête du clou).",
+      "« Depth » (profondeur). Merci."
     ],
-    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
-    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
     "turnSequenceEnglish": [
       {
         "speaker": "learner",
@@ -209,7 +195,7 @@
       },
       {
         "speaker": "partner",
-        "text": "Yes. What does card B say?"
+        "text": "Yes, card A says compressor. What does card B say?"
       },
       {
         "speaker": "learner",
@@ -229,14 +215,153 @@
       },
       {
         "speaker": "learner",
-        "text": "Depth."
+        "text": "Depth. Thank you."
+      }
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Est-ce le compresseur ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Oui, la carte A dit « compressor ». Que dit la carte B ?"
       },
       {
         "speaker": "learner",
-        "text": "Thank you."
+        "text": "« Air pressure » (pression d’air)."
+      },
+      {
+        "speaker": "partner",
+        "text": "Que dit la carte C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "« Nail head » (tête du clou)."
+      },
+      {
+        "speaker": "partner",
+        "text": "Que dit la carte D ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "« Depth » (profondeur). Merci."
       }
     ],
-    "closureSpeaker": "learner"
+    "frenchSenseStatus": "Candidate senses le compresseur, la pression d’air, la tête du clou and la profondeur are unselected; qualified sense review pending. Nail-head genitive construction remains a contextual candidate.",
+    "scenarioProvenance": "New hypothetical printed word-card exchange, not actual equipment identification, pressure, settings or safety decision.",
+    "labelCompositionProvenance": "Exact source nouns: compressor (card 5), air pressure (card 4), nail head (card 7), depth (card 6). New label composition: printed fictional card exchange; the opening question refers to the card A label only.",
+    "reconciliationProvenance": "Original opening retained, label confirmation made explicit, original three label readings retained with courtesy folded into final reply. Context is printed cards only, no equipment or values shown. Safety/product decisions remain internal unresolved holds.",
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
+    "sourceObjectiveStatus": "Held and incomplete; this ordinary label-reading exchange does not complete the source objective. No substitute completion claim is made.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:18:fr-en:card:1",
+      "core-roofing:18:fr-en:card:2",
+      "core-roofing:18:fr-en:card:3",
+      "core-roofing:18:fr-en:card:8",
+      "core-roofing:18:fr-en:card:9",
+      "core-roofing:18:fr-en:card:10",
+      "core-roofing:18:fr-en:card:11",
+      "core-roofing:18:fr-en:card:12",
+      "core-roofing:18:fr-en:card:13",
+      "core-roofing:18:fr-en:card:14",
+      "core-roofing:18:fr-en:card:15",
+      "core-roofing:18:fr-en:reader:1",
+      "core-roofing:18:fr-en:reader:2",
+      "core-roofing:18:fr-en:reader:3",
+      "core-roofing:18:fr-en:reader:4",
+      "core-roofing:18:fr-en:reader:5",
+      "core-roofing:18:fr-en:reader:6",
+      "core-roofing:18:fr-en:reader:7",
+      "core-roofing:18:fr-en:reader:8",
+      "core-roofing:18:fr-en:reader:9"
+    ],
+    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
+    "reviewed": false,
+    "partnerCueSupportFrench": [
+      "Oui, la carte A dit « compressor ». Que dit la carte B ?",
+      "Que dit la carte C ?",
+      "Que dit la carte D ?"
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; word-card label exchange does not complete original source speaking mission",
+    "frenchRegisterStatusInternal": "Unselected vous register proposal; all support is unreviewed.",
+    "internalDecisionHolds": [
+      "No actual equipment identification, pressure/dimension/setting, adjustment, diagnostic criterion or approved repair selected."
+    ],
+    "heldRefsInterpretation": "Held refs cover all candidate-level held faces; semantic dependencies on used nouns are listed separately without changing source affectedIds.",
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:18:fr-en:card:5"
+        ],
+        "question": "Confirm nail gun/cloueuse, hose/tuyau and adjust/régler terms for the specific pneumatic tool; source Reader 5 checks compressor and hose, but does not prescribe any setting.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Compressor noun only; no equipment/tool selection."
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:18:fr-en:card:6",
+          "core-roofing:18:fr-en:card:7"
+        ],
+        "question": "The source says do not over-drive nails and that the head must sit flush. Confirm approved fastening depth/nailing-zone wording; 'flush' alone is not a universal fastener specification.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Depth and nail-head nouns only; no flush/depth specification."
+      },
+      {
+        "sourceQuestion": 5,
+        "jsonPointer": "/sourceDecisionQuestions/4",
+        "affectedUsedAnchors": [
+          "core-roofing:18:fr-en:card:4"
+        ],
+        "question": "The source commands lowering air pressure and adjusting the nail gun. These are source dialogue, not a universal tool setting; qualified tool/product review must establish the applicable method before scored commands or audio.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Air-pressure noun only; no setting or adjustment."
+      },
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:18:fr-en:card:6"
+        ],
+        "question": "Overdriven nail describes excessive fastener penetration; French clou trop enfoncé is plausible but must preserve the observable depth condition. Confirm the diagnostic criterion and dictionary sense with the approved shingle system.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Depth noun only; no diagnostic criterion selected."
+      },
+      {
+        "sourceQuestion": 6,
+        "jsonPointer": "/sourceDecisionQuestions/5",
+        "affectedUsedAnchors": [
+          "core-roofing:18:fr-en:card:6"
+        ],
+        "question": "The source says put a new nail next to an overdriven one and check depth on a few shingles. This may conflict with manufacturer repair/nailing pattern requirements; hold as a quoted scene, not an approved repair instruction.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Depth noun only; no approved repair or inspection selected."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Is this the compressor?",
+      "Air pressure.",
+      "Nail head.",
+      "Depth. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Est-ce le compresseur ?",
+      "« Air pressure » (pression d’air).",
+      "« Nail head » (tête du clou).",
+      "« Depth » (profondeur). Merci."
+    ],
+    "frenchSupportConventionInternal": "For English word-card readings/repetition, quote English label and supply French meaning in parentheses where useful. Other support fields translate the complete utterance; target remains English.",
+    "wordBankReusePolicy": "Fragments may be reused across different learner turns; not a single-use tile inventory."
   },
   "schema": 1,
   "pair": {
@@ -746,9 +871,108 @@
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Nail-head French genitive construction remains a contextual candidate; generic tête de clou versus source-specific tête du clou needs qualified dictionary review.",
     "Opus corrections: complete held dependencies recorded on speaking; obsolete Haiku held lists removed. Dictionary lesson-title context is internal only. New ordinary vocabulary practice does not complete full source objective.",
-    "Final Fable/source self-check: packaging distinction propagated, ordinary document-label sense scoped separately, tutor cue support separated, explicit closure speaker; no qualified approval. Full source objectives remain held-dependent."
+    "Final Fable/source self-check: packaging distinction propagated, ordinary document-label sense scoped separately, tutor cue support separated, explicit closure speaker; no qualified approval. Full source objectives remain held-dependent.",
+    "Speaking gap reconciliation retains existing valid pairs and exact historical draft; adds contextual French support and merges courtesy into final reply. Source arrays, exact original objective and incomplete status preserved; no specialist completion or work approval.",
+    "Speaking covers a subset of unchanged forms (form2 only); no full form/specialist objective coverage inferred.",
+    "Historical packaging/document-label self-check wording in earlier notes is retained as provenance; it is not a claim that this speaking exchange practices packaging/document labels."
   ],
   "sourceObjectiveEnglish": "Identify and correct overdriven fasteners",
   "sourceSpeakingEnglish": "Stop installation when the nail gun is burying nails and ask for an adjustment.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner reading word cards.",
+    "partnerRole": "A partner presenting word cards.",
+    "candidateOpeningEnglish": "Is this the compressor?",
+    "goalEnglish": "Identify the compressor label and read three word-card labels.",
+    "candidateWordBankEnglish": [
+      "compressor",
+      "air pressure",
+      "nail head",
+      "depth",
+      "Is this the compressor?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "new: closing line.",
+    "sourceAnchors": [
+      "core-roofing:18:fr-en:card:4",
+      "core-roofing:18:fr-en:card:5",
+      "core-roofing:18:fr-en:card:6",
+      "core-roofing:18:fr-en:card:7"
+    ],
+    "practiceContextEnglish": "Word cards show A compressor, B air pressure, C nail head and D depth. No dimensions or equipment settings are shown. The partner holds up card A for the opening question.",
+    "partnerCuesEnglish": [
+      "Yes. What does card B say?",
+      "What does card C say?",
+      "What does card D say?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Air pressure.",
+      "Nail head.",
+      "Depth."
+    ],
+    "id": "core-roofing:18:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source/new composition provenance separate.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:18:fr-en:card:1",
+      "core-roofing:18:fr-en:card:10",
+      "core-roofing:18:fr-en:card:11",
+      "core-roofing:18:fr-en:card:12",
+      "core-roofing:18:fr-en:card:13",
+      "core-roofing:18:fr-en:card:14",
+      "core-roofing:18:fr-en:card:15",
+      "core-roofing:18:fr-en:card:2",
+      "core-roofing:18:fr-en:card:3",
+      "core-roofing:18:fr-en:card:8",
+      "core-roofing:18:fr-en:card:9",
+      "core-roofing:18:fr-en:reader:1",
+      "core-roofing:18:fr-en:reader:2",
+      "core-roofing:18:fr-en:reader:3",
+      "core-roofing:18:fr-en:reader:4",
+      "core-roofing:18:fr-en:reader:5",
+      "core-roofing:18:fr-en:reader:6",
+      "core-roofing:18:fr-en:reader:7",
+      "core-roofing:18:fr-en:reader:8",
+      "core-roofing:18:fr-en:reader:9"
+    ],
+    "holdReason": "Full source speaking objective remains unresolved; this ordinary vocabulary subset is not lesson completion.",
+    "scenarioProvenance": "New hypothetical picture/word-card exchange, not actual site findings or product/method selection.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the compressor?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What does card B say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Air pressure."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does card C say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Nail head."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does card D say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Depth."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "closureSpeaker": "learner"
+  },
+  "sourceAuditOriginMain": "8420cc8f7b551a5425b2ae5e39fe04d2d17140bc"
 }

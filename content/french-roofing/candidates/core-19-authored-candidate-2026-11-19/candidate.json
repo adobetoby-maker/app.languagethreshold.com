@@ -153,61 +153,53 @@
     }
   ],
   "speaking": {
+    "id": "core-roofing:19:fr-en:speaking:1",
     "learnerRole": "A learner identifying walls in pictures.",
-    "partnerRole": "A partner showing picture cards.",
+    "learnerRoleFrench": "Une personne qui identifie des cartes-images.",
+    "partnerRole": "A partner showing practice picture cards.",
+    "partnerRoleFrench": "Une personne partenaire qui montre des cartes-images pour l’exercice.",
     "candidateOpeningEnglish": "Is this the wall?",
-    "goalEnglish": "Identify the wall picture and ask where it is.",
+    "candidateOpeningFrench": "Est-ce le mur ?",
+    "goalEnglish": "Ask where the wall picture is, then identify it.",
+    "goalFrench": "Demander où se trouve l’image du mur, puis l’identifier.",
     "candidateWordBankEnglish": [
-      "wall",
-      "Is this the wall?",
-      "Where is the wall?",
-      "This is the wall."
+      "Is this",
+      "the wall?",
+      "Where is",
+      "This is",
+      "the wall.",
+      "Wall.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "closureFrench": "Merci.",
+    "closureSpeaker": "learner",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction. Merged into the final learner turn.",
     "sourceAnchors": [
       "core-roofing:19:fr-en:card:2"
     ],
     "practiceContextEnglish": "Picture A shows a wall; picture B shows a roof. The partner holds up picture B for the opening question. After the second partner cue, the partner holds up picture A.",
+    "practiceContextFrench": "L’image A montre un mur et l’image B un toit. La personne partenaire montre B pour la question initiale. Après sa deuxième réplique, la personne partenaire montre A.",
     "partnerCuesEnglish": [
       "No.",
       "The wall is in picture A.",
       "Please repeat the word wall."
     ],
+    "partnerCueSupportFrench": [
+      "Non.",
+      "Le mur est sur l’image A.",
+      "Répétez le mot anglais « wall » (le mur), s’il vous plaît."
+    ],
     "expectedLearnerTurnsEnglish": [
       "Where is the wall?",
       "This is the wall.",
-      "Wall."
+      "Wall. Thank you."
     ],
-    "id": "core-roofing:19:fr-en:speaking:1",
-    "reviewed": false,
-    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
-    "heldDependent": true,
-    "heldDecisionRefs": [
-      "core-roofing:19:fr-en:card:1",
-      "core-roofing:19:fr-en:card:10",
-      "core-roofing:19:fr-en:card:11",
-      "core-roofing:19:fr-en:card:12",
-      "core-roofing:19:fr-en:card:13",
-      "core-roofing:19:fr-en:card:14",
-      "core-roofing:19:fr-en:card:3",
-      "core-roofing:19:fr-en:card:4",
-      "core-roofing:19:fr-en:card:5",
-      "core-roofing:19:fr-en:card:6",
-      "core-roofing:19:fr-en:card:7",
-      "core-roofing:19:fr-en:card:8",
-      "core-roofing:19:fr-en:card:9",
-      "core-roofing:19:fr-en:reader:1",
-      "core-roofing:19:fr-en:reader:3",
-      "core-roofing:19:fr-en:reader:4",
-      "core-roofing:19:fr-en:reader:5",
-      "core-roofing:19:fr-en:reader:6",
-      "core-roofing:19:fr-en:reader:7",
-      "core-roofing:19:fr-en:reader:8"
+    "expectedLearnerTurnsFrench": [
+      "Où est le mur ?",
+      "C’est le mur.",
+      "« Wall » (le mur). Merci."
     ],
-    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
-    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
-    "closureSpeaker": "learner",
     "turnSequenceEnglish": [
       {
         "speaker": "learner",
@@ -235,17 +227,107 @@
       },
       {
         "speaker": "learner",
-        "text": "Wall."
+        "text": "Wall. Thank you."
+      }
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Est-ce le mur ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Non."
       },
       {
         "speaker": "learner",
-        "text": "Thank you."
+        "text": "Où est le mur ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Le mur est sur l’image A."
+      },
+      {
+        "speaker": "learner",
+        "text": "C’est le mur."
+      },
+      {
+        "speaker": "partner",
+        "text": "Répétez le mot anglais « wall » (le mur), s’il vous plaît."
+      },
+      {
+        "speaker": "learner",
+        "text": "« Wall » (le mur). Merci."
       }
     ],
-    "partnerCueSupportFrench": [
-      "Non.",
-      "Le mur est sur l’image A.",
-      "Répétez le mot wall, s’il vous plaît."
+    "frenchSupportProvenance": "Unreviewed French candidate support. Exact source English nouns and new English/French compositions are identified separately. English-word quotations and parenthetical French meanings in repeat cues/answers are support gloss additions, not additional English target text.",
+    "sourceNounProvenance": [
+      {
+        "sourceAnchor": "core-roofing:19:fr-en:card:2",
+        "exactSourceEnglish": "wall",
+        "status": "English source noun retained; French support candidate unselected."
+      }
+    ],
+    "composedSentenceProvenance": "Learner and partner sentences, the French support lines and the picture context are new compositions built around the exact source noun wall. They are not source text. Roof/toit in picture context is an inherited newly composed unspoken distractor, unselected; not an extra source face or settled toit/toiture equivalence.",
+    "reviewed": false,
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:19:fr-en:card:1",
+      "core-roofing:19:fr-en:card:10",
+      "core-roofing:19:fr-en:card:11",
+      "core-roofing:19:fr-en:card:12",
+      "core-roofing:19:fr-en:card:13",
+      "core-roofing:19:fr-en:card:14",
+      "core-roofing:19:fr-en:card:3",
+      "core-roofing:19:fr-en:card:4",
+      "core-roofing:19:fr-en:card:5",
+      "core-roofing:19:fr-en:card:6",
+      "core-roofing:19:fr-en:card:7",
+      "core-roofing:19:fr-en:card:8",
+      "core-roofing:19:fr-en:card:9",
+      "core-roofing:19:fr-en:reader:1",
+      "core-roofing:19:fr-en:reader:3",
+      "core-roofing:19:fr-en:reader:4",
+      "core-roofing:19:fr-en:reader:5",
+      "core-roofing:19:fr-en:reader:6",
+      "core-roofing:19:fr-en:reader:7",
+      "core-roofing:19:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "frenchTradeTermNote": "No French trade term is selected. Step flashing, flashing, sidewall, siding and course senses remain held and are not used in any turn.",
+    "archivedDraftProvenance": "Archived speakingFrenchOpening (approved-detail and overlap request) is preserved as held provenance only. It is not used because it asks for approved detail outside this lexical exchange.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; picture-card lexical exchange does not complete original source speaking mission",
+    "heldRefsInterpretation": "All candidate-level held faces remain held; inferred noun/scope source-question dependencies are separate.",
+    "frenchRegisterStatusInternal": "Unselected vous register candidate; all French support remains unreviewed.",
+    "wordBankReusePolicy": "Fragments reusable across learner turns, not a single-use tile inventory.",
+    "internalDecisionHolds": [
+      "No sidewall/step-flashing sequence, overlap, bend, sealant or approved wall/roof detail selected."
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:19:fr-en:card:2"
+        ],
+        "question": "Shingle course, sidewall and siding are separate roof/wall components. Archived rang, mur latéral and revêtement mural need context so the next-course inspection does not imply a universal installation detail.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic wall-picture noun only, no sidewall/siding/component detail selected."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Is this the wall?",
+      "Where is the wall?",
+      "This is the wall.",
+      "Wall. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Est-ce le mur ?",
+      "Où est le mur ?",
+      "C’est le mur.",
+      "« Wall » (le mur). Merci."
     ]
   },
   "schema": 1,
@@ -733,9 +815,110 @@
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Source card13/English speaking use Describe while Reader3 uses Explain. Difference retained for qualified source-objective review, not silently resolved.",
     "Exact original source objective remains held/incomplete. New lexical exercises do not replace its technical objective; qualified decisions remain separate.",
-    "Roof French toit versus toiture across source Reader candidates remains a contextual French choice, not a single selected dictionary equivalence. Source vocabulary bend remains held by the pinned product/detail decision; cut in Core20 is supported by explicit Spanish infinitive Cortar and remains bare verb practice only."
+    "Roof French toit versus toiture across source Reader candidates remains a contextual French choice, not a single selected dictionary equivalence. Source vocabulary bend remains held by the pinned product/detail decision; cut in Core20 is supported by explicit Spanish infinitive Cortar and remains bare verb practice only.",
+    "Speaking support/context gap reconciliation retains prior draft exactly and existing valid pairs. Adds actual French support and seven-turn bilingual sequence, closure part of final reply. Exact original specialist objective remains incomplete, all source/teaching arrays/IDs/pins/holds/flags unchanged.",
+    "Speaking-pass source correction note (historical notes retained): Spanish Expliquen occurs in card13 and Reader3; English card13 Describe/Reader3 Explain and archived French Décrivez differ. Prior Core20 cut clause belongs to Core20, not this speaking scope. Frozen grammar explanation identification versus form confirmation distinction remains a separate follow-up, unchanged here.",
+    "Further source-note precision: archived French card13 Décrivez and Reader3 Expliquez split in the same way as English Describe/Explain, while Spanish uses Expliquen in both. Existing original notes are retained evidence, not silently corrected source text.",
+    "Final speaking scope log: canonical context/visibility/French support changed, courtesy folded, Core20 cue2 requests full sentence, Core21 cue2 now elicits existing where-question. Exact historical draft preserved, canonical heldDecisionRefs original ordering restored. No duplicated pairs or activities; original work objective still incomplete."
   ],
   "sourceObjectiveEnglish": "Coordinate sidewall flashing one course at a time",
   "sourceSpeakingEnglish": "Ask the installer to describe the sidewall flashing sequence.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner identifying walls in pictures.",
+    "partnerRole": "A partner showing picture cards.",
+    "candidateOpeningEnglish": "Is this the wall?",
+    "goalEnglish": "Identify the wall picture and ask where it is.",
+    "candidateWordBankEnglish": [
+      "wall",
+      "Is this the wall?",
+      "Where is the wall?",
+      "This is the wall."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "sourceAnchors": [
+      "core-roofing:19:fr-en:card:2"
+    ],
+    "practiceContextEnglish": "Picture A shows a wall; picture B shows a roof. The partner holds up picture B for the opening question. After the second partner cue, the partner holds up picture A.",
+    "partnerCuesEnglish": [
+      "No.",
+      "The wall is in picture A.",
+      "Please repeat the word wall."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Where is the wall?",
+      "This is the wall.",
+      "Wall."
+    ],
+    "id": "core-roofing:19:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:19:fr-en:card:1",
+      "core-roofing:19:fr-en:card:10",
+      "core-roofing:19:fr-en:card:11",
+      "core-roofing:19:fr-en:card:12",
+      "core-roofing:19:fr-en:card:13",
+      "core-roofing:19:fr-en:card:14",
+      "core-roofing:19:fr-en:card:3",
+      "core-roofing:19:fr-en:card:4",
+      "core-roofing:19:fr-en:card:5",
+      "core-roofing:19:fr-en:card:6",
+      "core-roofing:19:fr-en:card:7",
+      "core-roofing:19:fr-en:card:8",
+      "core-roofing:19:fr-en:card:9",
+      "core-roofing:19:fr-en:reader:1",
+      "core-roofing:19:fr-en:reader:3",
+      "core-roofing:19:fr-en:reader:4",
+      "core-roofing:19:fr-en:reader:5",
+      "core-roofing:19:fr-en:reader:6",
+      "core-roofing:19:fr-en:reader:7",
+      "core-roofing:19:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the wall?"
+      },
+      {
+        "speaker": "partner",
+        "text": "No."
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the wall?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The wall is in picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "This is the wall."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the word wall."
+      },
+      {
+        "speaker": "learner",
+        "text": "Wall."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "partnerCueSupportFrench": [
+      "Non.",
+      "Le mur est sur l’image A.",
+      "Répétez le mot wall, s’il vous plaît."
+    ]
+  },
+  "sourceAuditOriginMain": "249a63d48bcb9800d0a41e8be96331298b2adb5e"
 }

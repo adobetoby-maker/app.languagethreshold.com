@@ -154,40 +154,135 @@
     }
   ],
   "speaking": {
+    "id": "core-roofing:21:fr-en:speaking:1",
     "learnerRole": "A learner naming equipment picture cards.",
+    "learnerRoleFrench": "Une personne qui identifie des cartes-images.",
     "partnerRole": "A partner showing practice picture cards.",
+    "partnerRoleFrench": "Une personne partenaire qui montre des cartes-images pour l’exercice.",
     "candidateOpeningEnglish": "Is this the harness?",
+    "candidateOpeningFrench": "Est-ce le harnais ?",
     "goalEnglish": "Identify harness and buckle pictures and ask where the hard-hat picture is.",
+    "goalFrench": "Identifier les images du harnais et de la boucle, puis demander où se trouve l’image du casque de chantier.",
     "candidateWordBankEnglish": [
-      "harness",
-      "buckle",
-      "hard hat",
-      "Is this the harness?",
+      "Is this",
+      "the harness?",
       "The buckle.",
-      "Where is the hard hat?",
-      "The hard hat."
+      "Where is",
+      "the hard hat?",
+      "The hard hat.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "closureFrench": "Merci.",
+    "closureSpeaker": "learner",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction. Merged into the final learner turn.",
     "sourceAnchors": [
       "core-roofing:21:fr-en:card:1",
       "core-roofing:21:fr-en:card:6",
       "core-roofing:21:fr-en:card:7"
     ],
-    "practiceContextEnglish": "Picture A shows a harness, B a buckle and C a hard hat. The partner holds up picture A. After the last partner cue, the partner holds up picture C.",
+    "practiceContextEnglish": "In a fictional picture-card exercise, A shows a harness, B a harness buckle and C a hard hat. Pictures A and B lie face up and C face down. The partner points to A for the opening, then B for the first answer. After the last partner cue, the partner turns over C to show it. Only pictures are present.",
+    "practiceContextFrench": "Dans un exercice fictif de cartes-images, A montre un harnais, B une boucle de harnais et C un casque de chantier. Les images A et B sont face visible et C face cachée. La personne partenaire montre A pour la question initiale, puis B pour la première réponse. Après sa dernière réplique, la personne partenaire retourne C pour la montrer. Seules les images sont présentes.",
     "partnerCuesEnglish": [
       "Yes. What is in picture B?",
-      "What are you looking for?",
+      "Ask me where the hard hat is.",
       "The hard hat is in picture C."
+    ],
+    "partnerCueSupportFrench": [
+      "Oui. Qu’y a-t-il sur l’image B ?",
+      "Demandez-moi où se trouve le casque de chantier.",
+      "Le casque de chantier est sur l’image C."
     ],
     "expectedLearnerTurnsEnglish": [
       "The buckle.",
       "Where is the hard hat?",
-      "The hard hat."
+      "The hard hat. Thank you."
     ],
-    "id": "core-roofing:21:fr-en:speaking:1",
+    "expectedLearnerTurnsFrench": [
+      "La boucle.",
+      "Où est le casque de chantier ?",
+      "Le casque de chantier. Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the harness?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What is in picture B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The buckle."
+      },
+      {
+        "speaker": "partner",
+        "text": "Ask me where the hard hat is."
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the hard hat?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The hard hat is in picture C."
+      },
+      {
+        "speaker": "learner",
+        "text": "The hard hat. Thank you."
+      }
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Est-ce le harnais ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Oui. Qu’y a-t-il sur l’image B ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "La boucle."
+      },
+      {
+        "speaker": "partner",
+        "text": "Demandez-moi où se trouve le casque de chantier."
+      },
+      {
+        "speaker": "learner",
+        "text": "Où est le casque de chantier ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Le casque de chantier est sur l’image C."
+      },
+      {
+        "speaker": "learner",
+        "text": "Le casque de chantier. Merci."
+      }
+    ],
+    "frenchSupportProvenance": "Unreviewed French candidate support. Exact source English nouns and new English/French compositions are identified separately. Harness/buckle/hard-hat French nouns are inherited unselected model proposals from the existing candidate, not French text supplied by pinned packet cards1/6/7 (which have candidateFrench null). No qualified source/locale approval. English-word quotations and parenthetical French meanings in repeat cues/answers are support gloss additions, not additional English target text.",
+    "sourceNounProvenance": [
+      {
+        "sourceAnchor": "core-roofing:21:fr-en:card:1",
+        "exactSourceEnglish": "harness",
+        "status": "English source noun retained; French support candidate unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:21:fr-en:card:6",
+        "exactSourceEnglish": "buckle",
+        "status": "English source noun retained; French support candidate unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:21:fr-en:card:7",
+        "exactSourceEnglish": "hard hat",
+        "status": "English source noun retained; French support candidate unselected."
+      }
+    ],
+    "composedSentenceProvenance": "Learner and partner sentences, French support lines and the picture-card context are new compositions built around the exact source nouns harness, buckle and hard hat. They identify picture cards only.",
     "reviewed": false,
-    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
     "heldDependent": true,
     "heldDecisionRefs": [
       "core-roofing:21:fr-en:card:10",
@@ -211,46 +306,70 @@
       "core-roofing:21:fr-en:reader:9"
     ],
     "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
-    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
-    "closureSpeaker": "learner",
-    "turnSequenceEnglish": [
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check. Where is refers to pictured item/card position only, never actual equipment availability or access.",
+    "frenchTradeTermNote": "No tie-off, roof-anchor, lanyard, fall-hazard or access-sequence term is used. No turn states equipment condition, fit, inspection, approved-gear readiness or a sufficient protection system. Fall protection, harness and hard-hat French senses remain qualified-review items. Buckle/boucle de harnais also remains an unselected contextual French candidate.",
+    "archivedDraftProvenance": "Archived speakingFrenchInstruction (confirm protection system, anchor, equipment check and rescue plan; stop access if unknown) is preserved as held provenance only. It is not used because it is a work-procedure instruction outside this picture-card exchange.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; picture-card lexical exchange does not complete original source speaking mission",
+    "heldRefsInterpretation": "All candidate-level held faces remain held; inferred noun/scope source-question dependencies are separate.",
+    "frenchRegisterStatusInternal": "Unselected vous register candidate; all French support remains unreviewed.",
+    "wordBankReusePolicy": "Fragments reusable across learner turns, not a single-use tile inventory.",
+    "internalDecisionHolds": [
+      "All source fall-protection safety questions and holds unchanged: no lanyard/ground-contact/clearance, harness access condition, tie-off/approved anchor/access sequence, equipment fit/inspection or correct-use/thumbs-up claim selected. Picture identification is not equipment condition/readiness or a system check.",
+      "Definite The buckle retained: names the particular depicted buckle already specified by picture B, not introducing unknown equipment. French context clarifies harness-buckle sense; no row/form change."
+    ],
+    "openSourceQuestionDependencies": [
       {
-        "speaker": "learner",
-        "text": "Is this the harness?"
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:21:fr-en:card:1"
+        ],
+        "question": "The source treats wearing a harness as the access condition. A qualified trade review must decide whether the scene states the site-specific protection requirement correctly.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Harness picture name only; source access condition remains unresolved."
       },
       {
-        "speaker": "partner",
-        "text": "Yes. What is in picture B?"
-      },
-      {
-        "speaker": "learner",
-        "text": "The buckle."
-      },
-      {
-        "speaker": "partner",
-        "text": "What are you looking for?"
-      },
-      {
-        "speaker": "learner",
-        "text": "Where is the hard hat?"
-      },
-      {
-        "speaker": "partner",
-        "text": "The hard hat is in picture C."
-      },
-      {
-        "speaker": "learner",
-        "text": "The hard hat."
-      },
-      {
-        "speaker": "learner",
-        "text": "Thank you."
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:21:fr-en:card:1"
+        ],
+        "question": "The source's correct-use and thumbs-up claims need qualified review; an acknowledgement is not silently converted into a verified protection-system check.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Pictures only, no actual correct-use or verified protection-system/gear check."
       }
     ],
-    "partnerCueSupportFrench": [
-      "Oui. Qu’y a-t-il sur l’image B ?",
-      "Que cherchez-vous ?",
-      "Le casque de chantier est sur l’image C."
+    "expectedAllLearnerTurnsEnglish": [
+      "Is this the harness?",
+      "The buckle.",
+      "Where is the hard hat?",
+      "The hard hat. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Est-ce le harnais ?",
+      "La boucle.",
+      "Où est le casque de chantier ?",
+      "Le casque de chantier. Merci."
+    ],
+    "candidateHeldDependencies": [
+      {
+        "usedAnchors": [
+          "core-roofing:21:fr-en:card:6",
+          "core-roofing:21:fr-en:card:7"
+        ],
+        "candidateHeldAnchor": "core-roofing:21:fr-en:reader:3",
+        "scope": "Candidate inspection-command hold remains; no actual buckle or hard-hat inspection."
+      },
+      {
+        "usedAnchors": [
+          "core-roofing:21:fr-en:card:6",
+          "core-roofing:21:fr-en:card:7"
+        ],
+        "candidateHeldAnchor": "core-roofing:21:fr-en:reader:7",
+        "scope": "Candidate equipment-wearing-command hold remains; no actual correct-use or access condition."
+      }
     ]
   },
   "schema": 1,
@@ -750,9 +869,113 @@
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Hard hat French casque de chantier versus casque de sécurité is an open locale/register dictionary choice. Fall protection noun type task does not assert a harness equals a sufficient protection system.",
     "Exact original source objective remains held/incomplete. New lexical exercises do not replace its technical objective; qualified decisions remain separate.",
-    "Fall protection noun candidate protection contre les chutes versus antichute usage and hard hat casque de chantier versus casque de sécurité remain qualified locale/dictionary questions. No type task equates a harness with sufficient protection."
+    "Fall protection noun candidate protection contre les chutes versus antichute usage and hard hat casque de chantier versus casque de sécurité remain qualified locale/dictionary questions. No type task equates a harness with sufficient protection.",
+    "Speaking support/context gap reconciliation retains prior draft exactly and existing valid pairs. Adds actual French support and seven-turn bilingual sequence, closure part of final reply. Exact original specialist objective remains incomplete, all source/teaching arrays/IDs/pins/holds/flags unchanged.",
+    "Existing candidate-only extra holds on source rows and leading-space hold strings retained exactly, with all fall-protection/source questions unchanged. Picture-card support does not settle access or clearance.",
+    "Final speaking scope log: canonical context/visibility/French support changed, courtesy folded, Core20 cue2 requests full sentence, Core21 cue2 now elicits existing where-question. Exact historical draft preserved, canonical heldDecisionRefs original ordering restored. No duplicated pairs or activities; original work objective still incomplete."
   ],
   "sourceObjectiveEnglish": "Give a clear fall-protection instruction",
   "sourceSpeakingEnglish": "Tell the crew to tie off before roof access and ask them to point to the approved anchor.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner naming equipment picture cards.",
+    "partnerRole": "A partner showing practice picture cards.",
+    "candidateOpeningEnglish": "Is this the harness?",
+    "goalEnglish": "Identify harness and buckle pictures and ask where the hard-hat picture is.",
+    "candidateWordBankEnglish": [
+      "harness",
+      "buckle",
+      "hard hat",
+      "Is this the harness?",
+      "The buckle.",
+      "Where is the hard hat?",
+      "The hard hat."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "sourceAnchors": [
+      "core-roofing:21:fr-en:card:1",
+      "core-roofing:21:fr-en:card:6",
+      "core-roofing:21:fr-en:card:7"
+    ],
+    "practiceContextEnglish": "Picture A shows a harness, B a buckle and C a hard hat. The partner holds up picture A. After the last partner cue, the partner holds up picture C.",
+    "partnerCuesEnglish": [
+      "Yes. What is in picture B?",
+      "What are you looking for?",
+      "The hard hat is in picture C."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The buckle.",
+      "Where is the hard hat?",
+      "The hard hat."
+    ],
+    "id": "core-roofing:21:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:21:fr-en:card:10",
+      "core-roofing:21:fr-en:card:11",
+      "core-roofing:21:fr-en:card:12",
+      "core-roofing:21:fr-en:card:13",
+      "core-roofing:21:fr-en:card:14",
+      "core-roofing:21:fr-en:card:2",
+      "core-roofing:21:fr-en:card:3",
+      "core-roofing:21:fr-en:card:4",
+      "core-roofing:21:fr-en:card:8",
+      "core-roofing:21:fr-en:card:9",
+      "core-roofing:21:fr-en:reader:1",
+      "core-roofing:21:fr-en:reader:2",
+      "core-roofing:21:fr-en:reader:3",
+      "core-roofing:21:fr-en:reader:4",
+      "core-roofing:21:fr-en:reader:5",
+      "core-roofing:21:fr-en:reader:6",
+      "core-roofing:21:fr-en:reader:7",
+      "core-roofing:21:fr-en:reader:8",
+      "core-roofing:21:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the harness?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What is in picture B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The buckle."
+      },
+      {
+        "speaker": "partner",
+        "text": "What are you looking for?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the hard hat?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The hard hat is in picture C."
+      },
+      {
+        "speaker": "learner",
+        "text": "The hard hat."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "partnerCueSupportFrench": [
+      "Oui. Qu’y a-t-il sur l’image B ?",
+      "Que cherchez-vous ?",
+      "Le casque de chantier est sur l’image C."
+    ]
+  },
+  "sourceAuditOriginMain": "249a63d48bcb9800d0a41e8be96331298b2adb5e"
 }

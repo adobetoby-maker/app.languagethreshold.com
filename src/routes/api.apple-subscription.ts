@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { authenticatedTeamUser, json, scopedTeamError, teamAdminClient } from "@/lib/team-server";
-import { applePlan, recordApplePurchase } from "@/lib/apple-billing/server";
+import { applePlan } from "@/lib/apple-billing/access";
+import { recordApplePurchase } from "@/lib/apple-billing/server";
 import { readPrivateJson } from "@/lib/private-json-request";
 import { hasActivePlan } from "@/lib/active-plan";
 

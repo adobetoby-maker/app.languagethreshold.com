@@ -6,7 +6,7 @@ import {
   VerificationStatus,
 } from "@apple/app-store-server-library";
 import { z } from "zod";
-import certificate from "./apple-root-g3.pem?raw";
+import certificate from "./apple-root-g3";
 import type { TeamDb } from "../team-server";
 import { TeamOperationError } from "../team-server";
 
@@ -77,12 +77,4 @@ export async function processAppleNotification(db: TeamDb, payload: string) {
   const event = await verify((v) => v.verifyAndDecodeNotification(payload));
   if (event.data?.signedTransactionInfo)
     await recordApplePurchase(db, event.data.signedTransactionInfo);
-}
-
-export async function applePlan(db: TeamDb, owner: string, environment = "Production") {
-  const { data, error } = await db
-    .rpc("v4_apple_account_access", { p_user: owner, p_environment: environment })
-    .maybeSingle();
-  if (error) throw error;
-  return data as { product_id: string; expires_at: string; is_family_member: boolean } | null;
 }

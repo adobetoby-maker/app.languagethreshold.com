@@ -1,4 +1,4 @@
-import { applePlan } from "@/lib/apple-billing/server";
+import { applePlan } from "@/lib/apple-billing/access";
 import { configuredIndividualPriceIds, INDIVIDUAL_PRICES } from "@/lib/individual-pricing";
 import { createFileRoute } from "@tanstack/react-router";
 import Stripe from "stripe";

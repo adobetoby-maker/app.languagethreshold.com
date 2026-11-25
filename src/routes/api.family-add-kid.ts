@@ -1,7 +1,7 @@
 import { teamAdminClient, authenticatedTeamUser, scopedTeamError } from "@/lib/team-server";
 import { createFileRoute } from "@tanstack/react-router";
 import { createClient, type User } from "@supabase/supabase-js";
-import { applePlan } from "@/lib/apple-billing/server";
+import { applePlan } from "@/lib/apple-billing/access";
 import { hasActivePlan } from "@/lib/active-plan";
 import { consumeServerRequestBudget } from "@/lib/speaking-security";
 

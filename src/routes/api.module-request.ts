@@ -11,7 +11,7 @@ import {
   scopedTeamError,
   TeamOperationError,
 } from "@/lib/team-server";
-import { applePlan } from "@/lib/apple-billing/server";
+import { applePlan } from "@/lib/apple-billing/access";
 import { hasActivePlan } from "@/lib/active-plan";
 
 const requestSchema = z.object({

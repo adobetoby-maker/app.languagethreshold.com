@@ -28,16 +28,18 @@ async function loadRoute() {
             b.onResolve(
               {
                 filter:
-                  /^(@tanstack\/react-router|@supabase\/supabase-js|@\/lib\/active-plan|@\/lib\/speaking-security|fixture)$/,
+                  /^(@tanstack\/react-router|@supabase\/supabase-js|@\/lib\/active-plan|@\/lib\/apple-billing\/access|@\/lib\/speaking-security|fixture)$/,
               },
               () => ({ path: "fixture", namespace: "fixture" }),
             );
             b.onLoad({ filter: /.*/, namespace: "fixture" }, () => ({
               contents: `export const c={tokens:new Map(),created:[],getUserCalls:[],plan:async()=>true,budget:async()=>true,budgetCalls:[]};
+export const isAuthRetryableFetchError=()=>false;
 export const createFileRoute=()=>x=>x;
 export const createClient=()=>({auth:{
   getUser:async(t)=>{c.getUserCalls.push(t);const u=c.tokens.get(t);return u?{data:{user:u},error:null}:{data:{user:null},error:{message:'bad jwt'}}},
   admin:{createUser:async(input)=>{c.created.push(input);return {data:{user:{id:'kid-'+c.created.length}},error:null}}}}});
+export const applePlan=async()=>c.apple;
 export const hasActivePlan=async(db,id)=>c.plan(id);
 export const consumeServerRequestBudget=async(...a)=>{c.budgetCalls.push(a);return c.budget(...a)};`,
             }));
@@ -75,6 +77,7 @@ function post(body, token) {
 }
 
 function reset() {
+  c.apple = null;
   c.created.length = 0;
   c.budgetCalls.length = 0;
   c.plan = async () => true;
@@ -158,4 +161,13 @@ test("input validation still applies to authenticated parents", async () => {
     assert.equal((await post(body, "parent-token")).status, 400, JSON.stringify(body));
   }
   assert.equal(c.created.length, 0);
+});
+
+test("an Apple Family owner can add a child and an Individual subscriber cannot", async () => {
+  reset();
+  c.plan = async () => false;
+  for (const [plan, status] of [["family", 200], ["individual", 403]]) {
+    c.apple = { product_id: "com.languagethreshold.core60v4." + plan + ".monthly", is_family_member: false };
+    assert.equal((await post({username: "Sophie", pin: "1234"}, "parent-token")).status, status);
+  }
 });

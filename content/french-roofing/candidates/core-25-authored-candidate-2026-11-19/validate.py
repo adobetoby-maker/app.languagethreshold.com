@@ -48,3 +48,49 @@ for t in p.get('terminologyProposals',[]):
  assert t['sourceSpanishEvidence']==anchors[t['sourceAnchor']]['sourceSpanish']
  assert t['selectedFrench'] is t['audioScript'] is t['selectedOption'] is None
  assert t['reviewed'] is t['registered'] is False
+
+# Speaking reconciliation contract 2026-11-25
+
+
+sp=p['speaking']
+assert len(sp['partnerCuesEnglish'])==len(sp['partnerCueSupportFrench'])==len(sp['expectedLearnerTurnsEnglish'])==len(sp['expectedLearnerTurnsFrench'])==3
+assert sp['candidateOpeningFrench'] and len(sp['turnSequenceEnglish'])==7
+assert len(sp['expectedAllLearnerTurnsEnglish'])==len(sp['expectedAllLearnerTurnsFrench'])==4
+assert sp['expectedAllLearnerTurnsEnglish'][0]==sp['candidateOpeningEnglish']
+assert p['sourceObjectiveEnglish']==s['sourceObjectiveEnglish'] and p['sourceSpeakingEnglish']==s['sourceSpeakingEnglish']
+assert p['sourceObjectiveCompletionStatus']=='held; lexical subset does not satisfy the source work objective'
+assert sp['sourceSpeakingCompletionStatus'].startswith('held and incomplete')
+assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
+assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
+assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])
+
+assert sp['turnSequenceEnglish'][0]=={'speaker':'learner','text':sp['candidateOpeningEnglish']}
+assert [t['text'] for t in sp['turnSequenceEnglish'][1::2]]==sp['partnerCuesEnglish']
+assert [t['text'] for t in sp['turnSequenceEnglish'][2::2]]==sp['expectedLearnerTurnsEnglish']
+assert sp['expectedAllLearnerTurnsEnglish'][1:]==sp['expectedLearnerTurnsEnglish']
+assert sp['expectedAllLearnerTurnsFrench']==[sp['candidateOpeningFrench']]+sp['expectedLearnerTurnsFrench']
+for dependency in sp['openSourceQuestionDependencies']:
+ q=s['sourceDecisionQuestions'][dependency['sourceQuestion']-1]
+ assert dependency['question']==q['question']
+ assert dependency['jsonPointer']=='/sourceDecisionQuestions/'+str(dependency['sourceQuestion']-1)
+ assert set(dependency['affectedUsedAnchors']) <= set(sp['sourceAnchors'])
+
+assert len(sp['turnSequenceFrench'])==7
+assert [t['text'] for t in sp['turnSequenceFrench'][1::2]]==sp['partnerCueSupportFrench']
+assert [t['text'] for t in sp['turnSequenceFrench'][2::2]]==sp['expectedLearnerTurnsFrench']
+
+assert sp['turnSequenceFrench'][0]=={'speaker':'learner','text':sp['candidateOpeningFrench']}
+assert sp['turnSequenceEnglish'][-1]['speaker']=='learner'
+assert sp['turnSequenceEnglish'][-1]['text'].endswith(sp['closureEnglish'])
+assert sp['turnSequenceFrench'][-1]['text'].endswith(sp['closureFrench'])
+
+for noun in sp['sourceTextProvenance']:
+ row=next(r for r in s['cards'] if r['id']==noun['sourceAnchor'])
+ assert noun['exactSourceEnglish']==row.get('english',row.get('sourceEnglish'))
+
+assert sp['sourceMissionOpenQuestionPointers']==['/sourceDecisionQuestions/'+str(i) for i in range(len(s['sourceDecisionQuestions']))]
+assert sp['learnerRoleFrench'] and sp['partnerRoleFrench']
+
+for dependency in sp['openSourceQuestionDependencies']:
+ assert dependency['dependencyType']=='inferred'
+ assert not set(dependency['affectedUsedAnchors']).intersection(s['sourceDecisionQuestions'][dependency['sourceQuestion']-1]['affectedIds'])

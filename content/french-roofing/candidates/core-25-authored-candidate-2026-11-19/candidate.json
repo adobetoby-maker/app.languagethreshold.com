@@ -246,7 +246,126 @@
       "show": "montrer",
       "say": "indiquer/dire",
       "repeat": "répéter"
-    }
+    },
+    "learnerRoleFrench": "Une personne apprenante qui repère et nomme des cartes de vocabulaire.",
+    "partnerRoleFrench": "Une personne partenaire qui montre des cartes-images et des cartes de vocabulaire.",
+    "scopedInternalDecisionHolds": [
+      "The cone and hard-hat pictures and the printed word « danger » establish vocabulary recognition only. They do not establish equipment readiness, a hazard finding, or a debris-release decision. No PPE sufficiency under overhead work is established.",
+      "Falling-object control, exclusion boundary, warning tape, and debris chute remain held for a qualified roofer/safety reviewer.",
+      "Tear-off/démontage and archived dépose scope, the stop-work/approved-zone addition, and the ground-crew clearance sequence remain held.",
+      "Release authority (who clears the area) and the urgency and recipient of the falling-debris alert remain held."
+    ],
+    "closureFrench": "Merci.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; original source speaking mission remains unresolved, existing lexical exchange does not replace or complete it. All sourceDecisionQuestions remain open; used-anchor dependencies are a subset.",
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3",
+      "/sourceDecisionQuestions/4"
+    ],
+    "frenchSupportConventionInternal": "English remains target. All pre-existing English/French speaking values remain exact; French roles and derived French sequences are unselected meaning support, never expected/scored learner production. Vous/neutral person wording remain unselected register proposals. French arrays named expected mirror English expected turns as meaning support only; they are not French production/scoring targets.",
+    "sourceCompositionProvenance": "Source nouns hard hat/danger/cone have exact face provenance below. Existing picture/word-card opening, cues and replies are earlier-authored fictional compositions, preserved exactly; printed danger is not an actual hazard finding or release statement.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:25:fr-en:card:4",
+        "exactSourceEnglish": "hard hat",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:25:fr-en:card:6",
+        "exactSourceEnglish": "danger",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:25:fr-en:card:8",
+        "exactSourceEnglish": "cone",
+        "sourceKind": "term",
+        "status": "Exact source face recorded. Existing speaking support uses candidate le cône rather than archived/conditional le cône de signalisation; both unselected, no face changed in this batch."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:25:fr-en:card:8"
+        ],
+        "question": "Exclusion area, warning tape and debris chute need site-specific control and French trade senses. The source tells the crew to put tape around an area but does not establish that tape alone is an approved barrier. Resolve the applicable falling-object control with a qualified roofer/safety reviewer before selecting a command.",
+        "relationship": "Sense adjacency, not direct affectedIds or a claim that source Q1 names cone. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Control-cone sense adjacency only; pictured cone supplies no exclusion boundary or approved barrier.",
+        "dependencyType": "inferred"
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:25:fr-en:card:4"
+        ],
+        "question": "Ground crew clear of falling debris and no standing under the work even with a hard hat are the source's safety sequence. Archived zone de travail may broaden the location. Confirm command, exclusion boundary and hard-hat sense in context; do not imply PPE makes overhead work safe.",
+        "relationship": "Inferred from explicit hard-hat mention, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Hard-hat picture only; no PPE sufficiency, overhead work or clearance decision.",
+        "dependencyType": "inferred"
+      },
+      {
+        "sourceQuestion": 5,
+        "jsonPointer": "/sourceDecisionQuestions/4",
+        "affectedUsedAnchors": [
+          "core-roofing:25:fr-en:card:6"
+        ],
+        "question": "Source Heads up! Debris coming down! is an immediate falling-debris alert. Archived French uses a future va/vont tomber; review urgency and whom to warn, while preserving the conditional chute setup and warning-before-use sequence.",
+        "relationship": "Alert-sense adjacency, not direct affectedIds or exact wording. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Printed danger noun only; no actual falling-debris alert/urgency statement.",
+        "dependencyType": "inferred"
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Where is the cone?",
+      "Is this a hard hat?",
+      "The card says \"danger\".",
+      "Danger. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Où est le cône ?",
+      "Est-ce un casque de chantier ?",
+      "La carte indique « danger ».",
+      "Danger. Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Où est le cône ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Le cône est sur l’image B."
+      },
+      {
+        "speaker": "learner",
+        "text": "Est-ce un casque de chantier ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Oui. Qu’indique la carte C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "La carte indique « danger »."
+      },
+      {
+        "speaker": "partner",
+        "text": "Répétez le mot imprimé, s’il vous plaît."
+      },
+      {
+        "speaker": "learner",
+        "text": "Danger. Merci."
+      }
+    ]
   },
   "terminologyProposals": [
     {
@@ -821,9 +940,120 @@
     "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a falling-object/source decision, settle a work method, or select a technical answer.",
     "Opus read-only critique corrections source-checked: quote provenance, exact noun/article practice, cue alignment and specific held technical senses. No source work objective completed or safety/domain answer selected.",
     "Source bare Cono/cone supports generic le cône; archived de signalisation qualifier is contextual evidence, not a selected barrier/control subtype. Card11/Reader4 Move away from the house remains an isolated exact linguistic translation candidate, not a selected exclusion boundary or clearance sequence; it is absent from active tasks. All technical source gates remain false.",
-    "Final Fable corrections source-checked: no hidden article/key restriction, exact bilingual terminology origins retained, speaking cue/answer alignment and English/French support corrected. Full exact source work objective remains held/incomplete; AI critique is not qualified approval."
+    "Final Fable corrections source-checked: no hidden article/key restriction, exact bilingual terminology origins retained, speaking cue/answer alignment and English/French support corrected. Full exact source work objective remains held/incomplete; AI critique is not qualified approval.",
+    "Gap-only additive speaking support: every old English/French speaking value preserved, no regenerated pair/activity. New French roles/derived dialogue/closure/provenance separate source from prior fictional compositions; original specialist mission held/incomplete. CLI sees bounded excerpts only; independent full-file/source hash verification is outside CLI view and recorded separately by validate.py and private check-fr-core252627-preservation.py.",
+    "Current additive batch preserves all earlier speaking values. Historical Final Fable/cue-answer/support corrections notes refer to earlier passes, not this gap-only batch; current CLI critique checks bounded supplied excerpts only. Full source-pin and baseline preservation verification is recorded separately by current validate.py and private preservation script."
   ],
   "sourceObjectiveEnglish": "Keep workers below clear of debris",
   "sourceSpeakingEnglish": "Tell the ground crew to move clear before tear-off resumes.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner locating and naming vocabulary cards.",
+    "partnerRole": "A partner showing picture/word cards.",
+    "candidateOpeningEnglish": "Where is the cone?",
+    "goalEnglish": "Locate the cone picture, identify the hard-hat picture and read danger from word card C.",
+    "candidateWordBankEnglish": [
+      "cone",
+      "hard hat",
+      "danger",
+      "Where is the cone?",
+      "Is this a hard hat?",
+      "What does card C say?",
+      "The card says \"danger\"."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New composition. Closure is merged into the final expected learner turn, not a separate closing turn.",
+    "sourceAnchors": [
+      "core-roofing:25:fr-en:card:4",
+      "core-roofing:25:fr-en:card:6",
+      "core-roofing:25:fr-en:card:8"
+    ],
+    "practiceContextEnglish": "Picture A shows a hard hat, B a cone; word card C says danger. The partner holds up A after locating B.",
+    "partnerCuesEnglish": [
+      "The cone is in picture B.",
+      "Yes. What does card C say?",
+      "Please repeat the printed word."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Is this a hard hat?",
+      "The card says \"danger\".",
+      "Danger. Thank you."
+    ],
+    "goalFrench": "Repérez l’image du cône, identifiez le casque de chantier et lisez le mot « danger » sur C.",
+    "contextFrench": "L’image A montre un casque de chantier, B un cône ; la carte C porte le mot « danger ». Le partenaire montre A après avoir repéré B.",
+    "partnerCueSupportFrench": [
+      "Le cône est sur l’image B.",
+      "Oui. Qu’indique la carte C ?",
+      "Répétez le mot imprimé, s’il vous plaît."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Est-ce un casque de chantier ?",
+      "La carte indique « danger ».",
+      "Danger. Merci."
+    ],
+    "candidateOpeningFrench": "Où est le cône ?",
+    "provenance": "New English/French vocabulary exchange with picture/word cards; no actual site finding, control/repair instruction or technical result.",
+    "id": "core-roofing:25:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:25:fr-en:card:10",
+      "core-roofing:25:fr-en:card:12",
+      "core-roofing:25:fr-en:card:13",
+      "core-roofing:25:fr-en:card:14",
+      "core-roofing:25:fr-en:card:15",
+      "core-roofing:25:fr-en:card:3",
+      "core-roofing:25:fr-en:card:5",
+      "core-roofing:25:fr-en:card:7",
+      "core-roofing:25:fr-en:card:9",
+      "core-roofing:25:fr-en:reader:1",
+      "core-roofing:25:fr-en:reader:3",
+      "core-roofing:25:fr-en:reader:5",
+      "core-roofing:25:fr-en:reader:6",
+      "core-roofing:25:fr-en:reader:7",
+      "core-roofing:25:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where is the cone?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The cone is in picture B."
+      },
+      {
+        "speaker": "learner",
+        "text": "Is this a hard hat?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What does card C say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The card says \"danger\"."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the printed word."
+      },
+      {
+        "speaker": "learner",
+        "text": "Danger. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture card": "carte-image",
+      "word card": "carte de vocabulaire",
+      "show": "montrer",
+      "say": "indiquer/dire",
+      "repeat": "répéter"
+    }
+  },
+  "sourceAuditOriginMain": "df68e9ca8f0a36395219c91d8fa1daf356a6a70f"
 }

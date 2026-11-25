@@ -147,28 +147,137 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A crew member describing the labelled sample diagram.",
-    "partnerRole": "A coworker asking about the labelled sample diagram.",
+    "id": "core-roofing:1:fr-en:speaking:1",
     "candidateOpeningEnglish": "This roof is sloped, not flat.",
+    "candidateOpeningFrench": "Ce toit est en pente, pas plat.",
+    "learnerRole": "A crew member describing the labelled sample diagram.",
+    "learnerRoleFrench": "Un membre de l'équipe qui décrit le schéma de toit d'exemple étiqueté.",
+    "partnerRole": "A coworker asking about the labelled sample diagram.",
+    "partnerRoleFrench": "Un collègue qui pose des questions sur le schéma de toit d'exemple étiqueté.",
     "goalEnglish": "Tell a coworker whether the sample roof is flat or sloped.",
-    "candidateWordBankEnglish": [
-      "flat",
-      "sloped",
-      "This roof is sloped, not flat."
+    "goalFrench": "Dire à un collègue si le toit du schéma est plat ou en pente.",
+    "practiceContextEnglish": "Two learners use a sample roof diagram labelled sloped. One states the shape; the partner requests repetition and asks the learner to distinguish flat and sloped.",
+    "contextFrench": "Deux apprenants utilisent un schéma de toit d'exemple étiqueté « en pente ». Une personne décrit la forme ; le partenaire demande une répétition et demande de distinguer plat et en pente.",
+    "partnerCuesEnglish": [
+      "Can you repeat that? Is the roof flat or sloped?",
+      "Okay. Which term should I use for this sample roof?",
+      "Thank you for explaining the terms."
     ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "partnerCueSupportFrench": [
+      "Pouvez-vous répéter ? Le toit est-il plat ou en pente ?",
+      "D'accord. Quel terme dois-je employer pour ce toit d'exemple ?",
+      "Merci d'avoir expliqué les termes."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "This roof is sloped, not flat.",
+      "Sloped roof. It is not a flat roof.",
+      "You're welcome."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Ce toit est en pente, pas plat.",
+      "Toit en pente. Ce n'est pas un toit plat.",
+      "Je vous en prie."
+    ],
+    "candidateWordBankEnglish": [
+      "This roof is sloped, not flat.",
+      "Sloped roof.",
+      "It is not",
+      "a flat roof.",
+      "You're welcome."
+    ],
+    "candidateWordBankFrench": [
+      "Ce toit est en pente, pas plat.",
+      "Toit en pente.",
+      "Ce n'est pas",
+      "un toit plat.",
+      "Je vous en prie."
+    ],
+    "closureEnglish": "You're welcome.",
+    "closureProvenance": "New ordinary response to partner thanks, not exact source; earlier Thank you closure retained in prior draft.",
     "sourceAnchors": [
       "core-roofing:1:fr-en:card:14",
+      "core-roofing:1:fr-en:card:7",
+      "core-roofing:1:fr-en:card:8",
       "core-roofing:1:fr-en:reader:3"
     ],
-    "id": "core-roofing:1:fr-en:speaking:1",
+    "provenance": "Existing speaking ID, opening and candidate objective retained. Cues and learner turns are new hypothetical diagram practice built on card 14 and cards 7/8 with the reader 3 relation; French is unreviewed candidate support. No roof system, material, pitch measurement or installation choice is selected. Source roof-system/material objective remains held and incomplete.",
     "reviewed": false,
-    "scenarioProvenance": "New hypothetical practice using a labelled sample roof diagram, not actual site data.",
-    "partnerCueProvenance": "Exact source card14 question in a hypothetical diagram practice task.",
-    "objectiveProvenance": "New narrower informing task based on source roof-shape rows; full roof-system/material objective remains blocked.",
-    "partnerCuesEnglish": [
-      "Is the roof flat or sloped?"
+    "scoringEnabled": false,
+    "audioScript": null,
+    "internalDecisionHolds": [
+      "Select the roof-product and locale senses: generic shingle/tile cards versus Spanish asphalt and clay/concrete qualifiers; keep Reader 4's asphalt shingles explicit.",
+      "Decide whether the archived support de couverture and système de couverture distinguish structural roof deck from the whole roof system in this trade context.",
+      "Select a contextual French skylight term; fenêtre de toit may narrow the type of opening compared with source tragaluz/skylight.",
+      "The source asks what material the roof has; decide whether the archived question about what covers the roof preserves the intended material distinction and card/Reader alignment.",
+      "Decide whether this metal-panel roof phrase denotes the roof material or a count of panels before selecting a scored French form.",
+      "The source has a foreman walking the roof with the crew; qualified roofing/source review must retain the attributed scene and decide whether any access or protection context needs a source revision before using it as teaching or audio.",
+      "Archived speaking changes the source task of telling a crew member into asking a lead to confirm a plan. Set the lesson speaking objective and term senses together without silently replacing the source.",
+      "Linked asphalt-shingle material/locale decision is propagated into this sentence; no dependent activity uses this face.",
+      "Reader 5 foreman question is held; this speaking task uses only a narrower diagram role adaptation (coworker, not foreman or lead) and does not unhold the source face.",
+      "Existing candidate card15/Reader8/dictionary15 avant de commencer versus Say activity/grammarExplanationFrench avant que nous commencions: source we may be lost after imperative; qualified French/force review remains open, protected content unchanged.",
+      "Existing English imperative-request versus French consigne phrasing and candidate pitch-check objective require a future bounded grammar/provenance reconciliation; this speaking pass makes no pitch-check command or measurement claim."
+    ],
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:1:fr-en:card:1",
+      "core-roofing:1:fr-en:card:2",
+      "core-roofing:1:fr-en:card:4",
+      "core-roofing:1:fr-en:card:6",
+      "core-roofing:1:fr-en:card:10",
+      "core-roofing:1:fr-en:card:11",
+      "core-roofing:1:fr-en:card:12",
+      "core-roofing:1:fr-en:card:13",
+      "core-roofing:1:fr-en:reader:2",
+      "core-roofing:1:fr-en:reader:4",
+      "core-roofing:1:fr-en:reader:5",
+      "core-roofing:1:fr-en:reader:6",
+      "core-roofing:1:fr-en:reader:7"
+    ],
+    "heldRefsInterpretation": "Existing candidate-level source/terminology dependencies; no held face unblocked.",
+    "holdReason": "Original roof-system/material identification objective incomplete; flat/sloped shape subset does not resolve source product, deck/system, skylight or role/access decisions.",
+    "closureFrench": "Je vous en prie.",
+    "frenchRegisterStatusInternal": "French vous support is a proposed register, not course-wide tu/vous approval.",
+    "expectedAllLearnerTurnsEnglish": [
+      "This roof is sloped, not flat.",
+      "This roof is sloped, not flat.",
+      "Sloped roof. It is not a flat roof.",
+      "You're welcome."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Ce toit est en pente, pas plat.",
+      "Ce toit est en pente, pas plat.",
+      "Toit en pente. Ce n'est pas un toit plat.",
+      "Je vous en prie."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "This roof is sloped, not flat."
+      },
+      {
+        "speaker": "partner",
+        "text": "Can you repeat that? Is the roof flat or sloped?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This roof is sloped, not flat."
+      },
+      {
+        "speaker": "partner",
+        "text": "Okay. Which term should I use for this sample roof?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Sloped roof. It is not a flat roof."
+      },
+      {
+        "speaker": "partner",
+        "text": "Thank you for explaining the terms."
+      },
+      {
+        "speaker": "learner",
+        "text": "You're welcome."
+      }
     ]
   },
   "schema": 1,
@@ -607,9 +716,36 @@
     "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
-    "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison."
+    "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison.",
+    "Speaking-only contextual reconciliation: existing source faces/holds, activities/forms/dictionary, IDs/pins, normalized false flags and exact original objectives unchanged. Prior speaking retained separately. New sample-image/diagram exchanges do not count as specialist objective completion or installation/safety approval."
   ],
   "sourceObjectiveEnglish": "Identify the job's roof system and main materials",
   "sourceSpeakingEnglish": "Tell a crew member which roof system and materials today's job uses.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A crew member describing the labelled sample diagram.",
+    "partnerRole": "A coworker asking about the labelled sample diagram.",
+    "candidateOpeningEnglish": "This roof is sloped, not flat.",
+    "goalEnglish": "Tell a coworker whether the sample roof is flat or sloped.",
+    "candidateWordBankEnglish": [
+      "flat",
+      "sloped",
+      "This roof is sloped, not flat."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "sourceAnchors": [
+      "core-roofing:1:fr-en:card:14",
+      "core-roofing:1:fr-en:reader:3"
+    ],
+    "id": "core-roofing:1:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "New hypothetical practice using a labelled sample roof diagram, not actual site data.",
+    "partnerCueProvenance": "Exact source card14 question in a hypothetical diagram practice task.",
+    "objectiveProvenance": "New narrower informing task based on source roof-shape rows; full roof-system/material objective remains blocked.",
+    "partnerCuesEnglish": [
+      "Is the roof flat or sloped?"
+    ]
+  },
+  "sourceAuditOriginMain": "45a766d1aa146684593052b0e5af413ffc14075a"
 }

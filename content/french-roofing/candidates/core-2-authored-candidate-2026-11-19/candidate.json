@@ -143,36 +143,138 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A crew member identifying labelled material samples.",
-    "partnerRole": "A coworker holding labelled practice cards.",
+    "id": "core-roofing:2:fr-en:speaking:1",
     "candidateOpeningEnglish": "Is this underlayment?",
-    "goalEnglish": "Ask whether a sample is underlayment, identify plywood and ask where the plywood is.",
+    "candidateOpeningFrench": "Est-ce de la sous-couche ?",
+    "learnerRole": "learner identifying labelled sample-image cards",
+    "learnerRoleFrench": "Un apprenant qui identifie des cartes d'images d'échantillons étiquetées.",
+    "partnerRole": "practice partner holding labelled sample-image cards",
+    "partnerRoleFrench": "Un partenaire de langue qui tient des cartes d'images d'échantillons étiquetées.",
+    "goalEnglish": "Ask whether a labelled sample-image card shows underlayment, identify the plywood image and ask where the plywood card is.",
+    "goalFrench": "Demander si une carte d'image d'échantillon étiquetée montre de la sous-couche, identifier l'image du contreplaqué et demander où se trouve sa carte.",
+    "practiceContextEnglish": "Two learners use labelled sample-image cards. After the learner names the second image, the partner puts the cards back in the set and the learner asks where the plywood card is.",
+    "contextFrench": "Deux apprenants utilisent des cartes d'images d'échantillons étiquetées. Après l'identification de la deuxième image, le partenaire remet les cartes dans le jeu ; l'apprenant demande où se trouve la carte du contreplaqué.",
+    "partnerCuesEnglish": [
+      "Yes. This is underlayment. What is on the second card?",
+      "I have put the cards back in the set. Ask me where the plywood is.",
+      "Here is the plywood card."
+    ],
+    "partnerCueSupportFrench": [
+      "Oui. C'est de la sous-couche. Que montre la deuxième carte ?",
+      "J'ai remis les cartes dans le jeu. Demandez-moi où se trouve le contreplaqué.",
+      "Voici la carte du contreplaqué."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "This is plywood.",
+      "Where is the plywood?",
+      "Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "C'est du contreplaqué.",
+      "Où est le contreplaqué ?",
+      "Merci."
+    ],
     "candidateWordBankEnglish": [
-      "underlayment",
-      "plywood",
+      "Is this underlayment?",
       "This is",
-      "Is this",
-      "Where is the plywood?"
+      "plywood.",
+      "Where is the plywood?",
+      "Thank you."
+    ],
+    "candidateWordBankFrench": [
+      "Est-ce de la sous-couche ?",
+      "C'est",
+      "du contreplaqué.",
+      "Où est le contreplaqué ?",
+      "Merci."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "closureProvenance": "New ordinary courtesy closure, not exact source; appears once, in the final learner turn.",
     "sourceAnchors": [
       "core-roofing:2:fr-en:card:2",
       "core-roofing:2:fr-en:card:8"
     ],
-    "id": "core-roofing:2:fr-en:speaking:1",
+    "provenance": "Existing speaking ID and opening retained. Cues and learner turns are new hypothetical labelled-card practice built on card 2 (underlayment) and card 8 (plywood); French is unreviewed candidate support. No layer order, drip-edge, dryness, product, or safety outcome. Source speaking objective (point out deck, underlayment and edge on a roof plan) remains unfulfilled.",
     "reviewed": false,
-    "scenarioProvenance": "Hypothetical practice using labelled sample images, not actual site findings.",
-    "partnerCueProvenance": "New hypothetical labelled-card dialogue; identifies samples and location without layer-order or actual product finding.",
-    "objectiveProvenance": "New narrower practice task; full pinned source speaking objective remains unfulfilled pending held terminology/source decisions.",
-    "partnerCuesEnglish": [
-      "Yes. This is underlayment.",
-      "And this card?",
-      "Here is the plywood."
+    "scoringEnabled": false,
+    "audioScript": null,
+    "internalDecisionHolds": [
+      "Distinguish structural roof deck and sheathing in this source: the archive uses support de couverture and platelage de toiture; decide the pair's trade and regional senses before scoring. Plywood is used here only as a labelled sample term, not as the roof deck (Reader 2 hold).",
+      "The source distinguishes felt paper from synthetic underlayment; verify whether feutre bitumé adds an unsupported bitumen specification and whether sous-couche consistently names the layer rather than one product. Bare underlayment/sous-couche is used only as a generic sample label.",
+      "Confirm contextual and regional French roof-edge terms for drip edge, eave and rake; keep eave edge and rake edge distinct in Reader 6. Drip edge, eave and rake are not used in this speaking task.",
+      "The source commands installing the drip edge first, but edge sequence depends on the approved detail and manufacturer; not used here.",
+      "The source says the foreman orders the crew to unroll underlayment; the archive changes this to asks. Preserve the command force or obtain a source change. Not used here.",
+      "Archived speaking asks a supervisor to confirm installation order, while source speaking asks the learner to point out deck, underlayment and edge on a roof plan. Resolve objective parity before authoring a scored speaking scene.",
+      "Linked structural roof-deck term decision is propagated into the deck-related sentences (Core2 cards 11, 12; Reader 3); no dependent activity uses those faces.",
+      "Linked drip-edge card14 and shingle Reader1 holds are propagated; not used in speaking."
     ],
-    "expectedSecondTurnEnglish": "This is plywood.",
-    "secondTurnProvenance": "New hypothetical labelled-card response from source plywood term.",
-    "thirdTurnEnglish": "Where is the plywood?"
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:2:fr-en:card:1",
+      "core-roofing:2:fr-en:card:3",
+      "core-roofing:2:fr-en:card:4",
+      "core-roofing:2:fr-en:card:5",
+      "core-roofing:2:fr-en:card:6",
+      "core-roofing:2:fr-en:card:7",
+      "core-roofing:2:fr-en:card:9",
+      "core-roofing:2:fr-en:card:10",
+      "core-roofing:2:fr-en:card:11",
+      "core-roofing:2:fr-en:card:12",
+      "core-roofing:2:fr-en:card:14",
+      "core-roofing:2:fr-en:reader:1",
+      "core-roofing:2:fr-en:reader:2",
+      "core-roofing:2:fr-en:reader:3",
+      "core-roofing:2:fr-en:reader:4",
+      "core-roofing:2:fr-en:reader:5",
+      "core-roofing:2:fr-en:reader:6",
+      "core-roofing:2:fr-en:reader:7"
+    ],
+    "heldRefsInterpretation": "Existing candidate-level source/terminology dependencies; no held face unblocked. Objective-parity question affects card1/card2/card4; card2 remains an unheld candidate used only as a generic image label, not a completed layer-plan objective.",
+    "holdReason": "Original deck/underlayment/edge roof-plan objective incomplete; labelled material cards do not resolve layer order, deck/sheathing/edge/product or imperative-force decisions.",
+    "closureFrench": "Merci.",
+    "frenchRegisterStatusInternal": "French vous support is a proposed register, not course-wide tu/vous approval.",
+    "expectedAllLearnerTurnsEnglish": [
+      "Is this underlayment?",
+      "This is plywood.",
+      "Where is the plywood?",
+      "Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Est-ce de la sous-couche ?",
+      "C'est du contreplaqué.",
+      "Où est le contreplaqué ?",
+      "Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this underlayment?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. This is underlayment. What is on the second card?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This is plywood."
+      },
+      {
+        "speaker": "partner",
+        "text": "I have put the cards back in the set. Ask me where the plywood is."
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the plywood?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the plywood card."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ]
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -580,9 +682,43 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Candidate French toit/toiture and apostrophe typography remain qualification choices; exact source strings are never normalized for source-hash comparison.",
-    "Bare underlayment/sous-couche is proposed only as a generic sample label. Felt/synthetic product equivalence and whether the term denotes a layer versus product remain unresolved; no type, application or order is inferred. That review is linked to Core2 card3/card9/Reader4."
+    "Bare underlayment/sous-couche is proposed only as a generic sample label. Felt/synthetic product equivalence and whether the term denotes a layer versus product remain unresolved; no type, application or order is inferred. That review is linked to Core2 card3/card9/Reader4.",
+    "Speaking-only contextual reconciliation: existing source faces/holds, activities/forms/dictionary, IDs/pins, normalized false flags and exact original objectives unchanged. Prior speaking retained separately. New sample-image/diagram exchanges do not count as specialist objective completion or installation/safety approval."
   ],
   "sourceObjectiveEnglish": "Name the layers beneath the finished roof",
   "sourceSpeakingEnglish": "Point out the deck, underlayment, and edge on a roof plan.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A crew member identifying labelled material samples.",
+    "partnerRole": "A coworker holding labelled practice cards.",
+    "candidateOpeningEnglish": "Is this underlayment?",
+    "goalEnglish": "Ask whether a sample is underlayment, identify plywood and ask where the plywood is.",
+    "candidateWordBankEnglish": [
+      "underlayment",
+      "plywood",
+      "This is",
+      "Is this",
+      "Where is the plywood?"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not exact source.",
+    "sourceAnchors": [
+      "core-roofing:2:fr-en:card:2",
+      "core-roofing:2:fr-en:card:8"
+    ],
+    "id": "core-roofing:2:fr-en:speaking:1",
+    "reviewed": false,
+    "scenarioProvenance": "Hypothetical practice using labelled sample images, not actual site findings.",
+    "partnerCueProvenance": "New hypothetical labelled-card dialogue; identifies samples and location without layer-order or actual product finding.",
+    "objectiveProvenance": "New narrower practice task; full pinned source speaking objective remains unfulfilled pending held terminology/source decisions.",
+    "partnerCuesEnglish": [
+      "Yes. This is underlayment.",
+      "And this card?",
+      "Here is the plywood."
+    ],
+    "expectedSecondTurnEnglish": "This is plywood.",
+    "secondTurnProvenance": "New hypothetical labelled-card response from source plywood term.",
+    "thirdTurnEnglish": "Where is the plywood?"
+  },
+  "sourceAuditOriginMain": "45a766d1aa146684593052b0e5af413ffc14075a"
 }

@@ -43,6 +43,8 @@ import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AccountPasswordRouteImport } from './routes/account_.password'
+import { Route as ApiAppleSubscriptionRouteImport } from './routes/api.apple-subscription'
+import { Route as ApiAppleSubscriptionNotificationsRouteImport } from './routes/api.apple-subscription-notifications'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
 import { Route as ApiCaptureEmailRouteImport } from './routes/api.capture-email'
 import { Route as ApiCertificateRouteImport } from './routes/api.certificate'
@@ -283,6 +285,17 @@ const AccountPasswordRoute = AccountPasswordRouteImport.update({
   path: '/account/password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAppleSubscriptionRoute = ApiAppleSubscriptionRouteImport.update({
+  id: '/api/apple-subscription',
+  path: '/api/apple-subscription',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAppleSubscriptionNotificationsRoute =
+  ApiAppleSubscriptionNotificationsRouteImport.update({
+    id: '/api/apple-subscription-notifications',
+    path: '/api/apple-subscription-notifications',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiCancelSubscriptionRoute = ApiCancelSubscriptionRouteImport.update({
   id: '/api/cancel-subscription',
   path: '/api/cancel-subscription',
@@ -658,6 +671,8 @@ export interface FileRoutesByFullPath {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
+  '/api/apple-subscription': typeof ApiAppleSubscriptionRoute
+  '/api/apple-subscription-notifications': typeof ApiAppleSubscriptionNotificationsRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -761,6 +776,8 @@ export interface FileRoutesByTo {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
+  '/api/apple-subscription': typeof ApiAppleSubscriptionRoute
+  '/api/apple-subscription-notifications': typeof ApiAppleSubscriptionNotificationsRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -865,6 +882,8 @@ export interface FileRoutesById {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account_/password': typeof AccountPasswordRoute
+  '/api/apple-subscription': typeof ApiAppleSubscriptionRoute
+  '/api/apple-subscription-notifications': typeof ApiAppleSubscriptionNotificationsRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
   '/api/capture-email': typeof ApiCaptureEmailRoute
   '/api/certificate': typeof ApiCertificateRoute
@@ -970,6 +989,8 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account/password'
+    | '/api/apple-subscription'
+    | '/api/apple-subscription-notifications'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -1073,6 +1094,8 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account/password'
+    | '/api/apple-subscription'
+    | '/api/apple-subscription-notifications'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -1176,6 +1199,8 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account_/password'
+    | '/api/apple-subscription'
+    | '/api/apple-subscription-notifications'
     | '/api/cancel-subscription'
     | '/api/capture-email'
     | '/api/certificate'
@@ -1280,6 +1305,8 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   AccountPasswordRoute: typeof AccountPasswordRoute
+  ApiAppleSubscriptionRoute: typeof ApiAppleSubscriptionRoute
+  ApiAppleSubscriptionNotificationsRoute: typeof ApiAppleSubscriptionNotificationsRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
   ApiCaptureEmailRoute: typeof ApiCaptureEmailRoute
   ApiCertificateRoute: typeof ApiCertificateRoute
@@ -1587,6 +1614,20 @@ declare module '@tanstack/react-router' {
       path: '/account/password'
       fullPath: '/account/password'
       preLoaderRoute: typeof AccountPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/apple-subscription': {
+      id: '/api/apple-subscription'
+      path: '/api/apple-subscription'
+      fullPath: '/api/apple-subscription'
+      preLoaderRoute: typeof ApiAppleSubscriptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/apple-subscription-notifications': {
+      id: '/api/apple-subscription-notifications'
+      path: '/api/apple-subscription-notifications'
+      fullPath: '/api/apple-subscription-notifications'
+      preLoaderRoute: typeof ApiAppleSubscriptionNotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/cancel-subscription': {
@@ -2096,6 +2137,9 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   AccountPasswordRoute: AccountPasswordRoute,
+  ApiAppleSubscriptionRoute: ApiAppleSubscriptionRoute,
+  ApiAppleSubscriptionNotificationsRoute:
+    ApiAppleSubscriptionNotificationsRoute,
   ApiCancelSubscriptionRoute: ApiCancelSubscriptionRoute,
   ApiCaptureEmailRoute: ApiCaptureEmailRoute,
   ApiCertificateRoute: ApiCertificateRoute,

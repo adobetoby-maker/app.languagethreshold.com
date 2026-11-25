@@ -1,0 +1,342 @@
+{
+  "schema": 1,
+  "kind": "inert-source-language-alternatives",
+  "stableId": "master-travel-lunch:20:ja-en",
+  "baselineMain": "b7bb22ee719dc08fa76f8a3af8d3d60a007148e2",
+  "pair": {
+    "target": "English",
+    "support": "Japanese",
+    "comparisonSource": "Spanish"
+  },
+  "scope": "three unselected lexical contrasts; no original lesson/objective, allergen scope or runtime decision",
+  "source": {
+    "curriculum": {
+      "path": "src/data/core60/es/master-travel-lunch.json",
+      "sha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/master-travel-lunch.json",
+      "sha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539"
+    },
+    "priorCandidate": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-20-candidate.json",
+      "sha256": "a314ae546960599d2fb77f0e4d850f99feb4785c0fd7ec5f09cf1c0a775b2d53"
+    },
+    "priorDerived": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-20-derived.json",
+      "sha256": "528d64cd32e7661491016707ca26c34f5964897bc86f6163f47288581754002b"
+    },
+    "reviewIndex": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/index.json",
+      "sha256": "e9fd9c2149fbcbac83e8de3b50477e12c026f2e0e7c3ca2447bc35ded3ae9901"
+    },
+    "integrationEvidence": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/integration-evidence.json",
+      "sha256": "119dbcb8b36aa90d38f794aecb8f73458ee4732c0e7dca22e8a9c2291f9cb659"
+    },
+    "legacyCrosswalk": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/legacy-position-crosswalk.json",
+      "sha256": "ec9af2258b8980f6d61462b2e0bed4291b1d74c47d83d8850c51425d38b45176"
+    }
+  },
+  "selectedJapanese": null,
+  "selectedBranch": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedEnglishSpanishSource": false,
+    "qualifiedFoodAllergy": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "rows": [
+    {
+      "id": "master-travel-lunch:20:ja-en:lexical-conflict:7",
+      "zeroBasedIndex": 6,
+      "oneBasedPosition": 7,
+      "sourceEnglish": "the shellfish",
+      "sourceSpanish": "los crustáceos",
+      "sourceNote": "Crabs, shrimp and lobster; ask about both crustáceos and mariscos.",
+      "preservedJapaneseDraft": "甲殻類",
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false,
+      "meaningContrastEnglish": "English \"the shellfish\" commonly covers both crustaceans and mollusks, so the English-side draft names both groups. Spanish \"los crustáceos\" covers crustaceans only. The source note lists crabs, shrimp and lobster and also says to ask about both crustáceos and mariscos. Which scope the row intends is unresolved; neither draft is selected.",
+      "alternatives": [
+        {
+          "id": "master-travel-lunch:20:ja-en:lexical-conflict:7:alternative:english-label",
+          "comparisonBranch": "English-label",
+          "sourceText": "the shellfish",
+          "candidateJapanese": "甲殻類・貝類",
+          "readingStatus": "unselected lexical rendering; source intent unresolved",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "id": "master-travel-lunch:20:ja-en:lexical-conflict:7:alternative:spanish-source",
+          "comparisonBranch": "Spanish-source",
+          "sourceText": "los crustáceos",
+          "candidateJapanese": "甲殻類",
+          "readingStatus": "unselected lexical rendering; source intent unresolved",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:lexical-conflict:10",
+      "zeroBasedIndex": 9,
+      "oneBasedPosition": 10,
+      "sourceEnglish": "the shellfish-free option",
+      "sourceSpanish": "la opción sin mariscos",
+      "sourceNote": null,
+      "preservedJapaneseDraft": "甲殻類・貝類を使わない料理",
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false,
+      "meaningContrastEnglish": "English \"shellfish-free option\" is drafted with the two groups \"shellfish\" commonly names. Spanish \"la opción sin mariscos\" uses a culinary term whose extent varies by region and context and may go beyond those two groups (for example, cephalopods), so the Spanish-side draft adds など. Whether the two labels cover the same items is unresolved; neither draft is selected.",
+      "alternatives": [
+        {
+          "id": "master-travel-lunch:20:ja-en:lexical-conflict:10:alternative:english-label",
+          "comparisonBranch": "English-label",
+          "sourceText": "the shellfish-free option",
+          "candidateJapanese": "甲殻類・貝類を使わない料理",
+          "readingStatus": "unselected lexical rendering; source intent unresolved",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "id": "master-travel-lunch:20:ja-en:lexical-conflict:10:alternative:spanish-source",
+          "comparisonBranch": "Spanish-source",
+          "sourceText": "la opción sin mariscos",
+          "candidateJapanese": "甲殻類や貝類などを使わない料理",
+          "readingStatus": "unselected lexical rendering; source intent unresolved",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ]
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:lexical-conflict:17",
+      "zeroBasedIndex": 16,
+      "oneBasedPosition": 17,
+      "sourceEnglish": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+      "sourceSpanish": "Ignacio, perdone, ¿este plato lleva camarones o algún crustáceo?",
+      "sourceNote": "Formal usted with the server.",
+      "preservedJapaneseDraft": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類は入っていますか。",
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false,
+      "meaningContrastEnglish": "English asks about \"shrimp or any shellfish\"; Spanish asks about \"camarones o algún crustáceo\", which limits the second item to crustaceans. The two drafts differ only in that item. Both use です/ます polite form with すみません as a proposed equivalent of Spanish usted; the English source carries no formality marking. Neither draft is selected.",
+      "alternatives": [
+        {
+          "id": "master-travel-lunch:20:ja-en:lexical-conflict:17:alternative:english-label",
+          "comparisonBranch": "English-label",
+          "sourceText": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+          "candidateJapanese": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類・貝類は入っていますか。",
+          "readingStatus": "unselected lexical rendering; source intent unresolved",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "id": "master-travel-lunch:20:ja-en:lexical-conflict:17:alternative:spanish-source",
+          "comparisonBranch": "Spanish-source",
+          "sourceText": "Ignacio, perdone, ¿este plato lleva camarones o algún crustáceo?",
+          "candidateJapanese": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類は入っていますか。",
+          "readingStatus": "unselected lexical rendering; source intent unresolved",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ]
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "master-travel-lunch:20:ja-en:dictionary-conflict:1",
+      "headword": "shellfish",
+      "sourceLanguage": "en",
+      "glossJapanese": "甲殻類・貝類",
+      "senseJapanese": "えび・かになどの甲殻類や、貝類をまとめて表す語。",
+      "sourceOneBasedPositions": [
+        7,
+        10,
+        17
+      ],
+      "lexicalStatus": "provisional working gloss; context-specific extension remains unresolved",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:dictionary-conflict:2",
+      "headword": "shrimp",
+      "sourceLanguage": "en",
+      "glossJapanese": "えび",
+      "senseJapanese": "甲殻類の一種であるえび。",
+      "sourceOneBasedPositions": [
+        17
+      ],
+      "lexicalStatus": "provisional working gloss; context-specific extension remains unresolved",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:dictionary-conflict:3",
+      "headword": "crustáceos",
+      "sourceLanguage": "es",
+      "glossJapanese": "甲殻類",
+      "senseJapanese": "えび・かに・ロブスターなどを含む動物の仲間。貝類とは別の分類。",
+      "sourceOneBasedPositions": [
+        7,
+        17
+      ],
+      "lexicalStatus": "provisional working gloss; context-specific extension remains unresolved",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:dictionary-conflict:4",
+      "headword": "mariscos",
+      "sourceLanguage": "es",
+      "glossJapanese": "甲殻類や貝類など（料理用語）",
+      "senseJapanese": "食用の甲殻類や貝類などをまとめて表すスペイン語の料理用語。",
+      "sourceOneBasedPositions": [
+        10
+      ],
+      "lexicalStatus": "provisional working gloss; context-specific extension remains unresolved",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "readerDependencies": [
+    {
+      "proposedStableRef": "master-travel-lunch:20:ja-en:reader:6",
+      "zeroBasedIndex": 5,
+      "oneBasedPosition": 6,
+      "sourceEnglish": "Sam orders the shellfish-free option because he is allergic to shellfish, and Patricio prefers the razor clams with parmesan.",
+      "sourceSpanish": "Sam pide la opción sin mariscos porque es alérgico a los crustáceos, y Patricio prefiere las machas a la parmesana.",
+      "selectionStatus": "held; not translated or remapped by this sidecar",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "proposedStableRef": "master-travel-lunch:20:ja-en:reader:9",
+      "zeroBasedIndex": 8,
+      "oneBasedPosition": 9,
+      "sourceEnglish": "Me: Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+      "sourceSpanish": "Yo: Ignacio, perdone, ¿este plato lleva camarones o algún crustáceo?",
+      "selectionStatus": "held; not translated or remapped by this sidecar",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "proposedStableRef": "master-travel-lunch:20:ja-en:reader:11",
+      "zeroBasedIndex": 10,
+      "oneBasedPosition": 11,
+      "sourceEnglish": "Ignacio comes back from the kitchen and confirms that the sauce does have shrimp, so he takes the dish away and brings a new one, made without shellfish and with clean utensils.",
+      "sourceSpanish": "Ignacio vuelve de la cocina y confirma que la salsa sí lleva camarones, así que retira el plato y trae uno nuevo, preparado sin crustáceos y con utensilios limpios.",
+      "selectionStatus": "held; not translated or remapped by this sidecar",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "downstreamAudit": {
+    "affectedModes": [
+      {
+        "mode": "See",
+        "zeroBasedCardIndex": 6,
+        "oneBasedCardPosition": 7,
+        "priorCueEnglish": "Look at the Japanese word for the allergen group that covers shrimp, crab and lobster.",
+        "priorJapanese": "甲殻類",
+        "priorEnglish": "the shellfish",
+        "readyForLearner": false
+      },
+      {
+        "mode": "Recall",
+        "zeroBasedCardIndex": 9,
+        "oneBasedCardPosition": 10,
+        "priorCueEnglish": "Recall how to name the menu option made without crustaceans or molluscs.",
+        "priorJapanese": "甲殻類・貝類を使わない料理",
+        "priorEnglish": "the shellfish-free option",
+        "readyForLearner": false
+      },
+      {
+        "mode": "Hear",
+        "zeroBasedCardIndex": 16,
+        "oneBasedCardPosition": 17,
+        "priorCueEnglish": "Listen to the host politely ask the server whether the dish contains shrimp or any other crustacean.",
+        "priorJapanese": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類は入っていますか。",
+        "priorEnglish": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+        "readyForLearner": false
+      }
+    ],
+    "affectedFormIndexesZeroBased": [
+      2
+    ],
+    "priorAffectedForm": {
+      "form": "AやほかのBは入っていますか",
+      "ja": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類は入っていますか。",
+      "sourceCardIndex": 16,
+      "sourceReaderIndex": 8,
+      "explanationEnglish": "に marks the dish and 入っていますか asks whether it contains something. えびや、ほかの甲殻類 names shrimp as one member of the crustacean group (甲殻類), not of 貝類 (molluscs), which keeps the allergen exact.",
+      "readyForLearner": false
+    },
+    "affectedSpeakingObjectiveIndexesZeroBased": [
+      2
+    ],
+    "priorAffectedSpeakingObjective": "Ask the server with ～は入っていますか whether the dish contains えび or other 甲殻類, never 貝類 as a cover term.",
+    "affectedSourceLinkedSpeakingReaderIndexesZeroBased": [
+      8
+    ],
+    "affectedWordBankCardIndexesZeroBased": [
+      6,
+      9
+    ],
+    "dictionaryRuntime": "no learner dictionary import authored or changed; four sidecar lexical proposals only",
+    "identityStatus": "proposed card positions are evidence references; no saved-item identity adopted",
+    "atomicDecisionRequired": "Any chosen branch requires one consistent card/Reader/mode/form/speaking/dictionary/word-bank/exact-audio identity decision; do not migrate by index."
+  },
+  "qualifiedQuestions": [
+    "Index 6 (position 7): the note lists crabs, shrimp and lobster. Is English \"the shellfish\" meant as crustaceans only here, or as crustaceans and mollusks?",
+    "Index 6 (position 7): the note says to ask about both crustáceos and mariscos. Should a separate mariscos draft be added for this row?",
+    "Indexes 6 (7), 9 (10) and 16 (17): the Spanish source uses crustáceos at 6 and 16 but mariscos at 9. Is this shift intentional?",
+    "Index 9 (position 10): what does \"mariscos\" cover in the target regional usage? The Spanish-side draft marks the open extent with など only.",
+    "Index 9 (position 10): both drafts render \"option\"/\"opción\" as 料理. Is that the intended noun, or should it be a menu choice (メニュー, 選択肢)?",
+    "Index 16 (position 17): English says \"any shellfish\" and Spanish says \"algún crustáceo\". Should both drafts be kept, and which source governs if they are not reconciled?",
+    "Index 16 (position 17): is です/ます polite form with すみません the right level for a diner addressing a server, as the proposed equivalent of usted?",
+    "Within any broad label, should the groups (crustaceans, bivalves, cephalopods) be listed separately instead of implied to be equivalent?",
+    "No allergen scope, safe-to-eat status or labeling-category match is proposed, and no draft should be read as one. Should such a scope be defined separately, and by whom?",
+    "All dictionary entries are working glosses (reviewed: false). Which should a reviewer with English, Spanish and Japanese coverage check before use?"
+  ],
+  "internalReviewNotes": [
+    "Prior Japanese cards, Reader, modes, forms, speaking, derived word bank and index are preserved as pinned evidence, not selected answers.",
+    "Proposed English-side rendering keeps the broad lexical label visible; the source note at index6 suggests crustaceans. Neither that suggestion nor a broad label settles the source intent or any individual allergy coverage.",
+    "甲殻類 and 貝類 are not interchangeable: the alternatives expose the English/Spanish source conflict instead of treating either as the chosen allergen scope.",
+    "No audio synthesis, playback, owner page, learner registration, progress/saved-item remap or source-objective approval.",
+    "The prior form phrase keeps the allergen exact overstates cross-language agreement. Existing speaking never貝類 instruction and crustacean-only Hear cue cannot be reused as broad English shellfish without a joint source/dictionary decision.",
+    "Dictionary proposals teach lexical meanings directly; regional/culinary/clinical coverage questions remain in this internal decision list."
+  ]
+}

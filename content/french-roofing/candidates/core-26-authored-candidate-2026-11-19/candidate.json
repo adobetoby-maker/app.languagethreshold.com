@@ -244,7 +244,137 @@
       "show": "montrer",
       "say": "indiquer/dire",
       "repeat": "répéter"
-    }
+    },
+    "learnerRoleFrench": "Une personne apprenante qui demande et décrit des cartes-images.",
+    "partnerRoleFrench": "Une personne partenaire qui montre des images de vocabulaire.",
+    "scopedInternalDecisionHolds": [
+      "The repair-photo and damaged-area pictures and the measurement word card establish vocabulary recognition only. They do not establish repair adequacy, a measurement value, covering permission, or a signed-off check. The damaged-area illustration is not an actual damage finding.",
+      "Deck/cubierta, sheathing/forro de techo, and covered-area terminology (platelage, panneau de support, zone recouverte) remain held for qualified trade and dictionary context.",
+      "The pre-cover check, photo sequence, and deck-repair sign-off required by the site or product plan remain held.",
+      "Sufficiency of the photo for repair adequacy or regulatory record remains an internal domain question.",
+      "Archived additions (showing the damaged area, measuring the repair, confirming the inspection procedure) remain separate candidate evidence, not source-pinned requirements."
+    ],
+    "closureFrench": "Merci.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; original source speaking mission remains unresolved, existing lexical exchange does not replace or complete it. All sourceDecisionQuestions remain open; used-anchor dependencies are a subset.",
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3"
+    ],
+    "frenchSupportConventionInternal": "English remains target. All pre-existing English/French speaking values remain exact; French roles and derived French sequences are unselected meaning support, never expected/scored learner production. Vous/neutral person wording remain unselected register proposals. French arrays named expected mirror English expected turns as meaning support only; they are not French production/scoring targets. Where a turn reads a printed English card word (measurement or sealant), the existing French sequence gives its meaning gloss, not a transcription of the printed English.",
+    "sourceCompositionProvenance": "Exact source repair-photo/photo/damaged-area/measurement faces below ground existing fictional illustration dialogue. Existing sentences are earlier-authored compositions preserved exactly, not actual damage findings, repair/photo adequacy or measurements.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:26:fr-en:card:1",
+        "exactSourceEnglish": "repair photo",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:26:fr-en:card:6",
+        "exactSourceEnglish": "photo",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:26:fr-en:card:7",
+        "exactSourceEnglish": "damaged area",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:26:fr-en:card:9",
+        "exactSourceEnglish": "measurement",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:26:fr-en:card:1",
+          "core-roofing:26:fr-en:card:6"
+        ],
+        "question": "The source requires a repair photo before covering and says not to cover until the foreman checks it. Confirm what check, photo sequence and deck repair sign-off are actually required by the site/product plan; the archived French is not an authorization to cover.",
+        "relationship": "Inferred from explicit repair/photo wording, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Fictional photo labels only; no pre-cover check/photo sufficiency or permission.",
+        "dependencyType": "inferred"
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:26:fr-en:card:1",
+          "core-roofing:26:fr-en:card:6",
+          "core-roofing:26:fr-en:card:7"
+        ],
+        "question": "The scene says workers replace damaged plywood and that a photo records what stays in the covered area. A photo alone may not establish repair adequacy or regulatory record sufficiency. Keep that domain question internal and preserve the exact source meaning in any learner answer.",
+        "relationship": "Inferred from explicit photo/damaged-plywood wording, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Repair-photo/damaged-area pictures only; no damage finding/repair adequacy.",
+        "dependencyType": "inferred"
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:26:fr-en:card:1",
+          "core-roofing:26:fr-en:card:7",
+          "core-roofing:26:fr-en:card:9"
+        ],
+        "question": "Archived speaking adds showing the damaged area, measuring the repair and confirming the site inspection procedure. The current source speaking objective asks specifically for a repair photo before cover. Keep additions as separate candidate evidence, not source-pinned learner requirements.",
+        "relationship": "Inferred from explicit archived damaged-area/measuring additions and source repair-photo request in Q4, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Repair-photo/damaged-area illustrations and measurement word only; no showing/measuring requirement, pre-cover authorization or measured value.",
+        "dependencyType": "inferred"
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Where is the photo?",
+      "This is a repair photo.",
+      "The area is damaged.",
+      "Measurement. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Où est la photo ?",
+      "C’est une photo de la réparation.",
+      "La zone est endommagée.",
+      "Mesure. Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Où est la photo ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Ici. C’est la carte B. Qu’est-ce que c’est ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "C’est une photo de la réparation."
+      },
+      {
+        "speaker": "partner",
+        "text": "Décrivez la zone sur l’image A."
+      },
+      {
+        "speaker": "learner",
+        "text": "La zone est endommagée."
+      },
+      {
+        "speaker": "partner",
+        "text": "Qu’indique la carte de vocabulaire C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Mesure. Merci."
+      }
+    ]
   },
   "terminologyProposals": [
     {
@@ -814,9 +944,116 @@
     "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a deck-repair-record/source decision, settle a work method, or select a technical answer.",
     "Opus read-only critique corrections source-checked: quote provenance, exact noun/article practice, cue alignment and specific held technical senses. No source work objective completed or safety/domain answer selected.",
     "Card12/Reader3 before-and-after photo instruction remains an unreviewed isolated linguistic source candidate. It does not establish site photo protocol, required check or permission to cover; those source/domain gates and full objective remain held. No active task gives that instruction.",
-    "Final Fable corrections source-checked: no hidden article/key restriction, exact bilingual terminology origins retained, speaking cue/answer alignment and English/French support corrected. Full exact source work objective remains held/incomplete; AI critique is not qualified approval."
+    "Final Fable corrections source-checked: no hidden article/key restriction, exact bilingual terminology origins retained, speaking cue/answer alignment and English/French support corrected. Full exact source work objective remains held/incomplete; AI critique is not qualified approval.",
+    "Gap-only additive speaking support: every old English/French speaking value preserved, no regenerated pair/activity. New French roles/derived dialogue/closure/provenance separate source from prior fictional compositions; original specialist mission held/incomplete. CLI sees bounded excerpts only; independent full-file/source hash verification is outside CLI view and recorded separately by validate.py and private check-fr-core252627-preservation.py.",
+    "Current additive batch preserves all earlier speaking values. Historical Final Fable/cue-answer/support corrections notes refer to earlier passes, not this gap-only batch; current CLI critique checks bounded supplied excerpts only. Full source-pin and baseline preservation verification is recorded separately by current validate.py and private preservation script."
   ],
   "sourceObjectiveEnglish": "Describe and record a repaired deck section",
   "sourceSpeakingEnglish": "Ask for a photo of a deck repair before the crew covers it.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner asking for and describing picture cards.",
+    "partnerRole": "A partner showing vocabulary pictures.",
+    "candidateOpeningEnglish": "Where is the photo?",
+    "goalEnglish": "Locate a photo card, name the repair photo and describe the damaged-area picture.",
+    "candidateWordBankEnglish": [
+      "photo",
+      "repair photo",
+      "damaged area",
+      "Where is the photo?",
+      "This is a repair photo.",
+      "The area is damaged.",
+      "measurement"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New composition. Closure is merged into the final expected learner turn, not a separate closing turn.",
+    "sourceAnchors": [
+      "core-roofing:26:fr-en:card:1",
+      "core-roofing:26:fr-en:card:6",
+      "core-roofing:26:fr-en:card:7",
+      "core-roofing:26:fr-en:card:9"
+    ],
+    "practiceContextEnglish": "Picture A shows a damaged area, card B is a photo labelled repair photo, word card C says measurement. These are vocabulary illustrations.",
+    "partnerCuesEnglish": [
+      "Here. It is card B. What is this?",
+      "Describe the area in picture A.",
+      "What does word card C say?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "This is a repair photo.",
+      "The area is damaged.",
+      "Measurement. Thank you."
+    ],
+    "goalFrench": "Repérez la photo, nommez la photo de la réparation et décrivez l’image de la zone endommagée.",
+    "contextFrench": "L’image A représente une zone endommagée, B est une photo portant « repair photo », C porte measurement. Ce sont des illustrations de vocabulaire.",
+    "partnerCueSupportFrench": [
+      "Ici. C’est la carte B. Qu’est-ce que c’est ?",
+      "Décrivez la zone sur l’image A.",
+      "Qu’indique la carte de vocabulaire C ?"
+    ],
+    "expectedLearnerTurnsFrench": [
+      "C’est une photo de la réparation.",
+      "La zone est endommagée.",
+      "Mesure. Merci."
+    ],
+    "candidateOpeningFrench": "Où est la photo ?",
+    "provenance": "New English/French vocabulary exchange with picture/word cards; no actual site finding, control/repair instruction or technical result.",
+    "id": "core-roofing:26:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:26:fr-en:card:10",
+      "core-roofing:26:fr-en:card:13",
+      "core-roofing:26:fr-en:card:2",
+      "core-roofing:26:fr-en:card:3",
+      "core-roofing:26:fr-en:card:8",
+      "core-roofing:26:fr-en:reader:1",
+      "core-roofing:26:fr-en:reader:4",
+      "core-roofing:26:fr-en:reader:7",
+      "core-roofing:26:fr-en:reader:8",
+      "core-roofing:26:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where is the photo?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Here. It is card B. What is this?"
+      },
+      {
+        "speaker": "learner",
+        "text": "This is a repair photo."
+      },
+      {
+        "speaker": "partner",
+        "text": "Describe the area in picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "The area is damaged."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does word card C say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Measurement. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture card": "carte-image",
+      "word card": "carte de vocabulaire",
+      "show": "montrer",
+      "say": "indiquer/dire",
+      "repeat": "répéter"
+    }
+  },
+  "sourceAuditOriginMain": "df68e9ca8f0a36395219c91d8fa1daf356a6a70f"
 }

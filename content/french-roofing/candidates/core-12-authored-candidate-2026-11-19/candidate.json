@@ -1,6 +1,6 @@
 {
   "lessonId": "core-roofing:12:fr-en",
-  "candidateObjectiveEnglish": "Ask what the stagger is for this job and say that the joints must not line up.",
+  "candidateObjectiveEnglish": "Ask what the stagger is for this job and quote the printed sentence The joints must not line up.",
   "grammarExplanationEnglish": "\"Must not\" + base verb states a negative requirement: \"The joints must not line up.\" \"What is the stagger for this job?\" asks for a job detail without giving a value. \"Each\" or \"every\" + singular noun takes a singular verb: \"Each new course needs a pattern\"; \"Every job is different.\"",
   "grammarExplanationFrench": "« Must not » + verbe de base exprime une obligation négative. « What is the stagger for this job? » demande un détail sans donner de valeur. « Each » et « every » sont suivis d’un nom singulier et d’un verbe singulier dans « Each new course needs a pattern » et « Every job is different ». « Must not » exprime ici une interdiction, pas une absence de nécessité.",
   "activities": [
@@ -163,47 +163,126 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker asking a source job-detail question.",
-    "partnerRole": "Another coworker asking for the job-detail question and source rule to be repeated.",
     "candidateOpeningEnglish": "What is the stagger for this job?",
-    "goalEnglish": "Ask what the job’s stagger is and say that the joints must not line up.",
-    "candidateWordBankEnglish": [
-      "stagger",
-      "joint",
-      "course",
-      "pattern",
-      "line up",
-      "must not",
-      "job",
-      "check",
-      "each"
+    "candidateOpeningFrench": "Quel est le décalage pour ce chantier ?",
+    "learnerRole": "A learner reading a printed sample-job question.",
+    "partnerRole": "A practice partner prompting repetition and quotation from a printed card.",
+    "goalEnglish": "Ask the printed stagger question, quote the printed sentence and repeat the unanswered question.",
+    "goalFrench": "Poser la question imprimée sur le décalage, citer la phrase imprimée et reposer la question restée sans réponse.",
+    "practiceContextEnglish": "Two learners read a printed sample-job question and a separate printed sentence about joints. The partner requests repetition of the question and a quotation of the printed sentence.",
+    "contextFrench": "Deux apprenants lisent une question imprimée sur un chantier d'exemple et une phrase imprimée distincte au sujet des joints. Le partenaire demande une répétition de la question et une citation de la phrase imprimée.",
+    "partnerCuesEnglish": [
+      "Please repeat your question.",
+      "What does the printed sentence say?",
+      "Which question is still unanswered?"
     ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "partnerCueSupportFrench": [
+      "Veuillez répéter votre question.",
+      "Que dit la phrase imprimée ?",
+      "Quelle question reste sans réponse ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "What is the stagger for this job?",
+      "The printed sentence says, \"The joints must not line up.\"",
+      "What is the stagger for this job?"
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Quel est le décalage pour ce chantier ?",
+      "La phrase imprimée dit : « Les joints ne doivent pas être alignés. »",
+      "Quel est le décalage pour ce chantier ?"
+    ],
+    "candidateWordBankEnglish": [
+      "What is the stagger for this job?",
+      "The printed sentence says,",
+      "\"The joints must not line up.\""
+    ],
+    "closureEnglish": "What is the stagger for this job?",
+    "closureFrench": "Quel est le décalage pour ce chantier ?",
     "sourceAnchors": [
       "core-roofing:12:fr-en:card:2",
       "core-roofing:12:fr-en:card:11",
       "core-roofing:12:fr-en:card:12",
-      "core-roofing:12:fr-en:card:14"
+      "core-roofing:12:fr-en:reader:3"
     ],
-    "id": "core-roofing:12:fr-en:speaking:1",
-    "reviewed": false,
-    "partnerCuesEnglish": [
-      "Ask about the stagger for this job.",
-      "What must the joints not do?",
-      "Please repeat your question."
-    ],
-    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
-    "scenarioProvenance": "New job-detail language exchange, not an approved stagger measurement, cut pattern or actual specification.",
-    "heldDependent": true,
-    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "provenance": "Opening, reply1 and final open question are exact source card12. Quoted must-not sentence is exact card11/Reader3, not adopted as a field instruction. Three partner cues and The printed sentence says frame are new compositions. No source stagger value, six-inch phrase, cut pattern or actual job specification/authority confirmation selected. Original objective and source speaking task remain incomplete.",
+    "holdReason": "Full source speaking objective remains blocked by shingle, six-inch guide, specification-authority and locale decisions; this is a narrower job-question and quoted-sentence proposal only. Actual job specification and printed-rule approval are not established.",
     "heldDecisionRefs": [
       "core-roofing:12:fr-en:card:4",
       "core-roofing:12:fr-en:card:8",
       "core-roofing:12:fr-en:card:10",
-      "core-roofing:12:fr-en:card:13"
+      "core-roofing:12:fr-en:card:13",
+      "core-roofing:12:fr-en:reader:1",
+      "core-roofing:12:fr-en:reader:4",
+      "core-roofing:12:fr-en:reader:7"
     ],
-    "expectedLearnerSecondTurnEnglish": "The joints must not line up."
+    "reviewed": false,
+    "approvalStatus": "unreviewed candidate; no qualified approval",
+    "id": "core-roofing:12:fr-en:speaking:1",
+    "heldDependent": true,
+    "heldRefsInterpretation": "Candidate-level held rows; additional open source questions on used unheld faces are separately enumerated.",
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 4,
+        "affectedUsedAnchors": [
+          "core-roofing:12:fr-en:card:12",
+          "core-roofing:12:fr-en:card:2"
+        ],
+        "question": "Keep stagger as the joint-offset action and the job-specific offset measure, not a generic pattern name. Align noun/verb forms and measurement units across cards, Reader, speaking and modes.",
+        "status": "open; contextual language proposal does not select source decision",
+        "jsonPointer": "/sourceDecisionQuestions/3"
+      }
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; printed-language practice does not complete original source mission",
+    "frenchRegisterStatusInternal": "French vous support is an unselected register candidate, not settled course-wide register.",
+    "internalDecisionHolds": [
+      "No six-inch guide phrase, cut pattern, actual job specification, approved universal joint rule or authority confirmation. Printed must-not source sentence is reported quotation, not new playable field instruction."
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "What is the stagger for this job?",
+      "What is the stagger for this job?",
+      "The printed sentence says, \"The joints must not line up.\"",
+      "What is the stagger for this job?"
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Quel est le décalage pour ce chantier ?",
+      "Quel est le décalage pour ce chantier ?",
+      "La phrase imprimée dit : « Les joints ne doivent pas être alignés. »",
+      "Quel est le décalage pour ce chantier ?"
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "What is the stagger for this job?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat your question."
+      },
+      {
+        "speaker": "learner",
+        "text": "What is the stagger for this job?"
+      },
+      {
+        "speaker": "partner",
+        "text": "What does the printed sentence say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The printed sentence says, \"The joints must not line up.\""
+      },
+      {
+        "speaker": "partner",
+        "text": "Which question is still unanswered?"
+      },
+      {
+        "speaker": "learner",
+        "text": "What is the stagger for this job?"
+      }
+    ],
+    "closureProvenance": "Exact source card12 question as final open inquiry, not a conversational sign-off. No answer or job specification supplied.",
+    "endingType": "open job-question inquiry; no completion/confirmation",
+    "learnerRoleFrench": "Une personne qui lit une question imprimée sur un chantier d'exemple.",
+    "partnerRoleFrench": "Une personne qui propose des invites de répétition ou de lecture dans un exercice de langue."
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -659,9 +738,56 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "No six-inch target, cut pattern or actual job offset is authored as an answer. Negative joint-alignment language remains direct source grammar evidence pending trade/source review.",
-    "Common chantier wording is an unselected candidate, not a locale qualification. Specification/requirement/authority distinctions and job-value confirmation remain held; this supplement does not narrow or waive the source review question."
+    "Common chantier wording is an unselected candidate, not a locale qualification. Specification/requirement/authority distinctions and job-value confirmation remain held; this supplement does not narrow or waive the source review question.",
+    "Speaking-only reconciliation preserves source/teaching arrays, corrected refs/crosswalk/packet pin, normalized flags/exact original scope and prior speaking. Printed source statements and newly composed requests are distinguished; no specialist objective completion or work/readiness authorization.",
+    "This reconciliation also clarifies candidateObjectiveEnglish to match reading/request/quotation behavior; previous candidate objective retained exactly in candidateObjectivePriorToSpeakingReconciliation20261125. Source objective/speaking/status and all source/teaching arrays remain unchanged."
   ],
   "sourceObjectiveEnglish": "Communicate the job's stagger pattern",
   "sourceSpeakingEnglish": "Use the guide's six-inch stagger phrase, then ask the lead to confirm the actual job specification.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker asking a source job-detail question.",
+    "partnerRole": "Another coworker asking for the job-detail question and source rule to be repeated.",
+    "candidateOpeningEnglish": "What is the stagger for this job?",
+    "goalEnglish": "Ask what the job’s stagger is and say that the joints must not line up.",
+    "candidateWordBankEnglish": [
+      "stagger",
+      "joint",
+      "course",
+      "pattern",
+      "line up",
+      "must not",
+      "job",
+      "check",
+      "each"
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closure, not an exact source line.",
+    "sourceAnchors": [
+      "core-roofing:12:fr-en:card:2",
+      "core-roofing:12:fr-en:card:11",
+      "core-roofing:12:fr-en:card:12",
+      "core-roofing:12:fr-en:card:14"
+    ],
+    "id": "core-roofing:12:fr-en:speaking:1",
+    "reviewed": false,
+    "partnerCuesEnglish": [
+      "Ask about the stagger for this job.",
+      "What must the joints not do?",
+      "Please repeat your question."
+    ],
+    "partnerCueProvenance": "New hypothetical language-practice cues, not source job findings or approved specifications.",
+    "scenarioProvenance": "New job-detail language exchange, not an approved stagger measurement, cut pattern or actual specification.",
+    "heldDependent": true,
+    "holdReason": "Full source speaking objective remains blocked by the linked source/product/safety decisions; this is a narrower authored proposal only.",
+    "heldDecisionRefs": [
+      "core-roofing:12:fr-en:card:4",
+      "core-roofing:12:fr-en:card:8",
+      "core-roofing:12:fr-en:card:10",
+      "core-roofing:12:fr-en:card:13"
+    ],
+    "expectedLearnerSecondTurnEnglish": "The joints must not line up."
+  },
+  "sourceAuditOriginMain": "fc9275869717bf9af41af88800d33d9285edc86f",
+  "candidateObjectivePriorToSpeakingReconciliation20261125": "Ask what the stagger is for this job and say that the joints must not line up."
 }

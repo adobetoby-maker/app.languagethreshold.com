@@ -282,7 +282,7 @@
   "stageId": "core-roofing",
   "sourcePacket": {
     "path": "content/french-roofing/review/core-8-source-decision-2026-11-18/packet.json",
-    "sha256": "0851a4b353853ac15174c38890cf5ca651c69096eeda9b7f660088b0b1527337"
+    "sha256": "0665ba8a5ab12068ff1c8bf800785c2c75eeb50ca1e79107558bd572de8bcb90"
   },
   "candidateRows": [
     {
@@ -780,5 +780,13 @@
     "openingProvenance": "New identification from source panel headword, not a structural assessment.",
     "expectedLearnerSecondTurnEnglish": "This is plywood."
   },
-  "sourceAuditOriginMain": "f3e158edf7782559cb6ce57b7b1fee4a6fc38cea"
+  "sourceAuditOriginMain": "f3e158edf7782559cb6ce57b7b1fee4a6fc38cea",
+  "sourceReferenceRepair20261124": {
+    "previousPacketSha256": "0851a4b353853ac15174c38890cf5ca651c69096eeda9b7f660088b0b1527337",
+    "repairedPacketSha256": "0665ba8a5ab12068ff1c8bf800785c2c75eeb50ca1e79107558bd572de8bcb90",
+    "crosswalkPath": "content/french-roofing/review/core-8-source-decision-2026-11-18/legacy-reference-crosswalk-2026-11-24.json",
+    "status": "23 erroneous legacy references repaired by source row identity; historical defect notes retained as evidence",
+    "savedItemMappingApproved": false,
+    "progressImportApproved": false
+  }
 }

@@ -153,37 +153,129 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A learner reading picture and word cards.",
-    "partnerRole": "A partner showing cards.",
+    "id": "core-roofing:20:fr-en:speaking:1",
+    "learnerRole": "A learner identifying picture cards.",
+    "learnerRoleFrench": "Une personne qui identifie des cartes-images.",
+    "partnerRole": "A partner showing practice picture cards.",
+    "partnerRoleFrench": "Une personne partenaire qui montre des cartes-images pour l’exercice.",
     "candidateOpeningEnglish": "Is this a nail?",
+    "candidateOpeningFrench": "Est-ce un clou ?",
     "goalEnglish": "Identify the nail and ridge pictures and repeat ridge.",
+    "goalFrench": "Identifier les images du clou et du faîtage, puis répéter le mot anglais « ridge ».",
     "candidateWordBankEnglish": [
-      "nail",
-      "ridge",
-      "Is this a nail?",
-      "Is this the ridge?",
-      "This is the ridge."
+      "Is this",
+      "a nail?",
+      "the ridge?",
+      "This is",
+      "the ridge.",
+      "Ridge.",
+      "Thank you."
     ],
     "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "closureFrench": "Merci.",
+    "closureSpeaker": "learner",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction. Merged into the final learner turn.",
     "sourceAnchors": [
       "core-roofing:20:fr-en:card:3",
       "core-roofing:20:fr-en:card:9"
     ],
-    "practiceContextEnglish": "Picture A shows a nail and picture B a roof ridge. The partner holds up A, then B for the second question.",
+    "practiceContextEnglish": "In a fictional exercise, picture A shows a nail and picture B a roof ridge. The partner first holds up A. After saying the first Yes, the partner switches to picture B before the learner asks the second question.",
+    "practiceContextFrench": "Dans un exercice fictif, l’image A montre un clou et l’image B le faîtage d’un toit. La personne partenaire montre d’abord A. Après son premier « Oui », la personne partenaire passe à B avant la deuxième question de la personne qui apprend.",
     "partnerCuesEnglish": [
       "Yes.",
-      "Yes. Please name it.",
+      "Yes. Say the full sentence.",
       "Please repeat the word ridge."
+    ],
+    "partnerCueSupportFrench": [
+      "Oui.",
+      "Oui. Dites la phrase complète, s’il vous plaît.",
+      "Répétez le mot anglais « ridge » (le faîtage), s’il vous plaît."
     ],
     "expectedLearnerTurnsEnglish": [
       "Is this the ridge?",
       "This is the ridge.",
-      "Ridge."
+      "Ridge. Thank you."
     ],
-    "id": "core-roofing:20:fr-en:speaking:1",
+    "expectedLearnerTurnsFrench": [
+      "Est-ce le faîtage ?",
+      "C’est le faîtage.",
+      "« Ridge » (le faîtage). Merci."
+    ],
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this a nail?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes."
+      },
+      {
+        "speaker": "learner",
+        "text": "Is this the ridge?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. Say the full sentence."
+      },
+      {
+        "speaker": "learner",
+        "text": "This is the ridge."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the word ridge."
+      },
+      {
+        "speaker": "learner",
+        "text": "Ridge. Thank you."
+      }
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Est-ce un clou ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Oui."
+      },
+      {
+        "speaker": "learner",
+        "text": "Est-ce le faîtage ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Oui. Dites la phrase complète, s’il vous plaît."
+      },
+      {
+        "speaker": "learner",
+        "text": "C’est le faîtage."
+      },
+      {
+        "speaker": "partner",
+        "text": "Répétez le mot anglais « ridge » (le faîtage), s’il vous plaît."
+      },
+      {
+        "speaker": "learner",
+        "text": "« Ridge » (le faîtage). Merci."
+      }
+    ],
+    "frenchSupportProvenance": "Unreviewed French candidate support. Exact source English nouns and new English/French compositions are identified separately. English-word quotations and parenthetical French meanings in repeat cues/answers are support gloss additions, not additional English target text.",
+    "sourceNounProvenance": [
+      {
+        "sourceAnchor": "core-roofing:20:fr-en:card:3",
+        "exactSourceEnglish": "ridge",
+        "status": "English source noun retained; French support candidate unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:20:fr-en:card:9",
+        "exactSourceEnglish": "nail",
+        "status": "English source noun retained; French support candidate unselected."
+      }
+    ],
+    "composedSentenceProvenance": "Learner and partner sentences, French support lines and the picture context are new compositions built around the exact source nouns nail and ridge. The cut verb is not used in this exchange. Roof/toit in picture context is an inherited newly composed unspoken distractor, unselected; not an extra source face or settled toit/toiture equivalence.",
     "reviewed": false,
-    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
     "heldDependent": true,
     "heldDecisionRefs": [
       "core-roofing:20:fr-en:card:1",
@@ -206,45 +298,50 @@
     ],
     "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
     "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
-    "closureSpeaker": "learner",
-    "turnSequenceEnglish": [
+    "frenchTradeTermNote": "No ridge-cap, starter-shingle, hip, ridge-vent, sealant or finish term is used. Ridge-cap and finish methods remain held.",
+    "archivedDraftProvenance": "Archived speakingFrenchOpening (product-instruction and finish-method question) is preserved as held provenance only. It is not used because it asks for product method detail outside this lexical exchange.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; picture-card lexical exchange does not complete original source speaking mission",
+    "heldRefsInterpretation": "All candidate-level held faces remain held; inferred noun/scope source-question dependencies are separate.",
+    "frenchRegisterStatusInternal": "Unselected vous register candidate; all French support remains unreviewed.",
+    "wordBankReusePolicy": "Fragments reusable across learner turns, not a single-use tile inventory.",
+    "internalDecisionHolds": [
+      "No ridge-cap cutting/product permission, vent, fastener, sealant, installation/finish method selected; ridge French sense unresolved."
+    ],
+    "openSourceQuestionDependencies": [
       {
-        "speaker": "learner",
-        "text": "Is this a nail?"
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:20:fr-en:card:3"
+        ],
+        "question": "Ridge cap, starter shingle, hip and ridge vent need product-specific French trade senses. Archived bardeau de faîtage, bardeau de départ, arêtier and évent de faîtage may fit a particular system or region; settle the approved product and dictionary context before selecting scored terminology.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic ridge picture only; ridge-cap/vent/product distinctions remain unresolved."
       },
       {
-        "speaker": "partner",
-        "text": "Yes."
-      },
-      {
-        "speaker": "learner",
-        "text": "Is this the ridge?"
-      },
-      {
-        "speaker": "partner",
-        "text": "Yes. Please name it."
-      },
-      {
-        "speaker": "learner",
-        "text": "This is the ridge."
-      },
-      {
-        "speaker": "partner",
-        "text": "Please repeat the word ridge."
-      },
-      {
-        "speaker": "learner",
-        "text": "Ridge."
-      },
-      {
-        "speaker": "learner",
-        "text": "Thank you."
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:20:fr-en:card:9"
+        ],
+        "question": "Ridge-cap placement, ridge-vent method and sealing the last cap depend on the chosen roof system. The source lacks product fastener, vent, sealant and finish details; qualified roofing/product review must settle the work instruction before a French construction command or audio script is selected.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic nail picture only; no fastener type, placement or pattern."
       }
     ],
-    "partnerCueSupportFrench": [
-      "Oui.",
-      "Oui. Nommez-le, s’il vous plaît.",
-      "Répétez le mot ridge, s’il vous plaît."
+    "expectedAllLearnerTurnsEnglish": [
+      "Is this a nail?",
+      "Is this the ridge?",
+      "This is the ridge.",
+      "Ridge. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Est-ce un clou ?",
+      "Est-ce le faîtage ?",
+      "C’est le faîtage.",
+      "« Ridge » (le faîtage). Merci."
     ]
   },
   "schema": 1,
@@ -735,9 +832,107 @@
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "Exact original source objective remains held/incomplete. New lexical exercises do not replace its technical objective; qualified decisions remain separate.",
     "Final bilingual source check rejects AI noun/verb conjecture: source card7 is Spanish Acabado / English finish, card9 Clavo / nail (noun), card6 Cortar / cut (infinitive). Source Reader when you finish uses a distinct verb occurrence. Acabado supports a noun candidate; its precise French finition sense remains unreviewed. No activity relies on a settled finish product or method. Earlier Opus-derived noun/verb hold is superseded by exact bilingual source evidence.",
-    "Ridge Cumbrera candidate faîtage versus faîte needs contextual French/trade review; no ridge-cap or ridge-vent compound sense is selected from this generic noun."
+    "Ridge Cumbrera candidate faîtage versus faîte needs contextual French/trade review; no ridge-cap or ridge-vent compound sense is selected from this generic noun.",
+    "Speaking support/context gap reconciliation retains prior draft exactly and existing valid pairs. Adds actual French support and seven-turn bilingual sequence, closure part of final reply. Exact original specialist objective remains incomplete, all source/teaching arrays/IDs/pins/holds/flags unchanged.",
+    "Final speaking scope log: canonical context/visibility/French support changed, courtesy folded, Core20 cue2 requests full sentence, Core21 cue2 now elicits existing where-question. Exact historical draft preserved, canonical heldDecisionRefs original ordering restored. No duplicated pairs or activities; original work objective still incomplete."
   ],
   "sourceObjectiveEnglish": "Discuss ridge-cap preparation and finish work",
   "sourceSpeakingEnglish": "Give the guide's ridge-cap instruction and verify the chosen product's method.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner reading picture and word cards.",
+    "partnerRole": "A partner showing cards.",
+    "candidateOpeningEnglish": "Is this a nail?",
+    "goalEnglish": "Identify the nail and ridge pictures and repeat ridge.",
+    "candidateWordBankEnglish": [
+      "nail",
+      "ridge",
+      "Is this a nail?",
+      "Is this the ridge?",
+      "This is the ridge."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, not a site finding or technical instruction.",
+    "sourceAnchors": [
+      "core-roofing:20:fr-en:card:3",
+      "core-roofing:20:fr-en:card:9"
+    ],
+    "practiceContextEnglish": "Picture A shows a nail and picture B a roof ridge. The partner holds up A, then B for the second question.",
+    "partnerCuesEnglish": [
+      "Yes.",
+      "Yes. Please name it.",
+      "Please repeat the word ridge."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Is this the ridge?",
+      "This is the ridge.",
+      "Ridge."
+    ],
+    "id": "core-roofing:20:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:20:fr-en:card:1",
+      "core-roofing:20:fr-en:card:10",
+      "core-roofing:20:fr-en:card:11",
+      "core-roofing:20:fr-en:card:12",
+      "core-roofing:20:fr-en:card:13",
+      "core-roofing:20:fr-en:card:14",
+      "core-roofing:20:fr-en:card:2",
+      "core-roofing:20:fr-en:card:4",
+      "core-roofing:20:fr-en:card:5",
+      "core-roofing:20:fr-en:card:8",
+      "core-roofing:20:fr-en:reader:2",
+      "core-roofing:20:fr-en:reader:3",
+      "core-roofing:20:fr-en:reader:4",
+      "core-roofing:20:fr-en:reader:5",
+      "core-roofing:20:fr-en:reader:6",
+      "core-roofing:20:fr-en:reader:7",
+      "core-roofing:20:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this a nail?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes."
+      },
+      {
+        "speaker": "learner",
+        "text": "Is this the ridge?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. Please name it."
+      },
+      {
+        "speaker": "learner",
+        "text": "This is the ridge."
+      },
+      {
+        "speaker": "partner",
+        "text": "Please repeat the word ridge."
+      },
+      {
+        "speaker": "learner",
+        "text": "Ridge."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you."
+      }
+    ],
+    "partnerCueSupportFrench": [
+      "Oui.",
+      "Oui. Nommez-le, s’il vous plaît.",
+      "Répétez le mot ridge, s’il vous plaît."
+    ]
+  },
+  "sourceAuditOriginMain": "249a63d48bcb9800d0a41e8be96331298b2adb5e"
 }

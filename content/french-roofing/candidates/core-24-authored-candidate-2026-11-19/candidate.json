@@ -243,7 +243,123 @@
       "say": "indiquer/dire"
     },
     "closureFrench": "Au revoir.",
-    "candidateOpeningFrench": "Comment vous sentez-vous ?"
+    "candidateOpeningFrench": "Comment vous sentez-vous ?",
+    "learnerRoleFrench": "Une personne qui demande à une autre comment elle se sent, puis demande des cartes de vocabulaire.",
+    "partnerRoleFrench": "Une autre personne qui répond à une question sur son ressenti, puis montre des cartes de vocabulaire.",
+    "scopedInternalDecisionHolds": [
+      "Shade card A and water card B are vocabulary cards only; they are not heat treatment, a hydration schedule or an instruction to drink or rest.",
+      "Partner reply I feel fine, thank you is a classroom-only answer. It does not stand in for the source scene: Raúl does not look well is Reader3 narrator observation, and yes, a little answers Are you dizzy? in Readers5–6. It is not a symptom outcome.",
+      "Source 'Are you dizzy?', heat exhaustion, rest, the hourly water break and any escalation remain held; no diagnosis, time interval or escalation conclusion is selected.",
+      "Existing classroom wellbeing example is not symptom evidence, treatment response or diagnostic assessment of Raúl.",
+      "Site heat plan (Reader8) remains held. Card15 is an unselected candidate and is not used here; no heat-plan response selected."
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; existing classroom lexical exchange does not complete original source speaking mission All sourceDecisionQuestions remain open for the full source mission; used-anchor dependencies below are a subset, not a mission approval.",
+    "frenchSupportConventionInternal": "English remains target; all existing French opening/cues/replies/context remain unchanged support. Card11 vous mirrors formal source ¿Cómo se siente? as an unselected candidate; vous in newly composed classroom turns is an unselected register proposal, not inferred approval. French all-turn lists and sequences are meaning support only, never expected or scored learner production. Une personne/une autre personne in new roles is an unselected neutral-role wording proposal.",
+    "sourceCompositionProvenance": "Existing How do you feel? opening is exact source question; all shade/water card requests and fine/thank-you partner response are newly composed classroom dialogue, distinct from Raúl source scene and actual answer.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:24:fr-en:card:3",
+        "exactSourceEnglish": "shade",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:24:fr-en:card:4",
+        "exactSourceEnglish": "water",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:24:fr-en:card:11",
+        "exactSourceEnglish": "How do you feel?",
+        "sourceKind": "phrase",
+        "status": "Exact source face recorded; existing French support unselected."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:24:fr-en:card:4"
+        ],
+        "question": "The source's every-hour water break is a fictional site-scene instruction, not a universal prevention interval. The archived French follows that schedule; qualified occupational/site-plan review must decide how to teach it without silently generalizing or changing the pinned source meaning.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Water label only; no schedule or interval selected."
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:24:fr-en:card:3",
+          "core-roofing:24:fr-en:card:4"
+        ],
+        "question": "The source directs a symptomatic worker to shade, rest, drink water and follow the site heat plan. Qualified occupational/clinical review must assess that exact response and any escalation before a scored or audio instruction is selected. Archived speaking adds stopping work and seeking help; keep those additions separate until source and saved-item decisions are made.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Shade/water cards only; no symptomatic-worker response selected."
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:24:fr-en:card:11"
+        ],
+        "question": "Preserve the source's respectful symptom question, Raúl's actual answer and the observation that he does not look well. Do not introduce an invented visual sign, a diagnostic conclusion or an unapproved site procedure in the French Reader or mode prompts.",
+        "relationship": "Direct: card11 is listed in this source question affectedIds; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Exact question placed in separate invented classroom exchange; Raúl source response/observation unchanged."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "How do you feel?",
+      "Where is the shade card?",
+      "Show me the water card.",
+      "Thank you. Goodbye."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Comment vous sentez-vous ?",
+      "Où est la carte shade ?",
+      "Montrez-moi la carte water.",
+      "Merci. Au revoir."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Comment vous sentez-vous ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Je me sens bien, merci. Que cherchez-vous ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Où est la carte shade ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "La carte shade est A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Montrez-moi la carte water."
+      },
+      {
+        "speaker": "partner",
+        "text": "Voici la carte water."
+      },
+      {
+        "speaker": "learner",
+        "text": "Merci. Au revoir."
+      }
+    ],
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3"
+    ]
   },
   "terminologyProposals": [
     {
@@ -853,9 +969,119 @@
     "Card15 source Tell me if you feel sick / Avíseme si se siente mal is direct respectful reporting language. Reader8 adds the site-plan response, so that full row remains held. English sick here is constrained by source se siente mal to unwell, not automatically nausea. No response, diagnosis or escalation selected.",
     "Opus read-only critique corrections applied then checked against exact bilingual source; all French remains unreviewed candidate material and original source objectives remain held/incomplete.",
     "French contremaître for foreman and crème solaire versus other sunscreen formulations remain unselected locale/register proposals. Source usted and French vous carry the respectful register; English you is not marked for that distinction. Shade card / water card are new English noun+noun compounds meaning a vocabulary card bearing that word.",
-    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval."
+    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval.",
+    "Additive speaking-schema/support reconciliation only: existing valid English/French opening, context, goals, cue/reply arrays, word bank, English sequence and holds unchanged. Adds French roles, all-learner/bilingual sequence/provenance and explicit original-mission incomplete status; no new pair/activity or specialist completion claim.",
+    "Opus read-only supplement critique applied only to new fields: exact source symptom question/answer attribution, noun-versus-command holds and semantic dependencies clarified. Existing French pairs/scaffolds/template notes remain unchanged and may need separate qualified language reconciliation.",
+    "Fable supplement-only self-check: exact earlier speaking fields and top-level held/objective status retained, rather than rewriting valid prior text or implying new pair authorship. New speaking status explicitly says held and incomplete. All source-mission questions stay open; no qualified approval. Existing support/template concerns remain follow-up evidence, not silent corrections."
   ],
   "sourceObjectiveEnglish": "Check on crew hydration and heat symptoms",
   "sourceSpeakingEnglish": "Ask a worker how they feel and direct a water break under the site heat plan.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner asking a partner how they feel, then requesting vocabulary cards.",
+    "partnerRole": "A partner answering a wellbeing question and showing vocabulary cards.",
+    "candidateOpeningEnglish": "How do you feel?",
+    "goalEnglish": "Ask How do you feel?, locate the shade card and request the water card.",
+    "candidateWordBankEnglish": [
+      "shade",
+      "water",
+      "card",
+      "How do you feel?",
+      "Where is the shade card?",
+      "Show me the water card.",
+      "Thank you."
+    ],
+    "closureEnglish": "Goodbye.",
+    "closureProvenance": "New ordinary courtesy closing, merged into the last learner turn; not a work instruction or source event.",
+    "sourceAnchors": [
+      "core-roofing:24:fr-en:card:3",
+      "core-roofing:24:fr-en:card:4",
+      "core-roofing:24:fr-en:card:11"
+    ],
+    "practiceContextEnglish": "A classroom pair exercise begins with a wellbeing question, not a greeting. Card A says shade and card B says water.",
+    "partnerCuesEnglish": [
+      "I feel fine, thank you. What are you looking for?",
+      "The shade card is A.",
+      "Here is the water card."
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Where is the shade card?",
+      "Show me the water card.",
+      "Thank you. Goodbye."
+    ],
+    "id": "core-roofing:24:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:24:fr-en:card:1",
+      "core-roofing:24:fr-en:card:10",
+      "core-roofing:24:fr-en:card:12",
+      "core-roofing:24:fr-en:card:13",
+      "core-roofing:24:fr-en:card:14",
+      "core-roofing:24:fr-en:card:5",
+      "core-roofing:24:fr-en:card:6",
+      "core-roofing:24:fr-en:card:7",
+      "core-roofing:24:fr-en:reader:2",
+      "core-roofing:24:fr-en:reader:5",
+      "core-roofing:24:fr-en:reader:6",
+      "core-roofing:24:fr-en:reader:7",
+      "core-roofing:24:fr-en:reader:8",
+      "core-roofing:24:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check. This newly composed partner exchange is distinct from Raúl’s original source scene; it is not a diagnosis or response selection.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "How do you feel?"
+      },
+      {
+        "speaker": "partner",
+        "text": "I feel fine, thank you. What are you looking for?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is the shade card?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The shade card is A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Show me the water card."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the water card."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you. Goodbye."
+      }
+    ],
+    "goalFrench": "Demandez comment le partenaire se sent, repérez la carte shade et demandez la carte water.",
+    "contextFrench": "L’exercice commence par une question sur le ressenti, pas par une salutation. La carte A porte shade et B porte water.",
+    "partnerCueSupportFrench": [
+      "Je me sens bien, merci. Que cherchez-vous ?",
+      "La carte shade est A.",
+      "Voici la carte water."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Où est la carte shade ?",
+      "Montrez-moi la carte water.",
+      "Merci. Au revoir."
+    ],
+    "scaffoldVocabularyFrench": {
+      "card": "carte",
+      "picture": "image",
+      "show": "montrer",
+      "say": "indiquer/dire"
+    },
+    "closureFrench": "Au revoir.",
+    "candidateOpeningFrench": "Comment vous sentez-vous ?"
+  },
+  "sourceAuditOriginMain": "6d59fba18bdbf9365ea7c8e3c6dc7109267b09d8"
 }

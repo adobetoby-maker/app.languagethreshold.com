@@ -248,7 +248,124 @@
       "say": "indiquer/dire"
     },
     "closureFrench": "Merci.",
-    "candidateOpeningFrench": "Où est la corde ?"
+    "candidateOpeningFrench": "Où est la corde ?",
+    "learnerRoleFrench": "Une personne qui demande des cartes de vocabulaire.",
+    "partnerRoleFrench": "Une autre personne qui montre des cartes de mots et des cartes-images.",
+    "scopedInternalDecisionHolds": [
+      "Pictured rope (A), harness (B) and word card C are fictional vocabulary items; they are not real gear, an anchor or lifeline decision, or an equipment check.",
+      "'Show me the harness' requests a picture/card; it does not request an action, an inspection or a return-to-work result.",
+      "'inspection' on card C is a printed word, not an inspection finding; no competent-person role or site decision is selected.",
+      "Source card 12 'Where is the competent person?' is excluded from learner turns.",
+      "Stop work (card9) is an unselected candidate, not held and not used here; no stop-work command selected."
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; existing classroom lexical exchange does not complete original source speaking mission All sourceDecisionQuestions remain open for the full source mission; used-anchor dependencies below are a subset, not a mission approval.",
+    "frenchSupportConventionInternal": "English remains target; all existing French opening/cues/replies/context remain unchanged support. Vous is an unselected register proposal, not inferred approval or a claim about exact Spanish register. French all-turn lists and sequences are meaning support only, never expected or scored learner production. Une personne/une autre personne in new roles is an unselected neutral-role wording proposal.",
+    "sourceCompositionProvenance": "Existing fictional rope/harness pictures and inspection word-card exchange uses source nouns; all surrounding location/request sentences newly composed, not inspection findings or source work commands.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:22:fr-en:card:4",
+        "exactSourceEnglish": "harness",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:22:fr-en:card:7",
+        "exactSourceEnglish": "inspection",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:22:fr-en:card:8",
+        "exactSourceEnglish": "rope",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; existing French support unselected."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:22:fr-en:card:4",
+          "core-roofing:22:fr-en:card:8"
+        ],
+        "question": "Anchor/anchorage, lifeline, lanyard and fall distance need exact site-system and French technical senses. Archived distance libre de chute can mean fall clearance rather than source fall distance; Reader 6 adds required clearance absent from the source. Confirm terms with qualified roofing/fall-protection and dictionary reviewers.",
+        "relationship": "Inferred sense adjacency: rope versus lifeline/lanyard and harness through Reader8; not direct question wording or affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic pictured rope/harness only; no lifeline/lanyard equivalence or actual system decision."
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:22:fr-en:card:7"
+        ],
+        "question": "Competent person is a defined site role. Archived personne compétente is only conditional until the applicable jurisdiction, designation, inspection authority and clearance wording are confirmed.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Printed inspection noun only; no jurisdiction/designation/competent-person inspection result."
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:22:fr-en:card:7"
+        ],
+        "question": "The source asks for lifeline damage check and confirmation of the anchor setup before continuing. Archived French turns the latter into a request to have someone confirm it, and may imply inspection or safe return without a documented result. Resolve the site-specific sequence and source meaning before scoring or audio.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Printed inspection noun only; no damage finding, setup confirmation or return-to-work clearance."
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Where is the rope?",
+      "Show me the harness.",
+      "Where is card C?",
+      "The card says \"inspection\". Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Où est la corde ?",
+      "Montrez-moi le harnais.",
+      "Où est la carte C ?",
+      "La carte indique « inspection ». Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Où est la corde ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "La corde est sur l’image A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Montrez-moi le harnais."
+      },
+      {
+        "speaker": "partner",
+        "text": "Voici le harnais sur l’image B."
+      },
+      {
+        "speaker": "learner",
+        "text": "Où est la carte C ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "La carte C est ici. Qu’indique-t-elle ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "La carte indique « inspection ». Merci."
+      }
+    ],
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3",
+      "/sourceDecisionQuestions/4"
+    ]
   },
   "terminologyProposals": [
     {
@@ -776,9 +893,123 @@
     "Generic rope/la corde is not selected as a lifeline or corde d’assurance. Stop work source Detener el trabajo is verbal, not French arrêt de travail sick-leave noun. Defined authority and return-to-work remain held. Source Reader1 they versus Reader2 He referents retained, not rewritten.",
     "Opus read-only critique corrections applied then checked against exact bilingual source; all French remains unreviewed candidate material and original source objectives remain held/incomplete.",
     "Exact bilingual anchors retain anclaje in cards1/11/14 versus ancla de techo card10 for qualified anchor/anchorage review. Inspection noun versus vérification/contrôle equipment-check register remains qualified review. Card13 and Reader5 have distinct exact English source strings; validator checks each independently, not harmonized.",
-    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval."
+    "Final Fable proposals source-checked: direct clinical/specialist terms retained, grammatical noun/verb occurrences distinguished with exact Spanish evidence, speaking support supplied in French, closure merged, source objectives still held/incomplete. AI review is not qualified approval.",
+    "Additive speaking-schema/support reconciliation only: existing valid English/French opening, context, goals, cue/reply arrays, word bank, English sequence and holds unchanged. Adds French roles, all-learner/bilingual sequence/provenance and explicit original-mission incomplete status; no new pair/activity or specialist completion claim.",
+    "Opus new-field corrections for Core22: printed inspection noun versus finding, competent-person exclusion, and dependency basis clarified. Historical batch clinical/specialist-template notes remain evidence and are not a claim that this lexical exchange teaches clinical terms.",
+    "Fable supplement-only self-check: exact earlier speaking fields and top-level held/objective status retained, rather than rewriting valid prior text or implying new pair authorship. New speaking status explicitly says held and incomplete. All source-mission questions stay open; no qualified approval. Existing support/template concerns remain follow-up evidence, not silent corrections."
   ],
   "sourceObjectiveEnglish": "Raise a concern about the anchor or lifeline",
   "sourceSpeakingEnglish": "Stop work and ask the competent person to confirm the site-specific setup.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner asking for vocabulary cards.",
+    "partnerRole": "A partner showing word and picture cards.",
+    "candidateOpeningEnglish": "Where is the rope?",
+    "goalEnglish": "Locate rope and harness picture cards and read the word on card C.",
+    "candidateWordBankEnglish": [
+      "rope",
+      "harness",
+      "inspection",
+      "Where is the rope?",
+      "Show me the harness.",
+      "Where is card C?",
+      "The card says \"inspection\"."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary courtesy closing, merged into the last learner turn; not a work instruction or source event.",
+    "sourceAnchors": [
+      "core-roofing:22:fr-en:card:4",
+      "core-roofing:22:fr-en:card:7",
+      "core-roofing:22:fr-en:card:8"
+    ],
+    "practiceContextEnglish": "Picture A shows a rope, picture B a harness; word card C says inspection.",
+    "partnerCuesEnglish": [
+      "The rope is in picture A.",
+      "Here is the harness in picture B.",
+      "Card C is here. What does it say?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "Show me the harness.",
+      "Where is card C?",
+      "The card says \"inspection\". Thank you."
+    ],
+    "id": "core-roofing:22:fr-en:speaking:1",
+    "reviewed": false,
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:22:fr-en:card:1",
+      "core-roofing:22:fr-en:card:10",
+      "core-roofing:22:fr-en:card:11",
+      "core-roofing:22:fr-en:card:12",
+      "core-roofing:22:fr-en:card:13",
+      "core-roofing:22:fr-en:card:14",
+      "core-roofing:22:fr-en:card:2",
+      "core-roofing:22:fr-en:card:3",
+      "core-roofing:22:fr-en:card:5",
+      "core-roofing:22:fr-en:card:6",
+      "core-roofing:22:fr-en:reader:1",
+      "core-roofing:22:fr-en:reader:2",
+      "core-roofing:22:fr-en:reader:3",
+      "core-roofing:22:fr-en:reader:4",
+      "core-roofing:22:fr-en:reader:5",
+      "core-roofing:22:fr-en:reader:6",
+      "core-roofing:22:fr-en:reader:7",
+      "core-roofing:22:fr-en:reader:8"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New word-card/picture language practice; not a verified site, approved gear, work instruction or protection-system check.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where is the rope?"
+      },
+      {
+        "speaker": "partner",
+        "text": "The rope is in picture A."
+      },
+      {
+        "speaker": "learner",
+        "text": "Show me the harness."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is the harness in picture B."
+      },
+      {
+        "speaker": "learner",
+        "text": "Where is card C?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Card C is here. What does it say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The card says \"inspection\". Thank you."
+      }
+    ],
+    "goalFrench": "Repérez les cartes-images corde et harnais, puis lisez le mot sur la carte C.",
+    "contextFrench": "La carte-image A montre une corde, B un harnais ; la carte C porte le mot inspection.",
+    "partnerCueSupportFrench": [
+      "La corde est sur l’image A.",
+      "Voici le harnais sur l’image B.",
+      "La carte C est ici. Qu’indique-t-elle ?"
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Montrez-moi le harnais.",
+      "Où est la carte C ?",
+      "La carte indique « inspection ». Merci."
+    ],
+    "scaffoldVocabularyFrench": {
+      "card": "carte",
+      "picture": "image",
+      "show": "montrer",
+      "say": "indiquer/dire"
+    },
+    "closureFrench": "Merci.",
+    "candidateOpeningFrench": "Où est la corde ?"
+  },
+  "sourceAuditOriginMain": "6d59fba18bdbf9365ea7c8e3c6dc7109267b09d8"
 }

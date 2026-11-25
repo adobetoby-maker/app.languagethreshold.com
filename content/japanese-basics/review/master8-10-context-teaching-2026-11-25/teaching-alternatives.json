@@ -1,0 +1,1185 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-teaching-context-alternatives",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "413769f42d29b1133093975dffe46025a57c9e5c",
+  "mainSource": {
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    }
+  },
+  "privateSource": {
+    "forms": {
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    "support": {
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "path": "content/japanese-basics/private-master-1-10-speaking-missions-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "afad8eeda19159ddd4506e9e368b90dee2646927efd2f6cd8f53708ae26866ea"
+    },
+    "builder": {
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "preview": {
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    },
+    "modes": {
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    }
+  },
+  "scope": "three source-only role/context/six-mode teaching alternatives, not source replacement or course release",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "lessons": [
+    {
+      "stableLessonKey": "master-japanese-basics:8",
+      "lessonNumber": 8,
+      "preservedPriorPartnerRole": "Reply to Aki’s written plan for Saturday",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:8",
+        "role": "Reply to Aki’s written plan for Saturday",
+        "opening": "あきさんから メッセージが きました。",
+        "objectives": [
+          "Identify the proposed day, time, and place in Aki’s message",
+          "Compose a short reply with exact quoted words inside 「」",
+          "Confirm the meeting and mention the Friday night call"
+        ],
+        "complication": "The reply lacks a meeting place on the first attempt.",
+        "closure": "Send a complete time-and-place confirmation."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 4,
+          "prompt": "Read the written reply. Identify the quoted meeting proposal and the と after the closing quote."
+        },
+        "recall": {
+          "turn": 2,
+          "prompt": "Recall the exact quoted message asking whether the two can meet on Saturday."
+        },
+        "hear": {
+          "turn": 5,
+          "prompt": "Listen to Aki's response and choose the meaning that her written reply accepts the proposal."
+        },
+        "type": {
+          "turn": 6,
+          "prompt": "Type the sentence stating the plan to meet in front of the station, using よていです."
+        },
+        "say": {
+          "turn": 8,
+          "prompt": "Say the sentence for calling on Friday night, including きんようびのよる."
+        },
+        "write": {
+          "turn": 4,
+          "prompt": "Write the complete quoted reply proposing three in front of the station; keep 「」 and と."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "As the narrator reading the written exchange, read the written reply. Identify the quoted meeting proposal and the と after the closing quote.",
+          "targetSpeakerRoleEnglish": "narrator reporting their own written reply; quoted voice: the narrator's written words",
+          "learnerPracticeRoleEnglish": "reader identifying the quotation and the と",
+          "targetJapanese": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "targetEnglish": "I replied, “How about three in front of the station?”",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "id": "master-japanese-basics:8:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Read the written reply. Identify the quoted meeting proposal and the と after the closing quote."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "As the narrator reading the written exchange, recall the exact quoted message asking whether the two can meet on Saturday.",
+          "targetSpeakerRoleEnglish": "Aki, quoted written message",
+          "learnerPracticeRoleEnglish": "reader recalling the quoted question",
+          "targetJapanese": "「どようびに あえますか。」",
+          "targetEnglish": "“Can we meet on Saturday?”",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:8:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Recall the exact quoted message asking whether the two can meet on Saturday."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "As the narrator reading the written exchange, listen to Aki's response and choose the meaning that her written reply accepts the proposal.",
+          "targetSpeakerRoleEnglish": "narrator reporting what Aki wrote; quoted voice: Aki's written words",
+          "learnerPracticeRoleEnglish": "listener choosing the meaning of the reported reply",
+          "targetJapanese": "あきさんは「だいじょうぶです」と かきました。",
+          "targetEnglish": "Aki wrote, “That works.”",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "hearOptionsJapanese": [
+            "あきさんは「だいじょうぶです」と かきました。",
+            "わたしは どようびに あきさんに あう つもりです。",
+            "えきの まえで あう よていです。"
+          ],
+          "hearOptionsEnglish": [
+            "Aki wrote, “That works.”",
+            "I plan to meet Aki on Saturday.",
+            "We plan to meet in front of the station."
+          ],
+          "id": "master-japanese-basics:8:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "あきさんは「だいじょうぶです」と かきました。",
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Listen to Aki's response and choose the meaning that her written reply accepts the proposal."
+          }
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "As the narrator reading the written exchange, type the sentence stating the plan to meet in front of the station, using よていです.",
+          "targetSpeakerRoleEnglish": "narrator stating the plan",
+          "learnerPracticeRoleEnglish": "writer typing the plan",
+          "targetJapanese": "えきの まえで あう よていです。",
+          "targetEnglish": "We plan to meet in front of the station.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:8:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Type the sentence stating the plan to meet in front of the station, using よていです."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "As the narrator reading the written exchange, say the sentence for calling on Friday night, including きんようびのよる.",
+          "targetSpeakerRoleEnglish": "narrator",
+          "learnerPracticeRoleEnglish": "speaker stating the Friday night call",
+          "targetJapanese": "きんようびの よる、でんわします。",
+          "targetEnglish": "I will call on Friday night.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:8:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Say the sentence for calling on Friday night, including きんようびのよる."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "As the narrator reading the written exchange, write the complete quoted reply proposing three in front of the station; keep 「」 and と.",
+          "targetSpeakerRoleEnglish": "narrator reporting their own written reply; quoted voice: the narrator's written words",
+          "learnerPracticeRoleEnglish": "writer of the quoted reply",
+          "targetJapanese": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "targetEnglish": "I replied, “How about three in front of the station?”",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "id": "master-japanese-basics:8:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Write the complete quoted reply proposing three in front of the station; keep 「」 and と."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-0415d5853472fec5",
+          "sourceTurnOneBased": 3,
+          "exampleJapanese": "わたしは どようびに あきさんに あう つもりです。",
+          "canonicalAnswer": "わたしは どようびに あきさんに あう つもりです。",
+          "explanationJapanese": "「あう」は、どうしの じしょけいです。「あう つもりです」は、これから あきさんに あおうと かんがえて いる じぶんの いしを つたえます。",
+          "explanationEnglish": "つもりです marks the plan or intention to meet Aki on Saturday.",
+          "id": "master-japanese-basics:8:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-0415d5853472fec5",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 3,
+            "focus": "intention-tsumori",
+            "japaneseAnswer": "わたしは どようびに あきさんに あう つもりです。",
+            "englishPrompt": "I plan to meet Aki on Saturday.",
+            "knownJapaneseVariants": [
+              "わたしは どようびに あきさんに あう つもりです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-c2836c3ab399c96b",
+          "sourceTurnOneBased": 4,
+          "exampleJapanese": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "canonicalAnswer": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+          "explanationJapanese": "「」の なかは、じぶんが かえした ことばです。とじた「」の あとの「と」は、その ことばを「かえしました」に つなぎます。",
+          "explanationEnglish": "The と after the closing quote marks the quoted reply; かえしました means replied.",
+          "id": "master-japanese-basics:8:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-c2836c3ab399c96b",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "quoted-reply-to",
+            "japaneseAnswer": "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。",
+            "englishPrompt": "I replied, “How about three in front of the station?”",
+            "knownJapaneseVariants": [
+              "わたしは「ごご さんじに えきの まえは どうですか」と かえしました。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-0e9457295b02da85",
+          "sourceTurnOneBased": 5,
+          "exampleJapanese": "あきさんは「だいじょうぶです」と かきました。",
+          "canonicalAnswer": "あきさんは「だいじょうぶです」と かきました。",
+          "explanationJapanese": "「だいじょうぶです」は、あきさんが かいた ことばです。「と」は、その ことばを「かきました」に つなぎます。ぶん ぜんたいは、あきさんの へんじを つたえて います。",
+          "explanationEnglish": "The と after the closing quote marks Aki's written words; かきました means wrote.",
+          "id": "master-japanese-basics:8:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-0e9457295b02da85",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 5,
+            "focus": "quoted-write-to",
+            "japaneseAnswer": "あきさんは「だいじょうぶです」と かきました。",
+            "englishPrompt": "Aki wrote, “That works.”",
+            "knownJapaneseVariants": [
+              "あきさんは「だいじょうぶです」と かきました。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "narrator who reads Aki's written message, writes the reply, and tells the exchange",
+        "partnerRoleEnglish": "practice partner listening as the narrator tells the exchange; Aki appears only in quoted written messages",
+        "authoredPracticeCast": {
+          "basis": "internal: source turns are unlabeled; the practice partner has no source lines and is given no Japanese lines",
+          "voices": [
+            "narrator (learner, わたし)",
+            "Aki (quoted written messages only)",
+            "practice partner (listener, no lines)"
+          ],
+          "dialogueTurnVoices": {
+            "1": "narrator",
+            "2": "Aki, quoted written message (bare quote, no narrator frame)",
+            "3": "narrator",
+            "4": "narrator; quoted voice: the narrator's own written reply",
+            "5": "narrator; quoted voice: Aki's written reply",
+            "6": "narrator",
+            "7": "narrator",
+            "8": "narrator"
+          },
+          "extensionVoices": {
+            "1": "narrator; quoted voice: the narrator's own written message",
+            "2": "narrator",
+            "3": "narrator (held, see unresolvedSequencingHold)",
+            "4": "narrator, reporting about Aki"
+          }
+        },
+        "openingJapanese": "あきさんから メッセージが きました。",
+        "openingEnglish": "A message came from Aki.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "narrator (learner)",
+        "objectivesEnglish": [
+          "Identify Saturday as the day Aki asks about in the written message",
+          "Reply with a time and place — three in the afternoon, in front of the station — inside 「」 followed by と",
+          "Confirm the plan to meet in front of the station and mention the Friday night call"
+        ],
+        "correctedPriorObjective": {
+          "status": "proposed-source-attribution-correction; unselected",
+          "priorText": "Identify the proposed day, time, and place in Aki’s message",
+          "reason": "Aki's message asks only about Saturday (turn 2). The narrator proposes the time and place (turn 4) and Aki accepts in writing (turn 5). The prior text is kept here as evidence."
+        },
+        "closureJapanese": "きんようびの よる、でんわします。",
+        "closureEnglish": "I will call on Friday night.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "narrator (learner)",
+        "closureNote": "internal: moved from turn 4, which is a proposal (どうですか), not a confirmation. Turn 8 is the last source line and the point where all three objectives are met. Turn 5 gives Aki's acceptance, turn 6 the place, turn 7 the time. No single source line sends both time and place as a confirmation.",
+        "contextFramesEnglish": [
+          "Messages before Saturday",
+          "A written exchange told by the narrator; Aki's words appear only in quoted messages",
+          "The narrator proposes three in the afternoon in front of the station; Aki accepts in writing"
+        ],
+        "wordBankJapanese": [
+          "どようび",
+          "かえしました",
+          "りょうかいしました"
+        ],
+        "unresolvedSequencingHold": {
+          "japanese": "あめが ふっていますから、えきの なかで まちます。",
+          "english": "Because it is raining, we will wait inside the station.",
+          "sourceKind": "extension",
+          "sourceIndexOneBased": 3,
+          "placement": "internal hold: after closure; waiting inside the station differs from the meeting place in turn 6; sequencing unresolved, not released"
+        },
+        "complicationHold": {
+          "english": "The reply lacks a meeting place on the first attempt.",
+          "status": "internal hold: no source line shows a first reply without a place; the reply in turn 4 already carries both time and place"
+        },
+        "priorPreserved": {
+          "priorPartnerRole": "Reply to Aki’s written plan for Saturday",
+          "complication": "The reply lacks a meeting place on the first attempt.",
+          "closure": "Send a complete time-and-place confirmation."
+        },
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "preClosingLearnerLines": [
+          {
+            "japanese": "えきの まえで あう よていです。",
+            "english": "We plan to meet in front of the station.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 6,
+            "speaker": "narrator (learner)"
+          },
+          {
+            "japanese": "さんじに いきます。",
+            "english": "I will go at three.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 7,
+            "speaker": "narrator (learner)"
+          }
+        ],
+        "id": "master-japanese-basics:8:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:8",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "Should the closure be turn 6 (place confirmed) rather than turn 8 (end of the exchange, Friday call)?",
+        "Should the rain extension be released at all, given that it changes the waiting place after the closure?",
+        "りょうかいしました is a source term but appears only in extension 4. Should it stay in the word bank if extensions are not released?",
+        "The practice partner has no source lines. Is a listener-only partner acceptable for this lesson?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "practice partner listening as the narrator tells the exchange; Aki appears only in quoted written messages",
+        "closureLineJapanese": "きんようびの よる、でんわします。",
+        "closureLineEnglish": "I will call on Friday night.",
+        "closureSpeaker": "narrator (learner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:9",
+      "lessonNumber": 9,
+      "preservedPriorPartnerRole": "Compare two bags with a shop clerk",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:9",
+        "role": "Compare two bags with a shop clerk",
+        "opening": "この あおい かばんは いくらですか。",
+        "objectives": [
+          "Ask the price of the blue bag",
+          "Compare the two bags using demonstratives and adjectives",
+          "Choose one bag and explain why it fits"
+        ],
+        "complication": "The clerk quotes the other bag’s price with さんぜん.",
+        "closure": "Identify the chosen bag explicitly before buying it."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 5,
+          "prompt": "Read the price comparison. Identify which bag is cheaper and the のほうが pattern."
+        },
+        "recall": {
+          "turn": 1,
+          "prompt": "Recall the question asking how much this blue bag costs, including いくら."
+        },
+        "hear": {
+          "turn": 4,
+          "prompt": "Listen to the second price and choose the exact meaning of さんぜんえん."
+        },
+        "type": {
+          "turn": 6,
+          "prompt": "Type the contrasting sentence that the red bag is bigger, using でも and のほうが."
+        },
+        "say": {
+          "turn": 7,
+          "prompt": "Say the question asking which of the two bags is more convenient."
+        },
+        "write": {
+          "turn": 8,
+          "prompt": "Write the final choice sentence selecting this blue bag, using をえらびます."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "At the shop counter, read the price comparison. Identify which bag is cheaper and the のほうが pattern.",
+          "targetSpeakerRoleEnglish": "shopper comparing prices",
+          "learnerPracticeRoleEnglish": "reader identifying the cheaper bag and のほうが",
+          "targetJapanese": "あおい かばんの ほうが やすいです。",
+          "targetEnglish": "The blue bag is cheaper.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "id": "master-japanese-basics:9:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Read the price comparison. Identify which bag is cheaper and the のほうが pattern."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "At the shop counter, recall the question asking how much this blue bag costs, including いくら.",
+          "targetSpeakerRoleEnglish": "shopper",
+          "learnerPracticeRoleEnglish": "speaker recalling the price question",
+          "targetJapanese": "この あおい かばんは いくらですか。",
+          "targetEnglish": "How much is this blue bag?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "id": "master-japanese-basics:9:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Recall the question asking how much this blue bag costs, including いくら."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "At the shop counter, listen to the second price and choose the exact meaning of さんぜんえん.",
+          "targetSpeakerRoleEnglish": "shop clerk giving the red bag's price",
+          "learnerPracticeRoleEnglish": "listener matching さんぜんえん to three thousand yen",
+          "targetJapanese": "さんぜんえんです。",
+          "targetEnglish": "It is three thousand yen.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "hearOptionsJapanese": [
+            "にせんえんです。",
+            "さんぜんえんです。",
+            "あおい かばんの ほうが やすいです。"
+          ],
+          "hearOptionsEnglish": [
+            "It is two thousand yen.",
+            "It is three thousand yen.",
+            "The blue bag is cheaper."
+          ],
+          "id": "master-japanese-basics:9:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "さんぜんえんです。",
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Listen to the second price and choose the exact meaning of さんぜんえん."
+          }
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "At the shop counter, type the contrasting sentence that the red bag is bigger, using でも and のほうが.",
+          "targetSpeakerRoleEnglish": "shopper",
+          "learnerPracticeRoleEnglish": "writer typing the contrast",
+          "targetJapanese": "でも、あかい かばんの ほうが おおきいです。",
+          "targetEnglish": "But the red bag is bigger.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:9:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Type the contrasting sentence that the red bag is bigger, using でも and のほうが."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "At the shop counter, say the question asking which of the two bags is more convenient.",
+          "targetSpeakerRoleEnglish": "shopper",
+          "learnerPracticeRoleEnglish": "speaker asking which bag is more convenient",
+          "targetJapanese": "どちらが べんりですか。",
+          "targetEnglish": "Which is more convenient?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "id": "master-japanese-basics:9:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Say the question asking which of the two bags is more convenient."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "At the shop counter, write the final choice sentence selecting this blue bag, using をえらびます.",
+          "targetSpeakerRoleEnglish": "shopper",
+          "learnerPracticeRoleEnglish": "writer of the final choice",
+          "targetJapanese": "この あおい かばんを えらびます。",
+          "targetEnglish": "I choose this blue bag.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:9:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Write the final choice sentence selecting this blue bag, using をえらびます."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-13729ca2fc711adf",
+          "sourceTurnOneBased": 1,
+          "exampleJapanese": "この あおい かばんは いくらですか。",
+          "canonicalAnswer": "この あおい かばんは いくらですか。",
+          "explanationJapanese": "「この」は、はなして いる ひとの ちかくの かばんを さします。「いくらですか」は、ねだんを たずねる しつもんです。",
+          "explanationEnglish": "いくら asks the price of this blue bag.",
+          "id": "master-japanese-basics:9:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-13729ca2fc711adf",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "demonstrative-price",
+            "japaneseAnswer": "この あおい かばんは いくらですか。",
+            "englishPrompt": "How much is this blue bag?",
+            "knownJapaneseVariants": [
+              "この あおい かばんは いくらですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-46fe8e0c26149dc2",
+          "sourceTurnOneBased": 4,
+          "exampleJapanese": "さんぜんえんです。",
+          "canonicalAnswer": "さんぜんえんです。",
+          "explanationJapanese": "「さんぜんえん」は、さんせんえん では なく、せんの おとが ぜんに かわります。ここでは、あかい かばんの ねだんです。",
+          "explanationEnglish": "さんぜん has a sound change from せん; さんぜんえん is three thousand yen, the red bag's price here.",
+          "id": "master-japanese-basics:9:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-46fe8e0c26149dc2",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "three-thousand-sanzen",
+            "japaneseAnswer": "さんぜんえんです。",
+            "englishPrompt": "It is three thousand yen.",
+            "knownJapaneseVariants": [
+              "さんぜんえんです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-f8edd620293d3589",
+          "sourceTurnOneBased": 5,
+          "exampleJapanese": "あおい かばんの ほうが やすいです。",
+          "canonicalAnswer": "あおい かばんの ほうが やすいです。",
+          "explanationJapanese": "「あおい かばんの ほうが」は、ふたつの かばんを くらべて います。「やすいです」は、ここでは あおい かばんの ねだんが ひくい ことを つたえます。",
+          "explanationEnglish": "のほうが compares the two bags; the blue bag is the cheaper one.",
+          "id": "master-japanese-basics:9:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-f8edd620293d3589",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 5,
+            "focus": "comparison-hou-ga",
+            "japaneseAnswer": "あおい かばんの ほうが やすいです。",
+            "englishPrompt": "The blue bag is cheaper.",
+            "knownJapaneseVariants": [
+              "あおい かばんの ほうが やすいです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "shopper comparing two bags and choosing one",
+        "partnerRoleEnglish": "shop clerk who gives the price of each bag",
+        "authoredPracticeCast": {
+          "basis": "internal: source turns are unlabeled; turns 1 to 4 follow the question-and-answer pattern, turns 5 to 7 are assigned to the shopper as an authored choice",
+          "voices": [
+            "shopper (learner)",
+            "shop clerk (partner)"
+          ],
+          "dialogueTurnVoices": {
+            "1": "shopper",
+            "2": "shop clerk",
+            "3": "shopper",
+            "4": "shop clerk",
+            "5": "shopper",
+            "6": "shopper",
+            "7": "shopper",
+            "8": "shopper"
+          },
+          "extensionVoices": {
+            "1": "shopper",
+            "2": "shopper",
+            "3": "shopper",
+            "4": "shopper"
+          }
+        },
+        "openingJapanese": "この あおい かばんは いくらですか。",
+        "openingEnglish": "How much is this blue bag?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "shopper (learner)",
+        "objectivesEnglish": [
+          "Ask the price of the blue bag",
+          "Compare the two bags using demonstratives and adjectives",
+          "Choose one bag and explain why it fits"
+        ],
+        "priceCorrection": {
+          "status": "checked against source",
+          "blueBag": "2,000 yen (にせんえん, turn 2)",
+          "redBag": "3,000 yen (さんぜんえん, turn 4), not the blue bag"
+        },
+        "closureJapanese": "この あおい かばんを えらびます。",
+        "closureEnglish": "I choose this blue bag.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "shopper (learner)",
+        "closureNote": "internal: the closure names the chosen bag only; no purchase is stated or implied in the source.",
+        "priorClosureHold": {
+          "english": "Identify the chosen bag explicitly before buying it.",
+          "status": "internal hold: 'before buying it' has no source line; the closure stops at the choice in turn 8"
+        },
+        "preClosureExtension": {
+          "japanese": "だから、かるい ほうが いいです。",
+          "english": "So the lighter one is better.",
+          "sourceKind": "extension",
+          "sourceIndexOneBased": 4,
+          "placement": "internal: may precede closure as the reason; depends on extensions 1 to 3 for context; reading この かばん in extension 1 as the blue bag rests on この in turn 1 and is not stated in the source"
+        },
+        "contextFramesEnglish": [
+          "At the shop counter",
+          "The blue bag is cheaper; the red bag is bigger",
+          "The choice follows a comparison of price and size"
+        ],
+        "wordBankJapanese": [
+          "さんぜんえん",
+          "やすい",
+          "にせんえん",
+          "かるい",
+          "おもい"
+        ],
+        "priorPreserved": {
+          "priorPartnerRole": "Compare two bags with a shop clerk",
+          "complication": "The clerk quotes the other bag’s price with さんぜん.",
+          "closure": "Identify the chosen bag explicitly before buying it."
+        },
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "id": "master-japanese-basics:9:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:9",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false,
+        "preClosingLearnerLine": {
+          "japanese": "あおい かばんの ほうが やすいです。",
+          "english": "The blue bag is cheaper.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "speaker": "Shopper comparing the cheaper blue bag"
+        }
+      },
+      "internalQuestions": [
+        "Turns 5 to 7 are unlabeled. Is the shopper the right voice for all three, in particular turn 7, which is never answered in the dialogue?",
+        "Does この かばん in extension 1 refer to the blue bag? The source does not say so directly.",
+        "かるい and おもい are source terms that appear only in the extensions. Should they stay in the word bank if the extensions are not released?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "shop clerk who gives the price of each bag",
+        "closureLineJapanese": "この あおい かばんを えらびます。",
+        "closureLineEnglish": "I choose this blue bag.",
+        "closureSpeaker": "shopper (learner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:10",
+      "lessonNumber": 10,
+      "preservedPriorPartnerRole": "Identify the owner of a found umbrella",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:10",
+        "role": "Identify the owner of a found umbrella",
+        "opening": "この かさを みつけました。だれのですか。",
+        "objectives": [
+          "Ask whose umbrella was found",
+          "Describe distinguishing details before returning it",
+          "Use the て-form to link looking at the umbrella with the owner’s response"
+        ],
+        "complication": "More than one person thinks the umbrella may be theirs.",
+        "closure": "Return the umbrella to its identified owner politely."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 6,
+          "prompt": "Read Tanaka's two actions. Identify みて as the て-form linking looking at the umbrella to nodding."
+        },
+        "recall": {
+          "turn": 1,
+          "prompt": "Recall both sentences stating the umbrella was found and asking whose it is."
+        },
+        "hear": {
+          "turn": 3,
+          "prompt": "Listen to the ownership clue and choose the meaning that Tanaka's umbrella is blue."
+        },
+        "type": {
+          "turn": 5,
+          "prompt": "Type the sentence for calling Tanaka over, including object を and よびます."
+        },
+        "say": {
+          "turn": 8,
+          "prompt": "Say the polite final handoff 'Here you are,' preserving では."
+        },
+        "write": {
+          "turn": 2,
+          "prompt": "Write the denial that the found umbrella is mine, using the source negative ownership phrase."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "In the found-umbrella scene, read Tanaka's two actions. Identify みて as the て-form linking looking at the umbrella to nodding.",
+          "targetSpeakerRoleEnglish": "narrator reporting Tanaka's actions (Tanaka is not speaking)",
+          "learnerPracticeRoleEnglish": "reader identifying みて as the linking て-form",
+          "targetJapanese": "たなかさんは かさを みて、うなずきます。",
+          "targetEnglish": "Tanaka looks at the umbrella and nods.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "id": "master-japanese-basics:10:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Read Tanaka's two actions. Identify みて as the て-form linking looking at the umbrella to nodding."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "In the found-umbrella scene, recall both sentences stating the umbrella was found and asking whose it is.",
+          "targetSpeakerRoleEnglish": "finder",
+          "learnerPracticeRoleEnglish": "speaker recalling the found-umbrella question",
+          "targetJapanese": "この かさを みつけました。だれのですか。",
+          "targetEnglish": "I found this umbrella. Whose is it?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "id": "master-japanese-basics:10:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Recall both sentences stating the umbrella was found and asking whose it is."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "In the found-umbrella scene, listen to the ownership clue and choose the meaning that Tanaka's umbrella is blue.",
+          "targetSpeakerRoleEnglish": "person nearby giving the clue",
+          "learnerPracticeRoleEnglish": "listener matching the ownership clue to its meaning",
+          "targetJapanese": "たなかさんの かさは あおいです。",
+          "targetEnglish": "Tanaka's umbrella is blue.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "hearOptionsJapanese": [
+            "たなかさんの かさは あおいです。",
+            "この かさも あおいです。",
+            "わたしの じゃありません。"
+          ],
+          "hearOptionsEnglish": [
+            "Tanaka's umbrella is blue.",
+            "This umbrella is blue too.",
+            "It is not mine."
+          ],
+          "id": "master-japanese-basics:10:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "たなかさんの かさは あおいです。",
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Listen to the ownership clue and choose the meaning that Tanaka's umbrella is blue."
+          }
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "In the found-umbrella scene, type the sentence for calling Tanaka over, including object を and よびます.",
+          "targetSpeakerRoleEnglish": "finder",
+          "learnerPracticeRoleEnglish": "writer typing the call to Tanaka",
+          "targetJapanese": "たなかさんを よびます。",
+          "targetEnglish": "I will call Tanaka.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "id": "master-japanese-basics:10:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Type the sentence for calling Tanaka over, including object を and よびます."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "In the found-umbrella scene, say the polite final handoff 'Here you are,' preserving では.",
+          "targetSpeakerRoleEnglish": "finder, handing the umbrella back",
+          "learnerPracticeRoleEnglish": "speaker giving the polite handoff",
+          "targetJapanese": "では、どうぞ。",
+          "targetEnglish": "Here you are.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "id": "master-japanese-basics:10:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Say the polite final handoff 'Here you are,' preserving では."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "In the found-umbrella scene, write the denial that the found umbrella is mine, using the source negative ownership phrase.",
+          "targetSpeakerRoleEnglish": "person nearby, saying the umbrella is not theirs",
+          "learnerPracticeRoleEnglish": "writer of the negative ownership phrase",
+          "targetJapanese": "わたしの じゃありません。",
+          "targetEnglish": "It is not mine.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "id": "master-japanese-basics:10:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Write the denial that the found umbrella is mine, using the source negative ownership phrase."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-ecd45d85bb52525e",
+          "sourceTurnOneBased": 1,
+          "exampleJapanese": "この かさを みつけました。だれのですか。",
+          "canonicalAnswer": "この かさを みつけました。だれのですか。",
+          "explanationJapanese": "「みつけました」は、みつけた ことを ていねいに つたえる かこの かたちです。「だれのですか」は、もちぬしを たずねます。",
+          "explanationEnglish": "だれのですか asks whose the found umbrella is.",
+          "id": "master-japanese-basics:10:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-ecd45d85bb52525e",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "ownership-question",
+            "japaneseAnswer": "この かさを みつけました。だれのですか。",
+            "englishPrompt": "I found this umbrella. Whose is it?",
+            "knownJapaneseVariants": [
+              "この かさを みつけました。だれのですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-fc07251de020992f",
+          "sourceTurnOneBased": 2,
+          "exampleJapanese": "わたしの じゃありません。",
+          "canonicalAnswer": "わたしの じゃありません。",
+          "explanationJapanese": "「わたしの」は、わたしの もの という いみです。「じゃありません」は、それを ひていして、じぶんの かさでは ないと つたえます。",
+          "explanationEnglish": "じゃありません denies ownership: it is not mine.",
+          "id": "master-japanese-basics:10:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-fc07251de020992f",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 2,
+            "focus": "negative-possession",
+            "japaneseAnswer": "わたしの じゃありません。",
+            "englishPrompt": "It is not mine.",
+            "knownJapaneseVariants": [
+              "わたしの じゃありません。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-d6368a9b2f0f6f1e",
+          "sourceTurnOneBased": 6,
+          "exampleJapanese": "たなかさんは かさを みて、うなずきます。",
+          "canonicalAnswer": "たなかさんは かさを みて、うなずきます。",
+          "explanationJapanese": "「みる」の てけいは「みて」です。「みて、うなずきます」は、かさを みる ことと、そのあと うなずく ことを じゅんばんに つなぎます。",
+          "explanationEnglish": "みる becomes みて, linking looking at the umbrella to nodding, in order.",
+          "id": "master-japanese-basics:10:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-d6368a9b2f0f6f1e",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 6,
+            "focus": "sequential-te-form",
+            "japaneseAnswer": "たなかさんは かさを みて、うなずきます。",
+            "englishPrompt": "Tanaka looks at the umbrella and nods.",
+            "knownJapaneseVariants": [
+              "たなかさんは かさを みて、うなずきます。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "finder who asks whose umbrella it is and hands it back to its owner",
+        "partnerRoleEnglish": "person nearby who is asked about the umbrella and says it is not theirs; Tanaka appears through narration and one quoted line",
+        "authoredPracticeCast": {
+          "basis": "internal: source turns are unlabeled; the 'person nearby' role is authored for practice and is not named in the source; turn 6 is narration and turn 7 is a bare quote read as Tanaka's from context",
+          "voices": [
+            "finder (learner)",
+            "person nearby (partner)",
+            "narrator (reports Tanaka's actions)",
+            "Tanaka (quoted line only)"
+          ],
+          "dialogueTurnVoices": {
+            "1": "finder",
+            "2": "person nearby",
+            "3": "person nearby",
+            "4": "finder",
+            "5": "finder",
+            "6": "narrator, reporting Tanaka's actions; Tanaka is not speaking",
+            "7": "Tanaka, quoted line (bare quote, no narrator frame)",
+            "8": "finder"
+          },
+          "extensionVoices": {
+            "1": "narrator; quoted voice: Tanaka",
+            "2": "finder",
+            "3": "finder",
+            "4": "finder"
+          }
+        },
+        "openingJapanese": "この かさを みつけました。だれのですか。",
+        "openingEnglish": "I found this umbrella. Whose is it?",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "finder (learner)",
+        "objectivesEnglish": [
+          "Ask whose umbrella was found",
+          "Describe distinguishing details before returning it",
+          "Use the て-form to link looking at the umbrella with the owner’s response"
+        ],
+        "narrationNote": "Turn 6 is narrated: Tanaka looks at the umbrella and nods. Tanaka is not speaking in that line. Turn 7 is Tanaka's quoted line.",
+        "unlabeledSourceTurns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "colorNote": "The source compares Tanaka's described umbrella with the found umbrella; it does not establish two distinct blue umbrellas. The script then has Tanaka say 'It is mine.' Color alone is not substituted for that line.",
+        "closureJapanese": "では、どうぞ。",
+        "closureEnglish": "Here you are.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "finder (learner), handing the umbrella back",
+        "complicationHold": {
+          "english": "More than one person thinks the umbrella may be theirs.",
+          "status": "internal hold: no source line supports a second claimant; turn 2 is a denial and the second umbrella in the extensions is a different item"
+        },
+        "contextFramesEnglish": [
+          "A lost umbrella",
+          "Ownership is asked, denied, and then claimed by Tanaka in a quoted line",
+          "The found umbrella's color matches the description of Tanaka's umbrella. Tanaka then claims it in the quoted source line before the handoff."
+        ],
+        "wordBankJapanese": [
+          "うなずきます",
+          "かえします"
+        ],
+        "priorPreserved": {
+          "priorPartnerRole": "Identify the owner of a found umbrella",
+          "complication": "More than one person thinks the umbrella may be theirs.",
+          "closure": "Return the umbrella to its identified owner politely."
+        },
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "id": "master-japanese-basics:10:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:10",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "Turn 3 is unlabeled. Is the person nearby the right voice for it, or should the finder say it?",
+        "Who voices the narration in turn 6 and Tanaka's quoted line in turn 7 during speaking practice?",
+        "かえします is a source term that appears only in extension 4. Should it stay in the word bank if the extensions are not released?",
+        "Should the complication be dropped or rewritten, given that no source line supports a second claimant?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "person nearby who is asked about the umbrella and says it is not theirs; Tanaka appears through narration and one quoted line",
+        "closureLineJapanese": "では、どうぞ。",
+        "closureLineEnglish": "Here you are.",
+        "closureSpeaker": "finder (learner), handing the umbrella back",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    }
+  ],
+  "internalReviewNotes": [
+    "All prior source targets, form identities, missions and mode cues are preserved; new roles are authored practice casting.",
+    "Verified builder and preview copy learner task into partnerRole; alternatives identify counterparts.",
+    "Master8 prior objective attributes day/time/place to Aki, but Aki proposes only Saturday and learner proposes time/place. New objective keeps that distinction. See and Write intentionally retain the same canonical turn4, so six activities have five distinct targets.",
+    "Master8 station-front plan versus later rain/inside waiting remains source-order/context review, not an invented resolution.",
+    "Master9 quoted red price is three thousand, blue two thousand; choice does not assert a completed purchase.",
+    "Master10 Tanaka third-person action is narration; quoted ownership is Tanaka voice. Source mission multiple-claimant complication does not become invented evidence.",
+    "No accepted variants, owner pages, runtime, audio, offline or progress changes."
+  ]
+}

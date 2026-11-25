@@ -1,5 +1,7 @@
+import { AuthProvider } from "@/state/auth-state";
+import { DeleteAccountRequest } from "@/components/auth/DeleteAccountRequest";
 import { createFileRoute } from "@tanstack/react-router";
-import { LEGAL_CONTACT, LegalPage, LegalSection } from "@/components/legal/LegalPage";
+import { LegalPage, LegalSection } from "@/components/legal/LegalPage";
 
 export const Route = createFileRoute("/privacy")({
   component: PrivacyPolicy,
@@ -18,6 +20,7 @@ export const Route = createFileRoute("/privacy")({
 function PrivacyPolicy() {
   return (
     <LegalPage title="Privacy Policy">
+      <AuthProvider><DeleteAccountRequest /></AuthProvider>
       <p>
         Language Threshold (“we”, “us”) runs app.languagethreshold.com, a language-learning app for
         people who use a second language at work. This policy explains what we collect, why, and
@@ -116,12 +119,7 @@ function PrivacyPolicy() {
 
       <LegalSection heading="Keeping and deleting your data">
         <p>
-          We keep your data while your account is open. To delete your account and the data stored
-          with it, email{" "}
-          <a className="text-gold underline" href={`mailto:${LEGAL_CONTACT}`}>
-            {LEGAL_CONTACT}
-          </a>{" "}
-          from the address on your account and we will confirm when it is done. You can unsubscribe
+          We keep your data while your account is open. Use <a href="#delete-account" className="underline">Delete my account</a> on this page to request permanent deletion. We will email you when it is complete. You can unsubscribe
           from product emails with the link in any of them, and cancel a subscription from your
           account page.
         </p>

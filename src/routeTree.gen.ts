@@ -43,6 +43,7 @@ import { Route as SupportRouteImport } from './routes/support'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AccountPasswordRouteImport } from './routes/account_.password'
+import { Route as ApiAccountDeletionRequestRouteImport } from './routes/api.account-deletion-request'
 import { Route as ApiAppleSubscriptionRouteImport } from './routes/api.apple-subscription'
 import { Route as ApiAppleSubscriptionNotificationsRouteImport } from './routes/api.apple-subscription-notifications'
 import { Route as ApiCancelSubscriptionRouteImport } from './routes/api.cancel-subscription'
@@ -285,6 +286,12 @@ const AccountPasswordRoute = AccountPasswordRouteImport.update({
   path: '/account/password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAccountDeletionRequestRoute =
+  ApiAccountDeletionRequestRouteImport.update({
+    id: '/api/account-deletion-request',
+    path: '/api/account-deletion-request',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiAppleSubscriptionRoute = ApiAppleSubscriptionRouteImport.update({
   id: '/api/apple-subscription',
   path: '/api/apple-subscription',
@@ -671,6 +678,7 @@ export interface FileRoutesByFullPath {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
+  '/api/account-deletion-request': typeof ApiAccountDeletionRequestRoute
   '/api/apple-subscription': typeof ApiAppleSubscriptionRoute
   '/api/apple-subscription-notifications': typeof ApiAppleSubscriptionNotificationsRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
@@ -776,6 +784,7 @@ export interface FileRoutesByTo {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account/password': typeof AccountPasswordRoute
+  '/api/account-deletion-request': typeof ApiAccountDeletionRequestRoute
   '/api/apple-subscription': typeof ApiAppleSubscriptionRoute
   '/api/apple-subscription-notifications': typeof ApiAppleSubscriptionNotificationsRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
@@ -882,6 +891,7 @@ export interface FileRoutesById {
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/account_/password': typeof AccountPasswordRoute
+  '/api/account-deletion-request': typeof ApiAccountDeletionRequestRoute
   '/api/apple-subscription': typeof ApiAppleSubscriptionRoute
   '/api/apple-subscription-notifications': typeof ApiAppleSubscriptionNotificationsRoute
   '/api/cancel-subscription': typeof ApiCancelSubscriptionRoute
@@ -989,6 +999,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account/password'
+    | '/api/account-deletion-request'
     | '/api/apple-subscription'
     | '/api/apple-subscription-notifications'
     | '/api/cancel-subscription'
@@ -1094,6 +1105,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account/password'
+    | '/api/account-deletion-request'
     | '/api/apple-subscription'
     | '/api/apple-subscription-notifications'
     | '/api/cancel-subscription'
@@ -1199,6 +1211,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/terms'
     | '/account_/password'
+    | '/api/account-deletion-request'
     | '/api/apple-subscription'
     | '/api/apple-subscription-notifications'
     | '/api/cancel-subscription'
@@ -1305,6 +1318,7 @@ export interface RootRouteChildren {
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   AccountPasswordRoute: typeof AccountPasswordRoute
+  ApiAccountDeletionRequestRoute: typeof ApiAccountDeletionRequestRoute
   ApiAppleSubscriptionRoute: typeof ApiAppleSubscriptionRoute
   ApiAppleSubscriptionNotificationsRoute: typeof ApiAppleSubscriptionNotificationsRoute
   ApiCancelSubscriptionRoute: typeof ApiCancelSubscriptionRoute
@@ -1614,6 +1628,13 @@ declare module '@tanstack/react-router' {
       path: '/account/password'
       fullPath: '/account/password'
       preLoaderRoute: typeof AccountPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/account-deletion-request': {
+      id: '/api/account-deletion-request'
+      path: '/api/account-deletion-request'
+      fullPath: '/api/account-deletion-request'
+      preLoaderRoute: typeof ApiAccountDeletionRequestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/apple-subscription': {
@@ -2137,6 +2158,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   AccountPasswordRoute: AccountPasswordRoute,
+  ApiAccountDeletionRequestRoute: ApiAccountDeletionRequestRoute,
   ApiAppleSubscriptionRoute: ApiAppleSubscriptionRoute,
   ApiAppleSubscriptionNotificationsRoute:
     ApiAppleSubscriptionNotificationsRoute,

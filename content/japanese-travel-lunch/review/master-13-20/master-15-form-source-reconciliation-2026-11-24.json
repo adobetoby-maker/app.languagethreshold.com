@@ -1,0 +1,503 @@
+{
+  "schema": 1,
+  "kind": "inert-reference-only-form-reconciliation",
+  "stableId": "master-travel-lunch:15:ja-en",
+  "baselineMain": "e745283c07f8e750b979966919cd42d08cd76b8c",
+  "source": {
+    "curriculum": {
+      "path": "src/data/core60/es/master-travel-lunch.json",
+      "sha256": "bce5c0799e9d8d038450599ab839a7d48d6f69533968c94f1d3f2ae3808f4bfa"
+    },
+    "reader": {
+      "path": "public/lesson-content/es/master-travel-lunch.json",
+      "sha256": "602b0a9b0c29ae6942275ad44734c36267364af6ebe5685e48dabe5da7f94539"
+    },
+    "priorCandidate": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-candidate.json",
+      "sha256": "dc6be0f2ada84d82fdec184524e762912bae431b2011b0129542e0bf9f3f9b43"
+    },
+    "fiveFormProposal": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+      "sha256": "2c682aa76fdfc9492a30adb46a048a05201d3f22f67f6cf46eefc0ef5d24b934"
+    },
+    "sevenFormProposal": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+      "sha256": "fcc74ec108a59cfc2d07a575ff1103a23930b8779b9f0dcd1ae5f3e7c1b68cd4"
+    },
+    "modes": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-modes.json",
+      "sha256": "2c6c4d53a9384de16cd551bde38d6ab7e2c271ac1f6bab841199b228337a7c03"
+    },
+    "reviewIndex": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/index.json",
+      "sha256": "e9fd9c2149fbcbac83e8de3b50477e12c026f2e0e7c3ca2447bc35ded3ae9901"
+    },
+    "integrationEvidence": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/integration-evidence.json",
+      "sha256": "119dbcb8b36aa90d38f794aecb8f73458ee4732c0e7dca22e8a9c2291f9cb659"
+    },
+    "legacyCrosswalk": {
+      "path": "content/japanese-travel-lunch/review/master-13-20/legacy-position-crosswalk.json",
+      "sha256": "ec9af2258b8980f6d61462b2e0bed4291b1d74c47d83d8850c51425d38b45176"
+    },
+    "legacyDraft": {
+      "path": "content/japanese-travel-lunch/master-13-15-draft.json",
+      "sha256": "4a954fa7e31d285a4c932c109dffe59ad91bf8053c02f3a6ce12e6cb0f35f0c7"
+    }
+  },
+  "scope": "reference-only reconciliation of two existing form inventories; no new translated lesson or selected procedure",
+  "selectedJapanese": null,
+  "selectedFormVariant": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedLocale": false,
+    "qualifiedDomain": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "aiAssistance": {
+    "newCalls": 0,
+    "newSemanticAuthoring": false,
+    "qualifiedApproval": false,
+    "reason": "deterministic exact-source/reference/hash comparison only; existing authorship remains in prior packets"
+  },
+  "formGroups": [
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:1",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:17",
+      "sourceKind": "card",
+      "oneBasedPosition": 17,
+      "zeroBasedIndex": 16,
+      "sourceEnglish": "If it's safe, close the valve and put out the flame; don't touch any switch.",
+      "sourceSpanish": "Si es seguro, cierre la válvula y apague la llama; no toque ningún interruptor.",
+      "coverage": "shared-exact-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": true,
+      "variants": [
+        {
+          "proposal": "five",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+          "jsonPointer": "/lessons/0/forms/0",
+          "label": "Conditional safety instruction",
+          "englishSha256": "903651a25aea65ecde645ed0569ee0c76904b960f7ecd590682eef52c343682a",
+          "japaneseSha256": "fa01492db0e865320ee476373a4085a34e5a0db45e9ea879d0f307721ac03149",
+          "explanationSha256": "76a4a2bf076f5eb7aa1f057e1b853ac21730ffb9098d58fe48cfabc62bc4cb0b",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/0",
+          "label": "Safe conditional and sequential request",
+          "englishSha256": "903651a25aea65ecde645ed0569ee0c76904b960f7ecd590682eef52c343682a",
+          "japaneseSha256": "fa01492db0e865320ee476373a4085a34e5a0db45e9ea879d0f307721ac03149",
+          "explanationSha256": "f6fdfe34bc426556411f4c4d226ba8076c116b93924a95c7279ba5a060f464b0",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:2",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:19",
+      "sourceKind": "card",
+      "oneBasedPosition": 19,
+      "zeroBasedIndex": 18,
+      "sourceEnglish": "Don't smoke or use lighters!",
+      "sourceSpanish": "¡No fumen ni usen encendedores!",
+      "coverage": "shared-exact-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": true,
+      "variants": [
+        {
+          "proposal": "five",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+          "jsonPointer": "/lessons/0/forms/1",
+          "label": "Negative requests",
+          "englishSha256": "7d9de46259e31e70ba5a5c52c336f57f4f83088bb2e367d9a9f5d6211f882dba",
+          "japaneseSha256": "5d5a2d63aad0ed02476f68ce742489b8e014418b9ad007d7f98f53de7d96501c",
+          "explanationSha256": "615c00ab0860a7cd34ef2b840cbfedcd90c5ae8528456c51003989dcd31889dd",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/1",
+          "label": "Negative requests",
+          "englishSha256": "7d9de46259e31e70ba5a5c52c336f57f4f83088bb2e367d9a9f5d6211f882dba",
+          "japaneseSha256": "5d5a2d63aad0ed02476f68ce742489b8e014418b9ad007d7f98f53de7d96501c",
+          "explanationSha256": "a2ff0ae542faad8065fadc15f30b2451cddf62e34790a8b34399f71039875547",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:3",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:20",
+      "sourceKind": "card",
+      "oneBasedPosition": 20,
+      "zeroBasedIndex": 19,
+      "sourceEnglish": "If anyone lights anything, there will be danger.",
+      "sourceSpanish": "Si alguien enciende algo, habrá peligro.",
+      "coverage": "shared-exact-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": true,
+      "variants": [
+        {
+          "proposal": "five",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+          "jsonPointer": "/lessons/0/forms/2",
+          "label": "Conditional danger",
+          "englishSha256": "86baa9cf802a5ff7972d95dd1d01942acf5d7512359e610388daa6155ee6c220",
+          "japaneseSha256": "78c652fbd87b2521c5a8344ef4bd5fc13d0a57d0988481d159961ff5808c1ac7",
+          "explanationSha256": "05e56ef4703368585ec83c790f006be23fff68921dbc3e01404776f97ab48a79",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/2",
+          "label": "Conditional danger",
+          "englishSha256": "86baa9cf802a5ff7972d95dd1d01942acf5d7512359e610388daa6155ee6c220",
+          "japaneseSha256": "78c652fbd87b2521c5a8344ef4bd5fc13d0a57d0988481d159961ff5808c1ac7",
+          "explanationSha256": "85d37147638623dbd0e816666dc092af33b4b6ad772ee27397015f138a8f72d6",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:4",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:21",
+      "sourceKind": "card",
+      "oneBasedPosition": 21,
+      "zeroBasedIndex": 20,
+      "sourceEnglish": "There's a possible gas leak at a food truck park.",
+      "sourceSpanish": "Hay una posible fuga de gas en un parque de food trucks.",
+      "coverage": "shared-exact-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": true,
+      "variants": [
+        {
+          "proposal": "five",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+          "jsonPointer": "/lessons/0/forms/3",
+          "label": "Report a possible gas leak",
+          "englishSha256": "638e5524483761035dcb7a2959a4ecdf638851d0cb34138e365003955c5c97cd",
+          "japaneseSha256": "65e5b583566f8940f11bfa253448f0441af4e605fbba1730796e7832e5d2b3d0",
+          "explanationSha256": "2fe34bed01634d3c72f429268681284a83cf2cc43be9f132a9b9cdc2f57b5c93",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/3",
+          "label": "Possible gas leak report",
+          "englishSha256": "638e5524483761035dcb7a2959a4ecdf638851d0cb34138e365003955c5c97cd",
+          "japaneseSha256": "65e5b583566f8940f11bfa253448f0441af4e605fbba1730796e7832e5d2b3d0",
+          "explanationSha256": "6094eee8f538c95019430286be3eba78151f8fc579bd2c13226a5a7f6e9a57eb",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:5",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:23",
+      "sourceKind": "card",
+      "oneBasedPosition": 23,
+      "zeroBasedIndex": 22,
+      "sourceEnglish": "I'll wait for you at the main entrance in a red T-shirt.",
+      "sourceSpanish": "Los esperaré en la entrada principal con camiseta roja.",
+      "coverage": "shared-exact-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": true,
+      "variants": [
+        {
+          "proposal": "five",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+          "jsonPointer": "/lessons/0/forms/4",
+          "label": "Location and identification",
+          "englishSha256": "57896619c9d2d4d32ae441f84b5a831e90de535ad7091dc48ce499a645ad9c68",
+          "japaneseSha256": "00c532ae9d71253b7e091356f3e51c20fba6b5e97499acb1d7b941cd3f59a217",
+          "explanationSha256": "2daa76934ee697ce6c17e71cb4f085d95db093dde5a9cb397c65d2206497dfa8",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/5",
+          "label": "Identifying clothing and waiting",
+          "englishSha256": "57896619c9d2d4d32ae441f84b5a831e90de535ad7091dc48ce499a645ad9c68",
+          "japaneseSha256": "00c532ae9d71253b7e091356f3e51c20fba6b5e97499acb1d7b941cd3f59a217",
+          "explanationSha256": "248e0d34301698ee6c30dfe2cc9ca2d678c80453e0bdf267672889b17785c398",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:6",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:22",
+      "sourceKind": "card",
+      "oneBasedPosition": 22,
+      "zeroBasedIndex": 21,
+      "sourceEnglish": "We're in front of the main entrance, next to the parking lot.",
+      "sourceSpanish": "Estamos frente a la entrada principal, al lado del parqueo.",
+      "coverage": "seven-form-additional-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": false,
+      "variants": [
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/4",
+          "label": "Location report",
+          "englishSha256": "3ef4d801eb6232241ca9b7be1352c4a9668fd27581de650b64b4fab6575fd66c",
+          "japaneseSha256": "a879331a2da9458261d7bc5653d9994c42c8ee6acf40d1f8c095f7a12621abe8",
+          "explanationSha256": "13663cf411ec48c73db3ddff43ddc74c8c6ce2420e905968a7a3dbdbc1182934",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:form-reconciliation:7",
+      "sourceRef": "master-travel-lunch:15:ja-en:reader:18",
+      "sourceKind": "reader",
+      "oneBasedPosition": 18,
+      "zeroBasedIndex": 17,
+      "sourceEnglish": "Ten minutes later, the firefighters arrive, check the hose and confirm the leak.",
+      "sourceSpanish": "Diez minutos después, llegan los bomberos, revisan la manguera y confirman la fuga.",
+      "coverage": "seven-form-additional-face",
+      "japaneseAndEnglishFaceIdenticalAcrossVariants": false,
+      "variants": [
+        {
+          "proposal": "seven",
+          "path": "content/japanese-travel-lunch/review/master-13-20/master-15-alternate-enrichment.json",
+          "jsonPointer": "/forms/6",
+          "label": "Arrival, inspection and confirmation",
+          "englishSha256": "3b1a1a687f9bc0fe3bb358a52597e16ed7e3829645bcfc02904fbe802750875d",
+          "japaneseSha256": "1bc48abf9576d0c188e292f67868436ff1e823f718759ab9ca728e94a5d089e6",
+          "explanationSha256": "e0c8280ea0a904838780c278f72c3686c142006428abb3f028c5b6b7fb339ffc",
+          "selectedJapanese": null,
+          "selectedVariant": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "selectedJapanese": null,
+      "selectedVariant": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "emergencyNumberSourceEvidence": {
+    "sourceLocation": {
+      "readerOneBasedPosition": 1,
+      "english": "It's Saturday at noon and Alex is having lunch with some friends at a food truck park in San José.",
+      "spanish": "Es sábado al mediodía y Alex almuerza con unos amigos en un parque de food trucks en San José."
+    },
+    "sourceCard": {
+      "sourceRef": "master-travel-lunch:15:ja-en:card:10",
+      "oneBasedPosition": 10,
+      "zeroBasedIndex": 9,
+      "english": "911",
+      "spanish": "el 911",
+      "sourceNote": "The emergency number in Costa Rica is also 911.",
+      "priorJapanese": "911番"
+    },
+    "sourceReader": {
+      "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+      "oneBasedPosition": 12,
+      "zeroBasedIndex": 11,
+      "english": "When everyone is far from the food truck, Alex dials 911 on his cell phone.",
+      "spanish": "Cuando todos están lejos del food truck, Alex marca el 911 desde su celular.",
+      "priorJapanese": "全員が屋台から遠く離れたところで、アレックスは携帯電話で911番に電話します。"
+    },
+    "legacy119CrosswalkEvidence": {
+      "cards": [
+        {
+          "legacyPosition": 23,
+          "legacyEnglish": "I will call 119 for the fire department.",
+          "legacyJapanese": "消防に119番で電話します。",
+          "candidatePositions": [],
+          "matchState": "unmatched"
+        }
+      ],
+      "reader": [
+        {
+          "legacyPosition": 11,
+          "legacyEnglish": "Once everyone is away from the truck, Alex calls 119.",
+          "legacyJapanese": "全員が屋台から離れたところで、アレックスは119番に電話します。",
+          "candidatePositions": [],
+          "matchState": "unmatched"
+        }
+      ]
+    },
+    "mappingDecision": "legacy119 rows remain unmatched; source911 positions are not replacements by index; no saved item or exact-text audio reuse selected",
+    "selectedJapanese": null,
+    "audioScript": null,
+    "reviewed": false
+  },
+  "downstreamAudit": {
+    "modes": [
+      {
+        "id": "master-travel-lunch:15:ja-en:see:private-1",
+        "mode": "see",
+        "sourceRef": "master-travel-lunch:15:ja-en:card:16",
+        "readyForLearner": false
+      },
+      {
+        "id": "master-travel-lunch:15:ja-en:recall:private-1",
+        "mode": "recall",
+        "sourceRef": "master-travel-lunch:15:ja-en:card:18",
+        "readyForLearner": false
+      },
+      {
+        "id": "master-travel-lunch:15:ja-en:hear:private-1",
+        "mode": "hear",
+        "sourceRef": "master-travel-lunch:15:ja-en:card:2",
+        "readyForLearner": false
+      },
+      {
+        "id": "master-travel-lunch:15:ja-en:type:private-1",
+        "mode": "type",
+        "sourceRef": "master-travel-lunch:15:ja-en:card:21",
+        "readyForLearner": false
+      },
+      {
+        "id": "master-travel-lunch:15:ja-en:say:private-1",
+        "mode": "say",
+        "sourceRef": "master-travel-lunch:15:ja-en:card:22",
+        "readyForLearner": false
+      },
+      {
+        "id": "master-travel-lunch:15:ja-en:write:private-1",
+        "mode": "write",
+        "sourceRef": "master-travel-lunch:15:ja-en:card:23",
+        "readyForLearner": false
+      }
+    ],
+    "fiveFormSourceRefs": [
+      "master-travel-lunch:15:ja-en:card:17",
+      "master-travel-lunch:15:ja-en:card:19",
+      "master-travel-lunch:15:ja-en:card:20",
+      "master-travel-lunch:15:ja-en:card:21",
+      "master-travel-lunch:15:ja-en:card:23"
+    ],
+    "sevenFormSourceRefs": [
+      "master-travel-lunch:15:ja-en:card:17",
+      "master-travel-lunch:15:ja-en:card:19",
+      "master-travel-lunch:15:ja-en:card:20",
+      "master-travel-lunch:15:ja-en:card:21",
+      "master-travel-lunch:15:ja-en:card:22",
+      "master-travel-lunch:15:ja-en:card:23",
+      "master-travel-lunch:15:ja-en:reader:18"
+    ],
+    "sharedFormRefs": [
+      "master-travel-lunch:15:ja-en:card:17",
+      "master-travel-lunch:15:ja-en:card:19",
+      "master-travel-lunch:15:ja-en:card:20",
+      "master-travel-lunch:15:ja-en:card:21",
+      "master-travel-lunch:15:ja-en:card:23"
+    ],
+    "sevenFormOnlyRefs": [
+      "master-travel-lunch:15:ja-en:card:22",
+      "master-travel-lunch:15:ja-en:reader:18"
+    ],
+    "directEmergencyNumberModeRefs": [],
+    "fiveFormEmergencySpeakingObjectiveZeroBased": 2,
+    "fiveFormEmergencySpeakingObjective": "After everyone is away from the truck, dial 911 in the San José, Costa Rica source scene; report a possible gas leak at the food-truck park.",
+    "sevenFormEmergencySpeakingObjectiveZeroBased": 4,
+    "sevenFormEmergencySpeakingObjective": "In the San José scene, call 911 and report a possible gas leak at the food-truck park (card 21; Reader 12–13).",
+    "wordBankEmergencyNumber": {
+      "fiveProposalContains911": true,
+      "sevenProposalContains911": true
+    },
+    "dictionarySourceMappings": [
+      {
+        "sourceRef": "master-travel-lunch:15:ja-en:card:2",
+        "sourceEnglish": "the gas leak",
+        "preservedJapanese": "ガス漏れ"
+      },
+      {
+        "sourceRef": "master-travel-lunch:15:ja-en:card:10",
+        "sourceEnglish": "911",
+        "preservedJapanese": "911番"
+      }
+    ],
+    "dictionaryStatus": "source noun references only; no new runtime dictionary entry or synonym/allergen/clinical mapping selected",
+    "atomicDecisionRequired": "Select/reconcile form inventory and explanations with exact card/Reader faces, modes, speaking, dictionary, word bank and new exact-text audio/saved-item identities together. Existing stable lesson ID is not proof of row/progress equivalence."
+  },
+  "qualifiedDecisions": [
+    "Keep every source instruction conditional and domain-held; this matrix does not approve valve, flame, switch, evacuation or waiting actions.",
+    "Which existing grammar explanation variant should be retained, revised or combined after Japanese/source review? No variant selected here.",
+    "Card22 location and Reader18 arrival narrative are additional source coverage in the seven-form proposal, not a demonstrated contradiction in the five-form proposal.",
+    "Review the existing possible-leak location grammar and polite/humble register explanations; exact face identity is not a grammar or domain approval.",
+    "Retain Costa Rica source911 as source evidence, not a new universal emergency-number instruction. Do not reuse older119 text/audio or saved scores.",
+    "Reader18 ten-minute arrival is a scene narrative, not a response-time promise."
+  ],
+  "internalReviewNotes": [
+    "No new Japanese translation, clinical interpretation, emergency procedure or source correction is authored.",
+    "Five shared source faces have identical Japanese and English text. Their labels/explanations differ and remain separately referenced.",
+    "No existing candidate, derived packet, alternate proposal, six-mode file, review index or legacy crosswalk is modified.",
+    "No complete lesson/objective, audio, runtime, owner route, offline or progress readiness is claimed."
+  ]
+}

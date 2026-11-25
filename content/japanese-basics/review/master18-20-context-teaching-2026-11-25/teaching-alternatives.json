@@ -1,0 +1,1113 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-teaching-context-alternatives",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "56dc0cd4f630cce74e8705e5d3e35f3dd39c5477",
+  "mainSource": {
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    }
+  },
+  "privateSource": {
+    "forms": {
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "support": {
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "path": "content/japanese-basics/private-master-11-20-speaking-missions-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "27591479d2d61c2879ed3e44af957cb006c151dfae49e7adbf633b0b53156891"
+    },
+    "builder": {
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "preview": {
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    },
+    "modes": {
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    }
+  },
+  "scope": "three source-only role/context/six-mode teaching alternatives, not source replacement or course release",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "lessons": [
+    {
+      "stableLessonKey": "master-japanese-basics:18",
+      "lessonNumber": 18,
+      "preservedPriorPartnerRole": "Tell a classmate about yesterday’s Kyoto outing",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:18",
+        "role": "Tell a classmate about yesterday’s Kyoto outing",
+        "opening": "きのう ともだちと きょうとへ いきました。",
+        "objectives": [
+          "Sequence the early station trip, train ride, lunch, and bookshop visit",
+          "Use polite past forms to describe completed actions",
+          "Answer where the new book was bought"
+        ],
+        "complication": "The listener asks whether the book was bought at the station or the bookshop.",
+        "closure": "Confirm that the book was bought at the bookshop."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 1,
+          "prompt": "Read the outing opener. Identify the companion, Kyoto destination, and completed action."
+        },
+        "recall": {
+          "turn": 5,
+          "prompt": "Recall the next event in the outing, going to a bookshop afterward, using そのあと."
+        },
+        "hear": {
+          "turn": 7,
+          "prompt": "Listen to the assessment of the trip and choose the meaning that it was very fun."
+        },
+        "type": {
+          "turn": 2,
+          "prompt": "Type the sentence for going to the station early in the morning, using polite past."
+        },
+        "say": {
+          "turn": 8,
+          "prompt": "Say the follow-up question asking where the book was bought, including どこで."
+        },
+        "write": {
+          "turn": 6,
+          "prompt": "Write the full sentence about buying a new book, including を and かいました."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "As the Listener, read the Storyteller's outing opener. Identify the companion, Kyoto destination, and completed action.",
+          "meaningfulActorCue": "Storyteller opens by naming the outing; the Listener reads it.",
+          "targetSpeakerRoleEnglish": "Storyteller",
+          "learnerPracticeRoleEnglish": "Listener",
+          "targetJapanese": "きのう ともだちと きょうとへ いきました。",
+          "targetEnglish": "Yesterday I went to Kyoto with a friend.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:18:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Read the outing opener. Identify the companion, Kyoto destination, and completed action."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "As the Storyteller, recall the next event in the outing, going to a bookshop afterward, using そのあと.",
+          "meaningfulActorCue": "Storyteller gives the next stop in the outing.",
+          "targetSpeakerRoleEnglish": "Storyteller",
+          "learnerPracticeRoleEnglish": "Storyteller",
+          "targetJapanese": "そのあと ほんやに いきました。",
+          "targetEnglish": "After that we went to a bookshop.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:18:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Recall the next event in the outing, going to a bookshop afterward, using そのあと."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "As the Listener, listen to the Storyteller's assessment of the trip and choose the line you heard; it means the trip was very fun.",
+          "meaningfulActorCue": "Storyteller gives an opinion about the trip; the Listener identifies it.",
+          "targetSpeakerRoleEnglish": "Storyteller",
+          "learnerPracticeRoleEnglish": "Listener",
+          "targetJapanese": "りょこうは とても たのしかったです。",
+          "targetEnglish": "The trip was very fun.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "hearOptionsJapanese": [
+            "りょこうは とても たのしかったです。",
+            "あさ はやく えきに いきました。",
+            "ひるごはんを たべました。"
+          ],
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:18:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "りょこうは とても たのしかったです。",
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Listen to the assessment of the trip and choose the meaning that it was very fun."
+          },
+          "hearOptionsEnglish": [
+            "The trip was very fun.",
+            "We went to the station early in the morning.",
+            "We ate lunch."
+          ]
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "As the Storyteller, type the sentence for going to the station early in the morning, using polite past.",
+          "meaningfulActorCue": "Storyteller describes the early start.",
+          "targetSpeakerRoleEnglish": "Storyteller",
+          "learnerPracticeRoleEnglish": "Storyteller",
+          "targetJapanese": "あさ はやく えきに いきました。",
+          "targetEnglish": "We went to the station early in the morning.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:18:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 2,
+            "prompt": "Type the sentence for going to the station early in the morning, using polite past."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "As the Listener, say the follow-up question asking the Storyteller where the book was bought, including どこで.",
+          "meaningfulActorCue": "Listener asks the Storyteller where the book was bought.",
+          "targetSpeakerRoleEnglish": "Listener",
+          "learnerPracticeRoleEnglish": "Listener",
+          "targetJapanese": "ほんは どこで かいましたか。",
+          "targetEnglish": "Where did you buy the book?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:18:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Say the follow-up question asking where the book was bought, including どこで."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "As the Storyteller, write the full sentence about buying a new book, including を and かいました.",
+          "meaningfulActorCue": "Storyteller reports the purchase.",
+          "targetSpeakerRoleEnglish": "Storyteller",
+          "learnerPracticeRoleEnglish": "Storyteller",
+          "targetJapanese": "あたらしい ほんを かいました。",
+          "targetEnglish": "I bought a new book.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:18:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Write the full sentence about buying a new book, including を and かいました."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-baf653a573a63543",
+          "exampleJapanese": "きのう ともだちと きょうとへ いきました。",
+          "explanationJapanese": "「いきました」は丁寧な過去形で、終わった動作を表します。「きのう」は時を、「ともだちと」は一緒に行った相手を示します。",
+          "explanationEnglish": "The polite past いきました marks a completed action. きのう gives the time, and ともだちと names the companion.",
+          "id": "master-japanese-basics:18:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-baf653a573a63543",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "completed-outing",
+            "japaneseAnswer": "きのう ともだちと きょうとへ いきました。",
+            "englishPrompt": "Yesterday I went to Kyoto with a friend.",
+            "knownJapaneseVariants": [
+              "きのう ともだちと きょうとへ いきました。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-f6b4ef312de9e639",
+          "exampleJapanese": "りょこうは とても たのしかったです。",
+          "explanationJapanese": "「たのしい」の過去は「たのしかった」になり、「です」を付けて丁寧に述べています。",
+          "explanationEnglish": "The i-adjective たのしい becomes たのしかった in the past, and です makes the statement polite.",
+          "id": "master-japanese-basics:18:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-f6b4ef312de9e639",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "i-adjective-past",
+            "japaneseAnswer": "りょこうは とても たのしかったです。",
+            "englishPrompt": "The trip was very fun.",
+            "knownJapaneseVariants": [
+              "りょこうは とても たのしかったです。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-81c713c6828b0697",
+          "exampleJapanese": "ほんは どこで かいましたか。",
+          "explanationJapanese": "「どこで」は動作が行われた場所を尋ねます。「かいましたか」は丁寧な過去の疑問形です。",
+          "explanationEnglish": "どこで asks where the action took place. かいましたか is the polite past question form.",
+          "id": "master-japanese-basics:18:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-81c713c6828b0697",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 8,
+            "focus": "partner-detail-check",
+            "japaneseAnswer": "ほんは どこで かいましたか。",
+            "englishPrompt": "Where did you buy the book?",
+            "knownJapaneseVariants": [
+              "ほんは どこで かいましたか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Storyteller who tells the Kyoto outing and answers the Listener's question",
+        "partnerRoleEnglish": "Listener (classmate) who asks where the book was bought",
+        "openingJapanese": "きのう ともだちと きょうとへ いきました。",
+        "openingEnglish": "Yesterday I went to Kyoto with a friend.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Storyteller (learner)",
+        "objectivesEnglish": [
+          "Sequence the early station trip, train ride, lunch, and bookshop visit",
+          "Use polite past forms to describe completed actions",
+          "Answer where the new book was bought"
+        ],
+        "closureJapanese": "ほんやで かいました。",
+        "closureEnglish": "I bought it at the bookshop.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 9,
+        "closureSpeaker": "Storyteller (learner)",
+        "contextFramesEnglish": [
+          "Tell a classmate about yesterday’s Kyoto outing",
+          "The listener asks whether the book was bought at the station or the bookshop."
+        ],
+        "wordBankJapanese": [
+          "きのう",
+          "きょうと",
+          "はやく",
+          "でんしゃ",
+          "まち",
+          "ひるごはん",
+          "ほんや",
+          "たのしかったです"
+        ],
+        "id": "master-japanese-basics:18:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:18",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "The source complication has the listener ask 'station or bookshop', but source turn 8 is the open question ほんは どこで かいましたか。 Should the partner use the turn-8 wording only?",
+        "The Say activity has the learner practise the Listener's turn-8 question, while the speaking mission has the learner as Storyteller answering it with turn 9. Is this per-activity role change intended?",
+        "The fourth source form (turn 9, past-location-answer) is not among the three kept forms, although turn 9 is the closure. Should it replace one of the three?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Listener (classmate) who asks where the book was bought",
+        "closureLineJapanese": "ほんやで かいました。",
+        "closureLineEnglish": "I bought it at the bookshop.",
+        "closureSpeaker": "Storyteller (learner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:19",
+      "lessonNumber": 19,
+      "preservedPriorPartnerRole": "Compare old and current travel habits with a friend",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:19",
+        "role": "Compare old and current travel habits with a friend",
+        "opening": "むかし、まいにち がっこうまで あるきました。",
+        "objectives": [
+          "Describe the former repeated walk with a friend",
+          "Separate yesterday’s rainy train trip from that old habit",
+          "Explain that walking still happens now, while rainy days call for the train"
+        ],
+        "complication": "The listener assumes the one rainy train trip replaced walking entirely.",
+        "closure": "Restate the present walk-versus-rainy-day train pattern."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 1,
+          "prompt": "Read the old routine. Identify むかし and まいにち as clues that the past walking happened repeatedly."
+        },
+        "recall": {
+          "turn": 3,
+          "prompt": "Recall the contrasting single event of going by train yesterday, using でも and きのう."
+        },
+        "hear": {
+          "turn": 4,
+          "prompt": "Listen to the reason and choose the meaning that it was raining."
+        },
+        "type": {
+          "turn": 5,
+          "prompt": "Type the sentence for waiting for a friend at the station, using えきで."
+        },
+        "say": {
+          "turn": 7,
+          "prompt": "Say the present habit of still often walking now, using いまも and よく."
+        },
+        "write": {
+          "turn": 8,
+          "prompt": "Write the full sentence for using the train on rainy days, including あめのひは."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "As the Friend, read the Traveler's old routine. Identify むかし and まいにち as clues that the past walking happened repeatedly.",
+          "meaningfulActorCue": "Traveler describes the old routine; the Friend reads it.",
+          "targetSpeakerRoleEnglish": "Traveler",
+          "learnerPracticeRoleEnglish": "Friend",
+          "targetJapanese": "むかし、まいにち がっこうまで あるきました。",
+          "targetEnglish": "In the past, I walked to school every day.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:19:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Read the old routine. Identify むかし and まいにち as clues that the past walking happened repeatedly."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "As the Traveler, recall the contrasting single event of going by train yesterday, using でも and きのう.",
+          "meaningfulActorCue": "Traveler contrasts yesterday with the old routine.",
+          "targetSpeakerRoleEnglish": "Traveler",
+          "learnerPracticeRoleEnglish": "Traveler",
+          "targetJapanese": "でも、きのうは でんしゃで いきました。",
+          "targetEnglish": "But yesterday I went by train.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:19:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Recall the contrasting single event of going by train yesterday, using でも and きのう."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "As the Friend, listen to the Traveler's reason and choose the line you heard; it means it was raining.",
+          "meaningfulActorCue": "Traveler gives the reason for taking the train; the Friend identifies it.",
+          "targetSpeakerRoleEnglish": "Traveler",
+          "learnerPracticeRoleEnglish": "Friend",
+          "targetJapanese": "あめが ふっていましたから。",
+          "targetEnglish": "Because it was raining.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "hearOptionsJapanese": [
+            "あめが ふっていましたから。",
+            "えきで ともだちを まちました。",
+            "いまも よく あるきます。"
+          ],
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:19:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "あめが ふっていましたから。",
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Listen to the reason and choose the meaning that it was raining."
+          },
+          "hearOptionsEnglish": [
+            "Because it was raining.",
+            "I waited for my friend at the station.",
+            "I still often walk now."
+          ],
+          "contextBeforeTarget": {
+            "japanese": "でも、きのうは でんしゃで いきました。",
+            "english": "But yesterday I went by train.",
+            "sourceKind": "dialogue",
+            "sourceTurnOneBased": 3
+          }
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "As the Traveler, type the sentence for waiting for a friend at the station, using えきで.",
+          "meaningfulActorCue": "Traveler describes waiting at the station.",
+          "targetSpeakerRoleEnglish": "Traveler",
+          "learnerPracticeRoleEnglish": "Traveler",
+          "targetJapanese": "えきで ともだちを まちました。",
+          "targetEnglish": "I waited for my friend at the station.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:19:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Type the sentence for waiting for a friend at the station, using えきで."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "As the Traveler, say the present habit of still often walking now, using いまも and よく.",
+          "meaningfulActorCue": "Traveler states the current habit.",
+          "targetSpeakerRoleEnglish": "Traveler",
+          "learnerPracticeRoleEnglish": "Traveler",
+          "targetJapanese": "いまも よく あるきます。",
+          "targetEnglish": "I still often walk now.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:19:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Say the present habit of still often walking now, using いまも and よく."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "As the Traveler, write the full sentence for using the train on rainy days, including あめの ひは.",
+          "meaningfulActorCue": "Traveler explains the rainy-day pattern.",
+          "targetSpeakerRoleEnglish": "Traveler",
+          "learnerPracticeRoleEnglish": "Traveler",
+          "targetJapanese": "あめの ひは でんしゃを つかいます。",
+          "targetEnglish": "On rainy days I use the train.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:19:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Write the full sentence for using the train on rainy days, including あめのひは."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-571817b593bb2dae",
+          "exampleJapanese": "むかし、まいにち がっこうまで あるきました。",
+          "explanationJapanese": "「むかし」と「まいにち」は、過去に繰り返し行われていたことを示す時の語です。動詞は丁寧な過去「あるきました」を使います。",
+          "explanationEnglish": "むかし and まいにち are time clues that the walking happened repeatedly in the past. The verb uses the polite past あるきました.",
+          "id": "master-japanese-basics:19:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-571817b593bb2dae",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 1,
+            "focus": "habit-past-mainichi",
+            "japaneseAnswer": "むかし、まいにち がっこうまで あるきました。",
+            "englishPrompt": "In the past, I walked to school every day.",
+            "knownJapaneseVariants": [
+              "むかし、まいにち がっこうまで あるきました。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-eb5f9450af4cd047",
+          "exampleJapanese": "でも、きのうは でんしゃで いきました。",
+          "explanationJapanese": "「でも」は前の話と対比します。「きのう」は一回の出来事を示し、「いきました」で過去の一回の行動を表します。",
+          "explanationEnglish": "でも contrasts with the previous statement. きのう marks a single past event, and いきました reports that one completed trip.",
+          "id": "master-japanese-basics:19:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-eb5f9450af4cd047",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 3,
+            "focus": "single-event-kinou",
+            "japaneseAnswer": "でも、きのうは でんしゃで いきました。",
+            "englishPrompt": "But yesterday I went by train.",
+            "knownJapaneseVariants": [
+              "でも、きのうは でんしゃで いきました。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-90139accb4878418",
+          "exampleJapanese": "いまも よく あるきます。",
+          "explanationJapanese": "「あるきます」は過去形ではなく、今の習慣を表します。「いまも」は今も続いていること、「よく」は回数が多いことを示します。",
+          "explanationEnglish": "あるきます is not past; it states a present habit. いまも shows the habit continues now, and よく shows it happens often.",
+          "id": "master-japanese-basics:19:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-90139accb4878418",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "present-habit-yoku",
+            "japaneseAnswer": "いまも よく あるきます。",
+            "englishPrompt": "I still often walk now.",
+            "knownJapaneseVariants": [
+              "いまも よく あるきます。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Traveler comparing old and current travel habits",
+        "partnerRoleEnglish": "Friend who assumes the one rainy train trip replaced walking entirely",
+        "openingJapanese": "むかし、まいにち がっこうまで あるきました。",
+        "openingEnglish": "In the past, I walked to school every day.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Traveler (learner)",
+        "objectivesEnglish": [
+          "Describe the former repeated walk with a friend",
+          "Separate yesterday’s rainy train trip from that old habit",
+          "Explain that walking still happens now, while rainy days call for the train"
+        ],
+        "closureJapanese": "あめの ひは でんしゃを つかいます。",
+        "closureEnglish": "On rainy days I use the train.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 8,
+        "closureSpeaker": "Traveler (learner)",
+        "contextFramesEnglish": [
+          "Compare old and current travel habits with a friend",
+          "The listener assumes the one rainy train trip replaced walking entirely."
+        ],
+        "wordBankJapanese": [
+          "むかし",
+          "まいにち",
+          "いつも",
+          "きのう",
+          "あめ",
+          "ふっていました",
+          "いまも",
+          "つかいます",
+          "あめの ひ"
+        ],
+        "id": "master-japanese-basics:19:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:19",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false,
+        "preClosingLearnerLine": {
+          "japanese": "いまも よく あるきます。",
+          "english": "I still often walk now.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "speaker": "Traveler (learner)"
+        }
+      },
+      "internalQuestions": [
+        "The source dialogue is a monologue by the Traveler; the Friend has no source lines. Should the partner's misconception be voiced only through the context frame?",
+        "The fourth source form (turn 4, past-progressive-reason) is not among the three kept forms. Is dropping it in favour of the present-habit form (turn 7) acceptable?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Friend who assumes the one rainy train trip replaced walking entirely",
+        "closureLineJapanese": "あめの ひは でんしゃを つかいます。",
+        "closureLineEnglish": "On rainy days I use the train.",
+        "closureSpeaker": "Traveler (learner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    },
+    {
+      "stableLessonKey": "master-japanese-basics:20",
+      "lessonNumber": 20,
+      "preservedPriorPartnerRole": "Complete a multi-turn after-class conversation with Aki",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:20",
+        "role": "Complete a multi-turn after-class conversation with Aki",
+        "opening": "あきさん、こんにちは。",
+        "objectives": [
+          "Greet Aki and ask for an unclear word to be said slowly",
+          "Confirm the meaning in context and plan tomorrow’s meeting",
+          "Recall yesterday’s meeting at the same station and close politely"
+        ],
+        "complication": "The kana いってください could mean say or go; the request concerns pronouncing a word.",
+        "closure": "Confirm the one o’clock station meeting and say また あした。"
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 4,
+          "prompt": "Read the repair request. Identify いってください as 'please say' from the word-clarification context."
+        },
+        "recall": {
+          "turn": 7,
+          "prompt": "Recall the suggestion to meet at the station at one in the afternoon."
+        },
+        "hear": {
+          "turn": 5,
+          "prompt": "Listen to the explanation of しりょう and select the meaning that asks whether Aki understands."
+        },
+        "type": {
+          "turn": 6,
+          "prompt": "Type both parts of the reply: thanks and the question asking where to meet tomorrow."
+        },
+        "say": {
+          "turn": 8,
+          "prompt": "Say the confirmation that the two met there yesterday too, keeping ね."
+        },
+        "write": {
+          "turn": 9,
+          "prompt": "Write the polite closing 'See you tomorrow, then,' including では."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "promptEnglish": "As the Greeter, read Aki's repair request. Identify いってください as 'please say' from the word-clarification context.",
+          "meaningfulActorCue": "Aki asks the Greeter to say a word slowly; the Greeter reads the request.",
+          "targetSpeakerRoleEnglish": "Aki",
+          "learnerPracticeRoleEnglish": "Greeter",
+          "targetJapanese": "この ことばを ゆっくり いってください。",
+          "targetEnglish": "Please say this word slowly.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:20:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Read the repair request. Identify いってください as 'please say' from the word-clarification context."
+          }
+        },
+        {
+          "mode": "recall",
+          "promptEnglish": "As the Greeter, recall the suggestion to meet at the station at one in the afternoon.",
+          "meaningfulActorCue": "Greeter answers Aki's question by proposing the meeting time and place.",
+          "targetSpeakerRoleEnglish": "Greeter",
+          "learnerPracticeRoleEnglish": "Greeter",
+          "targetJapanese": "ごご いちじに えきで あいましょう。",
+          "targetEnglish": "Let us meet at the station at one p.m.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:20:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Recall the suggestion to meet at the station at one in the afternoon."
+          }
+        },
+        {
+          "mode": "hear",
+          "promptEnglish": "As Aki, identify the Greeter's line saying しりょう and checking understanding. The parenthetical English definition is support, not a separately spoken Japanese definition.",
+          "meaningfulActorCue": "Greeter says the word and checks understanding; Aki identifies the line.",
+          "targetSpeakerRoleEnglish": "Greeter",
+          "learnerPracticeRoleEnglish": "Aki",
+          "targetJapanese": "はい、「しりょう」です。わかりますか。",
+          "targetEnglish": "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "hearOptionsJapanese": [
+            "はい、「しりょう」です。わかりますか。",
+            "この ことばを ゆっくり いってください。",
+            "ごご いちじに えきで あいましょう。"
+          ],
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:20:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "はい、「しりょう」です。わかりますか。",
+          "preservedPriorCue": {
+            "turn": 5,
+            "prompt": "Listen to the explanation of しりょう and select the meaning that asks whether Aki understands."
+          },
+          "hearOptionsEnglish": [
+            "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+            "Please say this word slowly.",
+            "Let us meet at the station at one p.m."
+          ]
+        },
+        {
+          "mode": "type",
+          "promptEnglish": "As Aki, type both parts of the reply to the Greeter: thanks and the question asking where to meet tomorrow.",
+          "meaningfulActorCue": "Aki thanks the Greeter and asks about the meeting place.",
+          "targetSpeakerRoleEnglish": "Aki",
+          "learnerPracticeRoleEnglish": "Aki",
+          "targetJapanese": "はい、ありがとうございます。あした どこで あいますか。",
+          "targetEnglish": "Yes, thank you. Where shall we meet tomorrow?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:20:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 6,
+            "prompt": "Type both parts of the reply: thanks and the question asking where to meet tomorrow."
+          }
+        },
+        {
+          "mode": "say",
+          "promptEnglish": "As Aki, say the confirmation that the two met there yesterday too, keeping ね.",
+          "meaningfulActorCue": "Aki accepts the Greeter's plan and recalls the earlier meeting.",
+          "targetSpeakerRoleEnglish": "Aki",
+          "learnerPracticeRoleEnglish": "Aki",
+          "targetJapanese": "わかりました。きのうも そこで あいましたね。",
+          "targetEnglish": "Okay. We met there yesterday too, didn't we?",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:20:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Say the confirmation that the two met there yesterday too, keeping ね."
+          }
+        },
+        {
+          "mode": "write",
+          "promptEnglish": "As the Greeter, write the polite closing 'See you tomorrow, then,' including では.",
+          "meaningfulActorCue": "Greeter closes the conversation politely.",
+          "targetSpeakerRoleEnglish": "Greeter",
+          "learnerPracticeRoleEnglish": "Greeter",
+          "targetJapanese": "では、また あした。",
+          "targetEnglish": "See you tomorrow, then.",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 9,
+          "hearOptionsJapanese": null,
+          "selected": false,
+          "audio": null,
+          "acceptedVariants": [],
+          "id": "master-japanese-basics:20:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 9,
+            "prompt": "Write the polite closing 'See you tomorrow, then,' including では."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "sourcePromptId": "form-ja-en-d52afd93c01ec833",
+          "exampleJapanese": "この ことばを ゆっくり いってください。",
+          "explanationJapanese": "ここの「いってください」は「言う」の「言ってください」です。第15課では同じ仮名が「行ってください」（行く）の意味です。文脈で動詞がわかります。",
+          "explanationEnglish": "Here いってください is 言ってください (please say). In Master 15 the same kana means 行ってください (please go). Context identifies the verb.",
+          "id": "master-japanese-basics:20:context-form:1",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-d52afd93c01ec833",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "say-not-go-itte-kudasai",
+            "japaneseAnswer": "この ことばを ゆっくり いってください。",
+            "englishPrompt": "Please say this word slowly.",
+            "knownJapaneseVariants": [
+              "この ことばを ゆっくり いってください。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-d84e12626c52f9ea",
+          "exampleJapanese": "ごご いちじに えきで あいましょう。",
+          "explanationJapanese": "「あいましょう」は一緒にしようという提案を表します。「ごご いちじに」は時間を、「えきで」は会う場所を示します。",
+          "explanationEnglish": "あいましょう makes a suggestion to do something together. ごご いちじに gives the time, and えきで marks the meeting place.",
+          "id": "master-japanese-basics:20:context-form:2",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-d84e12626c52f9ea",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 7,
+            "focus": "meeting-suggestion",
+            "japaneseAnswer": "ごご いちじに えきで あいましょう。",
+            "englishPrompt": "Let us meet at the station at one p.m.",
+            "knownJapaneseVariants": [
+              "ごご いちじに えきで あいましょう。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        },
+        {
+          "sourcePromptId": "form-ja-en-5e58dbb69aabcb80",
+          "exampleJapanese": "わかりました。きのうも そこで あいましたね。",
+          "explanationJapanese": "「あいました」は丁寧な過去形で、きのうの出来事を表します。「きのうも」の「も」は「きのうも同じ」という意味を加えます。「そこ」は前に出た「えき」を指し、「ね」は相手に確認します。",
+          "explanationEnglish": "あいました is the polite past and reports yesterday's meeting. も in きのうも adds 'yesterday too'. そこ points back to the station just mentioned, and ね seeks the other person's confirmation.",
+          "id": "master-japanese-basics:20:context-form:3",
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-5e58dbb69aabcb80",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 8,
+            "focus": "previous-meeting-past",
+            "japaneseAnswer": "わかりました。きのうも そこで あいましたね。",
+            "englishPrompt": "Okay. We met there yesterday too, didn't we?",
+            "knownJapaneseVariants": [
+              "わかりました。きのうも そこで あいましたね。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Greeter who greets Aki, answers the word request, proposes the meeting, and closes",
+        "partnerRoleEnglish": "Aki, who has a question, asks for a word to be said slowly, asks where to meet tomorrow, and recalls yesterday's meeting",
+        "openingJapanese": "あきさん、こんにちは。",
+        "openingEnglish": "Hello, Aki.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Greeter (learner)",
+        "objectivesEnglish": [
+          "Greet Aki and respond when Aki asks for an unclear word to be said slowly",
+          "Say the word, check that Aki understands, and answer where to meet tomorrow",
+          "Respond to Aki's recall of yesterday’s meeting at the same station and close politely"
+        ],
+        "closureJapanese": "では、また あした。",
+        "closureEnglish": "See you tomorrow, then.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 9,
+        "closureSpeaker": "Greeter (learner)",
+        "contextFramesEnglish": [
+          "Complete a multi-turn after-class conversation with Aki",
+          "The kana いってください could mean say or go; the request concerns pronouncing a word."
+        ],
+        "wordBankJapanese": [
+          "しりょう",
+          "いってください",
+          "あいましょう"
+        ],
+        "id": "master-japanese-basics:20:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:20",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "The source objectives give the learner 'ask for an unclear word to be said slowly' (turn 4) and 'recall yesterday's meeting' (turn 8), but both are Aki's lines, while the source opening (turn 1) and closing (turn 9) are the Greeter's. The objectives here are rewritten from the Greeter's side. Is the learner meant to be the Greeter, or should the source objectives stand?",
+        "The source closure instruction says to confirm the one o’clock station meeting and say また あした。 The actual closing line used is turn 9, では、また あした。; the meeting itself is proposed in turn 7. Is that sufficient?",
+        "Type and Say have the learner practise Aki's lines (turns 6 and 8), while the speaking mission has the learner as Greeter. Is this per-activity role change intended?",
+        "The fourth source form (turn 5, quoted-word-check) is not among the three kept forms. Is dropping it in favour of the previous-meeting form (turn 8) acceptable?"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Aki, who has a question, asks for a word to be said slowly, asks where to meet tomorrow, and recalls yesterday's meeting",
+        "closureLineJapanese": "では、また あした。",
+        "closureLineEnglish": "See you tomorrow, then.",
+        "closureSpeaker": "Greeter (learner)",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    }
+  ],
+  "internalReviewNotes": [
+    "All prior source lesson targets, form identities, missions and mode cues are preserved. New roles are authored practice casting.",
+    "Verified builder and preview copy learner task into partnerRole. Proposed counterparts are separate alternatives.",
+    "Master20 prior mission combines Greeter opening with Aki objectives. New Greeter objectives answer the request and respond to the recalled meeting; original objectives remain evidence.",
+    "Hear choices have parallel exact-source Japanese and English faces. No audio is synthesized.",
+    "Master19 turn7 precedes final turn8 to cover both current walking and rainy-day train habits.",
+    "No routes, runtime registration, accepted variants, scoring, offline, audio or progress imports change."
+  ]
+}

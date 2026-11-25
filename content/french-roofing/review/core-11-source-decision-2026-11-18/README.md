@@ -7,3 +7,7 @@ The archived French is separate evidence. Six card faces and five Reader turns a
 Every `selectedFrench` and `audioScript` is null, `reviewed:false`, and learner, scoring, listening, offline, progress, saved-item, browser and native V4 gates are false. No owner route, learner registration, audio synthesis, clip listening decision or progress migration is included. Six authored practice modes, contextual forms, speaking, dictionary senses and qualified source/French/roofing review remain. Claude CLI 2.1.325 reported `loggedIn:false`; no Haiku, Opus or Fable call was made.
 
 Run `python3 build.py --check` and `python3 validate.py` from this directory or with their repository paths.
+
+## Provenance repair (2026-11-25)
+
+The22 copied `roofing:7:*` refs now derive from validated owning lesson n11 as `roofing:11:*`. All13 card and9 Reader identities match section11; former refs remain in row history and `legacy-reference-crosswalk-2026-11-25.json`. English/French text, IDs, order, holds and source-file pins are unchanged. Saved-item/progress mapping is unapproved. Run this builder with `--check`, this validator and `scripts/validate-french-roofing-core11-reference-repair.py` for integrity checks.

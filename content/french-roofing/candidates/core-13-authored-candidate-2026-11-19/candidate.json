@@ -141,55 +141,40 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker asking to be shown a labelled edge and clarifying a corner.",
-    "partnerRole": "Another coworker showing labels on the same diagram.",
+    "id": "core-roofing:13:fr-en:speaking:1",
+    "reviewed": false,
     "candidateOpeningEnglish": "Which corner do you mean?",
+    "candidateOpeningFrench": "De quel coin parlez-vous ?",
+    "learnerRole": "A person asking about labelled corners and edges on a hypothetical sketch.",
+    "partnerRole": "Another person giving the exercise cues and pointing to the pictured or printed labels.",
     "goalEnglish": "Ask which corner is meant and ask to see the edge.",
-    "candidateWordBankEnglish": [
-      "corner",
-      "edge",
-      "Which corner do you mean?",
-      "Can you show me the edge?",
-      "Corner C1.",
-      "Edge E1."
-    ],
-    "closureEnglish": "Thank you, that is clear.",
-    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
-    "sourceAnchors": [
-      "core-roofing:13:fr-en:card:5",
-      "core-roofing:13:fr-en:card:8"
-    ],
+    "goalFrench": "Demander de quel coin il s’agit, puis demander à voir le bord.",
+    "practiceContextEnglish": "On a hypothetical sketch, corners are labelled C1 and C2 and edges E1 and E2. The learner holds a card marked E1. First, the other person says, \"Please look at the corner.\"",
+    "practiceContextFrench": "Sur un croquis hypothétique, les coins sont étiquetés C1 et C2, et les bords E1 et E2. La personne qui apprend tient une carte marquée E1. D’abord, l’autre personne dit : « Regardez le coin, s’il vous plaît. »",
+    "partnerLeadInEnglish": "Please look at the corner.",
+    "partnerLeadInFrench": "Regardez le coin, s’il vous plaît.",
+    "partnerLeadInStorage": "Stored separately as prior partner context; not a learner instruction and not part of the seven learner-facing turns.",
     "partnerCuesEnglish": [
       "Corner C1.",
       "Which edge do you mean?",
       "Here is edge E1."
     ],
-    "partnerCuesProvenance": "New hypothetical labelled-diagram cues, no installation or corner-cutting detail.",
-    "id": "core-roofing:13:fr-en:speaking:1",
-    "reviewed": false,
-    "heldDecisionRefs": [
-      "core-roofing:13:fr-en:card:1",
-      "core-roofing:13:fr-en:card:10",
-      "core-roofing:13:fr-en:card:11",
-      "core-roofing:13:fr-en:card:14",
-      "core-roofing:13:fr-en:card:12",
-      "core-roofing:13:fr-en:card:13"
+    "partnerCueSupportFrench": [
+      "Coin C1.",
+      "De quel bord parlez-vous ?",
+      "Voici le bord E1."
     ],
-    "heldDependent": true,
-    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
-    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
-    "practiceContextEnglish": "On a hypothetical sketch, corners are labelled C1 and C2 and edges E1 and E2. The partner first mentions a corner without naming its label.",
     "expectedLearnerTurnsEnglish": [
       "Can you show me the edge?",
       "Edge E1.",
       "Thank you, that is clear."
     ],
-    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "expectedLearnerTurnsFrench": [
+      "Pouvez-vous me montrer le bord ?",
+      "Bord E1.",
+      "Merci, c’est clair."
+    ],
     "turnSequenceEnglish": [
-      {
-        "speaker": "partner",
-        "text": "Please look at the corner."
-      },
       {
         "speaker": "learner",
         "text": "Which corner do you mean?"
@@ -219,8 +204,102 @@
         "text": "Thank you, that is clear."
       }
     ],
+    "candidateWordBankEnglish": [
+      "Which corner",
+      "do you mean?",
+      "Can you show me",
+      "the edge?",
+      "Edge E1.",
+      "Thank you,",
+      "that is clear."
+    ],
+    "closureEnglish": "Thank you, that is clear.",
+    "closureFrench": "Merci, c’est clair.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:13:fr-en:card:5",
+      "core-roofing:13:fr-en:card:8"
+    ],
+    "partnerCuesProvenance": "New hypothetical labelled-diagram cues, no installation or corner-cutting detail.",
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
     "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods.",
-    "partnerLeadInEnglish": "Please look at the corner."
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "frenchSupportProvenance": "Unreviewed candidate French support; English source or new-composition provenance is separate.",
+    "heldDecisionRefs": [
+      "core-roofing:13:fr-en:card:1",
+      "core-roofing:13:fr-en:card:2",
+      "core-roofing:13:fr-en:card:3",
+      "core-roofing:13:fr-en:card:4",
+      "core-roofing:13:fr-en:card:10",
+      "core-roofing:13:fr-en:card:11",
+      "core-roofing:13:fr-en:card:12",
+      "core-roofing:13:fr-en:card:13",
+      "core-roofing:13:fr-en:card:14",
+      "core-roofing:13:fr-en:reader:1",
+      "core-roofing:13:fr-en:reader:2",
+      "core-roofing:13:fr-en:reader:3",
+      "core-roofing:13:fr-en:reader:4",
+      "core-roofing:13:fr-en:reader:5",
+      "core-roofing:13:fr-en:reader:6",
+      "core-roofing:13:fr-en:reader:7"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "heldRefsInterpretation": "Candidate-level held faces; used-face source questions are separately listed.",
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 5,
+        "jsonPointer": "/sourceDecisionQuestions/4",
+        "affectedUsedAnchors": [
+          "core-roofing:13:fr-en:card:8"
+        ],
+        "question": "Cutting drip edge at the corner is this source scene's instruction, not a general cut detail. Confirm the actual approved product and corner detail before a scored imperative or audio script.",
+        "relationship": "Semantic dependency inferred from question wording; affectedIds in immutable source packet are unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "The corner noun is used only for diagram labels, not approved corner cutting/detail."
+      },
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:13:fr-en:card:5"
+        ],
+        "question": "Goterón/vierteaguas names the drip edge; archived larmier is plausible but regional trade usage needs confirmation. Rake/borde de hastial becomes rive latérale du toit, which may cover a broader edge. Resolve term senses together with dictionary entries.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic edge label noun only; no rake/eave sense or placement."
+      },
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:13:fr-en:card:5"
+        ],
+        "question": "Alero/eave is the lower roof edge; archived avant-toit may mean the entire overhang. Select a precise French trade term for the installation point under this plan.",
+        "relationship": "Semantic dependency inferred from wording; immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic edge label noun only; no lower edge/overhang selection."
+      }
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; label/diagram language subset does not complete original source mission",
+    "frenchRegisterStatusInternal": "Unselected vous register candidate; qualified French/locale review remains open.",
+    "internalDecisionHolds": [
+      "No approved drip-edge sequence, installer procedure, corner cut or actual plan decision."
+    ],
+    "learnerRoleFrench": "Une personne qui pose des questions sur les coins et les bords étiquetés d’un croquis fictif.",
+    "partnerRoleFrench": "Une autre personne qui donne les invites de l’exercice et montre les images ou les étiquettes imprimées.",
+    "expectedAllLearnerTurnsEnglish": [
+      "Which corner do you mean?",
+      "Can you show me the edge?",
+      "Edge E1.",
+      "Thank you, that is clear."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "De quel coin parlez-vous ?",
+      "Pouvez-vous me montrer le bord ?",
+      "Bord E1.",
+      "Merci, c’est clair."
+    ]
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -674,9 +753,94 @@
     "Proposed core-roofing IDs do not resolve the legacy roofing header identity or migrate saved items/progress.",
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
-    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review."
+    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review.",
+    "Speaking reconciliation only: exact earlier draft retained, source arrays/IDs/pins/objective and incomplete status unchanged. Seven contextual turns and French support do not complete original specialist objective or authorize work.",
+    "Out-of-scope frozen grammar/dictionary questions from Fable: base verb missing in French explanation; dictionary:6 senseReviewPending normalization; poser genericSenseOnly/trade sense. Retained unchanged for separate qualified reconciliation."
   ],
   "sourceObjectiveEnglish": "Discuss edge placement with the installer",
   "sourceSpeakingEnglish": "Ask the installer to explain the approved drip-edge sequence for this roof.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker asking to be shown a labelled edge and clarifying a corner.",
+    "partnerRole": "Another coworker showing labels on the same diagram.",
+    "candidateOpeningEnglish": "Which corner do you mean?",
+    "goalEnglish": "Ask which corner is meant and ask to see the edge.",
+    "candidateWordBankEnglish": [
+      "corner",
+      "edge",
+      "Which corner do you mean?",
+      "Can you show me the edge?",
+      "Corner C1.",
+      "Edge E1."
+    ],
+    "closureEnglish": "Thank you, that is clear.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:13:fr-en:card:5",
+      "core-roofing:13:fr-en:card:8"
+    ],
+    "partnerCuesEnglish": [
+      "Corner C1.",
+      "Which edge do you mean?",
+      "Here is edge E1."
+    ],
+    "partnerCuesProvenance": "New hypothetical labelled-diagram cues, no installation or corner-cutting detail.",
+    "id": "core-roofing:13:fr-en:speaking:1",
+    "reviewed": false,
+    "heldDecisionRefs": [
+      "core-roofing:13:fr-en:card:1",
+      "core-roofing:13:fr-en:card:10",
+      "core-roofing:13:fr-en:card:11",
+      "core-roofing:13:fr-en:card:14",
+      "core-roofing:13:fr-en:card:12",
+      "core-roofing:13:fr-en:card:13"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "practiceContextEnglish": "On a hypothetical sketch, corners are labelled C1 and C2 and edges E1 and E2. The partner first mentions a corner without naming its label.",
+    "expectedLearnerTurnsEnglish": [
+      "Can you show me the edge?",
+      "Edge E1.",
+      "Thank you, that is clear."
+    ],
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "partner",
+        "text": "Please look at the corner."
+      },
+      {
+        "speaker": "learner",
+        "text": "Which corner do you mean?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Corner C1."
+      },
+      {
+        "speaker": "learner",
+        "text": "Can you show me the edge?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Which edge do you mean?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Edge E1."
+      },
+      {
+        "speaker": "partner",
+        "text": "Here is edge E1."
+      },
+      {
+        "speaker": "learner",
+        "text": "Thank you, that is clear."
+      }
+    ],
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods.",
+    "partnerLeadInEnglish": "Please look at the corner."
+  },
+  "sourceAuditOriginMain": "3d18bcd6db4805dec410b4359ce7cf76864711f0"
 }

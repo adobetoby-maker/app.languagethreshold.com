@@ -142,55 +142,37 @@
     }
   ],
   "speaking": {
-    "learnerRole": "A coworker identifying and asking about labelled items.",
-    "partnerRole": "Another coworker showing word cards.",
-    "candidateOpeningEnglish": "Is this the backing paper?",
-    "goalEnglish": "Ask whether a word card says backing paper, read adhesive and membrane labels, and ask a width question.",
-    "candidateWordBankEnglish": [
-      "membrane",
-      "adhesive",
-      "backing paper",
-      "Is this the backing paper?",
-      "Adhesive.",
-      "Membrane.",
-      "What is the width?",
-      "This is the adhesive."
-    ],
-    "closureEnglish": "Thank you.",
-    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
-    "sourceAnchors": [
-      "core-roofing:15:fr-en:card:3",
-      "core-roofing:15:fr-en:card:4",
-      "core-roofing:15:fr-en:card:5",
-      "core-roofing:15:fr-en:card:6"
-    ],
-    "partnerCuesEnglish": [
-      "Yes. What does card B say?",
-      "What does card A say?",
-      "What dimension do you want to ask about?"
-    ],
-    "partnerCuesProvenance": "New hypothetical label-reading cues, not product selection or a handling method.",
     "id": "core-roofing:15:fr-en:speaking:1",
     "reviewed": false,
+    "candidateOpeningEnglish": "Is this the backing paper?",
+    "candidateOpeningFrench": "Est-ce le papier protecteur ?",
+    "frenchSensePendingNote": "Backing paper keeps the candidate sense pending; alternative le papier de protection is unconfirmed.",
+    "learnerRole": "A person asking about a word card and reading labels and a question.",
+    "partnerRole": "Another person giving the exercise cues and pointing to the pictured or printed labels.",
+    "goalEnglish": "Ask about the backing-paper label, read adhesive and membrane labels, then read the width question on card D.",
+    "goalFrench": "Poser une question sur l’étiquette « backing paper », lire les étiquettes « adhesive » et « membrane », puis lire la question sur la largeur portée par la carte D.",
+    "practiceContextEnglish": "Card A says membrane. Card B says adhesive. Card C says backing paper. The learner points to card C. Card D has the question: What is the width?",
+    "practiceContextFrench": "La carte A porte le mot « membrane ». La carte B porte le mot « adhesive ». La carte C porte l’expression « backing paper ». La personne qui apprend montre la carte C. La carte D porte la question : « What is the width? »",
+    "partnerCuesEnglish": [
+      "Yes, card C says backing paper. What does card B say?",
+      "What does card A say?",
+      "Please read card D."
+    ],
+    "partnerCueSupportFrench": [
+      "Oui, la carte C indique « backing paper ». Que dit la carte B ?",
+      "Que dit la carte A ?",
+      "Lisez la carte D, s’il vous plaît."
+    ],
     "expectedLearnerTurnsEnglish": [
       "Adhesive.",
       "Membrane.",
       "What is the width?"
     ],
-    "heldDecisionRefs": [
-      "core-roofing:15:fr-en:card:1",
-      "core-roofing:15:fr-en:card:2",
-      "core-roofing:15:fr-en:card:12",
-      "core-roofing:15:fr-en:card:13",
-      "core-roofing:15:fr-en:card:14",
-      "core-roofing:15:fr-en:card:15",
-      "core-roofing:15:fr-en:card:11"
+    "expectedLearnerTurnsFrench": [
+      "Adhésif.",
+      "Membrane.",
+      "Quelle est la largeur ?"
     ],
-    "heldDependent": true,
-    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
-    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
-    "practiceContextEnglish": "Card A says membrane. Card B says adhesive. Card C says backing paper.",
-    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
     "turnSequenceEnglish": [
       {
         "speaker": "learner",
@@ -198,7 +180,7 @@
       },
       {
         "speaker": "partner",
-        "text": "Yes. What does card B say?"
+        "text": "Yes, card C says backing paper. What does card B say?"
       },
       {
         "speaker": "learner",
@@ -214,14 +196,118 @@
       },
       {
         "speaker": "partner",
-        "text": "What dimension do you want to ask about?"
+        "text": "Please read card D."
       },
       {
         "speaker": "learner",
         "text": "What is the width?"
       }
     ],
-    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods."
+    "widthQuestionStatus": "New card D composition from source width noun; read aloud with no value or answer expected.",
+    "candidateWordBankEnglish": [
+      "Is this",
+      "the backing paper?",
+      "Adhesive.",
+      "Membrane.",
+      "What is",
+      "the width?"
+    ],
+    "closureEnglish": "What is the width?",
+    "closureFrench": "Quelle est la largeur ?",
+    "closureProvenance": "New card D composition from source width noun; read-aloud unanswered question, no dimension value or confirmation.",
+    "sourceAnchors": [
+      "core-roofing:15:fr-en:card:3",
+      "core-roofing:15:fr-en:card:4",
+      "core-roofing:15:fr-en:card:5",
+      "core-roofing:15:fr-en:card:6"
+    ],
+    "partnerCuesProvenance": "New hypothetical label-reading cues, not product selection or a handling method.",
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "frenchSupportProvenance": "Unreviewed support: adhesive and backing paper carry qualifiedSenseReviewPending in candidates; membrane is generic-only linked to card2; width is unflagged. All selections remain null.",
+    "heldDecisionRefs": [
+      "core-roofing:15:fr-en:card:1",
+      "core-roofing:15:fr-en:card:2",
+      "core-roofing:15:fr-en:card:7",
+      "core-roofing:15:fr-en:card:8",
+      "core-roofing:15:fr-en:card:9",
+      "core-roofing:15:fr-en:card:10",
+      "core-roofing:15:fr-en:card:11",
+      "core-roofing:15:fr-en:card:12",
+      "core-roofing:15:fr-en:card:13",
+      "core-roofing:15:fr-en:card:14",
+      "core-roofing:15:fr-en:card:15",
+      "core-roofing:15:fr-en:reader:1",
+      "core-roofing:15:fr-en:reader:2",
+      "core-roofing:15:fr-en:reader:3",
+      "core-roofing:15:fr-en:reader:4",
+      "core-roofing:15:fr-en:reader:5",
+      "core-roofing:15:fr-en:reader:6",
+      "core-roofing:15:fr-en:reader:7",
+      "core-roofing:15:fr-en:reader:8",
+      "core-roofing:15:fr-en:reader:9"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "endingType": "read-aloud open question; no value or answer supplied",
+    "heldRefsInterpretation": "Candidate-level held faces; used-face source questions are separately listed.",
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:15:fr-en:card:3"
+        ],
+        "question": "The source names an ice-and-water shield in the English row but Spanish says membrana impermeable. Archived French specifies water-and-ice protection. Confirm product and membrane scope before scoring or recording a placement command.",
+        "relationship": "Semantic dependency inferred from question wording; affectedIds in immutable source packet are unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Generic membrane noun remains linked to unresolved product scope."
+      },
+      {
+        "sourceQuestion": 5,
+        "jsonPointer": "/sourceDecisionQuestions/4",
+        "affectedUsedAnchors": [
+          "core-roofing:15:fr-en:card:4",
+          "core-roofing:15:fr-en:card:5"
+        ],
+        "question": "The source directs peeling the backing paper and pressing membrane flat against the deck. Confirm adhesive/backing and substrate terms and approved product method before treating the imperatives as work instructions.",
+        "relationship": "Semantic dependency inferred from question wording; affectedIds in immutable source packet are unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Adhesive/backing nouns remain unselected; no handling instruction."
+      },
+      {
+        "sourceQuestion": 6,
+        "jsonPointer": "/sourceDecisionQuestions/5",
+        "affectedUsedAnchors": [
+          "core-roofing:15:fr-en:card:6"
+        ],
+        "question": "The source says cut membrane to length, but does not state a measured length or width. Keep archived bonne longueur conditional until plan/product detail is checked.",
+        "relationship": "Semantic dependency inferred from question wording; affectedIds in immutable source packet are unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Width noun/question supplies no measured value."
+      }
+    ],
+    "sourceSpeakingCompletionStatus": "held and incomplete; label/diagram language subset does not complete original source mission",
+    "frenchRegisterStatusInternal": "Unselected vous register candidate; qualified French/locale review remains open.",
+    "internalDecisionHolds": [
+      "No actual product identification, width value, valley protection, adhesive/backing peel-and-press method or covering decision. French variants remain unselected.",
+      "Yes confirms only the printed label on card C, not actual product identification or handling."
+    ],
+    "learnerRoleFrench": "Une personne qui pose une question sur une carte et lit des étiquettes et une question.",
+    "partnerRoleFrench": "Une autre personne qui donne les invites de l’exercice et montre les images ou les étiquettes imprimées.",
+    "expectedAllLearnerTurnsEnglish": [
+      "Is this the backing paper?",
+      "Adhesive.",
+      "Membrane.",
+      "What is the width?"
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Est-ce le papier protecteur ?",
+      "Adhésif.",
+      "Membrane.",
+      "Quelle est la largeur ?"
+    ]
   },
   "schema": 1,
   "kind": "inert-authored-supplement",
@@ -714,9 +800,93 @@
     "Held product/locale/role senses propagate to linked sentences. Candidate objective is narrower than full source objective where terms remain held.",
     "No selected text/audio, recording, listening approval, owner route or runtime registration.",
     "No width value or method is supplied. Generic membrane category is not a selection of an ice-and-water-shield product. Backing paper is retained as paper; any film or adhesive-face alternative requires source and product confirmation.",
-    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review."
+    "Fable review and source-grounded self-check: generic sense/pending-sense flags propagated; explicit speaking turn mapping; source method and product decisions remain held. AI critique is not qualified review.",
+    "Speaking reconciliation only: exact earlier draft retained, source arrays/IDs/pins/objective and incomplete status unchanged. Seven contextual turns and French support do not complete original specialist objective or authorize work."
   ],
   "sourceObjectiveEnglish": "Direct membrane work at a valley",
   "sourceSpeakingEnglish": "Ask the crew lead to show the valley protection before it is covered.",
-  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion"
+  "sourceObjectiveCompletionStatus": "held and incomplete; supplemental candidate content does not establish original source objective completion",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A coworker identifying and asking about labelled items.",
+    "partnerRole": "Another coworker showing word cards.",
+    "candidateOpeningEnglish": "Is this the backing paper?",
+    "goalEnglish": "Ask whether a word card says backing paper, read adhesive and membrane labels, and ask a width question.",
+    "candidateWordBankEnglish": [
+      "membrane",
+      "adhesive",
+      "backing paper",
+      "Is this the backing paper?",
+      "Adhesive.",
+      "Membrane.",
+      "What is the width?",
+      "This is the adhesive."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "New ordinary closure (label: new composition); not a work instruction or authoring status.",
+    "sourceAnchors": [
+      "core-roofing:15:fr-en:card:3",
+      "core-roofing:15:fr-en:card:4",
+      "core-roofing:15:fr-en:card:5",
+      "core-roofing:15:fr-en:card:6"
+    ],
+    "partnerCuesEnglish": [
+      "Yes. What does card B say?",
+      "What does card A say?",
+      "What dimension do you want to ask about?"
+    ],
+    "partnerCuesProvenance": "New hypothetical label-reading cues, not product selection or a handling method.",
+    "id": "core-roofing:15:fr-en:speaking:1",
+    "reviewed": false,
+    "expectedLearnerTurnsEnglish": [
+      "Adhesive.",
+      "Membrane.",
+      "What is the width?"
+    ],
+    "heldDecisionRefs": [
+      "core-roofing:15:fr-en:card:1",
+      "core-roofing:15:fr-en:card:2",
+      "core-roofing:15:fr-en:card:12",
+      "core-roofing:15:fr-en:card:13",
+      "core-roofing:15:fr-en:card:14",
+      "core-roofing:15:fr-en:card:15",
+      "core-roofing:15:fr-en:card:11"
+    ],
+    "heldDependent": true,
+    "holdReason": "Full pinned source speaking objective remains unfulfilled until the referenced qualified technical/source decisions; this authored lexical subset is not a completed learner lesson.",
+    "scenarioProvenance": "New hypothetical language exchange using item labels or a diagram, not actual site findings or instructions.",
+    "practiceContextEnglish": "Card A says membrane. Card B says adhesive. Card C says backing paper.",
+    "practiceContextProvenance": "New standalone label context for English vocabulary practice; not a source job drawing, product selection or method.",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is this the backing paper?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Yes. What does card B say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Adhesive."
+      },
+      {
+        "speaker": "partner",
+        "text": "What does card A say?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Membrane."
+      },
+      {
+        "speaker": "partner",
+        "text": "What dimension do you want to ask about?"
+      },
+      {
+        "speaker": "learner",
+        "text": "What is the width?"
+      }
+    ],
+    "turnSequenceProvenance": "New explicit word-card or diagram language exchange; not source site findings or work methods."
+  },
+  "sourceAuditOriginMain": "3d18bcd6db4805dec410b4359ce7cf76864711f0"
 }

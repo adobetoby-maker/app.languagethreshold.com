@@ -1,0 +1,323 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:11:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "90152bf2be5838c6fb3fdf18ccbf1cc8b5f91730",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "c512d60e388a476a7fadf0bc4656cec9b2dfa71195cb0244d2382e6d68660b8e",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-11-source-decision-2026-11-18/packet.json",
+    "sha256": "b00cc69c83c44dab456e92a58c41bd96e9deaa0f4f68d33312078f42ce059b7b"
+  },
+  "sourceObjectiveEnglish": "Keep a tired crew going through a heat wave with a clear plan, firm commitments and real encouragement",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a tired crew member during a heat wave with a deadline: acknowledge the hard week, give the plan and your commitments with the future (empezaremos, habrá), and make water and breaks non-negotiable.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete aligned French meaning-support alternatives, not canonical replacements. Reported accounts, clinical labels and source metalinguistic Spanish terms preserved; actual source/clinical/locale/register ambiguity outside utterances. Narrow batch is not objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:1",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:1",
+      "sourceEnglish": "The forecast announced a heat wave for the whole week, with more than 100 degrees in the afternoon.",
+      "sourceSpanish": "El pronóstico anunció una ola de calor para toda la semana, con más de 100 grados por la tarde.",
+      "legacySourceRef": "master-roofing:11:passage:1",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: The forecast announced a heat wave for the whole week, with more than 100 degrees in the afternoon. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Review heat exhaustion versus heatstroke wording, symptom severity and the urgent response. Keep clinical vocabulary direct and obtain qualified medical and occupational heat-safety review before a scored answer."
+        }
+      ],
+      "teachingFocusEnglish": "Understand forecast heat wave for WHOLE WEEK with MORE THAN 100 DEGREES in afternoon. Temperature scale intentionally unspecified, not assumed Fahrenheit/Celsius.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-alternative:1:1",
+          "label": "Variant 1",
+          "candidateFrench": "Les prévisions ont annoncé une vague de chaleur pour toute la semaine, avec plus de 100 degrés l’après-midi.",
+          "alignmentNote": "Completed forecast-announcement event, whole week/MORE THAN100/afternoon retained. No scale or conversion added; audience-dependent scale reading remains material source issue.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Les prévisions annonçaient une vague de chaleur pour la semaine, avec plus de cent degrés Fahrenheit l’après-midi.",
+      "temperatureScaleIssue": {
+        "sourceQuantity": "more than 100 degrees",
+        "scale": null,
+        "status": "open",
+        "scope": "Unmarked 100 degrees can be read on different scales, materially changing meaning. Source/locale decision escalated; neither F nor C inserted or inferred, no actual plan selected."
+      },
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says more than 100 degrees without naming a temperature scale. Archived French supplies Fahrenheit. Require a source and locale decision before selecting that unit.",
+          "relationship": "Scale question text concerns forecast Reader1 but affectedIds point to clinical Reader11/12/13. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:6",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: We'll start at six and stop at two, before the worst of the heat.",
+      "sourceSpanish": "Rogelio: Empezaremos a las seis y pararemos a las dos, antes de lo peor del calor.",
+      "legacySourceRef": "master-roofing:11:passage:6",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: We'll start at six and stop at two, before the worst of the heat. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Resolve exact source meaning for the six-to-two schedule, hourly shaded water breaks and electrolytes. The Spanish source does not provide a complete site-specific heat prevention plan."
+        }
+      ],
+      "teachingFocusEnglish": "Understand WE WILL START at SIX and STOP at TWO BEFORE worst heat. Source clocks unmarked, not silently converted into a complete approved heat plan.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Nous commencerons à six heures et nous nous arrêterons à deux heures, avant le pire de la chaleur. »",
+          "alignmentNote": "Six/two clock values retained, no AM/PM or14h conversion. French reflexive nous nous arrêterons preserves stop; source schedule not endorsed as complete heat plan.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Nous prévoyons de commencer à six heures et d’arrêter à deux heures, si les conditions le permettent. »",
+      "clockInterpretationIssue": {
+        "status": "open",
+        "scope": "Source six/two clocks lack explicit AM/PM/24h; contextual daytime reading not committed as 6h–14h, no approved shift/heat-prevention plan."
+      },
+      "inferredSourceDecisionQuestions": []
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:7",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: There will be cold water in the cooler all day, and electrolytes too.",
+      "sourceSpanish": "Rogelio: Habrá agua fría en la hielera todo el día, y también electrolitos.",
+      "legacySourceRef": "master-roofing:11:passage:7",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: There will be cold water in the cooler all day, and electrolytes too. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand COLD water IN cooler ALL DAY and electrolytes TOO. French gives direct technical meaning, no amount/dose added.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Il y aura de l’eau froide dans la glacière toute la journée, et des électrolytes aussi. »",
+          "alignmentNote": "Cold/froide, IN cooler, ALL DAY, AND electrolytes TOO explicit. No amount/dose or full heat plan added.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Il y aura de l’eau fraîche dans la glacière toute la journée, ainsi que des électrolytes. »",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Resolve exact source meaning for the six-to-two schedule, hourly shaded water breaks and electrolytes. The Spanish source does not provide a complete site-specific heat prevention plan.",
+          "relationship": "Water/electrolytes named in question text, but Reader7 omitted from affectedIds. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:11",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: Dizziness, headache, nausea and heavy sweating are signs of heat exhaustion.",
+      "sourceSpanish": "Rogelio: El mareo, el dolor de cabeza, la náusea y el sudor excesivo son señales de agotamiento por calor.",
+      "legacySourceRef": "master-roofing:11:passage:11",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Dizziness, headache, nausea and heavy sweating are signs of heat exhaustion. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says more than 100 degrees without naming a temperature scale. Archived French supplies Fahrenheit. Require a source and locale decision before selecting that unit."
+        }
+      ],
+      "teachingFocusEnglish": "Understand dizziness/headache/nausea/HEAVY sweating ARE SIGNS OF HEAT EXHAUSTION, distinct from heatstroke. Direct quoted clinical classification, not a diagnosis.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Les étourdissements, les maux de tête, les nausées et la transpiration abondante sont des signes d’épuisement dû à la chaleur. »",
+          "alignmentNote": "All4 symptom concepts and direct ARE SIGNS assertion retained; heat exhaustion/épuisement dû à la chaleur distinct from heatstroke. Quoted source claim, no diagnosis selected.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:11:fr-en:reader-alternative:11:2",
+          "label": "Variant 2: unselected clinical term formulation",
+          "candidateFrench": "Rogelio : « Les étourdissements, les maux de tête, les nausées et la transpiration abondante sont des signes d’épuisement par la chaleur. »",
+          "alignmentNote": "Alternative explicit heat-exhaustion label wording for qualified clinical/French review, same4 symptom claim. No assertion that the first term is nonclinical, no regional facts or diagnosis selected.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Des étourdissements, un mal de tête ou des nausées peuvent signaler un problème lié à la chaleur. »",
+      "clinicalClaimStatus": "Quoted source symptom classification is not independently validated diagnosis, exhaustive checklist or full heat-safety protocol. Clinical words direct and conditions distinct.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Review heat exhaustion versus heatstroke wording, symptom severity and the urgent response. Keep clinical vocabulary direct and obtain qualified medical and occupational heat-safety review before a scored answer.",
+          "relationship": "Clinical-symptom question text concerns Reader11, but affectedIds instead include forecast/deadline Readers1/2. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:12",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: Heatstroke is an emergency, and in that case we'll call 911 without waiting.",
+      "sourceSpanish": "Rogelio: Un golpe de calor es una emergencia, y en ese caso llamaremos al 911 sin esperar.",
+      "legacySourceRef": "master-roofing:11:passage:12",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Heatstroke is an emergency, and in that case we'll call 911 without waiting. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says more than 100 degrees without naming a temperature scale. Archived French supplies Fahrenheit. Require a source and locale decision before selecting that unit."
+        }
+      ],
+      "teachingFocusEnglish": "Understand HEATSTROKE IS EMERGENCY and IN THAT CASE WE WILL CALL 911 WITHOUT WAITING. Clinical urgency/number preserved; no general locale/treatment approval.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Un coup de chaleur est une urgence, et dans ce cas nous appellerons le 911 sans attendre. »",
+          "alignmentNote": "Heatstroke IS emergency, IN THAT CASE/WE WILL CALL/911/WITHOUT WAITING direct. Source number not generalized to all French locales; no substituted112 or treatment added.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Si quelqu’un présente des signes graves, nous arrêterons le travail et suivrons le protocole d’urgence du site, y compris l’appel aux secours locaux. »",
+      "emergencyLocaleIssue": {
+        "sourceNumber": "911",
+        "status": "open",
+        "scope": "Source locale/emergency-number decision required; quoted source response not general French-language guidance or complete treatment plan."
+      },
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Review heat exhaustion versus heatstroke wording, symptom severity and the urgent response. Keep clinical vocabulary direct and obtain qualified medical and occupational heat-safety review before a scored answer.",
+          "relationship": "Clinical emergency/response text concerns Reader12 but Q1 affectedIds omit it. Inferred semantic link only; actual source affectedIds unchanged."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source uses 911. Preserve the source context, and require locale review before presenting an emergency number as general French-language advice.",
+          "relationship": "Source911 locale question concerns Reader12, but affectedIds instead point to tacos/encouragement Readers14/15. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ],
+      "clinicalClaimStatus": "Unreviewed quoted source emergency/response statement, not an independently validated diagnosis, comprehensive emergency plan or locale-wide advice. Clinical distinction/term/response and 911 locale require qualified review; no unverified colloquial or regional clinical assertions adopted."
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 1,
+    "canonicalFrenchProposedAfter": 1,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:11:fr-en:reader:1",
+      "master-roofing:11:fr-en:reader:6",
+      "master-roofing:11:fr-en:reader:7",
+      "master-roofing:11:fr-en:reader:11",
+      "master-roofing:11:fr-en:reader:12"
+    ],
+    "supplementalAnchorCount": 5,
+    "supplementalFullFaceAlternativeCount": 6
+  },
+  "internalNotes": [
+    "English target/French meaning support; no French production objective silently adopted. Full source frames/participants/clinical directness preserved, actual source ambiguities outside utterances.",
+    "Canonical/source/speaking/IDs/holds/metadata byte-immutable; source-only alternatives neither resolve holds nor complete narrow/full objective. All release flags false/null.",
+    "Opus bounded critique corrections only in new sidecars. Unverified AI medical/locale usage opinions not adopted as facts; actual clinical/source review remains required, clinical utterance not softened.",
+    "Final Fable/source self-check applies to new sidecars only. No unverified regional/medical usage claims adopted; clinical formulations are explicit alternatives, not a factual medical validation. Existing source safety/meaning and locale choices stay open."
+  ],
+  "sourceDecisionMappingIssue": "Q1 clinical text lists Readers 1/2 rather than 11/12; Q2 electrolytes text omits Reader 7; Q3 scale text lists 11/12/13 rather than forecast 1; Q4 911 text lists 14/15 rather than emergency 12. Source IDs/text untouched; inferred semantic links recorded separately."
+}

@@ -1,0 +1,302 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:10:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "90152bf2be5838c6fb3fdf18ccbf1cc8b5f91730",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-10-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "2cc678848d3b8776fd0b617bb4bdfe1ba7d0bdb091ec630e9b37c23bf5f7e766",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-10-source-decision-2026-11-18/packet.json",
+    "sha256": "cdf41fa146303952e548e6c7c925fffed823d445745b98369f1477c2e61c5be6"
+  },
+  "sourceObjectiveEnglish": "Hear both sides of a crew conflict, report what each person said, and settle it with a clear rule",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI plays two crew members arguing about a job that went wrong: hear each version, repeat back what each one said with dijo que, and settle it with a fair new rule and assignments.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete aligned French meaning-support alternatives, not canonical replacements. Reported accounts, clinical labels and source metalinguistic Spanish terms preserved; actual source/clinical/locale/register ambiguity outside utterances. Narrow batch is not objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:10:fr-en:reader:6",
+      "candidateRowId": "master-roofing:10:fr-en:candidate:reader:6",
+      "sourceEnglish": "Marcos said the tarp wasn't his job, because that day he was on the garage shift.",
+      "sourceSpanish": "Marcos dijo que la lona no era su tarea, porque ese día él estaba en el turno del garaje.",
+      "legacySourceRef": "master-roofing:10:passage:6",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Marcos said the tarp wasn't his job, because that day he was on the garage shift. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source garage shift versus archived French garage-side/work assignment. Preserve who was assigned to what, including time or work area, before choosing a scored face."
+        }
+      ],
+      "teachingFocusEnglish": "Understand Marcos SAID tarp was not HIS JOB, because THAT DAY garage SHIFT/assignment. French alternatives expose time/duty versus work-area ambiguity, not a verified assignment.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Marcos a dit que la bâche n’était pas sa tâche, parce que ce jour-là il était de service au garage.",
+          "alignmentNote": "Duty/shift reading of garage assignment, no clock duration added; responsibility is reported Marcos account, not verified job allocation.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:6:2",
+          "label": "Variant 2",
+          "candidateFrench": "Marcos a dit que la bâche n’était pas sa tâche, parce que ce jour-là il était affecté au secteur du garage.",
+          "alignmentNote": "Work-area reading, explicitly alternative to time/duty reading; source garage shift ambiguity remains unresolved.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Marcos a dit que la bâche ne relevait pas de lui parce qu’il travaillait au garage ce jour-là.",
+      "contextDependency": "Distinct narrated/reported accounts, not independently established fault, task allocation or approved temporary-cover procedure.",
+      "inferredSourceDecisionQuestions": []
+    },
+    {
+      "sourceAnchor": "master-roofing:10:fr-en:reader:7",
+      "candidateRowId": "master-roofing:10:fr-en:candidate:reader:7",
+      "sourceEnglish": "Then Julio said that it was already dark, that there were no tie-downs on the truck and that he put rocks on the edge.",
+      "sourceSpanish": "Luego Julio contó que ya estaba oscuro, que no había amarres en el camión y que él puso piedras en la orilla.",
+      "legacySourceRef": "master-roofing:10:passage:7",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Then Julio said that it was already dark, that there were no tie-downs on the truck and that he put rocks on the edge. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The loose tarp, absent tie-downs, improvised rocks and photo check are story facts, not approved temporary-cover procedure. Confirm roofing-product, fall-protection and weather limits before selecting instructions; preserve the source's exact rule rather than the archive's altered assignment."
+        }
+      ],
+      "teachingFocusEnglish": "Understand THEN JULIO SAID ALREADY DARK, NO tie-downs ON truck, AND HE put rocks ON edge. French preserves reported account, not approved tarp procedure.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion.",
+        "Attaches d’arrimage is the current generic tie-down candidate. Source on/en truck may mean carried inventory or attachment location; no reading selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Ensuite, Julio a dit qu’il faisait déjà noir, qu’il n’y avait pas d’attaches d’arrimage sur le camion et qu’il avait posé des pierres sur le bord.",
+          "alignmentNote": "Julio reported account: already dark, no tie-downs ON truck, rocks ON edge all retained. Generic attaches avoids silently narrowing tie-down mechanism to straps; no approved tarp method.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:7:2",
+          "label": "Variant 2: supplies carried aboard",
+          "candidateFrench": "Ensuite, Julio a dit qu’il faisait déjà noir, qu’il n’y avait pas d’attaches d’arrimage dans le camion et qu’il avait posé des pierres sur le bord.",
+          "alignmentNote": "Dans le camion reads carried supplies, versus sur le camion fixture/location reading. Source English on/Spanish en ambiguity explicit, no gear or tarp method approved.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Puis Julio a dit qu’il faisait déjà sombre, qu’il n’y avait pas d’attaches dans le camion et qu’il avait posé des pierres sur le bord.",
+      "contextDependency": "Distinct narrated/reported accounts, not independently established fault, task allocation or approved temporary-cover procedure.",
+      "inferredSourceDecisionQuestions": []
+    },
+    {
+      "sourceAnchor": "master-roofing:10:fr-en:reader:9",
+      "candidateRowId": "master-roofing:10:fr-en:candidate:reader:9",
+      "sourceEnglish": "Kevin said that at the end of the day everyone was tired and that nobody checked the tarp.",
+      "sourceSpanish": "Kevin dijo que al final del día todos estaban cansados y que nadie revisó la lona.",
+      "legacySourceRef": "master-roofing:10:passage:9",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Kevin said that at the end of the day everyone was tired and that nobody checked the tarp. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand KEVIN SAID at end of day EVERYONE was tired and NOBODY checked tarp, without intensified exhausted or a different witness.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin a dit qu’à la fin de la journée tout le monde était fatigué et que personne n’avait vérifié la bâche.",
+          "alignmentNote": "Fatigué retains plain tired, not intensified exhausted. Everyone/nobody and end-of-day check report retained.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Kevin a dit qu’en fin de journée tout le monde était fatigué et que personne n’avait vérifié la bâche.",
+      "contextDependency": "Distinct narrated/reported accounts, not independently established fault, task allocation or approved temporary-cover procedure.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The loose tarp, absent tie-downs, improvised rocks and photo check are story facts, not approved temporary-cover procedure. Confirm roofing-product, fall-protection and weather limits before selecting instructions; preserve the source's exact rule rather than the archive's altered assignment.",
+          "relationship": "Tarp check account relates to temporary-cover source decision, though Reader9 not directly listed. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:10:fr-en:reader:10",
+      "candidateRowId": "master-roofing:10:fr-en:candidate:reader:10",
+      "sourceEnglish": "Later, Rogelio called the boss: Julio explained to me that it was already dark, and Marcos said it wasn't his job.",
+      "sourceSpanish": "Más tarde, Rogelio llamó al jefe: Julio me explicó que ya estaba oscuro, y Marcos dijo que no era su tarea.",
+      "legacySourceRef": "master-roofing:10:passage:10",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Later, Rogelio called the boss: Julio explained to me that it was already dark, and Marcos said it wasn't his job. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Author French objectives and six actual prompt/target activities for reported speech and imperfect background, keeping each person's account distinct; archived mode labels cannot be scored."
+        }
+      ],
+      "teachingFocusEnglish": "Understand LATER Rogelio CALLED boss and reported Julio EXPLAINED TO ME/already dark AND Marcos SAID/not his job. Whole narrator and inner report retained.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Plus tard, Rogelio a appelé le patron : « Julio m’a expliqué qu’il faisait déjà noir, et Marcos a dit que ce n’était pas sa tâche. »",
+          "alignmentNote": "Full narrator call intro plus nested account. Julio EXPLAINED TO ME/darkness and Marcos SAID/not-his-task distinct, AND retained; no participant swap.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Plus tard, Rogelio a appelé son responsable : « Julio m’a expliqué qu’il faisait déjà sombre; Marcos a dit que ce n’était pas sa tâche. »",
+      "contextDependency": "Distinct narrated/reported accounts, not independently established fault, task allocation or approved temporary-cover procedure.",
+      "inferredSourceDecisionQuestions": []
+    },
+    {
+      "sourceAnchor": "master-roofing:10:fr-en:reader:12",
+      "candidateRowId": "master-roofing:10:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: With all due respect, it wasn't that simple; it was a misunderstanding, because nobody had that task assigned.",
+      "sourceSpanish": "Rogelio: Con todo respeto, no fue así de simple; fue un malentendido, porque nadie tenía esa tarea asignada.",
+      "legacySourceRef": "master-roofing:10:passage:12",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: With all due respect, it wasn't that simple; it was a misunderstanding, because nobody had that task assigned. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Preserve the source's individual address, blame versus solution, misunderstanding and respectful disagreement. Archived French changes number, participant or claim; a qualified French/source reviewer must settle register and dialogue meaning."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Author French objectives and six actual prompt/target activities for reported speech and imperfect background, keeping each person's account distinct; archived mode labels cannot be scored."
+        }
+      ],
+      "teachingFocusEnglish": "Understand WITH ALL DUE RESPECT, WAS NOT THAT SIMPLE, MISUNDERSTANDING BECAUSE task assigned to NOBODY, not merely unclear assignment.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion.",
+        "French que je vous dois/votre chooses boss-facing vous contextually; English/Spanish respect idiom itself has no explicit address marker. Register remains open."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:10:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Avec tout le respect que je vous dois, ce n’était pas si simple ; c’était un malentendu, parce que cette tâche n’était attribuée à personne. »",
+          "alignmentNote": "Respectful source opener; no-one-assigned is a past state, not merely unclear allocation or a prior assigning event. French vous contextual and unselected; questionable extra-opener variant omitted.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Avec tout le respect que je vous dois, la responsabilité n’était pas clairement attribuée. »",
+      "contextDependency": "Distinct narrated/reported accounts, not independently established fault, task allocation or approved temporary-cover procedure.",
+      "inferredSourceDecisionQuestions": []
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:10:fr-en:reader:6",
+      "master-roofing:10:fr-en:reader:7",
+      "master-roofing:10:fr-en:reader:9",
+      "master-roofing:10:fr-en:reader:10",
+      "master-roofing:10:fr-en:reader:12"
+    ],
+    "supplementalAnchorCount": 5,
+    "supplementalFullFaceAlternativeCount": 7
+  },
+  "internalNotes": [
+    "English target/French meaning support; no French production objective silently adopted. Full source frames/participants/clinical directness preserved, actual source ambiguities outside utterances.",
+    "Canonical/source/speaking/IDs/holds/metadata byte-immutable; source-only alternatives neither resolve holds nor complete narrow/full objective. All release flags false/null.",
+    "Opus bounded critique corrections only in new sidecars. Unverified AI medical/locale usage opinions not adopted as facts; actual clinical/source review remains required, clinical utterance not softened.",
+    "Final Fable/source self-check applies to new sidecars only. No unverified regional/medical usage claims adopted; clinical formulations are explicit alternatives, not a factual medical validation. Existing source safety/meaning and locale choices stay open."
+  ]
+}

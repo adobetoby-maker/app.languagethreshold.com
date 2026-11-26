@@ -1,0 +1,304 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:12:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "90152bf2be5838c6fb3fdf18ccbf1cc8b5f91730",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "cdf96f7470089f73fce68e27b06da18b280e30f50c4f9d25632bc093ea4555b7",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-12-source-decision-2026-11-18/packet.json",
+    "sha256": "cbb9bf545a6e2f3db0e9c506960c6077abec5a8ecc84b3b3b6146ca987765148"
+  },
+  "sourceObjectiveEnglish": "Deliver the same news to a crew member, a homeowner, your manager and an inspector in the right register",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete aligned French meaning-support alternatives, not canonical replacements. Reported accounts, clinical labels and source metalinguistic Spanish terms preserved; actual source/clinical/locale/register ambiguity outside utterances. Narrow batch is not objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:2",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:2",
+      "sourceEnglish": "Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person.",
+      "sourceSpanish": "Rogelio: El mensaje es el mismo, encontramos madera podrida, pero el tono cambia según la persona.",
+      "legacySourceRef": "master-roofing:12:passage:2",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: The message is the same, we found rotten wood, but the tone changes depending on the person. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Map the Spanish usted/tú contrast and doña/Don address forms into natural French vous/tu/register examples without claiming one-to-one equivalence. Obtain qualified France and Québec register review."
+        }
+      ],
+      "teachingFocusEnglish": "Understand SAME MESSAGE/WE FOUND ROTTEN WOOD/BUT TONE changes by PERSON. Severity and contrast remain direct.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Le message est le même — nous avons trouvé du bois pourri —, mais le ton change selon la personne. »",
+          "alignmentNote": "Same message/WE found ROTTEN wood/BUT tone by person preserved, no softened damaged-wood substitution.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Le message reste le même : nous avons trouvé du bois dégradé; le ton change selon la personne. »",
+      "sourceLanguageRegisterIssue": "Source scene teaches Spanish forms/honorifics inside an English-target/French-support pair. Literal metalinguistic terms preserved where actually named; no one-to-one Spanish/French mapping or adapted English register objective selected.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source refers to rotten roof deck and an inspection before covering. Archived French changes material/severity in places. Require qualified roofing and local-code review before selecting scored French.",
+          "relationship": "Q3 rotten-deck/severity text concerns source bois-pourri message, but affectedIds omit Reader2. Inferred semantic link; actual source IDs unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:6",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found.",
+      "sourceSpanish": "Rogelio: A ella le digo: Disculpe la molestia, señora; quisiera comentarle algo que encontramos.",
+      "legacySourceRef": "master-roofing:12:passage:6",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: To her I say: Sorry to bother you, ma'am; I'd like to mention something we found. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand TO HER I SAY plus full inner SORRY TO BOTHER YOU/MA’AM/I WOULD LIKE TO MENTION/SOMETHING WE FOUND. French meaning support does not leave inner sentence untranslated.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion.",
+        "French vous/Excusez-moi/Me permettriez-vous are contextual address choices, English you unmarked; no approved one-to-one source register mapping."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « À elle, je dis : “Excusez-moi de vous déranger, madame ; j’aimerais vous faire part de quelque chose que nous avons trouvé.” »",
+          "alignmentNote": "Whole outer TO HER I SAY plus inner apology/ma’am/I WOULD LIKE TO MENTION/SOMETHING WE found, French throughout except no actual Spanish term named here.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Je dirais : Excusez-moi de vous déranger, madame; je voudrais vous signaler ce que nous avons trouvé. »",
+      "sourceLanguageRegisterIssue": "Source scene teaches Spanish forms/honorifics inside an English-target/French-support pair. Literal metalinguistic terms preserved where actually named; no one-to-one Spanish/French mapping or adapted English register objective selected.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Check the homeowner quote and boss-facing cost/schedule report against the exact source. Maintain the speaker and audience for each register shift.",
+          "relationship": "Homeowner-quote text concerns Reader6/7, but Q2 affectedIds list Readers4/5. Inferred semantic link; actual source IDs unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:7",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: And then I ask her: Would you allow me to show you the area?",
+      "sourceSpanish": "Rogelio: Y luego le pregunto: ¿Me permitiría mostrarle el área?",
+      "legacySourceRef": "master-roofing:12:passage:7",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: And then I ask her: Would you allow me to show you the area? Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand AND THEN I ASK HER plus WOULD YOU ALLOW ME TO SHOW AREA. Entire nested permission question, not actual permission granted.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion.",
+        "French vous/Excusez-moi/Me permettriez-vous are contextual address choices, English you unmarked; no approved one-to-one source register mapping."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Et ensuite, je lui demande : “Me permettriez-vous de vous montrer la zone ?” »",
+          "alignmentNote": "Entire AND THEN I ASK HER plus Would you ALLOW me to SHOW area in French, not left as a Spanish inner question; polite conditional permission question, no permission granted.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Puis je demanderais : Pourriez-vous me permettre de vous montrer la zone ? »",
+      "sourceLanguageRegisterIssue": "Source scene teaches Spanish forms/honorifics inside an English-target/French-support pair. Literal metalinguistic terms preserved where actually named; no one-to-one Spanish/French mapping or adapted English register objective selected.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Check the homeowner quote and boss-facing cost/schedule report against the exact source. Maintain the speaker and audience for each register shift.",
+          "relationship": "Homeowner-quote text concerns Reader6/7, but Q2 affectedIds list Readers4/5. Inferred semantic link; actual source IDs unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:12",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: Quisiera, me gustaría and podría are words that soften a request.",
+      "sourceSpanish": "Rogelio: Quisiera, me gustaría y podría son palabras que suavizan una petición.",
+      "legacySourceRef": "master-roofing:12:passage:12",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Quisiera, me gustaría and podría are words that soften a request. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Review inspector questions, respectful answer and instructions without generalizing local inspection rules or approval."
+        }
+      ],
+      "teachingFocusEnglish": "Understand source claim that named Spanish Quisiera/me gustaría/podría soften a request. French translates the whole predicate but preserves Spanish term names; objective adaptation open.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « “Quisiera”, “me gustaría” et “podría” sont des mots qui adoucissent une demande. »",
+          "alignmentNote": "Outer whole utterance and inner literal Spanish term names; French predicate means soften/politen request, not reduce quantity demanded. No one-to-one gloss inserted.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Je voudrais, je souhaiterais et pourriez-vous atténuent une demande. »",
+      "sourceLanguageRegisterIssue": "Source scene teaches Spanish forms/honorifics inside an English-target/French-support pair. Literal metalinguistic terms preserved where actually named; no one-to-one Spanish/French mapping or adapted English register objective selected.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Map the Spanish usted/tú contrast and doña/Don address forms into natural French vous/tu/register examples without claiming one-to-one equivalence. Obtain qualified France and Québec register review.",
+          "relationship": "Spanish register/form mapping text relates to this metalinguistic face but affectedIds omit it. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:14",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: Then ask him politely: Should I address you as usted or tú?",
+      "sourceSpanish": "Rogelio: Entonces pregúntale con cortesía: ¿Le hablo de usted o de tú?",
+      "legacySourceRef": "master-roofing:12:passage:14",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Then ask him politely: Should I address you as usted or tú? Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand THEN ASK HIM POLITELY plus SHOULD I ADDRESS YOU AS USTED OR TÚ. Spanish names preserved, no silent French one-to-one register mapping.",
+      "unresolvedReviewNotes": [
+        "Unreviewed full-face meaning support; original canonical hold retained. Actual clinical, source, locale and register decisions remain open, not a reason to omit technical vocabulary or soften source claims. No qualified promotion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Alors, demande-lui poliment : “Dois-je m’adresser à vous en disant ‘usted’ ou ‘tú’ ?” »",
+          "alignmentNote": "Complete address-as question, not just uttering a word. Outer demande-lui chooses tu to Kevin from Spanish pregúntale, unmarked English; inner vous is contextual polite source choice, not approved Spanish/French mapping.",
+          "status": "unselected full-face French meaning support, not qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Demande-lui poliment : Préférez-vous que je vous tutoie ou que je vous vouvoie ? »",
+      "sourceLanguageRegisterIssue": "Source scene teaches Spanish forms/honorifics inside an English-target/French-support pair. Literal metalinguistic terms preserved where actually named; no one-to-one Spanish/French mapping or adapted English register objective selected.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Map the Spanish usted/tú contrast and doña/Don address forms into natural French vous/tu/register examples without claiming one-to-one equivalence. Obtain qualified France and Québec register review.",
+          "relationship": "Spanish register/form mapping text relates to this metalinguistic face but affectedIds omit it. Inferred semantic link only; actual source affectedIds unchanged."
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 1,
+    "canonicalFrenchProposedAfter": 1,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:12:fr-en:reader:2",
+      "master-roofing:12:fr-en:reader:6",
+      "master-roofing:12:fr-en:reader:7",
+      "master-roofing:12:fr-en:reader:12",
+      "master-roofing:12:fr-en:reader:14"
+    ],
+    "supplementalAnchorCount": 5,
+    "supplementalFullFaceAlternativeCount": 5
+  },
+  "internalNotes": [
+    "English target/French meaning support; no French production objective silently adopted. Full source frames/participants/clinical directness preserved, actual source ambiguities outside utterances.",
+    "Canonical/source/speaking/IDs/holds/metadata byte-immutable; source-only alternatives neither resolve holds nor complete narrow/full objective. All release flags false/null.",
+    "Opus bounded critique corrections only in new sidecars. Unverified AI medical/locale usage opinions not adopted as facts; actual clinical/source review remains required, clinical utterance not softened.",
+    "Final Fable/source self-check applies to new sidecars only. No unverified regional/medical usage claims adopted; clinical formulations are explicit alternatives, not a factual medical validation. Existing source safety/meaning and locale choices stay open."
+  ],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "Multiple current English Reader faces teach Spanish address forms/honorifics/softeners. Actual Spanish term names stay literal where named; whole surrounding sentences translated French. No adapted English/French objective or one-to-one register mapping selected.",
+    "sourceRowsWithSpanishRegisterTerms": [
+      "master-roofing:12:fr-en:reader:3",
+      "master-roofing:12:fr-en:reader:5",
+      "master-roofing:12:fr-en:reader:8",
+      "master-roofing:12:fr-en:reader:12",
+      "master-roofing:12:fr-en:reader:13",
+      "master-roofing:12:fr-en:reader:14",
+      "master-roofing:12:fr-en:reader:15",
+      "master-roofing:12:fr-en:reader:16"
+    ]
+  },
+  "sourceDecisionMappingIssue": "Reader2 severity relates to Q3 text but direct Q1 register mapping does not cover it; homeowner quotes6/7 omitted by Q2 affectedIds4/5; Reader12 direct Q4 inspector link is not its softener focus, inferred Q1 mapping explicit. Source question arrays/text/holds unchanged."
+}

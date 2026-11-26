@@ -1,0 +1,569 @@
+{
+  "schema": 1,
+  "kind": "inert-additive-contextual-form-explanations",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+  "checkpointPin": {
+    "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+    "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+    "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+  },
+  "unchangedPriorPins": [
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "src/data/japanese-basics-practice.json",
+      "sha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683"
+    },
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+      "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+    },
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "content/japanese-basics/review/master1-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "d56ca771929db74d7cbdc67faf4a08c65b751095879401d671f4274ae65ccd99"
+    },
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "content/japanese-basics/review/master2-4-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "fe8f88b74c642ff2a9262443bcbb6321b6742da56d1ca34801ca7a616a64d359"
+    },
+    {
+      "gitRevision": "70b5496c5eb4a3188829b86d24c476831c6bc497",
+      "path": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "75e28c57be949319912cfcff8a7c86bd669142f652beb00f2f2056c4a85969ae"
+    }
+  ],
+  "privateSourcePins": [
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    }
+  ],
+  "scope": "Six additive contextual explanations from the first six explicitly indexed gaps. No original teaching value or canonical form is replaced.",
+  "forms": [
+    {
+      "sourcePromptId": "form-ja-en-ced31b8f9f51e450",
+      "lessonNumber": 1,
+      "contextEnglish": "In the authored practice cast at a study-group meeting, the Introducer speaks with Aki, the new member. Aki has just said they intend to go to the library tomorrow too. The Introducer then proposes studying together.",
+      "explanationJapanese": "この ぶんは、いっしょに なにかを しようと あいてを さそう ときに つかう いいかたです。「べんきょうしましょう」は、「べんきょうします」の「ます」を「ましょう」に かえた かたちで、いっしょに そう しよう という さそいを あらわします。\n\nここでは、あきさんが あしたも としょかんに いく つもりだと いった あとで、はなして いる ひとが「では」と いって、いっしょに べんきょうしようと さそって います。「では」は、まえの はなしを うけて、つぎの ことに すすむ ときに つかう ことばです。\n\nこの ぶんは、もう べんきょうが おわった ことを つたえる ものでは ありません。これから いっしょに べんきょうする ことを さそう ものです。ですから、「べんきょうしました」のような かこの かたちとは ちがいます。",
+      "explanationEnglish": "「べんきょうしましょう」 is the invitation form: replace ます in べんきょうします with ましょう, meaning 'let us do it together.' It proposes a joint future action; it does not report that studying has already happened, unlike the past form べんきょうしました. Here では links back to the intention stated in turn 9 ('I intend to go tomorrow too'), and turn 10 is the speaker's direct invitation to study together.",
+      "contextExample": {
+        "japanese": "では、いっしょに べんきょうしましょう。",
+        "english": "Then let us study together.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 10,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "はい、あしたも いく つもりです。",
+        "english": "Yes, I intend to go tomorrow too.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 9,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": null,
+      "practicePromptEnglish": "Aki has said they intend to go to the library tomorrow too. Invite Aki to study together, using ～ましょう.",
+      "practiceRoleEnglish": "Introducer inviting Aki in the authored practice cast",
+      "internalQuestions": [
+        "Is this sentence inviting someone to do something, or reporting that it was already done?",
+        "What does では connect to in the previous turn?",
+        "Which stem of べんきょうする does ましょう attach to?"
+      ],
+      "id": "master-japanese-basics:1:form-context-supplement:form-ja-en-ced31b8f9f51e450",
+      "stableLessonKey": "master-japanese-basics:1",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-ced31b8f9f51e450",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 10,
+        "focus": "invitation-mashou",
+        "japaneseAnswer": "では、いっしょに べんきょうしましょう。",
+        "englishPrompt": "Then let us study together.",
+        "knownJapaneseVariants": [
+          "では、いっしょに べんきょうしましょう。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 1,
+        "stableLessonKey": "master-japanese-basics:1",
+        "sourcePromptId": "form-ja-en-ced31b8f9f51e450",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 10,
+        "focus": "invitation-mashou",
+        "canonicalJapanese": "では、いっしょに べんきょうしましょう。",
+        "canonicalEnglish": "Then let us study together.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-e78a2d27747f1786",
+      "lessonNumber": 2,
+      "contextEnglish": "A class supply note for the first class. The preceding line states that one pen is also needed. A student preparing for the class then asks whether a dictionary is needed.",
+      "explanationJapanese": "この ぶんは、ものが ひつようか どうかを きく しつもんです。「いりますか」は、「いる」という どうしの ていねいな かたち「いります」に「か」を つけた しつもんの かたちです。この「いる」は「ひつようだ」という いみの どうしで、ていねいな かたちは「いります」です。ひとや どうぶつが いる ことを いう「いる」は、ていねいな かたちが「います」です。おとは にて いますが、いみも かたちも ちがいます。\n\n「じしょは」の「は」は、じしょを はなしの しゅだいに します。にほんごの ぶんには「わたしたち」という ことばは ありません。えいごの やくに ある「わたしたち」に あたる ことばは、やくの ために くわえた ものです。\n\nまえの ぶんでは、ペンも ひとつ ひつようだと いわれて いました。そのあとで、じしょも ひつようか どうかを きいて います。こたえは「いいえ、あしたは いりません」です。",
+      "explanationEnglish": "いりますか is the polite question form of いる 'to need' (いる → いります). It is not いますか, the polite form of いる 'to be (people/animals)' (いる → います). The two verbs sound alike in the dictionary form but differ in meaning and conjugation. は marks じしょ as the topic. The subject is omitted in Japanese; the English 'we' is a translation choice and not a word in the Japanese sentence. The previous line states that one pen is also needed, and this question asks about a dictionary in the same supply context.",
+      "contextExample": {
+        "japanese": "じしょは いりますか。",
+        "english": "Do we need a dictionary?",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "ペンも ひとつ ひつようです。",
+        "english": "You also need one pen.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 2,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "いいえ、あしたは いりません。",
+        "english": "No, not tomorrow.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 4,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "You have been told one pen is also needed for tomorrow’s class. Ask whether a dictionary is needed, using いりますか.",
+      "practiceRoleEnglish": "A student checking what to bring to the class.",
+      "internalQuestions": [
+        "Does いりますか ask about need, or about existence?",
+        "How do the polite forms いります and います show which いる is meant?",
+        "Is the subject stated in the Japanese sentence?"
+      ],
+      "id": "master-japanese-basics:2:form-context-supplement:form-ja-en-e78a2d27747f1786",
+      "stableLessonKey": "master-japanese-basics:2",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-e78a2d27747f1786",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 3,
+        "focus": "need-question",
+        "japaneseAnswer": "じしょは いりますか。",
+        "englishPrompt": "Do we need a dictionary?",
+        "knownJapaneseVariants": [
+          "じしょは いりますか。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 2,
+        "stableLessonKey": "master-japanese-basics:2",
+        "sourcePromptId": "form-ja-en-e78a2d27747f1786",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "focus": "need-question",
+        "canonicalJapanese": "じしょは いりますか。",
+        "canonicalEnglish": "Do we need a dictionary?",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-5910a2eddbfc6c9c",
+      "lessonNumber": 3,
+      "contextEnglish": "Before a small group activity. The speaker is coordinating quantities and materials for three people, and is stating how many bound notebooks there are.",
+      "explanationJapanese": "この ぶんは、ものが ある ことを いう ぶんです。ものが ある ときは「あります」を つかいます。ノートは ものなので、「います」ではなく「あります」を つかいます。\n\n「さんさつ」の「さつ」は、とじられた ほんや ノートを かぞえる ことばです。「さん」と いっしょに つかって、「さんさつ」と いいます。ここでは、ノートの かずが「さんさつ」だと つたえて います。\n\n「さんにん」は、ひとの かずが さんで ある ことを しめします。この ぶんでは ひとを かぞえて いませんから、「にん」は つかいません。まえの ぶんでは、きょうは さんにんで べんきょうする ことが いわれて いました。\n\nこの ぶんは、だれに ノートを あげるかは いって いません。あとの ぶんで、あきさんに いっさつ あげる ことが いわれますが、この ぶんは、ノートの かずを いう だけです。",
+      "explanationEnglish": "「あります」 expresses the existence of inanimate things such as notebooks, so it is used here rather than います. The counter さつ counts bound books and notebooks, so さんさつ means three notebooks. さんにん means three people and appears in the previous line; it counts people rather than notebooks. The sentence states only the number of notebooks, not who receives them; the giving starts in the next line.",
+      "contextExample": {
+        "japanese": "ノートは さんさつ あります。",
+        "english": "There are three notebooks.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 2,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "きょうは さんにんで べんきょうします。",
+        "english": "Three people will study today.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 1,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "わたしは あきさんに いっさつ あげます。",
+        "english": "I give one notebook to Aki.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "Three people will study today. Tell the group how many bound notebooks there are, using さんさつ and あります.",
+      "practiceRoleEnglish": "A group member coordinating materials before the group activity.",
+      "internalQuestions": [
+        "Why is あります used here instead of います?",
+        "What does さつ count, and why is さんさつ correct for notebooks?",
+        "Does this sentence say who receives the notebooks?"
+      ],
+      "id": "master-japanese-basics:3:form-context-supplement:form-ja-en-5910a2eddbfc6c9c",
+      "stableLessonKey": "master-japanese-basics:3",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-5910a2eddbfc6c9c",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 2,
+        "focus": "three-bound-books",
+        "japaneseAnswer": "ノートは さんさつ あります。",
+        "englishPrompt": "There are three notebooks.",
+        "knownJapaneseVariants": [
+          "ノートは さんさつ あります。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 3,
+        "stableLessonKey": "master-japanese-basics:3",
+        "sourcePromptId": "form-ja-en-5910a2eddbfc6c9c",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 2,
+        "focus": "three-bound-books",
+        "canonicalJapanese": "ノートは さんさつ あります。",
+        "canonicalEnglish": "There are three notebooks.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-7353b29f27e4965b",
+      "lessonNumber": 4,
+      "contextEnglish": "Checking on a classmate named Ken, who is a student and is tired today. The speaker asks where Ken is now, and the next line answers that he is in the library.",
+      "explanationJapanese": "この ぶんは、ひとが いま どこに いるかを たずねる しつもんです。「いま」は いまの じかんを あらわし、「どこに」は ばしょを たずねる ことばです。この ぶんでは「どこに いますか」で、ひとが いる ばしょを たずねます。\n\nここで たずねられて いる ひとは けんさんです。まえの ぶんでは、けんさんは がくせいだと いわれ、きょうは つかれて いると いわれて います。しつもんを する ひとは けんさん じしんでは なく、けんさんの ようすを たしかめて いる ひとです。\n\n「どこに」の「に」は、ひとが いる ばしょを しめします。「に」の あとには「います」を つかいます。「どこに ですか」とは いいません。この ぶんでは「どこに いますか」で、ひとの ばしょを たずねて います。\n\nこの しつもんの あとで、「としょかんに います」という こたえが いわれます。",
+      "explanationEnglish": "This question asks about the location of a person, so いますか is used. どこに asks for the place, with に marking the place where someone is. With どこに, the verb is います; です does not follow に here. The question is about Ken and is asked by someone checking on him, not by Ken himself. The prior lines give Ken's identity as a student and his condition as tired, and the next line answers with としょかんに います.",
+      "contextExample": {
+        "japanese": "いま どこに いますか。",
+        "english": "Where is he now?",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "きょうは つかれています。",
+        "english": "Today he is tired.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 2,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "としょかんに います。",
+        "english": "He is in the library.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 4,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "Ken has been described as tired today. Ask where Ken is now, using どこに いますか.",
+      "practiceRoleEnglish": "A classmate checking on Ken.",
+      "internalQuestions": [
+        "Is this question asking about identity, condition, or location?",
+        "Who is the question about, and who is asking?",
+        "Why does どこに take います rather than です?"
+      ],
+      "id": "master-japanese-basics:4:form-context-supplement:form-ja-en-7353b29f27e4965b",
+      "stableLessonKey": "master-japanese-basics:4",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-7353b29f27e4965b",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 3,
+        "focus": "person-location-imasu",
+        "japaneseAnswer": "いま どこに いますか。",
+        "englishPrompt": "Where is he now?",
+        "knownJapaneseVariants": [
+          "いま どこに いますか。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 4,
+        "stableLessonKey": "master-japanese-basics:4",
+        "sourcePromptId": "form-ja-en-7353b29f27e4965b",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "focus": "person-location-imasu",
+        "canonicalJapanese": "いま どこに いますか。",
+        "canonicalEnglish": "Where is he now?",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-143d6e2f97b9bf3d",
+      "lessonNumber": 5,
+      "contextEnglish": "A meeting room scene. The preceding line says Aki is also in the room. This line describes the next room as having no people in it.",
+      "explanationJapanese": "この ぶんは、となりの へやに ひとが いない ことを いう ぶんです。「となりの へや」は、すぐ よこの へや という いみです。「には」の「に」は ばしょを しめし、「は」は その ばしょを はなしの しゅだいに します。\n\n「だれも」は、ひていの「いません」と いっしょに つかうと、「ひとが ひとりも いない」という いみに なります。「だれかが いる」という いみには なりません。\n\n「いません」は、「います」の ひていの かたちで、ひとが そこに いない ことを いいます。この ぶんでは、ものの ことは いって いません。まえの ぶんでは、あきさんも へやに いると いわれて いました。そのあとで、となりの へやの ことを はなして います。",
+      "explanationEnglish": "「となりの へや」 means the adjacent room and gives the location; in には, に marks the place and は makes that place the topic, setting it against the room just described. だれも paired with the negative いません means 'no one at all'; it does not mean 'someone.' いません is the negative of います, used for people. The sentence concerns people only; it says nothing about objects in the next room. The preceding line places Aki in this room, and this line turns to the next room.",
+      "contextExample": {
+        "japanese": "となりの へやには だれも いません。",
+        "english": "There is no one in the next room.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "あきさんも へやに います。",
+        "english": "Aki is also in the room.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 5,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "かいぎは ここで します。",
+        "english": "The meeting will happen here.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "Aki is in the meeting room. State that no one is in the next room, using だれも with いません.",
+      "practiceRoleEnglish": "A person describing the meeting room and the room next to it.",
+      "internalQuestions": [
+        "What does だれも mean when paired with the negative いません in this sentence?",
+        "What does には mark in となりの へやには?",
+        "Does this sentence say anything about objects in the next room?"
+      ],
+      "id": "master-japanese-basics:5:form-context-supplement:form-ja-en-143d6e2f97b9bf3d",
+      "stableLessonKey": "master-japanese-basics:5",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-143d6e2f97b9bf3d",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 6,
+        "focus": "negative-imasen",
+        "japaneseAnswer": "となりの へやには だれも いません。",
+        "englishPrompt": "There is no one in the next room.",
+        "knownJapaneseVariants": [
+          "となりの へやには だれも いません。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 5,
+        "stableLessonKey": "master-japanese-basics:5",
+        "sourcePromptId": "form-ja-en-143d6e2f97b9bf3d",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "focus": "negative-imasen",
+        "canonicalJapanese": "となりの へやには だれも いません。",
+        "canonicalEnglish": "There is no one in the next room.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-92e160269b3b9633",
+      "lessonNumber": 6,
+      "contextEnglish": "Arranging a meeting with the teacher near the station. The learner has asked whether they are meeting in front of the station tomorrow, and the teacher replies by agreeing and proposing a time.",
+      "explanationJapanese": "この ぶんは、せんせいが まえの しつもんに こたえて、あう じかんを ていあんする ぶんです。「はい」は、まえの しつもんに たいして そのとおりだと こたえる ことばです。\n\n「さんじに」の「に」は、じかんを しめします。「さんじ」は、あう じこくを いう ことばです。\n\n「あいましょう」は、「あいます」の「ます」を「ましょう」に かえた かたちで、いっしょに あう ことを ていあんする いいかたです。これは めいれいでは なく、もう あった ことを いう かたちでも ありません。\n\nまえの しつもんでは、あした えきの まえで あうか どうかが たずねられて いました。この ぶんは、その しつもんに「はい」と こたえて、あう じかんを つたえて います。",
+      "explanationEnglish": "「はい」 answers the previous question with agreement. に marks the time, so さんじに means 'at three o'clock.' 「あいましょう」 is the proposal form: replace ます in あいます with ましょう, meaning 'let us meet.' It is not a command and not a report of a past action. The preceding question asked about meeting in front of the station tomorrow, and this reply confirms it and gives the time.",
+      "contextExample": {
+        "japanese": "はい、さんじに あいましょう。",
+        "english": "Yes, let us meet at three.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 2,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "あした、えきの まえで あいますか。",
+        "english": "Are we meeting in front of the station tomorrow?",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 1,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "すみません、えきまでの みちが わかりません。",
+        "english": "Sorry, I do not know the way to the station.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "The learner asks whether you are meeting in front of the station tomorrow. Agree and propose three o’clock, using さんじに and あいましょう.",
+      "practiceRoleEnglish": "Teacher: replying to the learner about tomorrow's meeting arrangements.",
+      "internalQuestions": [
+        "Is あいましょう a command, a proposal, or a past-tense report?",
+        "What does に mark in さんじに?",
+        "What question does はい respond to?"
+      ],
+      "id": "master-japanese-basics:6:form-context-supplement:form-ja-en-92e160269b3b9633",
+      "stableLessonKey": "master-japanese-basics:6",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-92e160269b3b9633",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 2,
+        "focus": "time-mashou",
+        "japaneseAnswer": "はい、さんじに あいましょう。",
+        "englishPrompt": "Yes, let us meet at three.",
+        "knownJapaneseVariants": [
+          "はい、さんじに あいましょう。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 6,
+        "stableLessonKey": "master-japanese-basics:6",
+        "sourcePromptId": "form-ja-en-92e160269b3b9633",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 2,
+        "focus": "time-mashou",
+        "canonicalJapanese": "はい、さんじに あいましょう。",
+        "canonicalEnglish": "Yes, let us meet at three.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "checkpointGapCount": 23,
+  "additionalExplanationsProvided": 6,
+  "remainingAdditionalExplanationGapCount": 17,
+  "remainingUnexplainedSourcePromptIds": [
+    "form-ja-en-e13606b681d9b07b",
+    "form-ja-en-04dd860abf3d2072",
+    "form-ja-en-af49b7640046db38",
+    "form-ja-en-d69c290bfb155d04",
+    "form-ja-en-46864a7ec11a727f",
+    "form-ja-en-4787d0c2d4b98010",
+    "form-ja-en-3939c16219f828c4",
+    "form-ja-en-d8353f66960339c3",
+    "form-ja-en-235062d82bb143af",
+    "form-ja-en-b281e81e401f273f",
+    "form-ja-en-d9ec2b2084d69cd0",
+    "form-ja-en-3a7955b04999ff66",
+    "form-ja-en-6f95085b04f8bce6",
+    "form-ja-en-ca0eab39786ae1cf",
+    "form-ja-en-1b5dab5a83ba3805",
+    "form-ja-en-55d03bd59910a777",
+    "form-ja-en-d48db665e363298d"
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  }
+}

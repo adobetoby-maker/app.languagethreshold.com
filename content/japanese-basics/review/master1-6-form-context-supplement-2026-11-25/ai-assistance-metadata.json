@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-25",
+  "qualifiedApproval": false,
+  "selfCheck": "Verified six immutable canonical IDs, Japanese/English answers, exact before/after dialogue anchors, full kana explanations and six new review IDs; all seven prior/source files remain byte-exact. Checked need/existence conjugation, scoped location construction, counter quantities, negative polarity and invitation/proposal formation. No qualified approval or runtime/audio promotion.",
+  "haiku": {
+    "safeMode": true,
+    "requestedModel": "claude-haiku-5-5",
+    "actualModelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 13124,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 7085,
+        "webSearchRequests": 0,
+        "costUSD": 0.0079792,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 7525,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 7085,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "109abb6c-c444-4f7d-82e0-ef24aaf95be2",
+    "isError": false
+  },
+  "opus": {
+    "safeMode": true,
+    "requestedModel": "claude-opus-5-5",
+    "actualModelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 8726,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 11932,
+        "webSearchRequests": 0,
+        "costUSD": 0.269984,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 5872,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 11932,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "76f69927-dc44-425a-a692-b815138d40ea",
+    "isError": false
+  },
+  "fable": {
+    "safeMode": true,
+    "requestedModel": "claude-fable-5-2",
+    "actualModelUsage": {
+      "claude-fable-5-2": {
+        "inputTokens": 2,
+        "outputTokens": 8147,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 14843,
+        "webSearchRequests": 0,
+        "costUSD": 0.563384,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 2282,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 14843,
+        "canonicalModel": "claude-fable-5-2",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "4b87a7e3-9ea4-4e8f-8868-cb99f871438d",
+    "isError": false
+  },
+  "postFableSelfCorrections": [
+    "Added omitted exact dialogue-kind/turn fields to before/after examples, verified against unchanged source text.",
+    "Used replacement ofますwithましょう to avoid incorrectly calling the bare stem a fullますform.",
+    "Kept Introducer as explicitly authored practice casting; removed unsupported gender wording.",
+    "Scopedさんにん to three people andどこにいますか to the location construction, without false universal counter/location rules.",
+    "Pairedだれもwith negativeいません rather than treatingだれもas unconditionally negative.",
+    "Removed implementation word canonical from learner practice prompts; actual source targets remain unchanged."
+  ]
+}

@@ -249,7 +249,150 @@
       "here": "ici",
       "say": "indiquer/dire",
       "where": "où"
-    }
+    },
+    "learnerRoleFrench": "Un apprenant ou une apprenante qui amorce l’échange sur les images de vocabulaire et répond aux questions.",
+    "partnerRoleFrench": "Un ou une partenaire qui tient et montre toutes les images et toutes les cartes de vocabulaire.",
+    "scopedInternalDecisionHolds": [
+      "sourceSpeakingEnglish: Assign a final gutter check and ground cleanup before leaving. This exact mission remains held/incomplete. Pictures A/B and cleanup word-card practice supply no actual cleanup/gutter acceptance or every-nail verification; no pickup-equipment availability/readiness.",
+      "Dumpster, downspout and gutter regional trade senses held (card:2, card:10, card:15, reader:7).",
+      "Magnet and every-nail pickup question held as internal site-acceptance review (card:5, card:12, card:14, reader:5, reader:6).",
+      "Yard/patio locale equivalent held; la cour is a candidate only (card:8, reader:8).",
+      "Pre-departure gutter-check access and final-site procedure held (reader:3, card:11)."
+    ],
+    "closureFrench": "Merci.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; original source speaking mission unresolved, prior lexical exchange does not replace or complete it. All sourceDecisionQuestions remain open; used-anchor dependencies are a subset.",
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3"
+    ],
+    "frenchSupportConventionInternal": "English remains target. All earlier English/French speaking values preserved; new French roles/derived sequences are unselected meaning support, not French production/scoring targets. French arrays named expected mirror English target turns as meaning support only. All existing qualifiedSenseReviewPending values remain verbatim; no new flags added or inferred from reviewed:false.",
+    "sourceCompositionProvenance": "Exact source nail/cleanup/broom faces recorded below. Existing dialogue and classroom pictures are earlier compositions preserved exactly; nails is an earlier-composed grammatical plural from source singular nail, and picture/word-card identification does not verify cleanup.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:card:3",
+        "exactSourceEnglish": "nail",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:card:4",
+        "exactSourceEnglish": "cleanup",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:card:6",
+        "exactSourceEnglish": "broom",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:28:fr-en:card:3",
+          "core-roofing:28:fr-en:card:4",
+          "core-roofing:28:fr-en:card:6"
+        ],
+        "question": "The source calls for a magnet and every-nail pickup. Archived l’aimant de ramassage and ramassage magnétique specify a pickup tool/process. A magnetic sweep alone cannot verify every nail was collected or that the area is safe; keep this site-acceptance question internal while preserving the source task.",
+        "relationship": "Inferred cleanup-tool/status adjacency, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Nail/broom pictures and cleanup word only; no magnetic sweep sufficiency/every-nail acceptance.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 2,
+        "sourceQuestionIndex0Based": 1,
+        "listedInAffectedIds": false
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:28:fr-en:card:4"
+        ],
+        "question": "The source assigns a gutter check before departure. Determine approved access and final-site check procedure for this job; archived speaking adds accessible zones and plan confirmation beyond the pinned source objective and stays separate evidence.",
+        "relationship": "Inferred final-task adjacency, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Cleanup word only; no gutter check, departure or access acceptance.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 4,
+        "sourceQuestionIndex0Based": 3,
+        "listedInAffectedIds": false
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Here are the pictures.",
+      "There is a broom.",
+      "These are nails.",
+      "Cleanup. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Voici les images.",
+      "Il y a un balai.",
+      "Ce sont des clous.",
+      "Nettoyage. Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Voici les images."
+      },
+      {
+        "speaker": "partner",
+        "text": "Qu’y a-t-il sur l’image A ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Il y a un balai."
+      },
+      {
+        "speaker": "partner",
+        "text": "Que sont ces objets sur l’image B ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Ce sont des clous."
+      },
+      {
+        "speaker": "partner",
+        "text": "Quel mot figure sur la carte C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Nettoyage. Merci."
+      }
+    ],
+    "candidateLevelHoldEvidence": [
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:card:13",
+        "exactCandidateHold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+        "relationship": "Existing candidate-level hold; no sourceDecisionQuestions affectedIds directly list this anchor."
+      },
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:card:16",
+        "exactCandidateHold": "Yard/patio versus courtyard/surrounding site locale sense remains unresolved; final cleanliness comparison does not select site acceptance.",
+        "relationship": "Existing candidate-level hold; no sourceDecisionQuestions affectedIds directly list this anchor."
+      },
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:reader:2",
+        "exactCandidateHold": "Gutter-check and departure/final-site check require qualified job-specific access/procedure/source review; no access or site acceptance selected.",
+        "relationship": "Existing candidate-level hold; no sourceDecisionQuestions affectedIds directly list this anchor."
+      },
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:reader:4",
+        "exactCandidateHold": "Dependent downspout regional sense and gutter/downspout context remain unresolved; no product/system scope selected.",
+        "relationship": "Existing candidate-level hold; no sourceDecisionQuestions affectedIds directly list this anchor."
+      },
+      {
+        "sourceAnchor": "core-roofing:28:fr-en:reader:9",
+        "exactCandidateHold": "Yard/patio versus courtyard/surrounding site locale sense remains unresolved; final cleanliness comparison does not select site acceptance.",
+        "relationship": "Existing candidate-level hold; no sourceDecisionQuestions affectedIds directly list this anchor."
+      }
+    ],
+    "inferredDependenciesNonExhaustive": true
   },
   "terminologyProposals": [
     {
@@ -881,9 +1024,123 @@
     "Source question mentions regional gutter senses but does not mark source card1 held; retained generic gutter/gouttière as unselected lexical candidate with explicit pending regional review. It cannot clear the separate access/procedure/downspout holds. Word tasks convention: French citation articles support bare English lemmas unless prompt expressly asks for an article or sentence.",
     "Opus corrections checked against exact bilingual source: qualified lexical sense candidates remain unselected, source-dependent holds made specific, picture roles corrected, no actual material storage or completion finding asserted.",
     "Gutter access/final-check holds cover source card11 and Reader2, card13 and Reader3. Generic gutter noun remains explicitly unselected pending locale review; no access rule inferred. Opening and ordinary scaffold reuse previous-course language rather than introduce a new site objective.",
-    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval."
+    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval.",
+    "Gap-only additive speaking support: every old English/French speaking value/source row unchanged, no regenerated pair/activity. New roles/closure/derived dialogue/provenance distinguish prior classroom compositions from literal source. All source-mission questions open; no specialist/work completion claim. Bounded CLI source excerpts and independent full-file/source-pin checks are separate.",
+    "Opus bounded read-only critique corrected new French roles, flag/provenance wording and source-question evidence label only. Earlier speaking values unchanged. Additional candidate-level holds read from full owning candidate rows are recorded exactly; they are not AI-invented reasons or source-question edits.",
+    "Current Fable bounded read-only supplement critique does not assert bilingual source/file/hash verification. Historical earlier-pass notes retain their provenance and are not current-batch verification claims. This batch leaves every earlier speaking value and original objective/status exact; new conflict/support fields only, independent validators/proof recorded separately."
   ],
   "sourceObjectiveEnglish": "Assign gutters and site cleanup",
   "sourceSpeakingEnglish": "Assign a final gutter check and ground cleanup before leaving.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner initiating and answering vocabulary-picture questions.",
+    "partnerRole": "A partner holding and displaying all pictures and word cards.",
+    "candidateOpeningEnglish": "Here are the pictures.",
+    "candidateOpeningFrench": "Voici les images.",
+    "goalEnglish": "Describe the broom picture, identify nails and read cleanup on a word card.",
+    "goalFrench": "Décrivez l’image du balai, identifiez les clous et lisez cleanup sur la carte.",
+    "practiceContextEnglish": "Picture A shows a broom, B shows nails; word card C says cleanup.",
+    "contextFrench": "L’image A montre un balai, B des clous ; la carte C porte cleanup.",
+    "candidateWordBankEnglish": [
+      "broom",
+      "nails",
+      "cleanup",
+      "Where is the broom?",
+      "There is a broom.",
+      "These are nails."
+    ],
+    "partnerCuesEnglish": [
+      "What is in picture A?",
+      "What are these in picture B?",
+      "What word is on card C?"
+    ],
+    "partnerCueSupportFrench": [
+      "Qu’y a-t-il sur l’image A ?",
+      "Que sont ces objets sur l’image B ?",
+      "Quel mot figure sur la carte C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "There is a broom.",
+      "These are nails.",
+      "Cleanup. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Il y a un balai.",
+      "Ce sont des clous.",
+      "Nettoyage. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW ordinary closure merged into final expected turn",
+    "sourceAnchors": [
+      "core-roofing:28:fr-en:card:3",
+      "core-roofing:28:fr-en:card:4",
+      "core-roofing:28:fr-en:card:6"
+    ],
+    "id": "core-roofing:28:fr-en:speaking:1",
+    "reviewed": false,
+    "provenance": "New English/French word/picture-card exchange, not a source work procedure, inspection finding or completion certificate.",
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:28:fr-en:card:10",
+      "core-roofing:28:fr-en:card:11",
+      "core-roofing:28:fr-en:card:12",
+      "core-roofing:28:fr-en:card:13",
+      "core-roofing:28:fr-en:card:14",
+      "core-roofing:28:fr-en:card:15",
+      "core-roofing:28:fr-en:card:16",
+      "core-roofing:28:fr-en:card:2",
+      "core-roofing:28:fr-en:card:5",
+      "core-roofing:28:fr-en:card:8",
+      "core-roofing:28:fr-en:reader:2",
+      "core-roofing:28:fr-en:reader:3",
+      "core-roofing:28:fr-en:reader:4",
+      "core-roofing:28:fr-en:reader:5",
+      "core-roofing:28:fr-en:reader:6",
+      "core-roofing:28:fr-en:reader:7",
+      "core-roofing:28:fr-en:reader:8",
+      "core-roofing:28:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French classroom word/picture-card exercise, not a source site finding, work instruction or acceptance decision.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Here are the pictures."
+      },
+      {
+        "speaker": "partner",
+        "text": "What is in picture A?"
+      },
+      {
+        "speaker": "learner",
+        "text": "There is a broom."
+      },
+      {
+        "speaker": "partner",
+        "text": "What are these in picture B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "These are nails."
+      },
+      {
+        "speaker": "partner",
+        "text": "What word is on card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Cleanup. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture": "image",
+      "word card": "carte de vocabulaire",
+      "here": "ici",
+      "say": "indiquer/dire",
+      "where": "où"
+    }
+  },
+  "sourceAuditOriginMain": "4616f61081f3a1a06c20f46b3e2fc4b7e6a6a2b0"
 }

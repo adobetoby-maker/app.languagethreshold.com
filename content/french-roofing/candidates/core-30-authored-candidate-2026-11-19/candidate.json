@@ -255,7 +255,167 @@
       "here": "ici",
       "say": "indiquer/dire",
       "where": "où"
-    }
+    },
+    "learnerRoleFrench": "Un apprenant ou une apprenante qui amorce l’échange sur les images de vocabulaire et répond aux questions.",
+    "partnerRoleFrench": "Un ou une partenaire qui tient et montre toutes les images et toutes les cartes de vocabulaire.",
+    "scopedInternalDecisionHolds": [
+      "Source objective 'Lead a complete roofing day in Spanish' remains literal and held. The archived French objective changes the language to French, but English is the target for this pair. The source-language conflict stays open until a qualified English-learning capstone objective is approved. No renamed English capstone or full-day completion is implied. Direct open Q1 includes core-roofing:30:fr-en:card:1 and core-roofing:30:fr-en:reader:1; prior heldDecisionRefs stay unchanged, both anchors remain under unresolved mission-language question.",
+      "Source speaking roleplay (morning brief through closeout) remains held and incomplete. This supplement covers only the pictured crew lead and morning briefing, and the printed safety card.",
+      "Tear-off, install/instalación part-of-speech mismatch, and closeout senses held pending confirmation of English target, French support, dictionary senses, and whether the sequence is job-specific (card:2, card:3, card:5, card:15, reader:4, reader:9).",
+      "Underlayment, flashing, deck and tarp require roof-system/product scope and qualified review; no assembly or inspection approval is implied (card:7, card:8, card:9, reader:5).",
+      "Tie-off/harness wording held for qualified fall-protection and French terminology review (card:12, reader:3). No harness, anchor or tarp availability/readiness implied.",
+      "Storm warning, weather-stop and tarp access sequence held for qualified safety and source review. Archived Reader 7 timing addition stays unapproved (card:13, reader:6, reader:7).",
+      "Punch list, closeout and final roof walk held as open-item and day-end scene meanings only, not unconditional roof access or completion certification (card:10, card:14, reader:8, reader:9)."
+    ],
+    "closureFrench": "Merci.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; original source speaking mission unresolved, prior lexical exchange does not replace or complete it. All sourceDecisionQuestions remain open; used-anchor dependencies are a subset. Source-language objective conflict open; no English capstone selected.",
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3",
+      "/sourceDecisionQuestions/4",
+      "/sourceDecisionQuestions/5"
+    ],
+    "frenchSupportConventionInternal": "English is pair-level target per /sourceDecisionQuestions/0; source Spanish versus archived French capstone-objective language remains unresolved. All earlier English/French speaking values preserved; new French roles/derived sequences are unselected meaning support, not French production/scoring targets. French arrays named expected mirror English target turns as meaning support only. All existing qualifiedSenseReviewPending values remain verbatim; no new flags added or inferred from reviewed:false.",
+    "sourceCompositionProvenance": "Exact briefing/safety/crew-lead faces and full Reader1 English are recorded below. Existing The briefing is in the morning is an abridged classroom picture statement composed from Reader1 time context, not its exact quotation or an actual briefing report. Remaining dialogue is earlier composition preserved exactly; source Spanish-language capstone objective remains unresolved. Reader1 foreman is not equated with card6 crew lead; picture A and B are separate classroom compositions.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:30:fr-en:card:1",
+        "exactSourceEnglish": "briefing",
+        "sourceKind": "term",
+        "status": "Exact source briefing face recorded. Archived la réunion d’équipe, candidate la réunion d’information and bare la réunion in earlier cue remain unselected and unchanged."
+      },
+      {
+        "sourceAnchor": "core-roofing:30:fr-en:card:4",
+        "exactSourceEnglish": "safety",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:30:fr-en:card:6",
+        "exactSourceEnglish": "crew lead",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:30:fr-en:reader:1",
+        "exactSourceEnglish": "In the morning, the foreman opens the briefing: Let's review today's roof plan before we start.",
+        "sourceKind": "reader",
+        "status": "Full exact source Reader face recorded for time-context provenance, not quoted in a speaking turn. The briefing is in the morning is earlier separate classroom composition; foreman is not equated with card6 crew lead.",
+        "kindProvenance": "sourceKind reader is derived from reader anchor id; owning Reader row has no kind field."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 1,
+        "jsonPointer": "/sourceDecisionQuestions/0",
+        "affectedUsedAnchors": [
+          "core-roofing:30:fr-en:card:1",
+          "core-roofing:30:fr-en:reader:1"
+        ],
+        "question": "The current source objective literally says lead a complete roofing day in Spanish. The archived French objective changes the language to French, but English is the target for this pair. Keep exact source provenance and obtain a qualified English-learning capstone objective before learner use.",
+        "relationship": "Direct: card1 and Reader1 are listed affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Source language-objective conflict remains open; pictured briefing is not English capstone completion.",
+        "dependencyType": "direct",
+        "sourceQuestionOrdinal1Based": 1,
+        "sourceQuestionIndex0Based": 0,
+        "listedInAffectedIds": true
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:30:fr-en:card:4"
+        ],
+        "question": "The source tie-off command mentions a harness without an approved anchor, fall-clearance or site system. Archived attachez-vous is broader and can obscure the tie-off requirement. Hold for qualified fall-protection and French terminology review.",
+        "relationship": "Inferred safety-domain adjacency, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Printed safety noun only; no tie-off instruction, anchor/system or fall-clearance approval.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 4,
+        "sourceQuestionIndex0Based": 3,
+        "listedInAffectedIds": false
+      },
+      {
+        "sourceQuestion": 6,
+        "jsonPointer": "/sourceDecisionQuestions/5",
+        "affectedUsedAnchors": [
+          "core-roofing:30:fr-en:card:6"
+        ],
+        "question": "Punch list/closeout and the final roof walk must remain open-item and day-end scene meanings, not unconditional roof access or completion certification. Archived speaking adds safety-plan and temporary-cover assertions beyond the source roleplay objective.",
+        "relationship": "Inferred lead/authority-role adjacency, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Crew-lead picture role only; no actual day-end roof-walk or completion authority.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 6,
+        "sourceQuestionIndex0Based": 5,
+        "listedInAffectedIds": false
+      }
+    ],
+    "sourceLanguageObjectiveConflict": {
+      "sourceObjectiveExactEnglish": "Lead a complete roofing day in Spanish",
+      "sourceSpeakingExactEnglish": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
+      "sourceQuestionPointer": "/sourceDecisionQuestions/0",
+      "status": "open",
+      "qualifiedEnglishCapstoneObjectiveSelected": false,
+      "sourceObjectiveCompletionClaim": false,
+      "scope": "Do not silently replace Spanish with English/French or claim an English capstone; existing vocabulary exchange is not full-day roleplay.",
+      "sourceDecisionQuestionText": "The current source objective literally says lead a complete roofing day in Spanish. The archived French objective changes the language to French, but English is the target for this pair. Keep exact source provenance and obtain a qualified English-learning capstone objective before learner use.",
+      "pairLevelTargetPerSourceQuestion": "English, as stated in /sourceDecisionQuestions/0",
+      "capstoneObjectiveLanguageResolved": false,
+      "archivedFrenchObjectiveExact": null,
+      "archivedFrenchObjectiveEvidenceScope": "Exact archived French objective not quoted in bounded CLI excerpt or this new conflict object; sourceDecisionQuestionText is review-question evidence, not an archive quotation."
+    },
+    "expectedAllLearnerTurnsEnglish": [
+      "Where is the crew lead?",
+      "The crew lead.",
+      "The briefing is in the morning.",
+      "Safety. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "Où est le chef d’équipe ?",
+      "Le chef d’équipe.",
+      "La réunion d’information a lieu le matin.",
+      "Sécurité. Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "Où est le chef d’équipe ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Sur l’image B. Qui est-ce ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Le chef d’équipe."
+      },
+      {
+        "speaker": "partner",
+        "text": "Quand a lieu la réunion sur l’image A ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "La réunion d’information a lieu le matin."
+      },
+      {
+        "speaker": "partner",
+        "text": "Quel mot figure sur la carte C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Sécurité. Merci."
+      }
+    ],
+    "inferredDependenciesNonExhaustive": true,
+    "usedAnchorsUnderDirectOpenQuestion": [
+      "core-roofing:30:fr-en:card:1",
+      "core-roofing:30:fr-en:reader:1"
+    ],
+    "candidateLevelHoldEvidence": []
   },
   "terminologyProposals": [
     {
@@ -938,7 +1098,10 @@
     "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a capstone-language/roofing-source decision, settle a work method, or select a technical answer.",
     "Opus corrections checked against exact bilingual source: qualified lexical sense candidates remain unselected, source-dependent holds made specific, picture roles corrected, no actual material storage or completion finding asserted.",
     "Opus/Fable disagree on French briefing support: réunion d’information, réunion d’équipe, briefing and réunion préparatoire are unselected contextual options. No model preference qualifies one as approved. Exact Spanish reunión informativa and English briefing remain preserved. French roof-plan sense and foreman/crew-lead locale review remain open. Source Spanish, not bare English Tie off, supplies harness.",
-    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval."
+    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval.",
+    "Gap-only additive speaking support: every old English/French speaking value/source row unchanged, no regenerated pair/activity. New roles/closure/derived dialogue/provenance distinguish prior classroom compositions from literal source. All source-mission questions open; no specialist/work completion claim. Bounded CLI source excerpts and independent full-file/source-pin checks are separate.",
+    "Opus bounded read-only critique corrected new French roles, flag/provenance wording and source-question evidence label only. Earlier speaking values unchanged. Core30 adds no candidate-level hold evidence; existing holds and open language-objective conflict remain unchanged.",
+    "Current Fable bounded read-only supplement critique does not assert bilingual source/file/hash verification. Historical earlier-pass notes retain their provenance and are not current-batch verification claims. This batch leaves every earlier speaking value and original objective/status exact; new conflict/support fields only, independent validators/proof recorded separately."
   ],
   "sourceObjectiveLanguageConflict": {
     "sourceObjectiveEnglish": "Lead a complete roofing day in Spanish",
@@ -948,5 +1111,116 @@
   },
   "sourceObjectiveEnglish": "Lead a complete roofing day in Spanish",
   "sourceSpeakingEnglish": "Roleplay the day from morning brief through tear-off, installation checks, weather decision, and closeout.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner initiating and answering vocabulary-picture questions.",
+    "partnerRole": "A partner holding and displaying all pictures and word cards.",
+    "candidateOpeningEnglish": "Where is the crew lead?",
+    "candidateOpeningFrench": "Où est le chef d’équipe ?",
+    "goalEnglish": "Ask about the crew-lead picture, say when the depicted briefing is and read safety.",
+    "goalFrench": "Interrogez sur l’image du chef d’équipe, dites quand a lieu la réunion représentée et lisez safety.",
+    "practiceContextEnglish": "Picture A depicts a morning briefing, B a crew lead; word card C says safety. This is vocabulary-picture practice.",
+    "contextFrench": "L’image A représente une réunion d’information le matin, B un chef d’équipe ; C porte safety. C’est un exercice de vocabulaire.",
+    "candidateWordBankEnglish": [
+      "briefing",
+      "crew lead",
+      "safety",
+      "Where is the crew lead?",
+      "The briefing is in the morning."
+    ],
+    "partnerCuesEnglish": [
+      "Picture B. Who is that?",
+      "When is the briefing in picture A?",
+      "What word is on card C?"
+    ],
+    "partnerCueSupportFrench": [
+      "Sur l’image B. Qui est-ce ?",
+      "Quand a lieu la réunion sur l’image A ?",
+      "Quel mot figure sur la carte C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The crew lead.",
+      "The briefing is in the morning.",
+      "Safety. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "Le chef d’équipe.",
+      "La réunion d’information a lieu le matin.",
+      "Sécurité. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW ordinary closure merged into final expected turn",
+    "sourceAnchors": [
+      "core-roofing:30:fr-en:card:1",
+      "core-roofing:30:fr-en:card:4",
+      "core-roofing:30:fr-en:card:6",
+      "core-roofing:30:fr-en:reader:1"
+    ],
+    "id": "core-roofing:30:fr-en:speaking:1",
+    "reviewed": false,
+    "provenance": "New English/French word/picture-card exchange, not a source work procedure, inspection finding or completion certificate.",
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:30:fr-en:card:10",
+      "core-roofing:30:fr-en:card:12",
+      "core-roofing:30:fr-en:card:13",
+      "core-roofing:30:fr-en:card:14",
+      "core-roofing:30:fr-en:card:15",
+      "core-roofing:30:fr-en:card:2",
+      "core-roofing:30:fr-en:card:3",
+      "core-roofing:30:fr-en:card:5",
+      "core-roofing:30:fr-en:card:7",
+      "core-roofing:30:fr-en:card:8",
+      "core-roofing:30:fr-en:card:9",
+      "core-roofing:30:fr-en:reader:3",
+      "core-roofing:30:fr-en:reader:4",
+      "core-roofing:30:fr-en:reader:5",
+      "core-roofing:30:fr-en:reader:6",
+      "core-roofing:30:fr-en:reader:7",
+      "core-roofing:30:fr-en:reader:8",
+      "core-roofing:30:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French classroom word/picture-card exercise, not a source site finding, work instruction or acceptance decision.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Where is the crew lead?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Picture B. Who is that?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The crew lead."
+      },
+      {
+        "speaker": "partner",
+        "text": "When is the briefing in picture A?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The briefing is in the morning."
+      },
+      {
+        "speaker": "partner",
+        "text": "What word is on card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Safety. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture": "image",
+      "word card": "carte de vocabulaire",
+      "here": "ici",
+      "say": "indiquer/dire",
+      "where": "où"
+    }
+  },
+  "sourceAuditOriginMain": "4616f61081f3a1a06c20f46b3e2fc4b7e6a6a2b0"
 }

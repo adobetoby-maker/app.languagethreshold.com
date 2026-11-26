@@ -258,7 +258,177 @@
       "here": "ici",
       "say": "indiquer/dire",
       "where": "où"
-    }
+    },
+    "learnerRoleFrench": "Un apprenant ou une apprenante qui amorce l’échange sur les images de vocabulaire et répond aux questions.",
+    "partnerRoleFrench": "Un ou une partenaire qui tient et montre toutes les images et toutes les cartes de vocabulaire.",
+    "scopedInternalDecisionHolds": [
+      "Source handoff mission remains held/incomplete. Existing fictional task-status/unfinished and tomorrow/materials cards plus finished question supply no actual job status, schedule, storage or inspection completion. No materials availability/readiness, rework or repair approval.",
+      "Punch list/lista de pendientes and liste des points à terminer closeout terminology held pending qualified trade and regional dictionary review (card:1, card:15, reader:6).",
+      "Open item/pendiente and areas-still-open senses held to confirm they remain task/status meanings in site context (card:4, card:13, reader:3, reader:5).",
+      "Roof walk, chantier and parcourons held; access, fall protection, inspection authority and completion criteria are site-specific (card:9, card:12, reader:2).",
+      "Overnight storage, tie-down and roof-load plan held; the source's general 'store in a safe place' meaning is preserved but no site decision is asserted (card:11, reader:8).",
+      "Archived speaking additions (verify unfinished area, confirm material storage) held as unapproved evidence (card:10, card:11, reader:3)."
+    ],
+    "closureFrench": "Merci.",
+    "sourceSpeakingCompletionStatus": "held and incomplete; original source speaking mission unresolved, prior lexical exchange does not replace or complete it. All sourceDecisionQuestions remain open; used-anchor dependencies are a subset.",
+    "sourceMissionOpenQuestionPointers": [
+      "/sourceDecisionQuestions/0",
+      "/sourceDecisionQuestions/1",
+      "/sourceDecisionQuestions/2",
+      "/sourceDecisionQuestions/3",
+      "/sourceDecisionQuestions/4"
+    ],
+    "frenchSupportConventionInternal": "English remains target. All earlier English/French speaking values preserved; new French roles/derived sequences are unselected meaning support, not French production/scoring targets. French arrays named expected mirror English target turns as meaning support only. All existing qualifiedSenseReviewPending values remain verbatim; no new flags added or inferred from reviewed:false.",
+    "sourceCompositionProvenance": "Exact unfinished/tomorrow/finished/remaining-materials/task faces recorded below. Existing fictional status/tomorrow cards and surrounding dialogue are earlier compositions preserved exactly, not actual job status, accepted schedule or storage confirmation.",
+    "sourceTextProvenance": [
+      {
+        "sourceAnchor": "core-roofing:29:fr-en:card:2",
+        "exactSourceEnglish": "unfinished",
+        "sourceKind": "term",
+        "status": "Exact source unfinished face recorded. Archived inachevé, candidate non terminé and earlier support n’est pas terminée coexist, all unselected and unchanged."
+      },
+      {
+        "sourceAnchor": "core-roofing:29:fr-en:card:3",
+        "exactSourceEnglish": "tomorrow",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:29:fr-en:card:5",
+        "exactSourceEnglish": "finished",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:29:fr-en:card:6",
+        "exactSourceEnglish": "remaining materials",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      },
+      {
+        "sourceAnchor": "core-roofing:29:fr-en:card:7",
+        "exactSourceEnglish": "task",
+        "sourceKind": "term",
+        "status": "Exact source face recorded; prior French support unselected."
+      }
+    ],
+    "openSourceQuestionDependencies": [
+      {
+        "sourceQuestion": 2,
+        "jsonPointer": "/sourceDecisionQuestions/1",
+        "affectedUsedAnchors": [
+          "core-roofing:29:fr-en:card:2",
+          "core-roofing:29:fr-en:card:7"
+        ],
+        "question": "Open item/pendiente and areas still open mean unfinished work, not an unresolved technical question or physical opening. Check whether point en suspens and zones restent à terminer keep that same task/status sense in this site context.",
+        "relationship": "Inferred from literal term overlap with unfinished work in the question text; not listed in affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Fictional unfinished-task card only; no actual open-item or physical-opening claim.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 2,
+        "sourceQuestionIndex0Based": 1,
+        "listedInAffectedIds": false
+      },
+      {
+        "sourceQuestion": 3,
+        "jsonPointer": "/sourceDecisionQuestions/2",
+        "affectedUsedAnchors": [
+          "core-roofing:29:fr-en:card:5",
+          "core-roofing:29:fr-en:card:7"
+        ],
+        "question": "The source asks for a roof walk before declaring the job complete. Archived chantier and parcourons may preserve job and shared walk, but access/fall-protection, inspection authority and completion criteria are site-specific. Do not present the scene as permission to access or sign off a roof.",
+        "relationship": "Inferred completion-status adjacency, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Finished/task vocabulary only; no actual completion, roof access or sign-off.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 3,
+        "sourceQuestionIndex0Based": 2,
+        "listedInAffectedIds": false
+      },
+      {
+        "sourceQuestion": 4,
+        "jsonPointer": "/sourceDecisionQuestions/3",
+        "affectedUsedAnchors": [
+          "core-roofing:29:fr-en:card:6"
+        ],
+        "question": "Store remaining materials in a safe place is the source instruction. The actual overnight storage, tie-down and roof-load plan are unspecified. Preserve the source's general meaning while keeping the site decision out of learner-facing assertions.",
+        "relationship": "Inferred from literal remaining materials wording; not listed in affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Remaining-materials label only; no storage/tie-down/load plan selected.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 4,
+        "sourceQuestionIndex0Based": 3,
+        "listedInAffectedIds": false
+      },
+      {
+        "sourceQuestion": 5,
+        "jsonPointer": "/sourceDecisionQuestions/4",
+        "affectedUsedAnchors": [
+          "core-roofing:29:fr-en:card:2",
+          "core-roofing:29:fr-en:card:3",
+          "core-roofing:29:fr-en:card:6",
+          "core-roofing:29:fr-en:card:7"
+        ],
+        "question": "Archived speaking additionally asks to verify an unfinished area and confirm material storage; the current source speaking objective only asks to tell the crew lead what remains open and confirm tomorrow's first task. Keep those additions as unapproved evidence.",
+        "relationship": "Inferred source-mission/archived-addition wording, not direct affectedIds. Immutable affectedIds unchanged.",
+        "status": "open; no source decision selected",
+        "speakingScope": "Fictional unfinished/tomorrow/task/materials labels only; no actual handoff or added verification requirement.",
+        "dependencyType": "inferred",
+        "sourceQuestionOrdinal1Based": 5,
+        "sourceQuestionIndex0Based": 4,
+        "listedInAffectedIds": false
+      }
+    ],
+    "expectedAllLearnerTurnsEnglish": [
+      "Is the task finished?",
+      "The task is unfinished.",
+      "The task is for tomorrow.",
+      "Remaining materials. Thank you."
+    ],
+    "expectedAllLearnerTurnsFrench": [
+      "La tâche est-elle terminée ?",
+      "La tâche n’est pas terminée.",
+      "La tâche est prévue pour demain.",
+      "Matériaux restants. Merci."
+    ],
+    "turnSequenceFrench": [
+      {
+        "speaker": "learner",
+        "text": "La tâche est-elle terminée ?"
+      },
+      {
+        "speaker": "partner",
+        "text": "Non. Quel statut figure sur la carte A ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "La tâche n’est pas terminée."
+      },
+      {
+        "speaker": "partner",
+        "text": "Quand est prévue la tâche sur la carte B ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "La tâche est prévue pour demain."
+      },
+      {
+        "speaker": "partner",
+        "text": "Quels mots figurent sur la carte C ?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Matériaux restants. Merci."
+      }
+    ],
+    "candidateLevelHoldEvidence": [
+      {
+        "sourceAnchor": "core-roofing:29:fr-en:reader:9",
+        "exactCandidateHold": "Dependent punch-list/lista de pendientes regional closeout meaning remains unresolved; no completion certificate or job access selected.",
+        "relationship": "Existing candidate-level hold; no sourceDecisionQuestions affectedIds directly list this anchor."
+      }
+    ],
+    "inferredDependenciesNonExhaustive": true
   },
   "terminologyProposals": [
     {
@@ -853,9 +1023,121 @@
     "Full exact source objective and speaking retained as provenance, explicitly incomplete. Supplemental vocabulary/grammar does not replace a open-item/closeout source decision, settle a work method, or select a technical answer.",
     "Opus corrections checked against exact bilingual source: qualified lexical sense candidates remain unselected, source-dependent holds made specific, picture roles corrected, no actual material storage or completion finding asserted.",
     "Natural French prévue pour demain can correspond to English is for tomorrow or is scheduled/planned for tomorrow; alternatives remain unreviewed and unscored. Form3 demonstrates agreement in a separate labelled grammar exercise, not overnight placement. The opening question reuses cumulative English question language.",
-    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval."
+    "Final Fable proposals checked against exact bilingual source. Natural French/English alternatives remain candidates rather than rigid scoring rules; no source objective, technical acceptance or target-language conflict silently resolved. AI critique is not qualified approval.",
+    "Gap-only additive speaking support: every old English/French speaking value/source row unchanged, no regenerated pair/activity. New roles/closure/derived dialogue/provenance distinguish prior classroom compositions from literal source. All source-mission questions open; no specialist/work completion claim. Bounded CLI source excerpts and independent full-file/source-pin checks are separate.",
+    "Opus bounded read-only critique corrected new French roles, flag/provenance wording and source-question evidence label only. Earlier speaking values unchanged. Additional candidate-level holds read from full owning candidate rows are recorded exactly; they are not AI-invented reasons or source-question edits.",
+    "Current Fable bounded read-only supplement critique does not assert bilingual source/file/hash verification. Historical earlier-pass notes retain their provenance and are not current-batch verification claims. This batch leaves every earlier speaking value and original objective/status exact; new conflict/support fields only, independent validators/proof recorded separately."
   ],
   "sourceObjectiveEnglish": "Hand off remaining work clearly",
   "sourceSpeakingEnglish": "Tell the crew lead what remains open and confirm tomorrow's first task.",
-  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective"
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "speakingPriorDraft20261119": {
+    "learnerRole": "A learner initiating and answering vocabulary-picture questions.",
+    "partnerRole": "A partner holding and displaying all pictures and word cards.",
+    "candidateOpeningEnglish": "Is the task finished?",
+    "candidateOpeningFrench": "La tâche est-elle terminée ?",
+    "goalEnglish": "Read task-status and tomorrow cards, then read remaining materials from card C.",
+    "goalFrench": "Lisez les cartes de statut et de demain, puis remaining materials sur la carte C.",
+    "practiceContextEnglish": "In a classroom card exercise, A says task: unfinished, B says task: tomorrow, C says remaining materials. The partner holds up A first.",
+    "contextFrench": "Dans un exercice de cartes, A porte task: unfinished, B task: tomorrow et C remaining materials. Le partenaire montre A d’abord.",
+    "candidateWordBankEnglish": [
+      "task",
+      "unfinished",
+      "tomorrow",
+      "remaining materials",
+      "The task is unfinished.",
+      "The task is for tomorrow."
+    ],
+    "partnerCuesEnglish": [
+      "No. What is the status on card A?",
+      "When is the task on card B?",
+      "What words are on card C?"
+    ],
+    "partnerCueSupportFrench": [
+      "Non. Quel statut figure sur la carte A ?",
+      "Quand est prévue la tâche sur la carte B ?",
+      "Quels mots figurent sur la carte C ?"
+    ],
+    "expectedLearnerTurnsEnglish": [
+      "The task is unfinished.",
+      "The task is for tomorrow.",
+      "Remaining materials. Thank you."
+    ],
+    "expectedLearnerTurnsFrench": [
+      "La tâche n’est pas terminée.",
+      "La tâche est prévue pour demain.",
+      "Matériaux restants. Merci."
+    ],
+    "closureEnglish": "Thank you.",
+    "closureProvenance": "NEW ordinary closure merged into final expected turn",
+    "sourceAnchors": [
+      "core-roofing:29:fr-en:card:2",
+      "core-roofing:29:fr-en:card:3",
+      "core-roofing:29:fr-en:card:5",
+      "core-roofing:29:fr-en:card:6",
+      "core-roofing:29:fr-en:card:7"
+    ],
+    "id": "core-roofing:29:fr-en:speaking:1",
+    "reviewed": false,
+    "provenance": "New English/French word/picture-card exchange, not a source work procedure, inspection finding or completion certificate.",
+    "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately.",
+    "heldDependent": true,
+    "heldDecisionRefs": [
+      "core-roofing:29:fr-en:card:1",
+      "core-roofing:29:fr-en:card:10",
+      "core-roofing:29:fr-en:card:11",
+      "core-roofing:29:fr-en:card:12",
+      "core-roofing:29:fr-en:card:13",
+      "core-roofing:29:fr-en:card:15",
+      "core-roofing:29:fr-en:card:4",
+      "core-roofing:29:fr-en:card:9",
+      "core-roofing:29:fr-en:reader:2",
+      "core-roofing:29:fr-en:reader:3",
+      "core-roofing:29:fr-en:reader:5",
+      "core-roofing:29:fr-en:reader:6",
+      "core-roofing:29:fr-en:reader:8",
+      "core-roofing:29:fr-en:reader:9"
+    ],
+    "holdReason": "Original source speaking/work objective remains held and incomplete; this supplemental lexical exchange does not replace or complete that objective.",
+    "scenarioProvenance": "New English/French classroom word/picture-card exercise, not a source site finding, work instruction or acceptance decision.",
+    "closureSpeaker": "learner",
+    "turnSequenceEnglish": [
+      {
+        "speaker": "learner",
+        "text": "Is the task finished?"
+      },
+      {
+        "speaker": "partner",
+        "text": "No. What is the status on card A?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The task is unfinished."
+      },
+      {
+        "speaker": "partner",
+        "text": "When is the task on card B?"
+      },
+      {
+        "speaker": "learner",
+        "text": "The task is for tomorrow."
+      },
+      {
+        "speaker": "partner",
+        "text": "What words are on card C?"
+      },
+      {
+        "speaker": "learner",
+        "text": "Remaining materials. Thank you."
+      }
+    ],
+    "scaffoldVocabularyFrench": {
+      "picture": "image",
+      "word card": "carte de vocabulaire",
+      "here": "ici",
+      "say": "indiquer/dire",
+      "where": "où"
+    }
+  },
+  "sourceAuditOriginMain": "4616f61081f3a1a06c20f46b3e2fc4b7e6a6a2b0"
 }

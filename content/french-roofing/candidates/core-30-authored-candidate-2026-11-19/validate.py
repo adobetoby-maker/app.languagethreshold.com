@@ -49,3 +49,71 @@ for t in p.get('terminologyProposals',[]):
  assert t['selectedFrench'] is t['audioScript'] is t['selectedOption'] is None
  assert t['reviewed'] is t['registered'] is False
 if p['lessonId']=='core-roofing:30:fr-en':assert p['sourceObjectiveLanguageConflict']['selectedReplacementObjective'] is None
+
+# Speaking reconciliation contract 2026-11-25
+
+
+sp=p['speaking']
+assert len(sp['partnerCuesEnglish'])==len(sp['partnerCueSupportFrench'])==len(sp['expectedLearnerTurnsEnglish'])==len(sp['expectedLearnerTurnsFrench'])==3
+assert sp['candidateOpeningFrench'] and len(sp['turnSequenceEnglish'])==7
+assert len(sp['expectedAllLearnerTurnsEnglish'])==len(sp['expectedAllLearnerTurnsFrench'])==4
+assert sp['expectedAllLearnerTurnsEnglish'][0]==sp['candidateOpeningEnglish']
+assert p['sourceObjectiveEnglish']==s['sourceObjectiveEnglish'] and p['sourceSpeakingEnglish']==s['sourceSpeakingEnglish']
+assert p['sourceObjectiveCompletionStatus']=='held; lexical subset does not satisfy the source work objective'
+assert sp['sourceSpeakingCompletionStatus'].startswith('held and incomplete')
+assert p['gates']['qualifiedEnglish'] is False and sp['heldDependent'] is True
+assert set(sp['heldDecisionRefs'])=={r['sourceAnchor'] for r in p['candidateRows'] if r['hold']}
+assert any(sp['closureEnglish'] in t for t in sp['expectedLearnerTurnsEnglish'])
+
+assert sp['turnSequenceEnglish'][0]=={'speaker':'learner','text':sp['candidateOpeningEnglish']}
+assert [t['text'] for t in sp['turnSequenceEnglish'][1::2]]==sp['partnerCuesEnglish']
+assert [t['text'] for t in sp['turnSequenceEnglish'][2::2]]==sp['expectedLearnerTurnsEnglish']
+assert sp['expectedAllLearnerTurnsEnglish'][1:]==sp['expectedLearnerTurnsEnglish']
+assert sp['expectedAllLearnerTurnsFrench']==[sp['candidateOpeningFrench']]+sp['expectedLearnerTurnsFrench']
+for dependency in sp['openSourceQuestionDependencies']:
+ q=s['sourceDecisionQuestions'][dependency['sourceQuestion']-1]
+ assert dependency['question']==q['question']
+ assert dependency['jsonPointer']=='/sourceDecisionQuestions/'+str(dependency['sourceQuestion']-1)
+ assert set(dependency['affectedUsedAnchors']) <= set(sp['sourceAnchors'])
+
+assert len(sp['turnSequenceFrench'])==7
+assert [t['text'] for t in sp['turnSequenceFrench'][1::2]]==sp['partnerCueSupportFrench']
+assert [t['text'] for t in sp['turnSequenceFrench'][2::2]]==sp['expectedLearnerTurnsFrench']
+
+assert sp['turnSequenceFrench'][0]=={'speaker':'learner','text':sp['candidateOpeningFrench']}
+assert sp['turnSequenceEnglish'][-1]['speaker']=='learner'
+assert sp['turnSequenceEnglish'][-1]['text'].endswith(sp['closureEnglish'])
+assert sp['turnSequenceFrench'][-1]['text'].endswith(sp['closureFrench'])
+
+for noun in sp['sourceTextProvenance']:
+ row=next(r for r in s['cards']+s['reader'] if r['id']==noun['sourceAnchor'])
+ assert noun['exactSourceEnglish']==row.get('english',row.get('sourceEnglish'))
+
+assert sp['sourceMissionOpenQuestionPointers']==['/sourceDecisionQuestions/'+str(i) for i in range(len(s['sourceDecisionQuestions']))]
+assert sp['learnerRoleFrench'] and sp['partnerRoleFrench']
+
+for dependency in sp['openSourceQuestionDependencies']:
+ q=s['sourceDecisionQuestions'][dependency['sourceQuestion']-1]
+ assert dependency['dependencyType'] in ('direct','inferred')
+ if dependency['dependencyType']=='direct':assert set(dependency['affectedUsedAnchors']) <= set(q['affectedIds'])
+ else:assert not set(dependency['affectedUsedAnchors']).intersection(q['affectedIds'])
+
+for entry in sp['sourceTextProvenance']:
+ row=next(r for r in s['cards']+s['reader'] if r['id']==entry['sourceAnchor'])
+ assert entry['sourceKind']==row.get('kind','reader')
+
+conflict=sp['sourceLanguageObjectiveConflict']
+assert conflict['sourceObjectiveExactEnglish']==s['sourceObjectiveEnglish'] and 'in Spanish' in conflict['sourceObjectiveExactEnglish']
+assert conflict['sourceSpeakingExactEnglish']==s['sourceSpeakingEnglish']
+assert conflict['sourceQuestionPointer']=='/sourceDecisionQuestions/0'
+assert conflict['sourceDecisionQuestionText']==s['sourceDecisionQuestions'][0]['question']
+assert conflict['status']=='open' and conflict['qualifiedEnglishCapstoneObjectiveSelected'] is False and conflict['sourceObjectiveCompletionClaim'] is False
+
+for d in sp['openSourceQuestionDependencies']:
+ assert d['sourceQuestionOrdinal1Based']==d['sourceQuestion'] and d['sourceQuestionIndex0Based']==d['sourceQuestion']-1
+ assert d['listedInAffectedIds']==(d['dependencyType']=='direct')
+assert sp['inferredDependenciesNonExhaustive'] is True
+
+assert conflict['capstoneObjectiveLanguageResolved'] is False and conflict['archivedFrenchObjectiveExact'] is None
+assert set(sp['usedAnchorsUnderDirectOpenQuestion'])=={a for d in sp['openSourceQuestionDependencies'] if d['dependencyType']=='direct' for a in d['affectedUsedAnchors']}
+assert sp['candidateLevelHoldEvidence']==[]

@@ -1,0 +1,475 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:7:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-7-source-decision-2026-11-18/packet.json",
+    "sha256": "4fe128163c1e6285d10ac44bf6202d202ef020edb51672e093e076193e53482b"
+  },
+  "sourceObjectiveEnglish": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "9remaining missing Reader anchors in Master7, additive to canonical/prior sidecars; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:3",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:3",
+      "sourceEnglish": "Rogelio and Kevin went up with him, with the tape measure and the chalk.",
+      "sourceSpanish": "Rogelio y Kevin subieron con él, con la cinta métrica y la tiza.",
+      "legacySourceRef": "master-roofing:7:passage:3",
+      "originalCandidateHold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio et Kevin sont montés avec lui, munis du mètre ruban et de la craie.",
+      "unresolvedReviewNotes": [
+        "Roof access with an adjuster is a trade, safety, and insurance question. The source is a roleplay, not jobsite authorization. Not verified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio et Kevin sont montés avec lui, avec le ruban à mesurer et la craie.",
+          "alignmentNote": "Keeps the actors (Rogelio and Kevin), the direction (went up with him, meaning the adjuster), and both tools (tape measure and chalk).",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:4",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:4",
+      "sourceEnglish": "First they checked the gutter and found dents along the whole west side.",
+      "sourceSpanish": "Primero revisaron la canaleta y encontraron abolladuras en todo el lado oeste.",
+      "legacySourceRef": "master-roofing:7:passage:4",
+      "originalCandidateHold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization."
+        }
+      ],
+      "archivedFrenchEvidence": "Ils ont d’abord examiné la gouttière et trouvé des bosses sur tout le côté ouest.",
+      "unresolvedReviewNotes": [
+        "Confirm roofing sense of 'dents' (bosses) and whether gutter damage belongs in roof scope. Not verified for France or Québec."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Ils ont d’abord vérifié la gouttière et trouvé des enfoncements le long de tout le côté ouest.",
+          "alignmentNote": "FIRST checkedGUTTER ANDfoundDENTS ALONGWHOLEWESTside, enfoncements conveys indentation damage, not holes or invented hail-hit count.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:6",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: Kevin, mark each hit with chalk, please.",
+      "sourceSpanish": "Rogelio: Kevin, marca cada golpe con tiza, por favor.",
+      "legacySourceRef": "master-roofing:7:passage:6",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio : « Kevin, marque chaque impact à la craie, s’il te plaît. »",
+      "unresolvedReviewNotes": [
+        "Chalk-marking convention is source roleplay, not a universal hail-assessment method."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Kevin, marque chaque impact à la craie, s’il te plaît. »",
+          "alignmentNote": "Keeps the familiar address (tu), the 'please' (s’il te plaît), and the command 'mark each hit with chalk'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:7",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:7",
+      "sourceEnglish": "Kevin drew a chalk circle around each hit.",
+      "sourceSpanish": "Kevin hizo un círculo de tiza alrededor de cada golpe.",
+      "legacySourceRef": "master-roofing:7:passage:7",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Kevin a tracé un cercle de craie autour de chaque impact.",
+      "unresolvedReviewNotes": [
+        "No insurer inspection or attribution standard is asserted. Source roleplay only."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin a tracé un cercle de craie autour de chaque impact.",
+          "alignmentNote": "Keeps the actor, the chalk circle, and 'around each hit' as a complete action.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:9",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:9",
+      "sourceEnglish": "Adjuster: How many hits do you count on the north side?",
+      "sourceSpanish": "Ajustador: ¿Cuántos golpes cuenta usted en el lado norte?",
+      "legacySourceRef": "master-roofing:7:passage:9",
+      "originalCandidateHold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact."
+        }
+      ],
+      "archivedFrenchEvidence": "L’expert : « Combien d’impacts comptez-vous du côté nord ? »",
+      "unresolvedReviewNotes": [
+        "Whether 'expert' is the correct France or Québec term for the adjuster is unverified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "L’expert : « Combien d’impacts comptez-vous du côté nord ? »",
+          "alignmentNote": "Keeps the adjuster's question with the formal vous, matching the source's formal usted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:11",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:11",
+      "sourceEnglish": "The adjuster spoke fast and gave several measurements in square feet.",
+      "sourceSpanish": "El ajustador habló rápido y dio varias medidas en pies cuadrados.",
+      "legacySourceRef": "master-roofing:7:passage:11",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "L’expert a parlé vite et donné plusieurs mesures en pieds carrés.",
+      "unresolvedReviewNotes": [
+        "Locale usage of pieds carrés in claims documents is unverified. No conversion to metric is asserted."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "L’expert a parlé vite et a donné plusieurs mesures en pieds carrés.",
+          "alignmentNote": "Keeps 'spoke fast', 'several measurements', and square feet (not linear feet or meters).",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:14",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:14",
+      "sourceEnglish": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "sourceSpanish": "Ajustador: Según la aseguradora, el lado oeste se cambia completo y el lado norte se repara.",
+      "legacySourceRef": "master-roofing:7:passage:14",
+      "originalCandidateHold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim. Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim."
+        },
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization."
+        }
+      ],
+      "archivedFrenchEvidence": "L’expert : « Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé. »",
+      "unresolvedReviewNotes": [
+        "This is a reported scope only. It does not show the work is completed, paid, or approved. Full replacement versus repair terms need insurance review. France and Québec terms for insurer and adjuster are unconfirmed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:14:1",
+          "label": "Prospective work-scope variant",
+          "candidateFrench": "L’expert : « Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé. »",
+          "alignmentNote": "FULLWESTreplacement/NORTHrepair attributed to insurance company; French future reads prospective scope, not already-completed work, approved payment or executed claim.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        },
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:14:2",
+          "label": "Agentless prospective scope variant",
+          "candidateFrench": "L’expert : « Selon la compagnie d’assurance, le côté ouest est à remplacer entièrement et le côté nord est à réparer. »",
+          "alignmentNote": "Agentless prospective source work-scope rendering, avoiding named insurer/crew agency or already-completed repair. Est à expresses designated work, not a universal must or independently approved claim.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceReportedScopeIssue": {
+        "status": "open",
+        "scope": "English gets/Spanish se cambia present reports insurer scope; future passive and agentless prospective French alternatives explicit, not proof of performed work, assigned insurer contractor or claim payment."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:15",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: Do you agree with the scope of work, including the gutter?",
+      "sourceSpanish": "Rogelio: ¿Está de acuerdo con el alcance del trabajo, también en la canaleta?",
+      "legacySourceRef": "master-roofing:7:passage:15",
+      "originalCandidateHold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization. Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization."
+        },
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ? »",
+      "unresolvedReviewNotes": [
+        "Whether the gutter is covered is an insurance question and is not confirmed. 'Portée des travaux' as the French for scope of work needs terminology review.",
+        "Portée/étendue des travaux are unselected scope-of-work term options; includes gutter explicitly, no independently approved insurance settlement."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ? »",
+          "alignmentNote": "Keeps the formal vous, the scope question, and 'including the gutter'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:16",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:16",
+      "sourceEnglish": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "sourceSpanish": "Ajustador: Sí, lo voy a anotar en el reporte, y la aseguradora le mandará una copia al dueño.",
+      "legacySourceRef": "master-roofing:7:passage:16",
+      "originalCandidateHold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim. Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim."
+        },
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities."
+        }
+      ],
+      "archivedFrenchEvidence": "L’expert : « Oui, je vais le noter dans le rapport; la compagnie enverra une copie au propriétaire. »",
+      "unresolvedReviewNotes": [
+        "This is an insurer communication practice in the source. It is not a claim-payment promise. French claim procedure and documentation terms are unverified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:16:1",
+          "label": "Variant 1",
+          "candidateFrench": "L’expert : « Oui, je vais le noter dans le rapport, et la compagnie d’assurance enverra une copie au propriétaire. »",
+          "alignmentNote": "Keeps 'yes', the intent to note it in the report, and the insurer sending a copy to the owner. Does not add a payment promise.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 2,
+    "canonicalFrenchProposedAfter": 2,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:7:fr-en:reader:3",
+      "master-roofing:7:fr-en:reader:4",
+      "master-roofing:7:fr-en:reader:6",
+      "master-roofing:7:fr-en:reader:7",
+      "master-roofing:7:fr-en:reader:9",
+      "master-roofing:7:fr-en:reader:11",
+      "master-roofing:7:fr-en:reader:14",
+      "master-roofing:7:fr-en:reader:15",
+      "master-roofing:7:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 9,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "0d2dfcab0f8911fe7f063b7ee37e552f404a73db60b9cb4f4be87463122fae04",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/README.md": "7af8c79d27298034060ca51882b81643c66238863642fee48594047dffba1ed0",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a"
+  },
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "English-target/French-support source-only alternatives do not automatically adapt/complete original grammar, speaking or specialist objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work."
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:7:fr-en:reader:1",
+      "master-roofing:7:fr-en:reader:12"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:7:fr-en:reader:10",
+      "master-roofing:7:fr-en:reader:13",
+      "master-roofing:7:fr-en:reader:2",
+      "master-roofing:7:fr-en:reader:5",
+      "master-roofing:7:fr-en:reader:8"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:7:fr-en:reader:11",
+      "master-roofing:7:fr-en:reader:14",
+      "master-roofing:7:fr-en:reader:15",
+      "master-roofing:7:fr-en:reader:16",
+      "master-roofing:7:fr-en:reader:3",
+      "master-roofing:7:fr-en:reader:4",
+      "master-roofing:7:fr-en:reader:6",
+      "master-roofing:7:fr-en:reader:7",
+      "master-roofing:7:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 7,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "All previous artifacts frozen byte-for-byte; new sidecar fills only previously uncovered IDs. Distinct source-anchor union, not competing variant sum, determines coverage.",
+    "Direct technical/source claims translated without source safety/contract/product approval or completed original objective.",
+    "Raw model claims about regional terminology are unqualified review suggestions. Source meaning governs corrections; forecast is not silently changed to weather and full source narrator/BEST restored before critique completion."
+  ],
+  "inputFilteringNote": "Haiku raw output included an extra already-coveredMaster8Reader16; it was not imported, counted or used to overwrite prior content. Only exact missing source IDs are included.",
+  "archiveNormalizationPolicy": "Collapse whitespace runs and normalize apostrophes, retaining punctuation token boundaries. Added space before semicolon may legitimately change this exact-normalized-text flag; it is not semantic approval."
+}

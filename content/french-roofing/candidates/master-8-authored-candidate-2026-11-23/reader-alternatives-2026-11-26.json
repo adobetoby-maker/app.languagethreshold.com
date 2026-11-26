@@ -1,0 +1,534 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:8:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-8-source-decision-2026-11-18/packet.json",
+    "sha256": "5fc8850d5a92820de2b63b1f8ecab17456e887a76f87c2f267601354251e41f4"
+  },
+  "sourceObjectiveEnglish": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "11remaining missing Reader anchors in Master8, additive to canonical/prior sidecars; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:2",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:2",
+      "sourceEnglish": "Mrs. Flores came out of the house in a hurry and spoke with Rogelio.",
+      "sourceSpanish": "La señora Flores salió de la casa con prisa y habló con Rogelio.",
+      "legacySourceRef": "master-roofing:8:passage:2",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Mme Flores est sortie de la maison à la hâte pour parler à Rogelio.",
+      "unresolvedReviewNotes": [
+        "Narrator-only source frame; MrsFlores hurried exit and conversation both retained. French remains unselected proposal, no further-review exemption claimed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Mme Flores est sortie de la maison à la hâte et a parlé avec Rogelio.",
+          "alignmentNote": "Keeps the narrator frame, the hurry, and the conversation with Rogelio.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:4",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:4",
+      "sourceEnglish": "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+      "sourceSpanish": "Señora Flores: Y para ahorrar, pongan las tejas sin la sub-capa.",
+      "legacySourceRef": "master-roofing:8:passage:4",
+      "originalCandidateHold": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim."
+        }
+      ],
+      "archivedFrenchEvidence": "Mme Flores : « Et pour économiser, posez les bardeaux sans la sous-couche. »",
+      "unresolvedReviewNotes": [
+        "The command to omit underlayment is a source-dramatized request. Whether the actual product or system requires underlayment is a separate question and is not verified here."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Mme Flores : « Et pour économiser de l’argent, posez les bardeaux sans la sous-couche. »",
+          "alignmentNote": "Keeps the homeowner's command in full, including 'to save money', without turning it into qualified advice.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:6",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+      "sourceSpanish": "Rogelio: Con relámpagos, el techo es el peor lugar, y no recomiendo que trabajemos con relámpagos ni con la superficie mojada.",
+      "legacySourceRef": "master-roofing:8:passage:6",
+      "originalCandidateHold": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure. Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure."
+        },
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avec la foudre, le toit présente un danger; je ne recommande pas de travailler pendant l’orage ni sur une surface mouillée. »",
+      "unresolvedReviewNotes": [
+        "This is a fictional dialogue, not a universal lightning safety procedure. No site-specific safety verification is supplied. Any lightning or electric-shock terms need separate safety review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée. »",
+          "alignmentNote": "InLIGHTNING roofWORSTplace/IDONOTRECOMMEND WEWORKinlightning ORonWETSURFACE all direct, no worst-to-dangerous softening or added site protocol.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:8",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+      "sourceSpanish": "Rogelio: Sobre la sub-capa, lamentablemente, eso no lo podemos hacer.",
+      "legacySourceRef": "master-roofing:8:passage:8",
+      "originalCandidateHold": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Quant à la sous-couche, malheureusement, nous ne pouvons pas l’omettre. »",
+      "unresolvedReviewNotes": [
+        "The source states the team cannot do it. The actual product or system requirement is not verified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Pour la sous-couche, malheureusement, nous ne pouvons pas faire cela. »",
+          "alignmentNote": "Keeps the 'unfortunately' and the direct 'we cannot do that' from the source.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:9",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+      "sourceSpanish": "Rogelio: No es posible que nos saltemos la sub-capa, porque el fabricante la pide para la garantía.",
+      "legacySourceRef": "master-roofing:8:passage:9",
+      "originalCandidateHold": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous ne pouvons pas supprimer la sous-couche prévue; vérifions les exigences du système et de la garantie. »",
+      "unresolvedReviewNotes": [
+        "The manufacturer warranty requirement is a source fact. It has not been checked against any real product documentation. No product protocol is asserted."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Il ne nous est pas possible d’omettre la sous-couche, parce que le fabricant l’exige pour la garantie. »",
+          "alignmentNote": "Firm NOTPOSSIBLEFORUS toSKIPunderlayment BECAUSEmanufacturerREQUIRESforWARRANTY, refusal not disbelief; no possible/system-specific qualifier added to quoted source.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:10",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+      "sourceSpanish": "Rogelio: Ese atajo parece un ahorro hoy, pero más adelante sería una gotera y un gasto mucho mayor.",
+      "legacySourceRef": "master-roofing:8:passage:10",
+      "originalCandidateHold": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Ce raccourci semble économique aujourd’hui, mais pourrait entraîner une fuite et des coûts plus élevés. »",
+      "unresolvedReviewNotes": [
+        "The leak and cost claim is source-stated and not verified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Ce raccourci semble être une économie aujourd’hui, mais plus tard ce serait une fuite et une dépense beaucoup plus importante. »",
+          "alignmentNote": "ShortcutLOOKSlikeTODAYsavings BUTLATERWOULDbeLEAKANDMUCHBIGGERexpense; serait categorical conditional outcome, not softened pourrait.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:11",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+      "sourceSpanish": "Rogelio: Lo que sí podemos hacer es cubrir el techo con lona y volver en cuanto pase la tormenta eléctrica.",
+      "legacySourceRef": "master-roofing:8:passage:11",
+      "originalCandidateHold": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Une protection temporaire par bâche pourrait être envisagée seulement quand les conditions sont sûres et selon le plan approuvé. »",
+      "unresolvedReviewNotes": [
+        "Tarping and return timing need safety and contract review before scored use. This is not an all-clear procedure, and the source gives no site-specific timing.",
+        "Source TARPthenreturn-AS-SOON storm passes conflicts with unqualified reentry/metal-tool commands inReader14 and lacks actual site all-clear. Exact source translated, no tarping/refuge/retrieval protocol selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Ce que nous pouvons faire, c’est couvrir le toit avec une bâche et revenir dès que l’orage sera passé. »",
+          "alignmentNote": "WHATWECANDO coverROOFwithTARP ANDRETURNASSOONASTHUNDERSTORMPASSES; orage renders thunderstorm, no all-clear delay, tarping order, added protection condition or approved protocol.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:12",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "sourceSpanish": "Rogelio: Así terminaríamos el viernes, si el pronóstico ayuda, y usted tendría su techo antes del sábado.",
+      "legacySourceRef": "master-roofing:8:passage:12",
+      "originalCandidateHold": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous pourrions alors terminer vendredi si la météo et les contrôles le permettent, sans le promettre. »",
+      "unresolvedReviewNotes": [
+        "The schedule is conditional and not guaranteed. Contract and forecast review is needed before any scored use.",
+        "Prévisions remains source forecast, not silently replaced by actual weather. Friday/Saturday outcomes remain conditional on source forecast, not a safety-clearance promise."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi. »",
+          "alignmentNote": "THATWAY conditional-mood WEWOULDFINISHFriday IFforecastfavorable plus YOUWOULDHAVEroofBEFORESaturday; source si-condition plus two conditional outcomes, not a guaranteed date or added all-clear.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:13",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:13",
+      "sourceEnglish": "Mrs. Flores thought for a moment and accepted the alternative.",
+      "sourceSpanish": "La señora Flores pensó un momento y aceptó la alternativa.",
+      "legacySourceRef": "master-roofing:8:passage:13",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Mme Flores y a réfléchi un moment et a accepté la solution de rechange.",
+      "unresolvedReviewNotes": [
+        "Narrator-only frame. No contractual commitment is asserted."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "Mme Flores a réfléchi un moment et a accepté la solution de rechange.",
+          "alignmentNote": "Keeps the pause to think, the acceptance, and the alternative as the object of acceptance.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:14",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio talked to the crew: Don't go up until I say so, and don't leave metal tools on the roof.",
+      "sourceSpanish": "Rogelio habló con la cuadrilla: No suban hasta que yo diga, y no dejen herramientas de metal en el techo.",
+      "legacySourceRef": "master-roofing:8:passage:14",
+      "originalCandidateHold": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio dit à l’équipe : « Ne montez pas avant mon autorisation et ne laissez pas d’outils métalliques sur le toit. »",
+      "unresolvedReviewNotes": [
+        "No site-specific retrieval plan or all-clear is supplied. Trade and safety review is needed before scored use."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio a parlé à l’équipe : « Ne montez pas avant que je ne le dise, et ne laissez pas d’outils métalliques sur le toit. »",
+          "alignmentNote": "Whole RogelioSPOKETOCREW plus DONTGOUPUNTILISAY ANDDONTLEAVEMETALTOOLSroof; avant que ne is French temporal phrasing, no invented all-clear/retrieval plan.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:15",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: The decision is mine, and so is the responsibility.",
+      "sourceSpanish": "Rogelio: La decisión es mía, y la responsabilidad también.",
+      "legacySourceRef": "master-roofing:8:passage:15",
+      "originalCandidateHold": "Author natural French refusal and negative-command practice, speaking and six prompt/target mode pairs for the homeowner and crew. The source's Spanish subjunctive focus cannot be treated as an identical French exercise.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Author natural French refusal and negative-command practice, speaking and six prompt/target mode pairs for the homeowner and crew. The source's Spanish subjunctive focus cannot be treated as an identical French exercise."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « J’assume cette décision et la responsabilité de la communiquer. »",
+      "unresolvedReviewNotes": [
+        "This is a source-stated responsibility claim, not a legal liability statement."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « La décision est la mienne, et la responsabilité aussi. »",
+          "alignmentNote": "Keeps the direct first-person ownership of both the decision and the responsibility.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 1,
+    "canonicalFrenchProposedAfter": 1,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:8:fr-en:reader:2",
+      "master-roofing:8:fr-en:reader:4",
+      "master-roofing:8:fr-en:reader:6",
+      "master-roofing:8:fr-en:reader:8",
+      "master-roofing:8:fr-en:reader:9",
+      "master-roofing:8:fr-en:reader:10",
+      "master-roofing:8:fr-en:reader:11",
+      "master-roofing:8:fr-en:reader:12",
+      "master-roofing:8:fr-en:reader:13",
+      "master-roofing:8:fr-en:reader:14",
+      "master-roofing:8:fr-en:reader:15"
+    ],
+    "supplementalAnchorCount": 11,
+    "supplementalFullFaceAlternativeCount": 11
+  },
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "c036ba9f6577263bdc257c881686fae3fb7a78e7d9fa6040fe2feb8fb14db512",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/README.md": "fd2b58c2842d2af876165672961f5dfddf8836aea527cd5804201cd344531d20",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a"
+  },
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "English-target/French-support source-only alternatives do not automatically adapt/complete original grammar, speaking or specialist objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative."
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:8:fr-en:reader:1"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:8:fr-en:reader:16",
+      "master-roofing:8:fr-en:reader:3",
+      "master-roofing:8:fr-en:reader:5",
+      "master-roofing:8:fr-en:reader:7"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:8:fr-en:reader:10",
+      "master-roofing:8:fr-en:reader:11",
+      "master-roofing:8:fr-en:reader:12",
+      "master-roofing:8:fr-en:reader:13",
+      "master-roofing:8:fr-en:reader:14",
+      "master-roofing:8:fr-en:reader:15",
+      "master-roofing:8:fr-en:reader:2",
+      "master-roofing:8:fr-en:reader:4",
+      "master-roofing:8:fr-en:reader:6",
+      "master-roofing:8:fr-en:reader:8",
+      "master-roofing:8:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 5,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "All previous artifacts frozen byte-for-byte; new sidecar fills only previously uncovered IDs. Distinct source-anchor union, not competing variant sum, determines coverage.",
+    "Direct technical/source claims translated without source safety/contract/product approval or completed original objective.",
+    "Raw model claims about regional terminology are unqualified review suggestions. Source meaning governs corrections; forecast is not silently changed to weather and full source narrator/BEST restored before critique completion."
+  ],
+  "inputFilteringNote": "Haiku raw output included an extra already-coveredMaster8Reader16; it was not imported, counted or used to overwrite prior content. Only exact missing source IDs are included.",
+  "archiveNormalizationPolicy": "Collapse whitespace runs and normalize apostrophes, retaining punctuation token boundaries. Added space before semicolon may legitimately change this exact-normalized-text flag; it is not semantic approval."
+}

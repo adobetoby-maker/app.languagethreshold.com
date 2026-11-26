@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-26",
+  "qualifiedApproval": false,
+  "selfCheck": "Verified six canonical IDs/JPEN faces and exact adjacent source anchors, full kana, six unique supplemental IDs and all eight prior files byte-exact. Corrected modifier direction, role attribution, plan/politeness distinction, adjective class, non-past choice, possessive quote and scoped order pattern. Twelve of23original gaps now have additive explanations;11remain. No qualified approval or runtime/audio promotion.",
+  "haiku": {
+    "safeMode": true,
+    "requestedModel": "claude-haiku-5-5",
+    "actualModelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 14423,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 7352,
+        "webSearchRequests": 0,
+        "costUSD": 0.0086821,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 8672,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 7352,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "2e8106d7-0544-4251-bbfd-7361cf98efa2",
+    "isError": false
+  },
+  "opus": {
+    "safeMode": true,
+    "requestedModel": "claude-opus-5-5",
+    "actualModelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 6337,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 12274,
+        "webSearchRequests": 0,
+        "costUSD": 0.22494,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 3472,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12274,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "d555374a-2965-4082-86f2-6d3dc532b41d",
+    "isError": false
+  },
+  "fable": {
+    "safeMode": true,
+    "requestedModel": "claude-fable-5-2",
+    "actualModelUsage": {
+      "claude-fable-5-2": {
+        "inputTokens": 2,
+        "outputTokens": 10440,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 15152,
+        "webSearchRequests": 0,
+        "costUSD": 0.660048,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4252,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15152,
+        "canonicalModel": "claude-fable-5-2",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "225be9f6-dd80-4248-8438-8308ab6cf8e1",
+    "isError": false
+  },
+  "postFableSelfCorrections": [
+    "Scopedよていto a future plan/schedule/arrangement rather than a universal requirement of a fixed plan; agreement comes from the preceding written reply, notです.",
+    "Kept Master9choice as non-past rather than describing it as a past decision.",
+    "Restricted nounを+quantity description to this sentence rather than forbidding other valid counter-object word orders.",
+    "Kept Master7role focused on study method and verified no new source dialogue, purchase, weight inference or dietary guarantee."
+  ]
+}

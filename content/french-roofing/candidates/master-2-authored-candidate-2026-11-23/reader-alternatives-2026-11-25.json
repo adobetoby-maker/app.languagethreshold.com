@@ -1,0 +1,149 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:2:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5d5e1fc7bbffb3a51fe8e821d402735c553e594e",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-2-source-decision-2026-11-18/packet.json",
+    "sha256": "a141cf044ddc2edfc23b663b341523c63a3e7cb287d9d6f8e8a22e323fcfe605"
+  },
+  "sourceObjectiveEnglish": "Explain why joints are staggered, using impersonal se and general rules with si",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete French alternatives for selected ordinary-language/quoted-scene Reader faces only. Existing canonical rows/holds unchanged; technical explanations and original whole objective remain incomplete. Supplemental anchors are counted separately from canonical proposals.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:1",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:1",
+      "sourceEnglish": "Kevin looks at the roof and asks why the joints don't go in a straight line.",
+      "sourceSpanish": "Kevin mira el techo y pregunta por qué las juntas no van en línea recta.",
+      "legacySourceRef": "master-roofing:2:passage:1",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Recognize English narrated looks/asks and straight-line question, not its technical answer. French gives aligned meaning support.",
+      "unresolvedReviewNotes": "Unreviewed, unregistered, unselected full-face alternatives. Exact original candidate hold remains unresolved; all qualified source/French/trade/register questions remain open. No canonical row, audio or progress change.",
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:1:1",
+          "label": "Follow a straight line",
+          "candidateFrench": "Kevin regarde le toit et demande pourquoi les joints ne suivent pas une ligne droite.",
+          "register": "neutral narrator; joints sense pending",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "Suivent keeps the path/straight-line wording; joints dictionary sense remains unresolved."
+        },
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:1:2",
+          "label": "Archived wording",
+          "candidateFrench": "Kevin regarde le toit et demande pourquoi les joints ne forment pas une ligne droite.",
+          "register": "neutral narrator; joints sense pending",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "Archived/conditional wording uses collective form-a-line construction, nearer line-up language; nuance recorded, no formulation ranked or selected."
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Narrated question only, not a technical explanation. Straight line is retained explicitly, without merging it with held Reader3 line-up/water-path claim.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal.",
+          "relationship": "Inferred joint/shingle-context terminology dependency; no direct affectedIds list this Reader anchor. No pattern/technical answer selected."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:2",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:2",
+      "sourceEnglish": "Rogelio: Look, I'll show you with two shingles.",
+      "sourceSpanish": "Rogelio: Mira, te lo enseño con dos tejas.",
+      "legacySourceRef": "master-roofing:2:passage:2",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "English selects show in I will show you; French montrer supplies meaning support. Source Spanish enseñar can also mean teach, but this is no method or explanation. Two remains exact source count.",
+      "unresolvedReviewNotes": "Unreviewed, unregistered, unselected full-face alternatives. Exact original candidate hold remains unresolved; all qualified source/French/trade/register questions remain open. No canonical row, audio or progress change. Bardeaux is contextual unselected shingle term; tuiles not offered because it may change the material.",
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:2:1",
+          "label": "Archived-aligned informal demonstration offer",
+          "candidateFrench": "Rogelio : Regarde, je vais te montrer avec deux bardeaux.",
+          "register": "tu; source Spanish Mira/te mark informal address",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Offer to show two shingles, not the held demonstration or explanation. Two is exact source count; contextual tu/bardeaux remain unselected.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal.",
+          "relationship": "Inferred joint/shingle-context terminology dependency; no direct affectedIds list this Reader anchor. No pattern/technical answer selected."
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 15,
+    "canonicalFrenchProposedBefore": 2,
+    "canonicalFrenchProposedAfter": 2,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:2:fr-en:reader:1",
+      "master-roofing:2:fr-en:reader:2"
+    ],
+    "supplementalAnchorCount": 2,
+    "supplementalFullFaceAlternativeCount": 3
+  },
+  "internalNotes": [
+    "AI regional/tool-term opinions are unverified and not adopted as facts. Existing bardeaux/joints/cloueuse remain contextual unselected French proposals; qualified trade/locale review required.",
+    "Canonical French proposal totals unchanged. Supplemental full-face alternatives are counted separately and never imply objective completion, technical correctness or approval."
+  ]
+}

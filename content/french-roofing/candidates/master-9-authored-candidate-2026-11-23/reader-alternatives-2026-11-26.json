@@ -1,0 +1,413 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:9:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-9-source-decision-2026-11-18/packet.json",
+    "sha256": "2a287f8d7ebdbcfbc9f290f2ed8252492e49240b5439adf533b0de5b6a7a6d98"
+  },
+  "sourceObjectiveEnglish": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "7remaining missing Reader anchors in Master9, additive to canonical/prior sidecars; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:8",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+      "sourceSpanish": "Rogelio: Eso pasa, pero con este desnivel el error se ve desde la calle.",
+      "legacySourceRef": "master-roofing:9:passage:8",
+      "originalCandidateHold": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Cela arrive, mais cette irrégularité est visible depuis la rue. »",
+      "unresolvedReviewNotes": [
+        "Visibility from the street is a source claim for this row only. It is not a general quality standard."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Cela arrive, mais avec cette irrégularité, l’erreur est visible depuis la rue. »",
+          "alignmentNote": "Keeps 'that happens' and 'visible from the street' as source-specific claims, not universal statements.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+        "exactSpanish": "Rogelio: Eso pasa, pero con este desnivel el error se ve desde la calle.",
+        "status": "open",
+        "scope": "English unevenness broad versus Spanish desnivel level difference; irrégularité follows English. Décalage/défaut de niveau technical choice remains dictionary/product-context review, distinct from pureau/exposure."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:9",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: It's better that we fix it now, before the course climbs any higher.",
+      "sourceSpanish": "Rogelio: Es mejor que lo arreglemos ahora, antes de que la hilera suba más.",
+      "legacySourceRef": "master-roofing:9:passage:9",
+      "originalCandidateHold": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar. The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar."
+        },
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Il vaut mieux corriger cela maintenant, avant que le rang ne monte davantage. »",
+      "unresolvedReviewNotes": [
+        "No course-specific repair procedure is asserted. Terminology for rang and the correction action needs review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Il vaut mieux que nous corrigions cela maintenant, avant que le rang ne monte davantage. »",
+          "alignmentNote": "BETTERWEFIXITNOW BEFOREcourseCLIMBSHIGHER; cela keeps generic source it without choosing feminine error or masculine course antecedent, shared nous action retained.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:11",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+      "sourceSpanish": "Rogelio: Prefiero que me preguntes antes, si no estás seguro del alineamiento.",
+      "legacySourceRef": "master-roofing:9:passage:11",
+      "originalCandidateHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Si tu n’es pas sûr de l’alignement, je préférerais que tu me demandes d’abord. »",
+      "unresolvedReviewNotes": [
+        "Confirm the French form for 'alignment' in roofing context."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:11:1",
+          "label": "Present preference variant",
+          "candidateFrench": "Rogelio : « Je préfère que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement. »",
+          "alignmentNote": "SourceSpanishpresent Prefiero → French je préfère preserves active preference/ASKMEFIRST/IFuncertain alignment. English would-rather idiom conditional phrasing alternative remains open. Poses la question renders ask me idiom without adding alignment advice or a new question topic.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:11:2",
+          "label": "Conditional preference variant",
+          "candidateFrench": "Rogelio : « Je préférerais que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement. »",
+          "alignmentNote": "English I’d rather expressed as French conditional préférence, same YOUASKMEFIRST/IFuncertain alignment. Register/force difference explicit; not approved softening or selected replacement. Poses la question renders ask me idiom without adding alignment advice or a new question topic.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+        "exactSpanish": "Rogelio: Prefiero que me preguntes antes, si no estás seguro del alineamiento.",
+        "status": "open",
+        "scope": "English would-rather idiom versus Spanish present prefiero; present/conditional French full-face alternatives explicit, modal-force selection unapproved."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:13",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "sourceSpanish": "Rogelio: Gracias; la corrección es parte del trabajo, y la calidad es de todos.",
+      "legacySourceRef": "master-roofing:9:passage:13",
+      "originalCandidateHold": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Merci; corriger fait partie du travail, et la qualité concerne toute l’équipe. »",
+      "unresolvedReviewNotes": [
+        "Shared quality statement only. No formal company policy is asserted."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Merci ; corriger fait partie du travail, et la qualité est l’affaire de tous. »",
+          "alignmentNote": "THANKS/CORRECTINGpartJOB/QUALITYbelongstoEVERYONE; affaire de tous idiomatic shared quality responsibility without limiting to crew only.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:14",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:14",
+      "sourceEnglish": "Later the company supervisor, Mr. Soto, arrived and saw the shingles on the ground.",
+      "sourceSpanish": "Más tarde llegó el supervisor de la compañía, el señor Soto, y vio las tejas en el suelo.",
+      "legacySourceRef": "master-roofing:9:passage:14",
+      "originalCandidateHold": "Dependent company-supervisor role, later formal-address context and shingle/product noun sense require qualified source/locale review; no authority or material choice selected.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Plus tard, le responsable de l’entreprise, M. Soto, est arrivé et a vu les bardeaux au sol.",
+      "unresolvedReviewNotes": [
+        "The company role of supervisor is a source detail. Its French and Québec equivalent is unverified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Plus tard, le superviseur de l’entreprise, M. Soto, est arrivé et a vu les bardeaux au sol.",
+          "alignmentNote": "Keeps 'later', the company supervisor, the arrival, and seeing the shingles on the ground.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:15",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: Mr. Soto, I'm asking you to check the exposure with me; we're already correcting a course.",
+      "sourceSpanish": "Rogelio: Señor Soto, le pido que revise la exposición conmigo; ya estamos corrigiendo una hilera.",
+      "legacySourceRef": "master-roofing:9:passage:15",
+      "originalCandidateHold": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Monsieur Soto, je vous demande de vérifier le pureau avec moi; nous corrigeons déjà un rang. »",
+      "unresolvedReviewNotes": [
+        "Pureau as the French term for visible shingle exposure needs roofing terminology review. No new measurement is implied."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Monsieur Soto, je vous demande de vérifier le pureau avec moi ; nous corrigeons déjà un rang. »",
+          "alignmentNote": "FormalMrSoto IAMASKINGYOU CHECKEXPOSUREWITHME/WEALREADYcorrectingCOURSE; je vous demande not softened souhaiterais. Pureau technical exposure proposal, not dictionary approval.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:16",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:16",
+      "sourceEnglish": "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands.",
+      "sourceSpanish": "Para Rogelio, la retroalimentación funciona mejor así: clara, en privado y con una solución que el trabajador entienda.",
+      "legacySourceRef": "master-roofing:9:passage:16",
+      "originalCandidateHold": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected."
+        }
+      ],
+      "archivedFrenchEvidence": "Pour Rogelio, un retour utile est clair, donné en privé et accompagné d’une solution comprise par l’ouvrier.",
+      "unresolvedReviewNotes": [
+        "Feedback method is source-stated and not a training certification. The speaker attribution in the French frame should be checked against the source.",
+        "French comprend/desired-attribute comprenne are reviewable relative-clause choices. Current indicative follows English understands; narrator and BEST remain exact, no automatic source-Spanish subjunctive objective completion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:16:1",
+          "label": "Variant 1",
+          "candidateFrench": "Pour Rogelio, le retour d’information fonctionne le mieux ainsi : clair, en privé, et avec une solution que le travailleur comprend.",
+          "alignmentNote": "NARRATOR forRogelio/feedbackWORKSBEST/CLEAR/PRIVATE/solutionWORKERUNDERSTANDS, not a new quoted Rogelio speech turn. Le mieux preserves BEST, not merely BETTER.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "For Rogelio, feedback works best like this: clear, in private, and with a solution the worker understands.",
+        "exactSpanish": "Para Rogelio, la retroalimentación funciona mejor así: clara, en privado y con una solución que el trabajador entienda.",
+        "status": "open",
+        "scope": "English worker understands versus Spanish relative-clause subjunctive entienda; French indicative comprend follows English, no automatic Spanish-subjunctive objective transplant. Narrator and BEST retained."
+      }
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:9:fr-en:reader:8",
+      "master-roofing:9:fr-en:reader:9",
+      "master-roofing:9:fr-en:reader:11",
+      "master-roofing:9:fr-en:reader:13",
+      "master-roofing:9:fr-en:reader:14",
+      "master-roofing:9:fr-en:reader:15",
+      "master-roofing:9:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 7,
+    "supplementalFullFaceAlternativeCount": 8
+  },
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "c036ba9f6577263bdc257c881686fae3fb7a78e7d9fa6040fe2feb8fb14db512",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/README.md": "58e43684e3ed998c89705cf10a3f7d6c8cba7692e4db285be68fc99f207cb2a6",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a"
+  },
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "English-target/French-support source-only alternatives do not automatically adapt/complete original grammar, speaking or specialist objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix."
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:9:fr-en:reader:3",
+      "master-roofing:9:fr-en:reader:5",
+      "master-roofing:9:fr-en:reader:6"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:9:fr-en:reader:1",
+      "master-roofing:9:fr-en:reader:10",
+      "master-roofing:9:fr-en:reader:12",
+      "master-roofing:9:fr-en:reader:2",
+      "master-roofing:9:fr-en:reader:4",
+      "master-roofing:9:fr-en:reader:7"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:9:fr-en:reader:11",
+      "master-roofing:9:fr-en:reader:13",
+      "master-roofing:9:fr-en:reader:14",
+      "master-roofing:9:fr-en:reader:15",
+      "master-roofing:9:fr-en:reader:16",
+      "master-roofing:9:fr-en:reader:8",
+      "master-roofing:9:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 9,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "All previous artifacts frozen byte-for-byte; new sidecar fills only previously uncovered IDs. Distinct source-anchor union, not competing variant sum, determines coverage.",
+    "Direct technical/source claims translated without source safety/contract/product approval or completed original objective.",
+    "Raw model claims about regional terminology are unqualified review suggestions. Source meaning governs corrections; forecast is not silently changed to weather and full source narrator/BEST restored before critique completion."
+  ],
+  "inputFilteringNote": "Haiku raw output included an extra already-coveredMaster8Reader16; it was not imported, counted or used to overwrite prior content. Only exact missing source IDs are included.",
+  "archiveNormalizationPolicy": "Collapse whitespace runs and normalize apostrophes, retaining punctuation token boundaries. Added space before semicolon may legitimately change this exact-normalized-text flag; it is not semantic approval."
+}

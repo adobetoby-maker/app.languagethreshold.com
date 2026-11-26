@@ -1,0 +1,502 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:4:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-4-source-decision-2026-11-18/packet.json",
+    "sha256": "b5780084b297fc312f7326dc024c858ab0e71e6376c7ef1f6849666038a80dc8"
+  },
+  "sourceObjectiveEnglish": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "9remaining missing Reader anchors in Master4, additive to canonical/prior sidecars; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:2",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:2",
+      "sourceEnglish": "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years.",
+      "sourceSpanish": "Rogelio: Antes de instalar, hay que leer la hoja, aunque llevemos años haciendo esto.",
+      "legacySourceRef": "master-roofing:4:passage:2",
+      "originalCandidateHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avant de poser, il faut lire la fiche, même si nous faisons ce travail depuis des années. »",
+      "unresolvedReviewNotes": [
+        "Fictional manufacturer sheet; no real product, standard or code selected. Scored use requires qualified review. 'Fiche' as the French term for spec sheet needs locale confirmation."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années. »",
+          "alignmentNote": "BEFOREINSTALL MUSTREADSHEET EVENIFWEhavebeendoingTHISforYEARS complete; installation not restricted to one laying operation.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:5",
+      "sourceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+      "sourceSpanish": "Paso 1: Antes de colocar el tapajuntas, instale la sub-capa sobre la cubierta y súbala por la pared lateral según la especificación.",
+      "legacySourceRef": "master-roofing:4:passage:5",
+      "originalCandidateHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions. The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions."
+        },
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers."
+        }
+      ],
+      "archivedFrenchEvidence": "Première étape : avant de poser le solin, placez la sous-couche sur le platelage et faites-la remonter le long du mur selon la spécification.",
+      "unresolvedReviewNotes": [
+        "Sidewall and underlayment placement is specific to the fictional sheet. Terms sous-couche, platelage, mur latéral and solin need locale confirmation. Not an installation approval; qualified review required."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification.",
+          "alignmentNote": "Order is preserved: 'before placing' to 'avant de poser', 'run it up' to 'faites-la remonter', 'according to the specification' to 'selon la spécification'. 'Paso 1' numeral kept as 'Étape 1'. Vous imperative matches usted-form 'instale'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:6",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:6",
+      "sourceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+      "sourceSpanish": "Paso 2: Coloque una pieza de tapajuntas escalonado en cada hilera, con el traslape mínimo que indica esta hoja.",
+      "legacySourceRef": "master-roofing:4:passage:6",
+      "originalCandidateHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions. The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions."
+        },
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers."
+        }
+      ],
+      "archivedFrenchEvidence": "Deuxième étape : posez un solin à gradins par rang, avec le recouvrement minimal indiqué sur cette fiche.",
+      "unresolvedReviewNotes": [
+        "Source gives no numeric overlap; none should be inferred. Solin à gradins and rang need locale confirmation. Actual minimum overlap for any real system is unresolved and requires qualified review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Étape 2 : posez une pièce de solin à gradins sur chaque rang, avec le recouvrement minimal qu’indique cette fiche.",
+          "alignmentNote": "'One piece ... on each course' maps to 'une pièce ... sur chaque rang'. 'Minimum overlap' is kept and no numeric value is added.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:7",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:7",
+      "sourceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+      "sourceSpanish": "Paso 3: Fije cada pieza solo a la cubierta, nunca a la pared, con el sujetador indicado.",
+      "legacySourceRef": "master-roofing:4:passage:7",
+      "originalCandidateHold": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers."
+        }
+      ],
+      "archivedFrenchEvidence": "Troisième étape : fixez chaque pièce seulement au platelage, jamais au mur, avec la fixation spécifiée.",
+      "unresolvedReviewNotes": [
+        "Source names no fastener type; none is chosen here. Deck-only fastening instruction needs qualified product and safety review before scoring."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Étape 3 : fixez chaque pièce seulement au platelage, jamais au mur, avec l’élément de fixation spécifié.",
+          "alignmentNote": "'Only' maps to 'seulement' and 'never' to 'jamais', preserving both absolutes. 'Specified fastener' maps to 'fixation spécifiée', leaving the fastener type unnamed as in source.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:8",
+      "sourceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+      "sourceSpanish": "Paso 4: Después de colocar el tapajuntas, el revestimiento de pared debe cubrirlo; no use sellador en lugar de tapajuntas.",
+      "legacySourceRef": "master-roofing:4:passage:8",
+      "originalCandidateHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions. The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions."
+        },
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers."
+        }
+      ],
+      "archivedFrenchEvidence": "Quatrième étape : après la pose, le revêtement mural doit recouvrir le solin; n’utilisez pas de mastic à sa place.",
+      "unresolvedReviewNotes": [
+        "Scellant versus mastic is a locale choice; archived French used mastic. The coverage requirement and no-sealant-substitution rule are source assertions needing qualified product and safety review.",
+        "Siding proposed as revêtement mural; revêtement extérieur/parement/bardage are unselected locale/product term options. No sealant-substitution rule adopted beyond quoted fictional sheet."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin.",
+          "alignmentNote": "'Must cover' maps to 'doit le recouvrir', keeping the obligation. 'Do not use sealant instead' maps to 'n'utilisez pas ... à la place', keeping the prohibition. 'Le' refers to the masculine solin.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:9",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:9",
+      "sourceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+      "sourceSpanish": "Advertencia: Si no sigue estos pasos, el producto puede fallar y el fabricante puede no cubrir el daño.",
+      "legacySourceRef": "master-roofing:4:passage:9",
+      "originalCandidateHold": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers."
+        }
+      ],
+      "archivedFrenchEvidence": "Avertissement : si ces étapes ne sont pas suivies, le produit peut présenter une défaillance et le fabricant peut refuser de couvrir les dommages.",
+      "unresolvedReviewNotes": [
+        "Warranty and failure statements come from the fictional sheet and do not establish any actual manufacturer policy. Requires qualified review before use as a scored warning."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Avertissement : si vous ne suivez pas ces étapes, le produit peut présenter une défaillance et le fabricant peut ne pas couvrir les dommages.",
+          "alignmentNote": "'May fail' maps to 'peut présenter une défaillance' and 'may not cover' to 'peut ne pas couvrir', keeping the modal rather than hardening to certainty. No legal claim is added.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:11",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: Yes, and you have to read it too; don't do it from memory.",
+      "sourceSpanish": "Rogelio: Sí, y tú también tienes que leerlo; no lo hagas de memoria.",
+      "legacySourceRef": "master-roofing:4:passage:11",
+      "originalCandidateHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system. Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Oui, et tu dois le lire aussi; ne travaille pas de mémoire. »",
+      "unresolvedReviewNotes": [
+        "Tu register is the source's informal crew pairing; confirm for scored use. The object 'le' refers to the sheet from context."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Oui, et toi aussi, tu dois la lire ; ne le fais pas de mémoire. »",
+          "alignmentNote": "YES/YOUTOO MUSTREADIT/DONTDOITfromMEMORY retained: la=fiche, le=doing work, familiar tu follows source Kevin relationship; prior held French register remains reviewable.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:12",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+      "sourceSpanish": "Rogelio: Después de leer cada paso, hay que revisar si el material del camión es el mismo de la hoja.",
+      "legacySourceRef": "master-roofing:4:passage:12",
+      "originalCandidateHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Après chaque étape, vérifie que le matériau dans le camion correspond à celui de la fiche. »",
+      "unresolvedReviewNotes": [
+        "Truck-material verification is a source instruction; the product-specific check is not validated here. Qualified review required before scored use."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche. »",
+          "alignmentNote": "AFTERreading EACHstep CHECKwhether MATERIALONtruck SAMEASSHEET retained. Sur follows English on, not invented inside-truck location or truck composition.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+        "exactSpanish": "Rogelio: Después de leer cada paso, hay que revisar si el material del camión es el mismo de la hoja.",
+        "status": "open",
+        "scope": "English material ONtruck explicit versus Spanish del camión/from-truck association; sur follows English, no invented inside-truck placement."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:14",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:14",
+      "sourceEnglish": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "sourceSpanish": "Kevin: Dice que hay que usar el traslape mínimo de la hoja, y que la chimenea y el tapajuntas para tubo tienen otra sección.",
+      "legacySourceRef": "master-roofing:4:passage:14",
+      "originalCandidateHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions."
+        }
+      ],
+      "archivedFrenchEvidence": "Kevin : « Elle indique son recouvrement minimal; la cheminée et le manchon du tuyau ont une autre rubrique. »",
+      "unresolvedReviewNotes": [
+        "Manchon de tuyau and section need locale term confirmation. Source gives no chimney or pipe-boot details; none are inferred. Indirect claim about the sheet is not verified.",
+        "Pipe boot proposed as manchon d’étanchéité pour tuyau, not ordinary pipe coupling; exact flashing/boot product and separate-section reference unselected.",
+        "Manchon d’étanchéité pour tuyau follows English pipe boot; document-section sense explicit in context, not physical component cross-section or approved boot system."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin : « Elle dit qu’il faut utiliser le recouvrement minimal de la fiche, et que la cheminée et le manchon d’étanchéité pour tuyau sont traités dans une autre section. »",
+          "alignmentNote": "Kevin ITSAYS MUSTsheetMINIMUMoverlap ANDchimneyANDpipeBOOT haveANOTHERSECTION of sheet; document topic, not physical pipe cross-section. English boot-specific support follows manchon d’étanchéité proposal.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+        "exactSpanish": "Kevin: Dice que hay que usar el traslape mínimo de la hoja, y que la chimenea y el tapajuntas para tubo tienen otra sección.",
+        "status": "open",
+        "scope": "English pipe boot more specific than Spanish tapajuntas para tubo/pipe flashing; manchon d’étanchéité follows English, product/locale term selection still open."
+      }
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:4:fr-en:reader:2",
+      "master-roofing:4:fr-en:reader:5",
+      "master-roofing:4:fr-en:reader:6",
+      "master-roofing:4:fr-en:reader:7",
+      "master-roofing:4:fr-en:reader:8",
+      "master-roofing:4:fr-en:reader:9",
+      "master-roofing:4:fr-en:reader:11",
+      "master-roofing:4:fr-en:reader:12",
+      "master-roofing:4:fr-en:reader:14"
+    ],
+    "supplementalAnchorCount": 9,
+    "supplementalFullFaceAlternativeCount": 9
+  },
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "3881775728e75f7def2d3a211f1e2cc70e057386d9b22834ce90499609734164",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/README.md": "eaec3d79fdd6a69c7004df8ddf18e325ab4f80d3b1baf3a6e3def5628629b668",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475"
+  },
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "English-target/French-support source-only alternatives do not automatically adapt/complete original grammar, speaking or specialist objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet."
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:4:fr-en:reader:15",
+      "master-roofing:4:fr-en:reader:16",
+      "master-roofing:4:fr-en:reader:4"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:4:fr-en:reader:1",
+      "master-roofing:4:fr-en:reader:10",
+      "master-roofing:4:fr-en:reader:13",
+      "master-roofing:4:fr-en:reader:3"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:4:fr-en:reader:11",
+      "master-roofing:4:fr-en:reader:12",
+      "master-roofing:4:fr-en:reader:14",
+      "master-roofing:4:fr-en:reader:2",
+      "master-roofing:4:fr-en:reader:5",
+      "master-roofing:4:fr-en:reader:6",
+      "master-roofing:4:fr-en:reader:7",
+      "master-roofing:4:fr-en:reader:8",
+      "master-roofing:4:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 7,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "All previous artifacts frozen byte-for-byte; new sidecar fills only previously uncovered IDs. Distinct source-anchor union, not competing variant sum, determines coverage.",
+    "Direct technical/source claims translated without source safety/contract/product approval or completed original objective.",
+    "Neither raw model critique is qualified authority. Source English and Spanish retained; extra native-language words may express source context without inventing product/contract conditions. Matching flags independently recomputed."
+  ],
+  "sourceConditionalEvidenceCountingNote": {
+    "sourcePacketRowsWithConditionalFrench": [
+      "master-roofing:4:fr-en:reader:4",
+      "master-roofing:4:fr-en:reader:15",
+      "master-roofing:4:fr-en:reader:16"
+    ],
+    "scope": "Source-packet conditionalFrench is archived/unselected evidence, not automatically authored canonical candidateFrench. Coverage uses exact candidateRows plus actual sidecar rows; source evidence alone is not counted as authored teaching."
+  }
+}

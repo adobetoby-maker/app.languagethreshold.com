@@ -1,0 +1,640 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:5:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-5-source-decision-2026-11-18/packet.json",
+    "sha256": "82d2db28c364ff18733737cd068b4838b5c7f4f9d7bfca80c998f37ed24d4f8c"
+  },
+  "sourceObjectiveEnglish": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "13remaining missing Reader anchors in Master5, additive to canonical/prior sidecars; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:2",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:2",
+      "sourceEnglish": "Kevin was stepping carefully when he felt the deck sinking.",
+      "sourceSpanish": "Kevin pisaba con cuidado cuando sintió que la cubierta se hundía.",
+      "legacySourceRef": "master-roofing:5:passage:2",
+      "originalCandidateHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction."
+        }
+      ],
+      "archivedFrenchEvidence": "Kevin avançait prudemment quand il a senti le platelage s’affaisser.",
+      "unresolvedReviewNotes": [
+        "Only observed sag is stated; the source gives no cause or structural conclusion. Platelage needs locale confirmation. Do not convert to an engineering finding."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin marchait avec précaution quand il a senti le platelage s’enfoncer.",
+          "alignmentNote": "Kevin WASsteppingCAREFULLY WHENFELTdeckSINK retained; no cause stated or structural engineering assessment asserted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:3",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:3",
+      "sourceEnglish": "Kevin: Hey, come look at this.",
+      "sourceSpanish": "Kevin: Oye, ven a ver esto.",
+      "legacySourceRef": "master-roofing:5:passage:3",
+      "originalCandidateHold": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense."
+        }
+      ],
+      "archivedFrenchEvidence": "Kevin : « Venez voir ceci. »",
+      "unresolvedReviewNotes": [
+        "Source register is informal crew speech; archived formal variant was not followed. Confirm register target for scored prompts."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin : « Hé, viens voir ça. »",
+          "alignmentNote": "Attentioncall HEY/COMELOOKATTHIS in familiar crew singular, not new formal homeowner address. French Hé distinguishes attention call from reaction Eh.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:5",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio took photos of the damage and marked the edge with paint.",
+      "sourceSpanish": "Rogelio tomó fotos del daño y marcó la orilla con pintura.",
+      "legacySourceRef": "master-roofing:5:passage:5",
+      "originalCandidateHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio a photographié les dommages et marqué le bord avec de la peinture.",
+      "unresolvedReviewNotes": [
+        "Edge marking is source detail; no claim about what it indicates. Photo evidence is not verified for the lesson."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio a pris des photos des dommages et marqué le bord à la peinture.",
+          "alignmentNote": "Narrator frame kept in passé composé. Photo-taking and edge-marking are kept as two separate actions. 'Con pintura' maps to 'à la peinture'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:6",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:6",
+      "sourceEnglish": "Then he went down to talk with the homeowner, Mr. Ramírez.",
+      "sourceSpanish": "Después bajó a hablar con el dueño de la casa, el señor Ramírez.",
+      "legacySourceRef": "master-roofing:5:passage:6",
+      "originalCandidateHold": "Dependent homeowner noun/address/register choice from source card14 and Mr. Ramírez context remains qualified review.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense."
+        }
+      ],
+      "archivedFrenchEvidence": "Puis il est descendu parler au propriétaire, M. Ramírez.",
+      "unresolvedReviewNotes": [
+        "Propriétaire and M. abbreviation are locale-dependent choices to confirm."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Ensuite, il est descendu parler avec le propriétaire, M. Ramírez.",
+          "alignmentNote": "Narrator frame kept. 'El dueño de la casa' maps to 'le propriétaire'. Masculine 'il' and 'M. Ramírez' follow source 'el señor Ramírez'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:7",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+      "sourceSpanish": "Rogelio: Señor Ramírez, cuando quitamos las tejas, encontramos madera podrida.",
+      "legacySourceRef": "master-roofing:5:passage:7",
+      "originalCandidateHold": "Same completed removal/discovery and polite homeowner source statement as held card15; no damage/engineering conclusion selected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. »",
+      "unresolvedReviewNotes": [
+        "Bardeaux/shingles direct; bardeaux d’asphalte/bardeaux bitumés contextual product specificity unselected. Tuiles would name tiles and is not treated as an interchangeable product."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. »",
+          "alignmentNote": "MrRamírez title from sourceSeñor, WHENWEremovedSHINGLES WEFOUNDROTTENwood; completed discovery not softened damaged-wood claim.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:9",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: Shall I show you the photos?",
+      "sourceSpanish": "Rogelio: ¿Le muestro las fotos?",
+      "legacySourceRef": "master-roofing:5:passage:9",
+      "originalCandidateHold": "Dependent polite homeowner/photo offer and source role/register from held card19 remain unresolved.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio : « Puis-je vous montrer les photos ? »",
+      "unresolvedReviewNotes": [
+        "Polite offer/register proposal grounded in homeowner context and Spanish Le; exact locale/register unselected, not qualified approval."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Voulez-vous que je vous montre les photos ? »",
+          "alignmentNote": "SHALLISHOWYOU photos polite offer, vous supported by sourceSpanishLe; offer accepted inReader10 but actual showing not narrated. No role or qualified approval claimed.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense.",
+          "reason": "Polite homeowner photo offer belongs to same explicit crew-versus-MrRamírez register decision, though original affectedIds omitReader9."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:10",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:10",
+      "sourceEnglish": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+      "sourceSpanish": "Sr. Ramírez: Sí, por favor. ¿Y eso no estaba en el presupuesto?",
+      "legacySourceRef": "master-roofing:5:passage:10",
+      "originalCandidateHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order. The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order."
+        },
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense."
+        }
+      ],
+      "archivedFrenchEvidence": "M. Ramírez : « Oui, s’il vous plaît. Ce n’était pas dans le devis ? »",
+      "unresolvedReviewNotes": [
+        "Devis versus estimation or soumission is locale-dependent; confirm. The implied grievance is not resolved in the text."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "M. Ramírez : « Oui, s’il vous plaît. Et ce n’était pas dans le devis ? »",
+          "alignmentNote": "MrRamírez YESPLEASE ANDTHATWASNOTINESTIMATE question complete; devis/estimation/soumission term choice open, no asserted emotional grievance.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:11",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for.",
+      "sourceSpanish": "Rogelio: No, porque nadie podía verlo antes del desmontaje; para eso sirve la orden de cambio.",
+      "legacySourceRef": "master-roofing:5:passage:11",
+      "originalCandidateHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Non, car personne ne pouvait le voir avant la dépose; c’est pour cela qu’il faut un avenant. »",
+      "unresolvedReviewNotes": [
+        "Avenant for change order and dépose for tear-off are locale-term questions. The visibility claim is the source's assertion and is not verified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Non, parce que personne ne pouvait le voir avant la dépose ; c’est à cela que sert l’avenant. »",
+          "alignmentNote": "'Nobody could see it before the tear-off' maps to 'personne ne pouvait le voir avant la dépose'. 'That's what the change order is for' maps to 'c'est à cela que sert l'avenant' without adding detail.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:12",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+      "sourceSpanish": "Rogelio: Le recomendaría cambiar tres hojas de triplay y revisar la viga.",
+      "legacySourceRef": "master-roofing:5:passage:12",
+      "originalCandidateHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction. Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je recommanderais de remplacer trois panneaux de contreplaqué et de faire vérifier le chevron. »",
+      "unresolvedReviewNotes": [
+        "Spanish 'viga' (beam) conflicts with English 'rafter'; French follows English but the mismatch is unresolved. Sheet count and rafter check are source recommendations needing qualified structural review before scored use."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron. »",
+          "alignmentNote": "IWOULDRECOMMEND THREEPLYWOODSHEETS REPLACED ANDRAFTER CHECKED, not replacing rafter; vous matches Spanish Le homeowner addressee, English to-you unmarked.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+        "exactSpanish": "Rogelio: Le recomendaría cambiar tres hojas de triplay y revisar la viga.",
+        "status": "open",
+        "scope": "English specifically rafter versus Spanish broader viga/beam; chevron follows English, no component diagnosis or engineering repair approval."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:13",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "sourceSpanish": "Rogelio: Costaría más y tomaría un día extra, y el costo adicional aparece aquí, por escrito, como dice el contrato.",
+      "legacySourceRef": "master-roofing:5:passage:13",
+      "originalCandidateHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order. Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Cela coûterait plus cher et prendrait un jour de plus; le coût supplémentaire est écrit ici, comme le prévoit le contrat. »",
+      "unresolvedReviewNotes": [
+        "Extra cost and extra day are source-only; no amounts added. Contract wording is not verified. Locale contract terms need confirmation before scored use."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat. »",
+          "alignmentNote": "Both conditionals ('would cost', 'would take') are kept. 'Appears here, in writing' maps to 'figure ici, par écrit'. 'As the contract says' maps to 'comme le dit le contrat'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:14",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well.",
+      "sourceSpanish": "Rogelio: No podemos tapar madera podrida, porque los clavos nuevos no agarrarían bien.",
+      "legacySourceRef": "master-roofing:5:passage:14",
+      "originalCandidateHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous ne pouvons pas recouvrir du bois pourri, car les nouvelles fixations risqueraient de mal tenir. »",
+      "unresolvedReviewNotes": [
+        "The nail-holding claim is the source's assertion, not an engineering conclusion, and should not be expanded. Qualified structural and fastening review needed before scored use."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Nous ne pouvons pas recouvrir du bois pourri, parce que les nouveaux clous ne tiendraient pas bien. »",
+          "alignmentNote": "'Can't cover rotten wood' maps to 'ne pouvons pas recouvrir du bois pourri'. 'New nails wouldn't hold well' maps to conditional 'ne tiendraient pas bien', matching source 'no agarrarían'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:15",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:15",
+      "sourceEnglish": "Mr. Ramírez: All right, then do it.",
+      "sourceSpanish": "Sr. Ramírez: Está bien, entonces hágalo.",
+      "legacySourceRef": "master-roofing:5:passage:15",
+      "originalCandidateHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order."
+        }
+      ],
+      "archivedFrenchEvidence": "M. Ramírez : « D’accord, faites-le. »",
+      "unresolvedReviewNotes": [
+        "This is verbal assent only; it does not establish a signed authorization. Not change-order approval. The following line requires a signature."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "M. Ramírez : « D’accord, alors faites-le. »",
+          "alignmentNote": "'All right, then do it' maps to 'D'accord, alors faites-le', with the vous imperative matching source 'hágalo'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:16",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:16",
+      "sourceEnglish": "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "sourceSpanish": "Rogelio: Gracias; necesito su firma en la orden de cambio, porque sin su autorización no podemos empezar la reparación.",
+      "legacySourceRef": "master-roofing:5:passage:16",
+      "originalCandidateHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Merci; j’ai besoin de votre signature sur l’avenant, car sans votre autorisation nous ne pouvons pas commencer la réparation. »",
+      "unresolvedReviewNotes": [
+        "Signature and authorization requirements are source-specific. Avenant and other contract terminology need locale confirmation. Do not assume an actual contract form."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:16:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Merci ; j’ai besoin de votre signature sur l’avenant, parce que sans votre autorisation nous ne pouvons pas commencer la réparation. »",
+          "alignmentNote": "'I need your signature' maps to 'j'ai besoin de votre signature'. 'Without your authorization we can't start the repair' maps to 'sans votre autorisation nous ne pouvons pas commencer la réparation'. The signature requirement stays distinct from verbal assent.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:5:fr-en:reader:2",
+      "master-roofing:5:fr-en:reader:3",
+      "master-roofing:5:fr-en:reader:5",
+      "master-roofing:5:fr-en:reader:6",
+      "master-roofing:5:fr-en:reader:7",
+      "master-roofing:5:fr-en:reader:9",
+      "master-roofing:5:fr-en:reader:10",
+      "master-roofing:5:fr-en:reader:11",
+      "master-roofing:5:fr-en:reader:12",
+      "master-roofing:5:fr-en:reader:13",
+      "master-roofing:5:fr-en:reader:14",
+      "master-roofing:5:fr-en:reader:15",
+      "master-roofing:5:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 13,
+    "supplementalFullFaceAlternativeCount": 13
+  },
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "b65411be4e7c19d3fe48af88a96135c28340000a9b65325de26bc25f577713db",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/README.md": "0e3ab373808a0a2b5c384dbf52612babc35eeca574509e656462f37b96d455cb",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "2d2980bf3a363d5d6a189510f4bdd92e4b83efc81821a1f446ec83a009747f6b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475"
+  },
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "English-target/French-support source-only alternatives do not automatically adapt/complete original grammar, speaking or specialist objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order."
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:5:fr-en:reader:1",
+      "master-roofing:5:fr-en:reader:4",
+      "master-roofing:5:fr-en:reader:8"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:5:fr-en:reader:10",
+      "master-roofing:5:fr-en:reader:11",
+      "master-roofing:5:fr-en:reader:12",
+      "master-roofing:5:fr-en:reader:13",
+      "master-roofing:5:fr-en:reader:14",
+      "master-roofing:5:fr-en:reader:15",
+      "master-roofing:5:fr-en:reader:16",
+      "master-roofing:5:fr-en:reader:2",
+      "master-roofing:5:fr-en:reader:3",
+      "master-roofing:5:fr-en:reader:5",
+      "master-roofing:5:fr-en:reader:6",
+      "master-roofing:5:fr-en:reader:7",
+      "master-roofing:5:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 3,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "All previous artifacts frozen byte-for-byte; new sidecar fills only previously uncovered IDs. Distinct source-anchor union, not competing variant sum, determines coverage.",
+    "Direct technical/source claims translated without source safety/contract/product approval or completed original objective.",
+    "Neither raw model critique is qualified authority. Source English and Spanish retained; extra native-language words may express source context without inventing product/contract conditions. Matching flags independently recomputed."
+  ],
+  "sourceConditionalEvidenceCountingNote": {
+    "sourcePacketRowsWithConditionalFrench": [
+      "master-roofing:5:fr-en:reader:1",
+      "master-roofing:5:fr-en:reader:6",
+      "master-roofing:5:fr-en:reader:7",
+      "master-roofing:5:fr-en:reader:9"
+    ],
+    "scope": "Source-packet conditionalFrench is archived/unselected evidence, not automatically authored canonical candidateFrench. Coverage uses exact candidateRows plus actual sidecar rows; source evidence alone is not counted as authored teaching."
+  }
+}

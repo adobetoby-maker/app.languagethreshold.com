@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-26",
+  "qualifiedApproval": false,
+  "selfCheck": "Verified six exact source term faces/Reader examples/private card rows, five existing global exact sense IDs and one compositional nonconstituent source-card span. Added no global headword and selected no sense/owner. Checked price amount versus currency unit, required-not-available notebook quantity, modifier/word class and usual-pattern segmentation. Two literal canonical form links and one explicit adjacent context link are source-backed; ten prior files remain byte-exact. No qualified approval or runtime registration.",
+  "haiku": {
+    "safeMode": true,
+    "requestedModel": "claude-haiku-5-5",
+    "actualModelUsage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 8264,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 10062,
+        "webSearchRequests": 0,
+        "costUSD": 0.0061446,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4689,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 10062,
+        "canonicalModel": "claude-haiku-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "21af4f50-cdee-44b6-887a-5902dc1dbcf7",
+    "isError": false
+  },
+  "opus": {
+    "safeMode": true,
+    "requestedModel": "claude-opus-5-5",
+    "actualModelUsage": {
+      "claude-opus-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 4630,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 12879,
+        "webSearchRequests": 0,
+        "costUSD": 0.19563999999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 2322,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 12879,
+        "canonicalModel": "claude-opus-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "3003d594-ce9c-429f-843a-812ba360cf56",
+    "isError": false
+  },
+  "fable": {
+    "safeMode": true,
+    "requestedModel": "claude-fable-5-2",
+    "actualModelUsage": {
+      "claude-fable-5-2": {
+        "inputTokens": 2,
+        "outputTokens": 4990,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 15239,
+        "webSearchRequests": 0,
+        "costUSD": 0.44344,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1311,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 15239,
+        "canonicalModel": "claude-fable-5-2",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "sessionId": "43ceb686-e0e7-459c-a761-40a04cc56d6c",
+    "isError": false
+  },
+  "postFableSelfCorrections": [
+    "Normalized stage-local Reader turn fields without changing the exact source examples.",
+    "Kept the Master14storedspan as a nonlemma source-span context rather than pretendingふだんはあさis one dictionary word; preserved original card kind/value.",
+    "Recorded verified existingあさglobal component ID from the actual main dictionary, without claimingglobalふだんabsence or creating a lemma.",
+    "Scopedふだんto usual pattern rather than exceptionlessalways; left source/card ownership selection open.",
+    "Distinguished6draft proposals from20unproposed source-face gaps and26still-unregistered scoped links."
+  ]
+}

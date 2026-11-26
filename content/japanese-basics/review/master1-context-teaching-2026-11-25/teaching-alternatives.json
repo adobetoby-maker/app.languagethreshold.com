@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "kind": "inert-authored-teaching-context-alternatives",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "5d5e1fc7bbffb3a51fe8e821d402735c553e594e",
+  "mainSource": {
+    "master": {
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    }
+  },
+  "privateSource": {
+    "forms": {
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    "support": {
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "missions": {
+      "path": "content/japanese-basics/private-master-1-10-speaking-missions-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "afad8eeda19159ddd4506e9e368b90dee2646927efd2f6cd8f53708ae26866ea"
+    },
+    "builder": {
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "preview": {
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    },
+    "modes": {
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    }
+  },
+  "scope": "three source-only role/context/six-mode teaching alternatives, not source replacement or course release",
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "lessons": [
+    {
+      "stableLessonKey": "master-japanese-basics:1",
+      "lessonNumber": 1,
+      "preservedPriorPartnerRole": "Introduce Aki to a study group",
+      "preservedPriorMission": {
+        "stableLessonKey": "master-japanese-basics:1",
+        "role": "Introduce Aki to a study group",
+        "opening": "こちらは あきさんです。グループの あたらしい メンバーです。",
+        "objectives": [
+          "Introduce the new member and ask about a book preference",
+          "Recall yesterday’s library meeting with polite past forms",
+          "Discuss tomorrow’s study intention and how the earlier study went"
+        ],
+        "complication": "A group member asks whether Aki plans to visit the library again tomorrow.",
+        "closure": "Invite Aki to study together with the group."
+      },
+      "preservedPriorModes": {
+        "see": {
+          "turn": 1,
+          "prompt": "Read the two-sentence introduction. Identify Aki and the new-member relationship expressed with の."
+        },
+        "recall": {
+          "turn": 4,
+          "prompt": "Recall the sentence about meeting at the library yesterday, keeping ～ました and the confirming ね."
+        },
+        "hear": {
+          "turn": 7,
+          "prompt": "Listen to the reply about studying and choose the meaning that says it was very fun."
+        },
+        "type": {
+          "turn": 8,
+          "prompt": "Type the question asking whether Aki intends to go to the library tomorrow too."
+        },
+        "say": {
+          "turn": 10,
+          "prompt": "Say the closing suggestion to study together, preserving では and ～ましょう."
+        },
+        "write": {
+          "turn": 3,
+          "prompt": "Write the complete sentence for liking travel books, including の and が before すき."
+        }
+      },
+      "activities": [
+        {
+          "mode": "see",
+          "sourceTurnOneBased": 1,
+          "sourceKind": "dialogue",
+          "actorContextEnglish": "You are the Introducer at a study-group meeting, presenting a new member to the group.",
+          "promptEnglish": "Read the two-sentence introduction. Identify Aki and the new-member relationship expressed with の.",
+          "targetSpeakerRoleEnglish": "Introducer",
+          "learnerPracticeRoleEnglish": "Introducer",
+          "targetJapanese": "こちらは あきさんです。グループの あたらしい メンバーです。",
+          "targetEnglish": "This is Aki, a new member of the group.",
+          "id": "master-japanese-basics:1:context-activity:see",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 1,
+            "prompt": "Read the two-sentence introduction. Identify Aki and the new-member relationship expressed with の."
+          }
+        },
+        {
+          "mode": "recall",
+          "sourceTurnOneBased": 4,
+          "sourceKind": "dialogue",
+          "actorContextEnglish": "You are the Introducer, recalling yesterday's library meeting with Aki and checking it with Aki.",
+          "promptEnglish": "Recall the sentence about meeting at the library yesterday, keeping ～ました and the confirming ね.",
+          "targetSpeakerRoleEnglish": "Introducer",
+          "learnerPracticeRoleEnglish": "Introducer",
+          "targetJapanese": "きのう としょかんで あいましたね。",
+          "targetEnglish": "We met at the library yesterday, didn't we?",
+          "id": "master-japanese-basics:1:context-activity:recall",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 4,
+            "prompt": "Recall the sentence about meeting at the library yesterday, keeping ～ました and the confirming ね."
+          }
+        },
+        {
+          "mode": "hear",
+          "sourceTurnOneBased": 7,
+          "sourceKind": "dialogue",
+          "actorContextEnglish": "You are the Introducer and have just asked whether studying was fun. Aki replies, and you choose the meaning of the reply.",
+          "promptEnglish": "Listen to the reply about studying and choose the meaning that says it was very fun.",
+          "targetSpeakerRoleEnglish": "Aki",
+          "learnerPracticeRoleEnglish": "Introducer (listener)",
+          "targetJapanese": "はい、とても たのしかったです。",
+          "targetEnglish": "Yes, it was very fun.",
+          "hearOptionsJapanese": [
+            "はい。あの しずかな へやで べんきょうしました。",
+            "はい、とても たのしかったです。",
+            "はい、あしたも いく つもりです。"
+          ],
+          "disambiguationNote": "Dialogue turn 7 and extension line 3 have the same Japanese with different English glosses. This activity uses dialogue turn 7 exactly: \"Yes, it was very fun.\" Extension line 3 is glossed \"Yes, it was a lot of fun.\"",
+          "id": "master-japanese-basics:1:context-activity:hear",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": "はい、とても たのしかったです。",
+          "preservedPriorCue": {
+            "turn": 7,
+            "prompt": "Listen to the reply about studying and choose the meaning that says it was very fun."
+          },
+          "hearOptionsEnglish": [
+            "Yes. I studied in that quiet room.",
+            "Yes, it was very fun.",
+            "Yes, I intend to go tomorrow too."
+          ]
+        },
+        {
+          "mode": "type",
+          "sourceTurnOneBased": 8,
+          "sourceKind": "dialogue",
+          "actorContextEnglish": "You are the Introducer. As a group member, you ask Aki directly about going to the library again tomorrow.",
+          "promptEnglish": "Type the question asking whether Aki intends to go to the library tomorrow too.",
+          "targetSpeakerRoleEnglish": "Introducer",
+          "learnerPracticeRoleEnglish": "Introducer",
+          "targetJapanese": "あしたも としょかんに いく つもりですか。",
+          "targetEnglish": "Do you intend to go to the library tomorrow too?",
+          "id": "master-japanese-basics:1:context-activity:type",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 8,
+            "prompt": "Type the question asking whether Aki intends to go to the library tomorrow too."
+          }
+        },
+        {
+          "mode": "say",
+          "sourceTurnOneBased": 10,
+          "sourceKind": "dialogue",
+          "actorContextEnglish": "You are the Introducer. You close the conversation by inviting Aki to study together with the group.",
+          "promptEnglish": "Say the closing suggestion to study together, preserving では and ～ましょう.",
+          "targetSpeakerRoleEnglish": "Introducer",
+          "learnerPracticeRoleEnglish": "Introducer",
+          "targetJapanese": "では、いっしょに べんきょうしましょう。",
+          "targetEnglish": "Then let us study together.",
+          "id": "master-japanese-basics:1:context-activity:say",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 10,
+            "prompt": "Say the closing suggestion to study together, preserving では and ～ましょう."
+          }
+        },
+        {
+          "mode": "write",
+          "sourceTurnOneBased": 3,
+          "sourceKind": "dialogue",
+          "actorContextEnglish": "You are Aki, the new group member. The Introducer has asked what kind of books you like, and you write your answer.",
+          "promptEnglish": "Write the complete sentence for liking travel books, including の and が before すき.",
+          "targetSpeakerRoleEnglish": "Aki",
+          "learnerPracticeRoleEnglish": "Aki",
+          "targetJapanese": "りょこうの ほんが すきです。",
+          "targetEnglish": "I like travel books.",
+          "id": "master-japanese-basics:1:context-activity:write",
+          "roleProvenance": "authored-practice-casting; target-speaker role",
+          "selectedJapanese": null,
+          "audioScript": null,
+          "reviewed": false,
+          "hearScriptCandidateJapanese": null,
+          "preservedPriorCue": {
+            "turn": 3,
+            "prompt": "Write the complete sentence for liking travel books, including の and が before すき."
+          }
+        }
+      ],
+      "forms": [
+        {
+          "id": "master-japanese-basics:1:context-form:1",
+          "sourcePromptId": "form-ja-en-95737674c769bb50",
+          "pairKey": "Japanese:English",
+          "source": "aligned-dialogue",
+          "sourceDialogueTurn": 4,
+          "focus": "polite-past-mashita",
+          "japaneseAnswer": "きのう としょかんで あいましたね。",
+          "exampleJapanese": "きのう としょかんで あいましたね。",
+          "explanationJapanese": "「～ました」は、もう おわった ことを ていねいに いう かたちです。「ね」は、あいてに かくにんする ときに つかいます。",
+          "explanationEnglish": "～ました is the polite past form for something already done; ね asks the listener to confirm what is shared.",
+          "englishPrompt": "We met at the library yesterday, didn't we?",
+          "knownJapaneseVariants": [
+            "きのう としょかんで あいましたね。"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-95737674c769bb50",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 4,
+            "focus": "polite-past-mashita",
+            "japaneseAnswer": "きのう としょかんで あいましたね。",
+            "englishPrompt": "We met at the library yesterday, didn't we?",
+            "knownJapaneseVariants": [
+              "きのう としょかんで あいましたね。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-japanese-basics:1:context-form:2",
+          "sourcePromptId": "form-ja-en-09dffa523d8d052a",
+          "pairKey": "Japanese:English",
+          "source": "aligned-dialogue",
+          "sourceDialogueTurn": 6,
+          "focus": "i-adjective-past-question",
+          "japaneseAnswer": "べんきょうは たのしかったですか。",
+          "exampleJapanese": "べんきょうは たのしかったですか。",
+          "explanationJapanese": "いけいようしの かこは、「い」を「かった」に かえます。「たのしい」→「たのしかった」です。「ですか」を つけると、ていねいな しつもんに なります。",
+          "explanationEnglish": "For an い-adjective, drop い and add かった; adding ですか makes it a polite past question.",
+          "englishPrompt": "Was studying fun?",
+          "knownJapaneseVariants": [
+            "べんきょうは たのしかったですか。"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-09dffa523d8d052a",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 6,
+            "focus": "i-adjective-past-question",
+            "japaneseAnswer": "べんきょうは たのしかったですか。",
+            "englishPrompt": "Was studying fun?",
+            "knownJapaneseVariants": [
+              "べんきょうは たのしかったですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-japanese-basics:1:context-form:3",
+          "sourcePromptId": "form-ja-en-1497f24afe3868de",
+          "pairKey": "Japanese:English",
+          "source": "aligned-dialogue",
+          "sourceDialogueTurn": 8,
+          "focus": "intention-tsumori-question",
+          "japaneseAnswer": "あしたも としょかんに いく つもりですか。",
+          "exampleJapanese": "あしたも としょかんに いく つもりですか。",
+          "explanationJapanese": "「～つもりです」は、する よていや いしを いう かたちです。「～つもりですか」は、あいての よていや いしを たずねる ときに つかいます。",
+          "explanationEnglish": "～つもりです states an intention or plan; adding か asks someone else about theirs.",
+          "englishPrompt": "Do you intend to go to the library tomorrow too?",
+          "knownJapaneseVariants": [
+            "あしたも としょかんに いく つもりですか。"
+          ],
+          "practice": [
+            "recognize-meaning",
+            "produce-target"
+          ],
+          "reviewed": false,
+          "canonicalFormEvidence": {
+            "id": "form-ja-en-1497f24afe3868de",
+            "pairKey": "Japanese:English",
+            "source": "aligned-dialogue",
+            "sourceDialogueTurn": 8,
+            "focus": "intention-tsumori-question",
+            "japaneseAnswer": "あしたも としょかんに いく つもりですか。",
+            "englishPrompt": "Do you intend to go to the library tomorrow too?",
+            "knownJapaneseVariants": [
+              "あしたも としょかんに いく つもりですか。"
+            ],
+            "practice": [
+              "recognize-meaning",
+              "produce-target"
+            ],
+            "reviewed": false
+          },
+          "selectedJapanese": null,
+          "audioScript": null
+        }
+      ],
+      "speaking": {
+        "learnerRoleEnglish": "Introducer",
+        "partnerRoleEnglish": "Aki",
+        "learnerTurnsOneBased": [
+          1,
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "partnerTurnsOneBased": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "objectivesEnglish": [
+          "Introduce the new member and ask about a book preference",
+          "Recall yesterday’s library meeting with polite past forms",
+          "Discuss tomorrow’s study intention and how the earlier study went"
+        ],
+        "complicationSourceTurnOneBased": 8,
+        "complicationEnglish": "A group member asks whether Aki plans to visit the library again tomorrow.",
+        "contextFramesEnglish": [
+          "At a study-group meeting, you are the Introducer presenting a new member, Aki, to the group.",
+          "Aki answers about a book preference, yesterday's library meeting, how studying went, and tomorrow's plan."
+        ],
+        "wordBankJapanese": [
+          "グループ",
+          "メンバー",
+          "あたらしい",
+          "いっしょに"
+        ],
+        "openingJapanese": "こちらは あきさんです。グループの あたらしい メンバーです。",
+        "openingEnglish": "This is Aki, a new member of the group.",
+        "openingSourceKind": "dialogue",
+        "openingSourceTurnOneBased": 1,
+        "openingSpeaker": "Introducer",
+        "closureJapanese": "では、いっしょに べんきょうしましょう。",
+        "closureEnglish": "Then let us study together.",
+        "closureSourceKind": "dialogue",
+        "closureSourceTurnOneBased": 10,
+        "closureSpeaker": "Introducer",
+        "roleProvenance": "authored-practice-casting; not asserted source speaker labels",
+        "id": "master-japanese-basics:1:speaking-context-alternative",
+        "stableLessonKey": "master-japanese-basics:1",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "internalQuestions": [
+        "Extension lines carry no speaker label; confirm their speaker before any speaker-bound activity uses them.",
+        "The original invitation form remains intact without an additional new explanation in this three-form scope.",
+        "Introducer/Aki is a coherent authored practice cast; qualified review should confirm the implicit speaker split.",
+        "No source content defect is claimed in the valid opening, six target anchors, tomorrow question or invitation closing."
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "proposedFieldMappings": {
+        "partnerRole": "Aki",
+        "closureLineJapanese": "では、いっしょに べんきょうしましょう。",
+        "closureLineEnglish": "Then let us study together.",
+        "closureSpeaker": "Introducer",
+        "preservePriorEnglishClosureInstruction": true,
+        "selected": false
+      }
+    }
+  ],
+  "internalReviewNotes": [
+    "The actual private builder and preview copy learner task into partnerRole. Only the counterpart/context/form explanations are proposed for correction; valid canonical lesson text and invitation closure stay unchanged.",
+    "Source turn speaker roles are not labeled. Introducer/Aki is explicit authored practice casting, consistent with question/answer and third-person introduction.",
+    "The original mission complication maps to the valid source tomorrow-intention question; no extra misunderstanding or false source defect is invented.",
+    "Standalone Write practices Aki voice; Hear uses dialogue7 English very fun, distinct from identical Japanese extension3 gloss a lot of fun.",
+    "All four original form IDs remain available; three receive contextual explanations in this bounded batch. No accepted variants, owner routes, runtime/audio/offline/progress change."
+  ]
+}

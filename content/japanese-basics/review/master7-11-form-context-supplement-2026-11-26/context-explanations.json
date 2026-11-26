@@ -1,0 +1,560 @@
+{
+  "schema": 1,
+  "kind": "inert-additive-contextual-form-explanations",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+  "checkpointPin": {
+    "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+    "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+    "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+  },
+  "previousSupplementPin": {
+    "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+    "path": "content/japanese-basics/review/master1-6-form-context-supplement-2026-11-25/context-explanations.json",
+    "sha256": "52450d955061bd1c26f3c557b4da49e8274e53c1611c4f427084da379bc51b64"
+  },
+  "unchangedPriorPins": [
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "src/data/japanese-basics-practice.json",
+      "sha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+      "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "75e28c57be949319912cfcff8a7c86bd669142f652beb00f2f2056c4a85969ae"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/review/master8-10-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "af3c557af57e610319d23fd52dba7e75308f038139294bdad70624a82a02c596"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/review/master11-13-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "c4f85109c14c971b5b8576db4134d1ae46689971346cf9b67043029fe8e5ef31"
+    },
+    {
+      "gitRevision": "2b83c03dde5af780a4821dc6a4c9606aaf2a4f60",
+      "path": "content/japanese-basics/review/master1-6-form-context-supplement-2026-11-25/context-explanations.json",
+      "sha256": "52450d955061bd1c26f3c557b4da49e8274e53c1611c4f427084da379bc51b64"
+    }
+  ],
+  "privateSourcePins": [
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    }
+  ],
+  "scope": "Six additive contextual explanations from the next six explicitly indexed gaps after the first supplement. No original teaching value or canonical form is replaced.",
+  "forms": [
+    {
+      "sourcePromptId": "form-ja-en-e13606b681d9b07b",
+      "lessonNumber": 7,
+      "contextEnglish": "A classmate explains how they study difficult words. After the classmate says they ask the teacher the meanings, the interviewer asks whether they also ask about the way to study them.",
+      "explanationJapanese": "「べんきょうの やりかたも ききますか。」は、ことばの いみの ほかに、どうやって べんきょうするか、その やりかたも きくか どうかを たずねる しつもんです。「べんきょうの」が「やりかた」に かかって、どんな やりかたかを しめします。「べんきょうの やりかた」で、べんきょうを する ほうほうと いう いみに なります。\n\n「も」は、まえの ぶんの「ことばの いみを ききます」に くわえて、やりかたも きく ことを しめします。ここでは「を」の かわりに「も」が つかわれて います。「ききます」は、この ばめんでは たずねる いみです。まえの ぶんに「せんせいに」と あるので、きく あいては せんせいだと わかります。「きく」には おとを きく いみも ありますが、ここでは ちがいます。\n\nぶんの さいごの「か」は、しつもんを しめします。この ぶんは はい、いいえで こたえる しつもんで、つぎの ぶんは「はい」で こたえて います。えいごの ぶんには まえの「むずかしい ことば」を さす ことばが ありますが、にほんごの ぶんには それに あたる ことばが ありません。",
+      "explanationEnglish": "The sentence asks whether the classmate also asks about how to study, in addition to asking the meanings of words. べんきょうの modifies やりかた and tells what kind of method it is: 'the way of studying.' も adds the method to the meanings mentioned in the previous turn, and it is used here in place of を. ききます means 'ask' in this scene; the previous turn has せんせいに, so the person being asked is understood to be the teacher. The same verb can also mean 'listen,' but not here. The final か marks a question. This is a yes-or-no question, and the next turn answers it with はい. The English sentence has a word pointing back to the difficult words, but the Japanese sentence has no word corresponding to it.",
+      "contextExample": {
+        "japanese": "べんきょうの やりかたも ききますか。",
+        "english": "Do you ask about the way to study them too?",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 5,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "せんせいに ことばの いみを ききます。",
+        "english": "I ask the teacher the meanings of words.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 4,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "はい、べんきょうの やりかたも ききます。",
+        "english": "Yes, I ask about the way to study them too.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "Ask a classmate whether they also ask about how to study the words.",
+      "practiceRoleEnglish": "Interviewer asking a classmate about the study method",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:7:form-context-supplement:form-ja-en-e13606b681d9b07b",
+      "stableLessonKey": "master-japanese-basics:7",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-e13606b681d9b07b",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 5,
+        "focus": "method-question",
+        "japaneseAnswer": "べんきょうの やりかたも ききますか。",
+        "englishPrompt": "Do you ask about the way to study them too?",
+        "knownJapaneseVariants": [
+          "べんきょうの やりかたも ききますか。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 7,
+        "stableLessonKey": "master-japanese-basics:7",
+        "sourcePromptId": "form-ja-en-e13606b681d9b07b",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 5,
+        "focus": "method-question",
+        "canonicalJapanese": "べんきょうの やりかたも ききますか。",
+        "canonicalEnglish": "Do you ask about the way to study them too?",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-04dd860abf3d2072",
+      "lessonNumber": 8,
+      "contextEnglish": "After reading Aki's reply that the time and place work, the speaker confirms the meeting plan at the front of the station for Saturday.",
+      "explanationJapanese": "「えきの まえで あう よていです。」は、えきの まえで あう けいかくが きまった ことを つたえる ぶんです。「よてい」は、これからの けいかくや にっていを あらわす めいしです。「です」は ぶんを ていねいに します。けいかくが きまったのは、まえの ぶんで あきさんが「だいじょうぶです」と かいたからです。\n\n「あう」は「あいます」の じしょの かたちです。「あう」が「よてい」の まえに おかれて、どんな よていかを せつめいします。この ばめんの まえの ほうには「あう つもりです」と いう ぶんも あります。あきさんの へんじの まえは「つもり」で、へんじの あとは「よてい」に なって います。\n\n「えきの まえで」の「で」は、あう ばしょを しめします。いく さきを しめす「に」とは はたらきが ちがいます。",
+      "explanationEnglish": "The sentence tells that the plan to meet in front of the station is now settled. よてい is a noun expressing a future plan, schedule or arrangement. In this exchange the acceptance in the preceding message supplies the agreed context. です only makes the sentence polite. The plan is settled because Aki wrote 「だいじょうぶです」 in the previous turn. あう is the dictionary form of あいます. It is placed before よてい and tells what the plan is. Earlier in this scene there is also the sentence あう つもりです: before Aki's reply the speaker uses つもり, and after the reply the speaker uses よてい. In えきの まえで, で marks the place where the meeting happens. This is different from に, which marks a destination.",
+      "contextExample": {
+        "japanese": "えきの まえで あう よていです。",
+        "english": "We plan to meet in front of the station.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "あきさんは「だいじょうぶです」と かきました。",
+        "english": "Aki wrote, “That works.”",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 5,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "さんじに いきます。",
+        "english": "I will go at three.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "As the narrator, state that the plan is to meet in front of the station.",
+      "practiceRoleEnglish": "Narrator summarizing the plan after the written exchange with Aki",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:8:form-context-supplement:form-ja-en-04dd860abf3d2072",
+      "stableLessonKey": "master-japanese-basics:8",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-04dd860abf3d2072",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 6,
+        "focus": "scheduled-yotei",
+        "japaneseAnswer": "えきの まえで あう よていです。",
+        "englishPrompt": "We plan to meet in front of the station.",
+        "knownJapaneseVariants": [
+          "えきの まえで あう よていです。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 8,
+        "stableLessonKey": "master-japanese-basics:8",
+        "sourcePromptId": "form-ja-en-04dd860abf3d2072",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "focus": "scheduled-yotei",
+        "canonicalJapanese": "えきの まえで あう よていです。",
+        "canonicalEnglish": "We plan to meet in front of the station.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-af49b7640046db38",
+      "lessonNumber": 9,
+      "contextEnglish": "At the shop counter, after the shopper compares the price and size of a blue bag and a red bag, the shopper asks which of the two is more convenient.",
+      "explanationJapanese": "「どちらが べんりですか。」は、ふたつの かばんの うち、どちらの ほうが べんりかを たずねる しつもんです。「どちら」は、ここでは ふたつの うちの ひとつを きく ことばです。「が」は、きいて いる ものを しめします。まえの ぶんの「あおい かばんの ほうが やすいです」「あかい かばんの ほうが おおきいです」でも、おなじ「が」が つかわれて います。\n\n「べんり」は、つかいやすい ようすを あらわす ことば（な-けいようし）で、「です」の まえに そのまま おきます。ふたつの ものに ついて「どちらが」と きくので、えいごでは くらべる いいかたに なります。にほんごの ぶんには「もっと」に あたる ことばは ありません。\n\nこの しつもんは、ねだんと おおきさを くらべた あとに でて きます。つぎの ぶんでは あおい かばんを えらびますが、どちらが べんりかは いわれて いません。",
+      "explanationEnglish": "The sentence asks which of the two bags is the more convenient one. どちら here asks about one out of two. が marks the item being asked about; the same が appears in the preceding turns, あおい かばんの ほうが やすいです and あかい かばんの ほうが おおきいです. べんり is a な-adjective describing something as convenient or easy to use, and it is placed directly before です. Because どちらが asks about two items, the English uses a comparative, 'more convenient,' although the Japanese sentence has no word corresponding to 'more.' The question comes after the price and the size have been compared. The next turn chooses the blue bag, but the dialogue does not say which bag is more convenient.",
+      "contextExample": {
+        "japanese": "どちらが べんりですか。",
+        "english": "Which is more convenient?",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "でも、あかい かばんの ほうが おおきいです。",
+        "english": "But the red bag is bigger.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "この あおい かばんを えらびます。",
+        "english": "I choose this blue bag.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "Ask which of two bags is more convenient.",
+      "practiceRoleEnglish": "Shopper comparing two bags",
+      "internalQuestions": [
+        "The source dialogue has no speaker labels. Turn 7 is treated as the shopper's question; please confirm that it is not meant as the shop staff's line."
+      ],
+      "id": "master-japanese-basics:9:form-context-supplement:form-ja-en-af49b7640046db38",
+      "stableLessonKey": "master-japanese-basics:9",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-af49b7640046db38",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 7,
+        "focus": "which-of-two",
+        "japaneseAnswer": "どちらが べんりですか。",
+        "englishPrompt": "Which is more convenient?",
+        "knownJapaneseVariants": [
+          "どちらが べんりですか。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 9,
+        "stableLessonKey": "master-japanese-basics:9",
+        "sourcePromptId": "form-ja-en-af49b7640046db38",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "focus": "which-of-two",
+        "canonicalJapanese": "どちらが べんりですか。",
+        "canonicalEnglish": "Which is more convenient?",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-d69c290bfb155d04",
+      "lessonNumber": 9,
+      "contextEnglish": "At the shop counter, the shopper states which bag is chosen, referring to the blue bag that was discussed earlier rather than the red bag.",
+      "explanationJapanese": "「この あおい かばんを えらびます。」は、あおい かばんを えらぶ ことを つたえる ぶんです。「この」は、はなして いる ひとの ちかくの ものを さします。さいしょの ぶんでも あおい かばんは「この あおい かばん」と いわれて いて、あかい かばんは「あの あかい かばん」と いわれて います。「この」と「あの」で ふたつの かばんを わけて います。\n\n「この」も「あおい」も「かばん」に かかります。「あおい」は い-けいようしで、めいしの まえに そのまま おきます。「を」は、えらぶ たいしょう、つまり えらぶ ものを しめします。\n\n「えらびます」は「えらぶ」の ていねいな かたちです。かこの かたちでは なく、ここでは どちらを えらぶかを ていねいに のべて います。",
+      "explanationEnglish": "The sentence tells that the speaker chooses the blue bag. この points to something near the speaker. In the first turn the blue bag is also called この あおい かばん, while the red bag is called あの あかい かばん, so この and あの keep the two bags apart. Both この and あおい modify かばん; あおい is an い-adjective and is placed directly before the noun. を marks the object of the choice, the thing being chosen. えらびます is the polite form of えらぶ. It is a polite non-past form; here it states the speaker’s choice.",
+      "contextExample": {
+        "japanese": "この あおい かばんを えらびます。",
+        "english": "I choose this blue bag.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "どちらが べんりですか。",
+        "english": "Which is more convenient?",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": null,
+      "practicePromptEnglish": "Say that you choose this blue bag.",
+      "practiceRoleEnglish": "Shopper choosing one bag at the counter",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:9:form-context-supplement:form-ja-en-d69c290bfb155d04",
+      "stableLessonKey": "master-japanese-basics:9",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-d69c290bfb155d04",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 8,
+        "focus": "choice-object-wo",
+        "japaneseAnswer": "この あおい かばんを えらびます。",
+        "englishPrompt": "I choose this blue bag.",
+        "knownJapaneseVariants": [
+          "この あおい かばんを えらびます。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 9,
+        "stableLessonKey": "master-japanese-basics:9",
+        "sourcePromptId": "form-ja-en-d69c290bfb155d04",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "focus": "choice-object-wo",
+        "canonicalJapanese": "この あおい かばんを えらびます。",
+        "canonicalEnglish": "I choose this blue bag.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-46864a7ec11a727f",
+      "lessonNumber": 10,
+      "contextEnglish": "In the lost umbrella scene, Tanaka looks at the umbrella and nods. The quoted line follows immediately and is presented as Tanaka's words, saying the umbrella is Tanaka's own.",
+      "explanationJapanese": "「わたしのです。」は、かさが じぶんの ものだと つたえる せりふです。まえの ぶんで たなかさんが かさを みて うなずくので、その すぐ あとの この せりふは たなかさんの ことばとして よめます。「わたし」は、はなして いる ひと じしんを さします。\n\n「の」は もちぬしを しめします。ここでは「の」の あとの「かさ」が いわれて いません。「わたしのです」は「わたしの かさです」と おなじ いみです。かさの はなしが つづいて いるので、「かさ」を くりかえさなくても わかります。「です」は ぶんを ていねいに します。\n\nさいしょの しつもんの「だれのですか」と、こたえの「わたしの じゃありません」も、おなじ「の」の つかいかたです。「」は、いわれた ことばを そのまま しめす しるしです。",
+      "explanationEnglish": "The line says that the umbrella belongs to the speaker. In the previous turn Tanaka looks at the umbrella and nods, so this line, coming right after, reads as Tanaka's words. わたし refers to the person speaking. の marks the owner. Here the noun かさ after の is left unsaid: わたしのです means the same as わたしの かさです. The talk has been about the umbrella throughout, so it is clear without repeating かさ. です makes the sentence polite. The opening question だれのですか and the answer わたしの じゃありません use の in the same way. The marks 「」 show words exactly as they were said.",
+      "contextExample": {
+        "japanese": "「わたしのです。」",
+        "english": "“It is mine.”",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "たなかさんは かさを みて、うなずきます。",
+        "english": "Tanaka looks at the umbrella and nods.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 6,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": {
+        "japanese": "では、どうぞ。",
+        "english": "Here you are.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "practicePromptEnglish": "As Tanaka, after looking at the umbrella, say “It is mine.”",
+      "practiceRoleEnglish": "Tanaka speaking after looking at the umbrella and nodding",
+      "internalQuestions": [
+        "Turn 7 has no speaker label in the source. It is attributed to Tanaka from turn 6; please confirm this attribution."
+      ],
+      "id": "master-japanese-basics:10:form-context-supplement:form-ja-en-46864a7ec11a727f",
+      "stableLessonKey": "master-japanese-basics:10",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-46864a7ec11a727f",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 7,
+        "focus": "quoted-possession",
+        "japaneseAnswer": "「わたしのです。」",
+        "englishPrompt": "“It is mine.”",
+        "knownJapaneseVariants": [
+          "「わたしのです。」"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 10,
+        "stableLessonKey": "master-japanese-basics:10",
+        "sourcePromptId": "form-ja-en-46864a7ec11a727f",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "focus": "quoted-possession",
+        "canonicalJapanese": "「わたしのです。」",
+        "canonicalEnglish": "“It is mine.”",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "sourcePromptId": "form-ja-en-4787d0c2d4b98010",
+      "lessonNumber": 11,
+      "contextEnglish": "At a small restaurant, after hearing the answer that there is no meat in the dish and that it is only vegetables, the coordinator orders one vegetable dish and one fish dish for two people.",
+      "explanationJapanese": "「では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。」は、ふたつの ちゅうもんを まとめて つたえる ぶんです。「では」は、まえの はなしを うけて つぎに すすむ ときに つかいます。ここでは「にくは はいっていません。やさいだけです」と いう こたえを うけて、ちゅうもんを して います。\n\n「その」は、いま はなして いた りょうりを さします。しつもんでは「この りょうり」でしたが、こたえを きいた あとは「その」で さして います。「やさいの」は「りょうり」に かかって、どんな りょうりかを しめします。「さかなの りょうり」も おなじです。\n\n「りょうりを ひとつ」の ように、めいし、「を」、かずの じゅんに ならべます。この ぶんでは、「を」は「りょうり」の あとに あり、かずの あとには ありません。「ひとつ」は ものの かずを しめす ことばです。「と」は さいしょの「ひとつ」の あとに ついて、ふたつの ちゅうもんを つなぎます。「おねがいします」は ていねいに たのむ いいかたで、この ぶんでは、さいごに いちどだけ いいます。",
+      "explanationEnglish": "The sentence gives two orders together. では is used to move on after what was just said; here the order follows the answer 「にくは はいっていません。やさいだけです」. その points to the dish that was just being discussed: the question used この りょうり, and after the answer the speaker refers to it with その. やさいの modifies りょうり and tells what kind of dish it is; さかなの りょうり works the same way. The source uses noun, を, then the number: りょうりを ひとつ. In this pattern を follows りょうり rather than the quantity. ひとつ is a word that gives the number of items. と comes after the first ひとつ and joins the two orders. おねがいします is a polite way to make a request, and it is said only once, at the end of the sentence.",
+      "contextExample": {
+        "japanese": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+        "english": "Then one vegetable dish and one fish dish, please.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextBefore": {
+        "japanese": "いいえ、にくは はいっていません。やさいだけです。",
+        "english": "No, there is no meat in it. Only vegetables.",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "sourceContextAfter": null,
+      "practicePromptEnglish": "After hearing that there is no meat in the dish, order one of that vegetable dish and one fish dish.",
+      "practiceRoleEnglish": "Coordinator ordering for two diners",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:11:form-context-supplement:form-ja-en-4787d0c2d4b98010",
+      "stableLessonKey": "master-japanese-basics:11",
+      "canonicalFormEvidence": {
+        "id": "form-ja-en-4787d0c2d4b98010",
+        "pairKey": "Japanese:English",
+        "source": "aligned-dialogue",
+        "sourceDialogueTurn": 8,
+        "focus": "two-item-order",
+        "japaneseAnswer": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+        "englishPrompt": "Then one vegetable dish and one fish dish, please.",
+        "knownJapaneseVariants": [
+          "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。"
+        ],
+        "practice": [
+          "recognize-meaning",
+          "produce-target"
+        ],
+        "reviewed": false
+      },
+      "sourceGapEvidence": {
+        "lesson": 11,
+        "stableLessonKey": "master-japanese-basics:11",
+        "sourcePromptId": "form-ja-en-4787d0c2d4b98010",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "focus": "two-item-order",
+        "canonicalJapanese": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+        "canonicalEnglish": "Then one vegetable dish and one fish dish, please.",
+        "existingCanonicalPreserved": true,
+        "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "checkpointGapCount": 23,
+  "additionalExplanationsProvided": 6,
+  "remainingAdditionalExplanationGapCount": 11,
+  "previouslySupplementedFormIds": [
+    "form-ja-en-ced31b8f9f51e450",
+    "form-ja-en-e78a2d27747f1786",
+    "form-ja-en-5910a2eddbfc6c9c",
+    "form-ja-en-7353b29f27e4965b",
+    "form-ja-en-143d6e2f97b9bf3d",
+    "form-ja-en-92e160269b3b9633"
+  ],
+  "cumulativeSupplementalExplanationCount": 12,
+  "cumulativeContextualExplanationCoverage": 72,
+  "remainingUnexplainedSourcePromptIds": [
+    "form-ja-en-3939c16219f828c4",
+    "form-ja-en-d8353f66960339c3",
+    "form-ja-en-235062d82bb143af",
+    "form-ja-en-b281e81e401f273f",
+    "form-ja-en-d9ec2b2084d69cd0",
+    "form-ja-en-3a7955b04999ff66",
+    "form-ja-en-6f95085b04f8bce6",
+    "form-ja-en-ca0eab39786ae1cf",
+    "form-ja-en-1b5dab5a83ba3805",
+    "form-ja-en-55d03bd59910a777",
+    "form-ja-en-d48db665e363298d"
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  }
+}

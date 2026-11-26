@@ -1,0 +1,96 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:3:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5d5e1fc7bbffb3a51fe8e821d402735c553e594e",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-3-source-decision-2026-11-18/packet.json",
+    "sha256": "422605a7009692ff4071c6a647745ecb58a46bdb45bc88cefc8296b9d3678e15"
+  },
+  "sourceObjectiveEnglish": "Coach a new roofer on nailing with clear commands, correcting mistakes without embarrassing them",
+  "sourceSpeakingEnglish": "You are training the AI, a new crew member, on the nail gun: show where to nail, check their work, and correct mistakes with commands like clávalo aquí and no lo hundas, keeping the tone supportive.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete French alternatives for selected ordinary-language/quoted-scene Reader faces only. Existing canonical rows/holds unchanged; technical explanations and original whole objective remain incomplete. Supplemental anchors are counted separately from canonical proposals.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:14",
+      "candidateRowId": "master-roofing:3:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+      "sourceSpanish": "Rogelio: Y la pistola, no la apuntes hacia nadie, ni en broma.",
+      "legacySourceRef": "master-roofing:3:passage:14",
+      "originalCandidateHold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule."
+        }
+      ],
+      "teachingFocusEnglish": "Recognize the complete English prohibition not point at anyone, not even as a joke, in nail-gun context. French negated imperative is meaning support, not operating qualification. English the gun is contextual shorthand for nail gun (Reader1); French cloueuse spells out that referent, not firearm. No vous contrast invented for Kevin or confused with Don Ernesto Reader16.",
+      "unresolvedReviewNotes": "Unreviewed, unregistered, unselected full-face alternatives. Exact original candidate hold remains unresolved; all qualified source/French/trade/register questions remain open. No canonical row, audio or progress change. Cloueuse uses explicit nail-gun context; generic firearm wording omitted, original tool/source safety hold retained.",
+      "alternatives": [
+        {
+          "id": "master-roofing:3:fr-en:reader-alternative:14:1",
+          "label": "Informal full prohibition",
+          "candidateFrench": "Rogelio : Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+          "register": "tu; source Spanish apuntes marks informal address",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "Explicit même pas retains not even, alongside full anyone prohibition and fronted nail-gun topic. No operating method/settings or readiness selected."
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Quoted nail-gun prohibition only, linked to original tool/source safety hold. No operating method, setting, readiness, competency or work authorization selected."
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:3:fr-en:reader:14"
+    ],
+    "supplementalAnchorCount": 1,
+    "supplementalFullFaceAlternativeCount": 1
+  },
+  "internalNotes": [
+    "AI regional/tool-term opinions are unverified and not adopted as facts. Existing bardeaux/joints/cloueuse remain contextual unselected French proposals; qualified trade/locale review required.",
+    "Canonical French proposal totals unchanged. Supplemental full-face alternatives are counted separately and never imply objective completion, technical correctness or approval."
+  ]
+}

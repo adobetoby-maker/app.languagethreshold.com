@@ -1,0 +1,196 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:1:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5d5e1fc7bbffb3a51fe8e821d402735c553e594e",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-1-source-decision-2026-11-18/packet.json",
+    "sha256": "727b3a5495c66deaad192decf7f880b137a7038081cfb4f805936123ce6fec40"
+  },
+  "sourceObjectiveEnglish": "Walk a new hire through every layer of the roof, in order, and say why each one is there",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a new hire on day one: walk them from the deck to the ridge, name each layer in order, and explain why each one goes where it does using primero, luego, porque and por eso.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete French alternatives for selected ordinary-language/quoted-scene Reader faces only. Existing canonical rows/holds unchanged; technical explanations and original whole objective remain incomplete. Supplemental anchors are counted separately from canonical proposals.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:14",
+      "candidateRowId": "master-roofing:1:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: Am I making sense?",
+      "sourceSpanish": "Rogelio: ¿Me explico?",
+      "legacySourceRef": "master-roofing:1:passage:14",
+      "originalCandidateHold": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective."
+        }
+      ],
+      "teachingFocusEnglish": "Recognize English Am I making sense? as checking clarity of the explanation, not a test of Kevin’s understanding. French alternatives are meaning scaffolds with tone/subject-shift notes, not selected equivalents.",
+      "unresolvedReviewNotes": "Unreviewed, unregistered, unselected full-face alternatives. Exact original candidate hold remains unresolved; all qualified source/French/trade/register questions remain open. No canonical row, audio or progress change. Clarity-question tone/formulation pending French review; no formulation labelled best or approved.",
+      "alternatives": [
+        {
+          "id": "master-roofing:1:fr-en:reader-alternative:14:1",
+          "label": "Explanation clarity",
+          "candidateFrench": "Rogelio : Est-ce que mes explications sont claires ?",
+          "register": "neutral; clarity wording pending French review",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "Changes grammatical subject from I to my explanations to preserve clarity-check intent; French formulation unselected."
+        },
+        {
+          "id": "master-roofing:1:fr-en:reader-alternative:14:2",
+          "label": "Archived clarity wording",
+          "candidateFrench": "Rogelio : Est-ce que je suis clair ?",
+          "register": "neutral; tone/pragmatic nuance pending French review",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "Archived wording can sound stern/admonishing; source self-check intent and French tone remain unreviewed."
+        },
+        {
+          "id": "master-roofing:1:fr-en:reader-alternative:14:3",
+          "label": "First-person reflexive clarity question",
+          "candidateFrench": "Rogelio : Est-ce que je me fais comprendre ?",
+          "register": "first-person; tone unreviewed",
+          "alignmentNote": "Keeps first person and reflexive explanation/understanding frame; pragmatic tone remains open, no best-formulation claim.",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:16",
+      "candidateRowId": "master-roofing:1:fr-en:candidate:reader:16",
+      "sourceEnglish": "Rogelio: Exactly, and if you have questions, ask me anything you want.",
+      "sourceSpanish": "Rogelio: Exacto, y si tienes dudas, pregúntame lo que quieras.",
+      "legacySourceRef": "master-roofing:1:passage:16",
+      "originalCandidateHold": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective."
+        }
+      ],
+      "teachingFocusEnglish": "Recognize English Exactly, conditional if and the open ask-me-anything invitation. French support retains the discourse link without validating held Reader15.",
+      "unresolvedReviewNotes": "Unreviewed, unregistered, unselected full-face alternatives. Exact original candidate hold remains unresolved; all qualified source/French/trade/register questions remain open. No canonical row, audio or progress change. No added do-not-hesitate encouragement; Exactly is literal discourse, not approval of Reader15. Broader demande-moi tout ce que tu veux excluded because it can mean ask for things; the retained question-specific version explicates anything and needs qualified scope review. No unsourced vous version for Kevin.",
+      "alternatives": [
+        {
+          "id": "master-roofing:1:fr-en:reader-alternative:16:1",
+          "label": "Informal Kevin address",
+          "candidateFrench": "Rogelio : Exactement, et si tu as des questions, pose-moi toutes les questions que tu veux.",
+          "register": "tu; Spanish tienes/pregúntame/quieras mark informal address, English unmarked",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "Question-context formulation preserves Exactly, and, if and unrestricted questions invitation. It explicates English anything as questions/toutes les questions, an open scope/quantifier choice; not a selected one-to-one mapping."
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Exactly responds to held Reader15 technical summary. Literal translation does not validate that answer; no technical sequence selected."
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:17",
+      "candidateRowId": "master-roofing:1:fr-en:candidate:reader:17",
+      "sourceEnglish": "Rogelio: With a client you say it this way: If you have questions, ask me.",
+      "sourceSpanish": "Rogelio: Con un cliente se dice así: Si tiene dudas, pregúnteme a mí.",
+      "legacySourceRef": "master-roofing:1:passage:17",
+      "originalCandidateHold": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective."
+        }
+      ],
+      "teachingFocusEnglish": "Recognize English generic outer coaching and quoted client question-invitation as one complete utterance. French impersonal frame/client vous are meaning scaffolds, not production targets.",
+      "unresolvedReviewNotes": "Unreviewed, unregistered, unselected full-face alternatives. Exact original candidate hold remains unresolved; all qualified source/French/trade/register questions remain open. No canonical row, audio or progress change.",
+      "alternatives": [
+        {
+          "id": "master-roofing:1:fr-en:reader-alternative:17:1",
+          "label": "Impersonal coaching frame, formal client quotation",
+          "candidateFrench": "Rogelio : Avec un client, on le dit comme ça : « Si vous avez des questions, posez-les-moi. »",
+          "register": "outer impersonal on (Spanish se dice/generic English you); inner vous reflects Spanish tiene/pregúnteme",
+          "status": "unselected full-face language alternative; source/qualified review still required",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "alignmentNote": "English target has no marked stress on me; Spanish a mí emphasis is not added. Poser-question construction matches Reader16 question-specific scaffold, not a false ask/request lexical contrast."
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "registerStructure": "Outer on is generic one/you, not collective we; Spanish se dice does not mark outer tu. Inner French vous reflects source Spanish usted forms, still unselected French support.",
+      "contextDependency": "Le/it points back to Reader16 invitation phrasing, not an approved technical summary or added plan-consultation requirement."
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 17,
+    "canonicalFrenchProposedBefore": 2,
+    "canonicalFrenchProposedAfter": 2,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:1:fr-en:reader:14",
+      "master-roofing:1:fr-en:reader:16",
+      "master-roofing:1:fr-en:reader:17"
+    ],
+    "supplementalAnchorCount": 3,
+    "supplementalFullFaceAlternativeCount": 5
+  },
+  "internalNotes": [
+    "AI regional/tool-term opinions are unverified and not adopted as facts. Existing bardeaux/joints/cloueuse remain contextual unselected French proposals; qualified trade/locale review required.",
+    "Canonical French proposal totals unchanged. Supplemental full-face alternatives are counted separately and never imply objective completion, technical correctness or approval."
+  ]
+}

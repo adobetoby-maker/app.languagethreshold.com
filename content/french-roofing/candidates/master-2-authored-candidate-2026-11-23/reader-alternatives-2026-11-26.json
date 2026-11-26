@@ -1,0 +1,557 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:2:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "534c5ad773824ee56d6a57b6459c65e31c742602",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-2-source-decision-2026-11-18/packet.json",
+    "sha256": "a141cf044ddc2edfc23b663b341523c63a3e7cb287d9d6f8e8a22e323fcfe605"
+  },
+  "sourceObjectiveEnglish": "Explain why joints are staggered, using impersonal se and general rules with si",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "11remaining missing Reader anchors in Master2, additive to canonical/prior sidecars; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:3",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:3",
+      "sourceEnglish": "Rogelio: If the joints line up, water gets in.",
+      "sourceSpanish": "Rogelio: Si las juntas se alinean, el agua se mete.",
+      "legacySourceRef": "master-roofing:2:passage:3",
+      "originalCandidateHold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal. The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal."
+        },
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Si les joints s’alignent, l’eau peut s’infiltrer. »",
+      "unresolvedReviewNotes": [
+        "The source states the outcome categorically. The archived French softened it to 'peut s’infiltrer'. The candidate keeps the source wording. The product scope (which shingle or system) needs trade review. Do not silently combine the strong source claim with the soft archive."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si les joints s’alignent, l’eau entre. »",
+          "alignmentNote": "IFjointsLINEUP waterGETSIN categorical, entre not softened possibility.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:4",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio: Water looks for the easiest path, and an open joint is the easiest path.",
+      "sourceSpanish": "Rogelio: El agua busca el camino más fácil, y una junta abierta es el camino más fácil.",
+      "legacySourceRef": "master-roofing:2:passage:4",
+      "originalCandidateHold": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « L’eau suit le chemin le plus facile, et un joint ouvert peut devenir ce chemin. »",
+      "unresolvedReviewNotes": [
+        "This is a generalized source metaphor and the absolute 'is the easiest path' is kept. 'Open joint' is not defined by product or geometry. Qualified trade review should confirm the teaching scope."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. »",
+          "alignmentNote": "'Busca el camino más fácil' is cherche le chemin le plus facile. 'Una junta abierta es el camino más fácil' keeps the identity 'est le chemin le plus facile', without the archived 'peut devenir'.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:5",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+      "sourceSpanish": "Rogelio: Por eso se escalonan las juntas según el fabricante, y nunca se hace a ojo.",
+      "legacySourceRef": "master-roofing:2:passage:5",
+      "originalCandidateHold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal. The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal."
+        },
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « C’est pourquoi les joints sont décalés selon le fabricant; on ne choisit pas le motif à l’œil. »",
+      "unresolvedReviewNotes": [
+        "No stagger pattern is given. Manufacturer qualification is preserved. The stagger term échelonnés versus décalés is a regional and trade sense, so it needs qualified confirmation."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil. »",
+          "alignmentNote": "Manufacturer-qualified STAGGERjoint claim/NEVERbyvisualestimate retained. À vue d’œil specifies source a ojo/byeye estimation, no approval of a specific layout.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+      "sourceSpanish": "Rogelio: Si una hilera tapa la junta de abajo, el agua corre por encima de la teja y sigue su camino.",
+      "legacySourceRef": "master-roofing:2:passage:6",
+      "originalCandidateHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Si un rang recouvre le joint du dessous, l’eau s’écoule sur le bardeau et poursuit son chemin. »",
+      "unresolvedReviewNotes": [
+        "The conditional and the water-over-shingle outcome are source claims. The product geometry for the course and joint is not specified. Confirm the course terms with the selected system."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin. »",
+          "alignmentNote": "'Si una hilera tapa la junta de abajo' keeps the conditional. 'El agua corre por encima de la teja y sigue su camino' is l’eau passe par-dessus le bardeau et poursuit son chemin.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+      "sourceSpanish": "Rogelio: Pero si las ranuras quedan una encima de otra, el agua baja directo por la ranura hasta la sub-capa.",
+      "legacySourceRef": "master-roofing:2:passage:7",
+      "originalCandidateHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau peut descendre jusqu’à la sous-couche. »",
+      "unresolvedReviewNotes": [
+        "Slot and tab geometry is product-specific. Fente is the candidate term for slot and needs trade confirmation. 'Straight down' is a source claim. Confirm whether the underlayment is the only stop with approved plans."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche. »",
+          "alignmentNote": "BUTIFslotsoneABOVEother waterSTRAIGHTDOWNslotTOunderlayment, tout droit directional directness retained.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:8",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: Over time, the moisture reaches the wood and the leak shows up inside the house.",
+      "sourceSpanish": "Rogelio: Con el tiempo, la humedad llega a la madera y la gotera aparece dentro de la casa.",
+      "legacySourceRef": "master-roofing:2:passage:8",
+      "originalCandidateHold": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avec le temps, l’humidité peut atteindre le bois et une fuite peut apparaître dans la maison. »",
+      "unresolvedReviewNotes": [
+        "No timescale is given, so no duration has been added. The source says 'over time' only. The product and climate scope needs qualified review. The archived French softened the outcome with 'peut'. Do not combine it with the candidate silently."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison. »",
+          "alignmentNote": "'Con el tiempo' is Avec le temps, and the sequence moisture to wood to leak is preserved. 'La gotera aparece dentro de la casa' is la fuite apparaît à l’intérieur de la maison.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:9",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: That way you don't see the leak until it's too late.",
+      "sourceSpanish": "Rogelio: Así no se ve la gotera hasta que es tarde.",
+      "legacySourceRef": "master-roofing:2:passage:9",
+      "originalCandidateHold": "Source late-leak/moisture causal claim and too-late scope differ from qualified archived wording; product/source review required before any diagnosis, causal answer or scored statement.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Ainsi, on peut ne voir la fuite que trop tard. »",
+      "unresolvedReviewNotes": [
+        "Spanish 'es tarde' has no 'too' intensifier, and English 'too late' adds it. The candidate uses trop tard. Confirm the intensity with the reviewer. The outcome is a source claim and is not an installation guarantee."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Ainsi, on ne voit la fuite que lorsqu’il est trop tard. »",
+          "alignmentNote": "'Así no se ve la gotera hasta que es tarde' keeps the sequence. Hasta que es tarde is rendered as que lorsque c’est trop tard, with the impersonal on for se.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: That way you don't see the leak until it's too late.",
+        "exactSpanish": "Rogelio: Así no se ve la gotera hasta que es tarde.",
+        "status": "open",
+        "scope": "English TOOlate vs Spanish tarde without demasiado; French trop follows English target intensity, source decision not silently harmonized."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:10",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: The wind also lifts the tabs if the sealant strip doesn't stick well.",
+      "sourceSpanish": "Rogelio: El viento también levanta las lengüetas si la tira selladora no pega bien.",
+      "legacySourceRef": "master-roofing:2:passage:10",
+      "originalCandidateHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Le vent peut aussi soulever les languettes si la bande adhésive n’adhère pas bien. »",
+      "unresolvedReviewNotes": [
+        "Sealant strip product, temperature, and adhesion conditions are not specified. The source gives the cause only. Bande adhésive, used in the archive, is a generic term. Qualified product review should confirm the candidate term."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien. »",
+          "alignmentNote": "WindALSOliftTABS IFsealantSTRIP NOTSTICKWELL; bande de scellement direct term proposal, not specified sealant product.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:11",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+      "sourceSpanish": "Rogelio: Por eso se revisa el patrón en cada hilera y se traza una línea de tiza cuando hace falta.",
+      "legacySourceRef": "master-roofing:2:passage:11",
+      "originalCandidateHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Voilà pourquoi on vérifie le motif à chaque rang et on trace une ligne au cordeau au besoin. »",
+      "unresolvedReviewNotes": [
+        "Ligne de craie is the candidate for chalk line. The archive used ligne au cordeau, a regional trade sense, so it needs confirmation. The every-course check and the when-needed trigger are source-stated. No interval is added."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire. »",
+          "alignmentNote": "THATISWHY pattern checked EVERYcourse/chalkline traced WHENNEEDED. Schéma de pose contextual layout meaning of pattern, cordeau à craie physical chalk-line reference; no selected spacing or universal procedure.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:14",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: If the overlap and the joints are right, the roof lasts many years; if not, water seeps in.",
+      "sourceSpanish": "Rogelio: Si el traslape y las juntas están bien, el techo dura muchos años; si no, se filtra el agua.",
+      "legacySourceRef": "master-roofing:2:passage:14",
+      "originalCandidateHold": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Si le recouvrement et les joints respectent le système choisi, la toiture peut durer; sinon, de l’eau peut s’infiltrer. »",
+      "unresolvedReviewNotes": [
+        "The lifespan claim has no product or climate basis and is not an installation guarantee. The archived 'selon le système choisi' qualifier is a product scope note and is kept out of the candidate. Qualified review per lesson 2 sourceQuestions."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si le recouvrement et les joints sont corrects, la toiture dure de nombreuses années ; sinon, l’eau s’infiltre. »",
+          "alignmentNote": "IFoverlapANDjointsARECORRECT roofLASTSMANYYEARS ELSEwaterSEEPS, source state not new workmanship guarantee and not softened likelihood.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:15",
+      "candidateRowId": "master-roofing:2:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+      "sourceSpanish": "Rogelio: Kevin, poner las juntas en línea recta es un error, y eso no se hace aquí.",
+      "legacySourceRef": "master-roofing:2:passage:15",
+      "originalCandidateHold": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context. The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context."
+        },
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Kevin, aligner les joints serait une erreur pour ce produit; on ne fait pas cela ici. »",
+      "unresolvedReviewNotes": [
+        "The archived 'pour ce produit' is a product condition not in the source, so it is left out. Kevin is addressed by name with no imperative, so no tu/vous choice applies here. The straight-line error is a source claim and product scope is unknown."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:2:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici. »",
+          "alignmentNote": "Kevin puttingJOINTSinSTRAIGHTline MISTAKE/NOTDONEHERE; spoken c’est/ça ne se fait pas preserve correction and source impersonal claim, no objective adaptation.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 15,
+    "canonicalFrenchProposedBefore": 2,
+    "canonicalFrenchProposedAfter": 2,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:2:fr-en:reader:3",
+      "master-roofing:2:fr-en:reader:4",
+      "master-roofing:2:fr-en:reader:5",
+      "master-roofing:2:fr-en:reader:6",
+      "master-roofing:2:fr-en:reader:7",
+      "master-roofing:2:fr-en:reader:8",
+      "master-roofing:2:fr-en:reader:9",
+      "master-roofing:2:fr-en:reader:10",
+      "master-roofing:2:fr-en:reader:11",
+      "master-roofing:2:fr-en:reader:14",
+      "master-roofing:2:fr-en:reader:15"
+    ],
+    "supplementalAnchorCount": 11,
+    "supplementalFullFaceAlternativeCount": 11
+  },
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/README.md": "23894e4bf9702e51bb9d703bbf1a0536a4d27a137ff72b9923593a4d929e6caa",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3"
+  },
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "English target/French meaning-support alternatives do not automatically adapt source Spanish grammar/role objectives or certify roof/tool procedures.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si."
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:2:fr-en:reader:12",
+      "master-roofing:2:fr-en:reader:13"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:2:fr-en:reader:1",
+      "master-roofing:2:fr-en:reader:2"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:2:fr-en:reader:10",
+      "master-roofing:2:fr-en:reader:11",
+      "master-roofing:2:fr-en:reader:14",
+      "master-roofing:2:fr-en:reader:15",
+      "master-roofing:2:fr-en:reader:3",
+      "master-roofing:2:fr-en:reader:4",
+      "master-roofing:2:fr-en:reader:5",
+      "master-roofing:2:fr-en:reader:6",
+      "master-roofing:2:fr-en:reader:7",
+      "master-roofing:2:fr-en:reader:8",
+      "master-roofing:2:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 4,
+    "coveredAfterCount": 15,
+    "sourceReaderTotal": 15,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "All previous artifacts are frozen byte-for-byte; new sidecar fills only previously uncovered IDs. Coverage counts distinct union, not sum of competing variants.",
+    "Direct trade terms/source absolutes translated; actual product/system/tool/role/source decisions internal, no universal installation or safety claim selected.",
+    "Raw model term/regional opinions remain unqualified. Corrections follow exact English and Spanish evidence; no blanket adoption of either critique or automatic objective completion."
+  ]
+}

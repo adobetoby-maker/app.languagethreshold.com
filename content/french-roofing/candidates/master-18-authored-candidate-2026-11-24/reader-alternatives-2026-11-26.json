@@ -1,0 +1,319 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:18:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "e3e71545d796b089b2d3ffb426ce480abd72ca5f",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/candidate.json",
+  "canonicalCandidateSha256": "7da95f35e1caa19c58d02da3272e53593e0c47fd61db2020761403ba570e49be",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-18-source-decision-2026-11-18/packet.json",
+    "sha256": "a9cdc245b90f16454e3fbf3ad463186134a92ef1f21c96b2804e0f6506dd0d1c"
+  },
+  "sourceObjectiveEnglish": "Text a homeowner about a rain delay and handle their call to reschedule, politely and clearly",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; linguistic supplemental proposals do not complete source work objective",
+  "scope": "Six selected missing Reader anchors in this lesson (18acrossMaster16–18), full-face French alternatives only; not complete Reader coverage, canonical replacements or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:4",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:4",
+      "sourceEnglish": "Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?",
+      "sourceSpanish": "Mensaje: Debido al retraso por lluvia, no podremos empezar mañana; ¿sería posible empezar el jueves?",
+      "legacySourceRef": "master-roofing:18:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Message: Due to the rain delay, we won't be able to start tomorrow; would it be possible to start on Thursday?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Message : « À cause de la pluie, nous ne pourrons pas commencer demain; serait-il possible de reporter à jeudi ? »",
+      "unresolvedReviewNotes": [
+        "Unselected full-face French meaning support; exact canonical hold/source/IDs retained. Actual code/product/locale/contract/source questions separate; no specialist objective completion.",
+        "Proposed conditional dates and final confirmation are distinct source speech acts; eight unmarked in proposal but8AM explicit final confirmation. Material driveway delivery and identity/husband remain explicit; no invented acceptance."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Message : « En raison du retard dû à la pluie, nous ne pourrons pas commencer demain ; serait-il possible de commencer jeudi ? »",
+          "alignmentNote": "Rain delay/CANNOTstartTOMORROW plus WOULDITBEPOSSIBLEstartTHURSDAY question preserved; Thursday not asserted accepted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:5",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:5",
+      "sourceEnglish": "Message: We could arrive at eight, if that works for you, and the material would arrive in the driveway on Wednesday.",
+      "sourceSpanish": "Mensaje: Podríamos llegar a las ocho, si le parece bien, y el material llegaría a la entrada del garaje el miércoles.",
+      "legacySourceRef": "master-roofing:18:passage:5",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Message: We could arrive at eight, if that works for you, and the material would arrive in the driveway on Wednesday.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Message : « Nous pourrions arriver vers huit heures si cela vous convient; la livraison des matériaux reste à confirmer. »",
+      "unresolvedReviewNotes": [
+        "Unselected full-face French meaning support; exact canonical hold/source/IDs retained. Actual code/product/locale/contract/source questions separate; no specialist objective completion.",
+        "Proposed conditional dates and final confirmation are distinct source speech acts; eight unmarked in proposal but8AM explicit final confirmation. Material driveway delivery and identity/husband remain explicit; no invented acceptance.",
+        "Allée du garage/entrée de garage driveway term and plural matériaux for source material unselected. At eight contains no approximator, no added EXACTLY; AM/PM not inferred here."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Message : « Nous pourrions arriver à huit heures, si cela vous convient, et les matériaux arriveraient dans l’allée du garage mercredi. »",
+          "alignmentNote": "COULDarrive ATeight IFconvenient AND material WOULDarrive INdriveway WEDNESDAY retained; no approximator or added EXACTLY, confirmation or AM/PM.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:9",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:9",
+      "sourceEnglish": "Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home.",
+      "sourceSpanish": "Señor Kim: Habla Daniel Kim, el esposo; vi el mensaje, pero el jueves no estamos en casa.",
+      "legacySourceRef": "master-roofing:18:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Mr. Kim: This is Daniel Kim, the husband; I saw the message, but on Thursday we're not home.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "M. Kim : « Daniel Kim, son mari. J’ai vu le message, mais jeudi nous serons absents. »",
+      "unresolvedReviewNotes": [
+        "Unselected full-face French meaning support; exact canonical hold/source/IDs retained. Actual code/product/locale/contract/source questions separate; no specialist objective completion.",
+        "Proposed conditional dates and final confirmation are distinct source speech acts; eight unmarked in proposal but8AM explicit final confirmation. Material driveway delivery and identity/husband remain explicit; no invented acceptance."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "M. Kim : « Ici Daniel Kim, le mari ; j’ai vu le message, mais jeudi nous ne sommes pas à la maison. »",
+          "alignmentNote": "DanielKim identifies as HUSBAND, SAWmessage BUT Thursday NOTHOME; no invented household acceptance or deletion of relation.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:12",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:12",
+      "sourceEnglish": "The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+      "sourceSpanish": "La llamada se cortó, y Rogelio volvió a marcar el número de teléfono, pero le salió el buzón de voz.",
+      "legacySourceRef": "master-roofing:18:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: The call dropped, and Rogelio dialed the phone number again, but he got the voicemail.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "La communication a été coupée; Rogelio a rappelé et est tombé sur la messagerie vocale.",
+      "unresolvedReviewNotes": [
+        "Unselected full-face French meaning support; exact canonical hold/source/IDs retained. Actual code/product/locale/contract/source questions separate; no specialist objective completion.",
+        "Proposed conditional dates and final confirmation are distinct source speech acts; eight unmarked in proposal but8AM explicit final confirmation. Material driveway delivery and identity/husband remain explicit; no invented acceptance.",
+        "Messagerie vocale/boîte vocale term unselected; full redial/result preserved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "L’appel a été coupé, et Rogelio a recomposé le numéro de téléphone, mais il est tombé sur la messagerie vocale.",
+          "alignmentNote": "Entire dropped call AND Rogelio REDIALED phone number BUT reached voicemail retained; no completed contact or invented call resolution.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:13",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rogelio on the voicemail: Sorry, the call dropped; so the new date would be Friday at eight.",
+      "sourceSpanish": "Rogelio en el buzón de voz: Perdón, se cortó la llamada; entonces la nueva fecha sería el viernes a las ocho.",
+      "legacySourceRef": "master-roofing:18:passage:13",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio on the voicemail: Sorry, the call dropped; so the new date would be Friday at eight.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio, sur la messagerie : « Excusez-moi, la communication a été coupée; vendredi vers huit heures est une proposition, à confirmer ensemble. »",
+      "unresolvedReviewNotes": [
+        "Unselected full-face French meaning support; exact canonical hold/source/IDs retained. Actual code/product/locale/contract/source questions separate; no specialist objective completion.",
+        "Proposed conditional dates and final confirmation are distinct source speech acts; eight unmarked in proposal but8AM explicit final confirmation. Material driveway delivery and identity/husband remain explicit; no invented acceptance."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio sur la messagerie vocale : « Excusez-moi, l’appel a été coupé ; donc la nouvelle date serait vendredi à huit heures. »",
+          "alignmentNote": "Full Rogelio VOICEMAIL/SORRY callDROPPED/SO new date WOULDBEFRIDAYeight retained; distinct from final indicative ICONFIRM8AM, no added joint confirmation step.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:15",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:15",
+      "sourceEnglish": "That night, Rogelio wrote: I confirm the date change to Friday at 8:00 a.m.; I'll give you advance notice if the arrival time changes.",
+      "sourceSpanish": "Esa noche, Rogelio escribió: Confirmo el cambio de fecha para el viernes a las 8:00 a. m.; le daré aviso previo si cambia el horario de llegada.",
+      "legacySourceRef": "master-roofing:18:passage:15",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: That night, Rogelio wrote: I confirm the date change to Friday at 8:00 a.m.; I'll give you advance notice if the arrival time changes.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Le soir, Rogelio a écrit : « Je propose vendredi à 8 h; merci de confirmer. Je vous préviendrai si l’horaire ou la livraison change. »",
+      "unresolvedReviewNotes": [
+        "Unselected full-face French meaning support; exact canonical hold/source/IDs retained. Actual code/product/locale/contract/source questions separate; no specialist objective completion.",
+        "Proposed conditional dates and final confirmation are distinct source speech acts; eight unmarked in proposal but8AM explicit final confirmation. Material driveway delivery and identity/husband remain explicit; no invented acceptance."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Ce soir-là, Rogelio a écrit : « Je confirme le changement de date pour vendredi à 8 h 00 ; je vous préviendrai à l’avance si l’heure d’arrivée change. »",
+          "alignmentNote": "Full THATNIGHT narratorWROTE/ICONFIRMchangeFriday8AM/IwillnotifyINADVANCE IFarrivalTIMEchanges retained. No altered conditional proposal or added acceptance/channel.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:18:fr-en:reader:4",
+      "master-roofing:18:fr-en:reader:5",
+      "master-roofing:18:fr-en:reader:9",
+      "master-roofing:18:fr-en:reader:12",
+      "master-roofing:18:fr-en:reader:13",
+      "master-roofing:18:fr-en:reader:15"
+    ],
+    "supplementalAnchorCount": 6,
+    "supplementalFullFaceAlternativeCount": 6
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [
+    "master-roofing:18:fr-en:reader:1",
+    "master-roofing:18:fr-en:reader:2",
+    "master-roofing:18:fr-en:reader:3",
+    "master-roofing:18:fr-en:reader:6",
+    "master-roofing:18:fr-en:reader:7",
+    "master-roofing:18:fr-en:reader:8",
+    "master-roofing:18:fr-en:reader:10",
+    "master-roofing:18:fr-en:reader:11",
+    "master-roofing:18:fr-en:reader:14",
+    "master-roofing:18:fr-en:reader:16"
+  ],
+  "internalNotes": [
+    "Technical terms are proposed directly, not withheld solely because roofing vocabulary. Actual source/code/product/locale/contract interpretation remains separate from faithful face meaning.",
+    "Original source objective and speaking remain exact and incomplete. Supplemental variants do not replace canonical held rows or imply progress/saved-item migration.",
+    "French support typography uses spaces before semicolons and curly apostrophes for these unselected proposals; final locale convention still reviewable.",
+    "Lexical choices remain an open locale decision; listed alternatives are review options, not asserted official region-wide usage."
+  ],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "Original speaking objective names Spanish discourse/conditional forms. English-target/French-support alternatives do not silently approve adaptation or complete that Spanish-form objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time."
+  }
+}

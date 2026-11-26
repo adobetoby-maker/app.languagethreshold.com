@@ -1,0 +1,274 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:7:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5ce9416b9c22654d165b4eb1b72143b6bc46be01",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-7-source-decision-2026-11-18/packet.json",
+    "sha256": "4fe128163c1e6285d10ac44bf6202d202ef020edb51672e093e076193e53482b"
+  },
+  "sourceObjectiveEnglish": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete source-only French meaning support for actual missing technical/ordinary Reader faces. Source claims, counts, units, refusal strength and negation translated directly; specific source/insurance/product/safety ambiguity separate. No canonical or objective promotion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:2",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:2",
+      "sourceEnglish": "On Thursday, the insurance company's adjuster arrived at 10 to review the Ortiz family's claim.",
+      "sourceSpanish": "El jueves, el ajustador de la aseguradora llegó a las 10 para revisar el reclamo de la familia Ortiz.",
+      "legacySourceRef": "master-roofing:7:passage:2",
+      "originalCandidateHold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim."
+        }
+      ],
+      "teachingFocusEnglish": "Understand adjuster/insurance claim, Thursday at10 and Ortiz family. French role/claim terms give contextual meaning, not payment or approval.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Jeudi, l’expert de la compagnie d’assurance est arrivé à dix heures pour examiner la réclamation de la famille Ortiz.",
+          "alignmentNote": "Thursday/10, insurance-company adjuster and Ortiz-family claim preserved. Archived expert/réclamation are contextual unselected terms; no unverified regional-title assertions or claim approval.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Jeudi, l’expert de la compagnie d’assurance est arrivé à dix heures pour examiner la réclamation de la famille Ortiz."
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:5",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:5",
+      "sourceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "sourceSpanish": "En la cara del techo que da al oeste, marcaron un cuadro de prueba de 10 por 10 pies.",
+      "legacySourceRef": "master-roofing:7:passage:5",
+      "originalCandidateHold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard."
+        }
+      ],
+      "teachingFocusEnglish": "Understand west-facing roof slope and a10-by10-foot test square. French keeps feet, source count/geometry and local square scope, no insurer standard.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Sur le versant du toit qui fait face à l’ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+          "alignmentNote": "Roof/toit explicit, west-facing,10by10feet exactly. No metric conversion, new test standard or geographical terminology claim.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:5:2",
+          "label": "Variant 2",
+          "candidateFrench": "Sur le pan de toit orienté à l’ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+          "alignmentNote": "West-facing roof-slope term variant,10by10feet exactly, no conversion or universal test standard. Versant/pan terminology unselected; no geographical usage fact asserted.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Sur le versant ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+      "contextDependency": "10 by10 FEET test square on west-facing roof slope, not square meters or universal insurer inspection standard. Versant/pan are unselected terminology alternatives without geographic assertions."
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+      "sourceSpanish": "Rogelio: Contamos 12 golpes en este cuadro, y aquí la teja perdió gránulos.",
+      "legacySourceRef": "master-roofing:7:passage:8",
+      "originalCandidateHold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard."
+        }
+      ],
+      "teachingFocusEnglish": "Understand we counted12hits IN THIS SQUARE and HERE the shingle lost granules. French preserves this-sample scope and observed terms, not verification.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules. »",
+          "alignmentNote": "Shingle=bardeau without added asphalt material;12 IN THIS SQUARE, AND HERE granule-loss clause retained, not full-roof count or hail verification.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Nous avons compté douze impacts dans ce carré; ici, le bardeau a perdu des granules. »",
+      "contextDependency": "12 hits IN THIS SQUARE, not whole roof/west-side total; HERE granule-loss statement retained, not independent hail-damage verification."
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+      "sourceSpanish": "Rogelio: En el lado norte contamos solo 3, porque el viento venía del oeste.",
+      "legacySourceRef": "master-roofing:7:passage:10",
+      "originalCandidateHold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact."
+        }
+      ],
+      "teachingFocusEnglish": "Understand ONLY3north-side hits BECAUSE wind came from west as the speaker’s stated explanation, not independently validated causation.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest. »",
+          "alignmentNote": "North side/ONLY3 and because-west-wind causal link retained as quoted source claim; no unverified register comparison with archive.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Du côté nord, nous n’en avons compté que trois, car le vent venait de l’ouest. »",
+      "contextDependency": "Only3 north-side hits and because-west-wind explanation are Rogelio quoted source claim, not independently verified causal attribution."
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:13",
+      "candidateRowId": "master-roofing:7:fr-en:candidate:reader:13",
+      "sourceEnglish": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+      "sourceSpanish": "Ajustador: Claro, el lado oeste mide 1,200 pies cuadrados y el lado norte mide 800.",
+      "legacySourceRef": "master-roofing:7:passage:13",
+      "originalCandidateHold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard."
+        }
+      ],
+      "teachingFocusEnglish": "Understand west1200square feet and north800, with same area unit across ellipsis. French is meaning support without metric conversion.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:7:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "L’expert : « Bien sûr, le côté ouest mesure mille deux cents pieds carrés et le côté nord mesure huit cents pieds carrés. »",
+          "alignmentNote": "Source west1200/north800 and repeated measures retained; square-feet unit repeated explicitly in French from source final ellipsis, not converted or newly measured.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "L’expert : « Bien sûr : le côté ouest mesure mille deux cents pieds carrés et le côté nord, huit cents. »",
+      "contextDependency": "1200 west/800 north square feet; ellipsis does not convert units or imply payment/approved scope."
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 2,
+    "canonicalFrenchProposedAfter": 2,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:7:fr-en:reader:2",
+      "master-roofing:7:fr-en:reader:5",
+      "master-roofing:7:fr-en:reader:8",
+      "master-roofing:7:fr-en:reader:10",
+      "master-roofing:7:fr-en:reader:13"
+    ],
+    "supplementalAnchorCount": 5,
+    "supplementalFullFaceAlternativeCount": 6
+  },
+  "internalNotes": [
+    "English target/French meaning support only; no French production target. Technical vocabulary, fatality language and strong requests preserved, not softened. Actual source/product/safety/insurance ambiguity outside utterances; no universal standard, clearance, repair approval or source claim certified.",
+    "Unverified AI regional vocabulary opinions discarded. No wrong general exposition for roofing exposure, unsourced fitter/adjuster equivalence, or weak would-like substitution. Canonical/source/speaking/IDs/holds remain immutable."
+  ]
+}

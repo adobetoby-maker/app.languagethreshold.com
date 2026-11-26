@@ -1,0 +1,343 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:9:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5ce9416b9c22654d165b4eb1b72143b6bc46be01",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-9-source-decision-2026-11-18/packet.json",
+    "sha256": "2a287f8d7ebdbcfbc9f290f2ed8252492e49240b5439adf533b0de5b6a7a6d98"
+  },
+  "sourceObjectiveEnglish": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete source-only French meaning support for actual missing technical/ordinary Reader faces. Source claims, counts, units, refusal strength and negation translated directly; specific source/insurance/product/safety ambiguity separate. No canonical or objective promotion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:1",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:1",
+      "sourceEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+      "sourceSpanish": "Por la tarde, Rogelio notó que una hilera torcida subía hacia la izquierda en el lado de Julio.",
+      "legacySourceRef": "master-roofing:9:passage:1",
+      "originalCandidateHold": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage."
+        }
+      ],
+      "teachingFocusEnglish": "Understand a CROOKED COURSE CLIMBING TO LEFT on Julio’s side in afternoon. French roofing rang/rangée are unselected meaning choices.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:1:1",
+          "label": "Variant 1",
+          "candidateFrench": "Dans l’après-midi, Rogelio a remarqué qu’un rang de travers montait vers la gauche, du côté de Julio.",
+          "alignmentNote": "Crooked course de travers, climbing LEFT, physical Julio-side location retained; rang/rangée are unselected wording alternatives, no regional assertion.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:1:2",
+          "label": "Variant 2",
+          "candidateFrench": "Dans l’après-midi, Rogelio a remarqué qu’une rangée de travers montait vers la gauche, du côté de Julio.",
+          "alignmentNote": "Crooked course de travers, climbing LEFT, physical Julio-side location retained; rang/rangée are unselected wording alternatives, no regional assertion.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "L’après-midi, Rogelio a remarqué qu’un rang mal aligné montait vers la gauche du côté où travaillait Julio.",
+      "contextDependency": "Narration in private-feedback/rework scene, not quoted speech or actual course/exposure diagnosis. Source terminology and product review remain open."
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:2",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:2",
+      "sourceEnglish": "Julio was working fast, but the exposure changed from one shingle to the next.",
+      "sourceSpanish": "Julio trabajaba rápido, pero la exposición cambiaba de una teja a otra.",
+      "legacySourceRef": "master-roofing:9:passage:2",
+      "originalCandidateHold": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage."
+        }
+      ],
+      "teachingFocusEnglish": "Understand past working fast BUT roofing EXPOSURE CHANGED from one shingle to next. French pureau is direct technical support, not general exposition.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Julio travaillait vite, mais le pureau changeait d’un bardeau à l’autre.",
+          "alignmentNote": "Technical roofing exposure=pureau, not general exposition; past working fast/BUT changing exposure from one shingle to next retained.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Julio travaillait vite, mais le pureau visible changeait d’un bardeau à l’autre.",
+      "contextDependency": "Narration in private-feedback/rework scene, not quoted speech or actual course/exposure diagnosis. Source terminology and product review remain open."
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:4",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.",
+      "sourceSpanish": "Rogelio: Julio, quiero que mires esta hilera conmigo, en privado.",
+      "legacySourceRef": "master-roofing:9:passage:4",
+      "originalCandidateHold": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar. The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar."
+        },
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them."
+        }
+      ],
+      "teachingFocusEnglish": "Understand JULIO, I WANT YOU TO LOOK at THIS COURSE WITH ME IN PRIVATE; request strength/subject/joint action unchanged.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Julio, je veux que tu regardes ce rang avec moi, en privé. »",
+          "alignmentNote": "'Je veux que' keeps the strong request, not the archived 'je voudrais'. 'Tu regardes' is the present subjunctive form, as required after 'je veux que'. 'En privé' = in private. 'Ce rang' = this course.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Julio, je voudrais que tu regardes ce rang avec moi, en privé. »",
+      "contextDependency": "Quoted private-feedback/rework scene only; no actual course/exposure diagnosis, product pattern or safe rework approval. Three-course measurement and four-course removal stay distinct.",
+      "terminologyDependency": "Rang follows one unselected course-term option in Reader1; rangée is not automatically substituted across faces. Consistent term selection remains open before any canonical use."
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:7",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:7",
+      "sourceEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+      "sourceSpanish": "Julio: Creo que no medí desde la última línea y lo hice a ojo.",
+      "legacySourceRef": "master-roofing:9:passage:7",
+      "originalCandidateHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand I THINK I DID NOT measure FROM LAST LINE and did IT BY EYE, a self-report rather than a verified cause.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Julio : « Je crois que je n’ai pas mesuré à partir de la dernière ligne et je l’ai fait à l’œil. »",
+          "alignmentNote": "No added comma or repeated que forces hedge scope. Spatial FROM last line retained; à l’œil is visual-estimate meaning in measurement context, not free-service sense.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Julio : « Je crois que je n’ai pas mesuré depuis la dernière ligne et que j’ai travaillé à l’œil. »",
+      "contextDependency": "Quoted private-feedback/rework scene only; no actual course/exposure diagnosis, product pattern or safe rework approval. Three-course measurement and four-course removal stay distinct.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure.",
+          "relationship": "Measurement/by-eye admission relates to source measurement/rework decision by meaning; Reader7 not in affectedIds. Inferred link only."
+        }
+      ],
+      "hedgeScopeReview": "Source English/Spanish coordination leaves possible I-think scope open; source-like unpunctuated French candidate does not assert a verified cause. Broader au jugé option omitted because it need not preserve visual by-eye sense."
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "sourceSpanish": "Rogelio: Te pido que midas cada tres hileras con la cinta métrica y que marques la medida en la teja.",
+      "legacySourceRef": "master-roofing:9:passage:10",
+      "originalCandidateHold": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure."
+        }
+      ],
+      "teachingFocusEnglish": "Understand I AM ASKING YOU to measure EVERY THREE COURSES with THE TAPE MEASURE and mark THE MEASUREMENT ON THE SHINGLE. Quoted source request only.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau. »",
+          "alignmentNote": "Prendre une mesure explicates measure to bind every-three-course frequency, not measure all three courses. Same source request, tool and mark-on-shingle location; no new dimension/value or approved procedure.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Je te demande de mesurer tous les trois rangs avec le mètre et de marquer la mesure sur le bardeau. »",
+      "contextDependency": "Quoted private-feedback/rework scene only; no actual course/exposure diagnosis, product pattern or safe rework approval. Three-course measurement and four-course removal stay distinct.",
+      "terminologyDependency": "Rang follows one unselected course-term option in Reader1; rangée is not automatically substituted across faces. Consistent term selection remains open before any canonical use."
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:12",
+      "candidateRowId": "master-roofing:9:fr-en:candidate:reader:12",
+      "sourceEnglish": "Julio: All right, I'll take off these four courses and put them back on.",
+      "sourceSpanish": "Julio: Está bien, quito estas cuatro hileras y las vuelvo a poner.",
+      "legacySourceRef": "master-roofing:9:passage:12",
+      "originalCandidateHold": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure."
+        }
+      ],
+      "teachingFocusEnglish": "Understand ALL RIGHT, I WILL take off THESE FOUR COURSES AND PUT THEM BACK ON. Four-course personal rework plan is distinct from three-course measurement interval.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Julio : « D’accord, je vais déposer ces quatre rangs et les reposer. »",
+          "alignmentNote": "'D'accord' = all right. 'Déposer' = take off, as in roofing removal. 'Ces quatre rangs' = these four courses. 'Les reposer' = put them back.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        },
+        {
+          "id": "master-roofing:9:fr-en:reader-alternative:12:2",
+          "label": "Variant 2: plain remove/put-back wording",
+          "candidateFrench": "Julio : « D’accord, je vais enlever ces quatre rangs et les remettre en place. »",
+          "alignmentNote": "Plain take-off/put-back wording retains THESE FOUR and personal future plan, not instructions for safe rework or new product replacement.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Julio : « D’accord, je vais déposer ces quatre rangs et les reposer. »",
+      "contextDependency": "Quoted private-feedback/rework scene only; no actual course/exposure diagnosis, product pattern or safe rework approval. Three-course measurement and four-course removal stay distinct.",
+      "terminologyDependency": "Rang follows one unselected course-term option in Reader1; rangée is not automatically substituted across faces. Consistent term selection remains open before any canonical use."
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:9:fr-en:reader:1",
+      "master-roofing:9:fr-en:reader:2",
+      "master-roofing:9:fr-en:reader:4",
+      "master-roofing:9:fr-en:reader:7",
+      "master-roofing:9:fr-en:reader:10",
+      "master-roofing:9:fr-en:reader:12"
+    ],
+    "supplementalAnchorCount": 6,
+    "supplementalFullFaceAlternativeCount": 8
+  },
+  "internalNotes": [
+    "English target/French meaning support only; no French production target. Technical vocabulary, fatality language and strong requests preserved, not softened. Actual source/product/safety/insurance ambiguity outside utterances; no universal standard, clearance, repair approval or source claim certified.",
+    "Unverified AI regional vocabulary opinions discarded. No wrong general exposition for roofing exposure, unsourced fitter/adjuster equivalence, or weak would-like substitution. Canonical/source/speaking/IDs/holds remain immutable."
+  ],
+  "sourceSpeakingLanguageIssue": {
+    "exactImmutableSourceSpeakingEnglish": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+    "issue": "Source speaking specifies Spanish subjunctive/formulations in English-target/French-support pair; not silently treated as an identical French exercise or accepted English grammar objective."
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:8:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5ce9416b9c22654d165b4eb1b72143b6bc46be01",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-8-source-decision-2026-11-18/packet.json",
+    "sha256": "5fc8850d5a92820de2b63b1f8ecab17456e887a76f87c2f267601354251e41f4"
+  },
+  "sourceObjectiveEnglish": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete source-only French meaning support for actual missing technical/ordinary Reader faces. Source claims, counts, units, refusal strength and negation translated directly; specific source/insurance/product/safety ambiguity separate. No canonical or objective promotion.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:3",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:3",
+      "sourceEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+      "sourceSpanish": "Señora Flores: Mis hijos llegan el sábado, así que quiero que sigan trabajando aunque llueva.",
+      "legacySourceRef": "master-roofing:8:passage:3",
+      "originalCandidateHold": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan."
+        }
+      ],
+      "teachingFocusEnglish": "Understand direct I WANT YOU TO KEEP working EVEN IF it rains, children arrive Saturday. It is MrsFlores’s request, not accepted permission.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Mme Flores : « Mes enfants arrivent samedi, alors je veux que vous continuiez à travailler même s’il pleut. »",
+          "alignmentNote": "Alors preserves SO/causal request; I WANT remains strong, not would like. Saturdaychildren/EVENIFrain preserved; homeowner request not approved crew instruction.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Mme Flores : « Mes enfants arrivent samedi; je voudrais que vous continuiez même s’il pleut. »",
+      "sourceClaimAttribution": "Mrs Flores homeowner request to keep working even if rain, not crew permission or approved weather procedure."
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:5",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: I understand your hurry, but I can't do it.",
+      "sourceSpanish": "Rogelio: Entiendo su prisa, pero no puedo hacerlo.",
+      "legacySourceRef": "master-roofing:8:passage:5",
+      "originalCandidateHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand I understand your hurry BUT I CANNOT DO IT, a firm refusal rather than would prefer not.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Je comprends votre hâte, mais je ne peux pas le faire. »",
+          "alignmentNote": "'Hâte' matches the English 'hurry' for 'prisa'. 'Je ne peux pas le faire' is a direct refusal with no hedge.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Je comprends votre urgence, mais je ne peux pas le faire. »",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Author natural French refusal and negative-command practice, speaking and six prompt/target mode pairs for the homeowner and crew. The source's Spanish subjunctive focus cannot be treated as an identical French exercise.",
+          "relationship": "Natural refusal/source grammar objective relates to Reader5 by meaning, but affectedIds omit it. Inferred link, no source edit."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "sourceSpanish": "Rogelio: Una descarga eléctrica puede matar a una persona, y ese riesgo no lo voy a aceptar.",
+      "legacySourceRef": "master-roofing:8:passage:7",
+      "originalCandidateHold": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure."
+        }
+      ],
+      "teachingFocusEnglish": "Understand lightning strike CAN KILL A PERSON and I AM NOT GOING TO ACCEPT THAT RISK. Fatality and refusal direct; actual English/Spanish event sense remains open.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved.",
+        "Effect-term and generic-phenomenon alternatives omitted to keep pinned English strike-event wording. No new general medical or regional terminology assertion; source English/Spanish ambiguity remains open."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque. »",
+          "alignmentNote": "Pinned English lightning-strike event and explicit can kill a person/negative risk acceptance retained. French term unselected; no softened generic danger language. Impact de foudre is an unselected event/strike-point formulation; technical term choice remains open, explicit can kill a person unchanged.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « La foudre peut tuer, et je n’accepterai pas ce risque. »",
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+        "exactSpanish": "Rogelio: Una descarga eléctrica puede matar a una persona, y ese riesgo no lo voy a aceptar.",
+        "status": "open",
+        "issue": "Pinned English lightning strike versus Spanish descarga eléctrica (electrical discharge/electric-shock reading, not lightning-specific); sourceQ1 distinction open. French follows English event without silently rewriting source."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:16",
+      "candidateRowId": "master-roofing:8:fr-en:candidate:reader:16",
+      "sourceEnglish": "Rogelio: Kevin, don't take risks for anyone; the safety rule is the same for everyone.",
+      "sourceSpanish": "Rogelio: Kevin, no te arriesgues por nadie; la norma de seguridad es la misma para todos.",
+      "legacySourceRef": "master-roofing:8:passage:16",
+      "originalCandidateHold": "Author natural French refusal and negative-command practice, speaking and six prompt/target mode pairs for the homeowner and crew. The source's Spanish subjunctive focus cannot be treated as an identical French exercise.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Author natural French refusal and negative-command practice, speaking and six prompt/target mode pairs for the homeowner and crew. The source's Spanish subjunctive focus cannot be treated as an identical French exercise."
+        }
+      ],
+      "teachingFocusEnglish": "Understand Kevin DON’T TAKE RISKS FOR ANYONE and SAME safety rule FOR EVERYONE. French preserves direct negative command and universal person scope, no actual procedure selected.",
+      "unresolvedReviewNotes": [
+        "Unselected meaning-support alternatives, original candidate hold retained. Exact source counts/claim/register review remains open; technical words are translated directly, not blocked merely for technicality. No field, insurance, product or safety decision approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:8:fr-en:reader-alternative:16:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Kevin, ne prends pas de risques pour qui que ce soit ; la règle de sécurité est la même pour tout le monde. »",
+          "alignmentNote": "'Ne prends pas de risques' = don't take risks, with the informal 'tu' as in the source. 'Pour qui que ce soit' = for anyone. 'La même pour tout le monde' = the same for everyone.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Rogelio : « Kevin, ne prends de risques pour personne; la règle de sécurité vaut pour tous. »"
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 1,
+    "canonicalFrenchProposedAfter": 1,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:8:fr-en:reader:3",
+      "master-roofing:8:fr-en:reader:5",
+      "master-roofing:8:fr-en:reader:7",
+      "master-roofing:8:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 4,
+    "supplementalFullFaceAlternativeCount": 4
+  },
+  "internalNotes": [
+    "English target/French meaning support only; no French production target. Technical vocabulary, fatality language and strong requests preserved, not softened. Actual source/product/safety/insurance ambiguity outside utterances; no universal standard, clearance, repair approval or source claim certified.",
+    "Unverified AI regional vocabulary opinions discarded. No wrong general exposition for roofing exposure, unsourced fitter/adjuster equivalence, or weak would-like substitution. Canonical/source/speaking/IDs/holds remain immutable."
+  ],
+  "sourceSpeakingLanguageIssue": {
+    "exactImmutableSourceSpeakingEnglish": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+    "issue": "Source speaking specifies Spanish subjunctive/formulations in English-target/French-support pair; not silently treated as an identical French exercise or accepted English grammar objective."
+  }
+}

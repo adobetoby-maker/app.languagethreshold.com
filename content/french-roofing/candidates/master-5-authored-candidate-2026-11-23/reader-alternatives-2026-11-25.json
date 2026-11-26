@@ -1,0 +1,198 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:5:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-5-source-decision-2026-11-18/packet.json",
+    "sha256": "82d2db28c364ff18733737cd068b4838b5c7f4f9d7bfca80c998f37ed24d4f8c"
+  },
+  "sourceObjectiveEnglish": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete technical and ordinary-language French Reader alternatives, not canonical replacements. Technical vocabulary is taught directly; actual product, engineering, contract, register and claim ambiguity remains explicit outside utterances. Narrow batch never completes original objective.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:1",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:1",
+      "sourceEnglish": "At nine in the morning, the crew finished the tear-off on the north side.",
+      "sourceSpanish": "A las nueve de la mañana, la cuadrilla terminó el desmontaje del lado norte.",
+      "legacySourceRef": "master-roofing:5:passage:1",
+      "originalCandidateHold": "Dependent tear-off process and completed-versus-pre-existing-condition source sequence remain unresolved; no job completion or damage judgment selected.",
+      "sourceDecisionQuestions": [],
+      "teachingFocusEnglish": "Understand completed tear-off at nine in the morning on the north side. French dépose/côté nord and completed past are meaning support, not job completion acceptance.",
+      "unresolvedReviewNotes": [
+        "Completed tear-off is a source-stated action only; no job completion or damage judgment is implied.",
+        "Narrator line; no speaker is assigned.",
+        "Sequence relative to the pre-existing deck condition (M5 reader 8) is kept separate."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:1:1",
+          "label": "Variant 1",
+          "candidateFrench": "À neuf heures du matin, l’équipe a terminé la dépose du côté nord.",
+          "alignmentNote": "A las nueve de la mañana = À neuf heures du matin; la cuadrilla = l'équipe; desmontaje = dépose (tear-off); lado norte = côté nord; terminó = a terminé.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "candidateSourceHoldDifference": {
+        "sourceSafetyOrMeaningHold": false,
+        "sourceConditionalFrenchPresent": true,
+        "candidateHoldPresent": true,
+        "scope": "Canonical Reader1 held by propagated candidate sequence/tear-off meaning decision, not source row safetyOrMeaningHold. Existing discrepancy preserved, not a new hold."
+      },
+      "archivedFrenchEvidence": "À neuf heures du matin, l’équipe a terminé la dépose du côté nord."
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:4",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+      "sourceSpanish": "Rogelio revisó el área con la barreta: la madera estaba negra y húmeda, y una viga tenía manchas.",
+      "legacySourceRef": "master-roofing:5:passage:4",
+      "originalCandidateHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction."
+        }
+      ],
+      "teachingFocusEnglish": "Understand checked with a pry bar, black and damp wood, and a rafter had stains. French pied-de-biche/chevron express direct observed vocabulary, not an engineering diagnosis.",
+      "unresolvedReviewNotes": [
+        "Narrated observations preserved directly; no rot diagnosis or engineering adequacy inferred. English rafter grounds chevron candidate despite broader Spanish viga. Reader8 pre-existing soft state/evidential history stays separate."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio a examiné la zone avec le pied-de-biche : le bois était noir et humide, et un chevron avait des taches.",
+          "alignmentNote": "English checked/rendered examiné; definite the pry bar retained, black AND damp, and a rafter had stains retained. Chevron follows pinned English rafter, not a broader engineering conclusion.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Narrated observed black/damp wood and rafter stains only; does not add rot diagnosis, structural adequacy or authorization. Chevron follows pinned English rafter despite broader Spanish viga; term reviewed separately.",
+      "archivedFrenchEvidence": "Rogelio a examiné la zone avec un pied-de-biche : le bois était noir et humide, et un chevron était taché."
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:8",
+      "candidateRowId": "master-roofing:5:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+      "sourceSpanish": "Rogelio: La cubierta estaba blanda en esta sección, cerca de la chimenea, y parecía que el agua entraba desde hacía años.",
+      "legacySourceRef": "master-roofing:5:passage:8",
+      "originalCandidateHold": "Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions."
+        }
+      ],
+      "teachingFocusEnglish": "Understand past soft deck near chimney and it looked like water had been getting in for years. French platelage/mou/cheminée/il semblait preserve state and evidential uncertainty.",
+      "unresolvedReviewNotes": [
+        "Soft deck in this section near the chimney is source-stated past condition. Only the water-entry history is evidential (it looked like); no confirmed cause/duration beyond source impression.",
+        "Completed tear-off in Reader1 remains distinct from the pre-existing soft deck and any engineering/repair conclusion.",
+        "Platelage is offered directly for roof deck; actual source/product/structural review remains separate from mere vocabulary technicality."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:5:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années. »",
+          "alignmentNote": "Direct section and getting in/entraba retained without added y or narrowed seep verb. Soft deck is asserted past condition; only water-entry history is evidential, not confirmed cause.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Pre-existing past condition and evidential water history remain separate from completed tear-off and any confirmed cause or repair proposal.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction.",
+          "relationship": "Deck terminology and observed-versus-engineering meaning in Q1 text also concern Reader8, but affectedIds omit it. Inferred text-based link, no source edit."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Le platelage était mou ici, près de la cheminée; on aurait dit que l’eau s’infiltrait depuis des années. »"
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:5:fr-en:reader:1",
+      "master-roofing:5:fr-en:reader:4",
+      "master-roofing:5:fr-en:reader:8"
+    ],
+    "supplementalAnchorCount": 3,
+    "supplementalFullFaceAlternativeCount": 3
+  },
+  "internalNotes": [
+    "English target/French meaning support; technical terms offered directly, not withheld by default. Specific product/engineering/contract/claim or source-language discrepancies remain explicit, with no release.",
+    "All canonical/source/speaking/IDs/holds immutable. Observed scene/condition is translated directly, with water history kept evidential and no added structural diagnosis.",
+    "Unverified AI locale assertions/term variants are not adopted as facts. Qualified terminology/locale review stays separate from faithful sentence drafting."
+  ],
+  "canonicalVersusSourceConditionalNote": "Canonical proposal count intentionally0: all Reader candidateFrench fields null/held, although 4 source-packet conditionalFrench rows exist. Conditional source evidence is not canonical proposal; no count/hold changed.",
+  "canonicalSourceConditionalCoverage": {
+    "sourcePacketConditionalFrench": 4,
+    "canonicalReaderFrenchProposals": 0
+  }
+}

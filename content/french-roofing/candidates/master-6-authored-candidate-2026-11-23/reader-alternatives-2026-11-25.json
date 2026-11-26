@@ -1,0 +1,255 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:6:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "946b0374860239a900389eb5ac45755887b4082be4de347a28b428458f053f1f",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-6-source-decision-2026-11-18/packet.json",
+    "sha256": "fc3cf192615408851a228a138e0afacd71d6a9f68d70605a7d2ed6a0ef591353"
+  },
+  "sourceObjectiveEnglish": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete technical and ordinary-language French Reader alternatives, not canonical replacements. Technical vocabulary is taught directly; actual product, engineering, contract, register and claim ambiguity remains explicit outside utterances. Narrow batch never completes original objective.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:2",
+      "candidateRowId": "master-roofing:6:fr-en:candidate:reader:2",
+      "sourceEnglish": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+      "sourceSpanish": "Proveedor: Lo siento, el pedido no llegará completo, porque no tenemos ese color en existencia.",
+      "legacySourceRef": "master-roofing:6:passage:2",
+      "originalCandidateHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms."
+        }
+      ],
+      "teachingFocusEnglish": "Understand won’t arrive complete and because we do not have that color in stock. French preserves future partial delivery, negative completion and first-person supplier cause.",
+      "unresolvedReviewNotes": [
+        "Incomplete order/color stock cause translated directly, no substitute decision. This line has no tu/vous morphology; supplier/customer register elsewhere is contextual. No equivalence or delivery approval implied.",
+        "Completion formulation au complet remains an unselected style/locale choice. No unverified Canada/France usage assertions adopted, and ordinary stock/arrival words are not treated as technical blockers."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:6:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Le fournisseur : « Je suis désolé, la commande n’arrivera pas au complet, parce que nous n’avons pas cette couleur en stock. »",
+          "alignmentNote": "First-person apology/we and that color retained; order arrives incomplete, not total nondelivery; future tense and stock cause retained.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Le fournisseur : « Désolé, la commande n’arrivera pas au complet, car cette couleur n’est pas en stock. »"
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:4",
+      "candidateRowId": "master-roofing:6:fr-en:candidate:reader:4",
+      "sourceEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "sourceSpanish": "Proveedor: La fábrica dice que llegará a la bodega el jueves, pero no es seguro.",
+      "legacySourceRef": "master-roofing:6:passage:4",
+      "originalCandidateHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms."
+        }
+      ],
+      "teachingFocusEnglish": "Understand factory-attributed Thursday warehouse arrival plus but it is not certain. French keeps future and uncertainty simultaneously, without a confirmed delivery.",
+      "unresolvedReviewNotes": [
+        "Warehouse/entrepôt translated directly, not treated as a new blocker. Actual uncertainty concerns factory attribution, Thursday arrival and the delivery sequence, not vocabulary technicality alone. No confirmed delivery, substitute approval or schedule decision selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:6:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Le fournisseur : « L’usine dit que le reste arrivera à l’entrepôt jeudi, mais ce n’est pas certain. »",
+          "alignmentNote": "Le reste is an explicit antecedent resolution from Reader3 rest-of-order question, not a literal noun in this source face it/null Spanish subject. Factory attribution, future Thursday warehouse arrival and but not certain retained.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:6:fr-en:reader-alternative:4:2",
+          "label": "Variant 2: pronoun with explicit antecedent note",
+          "candidateFrench": "Le fournisseur : « L’usine dit qu’il arrivera à l’entrepôt jeudi, mais ce n’est pas certain. »",
+          "alignmentNote": "Il chooses masculine le reste from preceding query; English it and Spanish null subject do not mark gender. Pronoun retained, antecedent choice disclosed, no definite arrival promise.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Le reste is an interpretive antecedent resolution from preceding rest-of-order question, not a source-face noun or confirmed delivery referent. French gender/pronoun alternatives remain open; factory future claim explicitly uncertain.",
+      "archivedFrenchEvidence": "Le fournisseur : « L’usine annonce une arrivée à l’entrepôt jeudi, mais ce n’est pas certain. »"
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:7",
+      "candidateRowId": "master-roofing:6:fr-en:candidate:reader:7",
+      "sourceEnglish": "Supplier: It's just as durable, but heavier, and the color is very similar.",
+      "sourceSpanish": "Proveedor: Es igual de resistente, pero más pesada, y el color se parece mucho.",
+      "legacySourceRef": "master-roofing:6:passage:7",
+      "originalCandidateHold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text."
+        }
+      ],
+      "teachingFocusEnglish": "Understand just as durable, but heavier, and very similar color as a supplier comparison. French tout aussi durable/plus lourd/très semblable convey the technical comparative directly.",
+      "unresolvedReviewNotes": [
+        "This is a supplier claim: equivalent durability and greater weight are not technical validation, and no product equivalence or load adequacy is established.",
+        "Spanish 'resistente' is rendered 'durable' per the source English; whether 'résistant' is the intended sense needs review.",
+        "The architectural versus three-tab contract issue (M6 reader 8) is not resolved here.",
+        "Durable expresses the supplied English durability comparison, not ecological certification. Spanish resistente and French durable/résistant property scope need actual source/product review; claim meaning is not merely stylistic."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:6:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Le fournisseur : « Il est tout aussi durable, mais plus lourd, et la couleur est très semblable. »",
+          "alignmentNote": "Full supplier assertion retained without inserted hedge: equal durability, greater weight and very similar color. Claim not independently verified; French pronoun refers to contextual shingle, not a new product selection.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceClaimAttribution": "Supplier’s quoted fictional durability/weight/color comparison, not independently established equivalence/load adequacy. No supplier-claims hedge inserted into French utterance.",
+      "contextDependency": "Il/lourd choose masculine French bardeau from held Reader6, whereas Spanish teja/pesada is feminine. This grammatical/anaphoric choice does not settle held product identity/equivalence.",
+      "archivedFrenchEvidence": "Le fournisseur : « Il est tout aussi durable, mais plus lourd, et sa couleur est très proche. »"
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:9",
+      "candidateRowId": "master-roofing:6:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "sourceSpanish": "Rogelio: Mándeme la hoja técnica, y antes de decidir voy a hablar con la clienta.",
+      "legacySourceRef": "master-roofing:6:passage:9",
+      "originalCandidateHold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text."
+        }
+      ],
+      "teachingFocusEnglish": "Understand send me the spec sheet and before deciding I am going to talk to the customer. French formal request/near future and female customer referent preserve sequence.",
+      "unresolvedReviewNotes": [
+        "Formal supplier-facing register is kept; the archived 'au client' masculinizes Mrs. Díaz and is not carried over.",
+        "No decision, approval or product selection is implied.",
+        "Customer approval (reader 13) is not selected here.",
+        "Source Q2 text/affectedIds disagree about Reader9; record for source owner, no silent source-packet edit.",
+        "Compared with archived je parlerai au client, this alternative retains source near-future je vais parler and source feminine cliente; archive not treated as selected text."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:6:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente. »",
+          "alignmentNote": "Formal Mándeme corresponds Envoyez-moi; and/before deciding/I am going to retained; source la clienta maps la cliente. No added approval or material selection.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Only customer talk BEFORE decision is explicitly ordered. Sheet request is joined with and; source does not order it relative to the talk. Feminine cliente follows this face’s Spanish clienta, Reader5 and Mrs Díaz in Reader10.",
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+          "relationship": "Question text explicitly mentions archived Reader9 masculinization, but affectedIds omit Reader9. Inferred text-based link only; source affectedIds unchanged."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Envoyez-moi la fiche technique; avant de décider, je parlerai au client. »"
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 17,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:6:fr-en:reader:2",
+      "master-roofing:6:fr-en:reader:4",
+      "master-roofing:6:fr-en:reader:7",
+      "master-roofing:6:fr-en:reader:9"
+    ],
+    "supplementalAnchorCount": 4,
+    "supplementalFullFaceAlternativeCount": 5
+  },
+  "internalNotes": [
+    "English target/French meaning support; technical terms offered directly, not withheld by default. Specific product/engineering/contract/claim or source-language discrepancies remain explicit, with no release.",
+    "All canonical/source/speaking/IDs/holds immutable. Supplier comparative claims and uncertain factory date are preserved, not independently certified.",
+    "Unverified AI locale assertions/term variants are not adopted as facts. Qualified terminology/locale review stays separate from faithful sentence drafting."
+  ],
+  "sourceSpeakingLanguageIssue": {
+    "exactImmutableSourceSpeakingEnglish": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+    "issue": "Source speaking includes Spanish grammar ir a in English-target/French-support pair. Record for source owner; no source or objective rewrite here."
+  }
+}

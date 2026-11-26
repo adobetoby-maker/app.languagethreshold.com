@@ -1,0 +1,267 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:4:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-4-source-decision-2026-11-18/packet.json",
+    "sha256": "b5780084b297fc312f7326dc024c858ab0e71e6376c7ef1f6849666038a80dc8"
+  },
+  "sourceObjectiveEnglish": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "Complete technical and ordinary-language French Reader alternatives, not canonical replacements. Technical vocabulary is taught directly; actual product, engineering, contract, register and claim ambiguity remains explicit outside utterances. Narrow batch never completes original objective.",
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:1",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:1",
+      "sourceEnglish": "Before putting the step flashing on the sidewall, Rogelio takes the spec sheet out of the box.",
+      "sourceSpanish": "Antes de poner el tapajuntas escalonado en la pared lateral, Rogelio saca la hoja técnica de la caja.",
+      "legacySourceRef": "master-roofing:4:passage:1",
+      "originalCandidateHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions."
+        }
+      ],
+      "teachingFocusEnglish": "Understand English Before putting, step flashing, sidewall, spec sheet and takes out of the box. French solin à gradins/mur latéral/fiche technique are direct contextual meaning support.",
+      "unresolvedReviewNotes": [
+        "Solin à gradins, mur latéral and fiche technique offered directly as contextual French meaning support. Specific source Q1 product/term ambiguity stays open, not because technical vocabulary itself is forbidden. No actual installation or product approval selected.",
+        "Literal sur for source on contrasts with archived contre; actual flashing/sidewall location meaning remains open. Fiche technique is translated directly, not withheld as technical language."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:1:1",
+          "label": "Variant 1",
+          "candidateFrench": "Avant de poser le solin à gradins sur le mur latéral, Rogelio sort la fiche technique de la boîte.",
+          "alignmentNote": "Before placement and taking sheet out of box preserved; generic boîte does not invent cardboard material. Step-flashing/sidewall terms direct, unselected.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Avant de poser le solin à gradins contre le mur latéral, Rogelio sort la fiche technique de la boîte."
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:3",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:3",
+      "sourceEnglish": "Rogelio: The sheet rules, not habit.",
+      "sourceSpanish": "Rogelio: La hoja manda, no la costumbre.",
+      "legacySourceRef": "master-roofing:4:passage:3",
+      "originalCandidateHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system."
+        }
+      ],
+      "teachingFocusEnglish": "Understand English The sheet rules, not habit as a firm contrast. French authority formulations convey the source utterance, not a universally governing legal or technical rule.",
+      "unresolvedReviewNotes": [
+        "Source says follow the sheet, not habit; this does not establish that one fictional sheet governs every system.",
+        "Does not establish manufacturer authority over any actual product."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « C’est la fiche qui prévaut, pas l’habitude. »",
+          "alignmentNote": "Formal French prévaut renders English rules/Spanish manda as precedence; register shift to formal source authority is visible, no real legal/technical hierarchy selected.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        },
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:3:2",
+          "label": "Variant 2",
+          "candidateFrench": "Rogelio : « C’est la fiche qui commande, pas l’habitude. »",
+          "alignmentNote": "Colloquial personification closer to rules/manda, without legal fait foi or a different decides action.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "contextDependency": "Firm quoted fictional-sheet-versus-habit claim translated directly; not a determination that one sheet legally or technically governs every real system.",
+      "archivedFrenchEvidence": "Rogelio : « C’est la fiche qui prévaut, pas l’habitude. »"
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:10",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:10",
+      "sourceEnglish": "Kevin: Hey, have you already read all of it?",
+      "sourceSpanish": "Kevin: Oye, ¿tú ya lo leíste todo?",
+      "legacySourceRef": "master-roofing:4:passage:10",
+      "originalCandidateHold": "Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn."
+        }
+      ],
+      "teachingFocusEnglish": "Understand Hey, have you already read all of it? English present perfect, already and all of it; French tu/déjà/tout/passé composé are meaning support only.",
+      "unresolvedReviewNotes": [
+        "Familiar register (tu) is taken from the M4 Kevin–Rogelio source context; the archived vous mix is not carried forward and needs register review.",
+        "Rogelio's reply (reader 11) is not selected here; no dialogue-pair consistency is claimed beyond this face."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin : « Hé, tu as déjà tout lu ? »",
+          "alignmentNote": "Tout contextually absorbs all of it/the sheet; explicit French tu reflects familiar Spanish, but no stressed toi is added to unmarked English you.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        },
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:10:2",
+          "label": "Variant 2: explicit sheet object",
+          "candidateFrench": "Kevin : « Hé, tu l’as déjà lue en entier ? »",
+          "alignmentNote": "L’ refers to la fiche, with feminine lue; en entier renders all of it explicitly. Same full question, no extra subject emphasis.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "archivedFrenchEvidence": "Kevin : « Au fait, avez-vous déjà tout lu ? »"
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:13",
+      "candidateRowId": "master-roofing:4:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rogelio: What does the sheet say about the overlap?",
+      "sourceSpanish": "Rogelio: ¿Qué dice la hoja sobre el traslape?",
+      "legacySourceRef": "master-roofing:4:passage:13",
+      "originalCandidateHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system."
+        }
+      ],
+      "teachingFocusEnglish": "Understand What does the sheet say about the overlap? Direct overlap/recouvrement vocabulary and source question, no numerical overlap answer.",
+      "unresolvedReviewNotes": [
+        "Question itself carries no tu/vous morphology; familiar surrounding dialogue does not add a register marker. Recouvrement term remains unselected; no overlap value or installation answer selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Que dit la fiche sur le recouvrement ? »",
+          "alignmentNote": "¿Qué dice = Que dit; la hoja = la fiche; sobre el traslape = sur le recouvrement (overlap). Source question preserved.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        },
+        {
+          "id": "master-roofing:4:fr-en:reader-alternative:13:2",
+          "label": "Variant 2",
+          "candidateFrench": "Rogelio : « Qu’est-ce que dit la fiche à propos du recouvrement ? »",
+          "alignmentNote": "Same question with 'à propos de' for sobre; overlap = recouvrement; no added content.",
+          "status": "unselected complete French meaning support; no qualified promotion",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions.",
+          "relationship": "Q1 minimum-overlap/French-term wording concerns this overlap question, but affectedIds omit Reader13. Inferred text-based link only; no source edit."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Que dit la fiche sur le recouvrement ? »"
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 3,
+    "canonicalFrenchProposedAfter": 3,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:4:fr-en:reader:1",
+      "master-roofing:4:fr-en:reader:3",
+      "master-roofing:4:fr-en:reader:10",
+      "master-roofing:4:fr-en:reader:13"
+    ],
+    "supplementalAnchorCount": 4,
+    "supplementalFullFaceAlternativeCount": 7
+  },
+  "internalNotes": [
+    "English target/French meaning support; technical terms offered directly, not withheld by default. Specific product/engineering/contract/claim or source-language discrepancies remain explicit, with no release.",
+    "All canonical/source/speaking/IDs/holds immutable. Manufacturer-sheet authority is quoted scene speech, not accepted real system governance.",
+    "Unverified AI locale assertions/term variants are not adopted as facts. Qualified terminology/locale review stays separate from faithful sentence drafting."
+  ]
+}

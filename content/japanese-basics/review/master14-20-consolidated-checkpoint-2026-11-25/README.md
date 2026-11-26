@@ -12,7 +12,7 @@ Pinned main: `bec6f3344200499a8a9ca1da2a5eac92b73c57d7` (#820). Private routine/
 | 19 | 12 | 12 | Yes | 3 | 6 | 1 |
 | 20 | 13 | 13 | Yes | 3 | 6 | 1 |
 
-These are 21 contextual form explanations, 36 exact-source mode pairs, seven speaking alternatives and 64 unique review item IDs. They are not seven released lessons. Each private lesson has four canonical forms; one per lesson has no new contextual explanation in these bounded repairs. All originals and canonical IDs remain available. Master14 also has separate kana variant and inert bridge fixtures; these are references, not additional completed teaching activities.
+These are 21 contextual form explanations, 36 exact-source mode pairs, seven speaking alternatives and 64 unique review item IDs. They are not seven released lessons. The seven private lessons have 30 canonical forms: Master 14 and 15 have five each, and Master 16–20 have four each. The 21 contextual explanations leave 9 canonical forms without an additional new explanation in these bounded repairs. All originals and canonical IDs remain available. Master14 also has separate kana variant and inert bridge fixtures; these are references, not additional completed teaching activities.
 
 The existing runtime Reader is aligned with main for all seven lessons. Master14 main retains the delayed-meeting lesson; private #488 redesigns it around routines and adds five Reader faces. Its routine form IDs, contexts, Reader, dictionary and mode source must move together if eventually selected. Master15–20 private lesson objects and extension faces match main, but the new role/form/activity alternatives remain source-only and are not wired into the runtime.
 

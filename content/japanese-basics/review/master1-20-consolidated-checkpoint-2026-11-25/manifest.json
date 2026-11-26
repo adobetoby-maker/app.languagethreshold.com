@@ -1,0 +1,2485 @@
+{
+  "schema": 1,
+  "kind": "inert-full-master-cross-layer-checkpoint",
+  "mainSnapshot": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+  "privatePr": 488,
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "mainPins": {
+    "master": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    "runtimeSupport": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/data/japanese-basics-practice.json",
+      "sha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683"
+    },
+    "curriculum": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    "dictionary": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/components/dictionary/japaneseWordData.json",
+      "sha256": "6406f3ce9d69cecdd9601c40f47067625b13c6cda6ceb3abb950060e9c9e8237"
+    },
+    "pilotAudio": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/data/japanese-101-recordings.json",
+      "sha256": "6acf896d3c7d18417d946968960a4900ef79c086456f7ae66cc20fdf7fcf9daf"
+    },
+    "runtimeAdapter": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/data/japanese-basics.ts",
+      "sha256": "a77bed6512dc27c7965a3115e30e8587ef479db637601a3ddac38e8a9c30594e"
+    },
+    "readerAdapter": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/data/japanese-basics-readers.ts",
+      "sha256": "1cf01a08ee9e45f67a377f953bcd9c502f3b4681f443852da738c7f1b9577cbf"
+    },
+    "teachingSettings": {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "src/lib/teaching-settings.ts",
+      "sha256": "de0a0db3bbf110b021388d37c6f2007db0b3195a3b326af38b6066e7b49c723b"
+    }
+  },
+  "privatePins": {
+    "master": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    "extensions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    "forms1To10": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    "forms11To20": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "support": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "modes": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    },
+    "speakingBuilder": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "scripts/build-japanese101-master-speaking-candidate.py",
+      "sha256": "7db1721f087d26a2bfa7278101bf2e95e5736e7a463ba5f39404cc4f23768f0f"
+    },
+    "speakingPreview": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "scripts/build-japanese101-speaking-runtime-preview.mjs",
+      "sha256": "21cb7e7212e998c160286f8d32f6b041b54e5df9e1b814ac0a62c494ffc9932a"
+    }
+  },
+  "reviewPins": [
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master1-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "d56ca771929db74d7cbdc67faf4a08c65b751095879401d671f4274ae65ccd99"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master2-4-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "fe8f88b74c642ff2a9262443bcbb6321b6742da56d1ca34801ca7a616a64d359"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "75e28c57be949319912cfcff8a7c86bd669142f652beb00f2f2056c4a85969ae"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master8-10-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "af3c557af57e610319d23fd52dba7e75308f038139294bdad70624a82a02c596"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master11-13-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "c4f85109c14c971b5b8576db4134d1ae46689971346cf9b67043029fe8e5ef31"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master14-context-repair-2026-11-25/context-alternative.json",
+      "sha256": "b83a42d6c0499cf59942955a30737c60dcf8cdfd2f214035506dbd23c468916d"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master15-17-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "85aa58b4431fdb5d92718cfdf7f13f8f9ba99206c2ed3e03cdd85ee3574287de"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master18-20-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "e416fe46240fc74feca7dfa3f9a738b1493e1ace2e59414c75f37f1b9108976d"
+    }
+  ],
+  "additionalUncountedReviewPins": [
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master14-form-kana-variants-2026-11-24/alternatives.json",
+      "sha256": "0801cb7b1764d34349258e217d79db7e075ac416abc51204739acb1168796cd0"
+    },
+    {
+      "gitRevision": "5670ac77a145e34a879f6a2bd2c1dc706b706d22",
+      "path": "content/japanese-basics/review/master14-bridge-patch-candidate-2026-11-24/fixtures.json",
+      "sha256": "3bcb63dde14264c78de9bd741982244ec9251fa0823c661dfb82fbf45a45173a"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "master-japanese-basics:1",
+      "reviewPath": "content/japanese-basics/review/master1-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:1:context-activity:see",
+        "master-japanese-basics:1:context-activity:recall",
+        "master-japanese-basics:1:context-activity:hear",
+        "master-japanese-basics:1:context-activity:type",
+        "master-japanese-basics:1:context-activity:say",
+        "master-japanese-basics:1:context-activity:write",
+        "master-japanese-basics:1:context-form:1",
+        "master-japanese-basics:1:context-form:2",
+        "master-japanese-basics:1:context-form:3",
+        "master-japanese-basics:1:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-95737674c769bb50",
+        "form-ja-en-09dffa523d8d052a",
+        "form-ja-en-1497f24afe3868de"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-ced31b8f9f51e450"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "Listen to the reply about studying and choose the meaning that says it was very fun."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 1,
+        "recall": 4,
+        "hear": 7,
+        "type": 8,
+        "say": 10,
+        "write": 3
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 10,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 14,
+      "mainReaderFaces": 14,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 2,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "あたらしい|new",
+        "いっしょに|together"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "master-japanese-basics:2",
+      "reviewPath": "content/japanese-basics/review/master2-4-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:2:context-activity:see",
+        "master-japanese-basics:2:context-activity:recall",
+        "master-japanese-basics:2:context-activity:hear",
+        "master-japanese-basics:2:context-activity:type",
+        "master-japanese-basics:2:context-activity:say",
+        "master-japanese-basics:2:context-activity:write",
+        "master-japanese-basics:2:context-form:1",
+        "master-japanese-basics:2:context-form:2",
+        "master-japanese-basics:2:context-form:3",
+        "master-japanese-basics:2:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-cb9a90314e661baf",
+        "form-ja-en-389d9fc6c5272115",
+        "form-ja-en-e122e16a34af974f"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-e78a2d27747f1786"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "Your classmate answers your question about the dictionary. Listen and choose the English meaning that limits the negative answer to tomorrow."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 1,
+        "recall": 3,
+        "hear": 4,
+        "type": 5,
+        "say": 6,
+        "write": 2
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 4,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "master-japanese-basics:3",
+      "reviewPath": "content/japanese-basics/review/master2-4-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:3:context-activity:see",
+        "master-japanese-basics:3:context-activity:recall",
+        "master-japanese-basics:3:context-activity:hear",
+        "master-japanese-basics:3:context-activity:type",
+        "master-japanese-basics:3:context-activity:say",
+        "master-japanese-basics:3:context-activity:write",
+        "master-japanese-basics:3:context-form:1",
+        "master-japanese-basics:3:context-form:2",
+        "master-japanese-basics:3:context-form:3",
+        "master-japanese-basics:3:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-fd50df4739ee050d",
+        "form-ja-en-d5bff71972626b9c",
+        "form-ja-en-8671f837f99bae20"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-5910a2eddbfc6c9c"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "As a classmate checking the pen count, listen to a recording of the coordinator reporting what came from the teacher. Choose the exact English meaning."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 3,
+        "recall": 2,
+        "hear": 5,
+        "type": 6,
+        "say": 7,
+        "write": 4
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 8,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonKey": "master-japanese-basics:4",
+      "reviewPath": "content/japanese-basics/review/master2-4-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:4:context-activity:see",
+        "master-japanese-basics:4:context-activity:recall",
+        "master-japanese-basics:4:context-activity:hear",
+        "master-japanese-basics:4:context-activity:type",
+        "master-japanese-basics:4:context-activity:say",
+        "master-japanese-basics:4:context-activity:write",
+        "master-japanese-basics:4:context-form:1",
+        "master-japanese-basics:4:context-form:2",
+        "master-japanese-basics:4:context-form:3",
+        "master-japanese-basics:4:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-1cf9d16c30da16e0",
+        "form-ja-en-c1ba20ee9fd608c8",
+        "form-ja-en-fcf2eeaf2be67160"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-7353b29f27e4965b"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "The other classmate has told you Ken is in the library. Listen to the next line about the library and choose the English meaning that he is reading a book there."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 2,
+        "recall": 1,
+        "hear": 5,
+        "type": 6,
+        "say": 7,
+        "write": 3
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 4,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "master-japanese-basics:5",
+      "reviewPath": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:5:context-activity:see",
+        "master-japanese-basics:5:context-activity:recall",
+        "master-japanese-basics:5:context-activity:hear",
+        "master-japanese-basics:5:context-activity:type",
+        "master-japanese-basics:5:context-activity:say",
+        "master-japanese-basics:5:context-activity:write",
+        "master-japanese-basics:5:context-form:1",
+        "master-japanese-basics:5:context-form:2",
+        "master-japanese-basics:5:context-form:3",
+        "master-japanese-basics:5:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-444a0f8a6d8cf112",
+        "form-ja-en-205828590d534825",
+        "form-ja-en-e41fa283c3a7fcac"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-143d6e2f97b9bf3d"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "The description moves from the meeting room to the room next door. Listen to the describer and select the sentence that says no one is there."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 4,
+        "recall": 2,
+        "hear": 6,
+        "type": 1,
+        "say": 7,
+        "write": 8
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 6,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "master-japanese-basics:6",
+      "reviewPath": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:6:context-activity:see",
+        "master-japanese-basics:6:context-activity:recall",
+        "master-japanese-basics:6:context-activity:hear",
+        "master-japanese-basics:6:context-activity:type",
+        "master-japanese-basics:6:context-activity:say",
+        "master-japanese-basics:6:context-activity:write",
+        "master-japanese-basics:6:context-form:1",
+        "master-japanese-basics:6:context-form:2",
+        "master-japanese-basics:6:context-form:3",
+        "master-japanese-basics:6:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-a7e083bcecff5bb2",
+        "form-ja-en-ff6054960d87bab2",
+        "form-ja-en-850f70462ac9fdb2"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-92e160269b3b9633"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "You have just asked your teacher whether to take this road. Listen to the teacher's reply and select the sentence that tells you to go straight."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 3,
+        "recall": 1,
+        "hear": 6,
+        "type": 5,
+        "say": 7,
+        "write": 2
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 14,
+      "mainReaderFaces": 14,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 2,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonKey": "master-japanese-basics:7",
+      "reviewPath": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:7:context-activity:see",
+        "master-japanese-basics:7:context-activity:recall",
+        "master-japanese-basics:7:context-activity:hear",
+        "master-japanese-basics:7:context-activity:type",
+        "master-japanese-basics:7:context-activity:say",
+        "master-japanese-basics:7:context-activity:write",
+        "master-japanese-basics:7:context-form:1",
+        "master-japanese-basics:7:context-form:2",
+        "master-japanese-basics:7:context-form:3",
+        "master-japanese-basics:7:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-b4bba1f2e3811c01",
+        "form-ja-en-66167c94d0fbf23d",
+        "form-ja-en-81f378cd2f785052"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-e13606b681d9b07b"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "You asked your classmate what they do after that. Listen to their two-sentence answer and select the one that includes writing again and understanding little by little."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 4,
+        "recall": 1,
+        "hear": 8,
+        "type": 2,
+        "say": 5,
+        "write": 6
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 7,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "むずかしい|difficult"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "master-japanese-basics:8",
+      "reviewPath": "content/japanese-basics/review/master8-10-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:8:context-activity:see",
+        "master-japanese-basics:8:context-activity:recall",
+        "master-japanese-basics:8:context-activity:hear",
+        "master-japanese-basics:8:context-activity:type",
+        "master-japanese-basics:8:context-activity:say",
+        "master-japanese-basics:8:context-activity:write",
+        "master-japanese-basics:8:context-form:1",
+        "master-japanese-basics:8:context-form:2",
+        "master-japanese-basics:8:context-form:3",
+        "master-japanese-basics:8:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-0415d5853472fec5",
+        "form-ja-en-c2836c3ab399c96b",
+        "form-ja-en-0e9457295b02da85"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-04dd860abf3d2072"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "As the narrator reading the written exchange, listen to Aki's response and choose the meaning that her written reply accepts the proposal."
+        }
+      ],
+      "distinctModeTargets": 5,
+      "privateModeSourceTurns": {
+        "see": 4,
+        "recall": 2,
+        "hear": 5,
+        "type": 6,
+        "say": 8,
+        "write": 4
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 3,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "master-japanese-basics:9",
+      "reviewPath": "content/japanese-basics/review/master8-10-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:9:context-activity:see",
+        "master-japanese-basics:9:context-activity:recall",
+        "master-japanese-basics:9:context-activity:hear",
+        "master-japanese-basics:9:context-activity:type",
+        "master-japanese-basics:9:context-activity:say",
+        "master-japanese-basics:9:context-activity:write",
+        "master-japanese-basics:9:context-form:1",
+        "master-japanese-basics:9:context-form:2",
+        "master-japanese-basics:9:context-form:3",
+        "master-japanese-basics:9:speaking-context-alternative"
+      ],
+      "privateFormCount": 5,
+      "newContextualFormIds": [
+        "form-ja-en-13729ca2fc711adf",
+        "form-ja-en-46fe8e0c26149dc2",
+        "form-ja-en-f8edd620293d3589"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-af49b7640046db38",
+        "form-ja-en-d69c290bfb155d04"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "At the shop counter, listen to the second price and choose the exact meaning of さんぜんえん."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 5,
+        "recall": 1,
+        "hear": 4,
+        "type": 6,
+        "say": 7,
+        "write": 8
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 5,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonKey": "master-japanese-basics:10",
+      "reviewPath": "content/japanese-basics/review/master8-10-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:10:context-activity:see",
+        "master-japanese-basics:10:context-activity:recall",
+        "master-japanese-basics:10:context-activity:hear",
+        "master-japanese-basics:10:context-activity:type",
+        "master-japanese-basics:10:context-activity:say",
+        "master-japanese-basics:10:context-activity:write",
+        "master-japanese-basics:10:context-form:1",
+        "master-japanese-basics:10:context-form:2",
+        "master-japanese-basics:10:context-form:3",
+        "master-japanese-basics:10:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-ecd45d85bb52525e",
+        "form-ja-en-fc07251de020992f",
+        "form-ja-en-d6368a9b2f0f6f1e"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-46864a7ec11a727f"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "In the found-umbrella scene, listen to the ownership clue and choose the meaning that Tanaka's umbrella is blue."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 6,
+        "recall": 1,
+        "hear": 3,
+        "type": 5,
+        "say": 8,
+        "write": 2
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 2,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 11,
+      "stableLessonKey": "master-japanese-basics:11",
+      "reviewPath": "content/japanese-basics/review/master11-13-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:11:context-activity:see",
+        "master-japanese-basics:11:context-activity:recall",
+        "master-japanese-basics:11:context-activity:hear",
+        "master-japanese-basics:11:context-activity:type",
+        "master-japanese-basics:11:context-activity:say",
+        "master-japanese-basics:11:context-activity:write",
+        "master-japanese-basics:11:context-form:1",
+        "master-japanese-basics:11:context-form:2",
+        "master-japanese-basics:11:context-form:3",
+        "master-japanese-basics:11:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-e3fd4db3a215b157",
+        "form-ja-en-d059573c25c3577b",
+        "form-ja-en-675a3446eba624c6"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-4787d0c2d4b98010"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "Your companion states a preference. Listen and choose the meaning that the speaker does not eat much meat."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 7,
+        "recall": 6,
+        "hear": 3,
+        "type": 8,
+        "say": 1,
+        "write": 4
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 6,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 12,
+      "stableLessonKey": "master-japanese-basics:12",
+      "reviewPath": "content/japanese-basics/review/master11-13-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:12:context-activity:see",
+        "master-japanese-basics:12:context-activity:recall",
+        "master-japanese-basics:12:context-activity:hear",
+        "master-japanese-basics:12:context-activity:type",
+        "master-japanese-basics:12:context-activity:say",
+        "master-japanese-basics:12:context-activity:write",
+        "master-japanese-basics:12:context-form:1",
+        "master-japanese-basics:12:context-form:2",
+        "master-japanese-basics:12:context-form:3",
+        "master-japanese-basics:12:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-681e0028f4dea3fd",
+        "form-ja-en-0e548b6ec19baf93",
+        "form-ja-en-db961e6b098cfdd0"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-3939c16219f828c4"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "The Responder answers your question about photos. Listen to the photo restriction and select the meaning that photos are not allowed inside."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 2,
+        "recall": 3,
+        "hear": 6,
+        "type": 1,
+        "say": 7,
+        "write": 8
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 1,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "にせんえん|two thousand yen"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 13,
+      "stableLessonKey": "master-japanese-basics:13",
+      "reviewPath": "content/japanese-basics/review/master11-13-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:13:context-activity:see",
+        "master-japanese-basics:13:context-activity:recall",
+        "master-japanese-basics:13:context-activity:hear",
+        "master-japanese-basics:13:context-activity:type",
+        "master-japanese-basics:13:context-activity:say",
+        "master-japanese-basics:13:context-activity:write",
+        "master-japanese-basics:13:context-form:1",
+        "master-japanese-basics:13:context-form:2",
+        "master-japanese-basics:13:context-form:3",
+        "master-japanese-basics:13:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-86c36bb91dbc1736",
+        "form-ja-en-193261f5c9ca0aea",
+        "form-ja-en-be5e420d1072caf2"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-d8353f66960339c3"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "Your classmate answers your question about the pens. Listen to the pen answer and choose the meaning that the pens are in the bag."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 2,
+        "recall": 1,
+        "hear": 5,
+        "type": 3,
+        "say": 6,
+        "write": 8
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 3,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "さんさつ|three bound books or notebooks"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonKey": "master-japanese-basics:14",
+      "reviewPath": "content/japanese-basics/review/master14-context-repair-2026-11-25/context-alternative.json",
+      "reviewItemIds": [
+        "master-japanese-basics:14:context-slot:1",
+        "master-japanese-basics:14:context-slot:2",
+        "master-japanese-basics:14:context-slot:3",
+        "master-japanese-basics:14:speaking-context-alternative"
+      ],
+      "privateFormCount": 5,
+      "newContextualFormIds": [
+        "form-ja-en-6e3080062b60d00a",
+        "form-ja-en-5a8711b33c9b3218",
+        "form-ja-en-e2fe935c347bd01c"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-235062d82bb143af",
+        "form-ja-en-b281e81e401f273f"
+      ],
+      "contextualModePairs": 0,
+      "hearChoiceEvidence": [],
+      "distinctModeTargets": 0,
+      "privateModeSourceTurns": {
+        "see": 1,
+        "recall": 3,
+        "hear": 10,
+        "type": 13,
+        "say": 11,
+        "write": 14
+      },
+      "alternativeModeAnchors": [],
+      "privateReaderFaces": 18,
+      "mainReaderFaces": 13,
+      "privateReaderEqualsMain": false,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": false,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 5,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "ふだんは あさ|usually in the morning",
+        "まず|first",
+        "それから|then",
+        "さいごに|finally",
+        "あさごはん|breakfast",
+        "しごと|work",
+        "でんしゃ|train"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonKey": "master-japanese-basics:15",
+      "reviewPath": "content/japanese-basics/review/master15-17-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:15:context-activity:see",
+        "master-japanese-basics:15:context-activity:recall",
+        "master-japanese-basics:15:context-activity:hear",
+        "master-japanese-basics:15:context-activity:type",
+        "master-japanese-basics:15:context-activity:say",
+        "master-japanese-basics:15:context-activity:write",
+        "master-japanese-basics:15:context-form:1",
+        "master-japanese-basics:15:context-form:2",
+        "master-japanese-basics:15:context-form:3",
+        "master-japanese-basics:15:speaking-context-alternative"
+      ],
+      "privateFormCount": 5,
+      "newContextualFormIds": [
+        "form-ja-en-5a9c7e572ac93ca9",
+        "form-ja-en-5982302d5e79b6bf",
+        "form-ja-en-2469b5cd7e58ac76"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-d9ec2b2084d69cd0",
+        "form-ja-en-3a7955b04999ff66"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": false,
+          "japaneseChoices": 3,
+          "prompt": "You are the visitor. Listen for the guide's line telling you where the class is."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 4,
+        "recall": 1,
+        "hear": 2,
+        "type": 5,
+        "say": 6,
+        "write": 7
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": false
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 6,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "となり|next to",
+        "いけます|can go"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 16,
+      "stableLessonKey": "master-japanese-basics:16",
+      "reviewPath": "content/japanese-basics/review/master15-17-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:16:context-activity:see",
+        "master-japanese-basics:16:context-activity:recall",
+        "master-japanese-basics:16:context-activity:hear",
+        "master-japanese-basics:16:context-activity:type",
+        "master-japanese-basics:16:context-activity:say",
+        "master-japanese-basics:16:context-activity:write",
+        "master-japanese-basics:16:context-form:1",
+        "master-japanese-basics:16:context-form:2",
+        "master-japanese-basics:16:context-form:3",
+        "master-japanese-basics:16:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-3ea2cd24b52ed38e",
+        "form-ja-en-bb94c1124f94eba3",
+        "form-ja-en-e2702f4a2acf4460"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-6f95085b04f8bce6"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": false,
+          "japaneseChoices": 3,
+          "prompt": "You are the friend. Listen for the line where the planner says the afternoon station trip is scheduled."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 7,
+        "recall": 3,
+        "hear": 2,
+        "type": 4,
+        "say": 6,
+        "write": 1
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": false
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 5,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "つもりです|intend to",
+        "まだ|not yet",
+        "また|again"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 17,
+      "stableLessonKey": "master-japanese-basics:17",
+      "reviewPath": "content/japanese-basics/review/master15-17-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:17:context-activity:see",
+        "master-japanese-basics:17:context-activity:recall",
+        "master-japanese-basics:17:context-activity:hear",
+        "master-japanese-basics:17:context-activity:type",
+        "master-japanese-basics:17:context-activity:say",
+        "master-japanese-basics:17:context-activity:write",
+        "master-japanese-basics:17:context-form:1",
+        "master-japanese-basics:17:context-form:2",
+        "master-japanese-basics:17:context-form:3",
+        "master-japanese-basics:17:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-f3042aac29ce9d6a",
+        "form-ja-en-be7200a4d2f35add",
+        "form-ja-en-2d92ad61f11ae7ba"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-ca0eab39786ae1cf"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": false,
+          "japaneseChoices": 3,
+          "prompt": "You are the requester and have just asked for the handoff. Listen for the recipient's question asking which book you mean."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 3,
+        "recall": 1,
+        "hear": 6,
+        "type": 4,
+        "say": 8,
+        "write": 7
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": false
+        },
+        {
+          "mode": "write",
+          "sourceKind": "extension",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": false
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 2,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "あおい|blue"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 18,
+      "stableLessonKey": "master-japanese-basics:18",
+      "reviewPath": "content/japanese-basics/review/master18-20-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:18:context-activity:see",
+        "master-japanese-basics:18:context-activity:recall",
+        "master-japanese-basics:18:context-activity:hear",
+        "master-japanese-basics:18:context-activity:type",
+        "master-japanese-basics:18:context-activity:say",
+        "master-japanese-basics:18:context-activity:write",
+        "master-japanese-basics:18:context-form:1",
+        "master-japanese-basics:18:context-form:2",
+        "master-japanese-basics:18:context-form:3",
+        "master-japanese-basics:18:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-baf653a573a63543",
+        "form-ja-en-f6b4ef312de9e639",
+        "form-ja-en-81c713c6828b0697"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-1b5dab5a83ba3805"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "As the Listener, listen to the Storyteller's assessment of the trip and choose the line you heard; it means the trip was very fun."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 1,
+        "recall": 5,
+        "hear": 7,
+        "type": 2,
+        "say": 8,
+        "write": 6
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 2,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 14,
+      "mainReaderFaces": 14,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 4,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "きのう|yesterday",
+        "きょうと|Kyoto",
+        "でんしゃ|train",
+        "ひるごはん|lunch"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 19,
+      "stableLessonKey": "master-japanese-basics:19",
+      "reviewPath": "content/japanese-basics/review/master18-20-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:19:context-activity:see",
+        "master-japanese-basics:19:context-activity:recall",
+        "master-japanese-basics:19:context-activity:hear",
+        "master-japanese-basics:19:context-activity:type",
+        "master-japanese-basics:19:context-activity:say",
+        "master-japanese-basics:19:context-activity:write",
+        "master-japanese-basics:19:context-form:1",
+        "master-japanese-basics:19:context-form:2",
+        "master-japanese-basics:19:context-form:3",
+        "master-japanese-basics:19:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-571817b593bb2dae",
+        "form-ja-en-eb5f9450af4cd047",
+        "form-ja-en-90139accb4878418"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-55d03bd59910a777"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "As the Friend, listen to the Traveler's reason and choose the line you heard; it means it was raining."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 1,
+        "recall": 3,
+        "hear": 4,
+        "type": 5,
+        "say": 7,
+        "write": 8
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 1,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 3,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 12,
+      "mainReaderFaces": 12,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 5,
+      "privateTermsWithoutExactScopedDictionaryFace": [
+        "まいにち|every day",
+        "いつも|always",
+        "きのう|yesterday",
+        "あめ|rain"
+      ],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    },
+    {
+      "lesson": 20,
+      "stableLessonKey": "master-japanese-basics:20",
+      "reviewPath": "content/japanese-basics/review/master18-20-context-teaching-2026-11-25/teaching-alternatives.json",
+      "reviewItemIds": [
+        "master-japanese-basics:20:context-activity:see",
+        "master-japanese-basics:20:context-activity:recall",
+        "master-japanese-basics:20:context-activity:hear",
+        "master-japanese-basics:20:context-activity:type",
+        "master-japanese-basics:20:context-activity:say",
+        "master-japanese-basics:20:context-activity:write",
+        "master-japanese-basics:20:context-form:1",
+        "master-japanese-basics:20:context-form:2",
+        "master-japanese-basics:20:context-form:3",
+        "master-japanese-basics:20:speaking-context-alternative"
+      ],
+      "privateFormCount": 4,
+      "newContextualFormIds": [
+        "form-ja-en-d52afd93c01ec833",
+        "form-ja-en-d84e12626c52f9ea",
+        "form-ja-en-5e58dbb69aabcb80"
+      ],
+      "unexplainedCanonicalFormIds": [
+        "form-ja-en-d48db665e363298d"
+      ],
+      "contextualModePairs": 6,
+      "hearChoiceEvidence": [
+        {
+          "parallelEnglishProvided": true,
+          "japaneseChoices": 3,
+          "prompt": "As Aki, identify the Greeter's line saying しりょう and checking understanding. The parenthetical English definition is support, not a separately spoken Japanese definition."
+        }
+      ],
+      "distinctModeTargets": 6,
+      "privateModeSourceTurns": {
+        "see": 4,
+        "recall": 7,
+        "hear": 5,
+        "type": 6,
+        "say": 8,
+        "write": 9
+      },
+      "alternativeModeAnchors": [
+        {
+          "mode": "see",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 4,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "recall",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 7,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "hear",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 5,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "type",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 6,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "say",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 8,
+          "samePrivateModeAnchor": true
+        },
+        {
+          "mode": "write",
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 9,
+          "samePrivateModeAnchor": true
+        }
+      ],
+      "privateReaderFaces": 13,
+      "mainReaderFaces": 13,
+      "privateReaderEqualsMain": true,
+      "runtimeReaderEqualsMain": true,
+      "runtimeReaderEqualsPrivate": true,
+      "privatePartnerCopiesLearnerTask": true,
+      "runtimePartnerRole": "A patient Japanese-speaking classmate",
+      "runtimeHasPrivateAuthoredModes": false,
+      "runtimeCardCount": 18,
+      "runtimeCardExplicitIdCount": 0,
+      "scopedDictionaryRows": 3,
+      "privateTermsWithoutExactScopedDictionaryFace": [],
+      "pilotRegistryLiteralReaderMatches": 0,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "audioEligible": false
+    }
+  ],
+  "missingContextualFormExplanations": [
+    {
+      "lesson": 1,
+      "stableLessonKey": "master-japanese-basics:1",
+      "sourcePromptId": "form-ja-en-ced31b8f9f51e450",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 10,
+      "focus": "invitation-mashou",
+      "canonicalJapanese": "では、いっしょに べんきょうしましょう。",
+      "canonicalEnglish": "Then let us study together.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 2,
+      "stableLessonKey": "master-japanese-basics:2",
+      "sourcePromptId": "form-ja-en-e78a2d27747f1786",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 3,
+      "focus": "need-question",
+      "canonicalJapanese": "じしょは いりますか。",
+      "canonicalEnglish": "Do we need a dictionary?",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 3,
+      "stableLessonKey": "master-japanese-basics:3",
+      "sourcePromptId": "form-ja-en-5910a2eddbfc6c9c",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 2,
+      "focus": "three-bound-books",
+      "canonicalJapanese": "ノートは さんさつ あります。",
+      "canonicalEnglish": "There are three notebooks.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 4,
+      "stableLessonKey": "master-japanese-basics:4",
+      "sourcePromptId": "form-ja-en-7353b29f27e4965b",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 3,
+      "focus": "person-location-imasu",
+      "canonicalJapanese": "いま どこに いますか。",
+      "canonicalEnglish": "Where is he now?",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 5,
+      "stableLessonKey": "master-japanese-basics:5",
+      "sourcePromptId": "form-ja-en-143d6e2f97b9bf3d",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 6,
+      "focus": "negative-imasen",
+      "canonicalJapanese": "となりの へやには だれも いません。",
+      "canonicalEnglish": "There is no one in the next room.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 6,
+      "stableLessonKey": "master-japanese-basics:6",
+      "sourcePromptId": "form-ja-en-92e160269b3b9633",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 2,
+      "focus": "time-mashou",
+      "canonicalJapanese": "はい、さんじに あいましょう。",
+      "canonicalEnglish": "Yes, let us meet at three.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 7,
+      "stableLessonKey": "master-japanese-basics:7",
+      "sourcePromptId": "form-ja-en-e13606b681d9b07b",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 5,
+      "focus": "method-question",
+      "canonicalJapanese": "べんきょうの やりかたも ききますか。",
+      "canonicalEnglish": "Do you ask about the way to study them too?",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 8,
+      "stableLessonKey": "master-japanese-basics:8",
+      "sourcePromptId": "form-ja-en-04dd860abf3d2072",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 6,
+      "focus": "scheduled-yotei",
+      "canonicalJapanese": "えきの まえで あう よていです。",
+      "canonicalEnglish": "We plan to meet in front of the station.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "master-japanese-basics:9",
+      "sourcePromptId": "form-ja-en-af49b7640046db38",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 7,
+      "focus": "which-of-two",
+      "canonicalJapanese": "どちらが べんりですか。",
+      "canonicalEnglish": "Which is more convenient?",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 9,
+      "stableLessonKey": "master-japanese-basics:9",
+      "sourcePromptId": "form-ja-en-d69c290bfb155d04",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 8,
+      "focus": "choice-object-wo",
+      "canonicalJapanese": "この あおい かばんを えらびます。",
+      "canonicalEnglish": "I choose this blue bag.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 10,
+      "stableLessonKey": "master-japanese-basics:10",
+      "sourcePromptId": "form-ja-en-46864a7ec11a727f",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 7,
+      "focus": "quoted-possession",
+      "canonicalJapanese": "「わたしのです。」",
+      "canonicalEnglish": "“It is mine.”",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 11,
+      "stableLessonKey": "master-japanese-basics:11",
+      "sourcePromptId": "form-ja-en-4787d0c2d4b98010",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 8,
+      "focus": "two-item-order",
+      "canonicalJapanese": "では、その やさいの りょうりを ひとつと、さかなの りょうりを ひとつ おねがいします。",
+      "canonicalEnglish": "Then one vegetable dish and one fish dish, please.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 12,
+      "stableLessonKey": "master-japanese-basics:12",
+      "sourcePromptId": "form-ja-en-3939c16219f828c4",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 7,
+      "focus": "suggestion-mashou",
+      "canonicalJapanese": "では、みるだけに しましょう。",
+      "canonicalEnglish": "Then let us just look.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 13,
+      "stableLessonKey": "master-japanese-basics:13",
+      "sourcePromptId": "form-ja-en-d8353f66960339c3",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 8,
+      "focus": "completed-dekimashita",
+      "canonicalJapanese": "これで じゅんびが できました。",
+      "canonicalEnglish": "Now the preparations are complete.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourcePromptId": "form-ja-en-235062d82bb143af",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 1,
+      "focus": "usual-routine-fudan",
+      "canonicalJapanese": "ふだんは あさ しちじに おきます。",
+      "canonicalEnglish": "I usually get up at seven in the morning.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 14,
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourcePromptId": "form-ja-en-b281e81e401f273f",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 10,
+      "focus": "delay-result-state",
+      "canonicalJapanese": "でも、でんしゃが おくれています。",
+      "canonicalEnglish": "But the train is delayed.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonKey": "master-japanese-basics:15",
+      "sourcePromptId": "form-ja-en-d9ec2b2084d69cd0",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 1,
+      "focus": "direction-te-kudasai",
+      "canonicalJapanese": "この みちを まっすぐ いってください。",
+      "canonicalEnglish": "Please go straight on this road.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 15,
+      "stableLessonKey": "master-japanese-basics:15",
+      "sourcePromptId": "form-ja-en-3a7955b04999ff66",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 2,
+      "focus": "turn-te-kudasai",
+      "canonicalJapanese": "えきの まえで みぎに まがってください。",
+      "canonicalEnglish": "Please turn right in front of the station.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 16,
+      "stableLessonKey": "master-japanese-basics:16",
+      "sourcePromptId": "form-ja-en-6f95085b04f8bce6",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 1,
+      "focus": "now-yondeimasu",
+      "canonicalJapanese": "いま、ほんを よんでいます。",
+      "canonicalEnglish": "I am reading a book now.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 17,
+      "stableLessonKey": "master-japanese-basics:17",
+      "sourcePromptId": "form-ja-en-ca0eab39786ae1cf",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 4,
+      "focus": "permission-show",
+      "canonicalJapanese": "あきさんに みせても いいですか。",
+      "canonicalEnglish": "May I show it to Aki?",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 18,
+      "stableLessonKey": "master-japanese-basics:18",
+      "sourcePromptId": "form-ja-en-1b5dab5a83ba3805",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 9,
+      "focus": "past-location-answer",
+      "canonicalJapanese": "ほんやで かいました。",
+      "canonicalEnglish": "I bought it at the bookshop.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 19,
+      "stableLessonKey": "master-japanese-basics:19",
+      "sourcePromptId": "form-ja-en-55d03bd59910a777",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 4,
+      "focus": "past-progressive-reason",
+      "canonicalJapanese": "あめが ふっていましたから。",
+      "canonicalEnglish": "Because it was raining.",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "lesson": 20,
+      "stableLessonKey": "master-japanese-basics:20",
+      "sourcePromptId": "form-ja-en-d48db665e363298d",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 5,
+      "focus": "quoted-word-check",
+      "canonicalJapanese": "はい、「しりょう」です。わかりますか。",
+      "canonicalEnglish": "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+      "existingCanonicalPreserved": true,
+      "missingScope": "new contextual bilingual explanation in these bounded repair packets; not missing canonical form",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "totals": {
+    "numberedLessonsWithSourceOnlyAlternative": 20,
+    "contextualModePairs": 114,
+    "distinctTargetsWithinLessonSummed": 113,
+    "contextualFormExplanations": 60,
+    "canonicalForms": 83,
+    "additionalContextualExplanationsMissing": 23,
+    "speakingAlternatives": 20,
+    "uniqueReviewIds": 194,
+    "privateReaderFaces": 253,
+    "mainReaderFaces": 248,
+    "runtimeReaderMatchingPrivateLessons": 19,
+    "selected": 0,
+    "audioEligible": 0
+  },
+  "deterministicAuditOnly": true,
+  "qualifiedApproval": false,
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  }
+}

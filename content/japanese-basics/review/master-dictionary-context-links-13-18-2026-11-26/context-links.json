@@ -1,0 +1,797 @@
+{
+  "schema": 1,
+  "kind": "inert-additive-lesson-dictionary-context-links",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+  "checkpointPin": {
+    "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+    "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+    "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+  },
+  "previousContextProposalPins": [
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master-dictionary-context-links-1-6-2026-11-26/context-links.json",
+      "sha256": "2b802286232533e6ec62aeabdf3e22e797af8cd6dc91addbe20fb33947b09194"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master-dictionary-context-links-7-12-2026-11-26/context-links.json",
+      "sha256": "f2084640de6b300c3ba6205508608b2606713a250d470fad726f61361bf21a2c"
+    }
+  ],
+  "unchangedMainPins": [
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master-dictionary-context-links-1-6-2026-11-26/context-links.json",
+      "sha256": "2b802286232533e6ec62aeabdf3e22e797af8cd6dc91addbe20fb33947b09194"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master-dictionary-context-links-7-12-2026-11-26/context-links.json",
+      "sha256": "f2084640de6b300c3ba6205508608b2606713a250d470fad726f61361bf21a2c"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "src/components/dictionary/japaneseWordData.json",
+      "sha256": "6406f3ce9d69cecdd9601c40f47067625b13c6cda6ceb3abb950060e9c9e8237"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "src/data/japanese-basics-practice.json",
+      "sha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+      "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master15-17-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "85aa58b4431fdb5d92718cfdf7f13f8f9ba99206c2ed3e03cdd85ee3574287de"
+    },
+    {
+      "gitRevision": "e60b4640cf6cbef1a3469db5ca15b16c010d732b",
+      "path": "content/japanese-basics/review/master16-20-form-context-supplement-2026-11-26/context-explanations.json",
+      "sha256": "c69cdd5b2c5249f1407d8dfbce0aab1a2410384aeaed80061c8d75a7ead9d181"
+    }
+  ],
+  "privateSourcePins": {
+    "master": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    "extensions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    "cards": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "8067d96f6a4ab101539178ce938a3a2ddbe69624b8ff27a39307a097244b469c"
+    },
+    "forms1To10": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    "forms11To20": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    }
+  },
+  "originalSameLessonFaceGapCount": 26,
+  "contextLinkProposalsAdded": 6,
+  "cumulativeContextProposals": 18,
+  "remainingUnproposedSourceFaceGapCount": 8,
+  "sourceFaceGapsStillUnregistered": 26,
+  "remainingSourceFaceGaps": [
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "きのう",
+        "english": "yesterday"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "きょうと",
+        "english": "Kyoto"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "でんしゃ",
+        "english": "train"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "ひるごはん",
+        "english": "lunch"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "まいにち",
+        "english": "every day"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "いつも",
+        "english": "always"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "きのう",
+        "english": "yesterday"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "あめ",
+        "english": "rain"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "lessonNumber": 15,
+      "sourceTermFace": {
+        "japanese": "となり",
+        "english": "next to"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "next to (directly beside a place or thing; a position noun, here in X の となり)",
+      "explanationJapanese": "「となり」は、ある ばしょや ものの すぐ よこを あらわす めいしです。「めいし＋の＋となり」の かたちで つかいます。「がっこうは えきの となりです。」は、がっこうが えきの すぐ よこに ある、という いみです。ものが ある ばしょを いう ときは、「まどの となりに ドアが あります。」のように 「となりに」を つかいます。「みぎ」や 「ちかく」と おなじ いみでは ありません。",
+      "explanationEnglish": "となり is a position noun for the spot directly beside a place or thing. It is used in the pattern 'noun + の + となり'. 'がっこうは えきの となりです。' means the school is directly beside the station. To say where something exists, use となりに, as in 'まどの となりに ドアが あります。'. It does not mean the same as みぎ (right) or ちかく (nearby).",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "がっこうは えきの となりです。",
+        "english": "The school is next to the station.",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "Link the reference place or thing with の: えきの となり. With です it states where something is. With に + あります it says that something exists there, as in the extension line 'まどの となりに ドアが あります。' (There is a door next to the window.), which is also the example on the existing global row.",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:15:dictionary-context:1c8f0b3778656e47",
+      "stableLessonKey": "master-japanese-basics:15",
+      "sourceFaceGapEvidence": {
+        "lesson": 15,
+        "sourceTermFace": {
+          "japanese": "となり",
+          "english": "next to"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-1c8c4bb4ce7d134d",
+          "word": "となり",
+          "english": "next to",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "foundation-japanese-basics",
+          "lessonHref": "/?module=foundation-japanese-basics&tab=core30&target=Japanese&native=English&lesson=7&way=see",
+          "examples": [
+            {
+              "target": "まどの となりに ドアが あります。",
+              "english": "There is a door next to the window."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-1c8c4bb4ce7d134d"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-1c8c4bb4ce7d134d"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 7,
+          "value": {
+            "es": "となり",
+            "en": "next to",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [
+        {
+          "rowIndexZeroBased": 14,
+          "value": {
+            "es": "がっこうは えきの となりです。",
+            "en": "The school is next to the station.",
+            "kind": "phrase"
+          }
+        }
+      ],
+      "sourceMainCardRows": [
+        {
+          "rowIndexZeroBased": 7,
+          "value": {
+            "es": "となり",
+            "en": "next to",
+            "kind": "term"
+          }
+        }
+      ],
+      "containingCanonicalFormIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 15,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "privateReaderIndexZeroBased": 2
+      },
+      "adjacentContextFormLinks": [
+        {
+          "sourcePromptId": "form-ja-en-5a9c7e572ac93ca9",
+          "sourceDialogueTurn": 4,
+          "linkKind": "next-turn-context; term not necessarily present"
+        }
+      ],
+      "sourceVersionStatus": "Private source and pinned main lesson/Reader match here; dictionary context ownership remains unselected.",
+      "sourceLessonMatchesPinnedMain": true,
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 15,
+      "sourceTermFace": {
+        "japanese": "いけます",
+        "english": "can go"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "can go; can get to (potential form of いく; here with まで marking the destination)",
+      "explanationJapanese": "「いけます」は、「いく」の かのうの かたち「いける」の ていねいな かたちで、「いく ことが できる」という いみです。かいわでは、「みちは わかりますか。」と きかれて、「はい、がっこうまで いけます。」と こたえています。「まで」は いく さきの おわりを あらわします。ここでは がっこうです。「いけます」は できる ことを いう かたちです。「いきました」のように、もう いった ことを いう かたちでは ありません。「いく つもりです」のように、いしを いう かたちでも ありません。",
+      "explanationEnglish": "いけます is the polite potential form of いく and means 'be able to go'. In the dialogue it answers 'みちは わかりますか。' with 'はい、がっこうまで いけます。'. まで marks the endpoint of the trip, here the school. いけます states ability. It does not report a trip already made, as いきました would, and it does not state intention, as いく つもりです would.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "はい、がっこうまで いけます。",
+        "english": "Yes, I can get to the school.",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "This line is the reply to dialogue turn 6 (みちは わかりますか。): the speaker confirms understanding by saying they are able to get there. Here the destination takes まで ('as far as'), which is why the English is 'can get to'.",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:15:dictionary-context:d779cbc6df78babe",
+      "stableLessonKey": "master-japanese-basics:15",
+      "sourceFaceGapEvidence": {
+        "lesson": 15,
+        "sourceTermFace": {
+          "japanese": "いけます",
+          "english": "can go"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-f4d6a19c6106e693",
+          "word": "いけます",
+          "english": "can go",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=21&way=see",
+          "examples": [
+            {
+              "target": "ちずで えきまで いけます。",
+              "english": "With the map, I can get to the station."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-f4d6a19c6106e693"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-f4d6a19c6106e693"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 5,
+          "value": {
+            "es": "いけます",
+            "en": "can go",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [],
+      "sourceMainCardRows": [
+        {
+          "rowIndexZeroBased": 5,
+          "value": {
+            "es": "いけます",
+            "en": "can go",
+            "kind": "term"
+          }
+        }
+      ],
+      "containingCanonicalFormIds": [
+        "form-ja-en-2469b5cd7e58ac76"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 15,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "privateReaderIndexZeroBased": 6
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionStatus": "Private source and pinned main lesson/Reader match here; dictionary context ownership remains unselected.",
+      "sourceLessonMatchesPinnedMain": true,
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 16,
+      "sourceTermFace": {
+        "japanese": "つもりです",
+        "english": "intend to"
+      },
+      "entryKind": "lesson-expression-context-link",
+      "contextualGlossEnglish": "intend to (grammatical expression: dictionary-form verb + つもりです; here the speaker's own intention for an action not yet done)",
+      "explanationJapanese": "「つもりです」は、ひとの いしを いう ぶんぽうの ひょうげんです。「つもり」は めいしで、その あとに 「です」が つきます。ひとつの どうしでは ありません。どうしの じしょけいの あとに おいて、「あう つもりです」のように つかいます。「あした、ともだちに あう つもりです。」は、はなす ひとが あした ともだちに あう ことを こころで きめている、という いみです。あう ことは まだ していません。「いま、ほんを よんでいます。」は いま している ことを いいます。「ごご えきへ いく よていです。」の 「よてい」は、これからの けいかくや にっていを いいます。「つもり」は その ひとの きもちを いいます。どちらも 「めいし＋です」の かたちです。",
+      "explanationEnglish": "つもりです is a grammatical expression for a person's intention. つもり is a noun followed by です, so it is not a verb of its own. It comes after the dictionary form of a verb, as in あう つもりです. 'あした、ともだちに あう つもりです。' means the speaker has made up their mind to meet a friend tomorrow, and the meeting has not happened yet. By contrast, 'いま、ほんを よんでいます。' describes what is happening now, and よてい in 'ごご えきへ いく よていです。' names a plan or scheduled arrangement, while つもり names what the person has in mind. Both are 'noun + です'.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "あした、ともだちに あう つもりです。",
+        "english": "Tomorrow I intend to meet a friend.",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "Pattern: dictionary-form verb + つもりです (あう + つもりです). It states an intention, not a completed action. In this dialogue it contrasts with turn 1 (よんでいます, happening now) and turn 4 (よていです, a scheduled action).",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:16:dictionary-context:9532a7975f9e0a0d",
+      "stableLessonKey": "master-japanese-basics:16",
+      "sourceFaceGapEvidence": {
+        "lesson": 16,
+        "sourceTermFace": {
+          "japanese": "つもりです",
+          "english": "intend to"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-eadcb55474e5af1b",
+          "word": "つもりです",
+          "english": "intend to",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=19&way=see",
+          "examples": [
+            {
+              "target": "あした ともだちに あう つもりです。",
+              "english": "I intend to meet a friend tomorrow."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-eadcb55474e5af1b"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-eadcb55474e5af1b"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 6,
+          "value": {
+            "es": "つもりです",
+            "en": "intend to",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [
+        {
+          "rowIndexZeroBased": 14,
+          "value": {
+            "es": "あした、ともだちに あう つもりです。",
+            "en": "Tomorrow I intend to meet a friend.",
+            "kind": "phrase"
+          }
+        }
+      ],
+      "sourceMainCardRows": [
+        {
+          "rowIndexZeroBased": 6,
+          "value": {
+            "es": "つもりです",
+            "en": "intend to",
+            "kind": "term"
+          }
+        }
+      ],
+      "containingCanonicalFormIds": [
+        "form-ja-en-3ea2cd24b52ed38e"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 16,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "privateReaderIndexZeroBased": 2
+      },
+      "adjacentContextFormLinks": [
+        {
+          "sourcePromptId": "form-ja-en-bb94c1124f94eba3",
+          "sourceDialogueTurn": 4,
+          "linkKind": "next-turn-context; term not necessarily present"
+        }
+      ],
+      "sourceVersionStatus": "Private source and pinned main lesson/Reader match here; dictionary context ownership remains unselected.",
+      "sourceLessonMatchesPinnedMain": true,
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 16,
+      "sourceTermFace": {
+        "japanese": "まだ",
+        "english": "not yet"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "not yet (has not happened so far; here with ～ていません)",
+      "explanationJapanese": "この ぶんでは、「まだ」を「～ていません」と いっしょに つかって、いままでに その ことが おきていない と つたえます。「でも、まだ じかんを きめていません。」は、いまの ところ じかんが きまっていない、という いみです。「きめませんでした」は かこの ことで、「きめなかった」という いみですから、ちがいます。「まだ」は 「ぜったいに きめない」という いみでは ありません。「まだ わかりません。」のように、「～ていません」では ない かたちとも つかいます。",
+      "explanationEnglish": "Here まだ is used with the negative ～ていません to say that something has not happened up to this point. 'でも、まだ じかんを きめていません。' means that, as of now, the time has not been set. きめませんでした is past and means 'did not decide', so it is different. まだ does not mean 'will never decide'. It is also used with forms other than ～ていません, as in 'まだ わかりません。'.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "でも、まだ じかんを きめていません。",
+        "english": "But we have not set a time yet.",
+        "sourceTurnOneBased": 7,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "まだ + ～ていません describes the situation so far: きめる → きめて + いません. The line describes the moment of dialogue turn 7, when no time has been set. The stage's extension lines later end with 'あしたの よていが きまりました。' (Tomorrow's plan is settled.).",
+      "internalQuestions": [],
+      "id": "master-japanese-basics:16:dictionary-context:6b7d9bb93dc2bdae",
+      "stableLessonKey": "master-japanese-basics:16",
+      "sourceFaceGapEvidence": {
+        "lesson": 16,
+        "sourceTermFace": {
+          "japanese": "まだ",
+          "english": "not yet"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-70c2c85981dafe78",
+          "word": "まだ",
+          "english": "not yet",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "foundation-japanese-basics",
+          "lessonHref": "/?module=foundation-japanese-basics&tab=core30&target=Japanese&native=English&lesson=9&way=see",
+          "examples": [
+            {
+              "target": "まだ わかりません。",
+              "english": "I do not understand yet."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-70c2c85981dafe78"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-70c2c85981dafe78"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 11,
+          "value": {
+            "es": "まだ",
+            "en": "not yet",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [],
+      "sourceMainCardRows": [
+        {
+          "rowIndexZeroBased": 11,
+          "value": {
+            "es": "まだ",
+            "en": "not yet",
+            "kind": "term"
+          }
+        }
+      ],
+      "containingCanonicalFormIds": [
+        "form-ja-en-e2702f4a2acf4460"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 16,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 7,
+        "privateReaderIndexZeroBased": 6
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionStatus": "Private source and pinned main lesson/Reader match here; dictionary context ownership remains unselected.",
+      "sourceLessonMatchesPinnedMain": true,
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 16,
+      "sourceTermFace": {
+        "japanese": "また",
+        "english": "again"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "again (the same kind of action once more; here, another phone call)",
+      "explanationJapanese": "「また」は、まえに した ことを もういちど する、という いみです。この ぶんでは「でんわします」の まえに おかれて います。「よる また でんわします。」は、よるに もういちど でんわする、という いみです。かいわの まえの ほうに 「きのうは でんわしました。」が あります。「また」は その でんわを うけています。でんわの あいては かいてありません。じかんも 「よる」だけです。「まだ」と かたちが にていますが、いみは ちがいます。",
+      "explanationEnglish": "また means doing again something that was done before. Here it occurs before でんわします. 'よる また でんわします。' means the speaker will call once more tonight. Earlier in the dialogue there is 'きのうは でんわしました。', and また points back to that call. The source does not name the person being called, and the only time given is よる (tonight). また looks similar to まだ, but the meaning is different.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "よる また でんわします。",
+        "english": "I will call again tonight.",
+        "sourceTurnOneBased": 8,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "また points back to the earlier call in dialogue turn 6 (きのうは でんわしました。) and marks the new call as a repeat of the same action. Keep it apart from まだ ('not yet') in turn 7 of the same dialogue.",
+      "internalQuestions": [
+        "The existing global row for また has no example. Should dialogue turn 8 be proposed as its example in a separate step, or should the global row stay untouched?"
+      ],
+      "id": "master-japanese-basics:16:dictionary-context:ffe261a876755b73",
+      "stableLessonKey": "master-japanese-basics:16",
+      "sourceFaceGapEvidence": {
+        "lesson": 16,
+        "sourceTermFace": {
+          "japanese": "また",
+          "english": "again"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-1344a571798a28e0",
+          "word": "また",
+          "english": "again",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "master-japanese-basics",
+          "lessonHref": "/?module=master-japanese-basics&tab=core30&target=Japanese&native=English&lesson=4&way=see",
+          "examples": []
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-1344a571798a28e0"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-1344a571798a28e0"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [],
+      "sourcePrivateContainingPhraseRows": [],
+      "sourceMainCardRows": [],
+      "containingCanonicalFormIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 16,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 8,
+        "privateReaderIndexZeroBased": 7
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionStatus": "Private source and pinned main lesson/Reader match here; dictionary context ownership remains unselected.",
+      "sourceLessonMatchesPinnedMain": true,
+      "proposedCardId": "master-japanese-basics:16:dictionary-context:ffe261a876755b73:reader-phrase-card"
+    },
+    {
+      "lessonNumber": 17,
+      "sourceTermFace": {
+        "japanese": "あおい",
+        "english": "blue"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "blue (i-adjective; here before a noun to identify which book is meant)",
+      "explanationJapanese": "「あおい」は いろを あらわす いけいようしです。ここでは めいしの まえに おいて、どの ものかを はっきり させます。ここでは、いろの ちがいで ほんを くべつします。かいわの さいごで 「どの ほんの ことですか。」と きかれます。その こたえが 「あおい ほんの ことです。」です。「あおいです」の かたちで、ぶんの おわりにも つかえます。",
+      "explanationEnglish": "あおい is an i-adjective for the color blue. Here it comes before a noun and makes clear which item is meant: あおい ほん is 'the blue book'. The dialogue ends with the question 'どの ほんの ことですか。', and 'あおい ほんの ことです。' is the answer. It can also end a sentence in the form あおいです.",
+      "readerExample": {
+        "sourceKind": "extension",
+        "japanese": "あおい ほんの ことです。",
+        "english": "I mean the blue book.",
+        "sourceTurnOneBased": 1,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "Put あおい directly before the noun, with no particle: あおい ほん. This extension line answers dialogue turn 8 (どの ほんの ことですか。) by picking the book out by color.",
+      "internalQuestions": [],
+      "internalSourceNotes": [
+        "This color-entry context identifies the referenced book. Ownership/buyer/return-intention questions in the surrounding source are not selected or rewritten here."
+      ],
+      "id": "master-japanese-basics:17:dictionary-context:945e871b895949fe",
+      "stableLessonKey": "master-japanese-basics:17",
+      "sourceFaceGapEvidence": {
+        "lesson": 17,
+        "sourceTermFace": {
+          "japanese": "あおい",
+          "english": "blue"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-9840bfdf97d490f8",
+          "word": "あおい",
+          "english": "blue",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=8&way=see",
+          "examples": [
+            {
+              "target": "あおい ほんです。",
+              "english": "The blue book."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-9840bfdf97d490f8"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-9840bfdf97d490f8"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 2,
+          "value": {
+            "es": "あおい",
+            "en": "blue",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [],
+      "sourceMainCardRows": [
+        {
+          "rowIndexZeroBased": 2,
+          "value": {
+            "es": "あおい",
+            "en": "blue",
+            "kind": "term"
+          }
+        }
+      ],
+      "containingCanonicalFormIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 17,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "extension",
+        "sourceTurnOneBased": 1,
+        "privateReaderIndexZeroBased": 8
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionStatus": "Private source and pinned main lesson/Reader match here; dictionary context ownership remains unselected.",
+      "sourceLessonMatchesPinnedMain": true,
+      "proposedCardId": null
+    }
+  ],
+  "proposedCardFaces": [
+    {
+      "id": "master-japanese-basics:16:dictionary-context:ffe261a876755b73:reader-phrase-card",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 8,
+      "es": "よる また でんわします。",
+      "en": "I will call again tonight.",
+      "kind": "phrase",
+      "runtimeSavedCardId": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "newGlobalHeadwords": 0,
+  "registeredContextLinks": 0,
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "candidateScopeNotes": [
+    "All six exact global rows are referenced without creating or changing a headword, gloss, owner or example.",
+    "つもりです is treated as a grammatical expression, not a standalone verb lemma; its existing global row stays unchanged.",
+    "また has no private card row in the pinned full curriculum array. One inert exact dialogue8phrase projection is supplied with no saved-card ID.",
+    "These lessons match pinned main/private source, while the earlier Master14source-version holds remain unchanged in the two prior dictionary sidecars.",
+    "Eighteen draft context proposals do not register any of the26scoped links;8source-face proposals remain unprovided."
+  ]
+}

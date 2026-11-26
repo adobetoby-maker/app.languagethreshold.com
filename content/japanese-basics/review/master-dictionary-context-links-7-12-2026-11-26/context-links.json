@@ -1,0 +1,817 @@
+{
+  "schema": 1,
+  "kind": "inert-additive-lesson-dictionary-context-links",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "baselineMain": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+  "checkpointPin": {
+    "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+    "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+    "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+  },
+  "previousContextProposalPin": {
+    "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+    "path": "content/japanese-basics/review/master-dictionary-context-links-1-6-2026-11-26/context-links.json",
+    "sha256": "2b802286232533e6ec62aeabdf3e22e797af8cd6dc91addbe20fb33947b09194"
+  },
+  "existingModeCardProposalPin": {
+    "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+    "path": "content/japanese-basics/review/master14-six-mode-context-repair-2026-11-26/activities.json",
+    "sha256": "c0b9aeb7dcc967f4e53a03ff08b9a4756d10c04d00de7b81f5ecb2e164588c59"
+  },
+  "unchangedMainPins": [
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master-dictionary-context-links-1-6-2026-11-26/context-links.json",
+      "sha256": "2b802286232533e6ec62aeabdf3e22e797af8cd6dc91addbe20fb33947b09194"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master14-six-mode-context-repair-2026-11-26/activities.json",
+      "sha256": "c0b9aeb7dcc967f4e53a03ff08b9a4756d10c04d00de7b81f5ecb2e164588c59"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "src/components/dictionary/japaneseWordData.json",
+      "sha256": "6406f3ce9d69cecdd9601c40f47067625b13c6cda6ceb3abb950060e9c9e8237"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "src/data/japanese-basics-practice.json",
+      "sha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master1-20-consolidated-checkpoint-2026-11-25/manifest.json",
+      "sha256": "1c06133b53f5b99f1472d4e09a1d789de4d97aa3b671b5c361ac31fc5d8bf592"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master1-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "d56ca771929db74d7cbdc67faf4a08c65b751095879401d671f4274ae65ccd99"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master5-7-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "75e28c57be949319912cfcff8a7c86bd669142f652beb00f2f2056c4a85969ae"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master11-13-context-teaching-2026-11-25/teaching-alternatives.json",
+      "sha256": "c4f85109c14c971b5b8576db4134d1ae46689971346cf9b67043029fe8e5ef31"
+    },
+    {
+      "gitRevision": "d843c20fe1b47940e746815fac4bf3df2ec27ddb",
+      "path": "content/japanese-basics/review/master14-context-repair-2026-11-25/context-alternative.json",
+      "sha256": "b83a42d6c0499cf59942955a30737c60dcf8cdfd2f214035506dbd23c468916d"
+    }
+  ],
+  "privateSourcePins": {
+    "master": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    "extensions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    "cards": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "8067d96f6a4ab101539178ce938a3a2ddbe69624b8ff27a39307a097244b469c"
+    },
+    "forms1To10": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-1-10-ja-en.json",
+      "sha256": "3cc79c9c8ce9735e7e79e98d6bcbb5a5fc72841132c24d469bf33b027e6a8f5e"
+    },
+    "forms11To20": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    }
+  },
+  "originalSameLessonFaceGapCount": 26,
+  "contextLinkProposalsAdded": 6,
+  "cumulativeContextProposals": 12,
+  "remainingUnproposedSourceFaceGapCount": 14,
+  "sourceFaceGapsStillUnregistered": 26,
+  "remainingSourceFaceGaps": [
+    {
+      "lesson": 15,
+      "sourceTermFace": {
+        "japanese": "となり",
+        "english": "next to"
+      }
+    },
+    {
+      "lesson": 15,
+      "sourceTermFace": {
+        "japanese": "いけます",
+        "english": "can go"
+      }
+    },
+    {
+      "lesson": 16,
+      "sourceTermFace": {
+        "japanese": "つもりです",
+        "english": "intend to"
+      }
+    },
+    {
+      "lesson": 16,
+      "sourceTermFace": {
+        "japanese": "まだ",
+        "english": "not yet"
+      }
+    },
+    {
+      "lesson": 16,
+      "sourceTermFace": {
+        "japanese": "また",
+        "english": "again"
+      }
+    },
+    {
+      "lesson": 17,
+      "sourceTermFace": {
+        "japanese": "あおい",
+        "english": "blue"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "きのう",
+        "english": "yesterday"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "きょうと",
+        "english": "Kyoto"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "でんしゃ",
+        "english": "train"
+      }
+    },
+    {
+      "lesson": 18,
+      "sourceTermFace": {
+        "japanese": "ひるごはん",
+        "english": "lunch"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "まいにち",
+        "english": "every day"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "いつも",
+        "english": "always"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "きのう",
+        "english": "yesterday"
+      }
+    },
+    {
+      "lesson": 19,
+      "sourceTermFace": {
+        "japanese": "あめ",
+        "english": "rain"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "lessonNumber": 14,
+      "sourceHold": "M14-private-source-hold",
+      "sourceTermFace": {
+        "japanese": "まず",
+        "english": "first"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "first, marking the first action in a sequence of routine actions",
+      "explanationEnglish": "まず is a sequence word meaning 'first'. Here it marks the first action of the morning routine: washing the face, followed by eating breakfast. It orders actions in time; it is not a ranking word here.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "まず、かおを あらって、あさごはんを たべます。",
+        "english": "First, I wash my face and eat breakfast.",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "In turn 3 まず opens the sentence and is followed by a comma. In turn 2 (あさは まず なにを しますか。) it sits after the topic with no comma. Later steps are introduced with それから and さいごに.",
+      "internalQuestions": [
+        "Is the existing sense 'first' on ja-en-c7e785d741ea3eaf sufficient for this sequence use, with no new row needed?"
+      ],
+      "explanationJapanese": "ひとつづきの うごきを じゅんばんに いう ときに、さいしょの うごきを しめす ことばです。「まず、かおを あらって、あさごはんを たべます。」では、あさの さいしょの うごきが かおを あらう ことだと わかります。そのあとに 「それから」や 「さいごに」が つづくと、じゅんばんが はっきり します。",
+      "id": "master-japanese-basics:14:dictionary-context:c6d5e43dc40f498a",
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourceFaceGapEvidence": {
+        "lesson": 14,
+        "sourceTermFace": {
+          "japanese": "まず",
+          "english": "first"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-c7e785d741ea3eaf",
+          "word": "まず",
+          "english": "first",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=16&way=see",
+          "examples": [
+            {
+              "target": "まず、ろくじに おきます。",
+              "english": "First I get up at six."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-c7e785d741ea3eaf"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-c7e785d741ea3eaf"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [],
+      "sourcePrivateContainingPhraseRows": [
+        {
+          "rowIndexZeroBased": 13,
+          "value": {
+            "es": "あさは まず なにを しますか。",
+            "en": "What do you do first in the morning?",
+            "kind": "phrase"
+          }
+        },
+        {
+          "rowIndexZeroBased": 14,
+          "value": {
+            "es": "まず、かおを あらって、あさごはんを たべます。",
+            "en": "First, I wash my face and eat breakfast.",
+            "kind": "phrase"
+          }
+        }
+      ],
+      "sourceMainCardRows": [],
+      "containingCanonicalFormIds": [
+        "form-ja-en-6e3080062b60d00a"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "privateReaderIndexZeroBased": 2
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionHold": "Private routine source differs from current main delayed-meeting lesson. No source or dictionary ownership is selected.",
+      "existingReviewCardProjectionIds": [],
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 14,
+      "sourceHold": "M14-private-source-hold",
+      "sourceTermFace": {
+        "japanese": "それから",
+        "english": "then"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "then, introducing the next action in a sequence",
+      "explanationEnglish": "それから connects one action to the next in time and means 'then'. In this turn it links eating breakfast to going to work. It expresses order, not cause.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "それから、しごとに いきます。",
+        "english": "Then I go to work.",
+        "sourceTurnOneBased": 4,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "In this source それから opens the sentence, is followed by a comma, and comes after a まず sentence. It is a different word from そのあと in turn 14 (そのあと えきに つきました。), which the source renders as 'After that'.",
+      "internalQuestions": [
+        "Existing rows ja-en-492f5ae9f19d00aa (after that) and ja-en-c24ce926e407d2a0 (then) are distinct records in pinned main. Preserve both; this exact-face proposal references then only. No merge, split or ownership selection is performed."
+      ],
+      "explanationJapanese": "まえの うごきの あとに、つぎの うごきを つなぐ ことばです。「それから、しごとに いきます。」では、あさごはんを たべた あとに しごとに いく ことを しめします。りゆうを あらわす ことばでは ありません。",
+      "id": "master-japanese-basics:14:dictionary-context:12bfc7f37a3c272d",
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourceFaceGapEvidence": {
+        "lesson": 14,
+        "sourceTermFace": {
+          "japanese": "それから",
+          "english": "then"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-c24ce926e407d2a0",
+          "word": "それから",
+          "english": "then",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=16&way=see",
+          "examples": [
+            {
+              "target": "それから、あさごはんを たべます。",
+              "english": "Then I eat breakfast."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-492f5ae9f19d00aa",
+        "ja-en-c24ce926e407d2a0"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-c24ce926e407d2a0"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 11,
+          "value": {
+            "es": "それから",
+            "en": "then",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [
+        {
+          "rowIndexZeroBased": 15,
+          "value": {
+            "es": "それから、しごとに いきます。",
+            "en": "Then I go to work.",
+            "kind": "phrase"
+          }
+        }
+      ],
+      "sourceMainCardRows": [],
+      "containingCanonicalFormIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 4,
+        "privateReaderIndexZeroBased": 3
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionHold": "Private routine source differs from current main delayed-meeting lesson. No source or dictionary ownership is selected.",
+      "existingReviewCardProjectionIds": [],
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 14,
+      "sourceHold": "M14-private-source-hold",
+      "sourceTermFace": {
+        "japanese": "さいごに",
+        "english": "finally"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "finally, marking the last action in a sequence",
+      "explanationEnglish": "さいごに marks the last item in a sequence and means 'finally'. In this extension it introduces the last action in the narrated account: talking with the friend and going home. The past tense belongs to the narrated event, not to さいごに; the linked global row uses it with non-past かえります.",
+      "readerExample": {
+        "sourceKind": "extension",
+        "japanese": "さいごに ともだちと はなして、うちに かえりました。",
+        "english": "Finally, I talked with my friend and went home.",
+        "sourceTurnOneBased": 4,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "さいごに opens the sentence and closes a sequence begun with まず and それから. In this extension it has no comma and a past verb (かえりました). In the global row example it has a comma and a non-past verb (さいごに、ごご うちに かえります。).",
+      "internalQuestions": [
+        "さいごに appears in the lesson terms and extension 4 but not in the dialogue turns or the supplied private card rows; is extension 4 acceptable as the reader example?"
+      ],
+      "explanationJapanese": "じゅんばんに ならべた うごきの なかで、いちばん あとの うごきを しめす ことばです。この れいでは、ともだちと はなして うちに かえった ことが さいごの うごきです。ここでは すぎた ことを いって いますが、「かえります」の ような ぶんにも つかえます。",
+      "id": "master-japanese-basics:14:dictionary-context:c68f4a9d7c7dfdcd",
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourceFaceGapEvidence": {
+        "lesson": 14,
+        "sourceTermFace": {
+          "japanese": "さいごに",
+          "english": "finally"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-4015977d882e7d61",
+          "word": "さいごに",
+          "english": "finally",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=16&way=see",
+          "examples": [
+            {
+              "target": "さいごに、ごご うちに かえります。",
+              "english": "Finally, I return home in the afternoon."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-4015977d882e7d61"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-4015977d882e7d61"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [],
+      "sourcePrivateContainingPhraseRows": [],
+      "sourceMainCardRows": [],
+      "containingCanonicalFormIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "extension",
+        "sourceTurnOneBased": 4,
+        "privateReaderIndexZeroBased": 17
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionHold": "Private routine source differs from current main delayed-meeting lesson. No source or dictionary ownership is selected.",
+      "existingReviewCardProjectionIds": [],
+      "proposedCardId": "master-japanese-basics:14:dictionary-context:c68f4a9d7c7dfdcd:reader-phrase-card"
+    },
+    {
+      "lessonNumber": 14,
+      "sourceHold": "M14-private-source-hold",
+      "sourceTermFace": {
+        "japanese": "あさごはん",
+        "english": "breakfast"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "breakfast, the morning meal, here the object of たべます",
+      "explanationEnglish": "あさごはん is the noun for the morning meal. Here it is the object of たべます and names the second action of the morning routine, after washing the face.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "まず、かおを あらって、あさごはんを たべます。",
+        "english": "First, I wash my face and eat breakfast.",
+        "sourceTurnOneBased": 3,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "Pattern: あさごはんを たべます, with を marking あさごはん as the object of たべます.",
+      "internalQuestions": [
+        "Is the existing sense 'breakfast' on ja-en-a232a8fc2f946462 sufficient for this use, with no new row needed?"
+      ],
+      "explanationJapanese": "あさに たべる しょくじの ことです。この れいでは 「あさごはんを たべます」の かたちで、かおを あらった あとの うごきと して でて きます。",
+      "id": "master-japanese-basics:14:dictionary-context:90e44843722fd626",
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourceFaceGapEvidence": {
+        "lesson": 14,
+        "sourceTermFace": {
+          "japanese": "あさごはん",
+          "english": "breakfast"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-a232a8fc2f946462",
+          "word": "あさごはん",
+          "english": "breakfast",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=16&way=see",
+          "examples": [
+            {
+              "target": "それから、あさごはんを たべます。",
+              "english": "Then I eat breakfast."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-a232a8fc2f946462"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-a232a8fc2f946462"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 5,
+          "value": {
+            "es": "あさごはん",
+            "en": "breakfast",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [
+        {
+          "rowIndexZeroBased": 14,
+          "value": {
+            "es": "まず、かおを あらって、あさごはんを たべます。",
+            "en": "First, I wash my face and eat breakfast.",
+            "kind": "phrase"
+          }
+        }
+      ],
+      "sourceMainCardRows": [],
+      "containingCanonicalFormIds": [
+        "form-ja-en-6e3080062b60d00a"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "privateReaderIndexZeroBased": 2
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionHold": "Private routine source differs from current main delayed-meeting lesson. No source or dictionary ownership is selected.",
+      "existingReviewCardProjectionIds": [],
+      "proposedCardId": null
+    },
+    {
+      "lessonNumber": 14,
+      "sourceHold": "M14-private-source-hold",
+      "sourceTermFace": {
+        "japanese": "しごと",
+        "english": "work"
+      },
+      "entryKind": "lesson-lexical-sense-candidate",
+      "contextualGlossEnglish": "work (noun); in しごとに いきます, 'go to work'",
+      "explanationEnglish": "しごと is a noun meaning 'work'. In this turn it appears in しごとに いきます, 'go to work', as the next step of the routine after breakfast. In turn 5 it appears as しごとの あと, 'after work'.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "それから、しごとに いきます。",
+        "english": "Then I go to work.",
+        "sourceTurnOneBased": 4,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "In しごとに いきます, に links しごと to いきます. In turn 5 (しごとの あとは どう しますか。), しごとの あと means 'after work'. In both turns しごと is the noun 'work'.",
+      "internalQuestions": [
+        "Should しごと be proposed as a new global row with the noun sense 'work' once the full dictionary confirms no exact-face row exists?",
+        "Should turn 5 (しごとの あと, 'after work') be kept as a second supporting example for the same noun sense?"
+      ],
+      "explanationJapanese": "はたらく ことを さす めいし です。この れいでは 「しごとに いきます」の かたちで、あさごはんの あとの うごきと して でて きます。「しごとの あと」の ように、「の」で ほかの ことばにも つながります。",
+      "id": "master-japanese-basics:14:dictionary-context:7b3334a57e426467",
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourceFaceGapEvidence": {
+        "lesson": 14,
+        "sourceTermFace": {
+          "japanese": "しごと",
+          "english": "work"
+        }
+      },
+      "existingGlobalExactSenseRows": [],
+      "existingGlobalSameJapaneseRowIds": [],
+      "suggestedExistingSenseIds": [],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "unregistered-lexical-context-candidate",
+      "sourcePrivateCardRows": [],
+      "sourcePrivateContainingPhraseRows": [
+        {
+          "rowIndexZeroBased": 15,
+          "value": {
+            "es": "それから、しごとに いきます。",
+            "en": "Then I go to work.",
+            "kind": "phrase"
+          }
+        },
+        {
+          "rowIndexZeroBased": 16,
+          "value": {
+            "es": "しごとの あとは どう しますか。",
+            "en": "What do you do after work?",
+            "kind": "phrase"
+          }
+        }
+      ],
+      "sourceMainCardRows": [],
+      "containingCanonicalFormIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 4,
+        "privateReaderIndexZeroBased": 3
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionHold": "Private routine source differs from current main delayed-meeting lesson. No source or dictionary ownership is selected.",
+      "existingReviewCardProjectionIds": [],
+      "proposedCardId": null,
+      "lookupScopeNote": "No exact kana/仕事 row was found in the pinned JapaneseWordData array. This is not a claim about all dictionaries or spellings."
+    },
+    {
+      "lessonNumber": 14,
+      "sourceHold": "M14-private-source-hold",
+      "sourceTermFace": {
+        "japanese": "でんしゃ",
+        "english": "train"
+      },
+      "entryKind": "lesson-sense-context-link",
+      "contextualGlossEnglish": "train, here the subject of おくれています: the train is delayed in this part of the account",
+      "explanationEnglish": "でんしゃ means 'train'. Here it is the subject of おくれています, so the train is delayed in this phase of the account. The 3 pm time in turn 9 is the planned meeting with the friend, not a train time. In turn 14 it is the speaker, not the train, who arrived at the station.",
+      "readerExample": {
+        "sourceKind": "dialogue",
+        "japanese": "でも、でんしゃが おくれています。",
+        "english": "But the train is delayed.",
+        "sourceTurnOneBased": 10,
+        "selectedJapanese": null,
+        "audioScript": null,
+        "reviewed": false
+      },
+      "usageNoteEnglish": "Pattern: でんしゃが おくれています, with が marking the train as the subject and ～ています showing the delay is ongoing. In the next turn the speaker walks to the station instead (では、あるいて えきへ いきます。).",
+      "internalQuestions": [
+        "This is a context link to the existing 'train' sense on ja-en-f7593825b016f4e3, not a separate sense; is the row's existing example (でんしゃは はちじに でます。) to stay as it is alongside this one?"
+      ],
+      "explanationJapanese": "のりものの なまえです。この れいでは 「でんしゃが おくれています」の かたちで、いま でんしゃが おくれて いる ことを いいます。ごご さんじは ともだちと あう よていの じかんで、でんしゃの じかんでは ありません。えきに ついたのは はなして いる ひとです。",
+      "id": "master-japanese-basics:14:dictionary-context:0d5c3d514b9c3c88",
+      "stableLessonKey": "master-japanese-basics:14",
+      "sourceFaceGapEvidence": {
+        "lesson": 14,
+        "sourceTermFace": {
+          "japanese": "でんしゃ",
+          "english": "train"
+        }
+      },
+      "existingGlobalExactSenseRows": [
+        {
+          "id": "ja-en-f7593825b016f4e3",
+          "word": "でんしゃ",
+          "english": "train",
+          "pronunciation": "",
+          "partOfSpeech": "term",
+          "category": "core",
+          "moduleId": "japanese-basics",
+          "lessonHref": "/?module=japanese-basics&tab=core30&target=Japanese&native=English&lesson=14&way=see",
+          "examples": [
+            {
+              "target": "でんしゃは はちじに でます。",
+              "english": "The train leaves at eight."
+            }
+          ]
+        }
+      ],
+      "existingGlobalSameJapaneseRowIds": [
+        "ja-en-f7593825b016f4e3"
+      ],
+      "suggestedExistingSenseIds": [
+        "ja-en-f7593825b016f4e3"
+      ],
+      "selectedGlobalSenseId": null,
+      "newGlobalHeadwordId": null,
+      "candidateAction": "attach-lesson-context-to-existing-sense",
+      "sourcePrivateCardRows": [
+        {
+          "rowIndexZeroBased": 9,
+          "value": {
+            "es": "でんしゃ",
+            "en": "train",
+            "kind": "term"
+          }
+        }
+      ],
+      "sourcePrivateContainingPhraseRows": [],
+      "sourceMainCardRows": [
+        {
+          "rowIndexZeroBased": 7,
+          "value": {
+            "es": "でんしゃ",
+            "en": "train",
+            "kind": "term"
+          }
+        }
+      ],
+      "containingCanonicalFormIds": [
+        "form-ja-en-b281e81e401f273f"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 10,
+        "privateReaderIndexZeroBased": 9
+      },
+      "adjacentContextFormLinks": [],
+      "sourceVersionHold": "Private routine source differs from current main delayed-meeting lesson. No source or dictionary ownership is selected.",
+      "existingReviewCardProjectionIds": [
+        "review:ja-en:master14:private-routine:dialogue10:phrase"
+      ],
+      "proposedCardId": null
+    }
+  ],
+  "proposedCardFaces": [
+    {
+      "id": "master-japanese-basics:14:dictionary-context:c68f4a9d7c7dfdcd:reader-phrase-card",
+      "sourceKind": "extension",
+      "sourceTurnOneBased": 4,
+      "es": "さいごに ともだちと はなして、うちに かえりました。",
+      "en": "Finally, I talked with my friend and went home.",
+      "kind": "phrase",
+      "runtimeSavedCardId": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "newGlobalHeadwords": 0,
+  "registeredContextLinks": 0,
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "candidateScopeNotes": [
+    "All six contexts use private Master14routine source; current main delayed-meeting source/Reader and all progress remain untouched.",
+    "Five exact global rows are referenced. The two existingそれからrecords (after that/then) are preserved separately without a merge.",
+    "しごと is an unregistered lexical-context candidate because the pinned array has no exact kana/仕事 row; no claim is made about dictionaries or spellings outside that checked scope.",
+    "さいごに has no current private card row. One inert exact extension4phrase projection is supplied with null saved-card identity.",
+    "Cumulative12review proposals do not register any of the26scoped links;14source-face proposals remain unprovided."
+  ]
+}

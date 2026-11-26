@@ -1,0 +1,613 @@
+{
+  "schema": 1,
+  "kind": "inert-private-routine-six-mode-repair",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "stableLessonKey": "master-japanese-basics:14",
+  "baselineMain": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+  "privateSourcePins": {
+    "master": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+    },
+    "extensions": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "d313ad465c98fd21c04f60dcf55c224ece2f79692719bdf42b3aafad07bfc0c9"
+    },
+    "modes": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-master-20-six-mode-prompts-ja-en.json",
+      "sha256": "b5037e6fcdac689d3f211f4e695b3dbc29c086da600039ed010add001539b5e4"
+    },
+    "forms": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+      "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+    },
+    "support": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "content/japanese-basics/private-master-practice-speaking-ja-en.json",
+      "sha256": "8285c44a1d794dcaa5def3b86cf69f4d09152eb274af386a5fdf7c71bab43315"
+    },
+    "curriculum": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "8067d96f6a4ab101539178ce938a3a2ddbe69624b8ff27a39307a097244b469c"
+    },
+    "dictionary": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "src/components/dictionary/japaneseWordData.json",
+      "sha256": "6406f3ce9d69cecdd9601c40f47067625b13c6cda6ceb3abb950060e9c9e8237"
+    },
+    "readerAdapter": {
+      "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+      "path": "src/data/japanese-basics-readers.ts",
+      "sha256": "1cf01a08ee9e45f67a377f953bcd9c502f3b4681f443852da738c7f1b9577cbf"
+    }
+  },
+  "preservedPriorModes": {
+    "see": {
+      "turn": 1,
+      "prompt": "Read the usual morning routine. Identify ふだんは as the marker for what usually happens."
+    },
+    "recall": {
+      "turn": 3,
+      "prompt": "Recall the first steps in the morning routine, beginning with まず and keeping the action sequence."
+    },
+    "hear": {
+      "turn": 10,
+      "prompt": "Listen to the changed plan and choose the meaning that the train is delayed now."
+    },
+    "type": {
+      "turn": 13,
+      "prompt": "Type the message that quotes 'I will be a little late'; keep the Japanese corner quotes and と."
+    },
+    "say": {
+      "turn": 11,
+      "prompt": "Say the new plan to walk to the station, using あるいて and destination へ."
+    },
+    "write": {
+      "turn": 14,
+      "prompt": "Write the arrival and waiting sentence, preserving the past forms つきました and まっていました."
+    }
+  },
+  "activities": [
+    {
+      "id": "master-japanese-basics:14:routine-sixmode:see",
+      "mode": "see",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 1,
+      "promptEnglish": "Read the usual morning routine. Find ふだんは, the marker that shows what the narrator usually does.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "contextEnglish": "You are the narrator describing a normal weekday morning. Read the sentence about your usual wake-up time.",
+      "contextJapanese": "ふだんの へいじつの あさの はなしを します。",
+      "explanationEnglish": "ふだんは marks the usual pattern. Here it introduces the normal time for getting up. おきます is the polite ～ます form, used here for a habitual action.",
+      "explanationJapanese": "「ふだんは」は たいてい そう する ことを あらわします。「おきます」は ていねいな いいかたで、ふだんの しゅうかんを いう ときに つかいます。",
+      "targetJapanese": "ふだんは あさ しちじに おきます。",
+      "targetEnglish": "I usually get up at seven in the morning.",
+      "wordBankJapanese": [
+        "ふだんは",
+        "あさ",
+        "しちじに",
+        "おきます。"
+      ],
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:1",
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 1,
+        "privateReaderIndexZeroBased": 0
+      },
+      "preservedPriorCue": {
+        "turn": 1,
+        "prompt": "Read the usual morning routine. Identify ふだんは as the marker for what usually happens."
+      },
+      "matchingCanonicalFormIds": [
+        "form-ja-en-235062d82bb143af"
+      ],
+      "dictionarySupportRowIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "cardReference": {
+        "existingPrivatePhraseRowIndexesZeroBased": [
+          12
+        ],
+        "existingMainPhraseRowIndexesZeroBased": [],
+        "supportingTermRowIndexesZeroBased": [
+          1,
+          10
+        ],
+        "rowIndexesAreStableSavedIds": false,
+        "proposedCardId": null
+      }
+    },
+    {
+      "id": "master-japanese-basics:14:routine-sixmode:recall",
+      "mode": "recall",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 3,
+      "promptEnglish": "Recall what the narrator does first in the morning. Begin with まず and link the two actions in the correct order.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "contextEnglish": "Your partner asks what you do first in the morning. Answer by recalling the first steps of your routine.",
+      "contextJapanese": "あいてが「あさは まず なにを しますか」と ききます。あさの さいしょの ことを こたえます。",
+      "explanationEnglish": "まず introduces the first action. かおを あらって uses the te-form to link the first action to the next one. あさごはんを たべます completes the sequence with the polite ending ～ます. Washing the face comes first, then eating breakfast.",
+      "explanationJapanese": "「まず」は さいしょに する ことを あらわします。「かおを あらって」の「あらって」は、つぎの こうどうへ つづける かたちです。「たべます」で ぜんたいを ていねいに おわります。かおを あらうのが さきで、あさごはんは その あとです。",
+      "targetJapanese": "まず、かおを あらって、あさごはんを たべます。",
+      "targetEnglish": "First, I wash my face and eat breakfast.",
+      "wordBankJapanese": [
+        "まず、かおを",
+        "あらって、あさごはんを",
+        "たべます。"
+      ],
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:3",
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 3,
+        "privateReaderIndexZeroBased": 2
+      },
+      "preservedPriorCue": {
+        "turn": 3,
+        "prompt": "Recall the first steps in the morning routine, beginning with まず and keeping the action sequence."
+      },
+      "matchingCanonicalFormIds": [
+        "form-ja-en-6e3080062b60d00a"
+      ],
+      "dictionarySupportRowIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "cardReference": {
+        "existingPrivatePhraseRowIndexesZeroBased": [
+          14
+        ],
+        "existingMainPhraseRowIndexesZeroBased": [],
+        "supportingTermRowIndexesZeroBased": [
+          5,
+          8
+        ],
+        "rowIndexesAreStableSavedIds": false,
+        "proposedCardId": null
+      }
+    },
+    {
+      "id": "master-japanese-basics:14:routine-sixmode:hear",
+      "mode": "hear",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 10,
+      "promptEnglish": "Listen to the narrator’s next sentence after the planned three-o’clock meeting. Choose the matching English meaning.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Listener",
+      "contextEnglish": "You are the listener. The narrator has just said that the meeting with a friend is planned for three in the afternoon. Listen to what the narrator says next.",
+      "contextJapanese": "ともだちと あう よていは ごご さんじです。つぎの ことばを ききます。",
+      "explanationEnglish": "おくれています uses ～ています to describe the train's current state: it is delayed now. Three in the afternoon is the planned time for meeting the friend, and walking to the station is the plan that comes afterwards, so neither is the meaning of this sentence.",
+      "explanationJapanese": "「おくれています」は「ています」の かたちで、いま でんしゃが おくれて いる ようすを あらわします。「ごご さんじ」は ともだちと あう よていの じかんです。「あるいて えきへ いきます」は その あとの けいかくです。",
+      "targetJapanese": "でも、でんしゃが おくれています。",
+      "targetEnglish": "But the train is delayed.",
+      "wordBankJapanese": [
+        "でも、でんしゃが",
+        "おくれています。"
+      ],
+      "choices": [
+        {
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 10,
+          "japanese": "でも、でんしゃが おくれています。",
+          "english": "But the train is delayed."
+        },
+        {
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 9,
+          "japanese": "ごご さんじの よていです。",
+          "english": "It is planned for three in the afternoon."
+        },
+        {
+          "sourceKind": "dialogue",
+          "sourceTurnOneBased": 11,
+          "japanese": "では、あるいて えきへ いきます。",
+          "english": "Then I will walk to the station."
+        }
+      ],
+      "correctChoiceSourceTurnOneBased": 10,
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:10",
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 10,
+        "privateReaderIndexZeroBased": 9
+      },
+      "preservedPriorCue": {
+        "turn": 10,
+        "prompt": "Listen to the changed plan and choose the meaning that the train is delayed now."
+      },
+      "matchingCanonicalFormIds": [
+        "form-ja-en-b281e81e401f273f"
+      ],
+      "dictionarySupportRowIds": [
+        "ja-en-a932e1c1e8f04edc"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "cardReference": {
+        "existingPrivatePhraseRowIndexesZeroBased": [],
+        "existingMainPhraseRowIndexesZeroBased": [
+          15
+        ],
+        "supportingTermRowIndexesZeroBased": [
+          2,
+          9
+        ],
+        "rowIndexesAreStableSavedIds": false,
+        "proposedCardId": "review:ja-en:master14:private-routine:dialogue10:phrase"
+      },
+      "hearScriptCandidateJapanese": "でも、でんしゃが おくれています。"
+    },
+    {
+      "id": "master-japanese-basics:14:routine-sixmode:type",
+      "mode": "type",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 13,
+      "promptEnglish": "Type the narrator’s Japanese reply: “Yes, I will write, ‘I will be a little late.’” Keep はい, 「」, と and the punctuation 、 and 。.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "contextEnglish": "Your partner asks whether you will write a message to your friend. Answer yes and report the message you will write.",
+      "contextJapanese": "あいてが「ともだちに メッセージを かきますか」と ききます。「はい」と こたえて、かく メッセージを いいます。",
+      "explanationEnglish": "はい answers the partner's question with yes. 「すこし おそく なります」 is the content of the message. と marks the quotation and connects it to かきます, the polite form expressing the planned writing in this scene.",
+      "explanationJapanese": "「はい」は あいての しつもんに こたえる ことばです。「すこし おそく なります」は かく メッセージの なかみです。「と」は その なかみを しめして、「かきます」に つなぎます。「かきます」は これから かく ことを いう ていねいな いいかたです。",
+      "targetJapanese": "はい、「すこし おそく なります」と かきます。",
+      "targetEnglish": "Yes, I will write, “I will be a little late.”",
+      "wordBankJapanese": [
+        "はい、「すこし",
+        "おそく",
+        "なります」と",
+        "かきます。"
+      ],
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:13",
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 13,
+        "privateReaderIndexZeroBased": 12
+      },
+      "preservedPriorCue": {
+        "turn": 13,
+        "prompt": "Type the message that quotes 'I will be a little late'; keep the Japanese corner quotes and と."
+      },
+      "matchingCanonicalFormIds": [],
+      "dictionarySupportRowIds": [
+        "ja-en-1ec9e46fcfdccd35"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "cardReference": {
+        "existingPrivatePhraseRowIndexesZeroBased": [],
+        "existingMainPhraseRowIndexesZeroBased": [],
+        "supportingTermRowIndexesZeroBased": [
+          0
+        ],
+        "rowIndexesAreStableSavedIds": false,
+        "proposedCardId": "review:ja-en:master14:private-routine:dialogue13:phrase"
+      }
+    },
+    {
+      "id": "master-japanese-basics:14:routine-sixmode:say",
+      "mode": "say",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 11,
+      "promptEnglish": "Begin with “Then” and say that you will walk to the station. Use あるいて for the way you go and えきへ for the destination.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "contextEnglish": "The train is delayed, so you change your plan. Tell your partner the new way you will go to the station.",
+      "contextJapanese": "でんしゃが おくれて いるので、けいかくを かえます。あたらしい いきかたを あいてに はなします。",
+      "explanationEnglish": "では picks up what was just said, the delay, and introduces what comes next. あるいて shows the way of going, and えきへ marks the station as the destination. いきます is the polite form expressing the next planned movement in this scene.",
+      "explanationJapanese": "「では」は まえの ことを うけて、つぎの ことを いう ときに つかいます。「あるいて」は いく ほうほうを あらわします。「えきへ」は いく ばしょを しめします。「いきます」は これから いく ことを いう ていねいな いいかたです。",
+      "targetJapanese": "では、あるいて えきへ いきます。",
+      "targetEnglish": "Then I will walk to the station.",
+      "wordBankJapanese": [
+        "では、あるいて",
+        "えきへ",
+        "いきます。"
+      ],
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:11",
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 11,
+        "privateReaderIndexZeroBased": 10
+      },
+      "preservedPriorCue": {
+        "turn": 11,
+        "prompt": "Say the new plan to walk to the station, using あるいて and destination へ."
+      },
+      "matchingCanonicalFormIds": [],
+      "dictionarySupportRowIds": [],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "cardReference": {
+        "existingPrivatePhraseRowIndexesZeroBased": [],
+        "existingMainPhraseRowIndexesZeroBased": [
+          16
+        ],
+        "supportingTermRowIndexesZeroBased": [],
+        "rowIndexesAreStableSavedIds": false,
+        "proposedCardId": "review:ja-en:master14:private-routine:dialogue11:phrase"
+      }
+    },
+    {
+      "id": "master-japanese-basics:14:routine-sixmode:write",
+      "mode": "write",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 14,
+      "promptEnglish": "Begin with “After that” and write both past sentences: you arrived at the station, and your friend was waiting. Keep つきました and まっていました.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "contextEnglish": "You walked to the station because the train was delayed. Now you look back and tell what happened when you got there.",
+      "contextJapanese": "あるいて えきへ いった あとの ことを はなします。",
+      "explanationEnglish": "つきました is the past polite form of arrive; the narrator is the one who arrived. まっていました uses ～ていました for an ongoing state in the past: the friend was waiting when the narrator arrived. The subject of まっていました is ともだち.",
+      "explanationJapanese": "「つきました」は「つく」の かこの ていねいな かたちで、わたしが えきに ついた ことを あらわします。「まっていました」は「まつ」の「ていました」の かたちです。わたしが えきに ついた とき、ともだちは まって いました。まって いたのは ともだちです。",
+      "targetJapanese": "そのあと えきに つきました。ともだちは まっていました。",
+      "targetEnglish": "After that, I arrived at the station. My friend was waiting.",
+      "wordBankJapanese": [
+        "そのあと",
+        "えきに",
+        "つきました。ともだちは",
+        "まっていました。"
+      ],
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:14",
+      "readerReference": {
+        "moduleId": "master-japanese-basics",
+        "lesson": 14,
+        "sourceRevision": "018e69872875ae15acc7381368bac199bf61171e",
+        "sourceKind": "dialogue",
+        "sourceTurnOneBased": 14,
+        "privateReaderIndexZeroBased": 13
+      },
+      "preservedPriorCue": {
+        "turn": 14,
+        "prompt": "Write the arrival and waiting sentence, preserving the past forms つきました and まっていました."
+      },
+      "matchingCanonicalFormIds": [
+        "form-ja-en-e2fe935c347bd01c"
+      ],
+      "dictionarySupportRowIds": [
+        "ja-en-5f7c2d6eadf0bb9b",
+        "ja-en-5416196b0a9c3877"
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "cardReference": {
+        "existingPrivatePhraseRowIndexesZeroBased": [],
+        "existingMainPhraseRowIndexesZeroBased": [],
+        "supportingTermRowIndexesZeroBased": [
+          3,
+          7
+        ],
+        "rowIndexesAreStableSavedIds": false,
+        "proposedCardId": "review:ja-en:master14:private-routine:dialogue14:phrase"
+      }
+    }
+  ],
+  "proposedCardFaces": [
+    {
+      "id": "review:ja-en:master14:private-routine:dialogue10:phrase",
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:10",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 10,
+      "es": "でも、でんしゃが おくれています。",
+      "en": "But the train is delayed.",
+      "kind": "phrase",
+      "projectionScope": "missing private full-target phrase row; identical existing main faces may be reused only after source/identity review",
+      "identicalMainPhraseRowIndexesZeroBased": [
+        15
+      ],
+      "runtimeSavedCardId": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review:ja-en:master14:private-routine:dialogue13:phrase",
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:13",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 13,
+      "es": "はい、「すこし おそく なります」と かきます。",
+      "en": "Yes, I will write, “I will be a little late.”",
+      "kind": "phrase",
+      "projectionScope": "missing private full-target phrase row; identical existing main faces may be reused only after source/identity review",
+      "identicalMainPhraseRowIndexesZeroBased": [],
+      "runtimeSavedCardId": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review:ja-en:master14:private-routine:dialogue11:phrase",
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:11",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 11,
+      "es": "では、あるいて えきへ いきます。",
+      "en": "Then I will walk to the station.",
+      "kind": "phrase",
+      "projectionScope": "missing private full-target phrase row; identical existing main faces may be reused only after source/identity review",
+      "identicalMainPhraseRowIndexesZeroBased": [
+        16
+      ],
+      "runtimeSavedCardId": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review:ja-en:master14:private-routine:dialogue14:phrase",
+      "sourceFaceKey": "Japanese:English:master-japanese-basics:14:private488:dialogue:14",
+      "sourceKind": "dialogue",
+      "sourceTurnOneBased": 14,
+      "es": "そのあと えきに つきました。ともだちは まっていました。",
+      "en": "After that, I arrived at the station. My friend was waiting.",
+      "kind": "phrase",
+      "projectionScope": "missing private full-target phrase row; identical existing main faces may be reused only after source/identity review",
+      "identicalMainPhraseRowIndexesZeroBased": [],
+      "runtimeSavedCardId": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "internalQuestions": [
+    "Turn 10 gives only the current delay. It gives no duration, new departure time, or call time, so none is stated in any learner-facing text.",
+    "Turn 9 gives the planned meeting time (three in the afternoon) and turn 10 gives the train delay. The hear explanation names the time as the meeting time so it cannot be read as the train's time.",
+    "Turn 11 has the narrator walk to the station, so the write context follows the walk and does not say the narrator rode the delayed train.",
+    "Turn 14: the arrival is the narrator's and the waiting is the friend's. No clock time is given, so no arrival time is added.",
+    "Turn 13 is a message that will be written, quoted with と and かきます. It is not converted to a spoken or past utterance.",
+    "The questions at turns 2, 5, 8, and 12 are attributed to the partner (あいて), not to the station friend (ともだち). The source does not name this speaker; confirm that あいて is the intended role noun.",
+    "Hear choices are turns 10, 9, and 11 in that order, with source Japanese and English unchanged, and turn 10 is correct. Confirm whether the runtime shuffles the display order, since the correct choice is listed first.",
+    "Word bank chunks are literal pieces of each target with 、 。 「 」 attached to the chunk they touch. Confirm that the runtime accepts punctuation-bearing tiles.",
+    "The extension lines (the three-thirty meeting, the apology, the reply, the final talk and return home) are not used in any target or learner-facing text.",
+    "The private card rows hold exact phrase rows for the turn 1 and turn 3 targets only. The targets for turns 10, 11, 13, and 14 have no exact phrase row, and no card is created or registered here.",
+    "No audio, owner, progress, or runtime values are set, published is false, and IDs are null because none were supplied."
+  ],
+  "progressPolicy": {
+    "publicModuleId": "master-japanese-basics",
+    "publicLessonNumber": 14,
+    "core30ScopeKeyIndependent": "[\"core30\",1,\"master-japanese-basics\",\"Japanese\",\"English\",null]",
+    "lessonLogKey": "14",
+    "readerSeedId": "seed-ja-master-japanese-basics-lesson-14",
+    "sourceVersionInExistingProgressKey": false,
+    "sourceAdoptionSelected": false,
+    "progressWrites": false,
+    "migrationDecision": "Private routine and main delayed-meeting share lesson14identity. No saved progress/cards are remapped here; source adoption and saved-item semantics require an explicit atomic decision."
+  },
+  "dictionaryLinkage": {
+    "privateScopedRowIds": [
+      "ja-en-a932e1c1e8f04edc",
+      "ja-en-1ec9e46fcfdccd35",
+      "ja-en-5f7c2d6eadf0bb9b",
+      "ja-en-5416196b0a9c3877",
+      "ja-en-305a5459e8e57088"
+    ],
+    "sourceTermsWithoutExactScopedDictionaryFace": [
+      "ふだんは あさ|usually in the morning",
+      "まず|first",
+      "それから|then",
+      "さいごに|finally",
+      "あさごはん|breakfast",
+      "しごと|work",
+      "でんしゃ|train"
+    ],
+    "newDictionaryRows": 0,
+    "selected": false
+  },
+  "selectedJapanese": null,
+  "audioScript": null,
+  "registered": false,
+  "reviewed": false,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "browser": false,
+    "v4": false
+  },
+  "mainPins": {
+    "master": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    "support": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/data/japanese-basics-practice.json",
+      "sha256": "5485106e320eb2dbd92026bf5ffff3d295d9f51ef3b728bd098245a9b0a9b683"
+    },
+    "curriculum": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    "dictionary": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/components/dictionary/japaneseWordData.json",
+      "sha256": "6406f3ce9d69cecdd9601c40f47067625b13c6cda6ceb3abb950060e9c9e8237"
+    },
+    "progressScope": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/lib/core30-scope.ts",
+      "sha256": "df149df15a7ed6195b88db809898d3cd606cf687e066f34ca8a087c9735cce26"
+    },
+    "progressPlan": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/lib/core30-plan.ts",
+      "sha256": "d812dbc533636b7ca15e661a8d32986d72f167fe19abb700a571f141f50a9b41"
+    },
+    "cardState": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/state/flashcard-state.tsx",
+      "sha256": "e89855eb590093daca5aee40218c60040b9eb1030aeb3a187cc4473a9ba8d1c3"
+    },
+    "cardLookup": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "src/lib/lesson-word-card.ts",
+      "sha256": "88077852ef2b0c2f41fcf07033227705faa26c6f6bdd64dc1496c0f1068b9482"
+    },
+    "priorContext": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "content/japanese-basics/review/master14-context-repair-2026-11-25/context-alternative.json",
+      "sha256": "b83a42d6c0499cf59942955a30737c60dcf8cdfd2f214035506dbd23c468916d"
+    },
+    "priorSupplement": {
+      "gitRevision": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+      "path": "content/japanese-basics/review/master12-15-form-context-supplement-2026-11-26/context-explanations.json",
+      "sha256": "6da584a74079c1be74f1ec811df8037822239f55a4c5aa44eab9d5c1faad899b"
+    }
+  },
+  "workspaceByteExactMainPinKeys": [
+    "master",
+    "extensions",
+    "support",
+    "curriculum",
+    "dictionary",
+    "progressScope",
+    "progressPlan",
+    "priorContext",
+    "priorSupplement"
+  ],
+  "identityAuditMethod": "Current-main identity adapters are inspected through immutable git objects; this source worktree has older copies of two card adapters. No runtime adapter is edited.",
+  "scopeNotes": [
+    "This sidecar supplies the six missing contextual modes against immutable private routine source, separate from current main delayed-meeting source.",
+    "Combined with the earlier114literal mode pairs, this provides120source-only contextual pairs across20Masterlessons, with119distinct target faces within lessons because Master8See/Write share a target. This is not runtime or release coverage.",
+    "Four missing private full-target phrase rows receive inert source-face projections. Two of their text pairs also exist as main phrase rows; no duplicate saved card or new recording is created.",
+    "Type13andSay11have no identical canonical form prompt. Existing83canonical form IDs/explanations remain untouched; no trainer form is invented."
+  ]
+}

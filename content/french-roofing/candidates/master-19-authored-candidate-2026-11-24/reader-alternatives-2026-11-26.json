@@ -1,0 +1,695 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:19:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "fb5c90be1c1844423f91988bb5a3041a0ab116c1",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-19-authored-candidate-2026-11-24/candidate.json",
+  "canonicalCandidateSha256": "6b6d2c4b997acf39012cb0b169fea767e95ae22aea7fa74431c8cb712ae03137",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-19-source-decision-2026-11-18/packet.json",
+    "sha256": "cf6ac19a33c7e4ce285a77a0bfdbf752a0b7bb44d4c8b0970600351053ecd93d"
+  },
+  "sourceObjectiveEnglish": "Walk a homeowner through the finished job and explain what the warranty covers, and under what conditions",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner on the final walkthrough: explain what was done, what each warranty would cover and under what conditions with siempre que and a menos que, and how to reach you.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; provisional lexical/grammar subset does not replace full source work objective",
+  "scope": "All16 missing Reader anchors in this lesson (34acrossMaster19–20): unselected full-face meaning-support alternatives, not canonical replacement, qualified promotion or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:1",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:1",
+      "sourceEnglish": "On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "sourceSpanish": "El viernes por la tarde, Rogelio hizo el recorrido final con el señor y la señora Novak.",
+      "legacySourceRef": "master-roofing:19:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: On Friday afternoon, Rogelio did the final walkthrough with Mr. and Mrs. Novak.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Vendredi après-midi, Rogelio a fait la visite finale avec M. et Mme Novak.",
+      "unresolvedReviewNotes": [
+        "Meaning-support alternative only; not a selected or reviewed French display. Archived French rewrite not used."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:1:1",
+          "label": "Variant 1",
+          "candidateFrench": "Vendredi après-midi, Rogelio a fait la visite finale avec M. et Mme Novak.",
+          "alignmentNote": "One particular FRIDAYAFTERNOON RogelioFINALwalkthrough WITHMrANDMrsNovak; no habitual-Friday reading. Archive equality independently computed, not presumed rewritten.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:2",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:2",
+      "sourceEnglish": "First they walked around the house and checked the gutter, the downspouts and the yard.",
+      "sourceSpanish": "Primero caminaron alrededor de la casa y revisaron la canaleta, las bajadas de agua y el patio.",
+      "legacySourceRef": "master-roofing:19:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: First they walked around the house and checked the gutter, the downspouts and the yard.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Ils ont d’abord fait le tour de la maison et examiné la gouttière, les descentes d’eau et le jardin.",
+      "unresolvedReviewNotes": [
+        "Scope of the inspection is only as narrated in the source; no outside verification of the areas checked.",
+        "Cour/yard and descentes pluviales/downspouts are direct unselected support terms; no narrowed garden/landscape claim."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "D’abord, ils ont fait le tour de la maison et ont vérifié la gouttière, les descentes pluviales et la cour.",
+          "alignmentNote": "FIRST places outdoor house circuit/checks (gutter/downspouts/yard) before later scene; no invented sequential walk-before-check distinction.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:3",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:3",
+      "sourceEnglish": "Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+      "sourceSpanish": "Rogelio: Pasamos el imán dos veces, pero si encuentran un clavo, me avisan.",
+      "legacySourceRef": "master-roofing:19:passage:3",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: We ran the magnet twice, but if you find a nail, let me know.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous avons passé l’aimant deux fois; si vous trouvez un clou, prévenez-nous. »",
+      "unresolvedReviewNotes": [
+        "Magnet method and nail-finding procedure are narrated only; no protocol is supplied here."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Nous avons passé l’aimant deux fois, mais si vous trouvez un clou, prévenez-moi. »",
+          "alignmentNote": "Keeps the speaker frame, 'twice', the conditional 'if you find a nail' and the request to be told.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:4",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+      "sourceSpanish": "Rogelio: Cambiamos todo el techo, la sub-capa y tres hojas de cubierta, y todo está en la factura final.",
+      "legacySourceRef": "master-roofing:19:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: We replaced the whole roof, the underlayment and three sheets of deck, and it's all on the final invoice.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « La facture finale décrit le toit, la sous-couche et trois panneaux de support; vérifions ensemble les travaux effectivement réalisés. »",
+      "unresolvedReviewNotes": [
+        "Whether the final invoice matches the work actually done is not verified in this row; invoice scope needs review.",
+        "De toit disambiguates deck roof context; platelage/pontage/support de toiture remains unselected trade/locale terminology."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Nous avons remplacé tout le toit, la sous-couche et trois panneaux de platelage de toit, et tout figure sur la facture finale. »",
+          "alignmentNote": "Keeps the whole roof, the underlayment, three deck sheets as a count, and the final invoice as the stated record; deck rendered as platelage.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:5",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:5",
+      "sourceEnglish": "Mrs. Novak: And what happens if we get a leak next winter?",
+      "sourceSpanish": "Señora Novak: ¿Y qué pasa si tenemos una gotera el próximo invierno?",
+      "legacySourceRef": "master-roofing:19:passage:5",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Mrs. Novak: And what happens if we get a leak next winter?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Mme Novak : « Et s’il y a une fuite l’hiver prochain ? »",
+      "unresolvedReviewNotes": [
+        "Question only; no answer or outcome is implied by this row."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Mme Novak : « Et que se passe-t-il si nous avons une fuite l’hiver prochain ? »",
+          "alignmentNote": "Keeps Mrs. Novak as speaker and the conditional 'what happens if' next winter as a question.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:6",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+      "sourceSpanish": "Rogelio: Hay dos garantías: la garantía del producto, del fabricante, y la garantía de instalación, de nuestra compañía.",
+      "legacySourceRef": "master-roofing:19:passage:6",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: There are two warranties: the product warranty, from the manufacturer, and the installation warranty, from our company.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Il existe une garantie du produit et une garantie de pose; leurs conditions figurent dans leurs documents respectifs. »",
+      "unresolvedReviewNotes": [
+        "Warranty terms, durations and certificate contents are outside this line and need qualified warranty review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:6:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Il y a deux garanties : la garantie du produit — celle du fabricant — et la garantie d’installation — celle de notre entreprise. »",
+          "alignmentNote": "TWO guarantees explicitly paired: PRODUCT from MANUFACTURER versus INSTALLATION from OURcompany; no third warranty or extra coverage condition.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:7",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+      "sourceSpanish": "Rogelio: La garantía cubriría cualquier gotera por la instalación, durante los años que indica el certificado.",
+      "legacySourceRef": "master-roofing:19:passage:7",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: The warranty would cover any leak caused by the installation, for the years the certificate states.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Une fuite imputable à la pose pourrait relever de notre garantie, selon le certificat et après examen de la cause. »",
+      "unresolvedReviewNotes": [
+        "No coverage duration appears in the source; the certificate years are unknown here.",
+        "Coverage statement is Rogelio's utterance and is not verified.",
+        "Source La garantie/the warranty does not name which of the two preceding warranties; antecedent not silently selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « La garantie couvrirait toute fuite causée par l’installation, pendant les années indiquées dans le certificat. »",
+          "alignmentNote": "Keeps the conditional 'would cover', 'any' leak caused by installation, and 'the years the certificate states' with no duration invented.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:8",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+      "sourceSpanish": "Rogelio: La cobertura es completa siempre que no se modifique el techo sin avisarnos.",
+      "legacySourceRef": "master-roofing:19:passage:8",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: The coverage is complete as long as the roof isn't modified without telling us.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « La couverture et les exclusions doivent être lues dans le certificat; je ne peux pas promettre une couverture complète. »",
+      "unresolvedReviewNotes": [
+        "Claim that coverage is complete is Rogelio's statement; contract terms on roof modification and notice need qualified review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « La couverture de la garantie est complète tant qu’on ne modifie pas le toit sans nous en avertir. »",
+          "alignmentNote": "COMPLETEcoverage ASLONGASroofNOTmodifiedWITHOUTNOTIFYINGus; de la garantie disambiguates coverage from physical roofing, no permission requirement or actual contract validation.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:9",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+      "sourceSpanish": "Rogelio: Por ejemplo, si alguien instala una antena o paneles solares, eso podría ser una exclusión.",
+      "legacySourceRef": "master-roofing:19:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: For example, if someone installs an antenna or solar panels, that could be an exclusion.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Une antenne ou des panneaux solaires peuvent modifier les conditions; vérifions les clauses avant d’en tirer une conclusion. »",
+      "unresolvedReviewNotes": [
+        "Effect of an antenna or solar panels on coverage is conditional and unconfirmed; exclusion scope is open outside this row."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Par exemple, si quelqu’un installe une antenne ou des panneaux solaires, cela pourrait constituer une exclusion. »",
+          "alignmentNote": "Keeps 'could be an exclusion' as a possibility, not an automatic exclusion.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:10",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+      "sourceSpanish": "Rogelio: El desgaste normal no está cubierto, y el daño por tormenta va por su seguro, a menos que haya un defecto de instalación.",
+      "legacySourceRef": "master-roofing:19:passage:10",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Normal wear isn't covered, and storm damage goes through your insurance, unless there's an installation defect.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « L’usure et les dégâts de tempête suivent les conditions du contrat et de l’assurance; la cause d’une fuite doit être établie. »",
+      "unresolvedReviewNotes": [
+        "Exact scope of the exception remains open outside this row; insurance and defect determination need qualified review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « L’usure normale n’est pas couverte, et les dégâts de tempête passent par votre assurance, à moins qu’il n’y ait un défaut d’installation. »",
+          "alignmentNote": "Normalwear NOTcovered ANDstormdamageYOURinsurance UNLESSinstallationdefect retained; exception scope remains as source, no independent insurance interpretation selected.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:11",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+      "sourceSpanish": "Rogelio: Para la garantía del producto, el registro se hace en línea, y yo se lo dejo listo esta semana.",
+      "legacySourceRef": "master-roofing:19:passage:11",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: For the product warranty, registration is done online, and I'll have it done for you this week.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je vérifierai qui doit enregistrer la garantie du produit et vous transmettrai la confirmation si cela s’applique. »",
+      "unresolvedReviewNotes": [
+        "Whether registration applies or has been completed is not confirmed; no completion is asserted."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Pour la garantie du produit, l’enregistrement se fait en ligne, et je l’effectuerai pour vous cette semaine. »",
+          "alignmentNote": "PRODUCTwarranty/onlineREGISTRATION/I WILLcarryitout FORYOU THISWEEK preserved as completion promise, not merely take-care-of-it or plan contact; not verified performed.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:12",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: Would you like us to check the attic together?",
+      "sourceSpanish": "Rogelio: ¿Le gustaría que revisáramos el ático juntos?",
+      "legacySourceRef": "master-roofing:19:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Would you like us to check the attic together?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Voulez-vous que nous examinions les combles ensemble, si l’accès est sûr ? »",
+      "unresolvedReviewNotes": [
+        "Access conditions for the attic are not stated in the source; no safety protocol is added."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Aimeriez-vous que nous examinions les combles ensemble ? »",
+          "alignmentNote": "Polite WOULDYOULIKE for WEcheckatticTOGETHER retained; no converted permission, required inspection or completed check.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:13",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:13",
+      "sourceEnglish": "In the attic everything was dry and the ventilation was working well.",
+      "sourceSpanish": "En el ático todo estaba seco y la ventilación funcionaba bien.",
+      "legacySourceRef": "master-roofing:19:passage:13",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: In the attic everything was dry and the ventilation was working well.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Dans les zones accessibles, ils n’ont pas vu d’humidité; une vérification de la ventilation demanderait les mesures appropriées.",
+      "unresolvedReviewNotes": [
+        "Dryness and ventilation are narrated only; no measurement is recorded in the source and qualified review is needed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:13:1",
+          "label": "Variant 1",
+          "candidateFrench": "Dans les combles, tout était sec et la ventilation fonctionnait bien.",
+          "alignmentNote": "Keeps the attic as dry and ventilation as working well, presented as narrated observation rather than measured proof.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:14",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+      "sourceSpanish": "Rogelio: Si ve una gotera, llámenos de inmediato, y una reclamación de garantía se atiende en pocos días.",
+      "legacySourceRef": "master-roofing:19:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: If you see a leak, call us right away, and a warranty claim is handled within a few days.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Si vous voyez une fuite, prévenez-nous rapidement; le délai et la procédure de réclamation sont indiqués dans vos documents. »",
+      "unresolvedReviewNotes": [
+        "Claim timeline and procedure are Rogelio's statement; resolution is not implied and contract terms need review."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si vous voyez une fuite, appelez-nous tout de suite, et une réclamation au titre de la garantie est traitée sous quelques jours. »",
+          "alignmentNote": "IFleak CALLUSRIGHTAWAY ANDwarranty claim HANDLED WITHINfewdays retained as quoted timing promise; traitée not insurance acceptance, payment or resolved outcome.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:15",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+      "sourceSpanish": "Rogelio: Para el mantenimiento, bastaría con limpiar la canaleta dos veces al año y revisar el techo desde el suelo después de una tormenta fuerte.",
+      "legacySourceRef": "master-roofing:19:passage:15",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: For maintenance, it would be enough to clean the gutter twice a year and check the roof from the ground after a strong storm.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Pour l’entretien, suivez le plan applicable et demandez une inspection qualifiée après une tempête si nécessaire. »",
+      "unresolvedReviewNotes": [
+        "Sufficiency of this maintenance is a quoted view and is not approved; qualified roofing review is needed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Pour l’entretien, il suffirait de nettoyer la gouttière deux fois par an et de vérifier le toit depuis le sol après une forte tempête. »",
+          "alignmentNote": "Keeps 'would be enough' as a quoted view, twice-yearly gutter cleaning, and a ground check after a strong storm.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:19:fr-en:reader:16",
+      "candidateRowId": "master-roofing:19:fr-en:candidate:reader:16",
+      "sourceEnglish": "Rogelio: Here's my business card; do you have any questions before signing?",
+      "sourceSpanish": "Rogelio: Aquí tiene mi tarjeta de presentación; ¿tiene alguna pregunta antes de firmar?",
+      "legacySourceRef": "master-roofing:19:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Here's my business card; do you have any questions before signing?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Warranty coverage, exclusions, registration, claim timeline, maintenance and attic observations differ between source and archived French. Preserve exact source meanings and resolve actual certificate/contract/locale context with qualified French, roofing, product and consumer-contract review; do not silently use archived enDisplay/nativeDisplay rewrites."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Voici ma carte; avez-vous des questions avant de signer ? »",
+      "unresolvedReviewNotes": [
+        "Pre-signing questions are left open; no answer is implied."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:19:fr-en:reader-alternative:16:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Voici ma carte de visite ; avez-vous des questions avant de signer ? »",
+          "alignmentNote": "Keeps the business card handoff and the question before signing.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:19:fr-en:reader:1",
+      "master-roofing:19:fr-en:reader:2",
+      "master-roofing:19:fr-en:reader:3",
+      "master-roofing:19:fr-en:reader:4",
+      "master-roofing:19:fr-en:reader:5",
+      "master-roofing:19:fr-en:reader:6",
+      "master-roofing:19:fr-en:reader:7",
+      "master-roofing:19:fr-en:reader:8",
+      "master-roofing:19:fr-en:reader:9",
+      "master-roofing:19:fr-en:reader:10",
+      "master-roofing:19:fr-en:reader:11",
+      "master-roofing:19:fr-en:reader:12",
+      "master-roofing:19:fr-en:reader:13",
+      "master-roofing:19:fr-en:reader:14",
+      "master-roofing:19:fr-en:reader:15",
+      "master-roofing:19:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 16,
+    "supplementalFullFaceAlternativeCount": 16
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "internalNotes": [
+    "English target/French support only; raw source warranty, insurance, incident, structural, weather and work-completion claims retained as utterances/story, not independent verification.",
+    "All original canonical/source/speaking/IDs/holds immutable; full Reader alternative coverage is distinct from objective completion or qualified selection.",
+    "Lexical/locale options stay reviewable; technical vocabulary is taught directly.",
+    "Do not adopt unverified AI assertion that source impacts specifically name hail; source says hits/golpes. Tempête remains broad storm, not silently narrowed to thunderstorm.",
+    "Full-face variants may equal faithful archived French; equality flags are independently recomputed, not an approval or reason to rewrite valid wording."
+  ],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "scope": "Original speaking names Spanish siempre que/a menos que forms. French conditional support and full Reader alternatives do not silently adapt or complete source grammar objective.",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner on the final walkthrough: explain what was done, what each warranty would cover and under what conditions with siempre que and a menos que, and how to reach you."
+  }
+}

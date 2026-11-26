@@ -1,0 +1,323 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:14:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "84c2579c6679761b72bd6dd4ee5f26845dd16354",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "d459ba0357d4e09f7575dd6c428992d70da3fe93866ce7eecd5ec62e1be42203",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-14-source-decision-2026-11-18/packet.json",
+    "sha256": "80e403ef68aff44fb93e80895755d90fe2cb6d076bb0bbc554109c05e1e5d161"
+  },
+  "sourceObjectiveEnglish": "Talk a near-miss through with the crew without blame, say what almost happened, and agree on the fix",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "scope": "Complete full-face alternatives for selected missing Reader anchors only, not all Reader turns, not canonical replacements or complete original objective. Source incident/clinical/product/weather claims quoted, not approved protocols.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:8",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+      "sourceSpanish": "Rogelio: Por poco le cae en la cabeza; casi pasa una desgracia.",
+      "legacySourceRef": "master-roofing:14:passage:8",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: It nearly fell on his head; a tragedy almost happened.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Preserve the source's nearly-hit, tragedy, could-have-killed and hospital counterfactual meanings. Archived French softens injury severity and omits the source's product-dependent more-than-60-pound claim. Qualified source/safety review must decide the exact teaching text, with no invented universal bundle weight."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Le paquet a failli tomber sur le passant; un accident grave a presque eu lieu. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Il s’en est fallu de peu que le paquet lui tombe sur la tête ; une tragédie a failli se produire. »",
+          "alignmentNote": "Preserves the near-miss counterfactual ('por poco', 'casi pasa'). The 'tragedy almost happened' meaning is kept and not softened to a generic accident.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: It nearly fell on his head; a tragedy almost happened.",
+        "exactSpanish": "Rogelio: Por poco le cae en la cabeza; casi pasa una desgracia.",
+        "status": "open",
+        "scope": "English tragedy versus broader Spanish desgracia; tragédie follows English severity; no silent source harmonization."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:9",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+      "sourceSpanish": "Rogelio: Según la marca, un bulto puede pesar más de 60 libras, y podría haber matado a alguien.",
+      "legacySourceRef": "master-roofing:14:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Depending on the brand, a bundle can weigh more than 60 pounds, and it could have killed someone.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Preserve the source's nearly-hit, tragedy, could-have-killed and hospital counterfactual meanings. Archived French softens injury severity and omits the source's product-dependent more-than-60-pound claim. Qualified source/safety review must decide the exact teaching text, with no invented universal bundle weight."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Le poids d’un paquet dépend du produit; cette chute aurait pu blesser quelqu’un gravement. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-alternative:9:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Selon la marque, un paquet peut peser plus de 60 livres, et il aurait pu tuer quelqu’un. »",
+          "alignmentNote": "Depending on BRAND, bundle CAN weigh MORE THAN60POUNDS and IT COULD HAVE KILLED someone. Imperial weight not converted; not universal product claim.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:10",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: If someone had been below, they would be in the hospital.",
+      "sourceSpanish": "Rogelio: Si alguien hubiera estado abajo, estaría en el hospital.",
+      "legacySourceRef": "master-roofing:14:passage:10",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If someone had been below, they would be in the hospital.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Preserve the source's nearly-hit, tragedy, could-have-killed and hospital counterfactual meanings. Archived French softens injury severity and omits the source's product-dependent more-than-60-pound claim. Qualified source/safety review must decide the exact teaching text, with no invented universal bundle weight."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Si quelqu’un s’était trouvé dessous, il aurait pu être blessé. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si quelqu’un s’était trouvé en bas, cette personne serait à l’hôpital. »",
+          "alignmentNote": "Preserves the counterfactual conditional: past-perfect 'hubiera estado' with conditional 'estaría'. 'Alguien' is kept gender-neutral with 'cette personne'.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:11",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+      "sourceSpanish": "Rogelio: Pero esto es un casi accidente, nadie va a recibir un castigo y queremos entender la causa.",
+      "legacySourceRef": "master-roofing:14:passage:11",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: But this is a near-miss, nobody is going to be punished, and we want to understand the cause.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source promises no punishment in a near-miss discussion, while archived French defers to employer procedure. Qualified workplace/locale review must resolve this claim and near-miss reporting terminology without erasing the source event."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Signalons ce quasi-accident et cherchons les faits sans blâmer; la suite suivra la procédure de l’entreprise. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-alternative:11:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Mais c’est un quasi-accident ; personne ne va être puni, et nous voulons comprendre la cause. »",
+          "alignmentNote": "The 'nadie va a recibir un castigo' promise is kept as the speaker's quoted statement, not endorsed as a company policy. The near-miss framing and the wish to understand the cause are preserved.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:12",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:12",
+      "sourceEnglish": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "sourceSpanish": "Kevin: Yo dejé la pila de bultos sin la tabla de apoyo, porque solo iba a ser un momento.",
+      "legacySourceRef": "master-roofing:14:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve roof jack, toe board, shingle-bundle storage and pedestrian exclusion terms in the exact product/site context. The archived French replaces the source's no-slide claim and cones/signs proposal with an inspection-dependent plan; qualified material-handling and public-protection review is required."
+        }
+      ],
+      "archivedFrenchEvidence": "Kevin : « J’avais laissé la pile sans dispositif de retenue parce que je pensais revenir tout de suite. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-alternative:12:1",
+          "label": "Variant 1",
+          "candidateFrench": "Kevin : « J’ai laissé la pile de paquets sans la plinthe, parce que ça ne devait durer qu’un instant. »",
+          "alignmentNote": "Kevin left pile of bundles without English TOEBOARD because ONLY for a moment; plinthe unselected English-target support, Spanish support-board meaning divergence open.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Kevin: I left the stack of bundles without the toe board, because it was only going to be for a moment.",
+        "exactSpanish": "Kevin: Yo dejé la pila de bultos sin la tabla de apoyo, porque solo iba a ser un momento.",
+        "status": "open",
+        "scope": "English toe board versus Spanish tabla de apoyo/support board; plinthe proposed for English target only, product/method unselected."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:14",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+      "sourceSpanish": "Rogelio: Si ponemos los bultos sobre el soporte de techo, con la tabla de apoyo, no se resbalan.",
+      "legacySourceRef": "master-roofing:14:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve roof jack, toe board, shingle-bundle storage and pedestrian exclusion terms in the exact product/site context. The archived French replaces the source's no-slide claim and cones/signs proposal with an inspection-dependent plan; qualified material-handling and public-protection review is required."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Arrêtons la manutention jusqu’à ce qu’une personne qualifiée vérifie le stockage et la protection des passants. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si nous posons les paquets sur le support de toit, avec la plinthe, ils ne glissent pas. »",
+          "alignmentNote": "Rogelio conditional: IF bundles on roof bracket WITH toeboard, THEY DO NOT SLIDE retained as his quoted assertion, not product/safety guarantee.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: If we put the bundles on the roof bracket, with the toe board, they don't slide.",
+        "exactSpanish": "Rogelio: Si ponemos los bultos sobre el soporte de techo, con la tabla de apoyo, no se resbalan.",
+        "status": "open",
+        "scope": "English toe board versus Spanish tabla de apoyo/support board; plinthe proposed for English target, no hardware selection."
+      },
+      "sourceQuestionTerminologyIssue": {
+        "status": "open",
+        "scope": "Reader roof bracket versus source-question roof jack; support de toit unselected broad hardware label; exact product review needed."
+      }
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 17,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:14:fr-en:reader:8",
+      "master-roofing:14:fr-en:reader:9",
+      "master-roofing:14:fr-en:reader:10",
+      "master-roofing:14:fr-en:reader:11",
+      "master-roofing:14:fr-en:reader:12",
+      "master-roofing:14:fr-en:reader:14"
+    ],
+    "supplementalAnchorCount": 6,
+    "supplementalFullFaceAlternativeCount": 6
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [
+    "master-roofing:14:fr-en:reader:1",
+    "master-roofing:14:fr-en:reader:2",
+    "master-roofing:14:fr-en:reader:3",
+    "master-roofing:14:fr-en:reader:4",
+    "master-roofing:14:fr-en:reader:5",
+    "master-roofing:14:fr-en:reader:6",
+    "master-roofing:14:fr-en:reader:7",
+    "master-roofing:14:fr-en:reader:13",
+    "master-roofing:14:fr-en:reader:15",
+    "master-roofing:14:fr-en:reader:16",
+    "master-roofing:14:fr-en:reader:17"
+  ]
+}

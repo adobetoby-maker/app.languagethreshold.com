@@ -1,0 +1,311 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:13:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "84c2579c6679761b72bd6dd4ee5f26845dd16354",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "df0ff3b0ff16f7c59e7c9cea7b60eb5b346a80917d920abf86a42c82e87f9e5c",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-13-source-decision-2026-11-18/packet.json",
+    "sha256": "b3133df268772d209bb3715336b01a968fe8a88921380c6aaafb8721efe6d10b"
+  },
+  "sourceObjectiveEnglish": "Respond to a fall, then report what happened in order, by phone and in writing, with clear times",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "scope": "Complete full-face alternatives for selected missing Reader anchors only, not all Reader turns, not canonical replacements or complete original objective. Source incident/clinical/product/weather claims quoted, not approved protocols.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:2",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:2",
+      "sourceEnglish": "While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+      "sourceSpanish": "Mientras bajaba, se le resbaló el pie y cayó unos 8 pies hasta el pasto.",
+      "legacySourceRef": "master-roofing:13:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: While he was coming down, his foot slipped and he fell about 8 feet to the grass.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence."
+        }
+      ],
+      "archivedFrenchEvidence": "Pendant qu’il descendait, son pied a glissé; il est tombé d’environ huit pieds sur l’herbe.",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "911 and not-moving instructions are quoted source responses, not a universal emergency protocol; paramedics designation and incident causation require qualified locale/domain review. About eight feet stays approximate imperial; no unit conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-alternative:2:1",
+          "label": "Variant 1",
+          "candidateFrench": "Pendant qu’il descendait, le pied lui a glissé et il est tombé d’environ 8 pieds sur l’herbe.",
+          "alignmentNote": "Full while-descending, foot slipped, fell ABOUT8feet ONgrass retained; imperial quantity approximate, not converted.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:3",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:3",
+      "sourceEnglish": "At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof.",
+      "sourceSpanish": "En ese momento no tenía la eslinga conectada a la línea de vida, porque ya estaba saliendo del techo.",
+      "legacySourceRef": "master-roofing:13:passage:3",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: At that moment he didn't have his lanyard connected to the lifeline, because he was already getting off the roof.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Preserve the fall, lifeline, roof-anchor, harness and lanyard terms and the source's reported disconnected transition. The archived French changes the probable-cause claim into an unresolved observation. Qualified fall-protection and incident-review decisions must settle the causal wording and approved roof-to-ladder transfer before scored text is selected."
+        }
+      ],
+      "archivedFrenchEvidence": "La source indique que sa longe n’était pas reliée à la ligne de vie pendant le passage vers l’échelle; la cause reste à déterminer.",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "911 and not-moving instructions are quoted source responses, not a universal emergency protocol; paramedics designation and incident causation require qualified locale/domain review. About eight feet stays approximate imperial; no unit conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "À ce moment-là, il n’avait pas sa longe reliée à la ligne de vie, parce qu’il était déjà en train de quitter le toit.",
+          "alignmentNote": "He lacked his lanyard connection to lifeline BECAUSE already leaving roof: source explanation retained, not approved transition.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:4",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio ran to him and shouted: Call 911 right now.",
+      "sourceSpanish": "Rogelio corrió hacia él y gritó: Llamen al 911 ahora mismo.",
+      "legacySourceRef": "master-roofing:13:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio ran to him and shouted: Call 911 right now.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio s’est approché et a demandé d’appeler immédiatement les secours locaux selon le protocole du chantier.",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "911 and not-moving instructions are quoted source responses, not a universal emergency protocol; paramedics designation and incident causation require qualified locale/domain review. About eight feet stays approximate imperial; no unit conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-alternative:4:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio a couru vers lui et a crié : « Appelez le 911 tout de suite. »",
+          "alignmentNote": "Rogelio RAN toward him and SHOUTED plural immediate911 instruction, no substituted number or universal protocol.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:5",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:5",
+      "sourceEnglish": "Julio was conscious, but his ankle hurt a lot.",
+      "sourceSpanish": "Julio estaba consciente, pero le dolía mucho el tobillo.",
+      "legacySourceRef": "master-roofing:13:passage:5",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Julio was conscious, but his ankle hurt a lot.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+        }
+      ],
+      "archivedFrenchEvidence": "Julio était conscient et disait avoir très mal à la cheville.",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "911 and not-moving instructions are quoted source responses, not a universal emergency protocol; paramedics designation and incident causation require qualified locale/domain review. About eight feet stays approximate imperial; no unit conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Julio était conscient, mais sa cheville lui faisait très mal.",
+          "alignmentNote": "Narrator asserts Julio CONSCIOUS and ankle hurting ALOT; exact clinical vocabulary, not a medical assessment.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:7",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio to the crew: Don't move him; wait for the paramedics.",
+      "sourceSpanish": "Rogelio a la cuadrilla: No lo muevan; esperen a los paramédicos.",
+      "legacySourceRef": "master-roofing:13:passage:7",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio to the crew: Don't move him; wait for the paramedics.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio a demandé à l’équipe d’éviter de déplacer Julio, sauf danger immédiat ou consigne des secours.",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "911 and not-moving instructions are quoted source responses, not a universal emergency protocol; paramedics designation and incident causation require qualified locale/domain review. About eight feet stays approximate imperial; no unit conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-alternative:7:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio à l’équipe : « Ne le bougez pas ; attendez les ambulanciers paramédicaux. »",
+          "alignmentNote": "Rogelio addresses crew: DO NOT MOVE HIM and WAIT FOR PARAMEDICS. Ambulanciers paramédicaux is an unselected French term choice; source response not approved procedure.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:15",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:15",
+      "sourceEnglish": "Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder.",
+      "sourceSpanish": "Causa probable: el arnés no estaba conectado a la línea de vida ni al anclaje de techo durante el paso a la escalera.",
+      "legacySourceRef": "master-roofing:13:passage:15",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Probable cause: the harness was not connected to the lifeline or to the roof anchor during the move to the ladder.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Preserve the fall, lifeline, roof-anchor, harness and lanyard terms and the source's reported disconnected transition. The archived French changes the probable-cause claim into an unresolved observation. Qualified fall-protection and incident-review decisions must settle the causal wording and approved roof-to-ladder transfer before scored text is selected."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Separate observed incident facts from probable cause and official reporting requirements. The archived French deliberately softens the source's written probable-cause line. Qualified workplace/source review must determine the review-safe incident-report wording and French register."
+        }
+      ],
+      "archivedFrenchEvidence": "Observation à vérifier : la connexion de la longe au système de protection pendant ce passage; ne pas attribuer de cause avant l’enquête.",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "911 and not-moving instructions are quoted source responses, not a universal emergency protocol; paramedics designation and incident causation require qualified locale/domain review. About eight feet stays approximate imperial; no unit conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-alternative:15:1",
+          "label": "Variant 1",
+          "candidateFrench": "Cause probable : le harnais n’était relié ni à la ligne de vie ni à l’ancrage de toit pendant le passage vers l’échelle.",
+          "alignmentNote": "Written PROBABLE CAUSE, harness NOT connected to lifeline OR roof anchor DURING move to ladder retained. No conversion to proven cause or weakened observation.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:13:fr-en:reader:2",
+      "master-roofing:13:fr-en:reader:3",
+      "master-roofing:13:fr-en:reader:4",
+      "master-roofing:13:fr-en:reader:5",
+      "master-roofing:13:fr-en:reader:7",
+      "master-roofing:13:fr-en:reader:15"
+    ],
+    "supplementalAnchorCount": 6,
+    "supplementalFullFaceAlternativeCount": 6
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [
+    "master-roofing:13:fr-en:reader:1",
+    "master-roofing:13:fr-en:reader:6",
+    "master-roofing:13:fr-en:reader:8",
+    "master-roofing:13:fr-en:reader:9",
+    "master-roofing:13:fr-en:reader:10",
+    "master-roofing:13:fr-en:reader:11",
+    "master-roofing:13:fr-en:reader:12",
+    "master-roofing:13:fr-en:reader:13",
+    "master-roofing:13:fr-en:reader:14",
+    "master-roofing:13:fr-en:reader:16"
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:15:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "84c2579c6679761b72bd6dd4ee5f26845dd16354",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "65be7131c70d504b6c471e68aae3589330334072882ad34d29203084621d1030",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-15-source-decision-2026-11-18/packet.json",
+    "sha256": "ee05d45de7409c176a6602ca424ffb24812e6972abe04cca9d7a90cf57e1bab7"
+  },
+  "sourceObjectiveEnglish": "Make the weather call over the radio: stop work, tarp the open section and get everyone off the roof",
+  "sourceSpeakingEnglish": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "scope": "Complete full-face alternatives for selected missing Reader anchors only, not all Reader turns, not canonical replacements or complete original objective. Source incident/clinical/product/weather claims quoted, not approved protocols.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:3",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:3",
+      "sourceEnglish": "Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+      "sourceSpanish": "Rogelio por el radio: Atención, cuadrilla, tenemos alerta de tormenta; ¿me copias, Marcos?",
+      "legacySourceRef": "master-roofing:15:passage:3",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio on the radio: Attention, crew, we have a storm alert; do you copy, Marcos?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio à la radio : « Attention, équipe, alerte météo; Marcos, vous me recevez ? »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "Storm now/timing, immediate tarp fastening, pickup refuge and covered-roof assertion remain source claims requiring qualified weather/site/product review. Camionnette vehicle type and liteaux fastening-strip interpretation require locale/trade decision; no approved refuge/configuration."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-alternative:3:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio à la radio : « Attention, équipe, nous avons une alerte d’orage ; tu me reçois, Marcos ? »",
+          "alignmentNote": "Full Rogelio radio/attention crew/storm alert/Marcos do you copy retained. Orage narrows storm from later lightning/thunder context; contextual narrowing remains unselected.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:5",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+      "sourceSpanish": "Rogelio: Si la celda sigue así, llegará en media hora, y si empieza a llover, bajamos.",
+      "legacySourceRef": "master-roofing:15:passage:5",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If the cell keeps going like this, it will arrive in half an hour, and if it starts raining, we come down.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « La trajectoire peut changer; n’attendons pas une heure d’arrivée supposée. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "Storm now/timing, immediate tarp fastening, pickup refuge and covered-roof assertion remain source claims requiring qualified weather/site/product review. Camionnette vehicle type and liteaux fastening-strip interpretation require locale/trade decision; no approved refuge/configuration."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-alternative:5:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Si la cellule continue comme ça, elle arrivera dans une demi-heure, et s’il commence à pleuvoir, nous descendons. »",
+          "alignmentNote": "Keeps the conditional structure of both clauses and the 'media hora' time as 'une demi-heure' unconverted. 'Celda' is rendered as 'cellule orageuse'.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:8",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+      "sourceSpanish": "Rogelio: Pongan la lona desde la cumbrera hacia abajo y fíjenla con listones y clavos con tapa plástica.",
+      "legacySourceRef": "master-roofing:15:passage:8",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Put the tarp from the ridge down and secure it with battens and plastic cap nails.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Toute bâche et sa fixation attendront une évaluation sûre des conditions et la méthode approuvée. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "Storm now/timing, immediate tarp fastening, pickup refuge and covered-roof assertion remain source claims requiring qualified weather/site/product review. Camionnette vehicle type and liteaux fastening-strip interpretation require locale/trade decision; no approved refuge/configuration.",
+        "Clous à rondelle en plastique is an unselected plastic-cap-nail component interpretation; cap form and battens/liteaux product meaning need trade review, not silently settled."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-alternative:8:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Posez la bâche depuis le faîtage vers le bas et fixez-la avec des liteaux et des clous à rondelle en plastique. »",
+          "alignmentNote": "Entire plural command/ridge-downward/battens/plastic-cap nails retained. Rondelle en plastique names cap component, not approval of fastening configuration; product/method decision outside utterance.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:10",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+      "sourceSpanish": "Rogelio por el radio: Atención, el radar marca rayos en la celda. Si truena, nadie se queda arriba. Si truena, todos abajo ya.",
+      "legacySourceRef": "master-roofing:15:passage:10",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio on the radio: Attention, the radar shows lightning in the cell. If it thunders, nobody stays up top. If it thunders, everyone down now.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Le radar signale de la foudre; si vous entendez le tonnerre, descendez immédiatement selon le plan. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "Storm now/timing, immediate tarp fastening, pickup refuge and covered-roof assertion remain source claims requiring qualified weather/site/product review. Camionnette vehicle type and liteaux fastening-strip interpretation require locale/trade decision; no approved refuge/configuration."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-alternative:10:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio à la radio : « Attention, le radar indique des éclairs dans la cellule. S’il tonne, personne ne reste en haut. S’il tonne, tout le monde en bas, maintenant. »",
+          "alignmentNote": "Keeps the repeated thunder conditional and the 'ya' urgency as 'maintenant'. Lightning ('rayos', éclairs) is kept distinct from thunder ('truena', tonne).",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:14",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+      "sourceSpanish": "Rogelio: Nadie se queda en la escalera; todos a la camioneta hasta que pase.",
+      "legacySourceRef": "master-roofing:15:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Nobody stays on the ladder; everyone to the pickup until it passes.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Éloignez-vous des échelles et rejoignez le lieu de refuge prévu par le plan. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "Storm now/timing, immediate tarp fastening, pickup refuge and covered-roof assertion remain source claims requiring qualified weather/site/product review. Camionnette vehicle type and liteaux fastening-strip interpretation require locale/trade decision; no approved refuge/configuration."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-alternative:14:1",
+          "label": "Variant 1",
+          "candidateFrench": "Rogelio : « Personne ne reste sur l’échelle ; tout le monde à la camionnette jusqu’à ce que ça passe. »",
+          "alignmentNote": "Keeps the universal 'nadie' and 'todos' as 'personne' and 'tout le monde', the ladder, and the pickup refuge. 'Hasta que pase' is kept as 'jusqu'à ce que ça passe'.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:16",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:16",
+      "sourceEnglish": "From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+      "sourceSpanish": "Desde la camioneta, Rogelio llamó a la dueña: Le confirmo que paramos por el clima y que el techo quedó cubierto.",
+      "legacySourceRef": "master-roofing:15:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: From the pickup, Rogelio called the homeowner: I confirm that we stopped because of the weather and that the roof was left covered.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Depuis un lieu sûr, Rogelio a appelé la propriétaire : « Nous avons arrêté les travaux à cause de la météo; je confirmerai l’état de la toiture après inspection sûre. »",
+      "unresolvedReviewNotes": [
+        "Source-only full-face language proposal; canonical hold unchanged. Actual source safety/clinical/product/locale decisions open; not qualified approval or completed objective.",
+        "Storm now/timing, immediate tarp fastening, pickup refuge and covered-roof assertion remain source claims requiring qualified weather/site/product review. Camionnette vehicle type and liteaux fastening-strip interpretation require locale/trade decision; no approved refuge/configuration."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-alternative:16:1",
+          "label": "Variant 1",
+          "candidateFrench": "Depuis la camionnette, Rogelio a appelé la propriétaire : « Je vous confirme que nous nous sommes arrêtés à cause de la météo et que le toit a été laissé couvert. »",
+          "alignmentNote": "Entire pickup narrator call plus ICONFIRM/WE stopped dueWEATHER/ROOFLEFTCOVERED kept. Female propriétaire and formal vous supported by Spanish dueña/Le; English gender/address unmarked; assertion not verified roof condition.",
+          "status": "unselected complete French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 17,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:15:fr-en:reader:3",
+      "master-roofing:15:fr-en:reader:5",
+      "master-roofing:15:fr-en:reader:8",
+      "master-roofing:15:fr-en:reader:10",
+      "master-roofing:15:fr-en:reader:14",
+      "master-roofing:15:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 6,
+    "supplementalFullFaceAlternativeCount": 6
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [
+    "master-roofing:15:fr-en:reader:1",
+    "master-roofing:15:fr-en:reader:2",
+    "master-roofing:15:fr-en:reader:4",
+    "master-roofing:15:fr-en:reader:6",
+    "master-roofing:15:fr-en:reader:7",
+    "master-roofing:15:fr-en:reader:9",
+    "master-roofing:15:fr-en:reader:11",
+    "master-roofing:15:fr-en:reader:12",
+    "master-roofing:15:fr-en:reader:13",
+    "master-roofing:15:fr-en:reader:15",
+    "master-roofing:15:fr-en:reader:17"
+  ]
+}

@@ -1,0 +1,514 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:18:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "f08d9162ae6aba872b4bb20c6dbb16858ecc129e",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/candidate.json",
+  "canonicalCandidateSha256": "7da95f35e1caa19c58d02da3272e53593e0c47fd61db2020761403ba570e49be",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-18-source-decision-2026-11-18/packet.json",
+    "sha256": "a9cdc245b90f16454e3fbf3ad463186134a92ef1f21c96b2804e0f6506dd0d1c"
+  },
+  "sourceObjectiveEnglish": "Text a homeowner about a rain delay and handle their call to reschedule, politely and clearly",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; linguistic supplemental proposals do not complete source work objective",
+  "scope": "10remaining missing Reader anchors in Master18, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/reader-alternatives-self-check-2026-11-26.md": "07875c6c70361018d020acd14a7d513665e9096ebf78120e36d6d1714fdb23ad",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/ai-assistance-metadata.json": "f5d4074877b89cab5dee316b3647d98a98d70759a6063c9d12e2ee86941c90d0",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/candidate.json": "7da95f35e1caa19c58d02da3272e53593e0c47fd61db2020761403ba570e49be",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/reader-alternatives-ai-assistance-2026-11-26.json": "c811a6731080e1d960a9572333064855edd8203eaf46d9c02c8abd4edcbb57ed",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/reader-alternatives-2026-11-26.json": "05ae040d2373a39793bfadca0fa213aca1b5e42685ee45446dff463920d11e4d",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/README.md": "5eb4d45af7c03447e3be224840e090bf370a285702cd3a87afd3ab1d8b9edc31",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/final-self-check.md": "b9d8d4d548d5ed5fbf66402c8e9acb60ff05052c6f0e1b9ecd28ba39821ac9e2",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/validate.py": "f23b97f5c253881559c5a088df837d5f28d7a2f79571767823b427bf65dfe2f0",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/reader-alternatives-opus-2026-11-26.md": "e6d3d2504c1e6944606d2ab0faa6be265ddfc282841e4864e37af3efc8ece888",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/reader-alternatives-fable-2026-11-26.md": "e5820d601b9dc3653cdc40d1e55cce07e450dfef63a86df7e4edf5fab743ad4d",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/opus-critique.md": "b2cb9ddf92165721254815b7b8431dd370fa8aacb2e62ac74650300ab2f55172",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/validate-reader-alternatives-2026-11-26.py": "04f69436074c14cca7b29c1cebbdcc92fa37bcc14a1f11d5b17ebe8a489d7a57",
+    "content/french-roofing/candidates/master-18-authored-candidate-2026-11-24/fable-critique.md": "ab58ed52c3558bb2f6e215bd15ab0ba0227fb24b122fff44572e72a3252e546f"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:1",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:1",
+      "sourceEnglish": "On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house.",
+      "sourceSpanish": "El martes llovió todo el día, así que la cuadrilla no pudo empezar en la casa de la señora Kim.",
+      "legacySourceRef": "master-roofing:18:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: On Tuesday it rained all day, so the crew couldn't start at Mrs. Kim's house.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Mardi, il a plu toute la journée; l’équipe n’a pas pu commencer chez Mme Kim.",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:1:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Mardi, il a plu toute la journée, si bien que l’équipe n’a pas pu commencer chez Mme Kim.",
+          "alignmentNote": "Keeps Tuesday, all-day rain, the causal link and inability to start at Mrs. Kim’s house. Does not move the day or replace her with Mr. Kim.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:2",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:2",
+      "sourceEnglish": "At five, Rogelio sent her a text message.",
+      "sourceSpanish": "A las cinco, Rogelio le mandó un mensaje de texto.",
+      "legacySourceRef": "master-roofing:18:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: At five, Rogelio sent her a text message.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "À dix-sept heures, Rogelio lui a envoyé un message texte.",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:2:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "À cinq heures, Rogelio lui a envoyé un message texte.",
+          "alignmentNote": "Keeps unmarked five o’clock, Rogelio, her as recipient and a sent text message. No 17:00 conversion or messaging platform is selected.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:3",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:3",
+      "sourceEnglish": "Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "sourceSpanish": "Mensaje: Buenas tardes, le escribe Rogelio, de Techos Mendoza.",
+      "legacySourceRef": "master-roofing:18:passage:3",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Message : « Bonjour, Rogelio de Mendoza Roofing à l’appareil. »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:3:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Message : « Bonjour, c’est Rogelio, de Mendoza Roofing. »",
+          "alignmentNote": "Keeps the message label, greeting, sender identity and English-source company name. Bonjour is proposed as the natural daytime French greeting; the English afternoon specificity remains visible in the source.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Message: Good afternoon, this is Rogelio, from Mendoza Roofing.",
+        "exactSpanish": "Mensaje: Buenas tardes, le escribe Rogelio, de Techos Mendoza.",
+        "status": "open",
+        "scope": "English Mendoza Roofing versus Spanish Techos Mendoza retained as English-source company name. Bonjour is natural daytime French greeting; English afternoon specificity and Spanish courtesy formula remain visible in source, register unselected."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:6",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:6",
+      "sourceEnglish": "Message: Sorry for the inconvenience; I look forward to your reply.",
+      "sourceSpanish": "Mensaje: Disculpe la molestia; quedo al pendiente de su respuesta.",
+      "legacySourceRef": "master-roofing:18:passage:6",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Message: Sorry for the inconvenience; I look forward to your reply.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Message : « Nous sommes désolés du désagrément et attendons votre réponse. »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:6:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Message : « Désolé pour le désagrément ; j’attends votre réponse avec intérêt. »",
+          "alignmentNote": "Keeps the apology for inconvenience and polite anticipation of a reply. Does not claim a reply has arrived or add thanks in advance/acceptance.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:7",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:7",
+      "sourceEnglish": "An hour later the phone rang, from a number Rogelio didn't know.",
+      "sourceSpanish": "Una hora después sonó el teléfono, de un número que Rogelio no conocía.",
+      "legacySourceRef": "master-roofing:18:passage:7",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: An hour later the phone rang, from a number Rogelio didn't know.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Une heure plus tard, le téléphone a sonné; Rogelio ne connaissait pas le numéro.",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:7:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Une heure plus tard, le téléphone a sonné ; l’appel provenait d’un numéro que Rogelio ne connaissait pas.",
+          "alignmentNote": "Keeps one hour later, the ringing phone and a number Rogelio did not know. Does not turn an unfamiliar number into a withheld caller ID or invent a clock time.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:8",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+      "sourceSpanish": "Rogelio: Techos Mendoza, buenas tardes; ¿con quién tengo el gusto?",
+      "legacySourceRef": "master-roofing:18:passage:8",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Mendoza Roofing, bonjour; à qui ai-je le plaisir de parler ? »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:8:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Mendoza Roofing, bonjour ; à qui ai-je le plaisir de parler ? »",
+          "alignmentNote": "Keeps the company greeting and question identifying the person on the call. The courtesy formula is a French register proposal, supported by Spanish tengo el gusto, not a new honorific fact.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: Mendoza Roofing, good afternoon; who am I speaking with?",
+        "exactSpanish": "Rogelio: Techos Mendoza, buenas tardes; ¿con quién tengo el gusto?",
+        "status": "open",
+        "scope": "English Mendoza Roofing versus Spanish Techos Mendoza retained as English-source company name. Bonjour is natural daytime French greeting; English afternoon specificity and Spanish courtesy formula remain visible in source, register unselected."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:10",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: Don't worry; what would your availability be on Friday?",
+      "sourceSpanish": "Rogelio: No se preocupe; ¿cuál sería su disponibilidad el viernes?",
+      "legacySourceRef": "master-roofing:18:passage:10",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Don't worry; what would your availability be on Friday?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je comprends. Seriez-vous disponibles vendredi, sous réserve de la météo ? »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:10:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Ne vous inquiétez pas ; quelles seraient vos disponibilités vendredi ? »",
+          "alignmentNote": "Keeps reassurance and conditional would-availability question about Friday. Does not insert eight o’clock or assert accepted availability.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:11",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:11",
+      "sourceEnglish": "Mr. Kim: Friday works, but sorry, I can't hear you well.",
+      "sourceSpanish": "Señor Kim: El viernes sí, pero perdón, no le oigo bien.",
+      "legacySourceRef": "master-roofing:18:passage:11",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Mr. Kim: Friday works, but sorry, I can't hear you well.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "M. Kim : « Vendredi pourrait convenir, mais je vous entends mal. »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:11:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "M. Kim : « Vendredi, ça marche, mais pardon, je ne vous entends pas bien. »",
+          "alignmentNote": "Keeps Friday works, apology and poor hearing, not poor understanding. Does not add agreement to an unspoken time or omit the audibility problem.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:14",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+      "sourceSpanish": "Rogelio: Le dejo mi número por si acaso, y le mando la confirmación por mensaje.",
+      "legacySourceRef": "master-roofing:18:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je vous laisse mon numéro et je vous enverrai le récapitulatif par message. »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:14:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Je vais vous laisser mon numéro au cas où, et je vous enverrai la confirmation par message texte. »",
+          "alignmentNote": "Keeps leaving my number just in case and sending confirmation by text. Future intention is retained; no actual number, emergency-only condition or already-sent confirmation is invented.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: I'll leave you my number just in case, and I'll send you the confirmation by text.",
+        "exactSpanish": "Rogelio: Le dejo mi número por si acaso, y le mando la confirmación por mensaje.",
+        "status": "open",
+        "scope": "English will-leave/will-send versus Spanish present dejo/mando performative intention. French near/simple future expresses commitment, not an already-sent confirmation."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:18:fr-en:reader:16",
+      "candidateRowId": "master-roofing:18:fr-en:candidate:reader:16",
+      "sourceEnglish": "Mr. Kim replied: Perfect, the appointment is confirmed.",
+      "sourceSpanish": "El señor Kim respondió: Perfecto, la cita queda confirmada.",
+      "legacySourceRef": "master-roofing:18:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Mr. Kim replied: Perfect, the appointment is confirmed.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "M. Kim a répondu : « Vendredi à huit heures me convient, si la météo le permet. »",
+      "unresolvedReviewNotes": [
+        "Text/call/scheduling dialogue is source-only. Conditional dates, hearing difficulty, future messages and final appointment confirmation remain distinct; no real external message, booking or approval action is performed."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:18:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "M. Kim a répondu : « Parfait, le rendez-vous est confirmé. »",
+          "alignmentNote": "Keeps the full reply frame and the source appointment confirmation. This is a statement inside the roleplay, not qualified review or an external booking action.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:18:fr-en:reader:1",
+      "master-roofing:18:fr-en:reader:2",
+      "master-roofing:18:fr-en:reader:3",
+      "master-roofing:18:fr-en:reader:6",
+      "master-roofing:18:fr-en:reader:7",
+      "master-roofing:18:fr-en:reader:8",
+      "master-roofing:18:fr-en:reader:10",
+      "master-roofing:18:fr-en:reader:11",
+      "master-roofing:18:fr-en:reader:14",
+      "master-roofing:18:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 10,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:18:fr-en:reader:12",
+      "master-roofing:18:fr-en:reader:13",
+      "master-roofing:18:fr-en:reader:15",
+      "master-roofing:18:fr-en:reader:4",
+      "master-roofing:18:fr-en:reader:5",
+      "master-roofing:18:fr-en:reader:9"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:18:fr-en:reader:1",
+      "master-roofing:18:fr-en:reader:10",
+      "master-roofing:18:fr-en:reader:11",
+      "master-roofing:18:fr-en:reader:14",
+      "master-roofing:18:fr-en:reader:16",
+      "master-roofing:18:fr-en:reader:2",
+      "master-roofing:18:fr-en:reader:3",
+      "master-roofing:18:fr-en:reader:6",
+      "master-roofing:18:fr-en:reader:7",
+      "master-roofing:18:fr-en:reader:8"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner calling back about your text: answer the phone properly, explain the rain delay, propose a new date with sería posible and podríamos, and confirm the new arrival time.",
+    "scope": "Full Reader support does not automatically adapt/complete original grammar, speaking, trade or locale objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

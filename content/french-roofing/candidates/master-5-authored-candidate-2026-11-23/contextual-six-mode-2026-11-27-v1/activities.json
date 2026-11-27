@@ -1,0 +1,1342 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:5:fr-en",
+  "sidecarId": "master-roofing:5:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "b0216eec6ee8b4625694f9b0dd852d6e8b0df560",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-5-source-decision-2026-11-18/packet.json",
+    "sha256": "82d2db28c364ff18733737cd068b4838b5c7f4f9d7bfca80c998f37ed24d4f8c"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea",
+    "content/french-roofing/review/master-5-source-decision-2026-11-18/packet.json": "82d2db28c364ff18733737cd068b4838b5c7f4f9d7bfca80c998f37ed24d4f8c",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-4-6-draft.json": "5104d836f6b1020adc803ed96bd8dee5ee93f21251bc920394066dbe3159f3f9",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "2d2980bf3a363d5d6a189510f4bdd92e4b83efc81821a1f446ec83a009747f6b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/README.md": "0e3ab373808a0a2b5c384dbf52612babc35eeca574509e656462f37b96d455cb",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "2d2980bf3a363d5d6a189510f4bdd92e4b83efc81821a1f446ec83a009747f6b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "115e047aff7c99b66991715a50813b07ef9868c98706955c73381c4eebab0374",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "b5c58b2e25d36d570b0fea54dd065184703577f83963a4cf6d8778b3af150a75",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "325d5d6a5a4a4b595674095df3ef3c7bb5563548a7aebe5ad31c79ae7ab13cd9",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "10b17a3d4533e0bf7bf4780ac21a577d63e01b4747055fde8332718523a9b9b3",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "b65411be4e7c19d3fe48af88a96135c28340000a9b65325de26bc25f577713db",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "ea33c93ae185d8bcec44fae60f15ca1fa406a4019347d619fb0c0e92e59239ff",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/README.md": "0e3ab373808a0a2b5c384dbf52612babc35eeca574509e656462f37b96d455cb",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/candidate.json": "50a8d56fa75e6c39926f0bff4b9f1f19e7edae275e502d6a300154d79e12e0ea",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "2d2980bf3a363d5d6a189510f4bdd92e4b83efc81821a1f446ec83a009747f6b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "115e047aff7c99b66991715a50813b07ef9868c98706955c73381c4eebab0374",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "b5c58b2e25d36d570b0fea54dd065184703577f83963a4cf6d8778b3af150a75",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "325d5d6a5a4a4b595674095df3ef3c7bb5563548a7aebe5ad31c79ae7ab13cd9",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "10b17a3d4533e0bf7bf4780ac21a577d63e01b4747055fde8332718523a9b9b3",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "b65411be4e7c19d3fe48af88a96135c28340000a9b65325de26bc25f577713db",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "ea33c93ae185d8bcec44fae60f15ca1fa406a4019347d619fb0c0e92e59239ff",
+    "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "sourceObjectiveEnglish": "Tell a homeowner what you found under the old roof, propose the repair, and get a signed change order",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the homeowner: describe what you found during the tear-off and what it looked like, propose the repair with its cost and extra time using the conditional, and ask for a signature on the change order.",
+  "existingLexicalObjectiveEnglish": "Recognise and produce source terms for document words, rotten wood and an extra day, and practise polite language-reference requests.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual teaching proposals are not qualified source/trade/language/audio/release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+  "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+      "sourceSpanish": "Rogelio revisó el área con la barreta: la madera estaba negra y húmeda, y una viga tenía manchas.",
+      "sourceLegacyRef": "master-roofing:5:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "2d2980bf3a363d5d6a189510f4bdd92e4b83efc81821a1f446ec83a009747f6b",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Rogelio took photos of the damage and marked the edge with paint.",
+      "sourceSpanish": "Rogelio tomó fotos del daño y marcó la orilla con pintura.",
+      "sourceLegacyRef": "master-roofing:5:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+      "sourceSpanish": "Rogelio: Señor Ramírez, cuando quitamos las tejas, encontramos madera podrida.",
+      "sourceLegacyRef": "master-roofing:5:passage:7",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "Same completed removal/discovery and polite homeowner source statement as held card15; no damage/engineering conclusion selected.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+      "sourceSpanish": "Rogelio: La cubierta estaba blanda en esta sección, cerca de la chimenea, y parecía que el agua entraba desde hacía años.",
+      "sourceLegacyRef": "master-roofing:5:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "2d2980bf3a363d5d6a189510f4bdd92e4b83efc81821a1f446ec83a009747f6b",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: Shall I show you the photos?",
+      "sourceSpanish": "Rogelio: ¿Le muestro las fotos?",
+      "sourceLegacyRef": "master-roofing:5:passage:9",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "Dependent polite homeowner/photo offer and source role/register from held card19 remain unresolved.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Mr. Ramírez: Yes, please. And that wasn't in the estimate?",
+      "sourceSpanish": "Sr. Ramírez: Sí, por favor. ¿Y eso no estaba en el presupuesto?",
+      "sourceLegacyRef": "master-roofing:5:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order. The source addresses Mr. Ramírez, with informal crew speech in card 21/Reader 3 and polite homeowner speech elsewhere. Archived French makes the crew call formal. Review register, relationship and homeowner-specific noun sense.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: No, because nobody could see it before the tear-off; that's what the change order is for.",
+      "sourceSpanish": "Rogelio: No, porque nadie podía verlo antes del desmontaje; para eso sirve la orden de cambio.",
+      "sourceLegacyRef": "master-roofing:5:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: I would recommend replacing three sheets of plywood and checking the rafter.",
+      "sourceSpanish": "Rogelio: Le recomendaría cambiar tres hojas de triplay y revisar la viga.",
+      "sourceLegacyRef": "master-roofing:5:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction. Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Rogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "sourceSpanish": "Rogelio: Costaría más y tomaría un día extra, y el costo adicional aparece aquí, por escrito, como dice el contrato.",
+      "sourceLegacyRef": "master-roofing:5:passage:13",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:13",
+      "canonicalReaderHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order. Keep completed tear-off discovery distinct from the pre-existing deck condition and conditional proposal for three plywood sheets, extra cost and one extra day. Author French grammar, forms, speaking and six scored prompt/target modes only after source and domain decisions.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/9/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:13:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:14",
+      "sourcePacketReaderPointer": "/reader/13",
+      "sourceEnglish": "Rogelio: We can't cover rotten wood, because the new nails wouldn't hold well.",
+      "sourceSpanish": "Rogelio: No podemos tapar madera podrida, porque los clavos nuevos no agarrarían bien.",
+      "sourceLegacyRef": "master-roofing:5:passage:14",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:14",
+      "canonicalReaderHold": "Source describes soft or rotten structural deck, black and damp wood, a stained rafter and nail-holding concern. Review French deck/plywood/rafter/fastening terminology and distinguish observed damage from an engineering conclusion before selecting instruction.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/10/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:14:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:15",
+      "sourcePacketReaderPointer": "/reader/14",
+      "sourceEnglish": "Mr. Ramírez: All right, then do it.",
+      "sourceSpanish": "Sr. Ramírez: Está bien, entonces hágalo.",
+      "sourceLegacyRef": "master-roofing:5:passage:15",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:15",
+      "canonicalReaderHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/11/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:15:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:5:fr-en:reader:16",
+      "sourcePacketReaderPointer": "/reader/15",
+      "sourceEnglish": "Rogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "sourceSpanish": "Rogelio: Gracias; necesito su firma en la orden de cambio, porque sin su autorización no podemos empezar la reparación.",
+      "sourceLegacyRef": "master-roofing:5:passage:16",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:5:fr-en:candidate:reader:16",
+      "canonicalReaderHold": "Source requires a written change order and signature before repair. Review locale-specific contract terminology and the sequence of spoken assent versus formal authorization; do not treat the homeowner’s verbal approval alone as a signed change order.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-5-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "5b13f5e51e7ce9de6cce1276244feaf9ca4bdc1febf2d16ac5741464cbab3e79",
+          "jsonPointer": "/rows/12/alternatives/0/candidateFrench",
+          "id": "master-roofing:5:fr-en:reader-alternative:16:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestionRef": {
+    "artifactPath": "content/french-roofing/review/master-5-source-decision-2026-11-18/packet.json",
+    "artifactSha256": "82d2db28c364ff18733737cd068b4838b5c7f4f9d7bfca80c998f37ed24d4f8c",
+    "jsonPointer": "/sourceDecisionQuestions"
+  },
+  "existingRecordRefs": {
+    "forms": [
+      {
+        "id": "master-roofing:5:fr-en:form:1",
+        "jsonPointer": "/forms/0"
+      },
+      {
+        "id": "master-roofing:5:fr-en:form:2",
+        "jsonPointer": "/forms/1"
+      },
+      {
+        "id": "master-roofing:5:fr-en:form:3",
+        "jsonPointer": "/forms/2"
+      }
+    ],
+    "dictionaryMappings": [
+      {
+        "id": "master-roofing:5:fr-en:dictionary:1",
+        "jsonPointer": "/dictionaryMappings/0"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:2",
+        "jsonPointer": "/dictionaryMappings/1"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:3",
+        "jsonPointer": "/dictionaryMappings/2"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:4",
+        "jsonPointer": "/dictionaryMappings/3"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:5",
+        "jsonPointer": "/dictionaryMappings/4"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:6",
+        "jsonPointer": "/dictionaryMappings/5"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:7",
+        "jsonPointer": "/dictionaryMappings/6"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:8",
+        "jsonPointer": "/dictionaryMappings/7"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:9",
+        "jsonPointer": "/dictionaryMappings/8"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:10",
+        "jsonPointer": "/dictionaryMappings/9"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:11",
+        "jsonPointer": "/dictionaryMappings/10"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:12",
+        "jsonPointer": "/dictionaryMappings/11"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:13",
+        "jsonPointer": "/dictionaryMappings/12"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:14",
+        "jsonPointer": "/dictionaryMappings/13"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:15",
+        "jsonPointer": "/dictionaryMappings/14"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:16",
+        "jsonPointer": "/dictionaryMappings/15"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:17",
+        "jsonPointer": "/dictionaryMappings/16"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:18",
+        "jsonPointer": "/dictionaryMappings/17"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:19",
+        "jsonPointer": "/dictionaryMappings/18"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:20",
+        "jsonPointer": "/dictionaryMappings/19"
+      },
+      {
+        "id": "master-roofing:5:fr-en:dictionary:21",
+        "jsonPointer": "/dictionaryMappings/20"
+      }
+    ]
+  },
+  "sourceCardRefs": [
+    {
+      "id": "master-roofing:5:fr-en:card:1",
+      "sourceEnglish": "the soft or rotten deck",
+      "jsonPointer": "/cards/0"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:2",
+      "sourceEnglish": "the rotten wood",
+      "jsonPointer": "/cards/1"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:3",
+      "sourceEnglish": "the change order",
+      "jsonPointer": "/cards/2"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:4",
+      "sourceEnglish": "the estimate",
+      "jsonPointer": "/cards/3"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:5",
+      "sourceEnglish": "the extra cost",
+      "jsonPointer": "/cards/4"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:6",
+      "sourceEnglish": "the sheet of plywood",
+      "jsonPointer": "/cards/5"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:7",
+      "sourceEnglish": "the signature",
+      "jsonPointer": "/cards/6"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:8",
+      "sourceEnglish": "the contract",
+      "jsonPointer": "/cards/7"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:9",
+      "sourceEnglish": "the authorization",
+      "jsonPointer": "/cards/8"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:10",
+      "sourceEnglish": "the photo of the damage",
+      "jsonPointer": "/cards/9"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:11",
+      "sourceEnglish": "the tear-off",
+      "jsonPointer": "/cards/10"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:12",
+      "sourceEnglish": "the rafter",
+      "jsonPointer": "/cards/11"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:13",
+      "sourceEnglish": "the extra day",
+      "jsonPointer": "/cards/12"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:14",
+      "sourceEnglish": "the homeowner",
+      "jsonPointer": "/cards/13"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:15",
+      "sourceEnglish": "When we removed the shingles, we found rotten wood.",
+      "jsonPointer": "/cards/14"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:16",
+      "sourceEnglish": "The deck was soft in this section.",
+      "jsonPointer": "/cards/15"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:17",
+      "sourceEnglish": "I would recommend replacing three sheets.",
+      "jsonPointer": "/cards/16"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:18",
+      "sourceEnglish": "It would cost more and take an extra day.",
+      "jsonPointer": "/cards/17"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:19",
+      "sourceEnglish": "Shall I show you the photos?",
+      "jsonPointer": "/cards/18"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:20",
+      "sourceEnglish": "I need your signature on the change order.",
+      "jsonPointer": "/cards/19"
+    },
+    {
+      "id": "master-roofing:5:fr-en:card:21",
+      "sourceEnglish": "Hey, come look at this.",
+      "jsonPointer": "/cards/20"
+    }
+  ],
+  "referenceLinkLimits": "Existing forms/dictionary IDs are evidence links, not approved bindings. Master5 lexical repeat/write/read forms do not teach its conditional mission; contextual would examples here are source-linked new practice. Master4 before/after and Master6 future/going-to forms are related, but their existing examples/qualification status remain unchanged. Dictionary references remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English production/French support. Source mission and Spanish grammar wording preserved exactly above; no automatic cross-language equivalence/completion claimed.",
+  "frenchReferencePolicy": "One existing unselected French option per segment supports the readable sample; exact pinned pointers identify all available variants. No selection/canonicalization.",
+  "activities": [
+    {
+      "id": "master-roofing:5:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read the two damage observations. Report in English what Rogelio saw and how he documented it before talking with the homeowner.",
+      "promptFrench": "Lisez les deux observations des dégâts. Rapportez en anglais ce que Rogelio a vu et comment il l’a documenté avant de parler au propriétaire.",
+      "candidateTargetEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains. Rogelio took photos of the damage and marked the edge with paint.",
+      "candidateMeaningFrench": "Rogelio a examiné la zone avec le pied-de-biche : le bois était noir et humide, et un chevron avait des taches. Rogelio a pris des photos des dommages et marqué le bord à la peinture.",
+      "explanationEnglish": "Was describes the observed wood; had describes the rafter stains. Retain black and damp, photos and marking the edge, without diagnosing a structural cause beyond the source.",
+      "explanationFrench": "Was décrit le bois observé ; had décrit les taches sur le chevron. Conservez noir et humide, les photos et le marquage du bord, sans ajouter de diagnostic structurel.",
+      "sourceAnchors": [
+        "master-roofing:5:fr-en:reader:4",
+        "master-roofing:5:fr-en:reader:5"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:4",
+          "referenceEnglish": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains.",
+          "candidateMeaningFrench": "Rogelio a examiné la zone avec le pied-de-biche : le bois était noir et humide, et un chevron avait des taches.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:5",
+          "referenceEnglish": "Rogelio took photos of the damage and marked the edge with paint.",
+          "candidateMeaningFrench": "Rogelio a pris des photos des dommages et marqué le bord à la peinture.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:4",
+          "text": "Rogelio checked the area with the pry bar: the wood was black and damp, and a rafter had stains."
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:5",
+          "text": "Rogelio took photos of the damage and marked the edge with paint."
+        }
+      ],
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:5:fr-en:form:1",
+        "master-roofing:5:fr-en:form:2",
+        "master-roofing:5:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:5:fr-en:dictionary:1",
+        "master-roofing:5:fr-en:dictionary:2",
+        "master-roofing:5:fr-en:dictionary:3",
+        "master-roofing:5:fr-en:dictionary:4",
+        "master-roofing:5:fr-en:dictionary:5",
+        "master-roofing:5:fr-en:dictionary:6",
+        "master-roofing:5:fr-en:dictionary:7",
+        "master-roofing:5:fr-en:dictionary:8",
+        "master-roofing:5:fr-en:dictionary:9",
+        "master-roofing:5:fr-en:dictionary:10",
+        "master-roofing:5:fr-en:dictionary:11",
+        "master-roofing:5:fr-en:dictionary:12",
+        "master-roofing:5:fr-en:dictionary:13",
+        "master-roofing:5:fr-en:dictionary:14",
+        "master-roofing:5:fr-en:dictionary:15",
+        "master-roofing:5:fr-en:dictionary:16",
+        "master-roofing:5:fr-en:dictionary:17",
+        "master-roofing:5:fr-en:dictionary:18",
+        "master-roofing:5:fr-en:dictionary:19",
+        "master-roofing:5:fr-en:dictionary:20",
+        "master-roofing:5:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:5:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, explain to Mr. Ramírez in English where the deck was soft and what it looked like had been happening.",
+      "promptFrench": "À partir de l’indice français, expliquez en anglais à M. Ramírez où le platelage était mou et ce qui semblait se produire depuis longtemps.",
+      "candidateTargetEnglish": "Mr. Ramírez, when we removed the shingles, we found rotten wood. The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+      "candidateMeaningFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.",
+      "explanationEnglish": "When we removed frames the discovery. It looked like preserves the source’s evidential limit; do not change it to a confirmed duration or cause.",
+      "explanationFrench": "When we removed situe la découverte. It looked like conserve la limite de l’observation ; n’en faites pas une durée ou une cause confirmée.",
+      "sourceAnchors": [
+        "master-roofing:5:fr-en:reader:7",
+        "master-roofing:5:fr-en:reader:8"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:7",
+          "referenceEnglish": "Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+          "candidateMeaningFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:8",
+          "referenceEnglish": "The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+          "candidateMeaningFrench": "Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "cueFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.",
+      "linkedSourceCardIds": [
+        "master-roofing:5:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:5:fr-en:form:1",
+        "master-roofing:5:fr-en:form:2",
+        "master-roofing:5:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:5:fr-en:dictionary:1",
+        "master-roofing:5:fr-en:dictionary:2",
+        "master-roofing:5:fr-en:dictionary:3",
+        "master-roofing:5:fr-en:dictionary:4",
+        "master-roofing:5:fr-en:dictionary:5",
+        "master-roofing:5:fr-en:dictionary:6",
+        "master-roofing:5:fr-en:dictionary:7",
+        "master-roofing:5:fr-en:dictionary:8",
+        "master-roofing:5:fr-en:dictionary:9",
+        "master-roofing:5:fr-en:dictionary:10",
+        "master-roofing:5:fr-en:dictionary:11",
+        "master-roofing:5:fr-en:dictionary:12",
+        "master-roofing:5:fr-en:dictionary:13",
+        "master-roofing:5:fr-en:dictionary:14",
+        "master-roofing:5:fr-en:dictionary:15",
+        "master-roofing:5:fr-en:dictionary:16",
+        "master-roofing:5:fr-en:dictionary:17",
+        "master-roofing:5:fr-en:dictionary:18",
+        "master-roofing:5:fr-en:dictionary:19",
+        "master-roofing:5:fr-en:dictionary:20",
+        "master-roofing:5:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:5:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to the cost/time line. Tell the homeowner in English what the proposed repair would change and where the extra cost is recorded.",
+      "promptFrench": "Écoutez la réplique sur le coût et le délai. Dites au propriétaire en anglais ce que la réparation proposée changerait et où le supplément est consigné.",
+      "candidateTargetEnglish": "It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "candidateMeaningFrench": "Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat.",
+      "explanationEnglish": "Would cost and take an extra day present the conditional estimate. No currency amount is given; retain the written extra cost and contract attribution.",
+      "explanationFrench": "Would cost et take an extra day présentent l’estimation conditionnelle. Aucun montant n’est donné ; conservez le supplément écrit et la référence au contrat.",
+      "sourceAnchors": [
+        "master-roofing:5:fr-en:reader:13"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:13",
+          "referenceEnglish": "It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+          "candidateMeaningFrench": "Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized; no recording or playback.",
+      "candidateListeningTextEnglish": "It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+      "listeningTextSourceAnchor": "master-roofing:5:fr-en:reader:13",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [
+        "master-roofing:5:fr-en:card:5",
+        "master-roofing:5:fr-en:card:8",
+        "master-roofing:5:fr-en:card:18"
+      ],
+      "existingFormIds": [
+        "master-roofing:5:fr-en:form:1",
+        "master-roofing:5:fr-en:form:2",
+        "master-roofing:5:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:5:fr-en:dictionary:1",
+        "master-roofing:5:fr-en:dictionary:2",
+        "master-roofing:5:fr-en:dictionary:3",
+        "master-roofing:5:fr-en:dictionary:4",
+        "master-roofing:5:fr-en:dictionary:5",
+        "master-roofing:5:fr-en:dictionary:6",
+        "master-roofing:5:fr-en:dictionary:7",
+        "master-roofing:5:fr-en:dictionary:8",
+        "master-roofing:5:fr-en:dictionary:9",
+        "master-roofing:5:fr-en:dictionary:10",
+        "master-roofing:5:fr-en:dictionary:11",
+        "master-roofing:5:fr-en:dictionary:12",
+        "master-roofing:5:fr-en:dictionary:13",
+        "master-roofing:5:fr-en:dictionary:14",
+        "master-roofing:5:fr-en:dictionary:15",
+        "master-roofing:5:fr-en:dictionary:16",
+        "master-roofing:5:fr-en:dictionary:17",
+        "master-roofing:5:fr-en:dictionary:18",
+        "master-roofing:5:fr-en:dictionary:19",
+        "master-roofing:5:fr-en:dictionary:20",
+        "master-roofing:5:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:5:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the conditional recommendation in English: I _____ replacing three sheets of plywood and checking the rafter.",
+      "promptFrench": "Complétez la recommandation conditionnelle en anglais : I _____ replacing three sheets of plywood and checking the rafter.",
+      "candidateTargetEnglish": "would recommend",
+      "candidateMeaningFrench": "recommanderais",
+      "explanationEnglish": "Would recommend gives a proposal rather than an unqualified command. Preserve three sheets of plywood and checking the rafter in the surrounding sentence.",
+      "explanationFrench": "Would recommend exprime une proposition plutôt qu’un ordre absolu. Conservez trois panneaux de contreplaqué et la vérification du chevron dans la phrase.",
+      "sourceAnchors": [
+        "master-roofing:5:fr-en:reader:12"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:12",
+          "referenceEnglish": "I would recommend replacing three sheets of plywood and checking the rafter.",
+          "candidateMeaningFrench": "Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "clozeTextEnglish": "I _____ replacing three sheets of plywood and checking the rafter.",
+      "unmaskedSourceBodyEnglish": "I would recommend replacing three sheets of plywood and checking the rafter.",
+      "clozeSourceAnchor": "master-roofing:5:fr-en:reader:12",
+      "linkedSourceCardIds": [
+        "master-roofing:5:fr-en:card:12",
+        "master-roofing:5:fr-en:card:17"
+      ],
+      "existingFormIds": [
+        "master-roofing:5:fr-en:form:1",
+        "master-roofing:5:fr-en:form:2",
+        "master-roofing:5:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:5:fr-en:dictionary:1",
+        "master-roofing:5:fr-en:dictionary:2",
+        "master-roofing:5:fr-en:dictionary:3",
+        "master-roofing:5:fr-en:dictionary:4",
+        "master-roofing:5:fr-en:dictionary:5",
+        "master-roofing:5:fr-en:dictionary:6",
+        "master-roofing:5:fr-en:dictionary:7",
+        "master-roofing:5:fr-en:dictionary:8",
+        "master-roofing:5:fr-en:dictionary:9",
+        "master-roofing:5:fr-en:dictionary:10",
+        "master-roofing:5:fr-en:dictionary:11",
+        "master-roofing:5:fr-en:dictionary:12",
+        "master-roofing:5:fr-en:dictionary:13",
+        "master-roofing:5:fr-en:dictionary:14",
+        "master-roofing:5:fr-en:dictionary:15",
+        "master-roofing:5:fr-en:dictionary:16",
+        "master-roofing:5:fr-en:dictionary:17",
+        "master-roofing:5:fr-en:dictionary:18",
+        "master-roofing:5:fr-en:dictionary:19",
+        "master-roofing:5:fr-en:dictionary:20",
+        "master-roofing:5:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:5:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Roleplay Rogelio in English with Mr. Ramírez. Describe the discovery and appearance, offer photos, answer the estimate question, propose the repair conditionally with cost/time, and ask for the change-order signature after verbal agreement.",
+      "promptFrench": "Jouez Rogelio en anglais face à M. Ramírez. Décrivez la découverte et l’aspect, proposez les photos, répondez sur le devis, présentez la réparation au conditionnel avec coût/délai et demandez la signature après l’accord oral.",
+      "candidateTargetEnglish": "Mr. Ramírez, when we removed the shingles, we found rotten wood. The deck was soft in this section, near the chimney, and it looked like water had been getting in for years. Shall I show you the photos? No, because nobody could see it before the tear-off; that's what the change order is for. I would recommend replacing three sheets of plywood and checking the rafter. It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says. We can't cover rotten wood, because the new nails wouldn't hold well. Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "candidateMeaningFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri. Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années. Voulez-vous que je vous montre les photos ? Non, parce que personne ne pouvait le voir avant la dépose ; c’est à cela que sert l’avenant. Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron. Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat. Nous ne pouvons pas recouvrir du bois pourri, parce que les nouveaux clous ne tiendraient pas bien. Merci ; j’ai besoin de votre signature sur l’avenant, parce que sans votre autorisation nous ne pouvons pas commencer la réparation.",
+      "explanationEnglish": "Read only the crew-lead turns; the partner reads the other named speaker. Keep source roles, conditionals, negatives, uncertainty and manufacturer/contract attributions. The reference is language practice, not approval of a field or contract decision.",
+      "explanationFrench": "Dites seulement les répliques du chef d’équipe ; le partenaire lit celles de l’autre personnage. Conservez rôles, conditionnels, négations, incertitude et références fabricant/contrat. La référence sert à la pratique linguistique, sans approuver une décision de chantier ou de contrat.",
+      "sourceAnchors": [
+        "master-roofing:5:fr-en:reader:7",
+        "master-roofing:5:fr-en:reader:8",
+        "master-roofing:5:fr-en:reader:9",
+        "master-roofing:5:fr-en:reader:10",
+        "master-roofing:5:fr-en:reader:11",
+        "master-roofing:5:fr-en:reader:12",
+        "master-roofing:5:fr-en:reader:13",
+        "master-roofing:5:fr-en:reader:14",
+        "master-roofing:5:fr-en:reader:15",
+        "master-roofing:5:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:7",
+          "referenceEnglish": "Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+          "candidateMeaningFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:8",
+          "referenceEnglish": "The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+          "candidateMeaningFrench": "Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:9",
+          "referenceEnglish": "Shall I show you the photos?",
+          "candidateMeaningFrench": "Voulez-vous que je vous montre les photos ?",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:11",
+          "referenceEnglish": "No, because nobody could see it before the tear-off; that's what the change order is for.",
+          "candidateMeaningFrench": "Non, parce que personne ne pouvait le voir avant la dépose ; c’est à cela que sert l’avenant.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:12",
+          "referenceEnglish": "I would recommend replacing three sheets of plywood and checking the rafter.",
+          "candidateMeaningFrench": "Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:13",
+          "referenceEnglish": "It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+          "candidateMeaningFrench": "Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:14",
+          "referenceEnglish": "We can't cover rotten wood, because the new nails wouldn't hold well.",
+          "candidateMeaningFrench": "Nous ne pouvons pas recouvrir du bois pourri, parce que les nouveaux clous ne tiendraient pas bien.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:14:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:16",
+          "referenceEnglish": "Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+          "candidateMeaningFrench": "Merci ; j’ai besoin de votre signature sur l’avenant, parce que sans votre autorisation nous ne pouvons pas commencer la réparation.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:16:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:7",
+          "utteranceEnglish": "Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+          "candidateMeaningFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:7:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:8",
+          "utteranceEnglish": "The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+          "candidateMeaningFrench": "Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:8:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:9",
+          "utteranceEnglish": "Shall I show you the photos?",
+          "candidateMeaningFrench": "Voulez-vous que je vous montre les photos ?",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:9:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Mr. Ramírez",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:10",
+          "utteranceEnglish": "Yes, please. And that wasn't in the estimate?",
+          "candidateMeaningFrench": "Oui, s’il vous plaît. Et ce n’était pas dans le devis ?",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:10:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:11",
+          "utteranceEnglish": "No, because nobody could see it before the tear-off; that's what the change order is for.",
+          "candidateMeaningFrench": "Non, parce que personne ne pouvait le voir avant la dépose ; c’est à cela que sert l’avenant.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:11:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:12",
+          "utteranceEnglish": "I would recommend replacing three sheets of plywood and checking the rafter.",
+          "candidateMeaningFrench": "Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:12:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:13",
+          "utteranceEnglish": "It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+          "candidateMeaningFrench": "Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:13:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:14",
+          "utteranceEnglish": "We can't cover rotten wood, because the new nails wouldn't hold well.",
+          "candidateMeaningFrench": "Nous ne pouvons pas recouvrir du bois pourri, parce que les nouveaux clous ne tiendraient pas bien.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:14:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:9",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Mr. Ramírez",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:15",
+          "utteranceEnglish": "All right, then do it.",
+          "candidateMeaningFrench": "D’accord, alors faites-le.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:15:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:5:fr-en:contextual-activity:v1:say:turn:10",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:5:fr-en:reader:16",
+          "utteranceEnglish": "Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+          "candidateMeaningFrench": "Merci ; j’ai besoin de votre signature sur l’avenant, parce que sans votre autorisation nous ne pouvons pas commencer la réparation.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:16:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:5:fr-en:card:3",
+        "master-roofing:5:fr-en:card:4",
+        "master-roofing:5:fr-en:card:5",
+        "master-roofing:5:fr-en:card:8",
+        "master-roofing:5:fr-en:card:11",
+        "master-roofing:5:fr-en:card:12",
+        "master-roofing:5:fr-en:card:16",
+        "master-roofing:5:fr-en:card:17",
+        "master-roofing:5:fr-en:card:18",
+        "master-roofing:5:fr-en:card:19",
+        "master-roofing:5:fr-en:card:20"
+      ],
+      "existingFormIds": [
+        "master-roofing:5:fr-en:form:1",
+        "master-roofing:5:fr-en:form:2",
+        "master-roofing:5:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:5:fr-en:dictionary:1",
+        "master-roofing:5:fr-en:dictionary:2",
+        "master-roofing:5:fr-en:dictionary:3",
+        "master-roofing:5:fr-en:dictionary:4",
+        "master-roofing:5:fr-en:dictionary:5",
+        "master-roofing:5:fr-en:dictionary:6",
+        "master-roofing:5:fr-en:dictionary:7",
+        "master-roofing:5:fr-en:dictionary:8",
+        "master-roofing:5:fr-en:dictionary:9",
+        "master-roofing:5:fr-en:dictionary:10",
+        "master-roofing:5:fr-en:dictionary:11",
+        "master-roofing:5:fr-en:dictionary:12",
+        "master-roofing:5:fr-en:dictionary:13",
+        "master-roofing:5:fr-en:dictionary:14",
+        "master-roofing:5:fr-en:dictionary:15",
+        "master-roofing:5:fr-en:dictionary:16",
+        "master-roofing:5:fr-en:dictionary:17",
+        "master-roofing:5:fr-en:dictionary:18",
+        "master-roofing:5:fr-en:dictionary:19",
+        "master-roofing:5:fr-en:dictionary:20",
+        "master-roofing:5:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:5:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio), explaining concealed damage and a change order to Mr. Ramírez.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), expliquant les dégâts cachés et un avenant à M. Ramírez.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write a clearly labelled English Q/A transcript for Rogelio and Mr. Ramírez, preserving the full source exchange: discovery and appearance, photo offer, homeowner estimate question, conditional repair/cost/time, verbal agreement and request for signed authorization.",
+      "promptFrench": "Rédigez un dialogue écrit en anglais avec personnages clairement indiqués : Rogelio et M. Ramírez. Conservez tout l’échange : découverte et aspect, photos, question sur le devis, proposition conditionnelle/coût/délai, accord oral et demande d’autorisation signée.",
+      "candidateTargetEnglish": "Rogelio: Mr. Ramírez, when we removed the shingles, we found rotten wood.\nRogelio: The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.\nRogelio: Shall I show you the photos?\nMr. Ramírez: Yes, please. And that wasn't in the estimate?\nRogelio: No, because nobody could see it before the tear-off; that's what the change order is for.\nRogelio: I would recommend replacing three sheets of plywood and checking the rafter.\nRogelio: It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.\nRogelio: We can't cover rotten wood, because the new nails wouldn't hold well.\nMr. Ramírez: All right, then do it.\nRogelio: Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+      "candidateMeaningFrench": "Rogelio : Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri.\nRogelio : Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.\nRogelio : Voulez-vous que je vous montre les photos ?\nM. Ramírez : Oui, s’il vous plaît. Et ce n’était pas dans le devis ?\nRogelio : Non, parce que personne ne pouvait le voir avant la dépose ; c’est à cela que sert l’avenant.\nRogelio : Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron.\nRogelio : Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat.\nRogelio : Nous ne pouvons pas recouvrir du bois pourri, parce que les nouveaux clous ne tiendraient pas bien.\nM. Ramírez : D’accord, alors faites-le.\nRogelio : Merci ; j’ai besoin de votre signature sur l’avenant, parce que sans votre autorisation nous ne pouvons pas commencer la réparation.",
+      "explanationEnglish": "Each reply follows its actual source trigger: No answers the estimate question, and Thank you follows the homeowner’s verbal agreement. Verbal agreement does not replace the source’s required signed authorization. Speaker labels and layout are new formatting, not new dialogue.",
+      "explanationFrench": "Chaque réponse suit son contexte : Non répond à la question sur le devis et Merci suit l’accord oral du propriétaire. L’accord oral ne remplace pas l’autorisation signée exigée dans la scène. Les étiquettes et la mise en page sont nouvelles ; les répliques restent celles de la source.",
+      "sourceAnchors": [
+        "master-roofing:5:fr-en:reader:7",
+        "master-roofing:5:fr-en:reader:8",
+        "master-roofing:5:fr-en:reader:9",
+        "master-roofing:5:fr-en:reader:10",
+        "master-roofing:5:fr-en:reader:11",
+        "master-roofing:5:fr-en:reader:12",
+        "master-roofing:5:fr-en:reader:13",
+        "master-roofing:5:fr-en:reader:14",
+        "master-roofing:5:fr-en:reader:15",
+        "master-roofing:5:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:7",
+          "referenceEnglish": "Mr. Ramírez, when we removed the shingles, we found rotten wood.",
+          "candidateMeaningFrench": "Monsieur Ramírez, quand nous avons retiré les bardeaux, nous avons trouvé du bois pourri.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:8",
+          "referenceEnglish": "The deck was soft in this section, near the chimney, and it looked like water had been getting in for years.",
+          "candidateMeaningFrench": "Le platelage était mou dans cette section, près de la cheminée, et il semblait que l’eau entrait depuis des années.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:9",
+          "referenceEnglish": "Shall I show you the photos?",
+          "candidateMeaningFrench": "Voulez-vous que je vous montre les photos ?",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:10",
+          "referenceEnglish": "Yes, please. And that wasn't in the estimate?",
+          "candidateMeaningFrench": "Oui, s’il vous plaît. Et ce n’était pas dans le devis ?",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Mr. Ramírez",
+          "speakerLabelFrench": "M. Ramírez"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:11",
+          "referenceEnglish": "No, because nobody could see it before the tear-off; that's what the change order is for.",
+          "candidateMeaningFrench": "Non, parce que personne ne pouvait le voir avant la dépose ; c’est à cela que sert l’avenant.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:12",
+          "referenceEnglish": "I would recommend replacing three sheets of plywood and checking the rafter.",
+          "candidateMeaningFrench": "Je vous recommanderais de remplacer trois panneaux de contreplaqué et de vérifier le chevron.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:13",
+          "referenceEnglish": "It would cost more and take an extra day, and the extra cost appears here, in writing, as the contract says.",
+          "candidateMeaningFrench": "Cela coûterait plus cher et prendrait un jour supplémentaire, et le coût additionnel figure ici, par écrit, comme le dit le contrat.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:14",
+          "referenceEnglish": "We can't cover rotten wood, because the new nails wouldn't hold well.",
+          "candidateMeaningFrench": "Nous ne pouvons pas recouvrir du bois pourri, parce que les nouveaux clous ne tiendraient pas bien.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:14:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:15",
+          "referenceEnglish": "All right, then do it.",
+          "candidateMeaningFrench": "D’accord, alors faites-le.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:15:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Mr. Ramírez",
+          "speakerLabelFrench": "M. Ramírez"
+        },
+        {
+          "sourceAnchor": "master-roofing:5:fr-en:reader:16",
+          "referenceEnglish": "Thank you; I need your signature on the change order, because without your authorization we can't start the repair.",
+          "candidateMeaningFrench": "Merci ; j’ai besoin de votre signature sur l’avenant, parce que sans votre autorisation nous ne pouvons pas commencer la réparation.",
+          "frenchEvidenceId": "master-roofing:5:fr-en:reader-alternative:16:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies Reader7–16 in order, with explicitly added English/French speaker labels and line breaks. No utterance rewritten; homeowner question and verbal agreement retained so No and Thank you have their original antecedents.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "linkedSourceCardIds": [
+        "master-roofing:5:fr-en:card:3",
+        "master-roofing:5:fr-en:card:5",
+        "master-roofing:5:fr-en:card:8",
+        "master-roofing:5:fr-en:card:11",
+        "master-roofing:5:fr-en:card:12",
+        "master-roofing:5:fr-en:card:16",
+        "master-roofing:5:fr-en:card:17",
+        "master-roofing:5:fr-en:card:18",
+        "master-roofing:5:fr-en:card:19",
+        "master-roofing:5:fr-en:card:20"
+      ],
+      "existingFormIds": [
+        "master-roofing:5:fr-en:form:1",
+        "master-roofing:5:fr-en:form:2",
+        "master-roofing:5:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:5:fr-en:dictionary:1",
+        "master-roofing:5:fr-en:dictionary:2",
+        "master-roofing:5:fr-en:dictionary:3",
+        "master-roofing:5:fr-en:dictionary:4",
+        "master-roofing:5:fr-en:dictionary:5",
+        "master-roofing:5:fr-en:dictionary:6",
+        "master-roofing:5:fr-en:dictionary:7",
+        "master-roofing:5:fr-en:dictionary:8",
+        "master-roofing:5:fr-en:dictionary:9",
+        "master-roofing:5:fr-en:dictionary:10",
+        "master-roofing:5:fr-en:dictionary:11",
+        "master-roofing:5:fr-en:dictionary:12",
+        "master-roofing:5:fr-en:dictionary:13",
+        "master-roofing:5:fr-en:dictionary:14",
+        "master-roofing:5:fr-en:dictionary:15",
+        "master-roofing:5:fr-en:dictionary:16",
+        "master-roofing:5:fr-en:dictionary:17",
+        "master-roofing:5:fr-en:dictionary:18",
+        "master-roofing:5:fr-en:dictionary:19",
+        "master-roofing:5:fr-en:dictionary:20",
+        "master-roofing:5:fr-en:dictionary:21"
+      ],
+      "targetFormat": "role-labelled-transcript"
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "Existing source/canonical/Reader/speaking/lexical activities/forms/dictionaries/IDs/holds remain byte-preserved.",
+    "Manufacturer overlap/attachment/siding rules, warranty language, concealed-damage diagnosis/repair/contract authorization, substitute equivalence/durability/weight and schedule dependencies remain internal source/trade questions. Exact utterances retain direct vocabulary without inserted hedges.",
+    "Source-only references are unselected and unscored; all release/progress/V4/audio gates stay false.",
+    "Assistant fallback due parent-reported weekly429; zero Claude calls/retries; independent parent critique pending."
+  ]
+}

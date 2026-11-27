@@ -1,0 +1,2028 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:3:fr-en",
+  "sidecarId": "master-roofing:3:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "9faed02478b6ae066a6e05f737c396155a576997",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-3-source-decision-2026-11-18/packet.json",
+    "sha256": "422605a7009692ff4071c6a647745ecb58a46bdb45bc88cefc8296b9d3678e15"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+    "content/french-roofing/review/master-3-source-decision-2026-11-18/packet.json": "422605a7009692ff4071c6a647745ecb58a46bdb45bc88cefc8296b9d3678e15",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-1-3-draft.json": "ba3ed0d30ff21635db9cf79b1441e3deae7a7916e12f2b264a957ff559f96cb9",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "18176f74dc47e6c67b69739433a648a6683a70834a3c382ea7f41691765612a8",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/README.md": "949a9c0ac3234441b942e3e0683984a1f2ab1b6dea7dcab6f4bcde1592e5319b",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "18176f74dc47e6c67b69739433a648a6683a70834a3c382ea7f41691765612a8",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "c774836ce7d85b79a5cbf42c674ae820ea80f8c769bf85849d703d69eb03b5f1",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "19067172992a2645bdaf68e87feaccf36f4512bea66434ba6f43a1a35b6633a1",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "0cc123b681fca182d151cfc371f3afc3e38ed1bd6fec0d5749af1ffbd3f97c18",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "a7599d7b64f4ab1babfc554e86835378e3445ce0899bffb3727bab2d641f9ed3",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "8262e12ec1ee71b7bb3bdbb10edc2ee5aa04a44693e3fa25c9b5351768aa1090",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/README.md": "949a9c0ac3234441b942e3e0683984a1f2ab1b6dea7dcab6f4bcde1592e5319b",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "18176f74dc47e6c67b69739433a648a6683a70834a3c382ea7f41691765612a8",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "c774836ce7d85b79a5cbf42c674ae820ea80f8c769bf85849d703d69eb03b5f1",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "19067172992a2645bdaf68e87feaccf36f4512bea66434ba6f43a1a35b6633a1",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "0cc123b681fca182d151cfc371f3afc3e38ed1bd6fec0d5749af1ffbd3f97c18",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "a7599d7b64f4ab1babfc554e86835378e3445ce0899bffb3727bab2d641f9ed3",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "8262e12ec1ee71b7bb3bdbb10edc2ee5aa04a44693e3fa25c9b5351768aa1090",
+    "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3"
+  },
+  "sourceObjectiveEnglish": "Coach a new roofer on nailing with clear commands, correcting mistakes without embarrassing them",
+  "sourceSpeakingEnglish": "You are training the AI, a new crew member, on the nail gun: show where to nail, check their work, and correct mistakes with commands like clávalo aquí and no lo hundas, keeping the tone supportive.",
+  "existingLexicalObjectiveEnglish": "Identify nail-tool terms and use object-pronoun requests with explicit reference-sheet referents.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual six-mode teaching proposals do not establish qualified technical, linguistic or release completion.",
+  "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+  "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+  "partnerRoleEnglish": "Kevin, a new crew member.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:1",
+      "sourcePacketReaderPointer": "/reader/0",
+      "sourceEnglish": "Today Kevin uses the nail gun for the first time, and Rogelio stays at his side.",
+      "sourceSpanish": "Hoy Kevin usa la pistola de clavos por primera vez, y Rogelio se queda a su lado.",
+      "sourceLegacyRef": "master-roofing:3:passage:1",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:1",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Aujourd’hui, Kevin utilise la cloueuse pour la première fois et Rogelio reste près de lui.",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+          "jsonPointer": "/candidateRows/20/candidateFrench",
+          "id": "master-roofing:3:fr-en:candidate:reader:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:2",
+      "sourcePacketReaderPointer": "/reader/1",
+      "sourceEnglish": "Rogelio: Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+      "sourceSpanish": "Rogelio: Antes de empezar, revisa la manguera y el compresor, y no pongas el dedo en el gatillo.",
+      "sourceLegacyRef": "master-roofing:3:passage:2",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:2",
+      "canonicalReaderHold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:2:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:3",
+      "sourcePacketReaderPointer": "/reader/2",
+      "sourceEnglish": "Rogelio: Look at this line on the shingle; this is the nailing zone.",
+      "sourceSpanish": "Rogelio: Mira esta línea en la teja; esta es la zona de clavado.",
+      "sourceLegacyRef": "master-roofing:3:passage:3",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:3",
+      "canonicalReaderHold": "The source locates a nailing zone on this shingle and requires the manufacturer's pattern. Confirm the product-specific nailing-zone and pattern terminology before selecting French commands.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Regarde cette ligne sur le bardeau : c’est la zone de clouage. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:3:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Rogelio: Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+      "sourceSpanish": "Rogelio: Clávalo aquí, en la zona de clavado, y sigue el patrón de clavado del fabricante.",
+      "sourceLegacyRef": "master-roofing:3:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "The source locates a nailing zone on this shingle and requires the manufacturer's pattern. Confirm the product-specific nailing-zone and pattern terminology before selecting French commands.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Kevin nails the first shingle, but one nail ends up too high.",
+      "sourceSpanish": "Kevin clava la primera teja, pero un clavo queda muy alto.",
+      "sourceLegacyRef": "master-roofing:3:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Kevin cloue le premier bardeau, mais un clou se retrouve trop haut.",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Rogelio: That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+      "sourceSpanish": "Rogelio: Ese clavo muy alto no agarra bien la teja de abajo; sácalo y ponle otro.",
+      "sourceLegacyRef": "master-roofing:3:passage:6",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:6",
+      "canonicalReaderHold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:6:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Rogelio: And the hole, seal it according to the product instructions; don't leave it open.",
+      "sourceSpanish": "Rogelio: Y el agujero, séllalo según las instrucciones del producto; no lo dejes abierto.",
+      "sourceLegacyRef": "master-roofing:3:passage:7",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+      "sourceSpanish": "Luego Kevin dispara otro clavo, y la cabeza del clavo se hunde en la teja.",
+      "sourceLegacyRef": "master-roofing:3:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Ensuite, Kevin tire un autre clou à la cloueuse, et la tête du clou s’enfonce dans le bardeau.",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: Look closely at the nail head; it has to sit flush, not lower.",
+      "sourceSpanish": "Rogelio: Fíjate bien en la cabeza del clavo; tiene que quedar al ras, no más abajo.",
+      "sourceLegacyRef": "master-roofing:3:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Regarde bien la tête du clou : elle doit être à fleur, pas plus bas. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Rogelio: An overdriven nail cuts the shingle, and the wind can lift it.",
+      "sourceSpanish": "Rogelio: Un clavo demasiado hundido corta la teja, y el viento la puede levantar.",
+      "sourceLegacyRef": "master-roofing:3:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: Turn the air pressure down a little and try again; don't sink it.",
+      "sourceSpanish": "Rogelio: Bájale a la presión de aire un poco y prueba otra vez; no lo hundas.",
+      "sourceLegacyRef": "master-roofing:3:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/9/alternatives/1/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:11:2",
+          "selectedFrench": null
+        },
+        {
+          "candidateFrench": "Rogelio : « Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/9/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: If the depth changes, let me know and we'll adjust it together.",
+      "sourceSpanish": "Rogelio: Si la profundidad cambia, avísame y lo ajustamos juntos.",
+      "sourceLegacyRef": "master-roofing:3:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/10/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Kevin turns red, but Rogelio tells him: Don't worry, it happened to all of us.",
+      "sourceSpanish": "Kevin se pone rojo, pero Rogelio le dice: No te preocupes, a todos nos pasó.",
+      "sourceLegacyRef": "master-roofing:3:passage:13",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:13",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Kevin rougit, mais Rogelio lui dit : « Ne t’inquiète pas, cela nous est tous arrivé. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+          "jsonPointer": "/candidateRows/32/candidateFrench",
+          "id": "master-roofing:3:fr-en:candidate:reader:13",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:14",
+      "sourcePacketReaderPointer": "/reader/13",
+      "sourceEnglish": "Rogelio: And the gun, don't point it at anyone, not even as a joke.",
+      "sourceSpanish": "Rogelio: Y la pistola, no la apuntes hacia nadie, ni en broma.",
+      "sourceLegacyRef": "master-roofing:3:passage:14",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:14",
+      "canonicalReaderHold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "18176f74dc47e6c67b69739433a648a6683a70834a3c382ea7f41691765612a8",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:14:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:15",
+      "sourcePacketReaderPointer": "/reader/14",
+      "sourceEnglish": "Later Don Ernesto arrives, a new worker with many years of experience at another company.",
+      "sourceSpanish": "Más tarde llega don Ernesto, un trabajador nuevo con muchos años de experiencia en otra compañía.",
+      "sourceLegacyRef": "master-roofing:3:passage:15",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:15",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Plus tard arrive Don Ernesto, un nouvel ouvrier ayant de nombreuses années d’expérience dans une autre entreprise.",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "e7eedb5d17e1c1a06826ac5709ee4c536cf8e0df6ebecd400eeeeef31f44526f",
+          "jsonPointer": "/candidateRows/34/candidateFrench",
+          "id": "master-roofing:3:fr-en:candidate:reader:15",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:3:fr-en:reader:16",
+      "sourcePacketReaderPointer": "/reader/15",
+      "sourceEnglish": "Rogelio: Don Ernesto, here we nail like this; please check it yourself too.",
+      "sourceSpanish": "Rogelio: Don Ernesto, aquí clavamos así; revíselo usted también, por favor.",
+      "sourceLegacyRef": "master-roofing:3:passage:16",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:3:fr-en:candidate:reader:16",
+      "canonicalReaderHold": "The final instruction addresses an experienced new hire politely. Check the French vous/register choice against the source role relationship and surrounding informal Kevin dialogue.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Don Ernesto, ici nous clouons ainsi ; vérifiez-le vous-même aussi, s’il vous plaît. »",
+          "artifactPath": "content/french-roofing/candidates/master-3-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "40cd89909924e7ad33baee632ebca3108a81d6a7b163e1eb7f4c155d2b8aeab0",
+          "jsonPointer": "/rows/11/alternatives/0/candidateFrench",
+          "id": "master-roofing:3:fr-en:reader-alternative:16:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:2",
+        "master-roofing:3:fr-en:card:3",
+        "master-roofing:3:fr-en:reader:3",
+        "master-roofing:3:fr-en:reader:4"
+      ],
+      "question": "The source locates a nailing zone on this shingle and requires the manufacturer's pattern. Confirm the product-specific nailing-zone and pattern terminology before selecting French commands."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:4",
+        "master-roofing:3:fr-en:card:5",
+        "master-roofing:3:fr-en:card:12",
+        "master-roofing:3:fr-en:reader:5",
+        "master-roofing:3:fr-en:reader:6",
+        "master-roofing:3:fr-en:reader:8",
+        "master-roofing:3:fr-en:reader:9",
+        "master-roofing:3:fr-en:reader:10"
+      ],
+      "question": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:7",
+        "master-roofing:3:fr-en:card:9",
+        "master-roofing:3:fr-en:card:11",
+        "master-roofing:3:fr-en:card:14",
+        "master-roofing:3:fr-en:card:15",
+        "master-roofing:3:fr-en:card:16",
+        "master-roofing:3:fr-en:card:17",
+        "master-roofing:3:fr-en:reader:2",
+        "master-roofing:3:fr-en:reader:7",
+        "master-roofing:3:fr-en:reader:11",
+        "master-roofing:3:fr-en:reader:12",
+        "master-roofing:3:fr-en:reader:14"
+      ],
+      "question": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:3:fr-en:card:20",
+        "master-roofing:3:fr-en:reader:16"
+      ],
+      "question": "The final instruction addresses an experienced older new hire politely. Check the French vous/register choice against the source role relationship and surrounding informal Kevin dialogue."
+    }
+  ],
+  "existingFormsEvidence": [
+    {
+      "id": "master-roofing:3:fr-en:form:1",
+      "englishForm": "Look closely at [noun phrase] in the picture.",
+      "meaningFrench": "Regardez attentivement + groupe nominal sur l’image.",
+      "candidateExampleEnglish": "Look closely at the nail head in the picture.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:card:6",
+        "master-roofing:3:fr-en:card:18"
+      ],
+      "provenance": "Source card18 base Look closely at the nail head plus new in the picture and new formal French support; this is a source-based transformation, not an exact whole source sentence or inspection criterion.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "master-roofing:3:fr-en:form:2",
+      "englishForm": "Find the term \"[term]\" on the sheet and read it aloud.",
+      "meaningFrench": "Trouvez le terme « terme » et lisez-le à voix haute.",
+      "candidateExampleEnglish": "Find the term \"the hole\" on the sheet and read it aloud.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:card:13"
+      ],
+      "provenance": "New English/French language-practice grammar composition using exact unheld source term(s), not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "master-roofing:3:fr-en:form:3",
+      "englishForm": "Do not / don’t + base verb + object.",
+      "meaningFrench": "Ne + impératif + pas + complément.",
+      "candidateExampleEnglish": "Don’t skip the label for \"the nail gun\".",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:card:1"
+      ],
+      "provenance": "New English/French language-practice grammar composition using exact unheld source term(s), not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "existingDictionaryEvidence": [
+    {
+      "id": "master-roofing:3:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:3:fr-en:card:1",
+      "englishHeadword": "the nail gun",
+      "candidateFrenchSense": "la cloueuse",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la pistola de clavos",
+      "qualifiedFrenchOptions": [
+        "la cloueuse",
+        "le pistolet à clous"
+      ],
+      "optionStatus": "Unselected locale/register alternatives; no operation approval.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:3:fr-en:card:2",
+      "englishHeadword": "the nailing zone",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "The source locates a nailing zone on this shingle and requires the manufacturer's pattern. Confirm the product-specific nailing-zone and pattern terminology before selecting French commands.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la zona de clavado",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:3:fr-en:card:3",
+      "englishHeadword": "the nail pattern",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "The source locates a nailing zone on this shingle and requires the manufacturer's pattern. Confirm the product-specific nailing-zone and pattern terminology before selecting French commands.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el patrón de clavado",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:3:fr-en:card:4",
+      "englishHeadword": "the overdriven nail",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el clavo demasiado hundido",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:3:fr-en:card:5",
+      "englishHeadword": "the high nail",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el clavo muy alto",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:3:fr-en:card:6",
+      "englishHeadword": "the nail head",
+      "candidateFrenchSense": "la tête du clou",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la cabeza del clavo",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:3:fr-en:card:7",
+      "englishHeadword": "the air pressure",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la presión de aire",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:3:fr-en:card:8",
+      "englishHeadword": "the compressor",
+      "candidateFrenchSense": "le compresseur",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el compresor",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:3:fr-en:card:9",
+      "englishHeadword": "the depth",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la profundidad",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:3:fr-en:card:10",
+      "englishHeadword": "the hose",
+      "candidateFrenchSense": "le tuyau souple",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la manguera",
+      "qualifiedFrenchOptions": [
+        "le tuyau souple",
+        "le flexible",
+        "le tuyau d’air"
+      ],
+      "optionStatus": "Unselected generic/pneumatic hose senses, not approved substitutions.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:3:fr-en:card:11",
+      "englishHeadword": "the trigger",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el gatillo",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:3:fr-en:card:12",
+      "englishHeadword": "flush",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "High and overdriven nails are distinct defects. The archived French softens the source's claim that an overdriven nail cuts the shingle and wind can lift it; resolve source fidelity and product scope before scoring.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "al ras",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:3:fr-en:card:13",
+      "englishHeadword": "the hole",
+      "candidateFrenchSense": "le trou",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el agujero",
+      "scopeNote": "Generic printed noun the hole / le trou, not selection of hole size, repair, sealing or shingle acceptance.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:3:fr-en:card:14",
+      "englishHeadword": "Nail it here, in the nailing zone.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Clávalo aquí, en la zona de clavado.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:3:fr-en:card:15",
+      "englishHeadword": "Don't sink it.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "No lo hundas.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:3:fr-en:card:16",
+      "englishHeadword": "Turn down the pressure.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Bájale a la presión.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:3:fr-en:card:17",
+      "englishHeadword": "Pull it out and put in another one.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "Nail-gun trigger, hose, compressor pressure, depth, replacement and hole-sealing instructions need qualified tool/product safety review. The source ties sealing to product instructions; avoid a universal repair rule.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Sácalo y ponle otro.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:3:fr-en:card:18",
+      "englishHeadword": "Look closely at the nail head.",
+      "candidateFrenchSense": "Regarde bien la tête du clou.",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Fíjate bien en la cabeza del clavo.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:3:fr-en:card:19",
+      "englishHeadword": "Don't worry, it happened to all of us.",
+      "candidateFrenchSense": "Ne t’inquiète pas, ça nous est arrivé à tous.",
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "No te preocupes, a todos nos pasó.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:3:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:3:fr-en:card:20",
+      "englishHeadword": "Please check it yourself too.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Training a New Crew Member on Nailing",
+      "status": "held",
+      "hold": "The final instruction addresses an experienced new hire politely. Check the French vous/register choice against the source role relationship and surrounding informal Kevin dialogue.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Revíselo usted también, por favor.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    }
+  ],
+  "sourceCardsEvidence": [
+    {
+      "id": "master-roofing:3:fr-en:card:1",
+      "legacySourceRef": "master-roofing:3:words:1",
+      "sourceSpanish": "la pistola de clavos",
+      "sourceEnglish": "the nail gun",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la cloueuse",
+      "conditionalFrench": "la cloueuse",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:2",
+      "legacySourceRef": "master-roofing:3:words:2",
+      "sourceSpanish": "la zona de clavado",
+      "sourceEnglish": "the nailing zone",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la zone de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:3",
+      "legacySourceRef": "master-roofing:3:words:3",
+      "sourceSpanish": "el patrón de clavado",
+      "sourceEnglish": "the nail pattern",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le motif de clouage",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:4",
+      "legacySourceRef": "master-roofing:3:words:4",
+      "sourceSpanish": "el clavo demasiado hundido",
+      "sourceEnglish": "the overdriven nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou trop enfoncé",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:5",
+      "legacySourceRef": "master-roofing:3:words:5",
+      "sourceSpanish": "el clavo muy alto",
+      "sourceEnglish": "the high nail",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le clou placé trop haut",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:6",
+      "legacySourceRef": "master-roofing:3:words:6",
+      "sourceSpanish": "la cabeza del clavo",
+      "sourceEnglish": "the nail head",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la tête du clou",
+      "conditionalFrench": "la tête du clou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:7",
+      "legacySourceRef": "master-roofing:3:words:7",
+      "sourceSpanish": "la presión de aire",
+      "sourceEnglish": "the air pressure",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la pression d’air",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:8",
+      "legacySourceRef": "master-roofing:3:words:8",
+      "sourceSpanish": "el compresor",
+      "sourceEnglish": "the compressor",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le compresseur",
+      "conditionalFrench": "le compresseur",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:9",
+      "legacySourceRef": "master-roofing:3:words:9",
+      "sourceSpanish": "la profundidad",
+      "sourceEnglish": "the depth",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la profondeur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:10",
+      "legacySourceRef": "master-roofing:3:words:10",
+      "sourceSpanish": "la manguera",
+      "sourceEnglish": "the hose",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le tuyau d’air",
+      "conditionalFrench": "le tuyau d’air",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:11",
+      "legacySourceRef": "master-roofing:3:words:11",
+      "sourceSpanish": "el gatillo",
+      "sourceEnglish": "the trigger",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "la gâchette",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:12",
+      "legacySourceRef": "master-roofing:3:words:12",
+      "sourceSpanish": "al ras",
+      "sourceEnglish": "flush",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "à fleur",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:13",
+      "legacySourceRef": "master-roofing:3:words:13",
+      "sourceSpanish": "el agujero",
+      "sourceEnglish": "the hole",
+      "sourceNoteSpanish": null,
+      "kind": "term",
+      "archivedFrenchEvidence": "le trou",
+      "conditionalFrench": "le trou",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:14",
+      "legacySourceRef": "master-roofing:3:words:14",
+      "sourceSpanish": "Clávalo aquí, en la zona de clavado.",
+      "sourceEnglish": "Nail it here, in the nailing zone.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Cloue-le ici, dans la zone de clouage.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:15",
+      "legacySourceRef": "master-roofing:3:words:15",
+      "sourceSpanish": "No lo hundas.",
+      "sourceEnglish": "Don't sink it.",
+      "sourceNoteSpanish": "a nail sunk too deep cuts the shingle",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne l’enfonce pas trop.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:16",
+      "legacySourceRef": "master-roofing:3:words:16",
+      "sourceSpanish": "Bájale a la presión.",
+      "sourceEnglish": "Turn down the pressure.",
+      "sourceNoteSpanish": "informal",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Baisse la pression.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:17",
+      "legacySourceRef": "master-roofing:3:words:17",
+      "sourceSpanish": "Sácalo y ponle otro.",
+      "sourceEnglish": "Pull it out and put in another one.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Retire-le et mets-en un autre.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:18",
+      "legacySourceRef": "master-roofing:3:words:18",
+      "sourceSpanish": "Fíjate bien en la cabeza del clavo.",
+      "sourceEnglish": "Look closely at the nail head.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Regarde bien la tête du clou.",
+      "conditionalFrench": "Regarde bien la tête du clou.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:19",
+      "legacySourceRef": "master-roofing:3:words:19",
+      "sourceSpanish": "No te preocupes, a todos nos pasó.",
+      "sourceEnglish": "Don't worry, it happened to all of us.",
+      "sourceNoteSpanish": null,
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ne t’inquiète pas, cela nous est tous arrivé.",
+      "conditionalFrench": "Ne t’inquiète pas, cela nous est tous arrivé.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:3:fr-en:card:20",
+      "legacySourceRef": "master-roofing:3:words:20",
+      "sourceSpanish": "Revíselo usted también, por favor.",
+      "sourceEnglish": "Please check it yourself too.",
+      "sourceNoteSpanish": "formal",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Vérifiez-le vous-même également, s’il vous plaît.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "referenceLinkLimits": "Form/dictionary IDs identify existing related records, not newly validated bindings. Master2 existing if+imperative form differs from source if+present-result; existing written-phrase and permission examples are lexical sheet tasks. Master3 picture/sheet examples are not source operating directions and no image is supplied. All dictionary mappings remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English-production/French-support draft. Original Spanish se/si or clávalo/no lo hundas objectives are preserved above; no cross-language grammatical equivalence/completion is claimed.",
+  "frenchReferencePolicy": "Existing unselected full-face alternatives supply sample French. All options/pointers retained; Master3 Reader11 sample uses contextual alternative2 without selecting it.",
+  "activities": [
+    {
+      "id": "master-roofing:3:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+      "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read the two observations from Kevin’s first attempt. Report in English what happened to the first nail and then to the other nail head.",
+      "promptFrench": "Lisez les deux observations du premier essai de Kevin. Rapportez en anglais ce qui s’est passé avec le premier clou, puis avec la tête de l’autre clou.",
+      "candidateTargetEnglish": "Kevin nails the first shingle, but one nail ends up too high. Then Kevin fires another nail, and the nail head sinks into the shingle.",
+      "candidateMeaningFrench": "Kevin cloue le premier bardeau, mais un clou se retrouve trop haut. Ensuite, Kevin tire un autre clou à la cloueuse, et la tête du clou s’enfonce dans le bardeau.",
+      "explanationEnglish": "The source reports one nail too high and another nail head sinking into the shingle. Keep these observations distinct; do not silently decide whether high means placement or head height.",
+      "explanationFrench": "La scène décrit un clou trop haut, puis une tête de clou qui s’enfonce dans le bardeau. Distinguez ces observations ; ne tranchez pas implicitement le sens de high entre emplacement et hauteur de tête.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:reader:5",
+        "master-roofing:3:fr-en:reader:8"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:5",
+          "referenceEnglish": "Kevin nails the first shingle, but one nail ends up too high.",
+          "candidateMeaningFrench": "Kevin cloue le premier bardeau, mais un clou se retrouve trop haut.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:5:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:8",
+          "referenceEnglish": "Then Kevin fires another nail, and the nail head sinks into the shingle.",
+          "candidateMeaningFrench": "Ensuite, Kevin tire un autre clou à la cloueuse, et la tête du clou s’enfonce dans le bardeau.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:8:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:5",
+          "text": "Kevin nails the first shingle, but one nail ends up too high."
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:8",
+          "text": "Then Kevin fires another nail, and the nail head sinks into the shingle."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:3:fr-en:card:6"
+      ],
+      "existingFormIds": [
+        "master-roofing:3:fr-en:form:1",
+        "master-roofing:3:fr-en:form:2",
+        "master-roofing:3:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:3:fr-en:dictionary:1",
+        "master-roofing:3:fr-en:dictionary:2",
+        "master-roofing:3:fr-en:dictionary:3",
+        "master-roofing:3:fr-en:dictionary:4",
+        "master-roofing:3:fr-en:dictionary:5",
+        "master-roofing:3:fr-en:dictionary:6",
+        "master-roofing:3:fr-en:dictionary:7",
+        "master-roofing:3:fr-en:dictionary:8",
+        "master-roofing:3:fr-en:dictionary:9",
+        "master-roofing:3:fr-en:dictionary:10",
+        "master-roofing:3:fr-en:dictionary:11",
+        "master-roofing:3:fr-en:dictionary:12",
+        "master-roofing:3:fr-en:dictionary:13",
+        "master-roofing:3:fr-en:dictionary:14",
+        "master-roofing:3:fr-en:dictionary:15",
+        "master-roofing:3:fr-en:dictionary:16",
+        "master-roofing:3:fr-en:dictionary:17",
+        "master-roofing:3:fr-en:dictionary:18",
+        "master-roofing:3:fr-en:dictionary:19",
+        "master-roofing:3:fr-en:dictionary:20"
+      ]
+    },
+    {
+      "id": "master-roofing:3:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+      "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, give Rogelio’s full English instruction about the hole after replacing the nail.",
+      "promptFrench": "À partir de l’indice français, retrouvez toute la consigne anglaise de Rogelio concernant le trou après le remplacement du clou.",
+      "candidateTargetEnglish": "And the hole, seal it according to the product instructions; don't leave it open.",
+      "candidateMeaningFrench": "Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+      "explanationEnglish": "Keep according to the product instructions and the negative command don’t leave it open. No sealant product or repair detail is supplied by this activity.",
+      "explanationFrench": "Conservez selon les instructions du produit et la consigne négative don’t leave it open. L’activité n’ajoute aucun produit de scellement ni détail de réparation.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:reader:7"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:7",
+          "referenceEnglish": "And the hole, seal it according to the product instructions; don't leave it open.",
+          "candidateMeaningFrench": "Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:7:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "cueFrench": "Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+      "linkedSourceCardIds": [
+        "master-roofing:3:fr-en:card:13"
+      ],
+      "existingFormIds": [
+        "master-roofing:3:fr-en:form:1",
+        "master-roofing:3:fr-en:form:2",
+        "master-roofing:3:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:3:fr-en:dictionary:1",
+        "master-roofing:3:fr-en:dictionary:2",
+        "master-roofing:3:fr-en:dictionary:3",
+        "master-roofing:3:fr-en:dictionary:4",
+        "master-roofing:3:fr-en:dictionary:5",
+        "master-roofing:3:fr-en:dictionary:6",
+        "master-roofing:3:fr-en:dictionary:7",
+        "master-roofing:3:fr-en:dictionary:8",
+        "master-roofing:3:fr-en:dictionary:9",
+        "master-roofing:3:fr-en:dictionary:10",
+        "master-roofing:3:fr-en:dictionary:11",
+        "master-roofing:3:fr-en:dictionary:12",
+        "master-roofing:3:fr-en:dictionary:13",
+        "master-roofing:3:fr-en:dictionary:14",
+        "master-roofing:3:fr-en:dictionary:15",
+        "master-roofing:3:fr-en:dictionary:16",
+        "master-roofing:3:fr-en:dictionary:17",
+        "master-roofing:3:fr-en:dictionary:18",
+        "master-roofing:3:fr-en:dictionary:19",
+        "master-roofing:3:fr-en:dictionary:20"
+      ]
+    },
+    {
+      "id": "master-roofing:3:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+      "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to Rogelio’s line. In English, tell Kevin the stated problem with the high nail and the two actions the source names.",
+      "promptFrench": "Écoutez la réplique de Rogelio. Dites en anglais à Kevin le problème donné pour le clou trop haut et les deux actions nommées.",
+      "candidateTargetEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+      "candidateMeaningFrench": "Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre.",
+      "explanationEnglish": "Doesn’t hold states the problem; pull it out and put in another one are two coordinated commands. Preserve the shingle below rather than substituting an unspecified part.",
+      "explanationFrench": "Doesn’t hold exprime le problème ; pull it out et put in another one sont deux impératifs coordonnés. Conservez le bardeau inférieur, sans le remplacer par un élément non précisé.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:reader:6"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:6",
+          "referenceEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+          "candidateMeaningFrench": "Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:6:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized candidate; no recording or playback.",
+      "candidateListeningTextEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+      "listeningTextSourceAnchor": "master-roofing:3:fr-en:reader:6",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:3:fr-en:form:1",
+        "master-roofing:3:fr-en:form:2",
+        "master-roofing:3:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:3:fr-en:dictionary:1",
+        "master-roofing:3:fr-en:dictionary:2",
+        "master-roofing:3:fr-en:dictionary:3",
+        "master-roofing:3:fr-en:dictionary:4",
+        "master-roofing:3:fr-en:dictionary:5",
+        "master-roofing:3:fr-en:dictionary:6",
+        "master-roofing:3:fr-en:dictionary:7",
+        "master-roofing:3:fr-en:dictionary:8",
+        "master-roofing:3:fr-en:dictionary:9",
+        "master-roofing:3:fr-en:dictionary:10",
+        "master-roofing:3:fr-en:dictionary:11",
+        "master-roofing:3:fr-en:dictionary:12",
+        "master-roofing:3:fr-en:dictionary:13",
+        "master-roofing:3:fr-en:dictionary:14",
+        "master-roofing:3:fr-en:dictionary:15",
+        "master-roofing:3:fr-en:dictionary:16",
+        "master-roofing:3:fr-en:dictionary:17",
+        "master-roofing:3:fr-en:dictionary:18",
+        "master-roofing:3:fr-en:dictionary:19",
+        "master-roofing:3:fr-en:dictionary:20"
+      ]
+    },
+    {
+      "id": "master-roofing:3:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+      "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the English line about the nail head: it has to sit _____, not lower.",
+      "promptFrench": "Complétez la réplique anglaise sur la tête du clou : it has to sit _____, not lower.",
+      "candidateTargetEnglish": "flush",
+      "candidateMeaningFrench": "à fleur",
+      "explanationEnglish": "Flush describes the stated alignment of the nail head; not lower preserves the contrasting limit. This cloze adds no measurement or pressure setting.",
+      "explanationFrench": "Flush décrit l’alignement indiqué de la tête du clou ; not lower conserve la limite opposée. Le texte à trous n’ajoute aucune mesure ni valeur de pression.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:reader:9"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:9",
+          "referenceEnglish": "Look closely at the nail head; it has to sit flush, not lower.",
+          "candidateMeaningFrench": "Regarde bien la tête du clou : elle doit être à fleur, pas plus bas.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:9:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source word from Reader9; replacement reconstructs exact source body.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "clozeTextEnglish": "Look closely at the nail head; it has to sit _____, not lower.",
+      "unmaskedSourceBodyEnglish": "Look closely at the nail head; it has to sit flush, not lower.",
+      "clozeSourceAnchor": "master-roofing:3:fr-en:reader:9",
+      "linkedSourceCardIds": [
+        "master-roofing:3:fr-en:card:6",
+        "master-roofing:3:fr-en:card:12",
+        "master-roofing:3:fr-en:card:18"
+      ],
+      "existingFormIds": [
+        "master-roofing:3:fr-en:form:1",
+        "master-roofing:3:fr-en:form:2",
+        "master-roofing:3:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:3:fr-en:dictionary:1",
+        "master-roofing:3:fr-en:dictionary:2",
+        "master-roofing:3:fr-en:dictionary:3",
+        "master-roofing:3:fr-en:dictionary:4",
+        "master-roofing:3:fr-en:dictionary:5",
+        "master-roofing:3:fr-en:dictionary:6",
+        "master-roofing:3:fr-en:dictionary:7",
+        "master-roofing:3:fr-en:dictionary:8",
+        "master-roofing:3:fr-en:dictionary:9",
+        "master-roofing:3:fr-en:dictionary:10",
+        "master-roofing:3:fr-en:dictionary:11",
+        "master-roofing:3:fr-en:dictionary:12",
+        "master-roofing:3:fr-en:dictionary:13",
+        "master-roofing:3:fr-en:dictionary:14",
+        "master-roofing:3:fr-en:dictionary:15",
+        "master-roofing:3:fr-en:dictionary:16",
+        "master-roofing:3:fr-en:dictionary:17",
+        "master-roofing:3:fr-en:dictionary:18",
+        "master-roofing:3:fr-en:dictionary:19",
+        "master-roofing:3:fr-en:dictionary:20"
+      ]
+    },
+    {
+      "id": "master-roofing:3:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+      "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Train Kevin in English using the source scene. Explain preparation and the nailing zone, respond to the high-nail and sunk-head observations, keep the manufacturer/product qualifications, and give the source’s supportive response.",
+      "promptFrench": "Formez Kevin en anglais à partir de la scène. Expliquez la préparation et la zone de clouage, répondez aux observations du clou trop haut et de la tête enfoncée, conservez les précisions fabricant/produit et la réponse encourageante.",
+      "candidateTargetEnglish": "Before you start, check the hose and the compressor, and don't put your finger on the trigger. Look at this line on the shingle; this is the nailing zone. Nail it here, in the nailing zone, and follow the manufacturer's nail pattern. That high nail doesn't hold the shingle below well; pull it out and put in another one. And the hole, seal it according to the product instructions; don't leave it open. Look closely at the nail head; it has to sit flush, not lower. An overdriven nail cuts the shingle, and the wind can lift it. Turn the air pressure down a little and try again; don't sink it. If the depth changes, let me know and we'll adjust it together. Don't worry, it happened to all of us. And the gun, don't point it at anyone, not even as a joke.",
+      "candidateMeaningFrench": "Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette. Regarde cette ligne sur le bardeau : c’est la zone de clouage. Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant. Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre. Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert. Regarde bien la tête du clou : elle doit être à fleur, pas plus bas. Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever. Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément. Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble. Ne t’inquiète pas, cela nous est tous arrivé. Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+      "explanationEnglish": "The partner questions are new contextual compositions, not quotations from Kevin. The learner replies reuse exact source speech. Preserve conditions, negatives, product qualifications and the source tone.",
+      "explanationFrench": "Les questions du partenaire sont de nouvelles compositions contextuelles, pas des citations de Kevin. Les réponses reprennent les paroles de la source. Conservez conditions, négations, précisions sur les produits et ton de la scène.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:reader:2",
+        "master-roofing:3:fr-en:reader:3",
+        "master-roofing:3:fr-en:reader:4",
+        "master-roofing:3:fr-en:reader:6",
+        "master-roofing:3:fr-en:reader:7",
+        "master-roofing:3:fr-en:reader:9",
+        "master-roofing:3:fr-en:reader:10",
+        "master-roofing:3:fr-en:reader:11",
+        "master-roofing:3:fr-en:reader:12",
+        "master-roofing:3:fr-en:reader:13",
+        "master-roofing:3:fr-en:reader:14"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:2",
+          "referenceEnglish": "Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+          "candidateMeaningFrench": "Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:2:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:3",
+          "referenceEnglish": "Look at this line on the shingle; this is the nailing zone.",
+          "candidateMeaningFrench": "Regarde cette ligne sur le bardeau : c’est la zone de clouage.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:3:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:4",
+          "referenceEnglish": "Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+          "candidateMeaningFrench": "Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:4:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:6",
+          "referenceEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+          "candidateMeaningFrench": "Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:6:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:7",
+          "referenceEnglish": "And the hole, seal it according to the product instructions; don't leave it open.",
+          "candidateMeaningFrench": "Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:7:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:9",
+          "referenceEnglish": "Look closely at the nail head; it has to sit flush, not lower.",
+          "candidateMeaningFrench": "Regarde bien la tête du clou : elle doit être à fleur, pas plus bas.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:9:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:10",
+          "referenceEnglish": "An overdriven nail cuts the shingle, and the wind can lift it.",
+          "candidateMeaningFrench": "Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:10:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:11",
+          "referenceEnglish": "Turn the air pressure down a little and try again; don't sink it.",
+          "candidateMeaningFrench": "Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:11:2"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:12",
+          "referenceEnglish": "If the depth changes, let me know and we'll adjust it together.",
+          "candidateMeaningFrench": "Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:12:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:13",
+          "referenceEnglish": "Don't worry, it happened to all of us.",
+          "candidateMeaningFrench": "Ne t’inquiète pas, cela nous est tous arrivé.",
+          "kind": "exact-source-embedded-speech",
+          "frenchEvidenceId": "master-roofing:3:fr-en:candidate:reader:13"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:14",
+          "referenceEnglish": "And the gun, don't point it at anyone, not even as a joke.",
+          "candidateMeaningFrench": "Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:14:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "How should I start, and where do I nail?",
+          "candidateMeaningFrench": "Comment dois-je commencer et où dois-je clouer ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:1",
+            "master-roofing:3:fr-en:reader:2",
+            "master-roofing:3:fr-en:reader:4"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "Before you start, check the hose and the compressor, and don't put your finger on the trigger. Look at this line on the shingle; this is the nailing zone. Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+          "candidateMeaningFrench": "Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette. Regarde cette ligne sur le bardeau : c’est la zone de clouage. Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:2",
+              "referenceEnglish": "Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+              "candidateMeaningFrench": "Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:2:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:3",
+              "referenceEnglish": "Look at this line on the shingle; this is the nailing zone.",
+              "candidateMeaningFrench": "Regarde cette ligne sur le bardeau : c’est la zone de clouage.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:3:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:4",
+              "referenceEnglish": "Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+              "candidateMeaningFrench": "Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:4:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:2",
+            "master-roofing:3:fr-en:reader:3",
+            "master-roofing:3:fr-en:reader:4"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "One nail ended up too high. What does the source tell me to do?",
+          "candidateMeaningFrench": "Un clou est trop haut. Que me dit de faire la scène ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:5",
+            "master-roofing:3:fr-en:reader:6",
+            "master-roofing:3:fr-en:reader:7"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one. And the hole, seal it according to the product instructions; don't leave it open.",
+          "candidateMeaningFrench": "Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre. Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:6",
+              "referenceEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+              "candidateMeaningFrench": "Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:6:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:7",
+              "referenceEnglish": "And the hole, seal it according to the product instructions; don't leave it open.",
+              "candidateMeaningFrench": "Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:7:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:6",
+            "master-roofing:3:fr-en:reader:7"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "The other nail head sank into the shingle. What should I check?",
+          "candidateMeaningFrench": "La tête de l’autre clou s’est enfoncée dans le bardeau. Que dois-je vérifier ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:8",
+            "master-roofing:3:fr-en:reader:9"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "Look closely at the nail head; it has to sit flush, not lower. An overdriven nail cuts the shingle, and the wind can lift it. Turn the air pressure down a little and try again; don't sink it. If the depth changes, let me know and we'll adjust it together.",
+          "candidateMeaningFrench": "Regarde bien la tête du clou : elle doit être à fleur, pas plus bas. Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever. Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément. Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:9",
+              "referenceEnglish": "Look closely at the nail head; it has to sit flush, not lower.",
+              "candidateMeaningFrench": "Regarde bien la tête du clou : elle doit être à fleur, pas plus bas.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:9:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:10",
+              "referenceEnglish": "An overdriven nail cuts the shingle, and the wind can lift it.",
+              "candidateMeaningFrench": "Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:10:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:11",
+              "referenceEnglish": "Turn the air pressure down a little and try again; don't sink it.",
+              "candidateMeaningFrench": "Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:11:2"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:12",
+              "referenceEnglish": "If the depth changes, let me know and we'll adjust it together.",
+              "candidateMeaningFrench": "Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:12:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:9",
+            "master-roofing:3:fr-en:reader:10",
+            "master-roofing:3:fr-en:reader:11",
+            "master-roofing:3:fr-en:reader:12"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "I made a mistake. What would you say to encourage me?",
+          "candidateMeaningFrench": "J’ai fait une erreur. Que me dirais-tu pour m’encourager ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:13"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:3:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "Don't worry, it happened to all of us. And the gun, don't point it at anyone, not even as a joke.",
+          "candidateMeaningFrench": "Ne t’inquiète pas, cela nous est tous arrivé. Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:13",
+              "referenceEnglish": "Don't worry, it happened to all of us.",
+              "candidateMeaningFrench": "Ne t’inquiète pas, cela nous est tous arrivé.",
+              "kind": "exact-source-embedded-speech",
+              "frenchEvidenceId": "master-roofing:3:fr-en:candidate:reader:13"
+            },
+            {
+              "sourceAnchor": "master-roofing:3:fr-en:reader:14",
+              "referenceEnglish": "And the gun, don't point it at anyone, not even as a joke.",
+              "candidateMeaningFrench": "Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:14:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:3:fr-en:reader:13",
+            "master-roofing:3:fr-en:reader:14"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:3:fr-en:card:2",
+        "master-roofing:3:fr-en:card:6",
+        "master-roofing:3:fr-en:card:7",
+        "master-roofing:3:fr-en:card:8",
+        "master-roofing:3:fr-en:card:9",
+        "master-roofing:3:fr-en:card:10",
+        "master-roofing:3:fr-en:card:11",
+        "master-roofing:3:fr-en:card:12",
+        "master-roofing:3:fr-en:card:13",
+        "master-roofing:3:fr-en:card:14",
+        "master-roofing:3:fr-en:card:18",
+        "master-roofing:3:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:3:fr-en:form:1",
+        "master-roofing:3:fr-en:form:2",
+        "master-roofing:3:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:3:fr-en:dictionary:1",
+        "master-roofing:3:fr-en:dictionary:2",
+        "master-roofing:3:fr-en:dictionary:3",
+        "master-roofing:3:fr-en:dictionary:4",
+        "master-roofing:3:fr-en:dictionary:5",
+        "master-roofing:3:fr-en:dictionary:6",
+        "master-roofing:3:fr-en:dictionary:7",
+        "master-roofing:3:fr-en:dictionary:8",
+        "master-roofing:3:fr-en:dictionary:9",
+        "master-roofing:3:fr-en:dictionary:10",
+        "master-roofing:3:fr-en:dictionary:11",
+        "master-roofing:3:fr-en:dictionary:12",
+        "master-roofing:3:fr-en:dictionary:13",
+        "master-roofing:3:fr-en:dictionary:14",
+        "master-roofing:3:fr-en:dictionary:15",
+        "master-roofing:3:fr-en:dictionary:16",
+        "master-roofing:3:fr-en:dictionary:17",
+        "master-roofing:3:fr-en:dictionary:18",
+        "master-roofing:3:fr-en:dictionary:19",
+        "master-roofing:3:fr-en:dictionary:20"
+      ]
+    },
+    {
+      "id": "master-roofing:3:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Trainer (Rogelio role), coaching Kevin, a new crew member using a nail gun for the first time.",
+      "learnerRoleFrench": "Formateur (rôle de Rogelio), accompagnant Kevin, nouvel équipier qui utilise une cloueuse pour la première fois.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write a connected English coaching note for Kevin’s first nail-gun attempt. Include source preparation, nailing zone/manufacturer pattern, high-nail correction and hole instructions, head depth and pressure language, reporting changes, encouragement and the source gun-direction warning.",
+      "promptFrench": "Rédigez une note suivie en anglais pour le premier essai de Kevin à la cloueuse. Incluez la préparation, la zone/le schéma du fabricant, le clou trop haut et le trou, la profondeur et la pression, le signalement des changements, l’encouragement et la consigne sur la direction de la cloueuse.",
+      "candidateTargetEnglish": "Before you start, check the hose and the compressor, and don't put your finger on the trigger. Look at this line on the shingle; this is the nailing zone. Nail it here, in the nailing zone, and follow the manufacturer's nail pattern. That high nail doesn't hold the shingle below well; pull it out and put in another one. And the hole, seal it according to the product instructions; don't leave it open. Look closely at the nail head; it has to sit flush, not lower. An overdriven nail cuts the shingle, and the wind can lift it. Turn the air pressure down a little and try again; don't sink it. If the depth changes, let me know and we'll adjust it together. Don't worry, it happened to all of us. And the gun, don't point it at anyone, not even as a joke.",
+      "candidateMeaningFrench": "Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette. Regarde cette ligne sur le bardeau : c’est la zone de clouage. Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant. Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre. Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert. Regarde bien la tête du clou : elle doit être à fleur, pas plus bas. Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever. Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément. Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble. Ne t’inquiète pas, cela nous est tous arrivé. Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+      "explanationEnglish": "Assemble the source explanation into a connected note. Each reference segment retains the source wording and force; narrator observations are context, and embedded encouragement is separated from its narrator frame. This is a language draft, not approved field instruction.",
+      "explanationFrench": "Assemblez l’explication en une note suivie. Chaque segment conserve le texte et la force de la source ; les observations narratives restent du contexte et l’encouragement est séparé de son cadre narratif. Il s’agit d’un brouillon linguistique, pas de consignes de chantier approuvées.",
+      "sourceAnchors": [
+        "master-roofing:3:fr-en:reader:2",
+        "master-roofing:3:fr-en:reader:3",
+        "master-roofing:3:fr-en:reader:4",
+        "master-roofing:3:fr-en:reader:6",
+        "master-roofing:3:fr-en:reader:7",
+        "master-roofing:3:fr-en:reader:9",
+        "master-roofing:3:fr-en:reader:10",
+        "master-roofing:3:fr-en:reader:11",
+        "master-roofing:3:fr-en:reader:12",
+        "master-roofing:3:fr-en:reader:13",
+        "master-roofing:3:fr-en:reader:14"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:2",
+          "referenceEnglish": "Before you start, check the hose and the compressor, and don't put your finger on the trigger.",
+          "candidateMeaningFrench": "Avant de commencer, vérifie le tuyau et le compresseur, et ne mets pas le doigt sur la gâchette.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:2:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:3",
+          "referenceEnglish": "Look at this line on the shingle; this is the nailing zone.",
+          "candidateMeaningFrench": "Regarde cette ligne sur le bardeau : c’est la zone de clouage.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:3:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:4",
+          "referenceEnglish": "Nail it here, in the nailing zone, and follow the manufacturer's nail pattern.",
+          "candidateMeaningFrench": "Cloue-le ici, dans la zone de clouage, et suis le schéma de clouage du fabricant.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:4:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:6",
+          "referenceEnglish": "That high nail doesn't hold the shingle below well; pull it out and put in another one.",
+          "candidateMeaningFrench": "Ce clou trop haut ne retient pas bien le bardeau du dessous ; retire-le et mets-en un autre.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:6:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:7",
+          "referenceEnglish": "And the hole, seal it according to the product instructions; don't leave it open.",
+          "candidateMeaningFrench": "Et le trou, scelle-le selon les instructions du produit ; ne le laisse pas ouvert.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:7:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:9",
+          "referenceEnglish": "Look closely at the nail head; it has to sit flush, not lower.",
+          "candidateMeaningFrench": "Regarde bien la tête du clou : elle doit être à fleur, pas plus bas.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:9:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:10",
+          "referenceEnglish": "An overdriven nail cuts the shingle, and the wind can lift it.",
+          "candidateMeaningFrench": "Un clou trop enfoncé coupe le bardeau, et le vent peut le soulever.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:10:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:11",
+          "referenceEnglish": "Turn the air pressure down a little and try again; don't sink it.",
+          "candidateMeaningFrench": "Baisse un peu la pression d’air et réessaie ; ne l’enfonce pas trop profondément.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:11:2"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:12",
+          "referenceEnglish": "If the depth changes, let me know and we'll adjust it together.",
+          "candidateMeaningFrench": "Si la profondeur change, préviens-moi, et nous l’ajusterons ensemble.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:12:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:13",
+          "referenceEnglish": "Don't worry, it happened to all of us.",
+          "candidateMeaningFrench": "Ne t’inquiète pas, cela nous est tous arrivé.",
+          "kind": "exact-source-embedded-speech",
+          "frenchEvidenceId": "master-roofing:3:fr-en:candidate:reader:13"
+        },
+        {
+          "sourceAnchor": "master-roofing:3:fr-en:reader:14",
+          "referenceEnglish": "And the gun, don't point it at anyone, not even as a joke.",
+          "candidateMeaningFrench": "Et la cloueuse, ne la pointe vers personne, même pas pour plaisanter.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:3:fr-en:reader-alternative:14:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "linkedSourceCardIds": [
+        "master-roofing:3:fr-en:card:2",
+        "master-roofing:3:fr-en:card:6",
+        "master-roofing:3:fr-en:card:7",
+        "master-roofing:3:fr-en:card:8",
+        "master-roofing:3:fr-en:card:9",
+        "master-roofing:3:fr-en:card:10",
+        "master-roofing:3:fr-en:card:11",
+        "master-roofing:3:fr-en:card:12",
+        "master-roofing:3:fr-en:card:13",
+        "master-roofing:3:fr-en:card:14",
+        "master-roofing:3:fr-en:card:18",
+        "master-roofing:3:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:3:fr-en:form:1",
+        "master-roofing:3:fr-en:form:2",
+        "master-roofing:3:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:3:fr-en:dictionary:1",
+        "master-roofing:3:fr-en:dictionary:2",
+        "master-roofing:3:fr-en:dictionary:3",
+        "master-roofing:3:fr-en:dictionary:4",
+        "master-roofing:3:fr-en:dictionary:5",
+        "master-roofing:3:fr-en:dictionary:6",
+        "master-roofing:3:fr-en:dictionary:7",
+        "master-roofing:3:fr-en:dictionary:8",
+        "master-roofing:3:fr-en:dictionary:9",
+        "master-roofing:3:fr-en:dictionary:10",
+        "master-roofing:3:fr-en:dictionary:11",
+        "master-roofing:3:fr-en:dictionary:12",
+        "master-roofing:3:fr-en:dictionary:13",
+        "master-roofing:3:fr-en:dictionary:14",
+        "master-roofing:3:fr-en:dictionary:15",
+        "master-roofing:3:fr-en:dictionary:16",
+        "master-roofing:3:fr-en:dictionary:17",
+        "master-roofing:3:fr-en:dictionary:18",
+        "master-roofing:3:fr-en:dictionary:19",
+        "master-roofing:3:fr-en:dictionary:20"
+      ]
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "All prior source/lexical activities/forms/dictionary/speaking/IDs/holds are byte-preserved. No new runtime/progress registration.",
+    "Product/manufacturer/tool settings, high-nail meaning and conditional outcome claims remain source/trade questions, separate from direct source utterances. No numeric settings, extra procedures or hedges inserted.",
+    "French variants are language proposals; no source or specialist objective completion claim.",
+    "Assistant fallback due parent-reported weekly429; zero CLI calls/retries. Independent parent critique pending."
+  ]
+}

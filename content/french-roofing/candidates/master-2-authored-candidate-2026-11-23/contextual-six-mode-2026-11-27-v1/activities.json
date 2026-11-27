@@ -1,0 +1,2013 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:2:fr-en",
+  "sidecarId": "master-roofing:2:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "9faed02478b6ae066a6e05f737c396155a576997",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-2-source-decision-2026-11-18/packet.json",
+    "sha256": "a141cf044ddc2edfc23b663b341523c63a3e7cb287d9d6f8e8a22e323fcfe605"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+    "content/french-roofing/review/master-2-source-decision-2026-11-18/packet.json": "a141cf044ddc2edfc23b663b341523c63a3e7cb287d9d6f8e8a22e323fcfe605",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-1-3-draft.json": "ba3ed0d30ff21635db9cf79b1441e3deae7a7916e12f2b264a957ff559f96cb9",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/README.md": "23894e4bf9702e51bb9d703bbf1a0536a4d27a137ff72b9923593a4d929e6caa",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "c774836ce7d85b79a5cbf42c674ae820ea80f8c769bf85849d703d69eb03b5f1",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "19067172992a2645bdaf68e87feaccf36f4512bea66434ba6f43a1a35b6633a1",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "0cc123b681fca182d151cfc371f3afc3e38ed1bd6fec0d5749af1ffbd3f97c18",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "a7599d7b64f4ab1babfc554e86835378e3445ce0899bffb3727bab2d641f9ed3",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "8262e12ec1ee71b7bb3bdbb10edc2ee5aa04a44693e3fa25c9b5351768aa1090",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/README.md": "23894e4bf9702e51bb9d703bbf1a0536a4d27a137ff72b9923593a4d929e6caa",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "c774836ce7d85b79a5cbf42c674ae820ea80f8c769bf85849d703d69eb03b5f1",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "19067172992a2645bdaf68e87feaccf36f4512bea66434ba6f43a1a35b6633a1",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "0cc123b681fca182d151cfc371f3afc3e38ed1bd6fec0d5749af1ffbd3f97c18",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "a7599d7b64f4ab1babfc554e86835378e3445ce0899bffb3727bab2d641f9ed3",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "8262e12ec1ee71b7bb3bdbb10edc2ee5aa04a44693e3fa25c9b5351768aa1090",
+    "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3"
+  },
+  "sourceObjectiveEnglish": "Explain why joints are staggered, using impersonal se and general rules with si",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a new hire who wants to lay shingles faster: explain how water travels across the roof, why the joints are staggered, and what happens over time if they line up, using se and si.",
+  "existingLexicalObjectiveEnglish": "Clarify moisture, wind, water-path and over-time vocabulary using passive statements, if-requests and polite permission.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual six-mode teaching proposals do not establish qualified technical, linguistic or release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+  "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+  "partnerRoleEnglish": "Kevin, a new crew member.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:1",
+      "sourcePacketReaderPointer": "/reader/0",
+      "sourceEnglish": "Kevin looks at the roof and asks why the joints don't go in a straight line.",
+      "sourceSpanish": "Kevin mira el techo y pregunta por qué las juntas no van en línea recta.",
+      "sourceLegacyRef": "master-roofing:2:passage:1",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:1",
+      "canonicalReaderHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Kevin regarde le toit et demande pourquoi les joints ne suivent pas une ligne droite.",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:1:1",
+          "selectedFrench": null
+        },
+        {
+          "candidateFrench": "Kevin regarde le toit et demande pourquoi les joints ne forment pas une ligne droite.",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+          "jsonPointer": "/rows/0/alternatives/1/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:1:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:2",
+      "sourcePacketReaderPointer": "/reader/1",
+      "sourceEnglish": "Rogelio: Look, I'll show you with two shingles.",
+      "sourceSpanish": "Rogelio: Mira, te lo enseño con dos tejas.",
+      "sourceLegacyRef": "master-roofing:2:passage:2",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:2",
+      "canonicalReaderHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : Regarde, je vais te montrer avec deux bardeaux.",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "67d60cda91eb0d488a411a6dbe8e509e15fb10368ccc8423beda497ed3de69cf",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:2:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:3",
+      "sourcePacketReaderPointer": "/reader/2",
+      "sourceEnglish": "Rogelio: If the joints line up, water gets in.",
+      "sourceSpanish": "Rogelio: Si las juntas se alinean, el agua se mete.",
+      "sourceLegacyRef": "master-roofing:2:passage:3",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:3",
+      "canonicalReaderHold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal. The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Si les joints s’alignent, l’eau entre. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:3:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Rogelio: Water looks for the easiest path, and an open joint is the easiest path.",
+      "sourceSpanish": "Rogelio: El agua busca el camino más fácil, y una junta abierta es el camino más fácil.",
+      "sourceLegacyRef": "master-roofing:2:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Rogelio: That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+      "sourceSpanish": "Rogelio: Por eso se escalonan las juntas según el fabricante, y nunca se hace a ojo.",
+      "sourceLegacyRef": "master-roofing:2:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal. The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+      "sourceSpanish": "Rogelio: Si una hilera tapa la junta de abajo, el agua corre por encima de la teja y sigue su camino.",
+      "sourceLegacyRef": "master-roofing:2:passage:6",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:6",
+      "canonicalReaderHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:6:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+      "sourceSpanish": "Rogelio: Pero si las ranuras quedan una encima de otra, el agua baja directo por la ranura hasta la sub-capa.",
+      "sourceLegacyRef": "master-roofing:2:passage:7",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: Over time, the moisture reaches the wood and the leak shows up inside the house.",
+      "sourceSpanish": "Rogelio: Con el tiempo, la humedad llega a la madera y la gotera aparece dentro de la casa.",
+      "sourceLegacyRef": "master-roofing:2:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: That way you don't see the leak until it's too late.",
+      "sourceSpanish": "Rogelio: Así no se ve la gotera hasta que es tarde.",
+      "sourceLegacyRef": "master-roofing:2:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "Source late-leak/moisture causal claim and too-late scope differ from qualified archived wording; product/source review required before any diagnosis, causal answer or scored statement.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Ainsi, on ne voit la fuite que lorsqu’il est trop tard. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Rogelio: The wind also lifts the tabs if the sealant strip doesn't stick well.",
+      "sourceSpanish": "Rogelio: El viento también levanta las lengüetas si la tira selladora no pega bien.",
+      "sourceLegacyRef": "master-roofing:2:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+      "sourceSpanish": "Rogelio: Por eso se revisa el patrón en cada hilera y se traza una línea de tiza cuando hace falta.",
+      "sourceLegacyRef": "master-roofing:2:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "The homeowner is listening from the yard and also has a question.",
+      "sourceSpanish": "La dueña de la casa escucha desde el patio y también tiene una pregunta.",
+      "sourceLegacyRef": "master-roofing:2:passage:12",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:12",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "La propriétaire écoute depuis la cour et a elle aussi une question.",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+          "jsonPointer": "/candidateRows/32/candidateFrench",
+          "id": "master-roofing:2:fr-en:candidate:reader:12",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Rogelio: Ma'am, may I explain why?",
+      "sourceSpanish": "Rogelio: Señora, ¿le puedo explicar por qué?",
+      "sourceLegacyRef": "master-roofing:2:passage:13",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:13",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Madame, puis-je vous expliquer pourquoi ? »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "d06b47f9bde47d0469436b9486006189934dd5a4a6ebaa9f6090543b29e3e594",
+          "jsonPointer": "/candidateRows/33/candidateFrench",
+          "id": "master-roofing:2:fr-en:candidate:reader:13",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:14",
+      "sourcePacketReaderPointer": "/reader/13",
+      "sourceEnglish": "Rogelio: If the overlap and the joints are right, the roof lasts many years; if not, water seeps in.",
+      "sourceSpanish": "Rogelio: Si el traslape y las juntas están bien, el techo dura muchos años; si no, se filtra el agua.",
+      "sourceLegacyRef": "master-roofing:2:passage:14",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:14",
+      "canonicalReaderHold": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Si le recouvrement et les joints sont corrects, la toiture dure de nombreuses années ; sinon, l’eau s’infiltre. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/9/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:14:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:2:fr-en:reader:15",
+      "sourcePacketReaderPointer": "/reader/14",
+      "sourceEnglish": "Rogelio: Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+      "sourceSpanish": "Rogelio: Kevin, poner las juntas en línea recta es un error, y eso no se hace aquí.",
+      "sourceLegacyRef": "master-roofing:2:passage:15",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:2:fr-en:candidate:reader:15",
+      "canonicalReaderHold": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context. The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici. »",
+          "artifactPath": "content/french-roofing/candidates/master-2-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "a45a4d74394603761ae82cd87a1080627d2707526b9efc1728574669caf719f6",
+          "jsonPointer": "/rows/10/alternatives/0/candidateFrench",
+          "id": "master-roofing:2:fr-en:reader-alternative:15:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:2:fr-en:card:1",
+        "master-roofing:2:fr-en:card:2",
+        "master-roofing:2:fr-en:card:3",
+        "master-roofing:2:fr-en:reader:3",
+        "master-roofing:2:fr-en:reader:5"
+      ],
+      "question": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:2:fr-en:card:15",
+        "master-roofing:2:fr-en:reader:3",
+        "master-roofing:2:fr-en:reader:4",
+        "master-roofing:2:fr-en:reader:14"
+      ],
+      "question": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:2:fr-en:card:10",
+        "master-roofing:2:fr-en:card:11",
+        "master-roofing:2:fr-en:card:12",
+        "master-roofing:2:fr-en:reader:6",
+        "master-roofing:2:fr-en:reader:7",
+        "master-roofing:2:fr-en:reader:10",
+        "master-roofing:2:fr-en:reader:11"
+      ],
+      "question": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:2:fr-en:reader:8",
+        "master-roofing:2:fr-en:reader:9",
+        "master-roofing:2:fr-en:reader:15"
+      ],
+      "question": "The source presents a moisture and late-leak sequence and calls straight-line joints an error here. Archived French qualifies the likelihood and adds a product condition. Review the scope of each claim against the source and product context."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:2:fr-en:card:18",
+        "master-roofing:2:fr-en:reader:5",
+        "master-roofing:2:fr-en:reader:15"
+      ],
+      "question": "The source grammar focus is impersonal se and si plus present for general truths, and speaking asks for a new-hire teach-back. Author French grammar and six prompt/target mode pairs specifically for this objective; the archived grammar labels and speaking are only unapproved evidence."
+    }
+  ],
+  "existingFormsEvidence": [
+    {
+      "id": "master-roofing:2:fr-en:form:1",
+      "englishForm": "The phrase \"[phrase]\" is written [place].",
+      "meaningFrench": "L’expression « expression » est écrite + lieu.",
+      "candidateExampleEnglish": "The phrase \"over time\" is written here.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:card:13"
+      ],
+      "provenance": "New English/French language-practice grammar composition using exact unheld source term(s), not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "master-roofing:2:fr-en:form:2",
+      "englishForm": "If [present-tense condition], [imperative].",
+      "meaningFrench": "Si + présent, impératif.",
+      "candidateExampleEnglish": "If a phrase is unclear, ask, \"What does 'over time' mean?\"",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:card:13"
+      ],
+      "provenance": "New English/French language-practice grammar composition using exact unheld source term(s), not a source work-method quotation.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    },
+    {
+      "id": "master-roofing:2:fr-en:form:3",
+      "englishForm": "May I explain the phrase \"[phrase]\"?",
+      "meaningFrench": "Puis-je expliquer l’expression « expression » ?",
+      "candidateExampleEnglish": "May I explain the phrase \"over time\"?",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:card:13",
+        "master-roofing:2:fr-en:card:20"
+      ],
+      "provenance": "New English/French permission-question composition adapting May I explain why? from source card20 (formal crew-lead-to-homeowner line) to a new-hire reference exercise; role/register transfer remains unreviewed.",
+      "reviewed": false,
+      "frenchSupportProvenance": "Unreviewed French candidate support; exact source English and new English/French compositions identified separately."
+    }
+  ],
+  "existingDictionaryEvidence": [
+    {
+      "id": "master-roofing:2:fr-en:dictionary:1",
+      "sourceAnchor": "master-roofing:2:fr-en:card:1",
+      "englishHeadword": "the joint",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la junta",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:2",
+      "sourceAnchor": "master-roofing:2:fr-en:card:2",
+      "englishHeadword": "to stagger",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "escalonar",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:3",
+      "sourceAnchor": "master-roofing:2:fr-en:card:3",
+      "englishHeadword": "the overlap",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "The source teaches staggered joints following the manufacturer. Review French terminology for joint, stagger and overlap in this shingle context, and preserve the manufacturer qualification rather than treating one pattern as universal.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el traslape",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:4",
+      "sourceAnchor": "master-roofing:2:fr-en:card:4",
+      "englishHeadword": "the course (row of shingles)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la hilera",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:5",
+      "sourceAnchor": "master-roofing:2:fr-en:card:5",
+      "englishHeadword": "the tab",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la lengüeta",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:6",
+      "sourceAnchor": "master-roofing:2:fr-en:card:6",
+      "englishHeadword": "the slot (between tabs)",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la ranura",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:7",
+      "sourceAnchor": "master-roofing:2:fr-en:card:7",
+      "englishHeadword": "the leak",
+      "candidateFrenchSense": "la fuite",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la gotera",
+      "qualifiedFrenchOptions": [
+        "la fuite",
+        "l’infiltration d’eau"
+      ],
+      "optionStatus": "Unselected contextual roof-leak sense options.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:8",
+      "sourceAnchor": "master-roofing:2:fr-en:card:8",
+      "englishHeadword": "the water path",
+      "candidateFrenchSense": "le trajet de l’eau",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el camino del agua",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:9",
+      "sourceAnchor": "master-roofing:2:fr-en:card:9",
+      "englishHeadword": "the moisture",
+      "candidateFrenchSense": "l’humidité",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la humedad",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:10",
+      "sourceAnchor": "master-roofing:2:fr-en:card:10",
+      "englishHeadword": "the chalk line",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la línea de tiza",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:11",
+      "sourceAnchor": "master-roofing:2:fr-en:card:11",
+      "englishHeadword": "the pattern",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el patrón",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:12",
+      "sourceAnchor": "master-roofing:2:fr-en:card:12",
+      "englishHeadword": "the sealant strip",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Course, slot, tab, underlayment, sealant strip and chalk line require qualified French trade and regional dictionary senses. Preserve the exact causal sequence in the Reader without implying unspecified installation instructions.",
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "la tira selladora",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:13",
+      "sourceAnchor": "master-roofing:2:fr-en:card:13",
+      "englishHeadword": "over time",
+      "candidateFrenchSense": "avec le temps",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "con el tiempo",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:14",
+      "sourceAnchor": "master-roofing:2:fr-en:card:14",
+      "englishHeadword": "the wind",
+      "candidateFrenchSense": "le vent",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "term",
+      "mappingType": "contextual-term",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "el viento",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:15",
+      "sourceAnchor": "master-roofing:2:fr-en:card:15",
+      "englishHeadword": "If the joints line up, water gets in.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "The source asserts water gets in when joints line up and that correct overlap makes a roof last many years; archived French softens these claims. Determine source-safe, product-specific teaching wording before selecting a scored answer. Do not silently combine the stronger source claim with the softer archive.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Si las juntas se alinean, el agua se mete.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:16",
+      "sourceAnchor": "master-roofing:2:fr-en:card:16",
+      "englishHeadword": "The joints are staggered according to the manufacturer.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Se escalonan las juntas según el fabricante.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:17",
+      "sourceAnchor": "master-roofing:2:fr-en:card:17",
+      "englishHeadword": "Water looks for the easiest path.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "El agua busca el camino más fácil.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:18",
+      "sourceAnchor": "master-roofing:2:fr-en:card:18",
+      "englishHeadword": "That way you don't see the leak until it's too late.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Source late-leak/moisture causal claim and too-late scope differ from qualified archived wording; product/source review required before any diagnosis, causal answer or scored statement.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Así no se ve la gotera hasta que es tarde.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:19",
+      "sourceAnchor": "master-roofing:2:fr-en:card:19",
+      "englishHeadword": "Look, I'll show you.",
+      "candidateFrenchSense": "Regarde, je vais te montrer.",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Mira, te lo enseño.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:20",
+      "sourceAnchor": "master-roofing:2:fr-en:card:20",
+      "englishHeadword": "May I explain why?",
+      "candidateFrenchSense": "Puis-je vous expliquer pourquoi ?",
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "candidate",
+      "hold": null,
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "¿Le puedo explicar por qué?",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    },
+    {
+      "id": "master-roofing:2:fr-en:dictionary:21",
+      "sourceAnchor": "master-roofing:2:fr-en:card:21",
+      "englishHeadword": "That's not done here.",
+      "candidateFrenchSense": null,
+      "contextEnglish": "Why We Stagger Joints",
+      "status": "held",
+      "hold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "reviewed": false,
+      "sourceKind": "phrase",
+      "mappingType": "contextual-phrase",
+      "registered": false,
+      "contextEnglishInternalOnly": true,
+      "qualifiedSenseReviewPending": true,
+      "sourceSpanishEvidence": "Eso no se hace aquí.",
+      "articleHandling": "Source noun phrases keep their source article in activities; canonical dictionary lemma normalization is unregistered and requires review."
+    }
+  ],
+  "sourceCardsEvidence": [
+    {
+      "id": "master-roofing:2:fr-en:card:1",
+      "legacySourceRef": "master-roofing:2:words:1",
+      "sourceSpanish": "la junta",
+      "sourceEnglish": "the joint",
+      "kind": "term",
+      "archivedFrenchEvidence": "le joint",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:2",
+      "legacySourceRef": "master-roofing:2:words:2",
+      "sourceSpanish": "escalonar",
+      "sourceEnglish": "to stagger",
+      "kind": "term",
+      "archivedFrenchEvidence": "décaler",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:3",
+      "legacySourceRef": "master-roofing:2:words:3",
+      "sourceSpanish": "el traslape",
+      "sourceEnglish": "the overlap",
+      "kind": "term",
+      "archivedFrenchEvidence": "le recouvrement",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:4",
+      "legacySourceRef": "master-roofing:2:words:4",
+      "sourceSpanish": "la hilera",
+      "sourceEnglish": "the course (row of shingles)",
+      "kind": "term",
+      "archivedFrenchEvidence": "le rang de bardeaux",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:5",
+      "legacySourceRef": "master-roofing:2:words:5",
+      "sourceSpanish": "la lengüeta",
+      "sourceEnglish": "the tab",
+      "kind": "term",
+      "archivedFrenchEvidence": "la languette",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:6",
+      "legacySourceRef": "master-roofing:2:words:6",
+      "sourceSpanish": "la ranura",
+      "sourceEnglish": "the slot (between tabs)",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fente entre les languettes",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:7",
+      "legacySourceRef": "master-roofing:2:words:7",
+      "sourceSpanish": "la gotera",
+      "sourceEnglish": "the leak",
+      "kind": "term",
+      "archivedFrenchEvidence": "la fuite",
+      "conditionalFrench": "la fuite",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:8",
+      "legacySourceRef": "master-roofing:2:words:8",
+      "sourceSpanish": "el camino del agua",
+      "sourceEnglish": "the water path",
+      "kind": "term",
+      "archivedFrenchEvidence": "le trajet de l’eau",
+      "conditionalFrench": "le trajet de l’eau",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:9",
+      "legacySourceRef": "master-roofing:2:words:9",
+      "sourceSpanish": "la humedad",
+      "sourceEnglish": "the moisture",
+      "kind": "term",
+      "archivedFrenchEvidence": "l’humidité",
+      "conditionalFrench": "l’humidité",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:10",
+      "legacySourceRef": "master-roofing:2:words:10",
+      "sourceSpanish": "la línea de tiza",
+      "sourceEnglish": "the chalk line",
+      "kind": "term",
+      "archivedFrenchEvidence": "la ligne tracée au cordeau",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:11",
+      "legacySourceRef": "master-roofing:2:words:11",
+      "sourceSpanish": "el patrón",
+      "sourceEnglish": "the pattern",
+      "kind": "term",
+      "archivedFrenchEvidence": "le motif",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:12",
+      "legacySourceRef": "master-roofing:2:words:12",
+      "sourceSpanish": "la tira selladora",
+      "sourceEnglish": "the sealant strip",
+      "kind": "term",
+      "archivedFrenchEvidence": "la bande adhésive",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:13",
+      "legacySourceRef": "master-roofing:2:words:13",
+      "sourceSpanish": "con el tiempo",
+      "sourceEnglish": "over time",
+      "kind": "term",
+      "archivedFrenchEvidence": "avec le temps",
+      "conditionalFrench": "avec le temps",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:14",
+      "legacySourceRef": "master-roofing:2:words:14",
+      "sourceSpanish": "el viento",
+      "sourceEnglish": "the wind",
+      "kind": "term",
+      "archivedFrenchEvidence": "le vent",
+      "conditionalFrench": "le vent",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:15",
+      "legacySourceRef": "master-roofing:2:words:15",
+      "sourceSpanish": "Si las juntas se alinean, el agua se mete.",
+      "sourceEnglish": "If the joints line up, water gets in.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Si les joints s’alignent, l’eau peut s’infiltrer.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:16",
+      "legacySourceRef": "master-roofing:2:words:16",
+      "sourceSpanish": "Se escalonan las juntas según el fabricante.",
+      "sourceEnglish": "The joints are staggered according to the manufacturer.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Les joints sont décalés selon les instructions du fabricant.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:17",
+      "legacySourceRef": "master-roofing:2:words:17",
+      "sourceSpanish": "El agua busca el camino más fácil.",
+      "sourceEnglish": "Water looks for the easiest path.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "L’eau suit le chemin le plus facile.",
+      "conditionalFrench": "L’eau suit le chemin le plus facile.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:18",
+      "legacySourceRef": "master-roofing:2:words:18",
+      "sourceSpanish": "Así no se ve la gotera hasta que es tarde.",
+      "sourceEnglish": "That way you don't see the leak until it's too late.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Ainsi, on peut ne voir la fuite que trop tard.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:19",
+      "legacySourceRef": "master-roofing:2:words:19",
+      "sourceSpanish": "Mira, te lo enseño.",
+      "sourceEnglish": "Look, I'll show you.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Regarde, je vais te montrer.",
+      "conditionalFrench": "Regarde, je vais te montrer.",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:20",
+      "legacySourceRef": "master-roofing:2:words:20",
+      "sourceSpanish": "¿Le puedo explicar por qué?",
+      "sourceEnglish": "May I explain why?",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "Puis-je vous expliquer pourquoi ?",
+      "conditionalFrench": "Puis-je vous expliquer pourquoi ?",
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": false,
+      "reviewed": false
+    },
+    {
+      "id": "master-roofing:2:fr-en:card:21",
+      "legacySourceRef": "master-roofing:2:words:21",
+      "sourceSpanish": "Eso no se hace aquí.",
+      "sourceEnglish": "That's not done here.",
+      "kind": "phrase",
+      "archivedFrenchEvidence": "On ne fait pas cela ici.",
+      "conditionalFrench": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "safetyOrMeaningHold": true,
+      "reviewed": false
+    }
+  ],
+  "referenceLinkLimits": "Form/dictionary IDs identify existing related records, not newly validated bindings. Master2 existing if+imperative form differs from source if+present-result; existing written-phrase and permission examples are lexical sheet tasks. Master3 picture/sheet examples are not source operating directions and no image is supplied. All dictionary mappings remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English-production/French-support draft. Original Spanish se/si or clávalo/no lo hundas objectives are preserved above; no cross-language grammatical equivalence/completion is claimed.",
+  "frenchReferencePolicy": "Existing unselected full-face alternatives supply sample French. All options/pointers retained; Master3 Reader11 sample uses contextual alternative2 without selecting it.",
+  "activities": [
+    {
+      "id": "master-roofing:2:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read the two water-path cases. Explain in English what happens when a course covers the joint below and when slots line up.",
+      "promptFrench": "Lisez les deux cas sur le trajet de l’eau. Expliquez en anglais ce qui se passe quand un rang couvre le joint inférieur et quand les fentes sont alignées.",
+      "candidateTargetEnglish": "If a course covers the joint below, the water runs over the shingle and keeps going on its way. But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+      "candidateMeaningFrench": "Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin. Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche.",
+      "explanationEnglish": "Keep the two if-conditions attached to their own results. The first describes water running over a shingle; the second describes the stated route to the underlayment.",
+      "explanationFrench": "Rattachez chaque condition en if à sa conséquence. Le premier cas décrit l’eau passant sur le bardeau ; le second décrit le trajet indiqué vers la sous-couche.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:reader:6",
+        "master-roofing:2:fr-en:reader:7"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+          "referenceEnglish": "If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+          "candidateMeaningFrench": "Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:6:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+          "referenceEnglish": "But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+          "candidateMeaningFrench": "Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:7:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+          "text": "Rogelio: If a course covers the joint below, the water runs over the shingle and keeps going on its way."
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+          "text": "Rogelio: But if the slots end up one on top of another, the water goes straight down the slot to the underlayment."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:2:fr-en:card:1"
+      ],
+      "existingFormIds": [
+        "master-roofing:2:fr-en:form:1",
+        "master-roofing:2:fr-en:form:2",
+        "master-roofing:2:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:2:fr-en:dictionary:1",
+        "master-roofing:2:fr-en:dictionary:2",
+        "master-roofing:2:fr-en:dictionary:3",
+        "master-roofing:2:fr-en:dictionary:4",
+        "master-roofing:2:fr-en:dictionary:5",
+        "master-roofing:2:fr-en:dictionary:6",
+        "master-roofing:2:fr-en:dictionary:7",
+        "master-roofing:2:fr-en:dictionary:8",
+        "master-roofing:2:fr-en:dictionary:9",
+        "master-roofing:2:fr-en:dictionary:10",
+        "master-roofing:2:fr-en:dictionary:11",
+        "master-roofing:2:fr-en:dictionary:12",
+        "master-roofing:2:fr-en:dictionary:13",
+        "master-roofing:2:fr-en:dictionary:14",
+        "master-roofing:2:fr-en:dictionary:15",
+        "master-roofing:2:fr-en:dictionary:16",
+        "master-roofing:2:fr-en:dictionary:17",
+        "master-roofing:2:fr-en:dictionary:18",
+        "master-roofing:2:fr-en:dictionary:19",
+        "master-roofing:2:fr-en:dictionary:20",
+        "master-roofing:2:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:2:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, tell Kevin in English why the joints are staggered and how the source says their layout is determined.",
+      "promptFrench": "À partir de l’indice français, dites à Kevin en anglais pourquoi les joints sont décalés et comment leur disposition est déterminée dans la scène.",
+      "candidateTargetEnglish": "Water looks for the easiest path, and an open joint is the easiest path. That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+      "candidateMeaningFrench": "L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+      "explanationEnglish": "That’s why connects the easiest-path reason to staggering. Retain according to the manufacturer and never by eye; do not replace them with an invented offset.",
+      "explanationFrench": "That’s why relie le trajet le plus facile au décalage des joints. Conservez selon le fabricant et jamais à l’œil ; n’inventez pas de mesure de décalage.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:reader:4",
+        "master-roofing:2:fr-en:reader:5"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:4",
+          "referenceEnglish": "Water looks for the easiest path, and an open joint is the easiest path.",
+          "candidateMeaningFrench": "L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:4:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:5",
+          "referenceEnglish": "That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+          "candidateMeaningFrench": "C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:5:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "cueFrench": "L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+      "linkedSourceCardIds": [
+        "master-roofing:2:fr-en:card:1",
+        "master-roofing:2:fr-en:card:17"
+      ],
+      "existingFormIds": [
+        "master-roofing:2:fr-en:form:1",
+        "master-roofing:2:fr-en:form:2",
+        "master-roofing:2:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:2:fr-en:dictionary:1",
+        "master-roofing:2:fr-en:dictionary:2",
+        "master-roofing:2:fr-en:dictionary:3",
+        "master-roofing:2:fr-en:dictionary:4",
+        "master-roofing:2:fr-en:dictionary:5",
+        "master-roofing:2:fr-en:dictionary:6",
+        "master-roofing:2:fr-en:dictionary:7",
+        "master-roofing:2:fr-en:dictionary:8",
+        "master-roofing:2:fr-en:dictionary:9",
+        "master-roofing:2:fr-en:dictionary:10",
+        "master-roofing:2:fr-en:dictionary:11",
+        "master-roofing:2:fr-en:dictionary:12",
+        "master-roofing:2:fr-en:dictionary:13",
+        "master-roofing:2:fr-en:dictionary:14",
+        "master-roofing:2:fr-en:dictionary:15",
+        "master-roofing:2:fr-en:dictionary:16",
+        "master-roofing:2:fr-en:dictionary:17",
+        "master-roofing:2:fr-en:dictionary:18",
+        "master-roofing:2:fr-en:dictionary:19",
+        "master-roofing:2:fr-en:dictionary:20",
+        "master-roofing:2:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:2:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to the source line. In English, explain what reaches the wood over time and where the leak appears.",
+      "promptFrench": "Écoutez la réplique. Expliquez en anglais ce qui atteint le bois avec le temps et où la fuite apparaît.",
+      "candidateTargetEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house.",
+      "candidateMeaningFrench": "Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison.",
+      "explanationEnglish": "Over time marks a gradual consequence. Keep moisture reaching the wood and the leak appearing inside the house as distinct parts of the explanation.",
+      "explanationFrench": "Over time indique une conséquence progressive. Distinguez l’humidité qui atteint le bois et la fuite qui apparaît à l’intérieur de la maison.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:reader:8"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:8",
+          "referenceEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house.",
+          "candidateMeaningFrench": "Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:8:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized candidate; no recording or playback.",
+      "candidateListeningTextEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house.",
+      "listeningTextSourceAnchor": "master-roofing:2:fr-en:reader:8",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [
+        "master-roofing:2:fr-en:card:7",
+        "master-roofing:2:fr-en:card:9"
+      ],
+      "existingFormIds": [
+        "master-roofing:2:fr-en:form:1",
+        "master-roofing:2:fr-en:form:2",
+        "master-roofing:2:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:2:fr-en:dictionary:1",
+        "master-roofing:2:fr-en:dictionary:2",
+        "master-roofing:2:fr-en:dictionary:3",
+        "master-roofing:2:fr-en:dictionary:4",
+        "master-roofing:2:fr-en:dictionary:5",
+        "master-roofing:2:fr-en:dictionary:6",
+        "master-roofing:2:fr-en:dictionary:7",
+        "master-roofing:2:fr-en:dictionary:8",
+        "master-roofing:2:fr-en:dictionary:9",
+        "master-roofing:2:fr-en:dictionary:10",
+        "master-roofing:2:fr-en:dictionary:11",
+        "master-roofing:2:fr-en:dictionary:12",
+        "master-roofing:2:fr-en:dictionary:13",
+        "master-roofing:2:fr-en:dictionary:14",
+        "master-roofing:2:fr-en:dictionary:15",
+        "master-roofing:2:fr-en:dictionary:16",
+        "master-roofing:2:fr-en:dictionary:17",
+        "master-roofing:2:fr-en:dictionary:18",
+        "master-roofing:2:fr-en:dictionary:19",
+        "master-roofing:2:fr-en:dictionary:20",
+        "master-roofing:2:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:2:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the result of the condition in English: If the joints line up, _____.",
+      "promptFrench": "Complétez en anglais la conséquence de la condition : If the joints line up, _____.",
+      "candidateTargetEnglish": "water gets in",
+      "candidateMeaningFrench": "l’eau entre",
+      "explanationEnglish": "Line up is the condition; water gets in is the stated result. This is a conditional explanation of the source scene, not a request to align joints.",
+      "explanationFrench": "Line up exprime la condition ; water gets in exprime la conséquence donnée. Il s’agit d’une explication conditionnelle de la scène, pas d’une consigne d’alignement.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:reader:3"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:3",
+          "referenceEnglish": "If the joints line up, water gets in.",
+          "candidateMeaningFrench": "Si les joints s’alignent, l’eau entre.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:3:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact result clause from Reader3; replacement reconstructs the exact source body.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "clozeTextEnglish": "If the joints line up, _____.",
+      "unmaskedSourceBodyEnglish": "If the joints line up, water gets in.",
+      "clozeSourceAnchor": "master-roofing:2:fr-en:reader:3",
+      "linkedSourceCardIds": [
+        "master-roofing:2:fr-en:card:1",
+        "master-roofing:2:fr-en:card:15"
+      ],
+      "existingFormIds": [
+        "master-roofing:2:fr-en:form:1",
+        "master-roofing:2:fr-en:form:2",
+        "master-roofing:2:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:2:fr-en:dictionary:1",
+        "master-roofing:2:fr-en:dictionary:2",
+        "master-roofing:2:fr-en:dictionary:3",
+        "master-roofing:2:fr-en:dictionary:4",
+        "master-roofing:2:fr-en:dictionary:5",
+        "master-roofing:2:fr-en:dictionary:6",
+        "master-roofing:2:fr-en:dictionary:7",
+        "master-roofing:2:fr-en:dictionary:8",
+        "master-roofing:2:fr-en:dictionary:9",
+        "master-roofing:2:fr-en:dictionary:10",
+        "master-roofing:2:fr-en:dictionary:11",
+        "master-roofing:2:fr-en:dictionary:12",
+        "master-roofing:2:fr-en:dictionary:13",
+        "master-roofing:2:fr-en:dictionary:14",
+        "master-roofing:2:fr-en:dictionary:15",
+        "master-roofing:2:fr-en:dictionary:16",
+        "master-roofing:2:fr-en:dictionary:17",
+        "master-roofing:2:fr-en:dictionary:18",
+        "master-roofing:2:fr-en:dictionary:19",
+        "master-roofing:2:fr-en:dictionary:20",
+        "master-roofing:2:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:2:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Roleplay the crew lead in English. Explain to Kevin why aligning joints to work faster causes the stated water-path problem, why the layout follows the manufacturer, and what happens over time. Answer the new-hire questions using the source explanation.",
+      "promptFrench": "Jouez le chef d’équipe en anglais. Expliquez à Kevin le problème de trajet de l’eau lié à l’alignement des joints pour aller plus vite, le respect du fabricant et les conséquences avec le temps. Répondez aux questions du nouvel employé à partir de la scène.",
+      "candidateTargetEnglish": "Look, I'll show you with two shingles. If the joints line up, water gets in. Water looks for the easiest path, and an open joint is the easiest path. That's why the joints are staggered according to the manufacturer, and it's never done by eye. If a course covers the joint below, the water runs over the shingle and keeps going on its way. But if the slots end up one on top of another, the water goes straight down the slot to the underlayment. Over time, the moisture reaches the wood and the leak shows up inside the house. That way you don't see the leak until it's too late. The wind also lifts the tabs if the sealant strip doesn't stick well. That's why the pattern is checked on every course and a chalk line is snapped when it's needed. Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+      "candidateMeaningFrench": "Regarde, je vais te montrer avec deux bardeaux. Si les joints s’alignent, l’eau entre. L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil. Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin. Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche. Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison. Ainsi, on ne voit la fuite que lorsqu’il est trop tard. Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien. C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire. Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici.",
+      "explanationEnglish": "The partner questions are new contextual compositions, not quotations from Kevin. The learner replies reuse exact source speech. Preserve conditions, negatives, product qualifications and the source tone.",
+      "explanationFrench": "Les questions du partenaire sont de nouvelles compositions contextuelles, pas des citations de Kevin. Les réponses reprennent les paroles de la source. Conservez conditions, négations, précisions sur les produits et ton de la scène.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:reader:2",
+        "master-roofing:2:fr-en:reader:3",
+        "master-roofing:2:fr-en:reader:4",
+        "master-roofing:2:fr-en:reader:5",
+        "master-roofing:2:fr-en:reader:6",
+        "master-roofing:2:fr-en:reader:7",
+        "master-roofing:2:fr-en:reader:8",
+        "master-roofing:2:fr-en:reader:9",
+        "master-roofing:2:fr-en:reader:10",
+        "master-roofing:2:fr-en:reader:11",
+        "master-roofing:2:fr-en:reader:15"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:2",
+          "referenceEnglish": "Look, I'll show you with two shingles.",
+          "candidateMeaningFrench": "Regarde, je vais te montrer avec deux bardeaux.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:2:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:3",
+          "referenceEnglish": "If the joints line up, water gets in.",
+          "candidateMeaningFrench": "Si les joints s’alignent, l’eau entre.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:3:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:4",
+          "referenceEnglish": "Water looks for the easiest path, and an open joint is the easiest path.",
+          "candidateMeaningFrench": "L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:4:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:5",
+          "referenceEnglish": "That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+          "candidateMeaningFrench": "C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:5:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+          "referenceEnglish": "If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+          "candidateMeaningFrench": "Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:6:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+          "referenceEnglish": "But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+          "candidateMeaningFrench": "Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:7:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:8",
+          "referenceEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house.",
+          "candidateMeaningFrench": "Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:8:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:9",
+          "referenceEnglish": "That way you don't see the leak until it's too late.",
+          "candidateMeaningFrench": "Ainsi, on ne voit la fuite que lorsqu’il est trop tard.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:9:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:10",
+          "referenceEnglish": "The wind also lifts the tabs if the sealant strip doesn't stick well.",
+          "candidateMeaningFrench": "Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:10:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:11",
+          "referenceEnglish": "That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+          "candidateMeaningFrench": "C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:11:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:15",
+          "referenceEnglish": "Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+          "candidateMeaningFrench": "Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:15:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "Could I line up the joints and work faster?",
+          "candidateMeaningFrench": "Est-ce que je pourrais aligner les joints pour travailler plus vite ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:1",
+            "master-roofing:2:fr-en:reader:3"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "Look, I'll show you with two shingles. If the joints line up, water gets in. Water looks for the easiest path, and an open joint is the easiest path. That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+          "candidateMeaningFrench": "Regarde, je vais te montrer avec deux bardeaux. Si les joints s’alignent, l’eau entre. L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:2",
+              "referenceEnglish": "Look, I'll show you with two shingles.",
+              "candidateMeaningFrench": "Regarde, je vais te montrer avec deux bardeaux.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:2:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:3",
+              "referenceEnglish": "If the joints line up, water gets in.",
+              "candidateMeaningFrench": "Si les joints s’alignent, l’eau entre.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:3:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:4",
+              "referenceEnglish": "Water looks for the easiest path, and an open joint is the easiest path.",
+              "candidateMeaningFrench": "L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:4:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:5",
+              "referenceEnglish": "That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+              "candidateMeaningFrench": "C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:5:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:2",
+            "master-roofing:2:fr-en:reader:3",
+            "master-roofing:2:fr-en:reader:4",
+            "master-roofing:2:fr-en:reader:5"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "What happens when a course covers the joint below?",
+          "candidateMeaningFrench": "Que se passe-t-il quand un rang couvre le joint inférieur ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:6"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "If a course covers the joint below, the water runs over the shingle and keeps going on its way. But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+          "candidateMeaningFrench": "Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin. Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+              "referenceEnglish": "If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+              "candidateMeaningFrench": "Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:6:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+              "referenceEnglish": "But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+              "candidateMeaningFrench": "Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:7:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:6",
+            "master-roofing:2:fr-en:reader:7"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "What happens over time, and what about the wind?",
+          "candidateMeaningFrench": "Que se passe-t-il avec le temps, et qu’en est-il du vent ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:8",
+            "master-roofing:2:fr-en:reader:10"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house. That way you don't see the leak until it's too late. The wind also lifts the tabs if the sealant strip doesn't stick well. That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+          "candidateMeaningFrench": "Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison. Ainsi, on ne voit la fuite que lorsqu’il est trop tard. Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien. C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:8",
+              "referenceEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house.",
+              "candidateMeaningFrench": "Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:8:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:9",
+              "referenceEnglish": "That way you don't see the leak until it's too late.",
+              "candidateMeaningFrench": "Ainsi, on ne voit la fuite que lorsqu’il est trop tard.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:9:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:10",
+              "referenceEnglish": "The wind also lifts the tabs if the sealant strip doesn't stick well.",
+              "candidateMeaningFrench": "Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:10:1"
+            },
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:11",
+              "referenceEnglish": "That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+              "candidateMeaningFrench": "C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:11:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:8",
+            "master-roofing:2:fr-en:reader:9",
+            "master-roofing:2:fr-en:reader:10",
+            "master-roofing:2:fr-en:reader:11"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "partner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "So what mistake should I avoid here?",
+          "candidateMeaningFrench": "Alors, quelle erreur dois-je éviter ici ?",
+          "provenance": "New bilingual partner cue derived from the source context/mission; not a source quotation.",
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:15"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:2:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "utteranceEnglish": "Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+          "candidateMeaningFrench": "Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici.",
+          "referenceSegments": [
+            {
+              "sourceAnchor": "master-roofing:2:fr-en:reader:15",
+              "referenceEnglish": "Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+              "candidateMeaningFrench": "Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici.",
+              "kind": "exact-source-utterance-body",
+              "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:15:1"
+            }
+          ],
+          "sourceAnchors": [
+            "master-roofing:2:fr-en:reader:15"
+          ],
+          "provenance": "Exact source speech bodies assembled; embedded speech explicitly extracted from narrator frame when labelled.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:2:fr-en:card:1",
+        "master-roofing:2:fr-en:card:5",
+        "master-roofing:2:fr-en:card:7",
+        "master-roofing:2:fr-en:card:9",
+        "master-roofing:2:fr-en:card:11",
+        "master-roofing:2:fr-en:card:12",
+        "master-roofing:2:fr-en:card:15",
+        "master-roofing:2:fr-en:card:17",
+        "master-roofing:2:fr-en:card:18",
+        "master-roofing:2:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:2:fr-en:form:1",
+        "master-roofing:2:fr-en:form:2",
+        "master-roofing:2:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:2:fr-en:dictionary:1",
+        "master-roofing:2:fr-en:dictionary:2",
+        "master-roofing:2:fr-en:dictionary:3",
+        "master-roofing:2:fr-en:dictionary:4",
+        "master-roofing:2:fr-en:dictionary:5",
+        "master-roofing:2:fr-en:dictionary:6",
+        "master-roofing:2:fr-en:dictionary:7",
+        "master-roofing:2:fr-en:dictionary:8",
+        "master-roofing:2:fr-en:dictionary:9",
+        "master-roofing:2:fr-en:dictionary:10",
+        "master-roofing:2:fr-en:dictionary:11",
+        "master-roofing:2:fr-en:dictionary:12",
+        "master-roofing:2:fr-en:dictionary:13",
+        "master-roofing:2:fr-en:dictionary:14",
+        "master-roofing:2:fr-en:dictionary:15",
+        "master-roofing:2:fr-en:dictionary:16",
+        "master-roofing:2:fr-en:dictionary:17",
+        "master-roofing:2:fr-en:dictionary:18",
+        "master-roofing:2:fr-en:dictionary:19",
+        "master-roofing:2:fr-en:dictionary:20",
+        "master-roofing:2:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:2:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining staggered joints and water paths to Kevin, a new hire.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant à Kevin, nouvel employé, le décalage des joints et le trajet de l’eau.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write Kevin a connected English explanation of the source scene: water’s easiest path, staggered joints according to the manufacturer, the two water-path cases, consequences over time, wind and sealant, and checking each course.",
+      "promptFrench": "Rédigez pour Kevin une explication suivie en anglais : trajet le plus facile de l’eau, joints décalés selon le fabricant, les deux cas de trajet, conséquences avec le temps, vent et bande de scellement, vérification de chaque rang.",
+      "candidateTargetEnglish": "If the joints line up, water gets in. Water looks for the easiest path, and an open joint is the easiest path. That's why the joints are staggered according to the manufacturer, and it's never done by eye. If a course covers the joint below, the water runs over the shingle and keeps going on its way. But if the slots end up one on top of another, the water goes straight down the slot to the underlayment. Over time, the moisture reaches the wood and the leak shows up inside the house. That way you don't see the leak until it's too late. The wind also lifts the tabs if the sealant strip doesn't stick well. That's why the pattern is checked on every course and a chalk line is snapped when it's needed. Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+      "candidateMeaningFrench": "Si les joints s’alignent, l’eau entre. L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile. C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil. Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin. Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche. Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison. Ainsi, on ne voit la fuite que lorsqu’il est trop tard. Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien. C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire. Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici.",
+      "explanationEnglish": "Assemble the source explanation into a connected note. Each reference segment retains the source wording and force; narrator observations are context, and embedded encouragement is separated from its narrator frame. This is a language draft, not approved field instruction.",
+      "explanationFrench": "Assemblez l’explication en une note suivie. Chaque segment conserve le texte et la force de la source ; les observations narratives restent du contexte et l’encouragement est séparé de son cadre narratif. Il s’agit d’un brouillon linguistique, pas de consignes de chantier approuvées.",
+      "sourceAnchors": [
+        "master-roofing:2:fr-en:reader:3",
+        "master-roofing:2:fr-en:reader:4",
+        "master-roofing:2:fr-en:reader:5",
+        "master-roofing:2:fr-en:reader:6",
+        "master-roofing:2:fr-en:reader:7",
+        "master-roofing:2:fr-en:reader:8",
+        "master-roofing:2:fr-en:reader:9",
+        "master-roofing:2:fr-en:reader:10",
+        "master-roofing:2:fr-en:reader:11",
+        "master-roofing:2:fr-en:reader:15"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:3",
+          "referenceEnglish": "If the joints line up, water gets in.",
+          "candidateMeaningFrench": "Si les joints s’alignent, l’eau entre.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:3:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:4",
+          "referenceEnglish": "Water looks for the easiest path, and an open joint is the easiest path.",
+          "candidateMeaningFrench": "L’eau cherche le chemin le plus facile, et un joint ouvert est le chemin le plus facile.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:4:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:5",
+          "referenceEnglish": "That's why the joints are staggered according to the manufacturer, and it's never done by eye.",
+          "candidateMeaningFrench": "C’est pourquoi on décale les joints selon le fabricant, et on ne le fait jamais à vue d’œil.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:5:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:6",
+          "referenceEnglish": "If a course covers the joint below, the water runs over the shingle and keeps going on its way.",
+          "candidateMeaningFrench": "Si un rang recouvre le joint du dessous, l’eau passe par-dessus le bardeau et poursuit son chemin.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:6:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:7",
+          "referenceEnglish": "But if the slots end up one on top of another, the water goes straight down the slot to the underlayment.",
+          "candidateMeaningFrench": "Mais si les fentes se retrouvent l’une au-dessus de l’autre, l’eau descend tout droit par la fente jusqu’à la sous-couche.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:7:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:8",
+          "referenceEnglish": "Over time, the moisture reaches the wood and the leak shows up inside the house.",
+          "candidateMeaningFrench": "Avec le temps, l’humidité atteint le bois, et la fuite apparaît à l’intérieur de la maison.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:8:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:9",
+          "referenceEnglish": "That way you don't see the leak until it's too late.",
+          "candidateMeaningFrench": "Ainsi, on ne voit la fuite que lorsqu’il est trop tard.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:9:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:10",
+          "referenceEnglish": "The wind also lifts the tabs if the sealant strip doesn't stick well.",
+          "candidateMeaningFrench": "Le vent soulève aussi les languettes si la bande de scellement ne colle pas bien.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:10:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:11",
+          "referenceEnglish": "That's why the pattern is checked on every course and a chalk line is snapped when it's needed.",
+          "candidateMeaningFrench": "C’est pourquoi on vérifie le schéma de pose sur chaque rang et on trace une ligne au cordeau à craie quand c’est nécessaire.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:11:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:2:fr-en:reader:15",
+          "referenceEnglish": "Kevin, putting the joints in a straight line is a mistake, and that's not done here.",
+          "candidateMeaningFrench": "Kevin, mettre les joints en ligne droite, c’est une erreur, et ça ne se fait pas ici.",
+          "kind": "exact-source-utterance-body",
+          "frenchEvidenceId": "master-roofing:2:fr-en:reader-alternative:15:1"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source utterance bodies assembled in the stated order; speaker labels excluded. Embedded speech extraction, when present, is separately labelled. French reuses unselected authored options.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected reference example, not a rigid scored key; equivalent English wording needs qualified review.",
+      "linkedSourceCardIds": [
+        "master-roofing:2:fr-en:card:1",
+        "master-roofing:2:fr-en:card:5",
+        "master-roofing:2:fr-en:card:7",
+        "master-roofing:2:fr-en:card:9",
+        "master-roofing:2:fr-en:card:11",
+        "master-roofing:2:fr-en:card:12",
+        "master-roofing:2:fr-en:card:15",
+        "master-roofing:2:fr-en:card:17",
+        "master-roofing:2:fr-en:card:18"
+      ],
+      "existingFormIds": [
+        "master-roofing:2:fr-en:form:1",
+        "master-roofing:2:fr-en:form:2",
+        "master-roofing:2:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:2:fr-en:dictionary:1",
+        "master-roofing:2:fr-en:dictionary:2",
+        "master-roofing:2:fr-en:dictionary:3",
+        "master-roofing:2:fr-en:dictionary:4",
+        "master-roofing:2:fr-en:dictionary:5",
+        "master-roofing:2:fr-en:dictionary:6",
+        "master-roofing:2:fr-en:dictionary:7",
+        "master-roofing:2:fr-en:dictionary:8",
+        "master-roofing:2:fr-en:dictionary:9",
+        "master-roofing:2:fr-en:dictionary:10",
+        "master-roofing:2:fr-en:dictionary:11",
+        "master-roofing:2:fr-en:dictionary:12",
+        "master-roofing:2:fr-en:dictionary:13",
+        "master-roofing:2:fr-en:dictionary:14",
+        "master-roofing:2:fr-en:dictionary:15",
+        "master-roofing:2:fr-en:dictionary:16",
+        "master-roofing:2:fr-en:dictionary:17",
+        "master-roofing:2:fr-en:dictionary:18",
+        "master-roofing:2:fr-en:dictionary:19",
+        "master-roofing:2:fr-en:dictionary:20",
+        "master-roofing:2:fr-en:dictionary:21"
+      ]
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "All prior source/lexical activities/forms/dictionary/speaking/IDs/holds are byte-preserved. No new runtime/progress registration.",
+    "Product/manufacturer/tool settings, high-nail meaning and conditional outcome claims remain source/trade questions, separate from direct source utterances. No numeric settings, extra procedures or hedges inserted.",
+    "French variants are language proposals; no source or specialist objective completion claim.",
+    "Assistant fallback due parent-reported weekly429; zero CLI calls/retries. Independent parent critique pending."
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "kind": "inert-current-main-contextual-sixmode",
+  "baselineMain": "96ede63626a5289734953eef615d67e2751ca931",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "lesson": 20,
+  "sourceVersionSha256": "23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6",
+  "sourcePins": {
+    "master": {
+      "gitRevision": "96ede63626a5289734953eef615d67e2751ca931",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "gitRevision": "96ede63626a5289734953eef615d67e2751ca931",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    "cards": {
+      "gitRevision": "96ede63626a5289734953eef615d67e2751ca931",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    "cardIdentity": {
+      "gitRevision": "96ede63626a5289734953eef615d67e2751ca931",
+      "path": "content/japanese-basics/review/master1-20-card-identity-manifest-2026-11-26/manifest.json",
+      "sha256": "0ee0c1e31d8cc09dccf83261b3645427b33098be8ec7709dd90fc4a19f74ca11"
+    }
+  },
+  "privateFormSourcePin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+    "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+  },
+  "activities": [
+    {
+      "id": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:mode:see",
+      "mode": "see",
+      "sourceTurnOneBased": 1,
+      "targetJapanese": "あきさん、こんにちは。",
+      "targetEnglish": "Hello, Aki.",
+      "promptEnglish": "Read the opening greeting. Identify the person being addressed.",
+      "promptJapanese": "はじめの あいさつを よんで、だれに はなしかけているかを みつけて ください。",
+      "explanationEnglish": "さん politely accompanies Aki’s name. こんにちは opens the encounter with a greeting.",
+      "explanationJapanese": "「さん」は、あきさんの なまえに そえる ていねいな よびかたです。「こんにちは」で、あいさつを します。",
+      "targetSpeakerRoleEnglish": "Speaker addressing Aki",
+      "learnerPracticeRoleEnglish": "Speaker addressing Aki",
+      "wordBankJapanese": [
+        "あきさん、こんにちは。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:reader:0:b4b262a78024a2f9e3feaa1a6d481dbc945ebcc6c8204e59a55d395e8e1c4470",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:9840d84c4a99bb1f391b52b505214d54a918694c92dcaa02db7edf518362f03d"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "Two speakers greet, clarify the pronunciation of a word, propose tomorrow’s station meeting, recall yesterday’s meeting there, and close the conversation. Speaker roles are local to each exchange; no unsupported identity assignment is made.",
+      "privateExactDialogueTurnsOneBased": [
+        1
+      ]
+    },
+    {
+      "id": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:mode:recall",
+      "mode": "recall",
+      "sourceTurnOneBased": 4,
+      "targetJapanese": "この ことばを ゆっくり いってください。",
+      "targetEnglish": "Please say this word slowly.",
+      "promptEnglish": "Recall the request to say this word slowly. Use the complete polite request.",
+      "promptJapanese": "この ことばを ゆっくり いうように たのむ ぶんを、おもいだして ください。",
+      "explanationEnglish": "いってください means please say here, from いう. The same kana in a direction can mean please go; ことばを and ゆっくり establish speaking in this context.",
+      "explanationJapanese": "ここでの「いってください」は、「いう」から できた、いうように たのむ ことばです。みちの あんないでは、おなじ かなで「いく」の いみも あります。「ことばを」と「ゆっくり」で、ここは はなす はなしだと わかります。",
+      "targetSpeakerRoleEnglish": "Questioner",
+      "learnerPracticeRoleEnglish": "Questioner",
+      "wordBankJapanese": [
+        "この",
+        "ことばを",
+        "ゆっくり",
+        "いってください。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:reader:3:3ea020ba59216b2af3a0dea9719236fac1e00ce4b92224b05ca4516e1478dfd1",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:7c5055f0b4fc33947ca6085457d6897f628150a0bdfb4c127b84dc46b8ef62ad"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-d52afd93c01ec833",
+          "sourceDialogueTurn": 4,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "Two speakers greet, clarify the pronunciation of a word, propose tomorrow’s station meeting, recall yesterday’s meeting there, and close the conversation. Speaker roles are local to each exchange; no unsupported identity assignment is made.",
+      "privateExactDialogueTurnsOneBased": [
+        4
+      ]
+    },
+    {
+      "id": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:mode:hear",
+      "mode": "hear",
+      "sourceTurnOneBased": 5,
+      "targetJapanese": "はい、「しりょう」です。わかりますか。",
+      "targetEnglish": "Yes, it is “shiryō” (materials or a handout). Do you understand?",
+      "promptEnglish": "Listen for the word supplied in reply and the check of understanding. Select that complete reply.",
+      "promptJapanese": "こたえの ことばと、わかったかを たしかめる しつもんを きいて、その ぶんを えらんで ください。",
+      "explanationEnglish": "The reply supplies しりょう, materials or a handout in the pinned translation. わかりますか checks whether the listener understands, without adding a different document type.",
+      "explanationJapanese": "こたえでは「しりょう」という ことばを つたえます。「わかりますか」で、あいてが わかったかを たしかめます。べつの しょるいの なまえは くわえません。",
+      "targetSpeakerRoleEnglish": "Responder",
+      "learnerPracticeRoleEnglish": "Listener",
+      "wordBankJapanese": [
+        "はい、「しりょう」です。わかりますか。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:reader:4:ea02c976694b8c14ffeb366aa6ed8bdb75f73ce711e3da84d66f6277e0f4c7f7",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:ae4169a17661b877fcb0c608630a320e8ea8beea27f21034d451507ab99694de"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-d48db665e363298d",
+          "sourceDialogueTurn": 5,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "hear": {
+        "textOnlyUnsynthesized": true,
+        "playbackEnabled": false,
+        "correctChoiceIndexZeroBased": 1,
+        "choices": [
+          {
+            "sourceTurnOneBased": 1,
+            "japanese": "あきさん、こんにちは。",
+            "english": "Hello, Aki."
+          },
+          {
+            "sourceTurnOneBased": 5,
+            "japanese": "はい、「しりょう」です。わかりますか。",
+            "english": "Yes, it is “shiryō” (materials or a handout). Do you understand?"
+          },
+          {
+            "sourceTurnOneBased": 4,
+            "japanese": "この ことばを ゆっくり いってください。",
+            "english": "Please say this word slowly."
+          }
+        ]
+      },
+      "contextEnglish": "Two speakers greet, clarify the pronunciation of a word, propose tomorrow’s station meeting, recall yesterday’s meeting there, and close the conversation. Speaker roles are local to each exchange; no unsupported identity assignment is made.",
+      "privateExactDialogueTurnsOneBased": [
+        5
+      ]
+    },
+    {
+      "id": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:mode:type",
+      "mode": "type",
+      "sourceTurnOneBased": 7,
+      "targetJapanese": "ごご いちじに えきで あいましょう。",
+      "targetEnglish": "Let us meet at the station at one p.m.",
+      "promptEnglish": "Type the proposal to meet at the station at one p.m.",
+      "promptJapanese": "ごご いちじに えきで あう ていあんを、ぶんで にゅうりょくして ください。",
+      "explanationEnglish": "あいましょう proposes meeting together. に marks the one-p.m. time and で the station as the meeting place.",
+      "explanationJapanese": "「あいましょう」は、いっしょに あう ていあんです。「に」は ごご いちじという じこくを、「で」は あう ばしょを しめします。",
+      "targetSpeakerRoleEnglish": "Meeting proposer",
+      "learnerPracticeRoleEnglish": "Meeting proposer",
+      "wordBankJapanese": [
+        "ごご",
+        "いちじに",
+        "えきで",
+        "あいましょう。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:reader:6:bf16ac8d8929cbe16a2daef9d2394eeb311bcf8dad4529455906bbdde24fa615",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-d84e12626c52f9ea",
+          "sourceDialogueTurn": 7,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "Two speakers greet, clarify the pronunciation of a word, propose tomorrow’s station meeting, recall yesterday’s meeting there, and close the conversation. Speaker roles are local to each exchange; no unsupported identity assignment is made.",
+      "privateExactDialogueTurnsOneBased": [
+        7
+      ]
+    },
+    {
+      "id": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:mode:say",
+      "mode": "say",
+      "sourceTurnOneBased": 8,
+      "targetJapanese": "わかりました。きのうも そこで あいましたね。",
+      "targetEnglish": "Okay. We met there yesterday too, didn't we?",
+      "promptEnglish": "Accept the proposal and refer back to meeting there yesterday too. Say the complete reply.",
+      "promptJapanese": "ていあんを うけて、きのうも そこで あった ことを ふくめて、こたえを いって ください。",
+      "explanationEnglish": "そこで refers back to the station. きのうも adds yesterday too, and あいましたね recalls the past meeting while inviting shared recognition.",
+      "explanationJapanese": "「そこで」は、まえに でた えきを さします。「きのうも」は、きのうにも という いみです。「あいましたね」は、かこの ことを あいてと たしかめる いいかたです。",
+      "targetSpeakerRoleEnglish": "Meeting partner",
+      "learnerPracticeRoleEnglish": "Meeting partner",
+      "wordBankJapanese": [
+        "わかりました。きのうも",
+        "そこで",
+        "あいましたね。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:reader:7:2b984ed8c734ba5c85f0c59b11ef7b60dbfd02b632a9ed729d76a2a2a4398098",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-5e58dbb69aabcb80",
+          "sourceDialogueTurn": 8,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "Two speakers greet, clarify the pronunciation of a word, propose tomorrow’s station meeting, recall yesterday’s meeting there, and close the conversation. Speaker roles are local to each exchange; no unsupported identity assignment is made.",
+      "privateExactDialogueTurnsOneBased": [
+        8
+      ]
+    },
+    {
+      "id": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:mode:write",
+      "mode": "write",
+      "sourceTurnOneBased": 9,
+      "targetJapanese": "では、また あした。",
+      "targetEnglish": "See you tomorrow, then.",
+      "promptEnglish": "Close the conversation politely with the source’s tomorrow farewell.",
+      "promptJapanese": "あした また あう あいさつで、はなしを おえる ぶんを かいて ください。",
+      "explanationEnglish": "では marks the transition to closing. また あした is the concise farewell see you tomorrow; it does not revise the meeting time or place.",
+      "explanationJapanese": "「では」は、はなしを おえる ほうへ うつる ことばです。「また あした」は、あした また あう あいさつです。あう じこくや ばしょを かえる ぶんでは ありません。",
+      "targetSpeakerRoleEnglish": "Closing speaker",
+      "learnerPracticeRoleEnglish": "Closing speaker",
+      "wordBankJapanese": [
+        "では、また",
+        "あした。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master20-main:23f821d5d5ac2312a2e9d158d417b821e4433baeb3455bd3d35ddce1304d90f6:reader:8:66cd08757e1235c2b38bcf5df6642a8b4fb6c74bab0b4eec4499cf492176ff96",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "Two speakers greet, clarify the pronunciation of a word, propose tomorrow’s station meeting, recall yesterday’s meeting there, and close the conversation. Speaker roles are local to each exchange; no unsupported identity assignment is made.",
+      "privateExactDialogueTurnsOneBased": [
+        9
+      ]
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "registered": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "runtime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "privateReaderPin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/master.json",
+    "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+  },
+  "exactCurrentCardLinkCount": 3,
+  "sourceOwnershipNote": "Exact current-main faces own these activities. Private exact Reader/form matches are evidence only, not adoption of private cues, turn indexes or objectives."
+}

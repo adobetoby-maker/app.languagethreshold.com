@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "kind": "inert-current-main-delayed-meeting-sixmode-proposals",
+  "baselineMain": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "sourcePins": {
+    "master": {
+      "gitRevision": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "gitRevision": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    "cards": {
+      "gitRevision": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    "identity": {
+      "gitRevision": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+      "path": "content/japanese-basics/review/master14-source-version-identity-2026-11-26/mapping.json",
+      "sha256": "3d77ec9f305fcec0dd479768ba891ebfa0cbbc5a8388bb5397fd8d0e30b8424b"
+    },
+    "cardIdentity": {
+      "gitRevision": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+      "path": "content/japanese-basics/review/master1-20-card-identity-manifest-2026-11-26/manifest.json",
+      "sha256": "0ee0c1e31d8cc09dccf83261b3645427b33098be8ec7709dd90fc4a19f74ca11"
+    }
+  },
+  "versionOwner": "mainDelayedMeeting; distinct from private488 routine",
+  "activities": [
+    {
+      "id": "review-ja-en-master14-delayed-meeting:de3ffc0b158dce08548a5215e832a1e7124483d25c435048c798d5a513ffffc4:mode:see",
+      "mode": "see",
+      "sourceTurnOneBased": 1,
+      "sourceReaderIndexZeroBased": 0,
+      "targetJapanese": "きょうは えきで ともだちに あう よていです。",
+      "targetEnglish": "I plan to meet a friend at the station today.",
+      "promptEnglish": "Read your plan for today. Identify where you will meet your friend, then read the complete plan.",
+      "promptJapanese": "きょうの よていを よんで、どこで ともだちに あうかを みつけてから、ぶんを よんで ください。",
+      "contextEnglish": "You are the narrator explaining today’s intended meeting to a listener.",
+      "explanationEnglish": "よていです marks the intended plan; あう gives the planned action and えきで identifies where the meeting will occur. This is a plan, not a report that the meeting already happened.",
+      "explanationJapanese": "「あう よていです」は、あう つもりの よていを いいます。「えきで」は、あう ばしょを しめします。もう あった という はなしでは ありません。",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "wordBankJapanese": [
+        "きょうは",
+        "えきで",
+        "ともだちに",
+        "あう",
+        "よていです。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master14-vde3ffc0b158dce08548a:reader:0:a59bbc294a5642da",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:4d30ed6c9539f141e9d31234b22d158e5945e0f95b5291617541b3ecaaeed751"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review-ja-en-master14-delayed-meeting:de3ffc0b158dce08548a5215e832a1e7124483d25c435048c798d5a513ffffc4:mode:recall",
+      "mode": "recall",
+      "sourceTurnOneBased": 3,
+      "sourceReaderIndexZeroBased": 2,
+      "targetJapanese": "ごご さんじの よていです。",
+      "targetEnglish": "It is planned for three in the afternoon.",
+      "promptEnglish": "The listener asks when you plan to meet. Recall the complete answer giving the afternoon meeting time.",
+      "promptJapanese": "いつ あう よていかと きかれました。ごごの じこくを つたえる こたえを おもいだして ください。",
+      "contextEnglish": "The listener has just asked the narrator when the meeting is planned.",
+      "explanationEnglish": "ごご さんじ names three in the afternoon. の connects that time to よてい. The line gives the scheduled time, not the eventual arrival time.",
+      "explanationJapanese": "「ごご さんじ」は、ごごの じこくです。「の」で その じこくと「よてい」を つなぎます。あとで ついた じこくとは くべつします。",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "wordBankJapanese": [
+        "ごご",
+        "さんじの",
+        "よていです。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master14-vde3ffc0b158dce08548a:reader:2:04a23aebb73bc963",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:cd9225984e096afef0885a40c650c45dbb9d456f2cb6d45ecd630556ab64409c"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review-ja-en-master14-delayed-meeting:de3ffc0b158dce08548a5215e832a1e7124483d25c435048c798d5a513ffffc4:mode:hear",
+      "mode": "hear",
+      "sourceTurnOneBased": 4,
+      "sourceReaderIndexZeroBased": 3,
+      "targetJapanese": "でも、でんしゃが おくれています。",
+      "targetEnglish": "But the train is delayed.",
+      "promptEnglish": "Listen and select the line that reports what disrupted the meeting plan.",
+      "promptJapanese": "きいて、あう よていが かわる りゆうを つたえる ぶんを えらんで ください。",
+      "contextEnglish": "The narrator contrasts the plan with the train’s delayed state. No recording exists for this proposal.",
+      "explanationEnglish": "でも introduces the contrast with the plan. おくれています describes the train as delayed here; it does not provide the delay’s duration or a revised arrival time.",
+      "explanationJapanese": "「でも」は、まえの よていとの ちがいを つなぎます。「おくれています」は、でんしゃが おくれている じょうたいを つたえます。おくれの ながさや、あたらしい とうちゃくじこくは いいません。",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Listener",
+      "wordBankJapanese": [
+        "でも、でんしゃが",
+        "おくれています。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master14-vde3ffc0b158dce08548a:reader:3:baa3f2db147fabb0",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:e113f88cd2297a23843f31c55029c92d8a9be8789e36145b172f95612e820c1d"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-b281e81e401f273f",
+          "relationship": "exact bilingual target only; private routine source ownership not adopted"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "hear": {
+        "textOnlyUnsynthesized": true,
+        "playbackEnabled": false,
+        "correctChoiceIndexZeroBased": 1,
+        "choices": [
+          {
+            "sourceTurnOneBased": 3,
+            "japanese": "ごご さんじの よていです。",
+            "english": "It is planned for three in the afternoon."
+          },
+          {
+            "sourceTurnOneBased": 4,
+            "japanese": "でも、でんしゃが おくれています。",
+            "english": "But the train is delayed."
+          },
+          {
+            "sourceTurnOneBased": 5,
+            "japanese": "では、あるいて えきへ いきます。",
+            "english": "Then I will walk to the station."
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-ja-en-master14-delayed-meeting:de3ffc0b158dce08548a5215e832a1e7124483d25c435048c798d5a513ffffc4:mode:type",
+      "mode": "type",
+      "sourceTurnOneBased": 5,
+      "sourceReaderIndexZeroBased": 4,
+      "targetJapanese": "では、あるいて えきへ いきます。",
+      "targetEnglish": "Then I will walk to the station.",
+      "promptEnglish": "The train is delayed. Type the narrator’s complete new plan to walk to the station.",
+      "promptJapanese": "でんしゃが おくれています。あるいて えきへ いく あたらしい よていを、ぶんで にゅうりょくして ください。",
+      "contextEnglish": "The narrator now chooses to walk; this is still before the later arrival.",
+      "explanationEnglish": "では introduces the response to the delay. あるいて is the て form of あるく, linked to いきます to express going on foot. えきへ gives the direction.",
+      "explanationJapanese": "「では」は、まえの はなしを うけて つぎの ことを いいます。「あるいて」は「あるく」の ての かたちで、「いきます」に つなぎます。「えきへ」は、いく むきを しめします。",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "wordBankJapanese": [
+        "では、あるいて",
+        "えきへ",
+        "いきます。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master14-vde3ffc0b158dce08548a:reader:4:2dd1a83e3d47d6f4",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:0d4a924befa9b5182de30f6231060c445ed1bdb0bda0987dc0800e53de744901"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review-ja-en-master14-delayed-meeting:de3ffc0b158dce08548a5215e832a1e7124483d25c435048c798d5a513ffffc4:mode:say",
+      "mode": "say",
+      "sourceTurnOneBased": 7,
+      "sourceReaderIndexZeroBased": 6,
+      "targetJapanese": "はい、「すこし おそく なります」と かきます。",
+      "targetEnglish": "Yes, I will write, “I will be a little late.”",
+      "promptEnglish": "A listener asks whether you will write to your friend. Say the complete reply, quoting the message that you will be a little late.",
+      "promptJapanese": "ともだちに メッセージを かくかと きかれました。すこし おそく なるという メッセージを ふくめて、こたえを いって ください。",
+      "contextEnglish": "You are the narrator answering the listener. Your friend is the recipient of the quoted message, not the listener asking this question.",
+      "explanationEnglish": "「…」と marks the quoted message before かきます. おそく なります means becoming late, here the anticipated lateness. This reply says what the narrator will write; it does not claim the friend has already received it.",
+      "explanationJapanese": "「…」と は、かく メッセージの なかみを しめします。「おそく なります」は、ここでは これから すこし おそく なる ことを つたえます。ともだちが もう よんだ とは いって いません。",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "wordBankJapanese": [
+        "はい、「すこし",
+        "おそく",
+        "なります」と",
+        "かきます。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master14-vde3ffc0b158dce08548a:reader:6:769bdaea0e175317",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "review-ja-en-master14-delayed-meeting:de3ffc0b158dce08548a5215e832a1e7124483d25c435048c798d5a513ffffc4:mode:write",
+      "mode": "write",
+      "sourceTurnOneBased": 9,
+      "sourceReaderIndexZeroBased": 8,
+      "targetJapanese": "そのあと えきに つきました。ともだちは まっていました。",
+      "targetEnglish": "After that, I arrived at the station. My friend was waiting.",
+      "promptEnglish": "Later, report the completed arrival and what your friend was doing. Write both source sentences in order.",
+      "promptJapanese": "そのあとの はなしです。えきに ついた ことと、ともだちが していた ことを、ふたつの ぶんで じゅんばんに かいて ください。",
+      "contextEnglish": "The narration has moved beyond the plan and message to the completed arrival.",
+      "explanationEnglish": "つきました reports the completed arrival in polite past. まっていました is the past of まっています and describes the friend waiting at that past point. The source does not specify how long the friend waited.",
+      "explanationJapanese": "「つきました」は、ついた ことを かこの ていねいな かたちで つたえます。「まっていました」は「まっています」の かこで、そのとき ともだちが まっていた ことを いいます。どのくらい まったかは わかりません。",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "learnerPracticeRoleEnglish": "Narrator",
+      "wordBankJapanese": [
+        "そのあと",
+        "えきに",
+        "つきました。ともだちは",
+        "まっていました。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master14-vde3ffc0b158dce08548a:reader:8:f6669a49e852d96d",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-e2fe935c347bd01c",
+          "relationship": "exact bilingual target only; private routine source ownership not adopted"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "registered": false,
+  "reviewed": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "runtime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "privateFormSourcePin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+    "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+  }
+}

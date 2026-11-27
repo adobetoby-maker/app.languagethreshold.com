@@ -1,0 +1,528 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:14:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "0edaf71ea92eb15f65250fed41ec73d07afdab69",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "d459ba0357d4e09f7575dd6c428992d70da3fe93866ce7eecd5ec62e1be42203",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-14-source-decision-2026-11-18/packet.json",
+    "sha256": "80e403ef68aff44fb93e80895755d90fe2cb6d076bb0bbc554109c05e1e5d161"
+  },
+  "sourceObjectiveEnglish": "Talk a near-miss through with the crew without blame, say what almost happened, and agree on the fix",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "scope": "11remaining missing Reader anchors in Master14, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "67dd99c5978081067dde419d5c985c3bbb5a2a5d2191ea5922fd4e61cfdef5d0",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/ai-assistance-metadata.json": "3e282f59ce57c0818ff87fd3745f9fcc9846b2898921adce133541d36458315f",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/candidate.json": "d459ba0357d4e09f7575dd6c428992d70da3fe93866ce7eecd5ec62e1be42203",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "eb467ce4a2ab7005be0e5aecc6cb0f1914e03db8f8aeb74cff0be5469334359e",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "1df66e223e91d74c642603d4cb9ce90f7bf7a6f971b4511a5c6fa9f71b156370",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/README.md": "ea68d26863595ae61bc9f378ca687fe3a9382aff8f3d9f640e1d6405de5ec78a",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/final-self-check.md": "42bd9b8ce80fb0cc3172ecc35a4045458fcdbfa05c6dc44049f48f60dc15f931",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/validate.py": "f23b97f5c253881559c5a088df837d5f28d7a2f79571767823b427bf65dfe2f0",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "302816d7b2682c89117966ba78fb17023356b9a0f28575f958601c82f952b956",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "6bb0c5abc2e7a3517ec97a9971036cf358ab5da12eb7e23943428c6d0852eb60",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/opus-critique.md": "8a0e272b4ce69e68d257b8b7edad1cec36f2fe13af1c5e12831330e51efbbf6e",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "be45bdf817812cddf390ca8e02810921005696fc7d4dff7fdb698eb38be85e94",
+    "content/french-roofing/candidates/master-14-authored-candidate-2026-11-23/fable-critique.md": "6efea80d3c56030f5fb7a24fa4da54c3e5a688fa22a36fbe50509545919949c6"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:1",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:1",
+      "sourceEnglish": "In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+      "sourceSpanish": "A media mañana, un bulto de tejas se resbaló por la pendiente y cayó desde el techo.",
+      "legacySourceRef": "master-roofing:14:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: In the middle of the morning, a bundle of shingles slid down the slope and fell from the roof.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve roof jack, toe board, shingle-bundle storage and pedestrian exclusion terms in the exact product/site context. The archived French replaces the source's no-slide claim and cones/signs proposal with an inspection-dependent plan; qualified material-handling and public-protection review is required."
+        }
+      ],
+      "archivedFrenchEvidence": "Au milieu de la matinée, un paquet de bardeaux a glissé sur la pente et est tombé du toit.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:1:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "En milieu de matinée, un paquet de bardeaux a glissé vers le bas de la pente et est tombé du toit.",
+          "alignmentNote": "MIDDLEMORNING bundleSHINGLES SLIDDOWNslope/FELLFROMROOF, no universal bundle weight or altered time.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:2",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:2",
+      "sourceEnglish": "The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+      "sourceSpanish": "El bulto cayó en la acera, a dos pasos de un vecino que caminaba con su perro.",
+      "legacySourceRef": "master-roofing:14:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: The bundle fell on the sidewalk, two steps from a neighbor who was walking his dog.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Il a atterri sur le trottoir, à deux pas d’un voisin qui promenait son chien.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:2:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Le paquet est tombé sur le trottoir, à deux pas d’un voisin qui promenait son chien.",
+          "alignmentNote": "BundleFELLONSIDEWALK TWOSTEPSfromNEIGHBORWALKINGHISDOG, roles/distance unchanged, no converted meters or owner substituted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve roof jack, toe board, shingle-bundle storage and pedestrian exclusion terms in the exact product/site context. The archived French replaces the source's no-slide claim and cones/signs proposal with an inspection-dependent plan; qualified material-handling and public-protection review is required.",
+          "reason": "Pedestrian exposure or injury-severity context directly relevant; original affectedIds do not name this anchor and are not silently repaired."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:3",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:3",
+      "sourceEnglish": "Nobody got a single injury, but everyone went quiet.",
+      "sourceSpanish": "Nadie sufrió ninguna herida, pero todos se quedaron callados.",
+      "legacySourceRef": "master-roofing:14:passage:3",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Nobody got a single injury, but everyone went quiet.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Personne n’a été blessé, mais l’équipe s’est tue.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:3:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Personne n’a subi la moindre blessure, mais tout le monde s’est tu.",
+          "alignmentNote": "NOBODYGOTSINGLEINJURY BUTEVERYONEWENTQUIET, absolute no-injury and group silence, no invented injury diagnosis or softened serious-injury-only claim.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Preserve the source's nearly-hit, tragedy, could-have-killed and hospital counterfactual meanings. Archived French softens injury severity and omits the source's product-dependent more-than-60-pound claim. Qualified source/safety review must decide the exact teaching text, with no invented universal bundle weight.",
+          "reason": "Pedestrian exposure or injury-severity context directly relevant; original affectedIds do not name this anchor and are not silently repaired."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:4",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio went down first to talk to the pedestrian.",
+      "sourceSpanish": "Rogelio bajó primero a hablar con el peatón.",
+      "legacySourceRef": "master-roofing:14:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio went down first to talk to the pedestrian.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio est descendu d’abord pour parler au passant.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:4:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio est descendu le premier pour parler au piéton.",
+          "alignmentNote": "RogelioWENTDOWNFIRST TOTA LKTOPEDES TRIAN, order/purpose/participant retained, no complete conversation assertion in this face.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:5",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: Sorry for the scare, sir; are you all right?",
+      "sourceSpanish": "Rogelio: Disculpe el susto, señor; ¿está bien?",
+      "legacySourceRef": "master-roofing:14:passage:5",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Sorry for the scare, sir; are you all right?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Preserve speaker, neighbor and crew-member relationships; choose France/Québec register for bro, sir, reassurance and thanks. The archived French drops bro and changes the source's crew-return action; verify Reader alignment and authored mode prompt/target pairs."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je suis désolé de cette frayeur, monsieur; allez-vous bien ? »",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:5:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Désolé pour la frayeur, monsieur ; allez-vous bien ? »",
+          "alignmentNote": "SORRYFORscare/SIR/AREYOUALLRIGHT, polite pedestrian address and general wellbeing question, not a new injury assessment.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:6",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:6",
+      "sourceEnglish": "Then he went up with the crew, and Kevin was pale.",
+      "sourceSpanish": "Después subió con la cuadrilla, y Kevin estaba pálido.",
+      "legacySourceRef": "master-roofing:14:passage:6",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Then he went up with the crew, and Kevin was pale.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Puis il est revenu vers l’équipe; Kevin était pâle.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:6:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Ensuite, il est monté avec l’équipe, et Kevin était pâle.",
+          "alignmentNote": "THENHEWENTUPWITHCREW ANDKevinWASPALE, with not to crew, pallor not inferred fainting/diagnosis.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:7",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: Are you OK, bro?",
+      "sourceSpanish": "Rogelio: ¿Estás bien, carnal?",
+      "legacySourceRef": "master-roofing:14:passage:7",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Are you OK, bro?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Preserve speaker, neighbor and crew-member relationships; choose France/Québec register for bro, sir, reassurance and thanks. The archived French drops bro and changes the source's crew-return action; verify Reader alignment and authored mode prompt/target pairs."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Est-ce que tu vas bien ? »",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:7:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Tu vas bien, mon pote ? »",
+          "alignmentNote": "AREYOUOK BRO, familiar singular crew address includes buddy/bro term instead of dropping it or implying a formal pedestrian question.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:13",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rogelio: Thanks for speaking up, that helps everyone.",
+      "sourceSpanish": "Rogelio: Gracias por avisar, eso ayuda a todos.",
+      "legacySourceRef": "master-roofing:14:passage:13",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Thanks for speaking up, that helps everyone.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Preserve speaker, neighbor and crew-member relationships; choose France/Québec register for bro, sir, reassurance and thanks. The archived French drops bro and changes the source's crew-return action; verify Reader alignment and authored mode prompt/target pairs."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Merci de l’avoir signalé; cela aide tout le monde. »",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:13:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Merci d’avoir pris la parole ; ça aide tout le monde. »",
+          "alignmentNote": "THANKSforspeakingUP/THATHEL PSEVERYONE, contribution acknowledged, not only crew leader benefit or universal reporting-policy promise.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: Thanks for speaking up, that helps everyone.",
+        "exactSpanish": "Rogelio: Gracias por avisar, eso ayuda a todos.",
+        "status": "open",
+        "scope": "English speaking-up contribution versus Spanish avisar/notifying; French taking-the-floor follows English, no new reporting-policy promise."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:15",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: What can we change so it doesn't happen again?",
+      "sourceSpanish": "Rogelio: ¿Qué podemos cambiar para que no vuelva a pasar?",
+      "legacySourceRef": "master-roofing:14:passage:15",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: What can we change so it doesn't happen again?",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio : « Que pouvons-nous changer pour éviter que cela se reproduise ? »",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:15:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Que pouvons-nous changer pour que cela ne se reproduise pas ? »",
+          "alignmentNote": "WHATCANWECHANGE SOITNOTHAPPENAGAIN, inclusive question, can not substituted must, no new actual control specified.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:16",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:16",
+      "sourceEnglish": "Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+      "sourceSpanish": "Marcos propuso marcar una zona de peligro abajo con conos y poner un aviso en la acera mientras suben material.",
+      "legacySourceRef": "master-roofing:14:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Marcos proposed marking a danger zone below with cones and putting a warning sign on the sidewalk while material is going up.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve roof jack, toe board, shingle-bundle storage and pedestrian exclusion terms in the exact product/site context. The archived French replaces the source's no-slide claim and cones/signs proposal with an inspection-dependent plan; qualified material-handling and public-protection review is required."
+        }
+      ],
+      "archivedFrenchEvidence": "Marcos a proposé de délimiter la zone au sol et de vérifier la signalisation selon le plan de circulation du chantier.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Marcos a proposé de baliser une zone de danger en bas avec des cônes et de poser un panneau d’avertissement sur le trottoir pendant la montée des matériaux.",
+          "alignmentNote": "MarcosPROPOSEDmarkDANGERZONEBELOWwithCONES ANDWARNINGSIGNONSIDEWALK WHILEMATERIALGOESUP, proposal not already executed or verified pedestrian-exclusion plan.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:14:fr-en:reader:17",
+      "candidateRowId": "master-roofing:14:fr-en:candidate:reader:17",
+      "sourceEnglish": "That afternoon, Rogelio recorded the case as a prevention lesson for the whole company.",
+      "sourceSpanish": "Esa tarde, Rogelio anotó el caso como una lección de prevención para toda la compañía.",
+      "legacySourceRef": "master-roofing:14:passage:17",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: That afternoon, Rogelio recorded the case as a prevention lesson for the whole company.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source promises no punishment in a near-miss discussion, while archived French defers to employer procedure. Qualified workplace/locale review must resolve this claim and near-miss reporting terminology without erasing the source event."
+        }
+      ],
+      "archivedFrenchEvidence": "Cet après-midi-là, Rogelio a consigné les faits et les mesures proposées dans le registre de prévention.",
+      "unresolvedReviewNotes": [
+        "Exact source near-miss/pedestrian/crew/prevention claims retained, not a verified injury assessment, material-storage/public-exclusion control or company discipline policy. Bro/sir/register terms unselected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:14:fr-en:reader-remaining-alternative:17:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Cet après-midi-là, Rogelio a consigné le cas comme une leçon de prévention pour toute l’entreprise.",
+          "alignmentNote": "THATAFTERNOON RogelioRECORDEDCASEasPREVENTIONLESSON WHOLECOMPANY, not only crew or certified employer training.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 17,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:14:fr-en:reader:1",
+      "master-roofing:14:fr-en:reader:2",
+      "master-roofing:14:fr-en:reader:3",
+      "master-roofing:14:fr-en:reader:4",
+      "master-roofing:14:fr-en:reader:5",
+      "master-roofing:14:fr-en:reader:6",
+      "master-roofing:14:fr-en:reader:7",
+      "master-roofing:14:fr-en:reader:13",
+      "master-roofing:14:fr-en:reader:15",
+      "master-roofing:14:fr-en:reader:16",
+      "master-roofing:14:fr-en:reader:17"
+    ],
+    "supplementalAnchorCount": 11,
+    "supplementalFullFaceAlternativeCount": 11
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:14:fr-en:reader:10",
+      "master-roofing:14:fr-en:reader:11",
+      "master-roofing:14:fr-en:reader:12",
+      "master-roofing:14:fr-en:reader:14",
+      "master-roofing:14:fr-en:reader:8",
+      "master-roofing:14:fr-en:reader:9"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:14:fr-en:reader:1",
+      "master-roofing:14:fr-en:reader:13",
+      "master-roofing:14:fr-en:reader:15",
+      "master-roofing:14:fr-en:reader:16",
+      "master-roofing:14:fr-en:reader:17",
+      "master-roofing:14:fr-en:reader:2",
+      "master-roofing:14:fr-en:reader:3",
+      "master-roofing:14:fr-en:reader:4",
+      "master-roofing:14:fr-en:reader:5",
+      "master-roofing:14:fr-en:reader:6",
+      "master-roofing:14:fr-en:reader:7"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 17,
+    "sourceReaderTotal": 17,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the crew member involved in a near-miss: say what almost happened with casi and por poco, what could have happened with podría haber, keep it blame-free, and agree on a change so it does not happen again.",
+    "scope": "Full Reader support does not automatically adapt/complete original grammar, speaking, clinical or trade objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

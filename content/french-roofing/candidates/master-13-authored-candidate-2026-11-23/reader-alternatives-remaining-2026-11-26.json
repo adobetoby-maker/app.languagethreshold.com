@@ -1,0 +1,508 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:13:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "0edaf71ea92eb15f65250fed41ec73d07afdab69",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "df0ff3b0ff16f7c59e7c9cea7b60eb5b346a80917d920abf86a42c82e87f9e5c",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-13-source-decision-2026-11-18/packet.json",
+    "sha256": "b3133df268772d209bb3715336b01a968fe8a88921380c6aaafb8721efe6d10b"
+  },
+  "sourceObjectiveEnglish": "Respond to a fall, then report what happened in order, by phone and in writing, with clear times",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "scope": "10remaining missing Reader anchors in Master13, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "67dd99c5978081067dde419d5c985c3bbb5a2a5d2191ea5922fd4e61cfdef5d0",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/ai-assistance-metadata.json": "3e282f59ce57c0818ff87fd3745f9fcc9846b2898921adce133541d36458315f",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/candidate.json": "df0ff3b0ff16f7c59e7c9cea7b60eb5b346a80917d920abf86a42c82e87f9e5c",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "eb467ce4a2ab7005be0e5aecc6cb0f1914e03db8f8aeb74cff0be5469334359e",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "ad8a4e592a7726984080f1a10fbf3af4a395687d791d72cacc37624d11c8e35c",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/README.md": "75e30c300ab005bf6a4aae2cd347d0b288049872635587346e5a9bb745a03adf",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/final-self-check.md": "42bd9b8ce80fb0cc3172ecc35a4045458fcdbfa05c6dc44049f48f60dc15f931",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/validate.py": "f23b97f5c253881559c5a088df837d5f28d7a2f79571767823b427bf65dfe2f0",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "302816d7b2682c89117966ba78fb17023356b9a0f28575f958601c82f952b956",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "6bb0c5abc2e7a3517ec97a9971036cf358ab5da12eb7e23943428c6d0852eb60",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/opus-critique.md": "8a0e272b4ce69e68d257b8b7edad1cec36f2fe13af1c5e12831330e51efbbf6e",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "be45bdf817812cddf390ca8e02810921005696fc7d4dff7fdb698eb38be85e94",
+    "content/french-roofing/candidates/master-13-authored-candidate-2026-11-23/fable-critique.md": "6efea80d3c56030f5fb7a24fa4da54c3e5a688fa22a36fbe50509545919949c6"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:1",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:1",
+      "sourceEnglish": "On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+      "sourceSpanish": "El martes, a las diez y cuarto, Julio estaba en la orilla del techo y bajaba a la escalera de extensión.",
+      "legacySourceRef": "master-roofing:13:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: On Tuesday, at a quarter past ten, Julio was at the roof edge and was going down to the extension ladder.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence."
+        }
+      ],
+      "archivedFrenchEvidence": "Mardi, vers dix heures quinze, Julio se trouvait au bord du toit près de l’échelle coulissante.",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:1:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Mardi, à dix heures et quart, Julio était au bord du toit et descendait vers l’échelle coulissante.",
+          "alignmentNote": "TUESDAY EXACT10:15/JulioWASroofEDGE/goingDOWNTOextensionLADDER, background imperfect and directed transfer; no approximate clock or completed ladder arrival.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:6",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: Easy, help is on the way; don't move.",
+      "sourceSpanish": "Rogelio: Tranquilo, ya viene la ayuda; no te muevas.",
+      "legacySourceRef": "master-roofing:13:passage:6",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Easy, help is on the way; don't move.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Reste calme; les secours arrivent. »",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:6:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Du calme, les secours sont en route ; ne bouge pas. »",
+          "alignmentNote": "EASY/HELPONTHEWAY/DONTMOVE, direct singular reassurance and no-movement instruction; no inserted exception, treatment or general protocol.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:8",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:8",
+      "sourceEnglish": "Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape.",
+      "sourceSpanish": "Kevin le dio primeros auxilios básicos, como aprendió en el curso, y Marcos cerró la escena con cinta de precaución.",
+      "legacySourceRef": "master-roofing:13:passage:8",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Kevin gave him basic first aid, as he learned in the course, and Marcos closed off the scene with caution tape.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+        }
+      ],
+      "archivedFrenchEvidence": "Kevin, formé aux premiers secours, a suivi sa formation; Marcos a empêché l’accès aux lieux.",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:8:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Kevin lui a prodigué les premiers soins de base, comme il l’avait appris pendant le cours, et Marcos a barré l’accès à la zone avec du ruban de signalisation.",
+          "alignmentNote": "KevinGAVEbasicFIRSTAID ASLEARNEDINCOURSE ANDMarcosCLOSEDOFFsceneCAUTIONTAPE, distinct people/actions and training attribution, no specific first-aid procedure or certification invented.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:9",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:9",
+      "sourceEnglish": "The paramedics arrived at half past ten and took the injured man to the hospital.",
+      "sourceSpanish": "Los paramédicos llegaron a las diez y media y se llevaron al lesionado al hospital.",
+      "legacySourceRef": "master-roofing:13:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: The paramedics arrived at half past ten and took the injured man to the hospital.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Teach first aid, injured person, paramedics and ankle directly. The source commands 911 and not moving Julio; the archived French substitutes locale-neutral routing and caveated movement. Qualified medical, emergency-response and France/Québec locale review must reconcile exact source meaning without inventing a universal procedure."
+        },
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence."
+        }
+      ],
+      "archivedFrenchEvidence": "Les secouristes sont arrivés vers dix heures trente et ont transporté Julio à l’hôpital.",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:9:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Les ambulanciers paramédicaux sont arrivés à dix heures et demie et ont emmené le blessé à l’hôpital.",
+          "alignmentNote": "PARAMEDICSarrived EXACT10:30/TOOKinjuredMANtoHOSPITAL, direct clinical nouns and completed transport, not vague helpers or approximate time.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:10",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:10",
+      "sourceEnglish": "Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+      "sourceSpanish": "Después, Rogelio llamó al supervisor: Le informo que tuvimos un accidente; Julio se cayó del techo y ya va al hospital.",
+      "legacySourceRef": "master-roofing:13:passage:10",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Afterwards, Rogelio called the supervisor: I'm informing you that we had an accident; Julio fell off the roof and he's on his way to the hospital.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Separate observed incident facts from probable cause and official reporting requirements. The archived French deliberately softens the source's written probable-cause line. Qualified workplace/source review must determine the review-safe incident-report wording and French register."
+        }
+      ],
+      "archivedFrenchEvidence": "Ensuite, Rogelio a appelé son responsable : « Je vous informe qu’un accident s’est produit; Julio a chuté et les secours l’ont pris en charge. »",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:10:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Ensuite, Rogelio a appelé le superviseur : « Je vous informe que nous avons eu un accident ; Julio est tombé du toit et il est en route vers l’hôpital. »",
+          "alignmentNote": "Whole AFTERWARDS RogelioCALLEDSUPERVISOR plus INFORMYOU WEHADACCIDENT/JulioFELLROOF/ONWAYHOSPITAL; caller/recipient and reported facts retained, no inferred cause.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:11",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:11",
+      "sourceEnglish": "Supervisor: What time exactly did it happen?",
+      "sourceSpanish": "Supervisor: ¿A qué hora pasó exactamente?",
+      "legacySourceRef": "master-roofing:13:passage:11",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Supervisor: What time exactly did it happen?",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Le responsable : « À quelle heure exactement est-ce arrivé ? »",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:11:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Le superviseur : « À quelle heure exactement cela s’est-il passé ? »",
+          "alignmentNote": "SUPERVISOR asks WHATEXACTTIME DIDITHAPPEN, no supplied timestamp or new speaker.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence.",
+          "reason": "Supervisor exact-time question belongs to incident-timeline review; original affectedIds omitReader11 and remain unchanged."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:12",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+      "sourceSpanish": "Rogelio: No sé la hora exacta, pero fue entre las diez y cuarto y las diez y veinte.",
+      "legacySourceRef": "master-roofing:13:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: I don't know the exact time, but it was between a quarter past ten and twenty past ten.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je ne connais pas l’heure exacte; je l’estime entre dix heures quinze et dix heures vingt. »",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:12:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Je ne connais pas l’heure exacte, mais c’était entre dix heures quinze et dix heures vingt. »",
+          "alignmentNote": "IDONOTKNOWexactTIME BUTBETWEEN10:15AND10:20, distinct uncertainty interval, no collapse to the narrator’s exact10:15 or approximate report time.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:13",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:13",
+      "sourceEnglish": "That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+      "sourceSpanish": "Esa tarde, Rogelio escribió el reporte de incidente sobre la caída: Hora: 10:15 aproximadamente.",
+      "legacySourceRef": "master-roofing:13:passage:13",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: That afternoon, Rogelio wrote the incident report on the fall: Time: approximately 10:15.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "Keep the incident timeline distinct: 10:15 start, about eight feet to grass, paramedics at 10:30, estimated 10:15–10:20 report interval. Archived French changes some exact times to approximate ones and retains feet; choose locale-aware measurement and time language without changing the source evidence."
+        },
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Separate observed incident facts from probable cause and official reporting requirements. The archived French deliberately softens the source's written probable-cause line. Qualified workplace/source review must determine the review-safe incident-report wording and French register."
+        }
+      ],
+      "archivedFrenchEvidence": "Cet après-midi-là, Rogelio a rédigé un rapport d’incident : heure estimée, vers 10 h 15.",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:13:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Cet après-midi-là, Rogelio a rédigé le rapport d’incident sur la chute : Heure : environ 10 h 15.",
+          "alignmentNote": "THATAFTERNOON RogelioWROTEINCIDENTREPORTonFALL: TIMEAPPROX10:15, complete narrative/report label and explicit approximation, no closed quote boundary imposed between report sections.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:14",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:14",
+      "sourceEnglish": "Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+      "sourceSpanish": "Descripción: El trabajador bajaba del techo a la escalera; mientras pasaba de uno a otro, perdió el equilibrio y cayó.",
+      "legacySourceRef": "master-roofing:13:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Description: The worker was coming down from the roof to the ladder; while he was moving from one to the other, he lost his balance and fell.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Separate observed incident facts from probable cause and official reporting requirements. The archived French deliberately softens the source's written probable-cause line. Qualified workplace/source review must determine the review-safe incident-report wording and French register."
+        }
+      ],
+      "archivedFrenchEvidence": "Description : Julio passait du toit vers l’échelle quand il a perdu l’équilibre et chuté.",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:14:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Description : le travailleur descendait du toit vers l’échelle ; pendant qu’il passait de l’un à l’autre, il a perdu l’équilibre et est tombé.",
+          "alignmentNote": "DESCRIPTIONworkerWASCOMINGDOWNroofTOladder/WHILEMOVINGoneTOother LOSTBALANCEANDFELL. Background and completed fall distinct; no added disconnected-cause finding in description.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:13:fr-en:reader:16",
+      "candidateRowId": "master-roofing:13:fr-en:candidate:reader:16",
+      "sourceEnglish": "Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected.",
+      "sourceSpanish": "Acción: mañana repasamos con toda la cuadrilla cómo pasar del techo a la escalera sin quedar desconectado.",
+      "legacySourceRef": "master-roofing:13:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Action: tomorrow we go over with the whole crew how to get from the roof to the ladder without being disconnected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Preserve the fall, lifeline, roof-anchor, harness and lanyard terms and the source's reported disconnected transition. The archived French changes the probable-cause claim into an unresolved observation. Qualified fall-protection and incident-review decisions must settle the causal wording and approved roof-to-ladder transfer before scored text is selected."
+        }
+      ],
+      "archivedFrenchEvidence": "Suite prévue : conserver les faits, suivre l’enquête et revoir avec une personne qualifiée la méthode approuvée de passage du toit à l’échelle.",
+      "unresolvedReviewNotes": [
+        "Exact fall/emergency/first-aid/reporting source claims remain unselected. No clinical procedure, emergency-profession locale definition, transfer method, incident cause or official reporting requirement independently approved. Exact versus approximate times kept distinct."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:13:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Action : demain, nous reverrons avec toute l’équipe comment passer du toit à l’échelle sans être déconnecté.",
+          "alignmentNote": "ACTIONTOMORROW WEGOOVERWHOLECREW howROOFTOladderWITHOUTDISCONNECTED; no substituted outside trainer, partial crew, approved transfer method or actual completed training.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:13:fr-en:reader:1",
+      "master-roofing:13:fr-en:reader:6",
+      "master-roofing:13:fr-en:reader:8",
+      "master-roofing:13:fr-en:reader:9",
+      "master-roofing:13:fr-en:reader:10",
+      "master-roofing:13:fr-en:reader:11",
+      "master-roofing:13:fr-en:reader:12",
+      "master-roofing:13:fr-en:reader:13",
+      "master-roofing:13:fr-en:reader:14",
+      "master-roofing:13:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 10,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:13:fr-en:reader:15",
+      "master-roofing:13:fr-en:reader:2",
+      "master-roofing:13:fr-en:reader:3",
+      "master-roofing:13:fr-en:reader:4",
+      "master-roofing:13:fr-en:reader:5",
+      "master-roofing:13:fr-en:reader:7"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:13:fr-en:reader:1",
+      "master-roofing:13:fr-en:reader:10",
+      "master-roofing:13:fr-en:reader:11",
+      "master-roofing:13:fr-en:reader:12",
+      "master-roofing:13:fr-en:reader:13",
+      "master-roofing:13:fr-en:reader:14",
+      "master-roofing:13:fr-en:reader:16",
+      "master-roofing:13:fr-en:reader:6",
+      "master-roofing:13:fr-en:reader:8",
+      "master-roofing:13:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is your supervisor on the phone right after a worker fell: say what happened in order with times (a las, mientras, luego), what you did for the injured worker, and what happens next.",
+    "scope": "Full Reader support does not automatically adapt/complete original grammar, speaking, clinical or trade objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

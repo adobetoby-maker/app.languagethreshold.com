@@ -1,0 +1,542 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:15:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "0edaf71ea92eb15f65250fed41ec73d07afdab69",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "65be7131c70d504b6c471e68aae3589330334072882ad34d29203084621d1030",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-15-source-decision-2026-11-18/packet.json",
+    "sha256": "ee05d45de7409c176a6602ca424ffb24812e6972abe04cca9d7a90cf57e1bab7"
+  },
+  "sourceObjectiveEnglish": "Make the weather call over the radio: stop work, tarp the open section and get everyone off the roof",
+  "sourceSpeakingEnglish": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+  "sourceObjectiveCompletionStatus": "held and incomplete; all source faces remain held; ordinary lexical proposals do not complete original work objective",
+  "scope": "11remaining missing Reader anchors in Master15, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "67dd99c5978081067dde419d5c985c3bbb5a2a5d2191ea5922fd4e61cfdef5d0",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/ai-assistance-metadata.json": "3e282f59ce57c0818ff87fd3745f9fcc9846b2898921adce133541d36458315f",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/candidate.json": "65be7131c70d504b6c471e68aae3589330334072882ad34d29203084621d1030",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "eb467ce4a2ab7005be0e5aecc6cb0f1914e03db8f8aeb74cff0be5469334359e",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "aa1581b4be96c5023d94c83fa84a2eef5999f5adaf1f3172362a148d18000f30",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/README.md": "fd83db30f4fae35250aef51850273846a764b48abe94c1ce68a9b5cd9e708457",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/final-self-check.md": "42bd9b8ce80fb0cc3172ecc35a4045458fcdbfa05c6dc44049f48f60dc15f931",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/validate.py": "f23b97f5c253881559c5a088df837d5f28d7a2f79571767823b427bf65dfe2f0",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "302816d7b2682c89117966ba78fb17023356b9a0f28575f958601c82f952b956",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "6bb0c5abc2e7a3517ec97a9971036cf358ab5da12eb7e23943428c6d0852eb60",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/opus-critique.md": "8a0e272b4ce69e68d257b8b7edad1cec36f2fe13af1c5e12831330e51efbbf6e",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "be45bdf817812cddf390ca8e02810921005696fc7d4dff7fdb698eb38be85e94",
+    "content/french-roofing/candidates/master-15-authored-candidate-2026-11-23/fable-critique.md": "6efea80d3c56030f5fb7a24fa4da54c3e5a688fa22a36fbe50509545919949c6"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:1",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:1",
+      "sourceEnglish": "At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+      "sourceSpanish": "A la una y media, Rogelio revisó el radar en su teléfono y vio una celda de tormenta a unas 20 millas.",
+      "legacySourceRef": "master-roofing:15:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: At half past one, Rogelio checked the radar on his phone and saw a storm cell about 20 miles away.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Vers treize heures trente, Rogelio a consulté le radar et vu une cellule orageuse à environ vingt miles.",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:1:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "À une heure et demie, Rogelio a consulté le radar sur son téléphone et a vu une cellule orageuse à environ 20 miles de distance.",
+          "alignmentNote": "EXACT1:30/RogelioCHECKEDPHONEradar/SAWstormCELL ABOUT20MILESAWAY, unmarked clock and imperial quantity unconverted, approximate distance retained.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceUnitAndClockIssue": {
+        "status": "open",
+        "sourceDistance": "about20miles",
+        "metricConversion": null,
+        "scope": "Imperial distance and unmarked one-thirty clock retained; no forced13h30/metric conversion, storm-cell type proposal unselected."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:2",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:2",
+      "sourceEnglish": "The sky was still clear, but the wind was starting to change.",
+      "sourceSpanish": "El cielo todavía estaba claro, pero el viento empezaba a cambiar.",
+      "legacySourceRef": "master-roofing:15:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: The sky was still clear, but the wind was starting to change.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Le ciel était encore dégagé, mais le vent commençait à changer.",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:2:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Le ciel était encore clair, mais le vent commençait à changer.",
+          "alignmentNote": "SKYSTILLCLEAR BUTWINDSTARTINGCHANGE, ongoing background, no invented wind direction/speed or safe-weather conclusion.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:4",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:4",
+      "sourceEnglish": "Marcos: Copy, I hear you.",
+      "sourceSpanish": "Marcos: Copiado, te escucho.",
+      "legacySourceRef": "master-roofing:15:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Marcos: Copy, I hear you.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Marcos : « Bien reçu, je vous entends. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:4:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Marcos : « Reçu, je t’entends. »",
+          "alignmentNote": "MarcosCOPY/IHEARYOU radio acknowledgment, familiar singular source te, not invented loud-and-clear/visual signal.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:6",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:6",
+      "sourceEnglish": "Rogelio: But we're not going to wait for the rain: we start closing up now.",
+      "sourceSpanish": "Rogelio: Pero no vamos a esperar a la lluvia: empezamos a cerrar ahora.",
+      "legacySourceRef": "master-roofing:15:passage:6",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: But we're not going to wait for the rain: we start closing up now.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Arrêtons le travail et suivons le plan météo du chantier dès maintenant. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:6:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Mais nous n’allons pas attendre la pluie : nous commençons à fermer maintenant. »",
+          "alignmentNote": "BUTWENOTGOINGWAITRAIN/WESTARTCLOSINGUPNOW, source imminent action, no safer rewritten wait condition or unmentioned object/fastening step.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:7",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:7",
+      "sourceEnglish": "Rogelio: Kevin and Julio, tarp on the open section, now.",
+      "sourceSpanish": "Rogelio: Kevin y Julio, lona en la parte abierta, ya.",
+      "legacySourceRef": "master-roofing:15:passage:7",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Kevin and Julio, tarp on the open section, now.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Kevin et Julio, cessez les travaux sur la partie ouverte et préparez le repli sûr. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:7:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Kevin et Julio, bâche sur la partie ouverte, maintenant. »",
+          "alignmentNote": "KevinANDJulio TARPONTHEOPENSECTION NOW, command fragment/roles/source urgency retained, no counted tarp or inserted method.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:9",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+      "sourceSpanish": "Rogelio: Marcos, junta el material suelto y bájalo al suelo, porque una ráfaga lo puede tirar.",
+      "legacySourceRef": "master-roofing:15:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: Marcos, gather the loose material and take it down to the ground, because a gust can knock it off.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Marcos, ne déplace les matériaux non fixés que si tu peux le faire sans risque; sinon, replie-toi. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:9:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Marcos, rassemble les matériaux non fixés et descends-les au sol, parce qu’une rafale peut les faire tomber. »",
+          "alignmentNote": "MarcosGATHERLOOSEMATERIALANDTAKEDOWNTOGROUND BECAUSEGUSTCANknockOFF, direct familiar command, non fixés not necessarily detached/broken, modal can not certainty.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:11",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:11",
+      "sourceEnglish": "At ten to two the first thunder was heard.",
+      "sourceSpanish": "A las dos menos diez se escuchó el primer trueno.",
+      "legacySourceRef": "master-roofing:15:passage:11",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: At ten to two the first thunder was heard.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Vers treize heures cinquante, l’équipe a entendu le premier coup de tonnerre.",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:11:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "À deux heures moins dix, le premier coup de tonnerre a été entendu.",
+          "alignmentNote": "EXACT1:50 FIRSTTHUNDERWASHEARD, source passive hearing event, not approximate time, lightning-strike substitution or guessed observer.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:12",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio on the radio: It thundered: everyone down now.",
+      "sourceSpanish": "Rogelio por el radio: Ya tronó: todos abajo ya.",
+      "legacySourceRef": "master-roofing:15:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio on the radio: It thundered: everyone down now.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio à la radio : « Tonnerre confirmé : tout le monde descend maintenant. Accusez réception. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:12:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio, par radio : « Il a tonné : tout le monde en bas, maintenant. »",
+          "alignmentNote": "RogelioRADIO ITTHUNDERED/EVERYONEDOWNNOW, actual event distinct from prior conditional if-thunder line and repeated NOW retained.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:13",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:13",
+      "sourceEnglish": "Julio: Copy, heading down; the tarp is secured.",
+      "sourceSpanish": "Julio: Copiado, voy para abajo; la lona ya está fija.",
+      "legacySourceRef": "master-roofing:15:passage:13",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Julio: Copy, heading down; the tarp is secured.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Julio : « Bien reçu, je descends; je confirmerai l’état de la protection une fois en sécurité. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:13:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Julio : « Reçu, je descends ; la bâche est fixée. »",
+          "alignmentNote": "JulioCOPY/HEADINGDOWN/TARPISSECURED as source status report, not already on ground or independent fastening approval.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:15",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:15",
+      "sourceEnglish": "At two o'clock sharp the downpour began, with a lot of wind.",
+      "sourceSpanish": "A las dos en punto empezó el aguacero, con mucho viento.",
+      "legacySourceRef": "master-roofing:15:passage:15",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: At two o'clock sharp the downpour began, with a lot of wind.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "À quatorze heures, une forte averse et des rafales ont commencé.",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:15:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "À deux heures précises, il s’est mis à pleuvoir à verse, avec beaucoup de vent.",
+          "alignmentNote": "EXACT2OCLOCKSHARP DOWNPOURBEGAN WITHALOTOFWIND, heavy rain/intensity and exact clock, no unit conversion or invented gust speed.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:15:fr-en:reader:17",
+      "candidateRowId": "master-roofing:15:fr-en:candidate:reader:17",
+      "sourceEnglish": "Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles.",
+      "sourceSpanish": "Rogelio: Si mañana sale el sol, volveremos a las siete y seguiremos con las tejas.",
+      "legacySourceRef": "master-roofing:15:passage:17",
+      "originalCandidateHold": "Exact source face held for qualified source/French/locale/domain review: Rogelio: If the sun comes out tomorrow, we'll be back at seven and continue with the shingles.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve the source storm timing, immediate tarping and fastening instructions, loose-material handling, pickup refuge, roof-covered claim and next-day seven-o’clock return against archived French rewrites. Preserve exact source meanings visibly until qualified roofing/weather/locale and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « La reprise et l’horaire dépendront des conditions et de l’autorisation prévue; je vous tiendrai informée. »",
+      "unresolvedReviewNotes": [
+        "Exact source weather/radar/tarp/loose-material/evacuation/fastening-status/return-promise claims retained, not a validated forecast, safe sequence, refuge plan, fastening method or weather all-clear. No clock/measurement conversion."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:15:fr-en:reader-remaining-alternative:17:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Si le soleil se montre demain, nous reviendrons à sept heures et nous poursuivrons le travail sur les bardeaux. »",
+          "alignmentNote": "IFSUNCOMESOUTTOMORROW WEWILLBACKATSEVEN ANDCONTINUEshingles, source condition plus definite future outcomes, no AM/PM, added all-clear or removed seven-o’clock promise.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 17,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:15:fr-en:reader:1",
+      "master-roofing:15:fr-en:reader:2",
+      "master-roofing:15:fr-en:reader:4",
+      "master-roofing:15:fr-en:reader:6",
+      "master-roofing:15:fr-en:reader:7",
+      "master-roofing:15:fr-en:reader:9",
+      "master-roofing:15:fr-en:reader:11",
+      "master-roofing:15:fr-en:reader:12",
+      "master-roofing:15:fr-en:reader:13",
+      "master-roofing:15:fr-en:reader:15",
+      "master-roofing:15:fr-en:reader:17"
+    ],
+    "supplementalAnchorCount": 11,
+    "supplementalFullFaceAlternativeCount": 11
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:15:fr-en:reader:10",
+      "master-roofing:15:fr-en:reader:14",
+      "master-roofing:15:fr-en:reader:16",
+      "master-roofing:15:fr-en:reader:3",
+      "master-roofing:15:fr-en:reader:5",
+      "master-roofing:15:fr-en:reader:8"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:15:fr-en:reader:1",
+      "master-roofing:15:fr-en:reader:11",
+      "master-roofing:15:fr-en:reader:12",
+      "master-roofing:15:fr-en:reader:13",
+      "master-roofing:15:fr-en:reader:15",
+      "master-roofing:15:fr-en:reader:17",
+      "master-roofing:15:fr-en:reader:2",
+      "master-roofing:15:fr-en:reader:4",
+      "master-roofing:15:fr-en:reader:6",
+      "master-roofing:15:fr-en:reader:7",
+      "master-roofing:15:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 17,
+    "sourceReaderTotal": 17,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead on the radio and the AI is a crew member on the roof: announce the storm, give short commands to tarp the open section and clear the roof, and set the conditions with si + present (si empieza a llover, bajamos).",
+    "scope": "Full Reader support does not automatically adapt/complete original grammar, speaking, clinical or trade objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

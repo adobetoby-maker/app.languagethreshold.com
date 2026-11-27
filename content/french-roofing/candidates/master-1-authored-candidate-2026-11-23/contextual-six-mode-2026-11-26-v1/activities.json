@@ -1,0 +1,1068 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:1:fr-en",
+  "sidecarId": "master-roofing:1:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "48957928a8033a470c4a35c9fec0d21f0a1878bc",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-1-source-decision-2026-11-18/packet.json",
+    "sha256": "727b3a5495c66deaad192decf7f880b137a7038081cfb4f805936123ce6fec40"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25",
+    "content/french-roofing/review/master-1-source-decision-2026-11-18/packet.json": "727b3a5495c66deaad192decf7f880b137a7038081cfb4f805936123ce6fec40",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-1-3-draft.json": "ba3ed0d30ff21635db9cf79b1441e3deae7a7916e12f2b264a957ff559f96cb9",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/README.md": "fdb4f848b480a248f63d4ba54e6a8449d4582bcdf41f2c03392d756f12ef0106",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "c774836ce7d85b79a5cbf42c674ae820ea80f8c769bf85849d703d69eb03b5f1",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "19067172992a2645bdaf68e87feaccf36f4512bea66434ba6f43a1a35b6633a1",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "0cc123b681fca182d151cfc371f3afc3e38ed1bd6fec0d5749af1ffbd3f97c18",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "a7599d7b64f4ab1babfc554e86835378e3445ce0899bffb3727bab2d641f9ed3",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "8262e12ec1ee71b7bb3bdbb10edc2ee5aa04a44693e3fa25c9b5351768aa1090",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/README.md": "fdb4f848b480a248f63d4ba54e6a8449d4582bcdf41f2c03392d756f12ef0106",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/ai-assistance-metadata.json": "62b4b8de1e65aa87b3b6d19cd69452872b954e37f9ab8b81144d5b92a29363b6",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/fable-critique.md": "d738363e5be400323ee277e7943ca66f15bdc04817e4d99ed5662c38447cd5f3",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/final-self-check.md": "d08d3400e4ab103fdc3b293806d89e6f70e47faed64b249ab72620775e128450",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/opus-critique.md": "a52764375bdb9285bc45a337761cef5f075319f8e693761d4133fd9fe47833b7",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "4dce3409eccf8c960353d4310a0d8f165599e05124b66494e0830aedbda7fae5",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "c774836ce7d85b79a5cbf42c674ae820ea80f8c769bf85849d703d69eb03b5f1",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "e8911ab5e6d6e4f3273acbd266a1959e525db1cb50325485e0c8bf40be60930d",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "19067172992a2645bdaf68e87feaccf36f4512bea66434ba6f43a1a35b6633a1",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "dc2ef8232074f4c4df6290366c0d2b9179f1b2dd3c67afacb60797997c2365d6",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "0cc123b681fca182d151cfc371f3afc3e38ed1bd6fec0d5749af1ffbd3f97c18",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "dd948ecab1a89a4152aafc9c2d570087dccf7bb349dadb7cfa76b7e570297893",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "a7599d7b64f4ab1babfc554e86835378e3445ce0899bffb3727bab2d641f9ed3",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "670f3859201b5909c55103389d343d848f0a44bd31cbb61ec440a6ef7d53116f",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "8262e12ec1ee71b7bb3bdbb10edc2ee5aa04a44693e3fa25c9b5351768aa1090",
+    "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/validate.py": "429ece1a6e01bf292f03e4066dad61a7652315b6ae3695928792b7d5867c8ee3"
+  },
+  "sourceObjectiveEnglish": "Walk a new hire through every layer of the roof, in order, and say why each one is there",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a new hire on day one: walk them from the deck to the ridge, name each layer in order, and explain why each one goes where it does using primero, luego, porque and por eso.",
+  "existingLexicalObjectiveEnglish": "Identify roof-system terms and describe reference-sheet language practice using first, then and because.",
+  "sourceObjectiveCompletionStatus": "Contextual practice now proposed for the original crew-lead order/why mission; original specialist objective remains held pending qualified source/product/trade/English/French/register review and text/audio selection.",
+  "candidateObjectiveEnglish": "As the crew lead, explain the source roof-system order and stated reasons to Kevin in English, answer his top-first question and check his understanding.",
+  "candidateObjectiveFrench": "En tant que chef d’équipe, expliquez en anglais à Kevin l’ordre des éléments et les raisons données dans la scène, répondez à sa question sur un départ par le haut et vérifiez sa compréhension.",
+  "sourceContextEnglish": "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up.",
+  "candidateContextFrench": "Aujourd’hui, c’est le premier jour de Kevin dans l’équipe, et Rogelio lui explique le système de toiture avant qu’ils montent.",
+  "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+  "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+  "partnerRoleEnglish": "Kevin, a new hire on day one.",
+  "partnerRoleFrench": "Kevin, nouvel employé à son premier jour.",
+  "sourceLanguageAdaptationStatus": "English-production/French-support proposal from a source mission naming Spanish primero/luego/porque/por eso. No automatic Spanish/French/English grammar equivalence or completed source objective claimed.",
+  "frenchReferencePolicy": "One unselected authored French option is reused per source segment for a readable sample. All options and exact artifact pointers are retained in sourceEvidence; none is chosen/canonicalized for scoring or audio.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:1",
+      "sourcePacketReaderPointer": "/reader/0",
+      "sourceEnglish": "Today is Kevin's first day on the crew, and Rogelio explains the roof system to him before they go up.",
+      "sourceSpanish": "Hoy es el primer día de Kevin en la cuadrilla, y Rogelio le explica el sistema de techo antes de subir.",
+      "sourceLegacyRef": "master-roofing:1:passage:1",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:1",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Aujourd’hui, c’est le premier jour de Kevin dans l’équipe, et Rogelio lui explique le système de toiture avant qu’ils montent.",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25",
+          "jsonPointer": "/candidateRows/21/candidateFrench",
+          "id": "master-roofing:1:fr-en:candidate:reader:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:2",
+      "sourcePacketReaderPointer": "/reader/1",
+      "sourceEnglish": "Rogelio: Each layer has its job, and they all work together.",
+      "sourceSpanish": "Rogelio: Cada capa tiene su trabajo, y todas trabajan juntas.",
+      "sourceLegacyRef": "master-roofing:1:passage:2",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:2",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : Chaque couche a son rôle, et elles fonctionnent toutes ensemble.",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "60c7869d1d28d694ec41b0d38de16450c8fa3e3a7ad7286ea837eb46056b2d25",
+          "jsonPointer": "/candidateRows/22/candidateFrench",
+          "id": "master-roofing:1:fr-en:candidate:reader:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:3",
+      "sourcePacketReaderPointer": "/reader/2",
+      "sourceEnglish": "Rogelio: First comes the deck, then the underlayment.",
+      "sourceSpanish": "Rogelio: Primero va la cubierta y luego la sub-capa.",
+      "sourceLegacyRef": "master-roofing:1:passage:3",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:3",
+      "canonicalReaderHold": "Product/climate/approved-plan/manufacturer-specific layer ordering and its source rationale remain unresolved; no source-equivalent installation sequence or water-performance guarantee selected.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « D’abord vient le platelage, puis la sous-couche. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:3:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Rogelio: The deck is the base, so it has to be solid and dry.",
+      "sourceSpanish": "Rogelio: La cubierta es la base, así que tiene que estar firme y seca.",
+      "sourceLegacyRef": "master-roofing:1:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Le platelage est la base, donc il doit être solide et sec. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Rogelio: At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+      "sourceSpanish": "Rogelio: En el alero ponemos el goterón, porque el agua tiene que caer en la canaleta y no en la madera.",
+      "sourceLegacyRef": "master-roofing:1:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "The source presents a deck-to-ridge sequence and names underlayment, drip edge, starter strip and ice/water shield. Confirm the actual product, climate, approved plans and manufacturer instructions before selecting a scored French construction order; the archived plan qualifier is separate evidence, not a source answer.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « À l’avant-toit, nous posons le larmier, parce que l’eau doit tomber dans la gouttière et non sur le bois. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Rogelio: At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+      "sourceSpanish": "Rogelio: En el alero y en la limahoya también va la membrana impermeable, porque ahí corre más agua.",
+      "sourceLegacyRef": "master-roofing:1:passage:6",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:6",
+      "canonicalReaderHold": "The source presents a deck-to-ridge sequence and names underlayment, drip edge, starter strip and ice/water shield. Confirm the actual product, climate, approved plans and manufacturer instructions before selecting a scored French construction order; the archived plan qualifier is separate evidence, not a source answer.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « À l’avant-toit et dans la noue, la membrane de protection contre la glace et l’eau se pose aussi, parce qu’il y coule davantage d’eau. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:6:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Kevin: And why don't we start at the top, where the ridge is?",
+      "sourceSpanish": "Kevin: ¿Y por qué no empezamos arriba, donde está la cumbrera?",
+      "sourceLegacyRef": "master-roofing:1:passage:7",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "The question about starting at the top depends on held source water-path/installation-order answers in Reader8/9; no technical explanation selected.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Kevin : « Et pourquoi on ne commence pas en haut, là où se trouve le faîtage ? »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: Because water always runs downhill.",
+      "sourceSpanish": "Rogelio: Porque el agua siempre corre hacia abajo.",
+      "sourceLegacyRef": "master-roofing:1:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "The source says water always runs downhill and each course never lets water under it. Archived French omits the always in one card/Reader line, and the absolute water path depends on the selected system and conditions. Qualified source/trade review must reconcile the exact learner meaning without presenting an installation guarantee.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Parce que l’eau s’écoule toujours vers le bas. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+      "sourceSpanish": "Rogelio: Por eso empezamos desde abajo: primero la hilera inicial y después las tejas asfálticas, una hilera encima de otra.",
+      "sourceLegacyRef": "master-roofing:1:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "The source says water always runs downhill and each course never lets water under it. Archived French omits the always in one card/Reader line, and the absolute water path depends on the selected system and conditions. Qualified source/trade review must reconcile the exact learner meaning without presenting an installation guarantee.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « C’est pourquoi nous commençons par le bas : d’abord la bande de départ, et ensuite les bardeaux d’asphalte, un rang par-dessus l’autre. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Rogelio: Each course covers the one below, so the water runs over it and never under it.",
+      "sourceSpanish": "Rogelio: Cada hilera cubre la de abajo, así que el agua pasa por encima y nunca por debajo.",
+      "sourceLegacyRef": "master-roofing:1:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "The source says water always runs downhill and each course never lets water under it. Archived French omits the always in one card/Reader line, and the absolute water path depends on the selected system and conditions. Qualified source/trade review must reconcile the exact learner meaning without presenting an installation guarantee.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Chaque rang recouvre celui du dessous, donc l’eau passe par-dessus et jamais par-dessous. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: Around the chimney and the walls we put flashing, because those joints are the weak points.",
+      "sourceSpanish": "Rogelio: Alrededor de la chimenea y de las paredes ponemos el tapajuntas, porque esas uniones son los puntos débiles.",
+      "sourceLegacyRef": "master-roofing:1:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "Flashing, valley, ridge cap, ridge vent and eave have regional/product-specific French senses. Source Reader 11 says wall/chimney joints are weak points; archived French softens this to joints needing attention. Decide exact teaching meaning and roof-system terminology before answer selection.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Autour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap.",
+      "sourceSpanish": "Rogelio: Al final, arriba de todo, va la ventilación de caballete y luego el caballete.",
+      "sourceLegacyRef": "master-roofing:1:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "Flashing, valley, ridge cap, ridge vent and eave have regional/product-specific French senses. Source Reader 11 says wall/chimney joints are weak points; archived French softens this to joints needing attention. Decide exact teaching meaning and roof-system terminology before answer selection.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « À la fin, tout en haut, vient l’évent de faîtage, puis la faîtière. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/9/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Rogelio: The attic needs to breathe; that's why we leave the vent at the ridge.",
+      "sourceSpanish": "Rogelio: El ático necesita respirar; por eso dejamos la ventilación en la cumbrera.",
+      "sourceLegacyRef": "master-roofing:1:passage:13",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:13",
+      "canonicalReaderHold": "Flashing, valley, ridge cap, ridge vent and eave have regional/product-specific French senses. Source Reader 11 says wall/chimney joints are weak points; archived French softens this to joints needing attention. Decide exact teaching meaning and roof-system terminology before answer selection.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : « Le grenier a besoin de respirer ; c’est pourquoi nous laissons l’évent au faîtage. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/10/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:13:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:14",
+      "sourcePacketReaderPointer": "/reader/13",
+      "sourceEnglish": "Rogelio: Am I making sense?",
+      "sourceSpanish": "Rogelio: ¿Me explico?",
+      "sourceLegacyRef": "master-roofing:1:passage:14",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:14",
+      "canonicalReaderHold": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : Est-ce que mes explications sont claires ?",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:14:1",
+          "selectedFrench": null
+        },
+        {
+          "candidateFrench": "Rogelio : Est-ce que je suis clair ?",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+          "jsonPointer": "/rows/0/alternatives/1/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:14:2",
+          "selectedFrench": null
+        },
+        {
+          "candidateFrench": "Rogelio : Est-ce que je me fais comprendre ?",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+          "jsonPointer": "/rows/0/alternatives/2/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:14:3",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:15",
+      "sourcePacketReaderPointer": "/reader/14",
+      "sourceEnglish": "Kevin: Yes, first the base, then the protection against water, and at the end the ventilation.",
+      "sourceSpanish": "Kevin: Sí, primero la base, luego la protección contra el agua y al final la ventilación.",
+      "sourceLegacyRef": "master-roofing:1:passage:15",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:15",
+      "canonicalReaderHold": "Product/climate/approved-plan/manufacturer-specific layer ordering and its source rationale remain unresolved; no source-equivalent installation sequence or water-performance guarantee selected.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Kevin : « Oui, d’abord la base, puis la protection contre l’eau, et à la fin la ventilation. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "b65a5192bb4fbf0e344f82b1a1675df22927f35241db1c0d6570f32ae5089df3",
+          "jsonPointer": "/rows/11/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:15:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:16",
+      "sourcePacketReaderPointer": "/reader/15",
+      "sourceEnglish": "Rogelio: Exactly, and if you have questions, ask me anything you want.",
+      "sourceSpanish": "Rogelio: Exacto, y si tienes dudas, pregúntame lo que quieras.",
+      "sourceLegacyRef": "master-roofing:1:passage:16",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:16",
+      "canonicalReaderHold": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : Exactement, et si tu as des questions, pose-moi toutes les questions que tu veux.",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:16:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:1:fr-en:reader:17",
+      "sourcePacketReaderPointer": "/reader/16",
+      "sourceEnglish": "Rogelio: With a client you say it this way: If you have questions, ask me.",
+      "sourceSpanish": "Rogelio: Con un cliente se dice así: Si tiene dudas, pregúnteme a mí.",
+      "sourceLegacyRef": "master-roofing:1:passage:17",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:1:fr-en:candidate:reader:17",
+      "canonicalReaderHold": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective.",
+      "authoredFrenchOptions": [
+        {
+          "candidateFrench": "Rogelio : Avec un client, on le dit comme ça : « Si vous avez des questions, posez-les-moi. »",
+          "artifactPath": "content/french-roofing/candidates/master-1-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "463123ebb55e178a9167153767eb21106dd82edf29f37773a988e46239a77b12",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:1:fr-en:reader-alternative:17:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestions": [
+    {
+      "affectedIds": [
+        "master-roofing:1:fr-en:card:2",
+        "master-roofing:1:fr-en:card:3",
+        "master-roofing:1:fr-en:card:4",
+        "master-roofing:1:fr-en:card:5",
+        "master-roofing:1:fr-en:card:7",
+        "master-roofing:1:fr-en:reader:3",
+        "master-roofing:1:fr-en:reader:5",
+        "master-roofing:1:fr-en:reader:6"
+      ],
+      "question": "The source presents a deck-to-ridge sequence and names underlayment, drip edge, starter strip and ice/water shield. Confirm the actual product, climate, approved plans and manufacturer instructions before selecting a scored French construction order; the archived plan qualifier is separate evidence, not a source answer."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:1:fr-en:card:8",
+        "master-roofing:1:fr-en:card:9",
+        "master-roofing:1:fr-en:card:11",
+        "master-roofing:1:fr-en:card:12",
+        "master-roofing:1:fr-en:card:13",
+        "master-roofing:1:fr-en:reader:11",
+        "master-roofing:1:fr-en:reader:12",
+        "master-roofing:1:fr-en:reader:13"
+      ],
+      "question": "Flashing, valley, ridge cap, ridge vent and eave have regional/product-specific French senses. Source Reader 11 says wall/chimney joints are weak points; archived French softens this to joints needing attention. Decide exact teaching meaning and roof-system terminology before answer selection."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:1:fr-en:card:15",
+        "master-roofing:1:fr-en:card:17",
+        "master-roofing:1:fr-en:card:18",
+        "master-roofing:1:fr-en:reader:8",
+        "master-roofing:1:fr-en:reader:9",
+        "master-roofing:1:fr-en:reader:10",
+        "master-roofing:1:fr-en:reader:15"
+      ],
+      "question": "The source says water always runs downhill and each course never lets water under it. Archived French omits the always in one card/Reader line, and the absolute water path depends on the selected system and conditions. Qualified source/trade review must reconcile the exact learner meaning without presenting an installation guarantee."
+    },
+    {
+      "affectedIds": [
+        "master-roofing:1:fr-en:card:19",
+        "master-roofing:1:fr-en:reader:14",
+        "master-roofing:1:fr-en:reader:16",
+        "master-roofing:1:fr-en:reader:17"
+      ],
+      "question": "Check informal new-hire and formal client address and the nuance of Am I making sense? versus archived Est-ce que je suis clair? Keep the separate archived speaking request to consult approved plans distinct from the source objective."
+    }
+  ],
+  "activities": [
+    {
+      "id": "master-roofing:1:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read Rogelio’s two lines. In English, tell Kevin what comes after the deck and what comes after the ridge vent.",
+      "promptFrench": "Lisez les deux répliques de Rogelio. Dites en anglais à Kevin ce qui vient après le platelage et ce qui vient après l’évent de faîtage.",
+      "candidateTargetEnglish": "The underlayment comes after the deck, and the ridge cap comes after the ridge vent.",
+      "candidateMeaningFrench": "La sous-couche vient après le platelage, et la faîtière vient après l’évent de faîtage.",
+      "explanationEnglish": "After names the next part in each line. Keep the deck/underlayment pair separate from the ridge-vent/ridge-cap pair.",
+      "explanationFrench": "After indique l’élément qui suit dans chaque réplique. Distinguez le couple platelage/sous-couche du couple évent de faîtage/faîtière.",
+      "sourceAnchors": [
+        "master-roofing:1:fr-en:reader:3",
+        "master-roofing:1:fr-en:reader:12"
+      ],
+      "referenceTargetProvenance": "New English/French comprehension composition; order derived from the two exact quoted source turns, not a new source quotation.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "selectedRecording": null,
+      "answerComparisonStatus": "Unselected reference, not a rigid scored answer key. Source meaning, wording/contraction alternatives, French senses and punctuation need qualified review.",
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:3",
+          "text": "Rogelio: First comes the deck, then the underlayment."
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:12",
+          "text": "Rogelio: At the end, at the very top, goes the ridge vent and then the ridge cap."
+        }
+      ],
+      "candidateDisplayMeaningFrench": [
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:3",
+          "candidateFrench": "Rogelio : « D’abord vient le platelage, puis la sous-couche. »",
+          "evidenceId": "master-roofing:1:fr-en:reader-alternative:3:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:12",
+          "candidateFrench": "Rogelio : « À la fin, tout en haut, vient l’évent de faîtage, puis la faîtière. »",
+          "evidenceId": "master-roofing:1:fr-en:reader-alternative:12:1"
+        }
+      ],
+      "englishReferenceVisible": true
+    },
+    {
+      "id": "master-roofing:1:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Kevin has forgotten why the crew mentions flashing. Without looking at the English line, give Rogelio’s complete English explanation from the French cue.",
+      "promptFrench": "Kevin a oublié pourquoi l’équipe parle des solins. Sans regarder la réplique anglaise, retrouvez l’explication complète de Rogelio en anglais à partir de l’indice français.",
+      "candidateTargetEnglish": "Around the chimney and the walls we put flashing, because those joints are the weak points.",
+      "candidateMeaningFrench": "Autour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles.",
+      "explanationEnglish": "Because introduces the stated reason. Name both the chimney and the walls, and keep the weak-points explanation.",
+      "explanationFrench": "Because introduit la raison donnée. Nommez la cheminée et les murs et conservez l’explication sur les points faibles.",
+      "sourceAnchors": [
+        "master-roofing:1:fr-en:reader:11"
+      ],
+      "referenceTargetProvenance": "Exact source utterance body: only the Rogelio speaker prefix is omitted. French support reuses one unselected authored option.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "selectedRecording": null,
+      "answerComparisonStatus": "Unselected reference, not a rigid scored answer key. Source meaning, wording/contraction alternatives, French senses and punctuation need qualified review.",
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "cueFrench": "Autour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles.",
+      "englishReferenceVisible": false,
+      "exactTargetBodyAnchor": "master-roofing:1:fr-en:reader:11"
+    },
+    {
+      "id": "master-roofing:1:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to Rogelio’s line. Answer Kevin in English: where does the water have to fall, and where must it not fall?",
+      "promptFrench": "Écoutez la réplique de Rogelio. Répondez à Kevin en anglais : où l’eau doit-elle tomber, et où ne doit-elle pas tomber ?",
+      "candidateTargetEnglish": "The water has to fall into the gutter and not onto the wood.",
+      "candidateMeaningFrench": "L’eau doit tomber dans la gouttière et non sur le bois.",
+      "explanationEnglish": "Into gives the destination; onto gives the surface. Keep both the gutter and the negative statement about the wood.",
+      "explanationFrench": "Into indique la destination ; onto indique la surface. Conservez la gouttière et la négation concernant le bois.",
+      "sourceAnchors": [
+        "master-roofing:1:fr-en:reader:5"
+      ],
+      "referenceTargetProvenance": "Source clause made into an independent sentence by capitalizing The; no technical claim or modal force changed.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "selectedRecording": null,
+      "answerComparisonStatus": "Unselected reference, not a rigid scored answer key. Source meaning, wording/contraction alternatives, French senses and punctuation need qualified review.",
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized candidate; no recording, voice selection, technical validation or listening decision.",
+      "candidateListeningTextEnglish": "At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+      "listeningTextSourceAnchor": "master-roofing:1:fr-en:reader:5",
+      "englishReferenceVisible": false,
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "missingAudioStatus": "Pending exact text/voice/locale selection, pre-batch estimate and distinct recording/listening review; no playback registration."
+    },
+    {
+      "id": "master-roofing:1:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Type the missing result connector in Rogelio’s line in English.",
+      "promptFrench": "Écrivez en anglais le connecteur de conséquence qui manque dans la réplique de Rogelio.",
+      "candidateTargetEnglish": "That's why",
+      "candidateMeaningFrench": "C’est pourquoi",
+      "explanationEnglish": "That’s why links this line to the water-direction reason in the preceding turn. First and then organize the sequence within the line.",
+      "explanationFrench": "That’s why relie cette réplique à la raison donnée juste avant sur le trajet de l’eau. First et then organisent l’ordre des éléments.",
+      "sourceAnchors": [
+        "master-roofing:1:fr-en:reader:8",
+        "master-roofing:1:fr-en:reader:9"
+      ],
+      "referenceTargetProvenance": "Exact source connector from Reader9, with its original apostrophe; the rest of the cloze is exact source text.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "selectedRecording": null,
+      "answerComparisonStatus": "Unselected reference, not a rigid scored answer key. Source meaning, wording/contraction alternatives, French senses and punctuation need qualified review.",
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "clozeTextEnglish": "_____ we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+      "unmaskedSourceBodyEnglish": "That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+      "clozeSourceAnchor": "master-roofing:1:fr-en:reader:9",
+      "candidateMeaningOfWholeLineFrench": "C’est pourquoi nous commençons par le bas : d’abord la bande de départ, et ensuite les bardeaux d’asphalte, un rang par-dessus l’autre.",
+      "englishReferenceVisible": false
+    },
+    {
+      "id": "master-roofing:1:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Roleplay the crew lead in English. Explain the source roof system to Kevin from the deck to the ridge, name the parts and their stated purposes, answer his question about starting at the top, and check his understanding. Use first, then, because and that’s why.",
+      "promptFrench": "Jouez le chef d’équipe en anglais. Expliquez à Kevin le système de toiture de la scène, du platelage au faîtage, en nommant les éléments et les raisons données. Répondez à sa question sur un départ par le haut et vérifiez sa compréhension. Employez first, then, because et that’s why.",
+      "candidateTargetEnglish": "Each layer has its job, and they all work together.\nFirst comes the deck, then the underlayment.\nThe deck is the base, so it has to be solid and dry.\nAt the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.\nAt the eave and in the valley the ice and water shield goes on too, because more water runs there.\nBecause water always runs downhill.\nThat's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.\nEach course covers the one below, so the water runs over it and never under it.\nAround the chimney and the walls we put flashing, because those joints are the weak points.\nAt the end, at the very top, goes the ridge vent and then the ridge cap.\nThe attic needs to breathe; that's why we leave the vent at the ridge.\nAm I making sense?\nExactly, and if you have questions, ask me anything you want.",
+      "candidateMeaningFrench": "Chaque couche a son rôle, et elles fonctionnent toutes ensemble.\nD’abord vient le platelage, puis la sous-couche.\nLe platelage est la base, donc il doit être solide et sec.\nÀ l’avant-toit, nous posons le larmier, parce que l’eau doit tomber dans la gouttière et non sur le bois.\nÀ l’avant-toit et dans la noue, la membrane de protection contre la glace et l’eau se pose aussi, parce qu’il y coule davantage d’eau.\nParce que l’eau s’écoule toujours vers le bas.\nC’est pourquoi nous commençons par le bas : d’abord la bande de départ, et ensuite les bardeaux d’asphalte, un rang par-dessus l’autre.\nChaque rang recouvre celui du dessous, donc l’eau passe par-dessus et jamais par-dessous.\nAutour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles.\nÀ la fin, tout en haut, vient l’évent de faîtage, puis la faîtière.\nLe grenier a besoin de respirer ; c’est pourquoi nous laissons l’évent au faîtage.\nEst-ce que mes explications sont claires ?\nExactement, et si tu as des questions, pose-moi toutes les questions que tu veux.",
+      "explanationEnglish": "Speak the crew-lead turns; the partner reads Kevin’s two turns. First/then organize the parts, because/that’s why connect the stated reasons, and the final question checks understanding.",
+      "explanationFrench": "Dites les répliques du chef d’équipe ; le partenaire lit les deux répliques de Kevin. First/then organisent les éléments, because/that’s why relient les raisons données et la question finale vérifie la compréhension.",
+      "sourceAnchors": [
+        "master-roofing:1:fr-en:reader:2",
+        "master-roofing:1:fr-en:reader:3",
+        "master-roofing:1:fr-en:reader:4",
+        "master-roofing:1:fr-en:reader:5",
+        "master-roofing:1:fr-en:reader:6",
+        "master-roofing:1:fr-en:reader:7",
+        "master-roofing:1:fr-en:reader:8",
+        "master-roofing:1:fr-en:reader:9",
+        "master-roofing:1:fr-en:reader:10",
+        "master-roofing:1:fr-en:reader:11",
+        "master-roofing:1:fr-en:reader:12",
+        "master-roofing:1:fr-en:reader:13",
+        "master-roofing:1:fr-en:reader:14",
+        "master-roofing:1:fr-en:reader:15",
+        "master-roofing:1:fr-en:reader:16"
+      ],
+      "referenceTargetProvenance": "Composite of exact source utterance bodies in original order, with speaker labels separated into dialogue roles; no source statement is rewritten.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "selectedRecording": null,
+      "answerComparisonStatus": "Unselected reference, not a rigid scored answer key. Source meaning, wording/contraction alternatives, French senses and punctuation need qualified review.",
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:2",
+          "utteranceEnglish": "Each layer has its job, and they all work together.",
+          "candidateMeaningFrench": "Chaque couche a son rôle, et elles fonctionnent toutes ensemble.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:candidate:reader:2",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:3",
+          "utteranceEnglish": "First comes the deck, then the underlayment.",
+          "candidateMeaningFrench": "D’abord vient le platelage, puis la sous-couche.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:3:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:4",
+          "utteranceEnglish": "The deck is the base, so it has to be solid and dry.",
+          "candidateMeaningFrench": "Le platelage est la base, donc il doit être solide et sec.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:4:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:5",
+          "utteranceEnglish": "At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+          "candidateMeaningFrench": "À l’avant-toit, nous posons le larmier, parce que l’eau doit tomber dans la gouttière et non sur le bois.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:5:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:6",
+          "utteranceEnglish": "At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+          "candidateMeaningFrench": "À l’avant-toit et dans la noue, la membrane de protection contre la glace et l’eau se pose aussi, parce qu’il y coule davantage d’eau.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:6:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Kevin",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:7",
+          "utteranceEnglish": "And why don't we start at the top, where the ridge is?",
+          "candidateMeaningFrench": "Et pourquoi on ne commence pas en haut, là où se trouve le faîtage ?",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:7:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:8",
+          "utteranceEnglish": "Because water always runs downhill.",
+          "candidateMeaningFrench": "Parce que l’eau s’écoule toujours vers le bas.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:8:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:9",
+          "utteranceEnglish": "That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+          "candidateMeaningFrench": "C’est pourquoi nous commençons par le bas : d’abord la bande de départ, et ensuite les bardeaux d’asphalte, un rang par-dessus l’autre.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:9:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:9",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:10",
+          "utteranceEnglish": "Each course covers the one below, so the water runs over it and never under it.",
+          "candidateMeaningFrench": "Chaque rang recouvre celui du dessous, donc l’eau passe par-dessus et jamais par-dessous.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:10:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:10",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:11",
+          "utteranceEnglish": "Around the chimney and the walls we put flashing, because those joints are the weak points.",
+          "candidateMeaningFrench": "Autour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:11:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:11",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:12",
+          "utteranceEnglish": "At the end, at the very top, goes the ridge vent and then the ridge cap.",
+          "candidateMeaningFrench": "À la fin, tout en haut, vient l’évent de faîtage, puis la faîtière.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:12:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:12",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:13",
+          "utteranceEnglish": "The attic needs to breathe; that's why we leave the vent at the ridge.",
+          "candidateMeaningFrench": "Le grenier a besoin de respirer ; c’est pourquoi nous laissons l’évent au faîtage.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:13:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:13",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:14",
+          "utteranceEnglish": "Am I making sense?",
+          "candidateMeaningFrench": "Est-ce que mes explications sont claires ?",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:14:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:14",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Kevin",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:15",
+          "utteranceEnglish": "Yes, first the base, then the protection against water, and at the end the ventilation.",
+          "candidateMeaningFrench": "Oui, d’abord la base, puis la protection contre l’eau, et à la fin la ventilation.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:15:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:1:fr-en:contextual-activity:v1:say:turn:15",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:1:fr-en:reader:16",
+          "utteranceEnglish": "Exactly, and if you have questions, ask me anything you want.",
+          "candidateMeaningFrench": "Exactement, et si tu as des questions, pose-moi toutes les questions que tu veux.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:16:1",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "partnerCueSourceAnchors": [
+        "master-roofing:1:fr-en:reader:7",
+        "master-roofing:1:fr-en:reader:15"
+      ],
+      "englishReferenceVisible": false
+    },
+    {
+      "id": "master-roofing:1:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio role), explaining the source roof system to Kevin, a new hire on day one.",
+      "learnerRoleFrench": "Chef d’équipe (rôle de Rogelio), expliquant le système de toiture de la scène à Kevin, nouvel employé à son premier jour.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write Kevin a connected English explanation of the source roof system from the deck to the ridge. Include the named parts, the bottom-to-top sequence, where water goes, the chimney/wall joints and the attic-ventilation reason. Use first, then, because and that’s why.",
+      "promptFrench": "Rédigez pour Kevin une explication suivie en anglais du système de toiture de la scène, du platelage au faîtage. Incluez les éléments nommés, l’ordre du bas vers le haut, le trajet de l’eau, les jonctions avec la cheminée et les murs et la raison liée à la ventilation des combles. Employez first, then, because et that’s why.",
+      "candidateTargetEnglish": "Each layer has its job, and they all work together. First comes the deck, then the underlayment. The deck is the base, so it has to be solid and dry. At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood. At the eave and in the valley the ice and water shield goes on too, because more water runs there. Water always runs downhill. That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another. Each course covers the one below, so the water runs over it and never under it. Around the chimney and the walls we put flashing, because those joints are the weak points. At the end, at the very top, goes the ridge vent and then the ridge cap. The attic needs to breathe; that's why we leave the vent at the ridge.",
+      "candidateMeaningFrench": "Chaque couche a son rôle, et elles fonctionnent toutes ensemble. D’abord vient le platelage, puis la sous-couche. Le platelage est la base, donc il doit être solide et sec. À l’avant-toit, nous posons le larmier, parce que l’eau doit tomber dans la gouttière et non sur le bois. À l’avant-toit et dans la noue, la membrane de protection contre la glace et l’eau se pose aussi, parce qu’il y coule davantage d’eau. L’eau s’écoule toujours vers le bas. C’est pourquoi nous commençons par le bas : d’abord la bande de départ, et ensuite les bardeaux d’asphalte, un rang par-dessus l’autre. Chaque rang recouvre celui du dessous, donc l’eau passe par-dessus et jamais par-dessous. Autour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles. À la fin, tout en haut, vient l’évent de faîtage, puis la faîtière. Le grenier a besoin de respirer ; c’est pourquoi nous laissons l’évent au faîtage.",
+      "explanationEnglish": "Keep the source order and the reasons attached to the correct parts. The reference paragraph changes only the standalone Because-clause into a complete sentence; other English segments are exact source bodies.",
+      "explanationFrench": "Conservez l’ordre de la scène et rattachez chaque raison au bon élément. Le paragraphe de référence transforme seulement la proposition isolée commençant par Because en phrase complète ; les autres segments anglais reprennent exactement les répliques de la source.",
+      "sourceAnchors": [
+        "master-roofing:1:fr-en:reader:2",
+        "master-roofing:1:fr-en:reader:3",
+        "master-roofing:1:fr-en:reader:4",
+        "master-roofing:1:fr-en:reader:5",
+        "master-roofing:1:fr-en:reader:6",
+        "master-roofing:1:fr-en:reader:8",
+        "master-roofing:1:fr-en:reader:9",
+        "master-roofing:1:fr-en:reader:10",
+        "master-roofing:1:fr-en:reader:11",
+        "master-roofing:1:fr-en:reader:12",
+        "master-roofing:1:fr-en:reader:13"
+      ],
+      "referenceTargetProvenance": "New paragraph assembly of exact source bodies, except one explicitly marked clause/sentence adaptation. It is not passed off as an unchanged source quotation.",
+      "reviewed": false,
+      "scoringEnabled": false,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "selectedRecording": null,
+      "answerComparisonStatus": "Unselected reference, not a rigid scored answer key. Source meaning, wording/contraction alternatives, French senses and punctuation need qualified review.",
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:2",
+          "referenceEnglish": "Each layer has its job, and they all work together.",
+          "candidateMeaningFrench": "Chaque couche a son rôle, et elles fonctionnent toutes ensemble.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:candidate:reader:2"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:3",
+          "referenceEnglish": "First comes the deck, then the underlayment.",
+          "candidateMeaningFrench": "D’abord vient le platelage, puis la sous-couche.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:3:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:4",
+          "referenceEnglish": "The deck is the base, so it has to be solid and dry.",
+          "candidateMeaningFrench": "Le platelage est la base, donc il doit être solide et sec.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:4:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:5",
+          "referenceEnglish": "At the eave we put the drip edge, because the water has to fall into the gutter and not onto the wood.",
+          "candidateMeaningFrench": "À l’avant-toit, nous posons le larmier, parce que l’eau doit tomber dans la gouttière et non sur le bois.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:5:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:6",
+          "referenceEnglish": "At the eave and in the valley the ice and water shield goes on too, because more water runs there.",
+          "candidateMeaningFrench": "À l’avant-toit et dans la noue, la membrane de protection contre la glace et l’eau se pose aussi, parce qu’il y coule davantage d’eau.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:6:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:8",
+          "referenceEnglish": "Water always runs downhill.",
+          "candidateMeaningFrench": "L’eau s’écoule toujours vers le bas.",
+          "kind": "source-clause-sentence-adaptation",
+          "modification": "Remove Because/Parce que and capitalize the remaining clause to make a connected written paragraph; always/toujours and the claim are unchanged.",
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:8:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:9",
+          "referenceEnglish": "That's why we start from the bottom: first the starter strip and then the asphalt shingles, one course on top of another.",
+          "candidateMeaningFrench": "C’est pourquoi nous commençons par le bas : d’abord la bande de départ, et ensuite les bardeaux d’asphalte, un rang par-dessus l’autre.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:9:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:10",
+          "referenceEnglish": "Each course covers the one below, so the water runs over it and never under it.",
+          "candidateMeaningFrench": "Chaque rang recouvre celui du dessous, donc l’eau passe par-dessus et jamais par-dessous.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:10:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:11",
+          "referenceEnglish": "Around the chimney and the walls we put flashing, because those joints are the weak points.",
+          "candidateMeaningFrench": "Autour de la cheminée et des murs, nous posons des solins, parce que ces jonctions sont les points faibles.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:11:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:12",
+          "referenceEnglish": "At the end, at the very top, goes the ridge vent and then the ridge cap.",
+          "candidateMeaningFrench": "À la fin, tout en haut, vient l’évent de faîtage, puis la faîtière.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:12:1"
+        },
+        {
+          "sourceAnchor": "master-roofing:1:fr-en:reader:13",
+          "referenceEnglish": "The attic needs to breathe; that's why we leave the vent at the ridge.",
+          "candidateMeaningFrench": "Le grenier a besoin de respirer ; c’est pourquoi nous laissons l’évent au faîtage.",
+          "kind": "exact-source-utterance-body",
+          "modification": null,
+          "frenchEvidenceId": "master-roofing:1:fr-en:reader-alternative:13:1"
+        }
+      ],
+      "englishReferenceVisible": false
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "All existing lexical activities, speaking, forms, dictionary mappings, source faces, IDs, pins, holds and gates remain unchanged. New IDs are source-only/versioned and are not progress or runtime registrations.",
+    "Layer sequence/product/climate specifications, always/never water-path claims, weak-point statements, tool/roof access and terminology choices remain qualified questions. Technical source language is direct in utterances; these questions are not inserted as hedges into targets.",
+    "The new six modes address contextual teaching rather than counting more isolated word-list records. Authored contextual coverage is not qualified field-method, objective, recording or learner-release completion.",
+    "No Claude calls/retries due parent-reported weekly429quota. Assistant fallback; independent parent critique pending, not a Haiku/Opus/Fable success chain."
+  ]
+}

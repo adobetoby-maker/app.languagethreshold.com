@@ -1,0 +1,1303 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:7:fr-en",
+  "sidecarId": "master-roofing:7:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "eb21bd87bffa97a101145ba89f288eb715b00491",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-7-source-decision-2026-11-18/packet.json",
+    "sha256": "4fe128163c1e6285d10ac44bf6202d202ef020edb51672e093e076193e53482b"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+    "content/french-roofing/review/master-7-source-decision-2026-11-18/packet.json": "4fe128163c1e6285d10ac44bf6202d202ef020edb51672e093e076193e53482b",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-7-9-draft.json": "aac17166036d739fd1af9ca58bd57ccc95d4ea5337f998d639331f37de14b53c",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/README.md": "7af8c79d27298034060ca51882b81643c66238863642fee48594047dffba1ed0",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "9c213908a3edc856427e9810cb711554293db492ce5cadc012b19eb31d7ff65a",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "bd6430284df7ce8644403eb84ce5565508c045200050ffef19346474cb0c1900",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "08fd759f557f16c713458e9dbd1b1283aaa644e964820b68c69ba30b985c8516",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "5f420d9a92e48225738d787c69943b1b9fd76483a0c3a02b977d2c55a0abdf82",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "0d2dfcab0f8911fe7f063b7ee37e552f404a73db60b9cb4f4be87463122fae04",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "a08674ed0e73664174861ed2ca0f169d34eab6aa4e1b6fb611aef490999de1f5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/README.md": "7af8c79d27298034060ca51882b81643c66238863642fee48594047dffba1ed0",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "9c213908a3edc856427e9810cb711554293db492ce5cadc012b19eb31d7ff65a",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "bd6430284df7ce8644403eb84ce5565508c045200050ffef19346474cb0c1900",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "08fd759f557f16c713458e9dbd1b1283aaa644e964820b68c69ba30b985c8516",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "5f420d9a92e48225738d787c69943b1b9fd76483a0c3a02b977d2c55a0abdf82",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "0d2dfcab0f8911fe7f063b7ee37e552f404a73db60b9cb4f4be87463122fae04",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "a08674ed0e73664174861ed2ca0f169d34eab6aa4e1b6fb611aef490999de1f5",
+    "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "sourceObjectiveEnglish": "Walk an adjuster across a hail-damaged roof, narrate the storm and findings, and agree on the scope",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the insurance adjuster: say when the storm came through, show the hits you marked, give counts and measurements clearly, and agree on the scope of work.",
+  "existingLexicalObjectiveEnglish": "Use repetition requests, past-tense story narration and printed weather vocabulary.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual teaching proposals are not qualified source/trade/language/audio/release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+  "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+      "sourcePacketReaderPointer": "/reader/0",
+      "sourceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+      "sourceSpanish": "La tormenta pasó el martes por la noche, y el granizo cayó durante unos 15 minutos.",
+      "sourceLegacyRef": "master-roofing:7:passage:1",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:1",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+          "jsonPointer": "/candidateRows/21/candidateFrench",
+          "id": "master-roofing:7:fr-en:candidate:reader:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "First they checked the gutter and found dents along the whole west side.",
+      "sourceSpanish": "Primero revisaron la canaleta y encontraron abolladuras en todo el lado oeste.",
+      "sourceLegacyRef": "master-roofing:7:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "sourceSpanish": "En la cara del techo que da al oeste, marcaron un cuadro de prueba de 10 por 10 pies.",
+      "sourceLegacyRef": "master-roofing:7:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+          "jsonPointer": "/rows/1/alternatives/1/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:5:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: We counted 12 hits in this square, and here the shingle lost granules.",
+      "sourceSpanish": "Rogelio: Contamos 12 golpes en este cuadro, y aquí la teja perdió gránulos.",
+      "sourceLegacyRef": "master-roofing:7:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Adjuster: How many hits do you count on the north side?",
+      "sourceSpanish": "Ajustador: ¿Cuántos golpes cuenta usted en el lado norte?",
+      "sourceLegacyRef": "master-roofing:7:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Rogelio: On the north side we counted only 3, because the wind was coming from the west.",
+      "sourceSpanish": "Rogelio: En el lado norte contamos solo 3, porque el viento venía del oeste.",
+      "sourceLegacyRef": "master-roofing:7:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "Keep the 12 west-side versus three north-side counts and the source's stated west-wind explanation. Check whether archived French loses the test-square scope or presents the attribution as verified fact.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: Sorry, can you repeat that more slowly?",
+      "sourceSpanish": "Rogelio: Perdón, ¿me lo puede repetir más despacio?",
+      "sourceLegacyRef": "master-roofing:7:passage:12",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:12",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "bdfd9e61fc89910003aedea7ab8eceddcc81835a774860005e627f491346b8bf",
+          "jsonPointer": "/candidateRows/32/candidateFrench",
+          "id": "master-roofing:7:fr-en:candidate:reader:12",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Adjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.",
+      "sourceSpanish": "Ajustador: Claro, el lado oeste mide 1,200 pies cuadrados y el lado norte mide 800.",
+      "sourceLegacyRef": "master-roofing:7:passage:13",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:13",
+      "canonicalReaderHold": "Review hail impact, granule-loss and 10-by-10-foot test-square language. Preserve source counts and square-foot measurements without asserting an insurer's universal inspection or attribution standard.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "e770c1cf0f20729c5b46396a7a3227cd90b3a792387255bbf86406eb518a1bf9",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:13:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:14",
+      "sourcePacketReaderPointer": "/reader/13",
+      "sourceEnglish": "Adjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "sourceSpanish": "Ajustador: Según la aseguradora, el lado oeste se cambia completo y el lado norte se repara.",
+      "sourceLegacyRef": "master-roofing:7:passage:14",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:14",
+      "canonicalReaderHold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim. Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:14:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+          "jsonPointer": "/rows/6/alternatives/1/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:14:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:15",
+      "sourcePacketReaderPointer": "/reader/14",
+      "sourceEnglish": "Rogelio: Do you agree with the scope of work, including the gutter?",
+      "sourceSpanish": "Rogelio: ¿Está de acuerdo con el alcance del trabajo, también en la canaleta?",
+      "sourceLegacyRef": "master-roofing:7:passage:15",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:15",
+      "canonicalReaderHold": "Confirm roofing sense of roof slope/face, gutter damage and full replacement versus repair. Roof access with the adjuster and scope agreement need trade/safety/insurance review; the source is a roleplay, not jobsite authorization. Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:15:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:7:fr-en:reader:16",
+      "sourcePacketReaderPointer": "/reader/15",
+      "sourceEnglish": "Adjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "sourceSpanish": "Ajustador: Sí, lo voy a anotar en el reporte, y la aseguradora le mandará una copia al dueño.",
+      "sourceLegacyRef": "master-roofing:7:passage:16",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:7:fr-en:candidate:reader:16",
+      "canonicalReaderHold": "Determine the exact France/Québec insurance-adjuster, insurer, claim and scope terms. The fictional adjuster's report and insurer communication do not establish approval or payment of a claim. Author French narration/number practice and six prompt/target mode pairs for the adjuster conversation. Archived mode descriptions and speaking text are only evidence, not selected learner activities.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-7-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "afe956535dab4a03efc2548515db3c343ce9d21778635fb16f1fea45e65c074a",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:7:fr-en:reader-alternative:16:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestionRef": {
+    "artifactPath": "content/french-roofing/review/master-7-source-decision-2026-11-18/packet.json",
+    "artifactSha256": "4fe128163c1e6285d10ac44bf6202d202ef020edb51672e093e076193e53482b",
+    "jsonPointer": "/sourceDecisionQuestions"
+  },
+  "existingRecordRefs": {
+    "forms": [
+      {
+        "id": "master-roofing:7:fr-en:form:1",
+        "jsonPointer": "/forms/0"
+      },
+      {
+        "id": "master-roofing:7:fr-en:form:2",
+        "jsonPointer": "/forms/1"
+      },
+      {
+        "id": "master-roofing:7:fr-en:form:3",
+        "jsonPointer": "/forms/2"
+      }
+    ],
+    "dictionaryMappings": [
+      {
+        "id": "master-roofing:7:fr-en:dictionary:1",
+        "jsonPointer": "/dictionaryMappings/0"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:2",
+        "jsonPointer": "/dictionaryMappings/1"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:3",
+        "jsonPointer": "/dictionaryMappings/2"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:4",
+        "jsonPointer": "/dictionaryMappings/3"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:5",
+        "jsonPointer": "/dictionaryMappings/4"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:6",
+        "jsonPointer": "/dictionaryMappings/5"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:7",
+        "jsonPointer": "/dictionaryMappings/6"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:8",
+        "jsonPointer": "/dictionaryMappings/7"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:9",
+        "jsonPointer": "/dictionaryMappings/8"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:10",
+        "jsonPointer": "/dictionaryMappings/9"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:11",
+        "jsonPointer": "/dictionaryMappings/10"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:12",
+        "jsonPointer": "/dictionaryMappings/11"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:13",
+        "jsonPointer": "/dictionaryMappings/12"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:14",
+        "jsonPointer": "/dictionaryMappings/13"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:15",
+        "jsonPointer": "/dictionaryMappings/14"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:16",
+        "jsonPointer": "/dictionaryMappings/15"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:17",
+        "jsonPointer": "/dictionaryMappings/16"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:18",
+        "jsonPointer": "/dictionaryMappings/17"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:19",
+        "jsonPointer": "/dictionaryMappings/18"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:20",
+        "jsonPointer": "/dictionaryMappings/19"
+      },
+      {
+        "id": "master-roofing:7:fr-en:dictionary:21",
+        "jsonPointer": "/dictionaryMappings/20"
+      }
+    ]
+  },
+  "sourceCardRefs": [
+    {
+      "id": "master-roofing:7:fr-en:card:1",
+      "sourceEnglish": "the adjuster",
+      "jsonPointer": "/cards/0"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:2",
+      "sourceEnglish": "the insurance company",
+      "jsonPointer": "/cards/1"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:3",
+      "sourceEnglish": "the hail",
+      "jsonPointer": "/cards/2"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:4",
+      "sourceEnglish": "the hit (impact mark)",
+      "jsonPointer": "/cards/3"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:5",
+      "sourceEnglish": "the test square",
+      "jsonPointer": "/cards/4"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:6",
+      "sourceEnglish": "the claim",
+      "jsonPointer": "/cards/5"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:7",
+      "sourceEnglish": "the storm",
+      "jsonPointer": "/cards/6"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:8",
+      "sourceEnglish": "the granule",
+      "jsonPointer": "/cards/7"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:9",
+      "sourceEnglish": "the dent",
+      "jsonPointer": "/cards/8"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:10",
+      "sourceEnglish": "the gutter",
+      "jsonPointer": "/cards/9"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:11",
+      "sourceEnglish": "the roof slope (one face of the roof)",
+      "jsonPointer": "/cards/10"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:12",
+      "sourceEnglish": "the scope of work",
+      "jsonPointer": "/cards/11"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:13",
+      "sourceEnglish": "the chalk circle",
+      "jsonPointer": "/cards/12"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:14",
+      "sourceEnglish": "the square foot",
+      "jsonPointer": "/cards/13"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:15",
+      "sourceEnglish": "The storm came through Tuesday night.",
+      "jsonPointer": "/cards/14"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:16",
+      "sourceEnglish": "We counted 12 hits in this square.",
+      "jsonPointer": "/cards/15"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:17",
+      "sourceEnglish": "Here the shingle lost granules.",
+      "jsonPointer": "/cards/16"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:18",
+      "sourceEnglish": "Mark each hit with chalk.",
+      "jsonPointer": "/cards/17"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:19",
+      "sourceEnglish": "How many hits do you count?",
+      "jsonPointer": "/cards/18"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:20",
+      "sourceEnglish": "Can you repeat that more slowly?",
+      "jsonPointer": "/cards/19"
+    },
+    {
+      "id": "master-roofing:7:fr-en:card:21",
+      "sourceEnglish": "Do you agree with the scope?",
+      "jsonPointer": "/cards/20"
+    }
+  ],
+  "referenceLinkLimits": "Existing forms/dictionary IDs are evidence links, not approved bindings. Existing forms are related language evidence, not guaranteed coverage of the original specialist mission or its Spanish grammar. Contextual utterances below preserve the exact source wording; existing examples remain untouched. Dictionary references remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English production/French support. Source mission and Spanish grammar wording preserved exactly above; no automatic cross-language equivalence/completion claimed.",
+  "frenchReferencePolicy": "One existing unselected French option per segment supports the readable sample; exact pinned pointers identify all available variants. No selection/canonicalization.",
+  "activities": [
+    {
+      "id": "master-roofing:7:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read the storm and test-square observations. State in English when the storm came through, how long hail fell and the size and location of the test square.",
+      "promptFrench": "Lisez les observations sur l’orage et la zone test. Dites en anglais quand l’orage est passé, combien de temps la grêle est tombée et les dimensions et l’emplacement de la zone.",
+      "candidateTargetEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes. On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+      "candidateMeaningFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes. Sur le versant du toit qui fait face à l’ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+      "explanationEnglish": "About preserves the approximate 15-minute duration. Ten by ten feet gives two dimensions, not 10 square feet. Retain west-facing location and source units.",
+      "explanationFrench": "About conserve la durée approximative de quinze minutes. Dix pieds sur dix donne deux dimensions, pas dix pieds carrés. Conservez l’orientation ouest et les unités de la source.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:1",
+        "master-roofing:7:fr-en:reader:5"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+          "referenceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+          "candidateMeaningFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:5",
+          "referenceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+          "candidateMeaningFrench": "Sur le versant du toit qui fait face à l’ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+          "text": "The storm came through Tuesday night, and the hail fell for about 15 minutes."
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:5",
+          "text": "On the roof slope that faces west, they marked a test square of 10 by 10 feet."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:7:fr-en:card:3",
+        "master-roofing:7:fr-en:card:15"
+      ],
+      "existingFormIds": [
+        "master-roofing:7:fr-en:form:1",
+        "master-roofing:7:fr-en:form:2",
+        "master-roofing:7:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:7:fr-en:dictionary:1",
+        "master-roofing:7:fr-en:dictionary:2",
+        "master-roofing:7:fr-en:dictionary:3",
+        "master-roofing:7:fr-en:dictionary:4",
+        "master-roofing:7:fr-en:dictionary:5",
+        "master-roofing:7:fr-en:dictionary:6",
+        "master-roofing:7:fr-en:dictionary:7",
+        "master-roofing:7:fr-en:dictionary:8",
+        "master-roofing:7:fr-en:dictionary:9",
+        "master-roofing:7:fr-en:dictionary:10",
+        "master-roofing:7:fr-en:dictionary:11",
+        "master-roofing:7:fr-en:dictionary:12",
+        "master-roofing:7:fr-en:dictionary:13",
+        "master-roofing:7:fr-en:dictionary:14",
+        "master-roofing:7:fr-en:dictionary:15",
+        "master-roofing:7:fr-en:dictionary:16",
+        "master-roofing:7:fr-en:dictionary:17",
+        "master-roofing:7:fr-en:dictionary:18",
+        "master-roofing:7:fr-en:dictionary:19",
+        "master-roofing:7:fr-en:dictionary:20",
+        "master-roofing:7:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:7:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, give the source’s English counts for this test square and the north side, including the observed granule loss and stated wind explanation.",
+      "promptFrench": "À partir de l’indice français, donnez en anglais les nombres de la zone test et du versant nord, la perte de granulés et l’explication donnée sur le vent.",
+      "candidateTargetEnglish": "We counted 12 hits in this square, and here the shingle lost granules. On the north side we counted only 3, because the wind was coming from the west.",
+      "candidateMeaningFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules. Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.",
+      "explanationEnglish": "Keep 12 in this square distinct from only 3 on the north side. Because expresses the source’s causal claim; the task does not independently validate it.",
+      "explanationFrench": "Distinguez douze impacts dans cette zone et seulement trois au nord. Because exprime l’explication causale de la source ; l’activité ne la valide pas indépendamment.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:8",
+        "master-roofing:7:fr-en:reader:10"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+          "referenceEnglish": "We counted 12 hits in this square, and here the shingle lost granules.",
+          "candidateMeaningFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+          "referenceEnglish": "On the north side we counted only 3, because the wind was coming from the west.",
+          "candidateMeaningFrench": "Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "cueFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules. Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.",
+      "linkedSourceCardIds": [
+        "master-roofing:7:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:7:fr-en:form:1",
+        "master-roofing:7:fr-en:form:2",
+        "master-roofing:7:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:7:fr-en:dictionary:1",
+        "master-roofing:7:fr-en:dictionary:2",
+        "master-roofing:7:fr-en:dictionary:3",
+        "master-roofing:7:fr-en:dictionary:4",
+        "master-roofing:7:fr-en:dictionary:5",
+        "master-roofing:7:fr-en:dictionary:6",
+        "master-roofing:7:fr-en:dictionary:7",
+        "master-roofing:7:fr-en:dictionary:8",
+        "master-roofing:7:fr-en:dictionary:9",
+        "master-roofing:7:fr-en:dictionary:10",
+        "master-roofing:7:fr-en:dictionary:11",
+        "master-roofing:7:fr-en:dictionary:12",
+        "master-roofing:7:fr-en:dictionary:13",
+        "master-roofing:7:fr-en:dictionary:14",
+        "master-roofing:7:fr-en:dictionary:15",
+        "master-roofing:7:fr-en:dictionary:16",
+        "master-roofing:7:fr-en:dictionary:17",
+        "master-roofing:7:fr-en:dictionary:18",
+        "master-roofing:7:fr-en:dictionary:19",
+        "master-roofing:7:fr-en:dictionary:20",
+        "master-roofing:7:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:7:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to the adjuster. In English, repeat the replacement/repair scope and its attribution to the insurance company.",
+      "promptFrench": "Écoutez l’expert. Répétez en anglais les travaux de remplacement/réparation en les attribuant à l’assureur.",
+      "candidateTargetEnglish": "According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "candidateMeaningFrench": "Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé.",
+      "explanationEnglish": "According to attributes the scope to the insurer. Fully replaced on the west and repaired on the north are not interchangeable, and this quoted scope is not an approval of a real claim.",
+      "explanationFrench": "According to attribue les travaux à l’assureur. Remplacement complet à l’ouest et réparation au nord ne sont pas interchangeables ; la citation n’approuve aucun dossier réel.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:14"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:14",
+          "referenceEnglish": "According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+          "candidateMeaningFrench": "Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:14:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized; no recording or playback.",
+      "candidateListeningTextEnglish": "According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+      "listeningTextSourceAnchor": "master-roofing:7:fr-en:reader:14",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [
+        "master-roofing:7:fr-en:card:2"
+      ],
+      "existingFormIds": [
+        "master-roofing:7:fr-en:form:1",
+        "master-roofing:7:fr-en:form:2",
+        "master-roofing:7:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:7:fr-en:dictionary:1",
+        "master-roofing:7:fr-en:dictionary:2",
+        "master-roofing:7:fr-en:dictionary:3",
+        "master-roofing:7:fr-en:dictionary:4",
+        "master-roofing:7:fr-en:dictionary:5",
+        "master-roofing:7:fr-en:dictionary:6",
+        "master-roofing:7:fr-en:dictionary:7",
+        "master-roofing:7:fr-en:dictionary:8",
+        "master-roofing:7:fr-en:dictionary:9",
+        "master-roofing:7:fr-en:dictionary:10",
+        "master-roofing:7:fr-en:dictionary:11",
+        "master-roofing:7:fr-en:dictionary:12",
+        "master-roofing:7:fr-en:dictionary:13",
+        "master-roofing:7:fr-en:dictionary:14",
+        "master-roofing:7:fr-en:dictionary:15",
+        "master-roofing:7:fr-en:dictionary:16",
+        "master-roofing:7:fr-en:dictionary:17",
+        "master-roofing:7:fr-en:dictionary:18",
+        "master-roofing:7:fr-en:dictionary:19",
+        "master-roofing:7:fr-en:dictionary:20",
+        "master-roofing:7:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:7:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the English count: We counted _____ hits in this square, and here the shingle lost granules.",
+      "promptFrench": "Complétez le décompte anglais : We counted _____ hits in this square, and here the shingle lost granules.",
+      "candidateTargetEnglish": "12",
+      "candidateMeaningFrench": "douze",
+      "explanationEnglish": "Keep the count tied to this square, not the whole roof or the north side. Lost granules is the separate observed damage.",
+      "explanationFrench": "Rattachez le nombre à cette zone, pas à tout le toit ni au nord. La perte de granulés est une observation distincte.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:8"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+          "referenceEnglish": "We counted 12 hits in this square, and here the shingle lost granules.",
+          "candidateMeaningFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "clozeTextEnglish": "We counted _____ hits in this square, and here the shingle lost granules.",
+      "unmaskedSourceBodyEnglish": "We counted 12 hits in this square, and here the shingle lost granules.",
+      "clozeSourceAnchor": "master-roofing:7:fr-en:reader:8",
+      "linkedSourceCardIds": [
+        "master-roofing:7:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:7:fr-en:form:1",
+        "master-roofing:7:fr-en:form:2",
+        "master-roofing:7:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:7:fr-en:dictionary:1",
+        "master-roofing:7:fr-en:dictionary:2",
+        "master-roofing:7:fr-en:dictionary:3",
+        "master-roofing:7:fr-en:dictionary:4",
+        "master-roofing:7:fr-en:dictionary:5",
+        "master-roofing:7:fr-en:dictionary:6",
+        "master-roofing:7:fr-en:dictionary:7",
+        "master-roofing:7:fr-en:dictionary:8",
+        "master-roofing:7:fr-en:dictionary:9",
+        "master-roofing:7:fr-en:dictionary:10",
+        "master-roofing:7:fr-en:dictionary:11",
+        "master-roofing:7:fr-en:dictionary:12",
+        "master-roofing:7:fr-en:dictionary:13",
+        "master-roofing:7:fr-en:dictionary:14",
+        "master-roofing:7:fr-en:dictionary:15",
+        "master-roofing:7:fr-en:dictionary:16",
+        "master-roofing:7:fr-en:dictionary:17",
+        "master-roofing:7:fr-en:dictionary:18",
+        "master-roofing:7:fr-en:dictionary:19",
+        "master-roofing:7:fr-en:dictionary:20",
+        "master-roofing:7:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:7:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Roleplay Rogelio in English with the adjuster. Report the source storm timing, give counts, ask for slower repetition, listen to the square-foot measurements and insurer scope, and seek agreement including the gutter.",
+      "promptFrench": "Jouez Rogelio en anglais avec l’expert. Rapportez le moment de l’orage, donnez les nombres, demandez de répéter plus lentement, écoutez les superficies et les travaux prévus par l’assureur et demandez l’accord en incluant la gouttière.",
+      "candidateTargetEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes. We counted 12 hits in this square, and here the shingle lost granules. On the north side we counted only 3, because the wind was coming from the west. Sorry, can you repeat that more slowly? Do you agree with the scope of work, including the gutter?",
+      "candidateMeaningFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes. Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules. Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest. Pardon, pouvez-vous répéter plus lentement ? Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ?",
+      "explanationEnglish": "Read only the crew-lead turns; the partner reads the other named speaker. Keep source roles, conditionals, negatives, uncertainty and manufacturer/contract attributions. The reference is language practice, not approval of a field or contract decision.",
+      "explanationFrench": "Dites seulement les répliques du chef d’équipe ; le partenaire lit celles de l’autre personnage. Conservez rôles, conditionnels, négations, incertitude et références fabricant/contrat. La référence sert à la pratique linguistique, sans approuver une décision de chantier ou de contrat.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:1",
+        "master-roofing:7:fr-en:reader:8",
+        "master-roofing:7:fr-en:reader:9",
+        "master-roofing:7:fr-en:reader:10",
+        "master-roofing:7:fr-en:reader:12",
+        "master-roofing:7:fr-en:reader:13",
+        "master-roofing:7:fr-en:reader:14",
+        "master-roofing:7:fr-en:reader:15",
+        "master-roofing:7:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+          "referenceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+          "candidateMeaningFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+          "referenceEnglish": "We counted 12 hits in this square, and here the shingle lost granules.",
+          "candidateMeaningFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+          "referenceEnglish": "On the north side we counted only 3, because the wind was coming from the west.",
+          "candidateMeaningFrench": "Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:12",
+          "referenceEnglish": "Sorry, can you repeat that more slowly?",
+          "candidateMeaningFrench": "Pardon, pouvez-vous répéter plus lentement ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:12",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:15",
+          "referenceEnglish": "Do you agree with the scope of work, including the gutter?",
+          "candidateMeaningFrench": "Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:15:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled. Reader1 narration is explicitly reused as a new crew-lead report; it is not attributed as an original Rogelio source utterance.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio role — newly placed report of source narration",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+          "utteranceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+          "candidateMeaningFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:1",
+          "provenance": "Exact Reader1 narration reused as a new crew-lead report, not an original Rogelio quotation. No wording or factual claim changed.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+          "utteranceEnglish": "We counted 12 hits in this square, and here the shingle lost granules.",
+          "candidateMeaningFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Adjuster",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:9",
+          "utteranceEnglish": "How many hits do you count on the north side?",
+          "candidateMeaningFrench": "Combien d’impacts comptez-vous du côté nord ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:9:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+          "utteranceEnglish": "On the north side we counted only 3, because the wind was coming from the west.",
+          "candidateMeaningFrench": "Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:10:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:12",
+          "utteranceEnglish": "Sorry, can you repeat that more slowly?",
+          "candidateMeaningFrench": "Pardon, pouvez-vous répéter plus lentement ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:12",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Adjuster",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:13",
+          "utteranceEnglish": "Sure, the west side measures 1,200 square feet and the north side measures 800.",
+          "candidateMeaningFrench": "Bien sûr, le côté ouest mesure mille deux cents pieds carrés et le côté nord mesure huit cents pieds carrés.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:13:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Adjuster",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:14",
+          "utteranceEnglish": "According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+          "candidateMeaningFrench": "Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:14:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:15",
+          "utteranceEnglish": "Do you agree with the scope of work, including the gutter?",
+          "candidateMeaningFrench": "Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:15:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:7:fr-en:contextual-activity:v1:say:turn:9",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Adjuster",
+          "sourceAnchor": "master-roofing:7:fr-en:reader:16",
+          "utteranceEnglish": "Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+          "candidateMeaningFrench": "Oui, je vais le noter dans le rapport, et la compagnie d’assurance enverra une copie au propriétaire.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:16:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:7:fr-en:card:2",
+        "master-roofing:7:fr-en:card:3",
+        "master-roofing:7:fr-en:card:10",
+        "master-roofing:7:fr-en:card:12",
+        "master-roofing:7:fr-en:card:15",
+        "master-roofing:7:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:7:fr-en:form:1",
+        "master-roofing:7:fr-en:form:2",
+        "master-roofing:7:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:7:fr-en:dictionary:1",
+        "master-roofing:7:fr-en:dictionary:2",
+        "master-roofing:7:fr-en:dictionary:3",
+        "master-roofing:7:fr-en:dictionary:4",
+        "master-roofing:7:fr-en:dictionary:5",
+        "master-roofing:7:fr-en:dictionary:6",
+        "master-roofing:7:fr-en:dictionary:7",
+        "master-roofing:7:fr-en:dictionary:8",
+        "master-roofing:7:fr-en:dictionary:9",
+        "master-roofing:7:fr-en:dictionary:10",
+        "master-roofing:7:fr-en:dictionary:11",
+        "master-roofing:7:fr-en:dictionary:12",
+        "master-roofing:7:fr-en:dictionary:13",
+        "master-roofing:7:fr-en:dictionary:14",
+        "master-roofing:7:fr-en:dictionary:15",
+        "master-roofing:7:fr-en:dictionary:16",
+        "master-roofing:7:fr-en:dictionary:17",
+        "master-roofing:7:fr-en:dictionary:18",
+        "master-roofing:7:fr-en:dictionary:19",
+        "master-roofing:7:fr-en:dictionary:20",
+        "master-roofing:7:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:7:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reviewing the source storm claim with the adjuster.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), examinant le sinistre de la scène avec l’expert en assurance.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write a clearly labelled English inspection record: source storm/test-square context followed by the source count/measurement/scope Q/A, including the request for repetition and the gutter agreement/report response.",
+      "promptFrench": "Rédigez un compte rendu anglais clairement étiqueté : contexte de l’orage et zone test, puis échange sur nombres, superficies et travaux, avec demande de répétition et réponse sur la gouttière et le rapport.",
+      "candidateTargetEnglish": "Source context: The storm came through Tuesday night, and the hail fell for about 15 minutes.\nSource context: First they checked the gutter and found dents along the whole west side.\nSource context: On the roof slope that faces west, they marked a test square of 10 by 10 feet.\nRogelio: We counted 12 hits in this square, and here the shingle lost granules.\nAdjuster: How many hits do you count on the north side?\nRogelio: On the north side we counted only 3, because the wind was coming from the west.\nRogelio: Sorry, can you repeat that more slowly?\nAdjuster: Sure, the west side measures 1,200 square feet and the north side measures 800.\nAdjuster: According to the insurance company, the west side gets fully replaced and the north side gets repaired.\nRogelio: Do you agree with the scope of work, including the gutter?\nAdjuster: Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+      "candidateMeaningFrench": "Contexte de la source : La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes.\nContexte de la source : Ils ont d’abord vérifié la gouttière et trouvé des enfoncements le long de tout le côté ouest.\nContexte de la source : Sur le versant du toit qui fait face à l’ouest, ils ont marqué un carré d’essai de dix pieds sur dix.\nRogelio : Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules.\nExpert en assurance : Combien d’impacts comptez-vous du côté nord ?\nRogelio : Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.\nRogelio : Pardon, pouvez-vous répéter plus lentement ?\nExpert en assurance : Bien sûr, le côté ouest mesure mille deux cents pieds carrés et le côté nord mesure huit cents pieds carrés.\nExpert en assurance : Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé.\nRogelio : Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ?\nExpert en assurance : Oui, je vais le noter dans le rapport, et la compagnie d’assurance enverra une copie au propriétaire.",
+      "explanationEnglish": "Keep each statement with its source audience and qualifications. The reference assembles exact source wording, without a new amount, measurement, method or permission. Source specialist objective remains incomplete pending qualified review.",
+      "explanationFrench": "Conservez le destinataire et les précisions de chaque affirmation. La référence assemble le texte exact sans ajouter de montant, mesure, méthode ou permission. L’objectif spécialisé reste incomplet dans l’attente d’une revue qualifiée.",
+      "sourceAnchors": [
+        "master-roofing:7:fr-en:reader:1",
+        "master-roofing:7:fr-en:reader:4",
+        "master-roofing:7:fr-en:reader:5",
+        "master-roofing:7:fr-en:reader:8",
+        "master-roofing:7:fr-en:reader:9",
+        "master-roofing:7:fr-en:reader:10",
+        "master-roofing:7:fr-en:reader:12",
+        "master-roofing:7:fr-en:reader:13",
+        "master-roofing:7:fr-en:reader:14",
+        "master-roofing:7:fr-en:reader:15",
+        "master-roofing:7:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:1",
+          "referenceEnglish": "The storm came through Tuesday night, and the hail fell for about 15 minutes.",
+          "candidateMeaningFrench": "La tempête est passée mardi soir, et la grêle est tombée pendant environ quinze minutes.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Source context",
+          "speakerLabelFrench": "Contexte de la source"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:4",
+          "referenceEnglish": "First they checked the gutter and found dents along the whole west side.",
+          "candidateMeaningFrench": "Ils ont d’abord vérifié la gouttière et trouvé des enfoncements le long de tout le côté ouest.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Source context",
+          "speakerLabelFrench": "Contexte de la source"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:5",
+          "referenceEnglish": "On the roof slope that faces west, they marked a test square of 10 by 10 feet.",
+          "candidateMeaningFrench": "Sur le versant du toit qui fait face à l’ouest, ils ont marqué un carré d’essai de dix pieds sur dix.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Source context",
+          "speakerLabelFrench": "Contexte de la source"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:8",
+          "referenceEnglish": "We counted 12 hits in this square, and here the shingle lost granules.",
+          "candidateMeaningFrench": "Nous avons compté douze impacts dans ce carré, et ici, le bardeau a perdu des granules.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:9",
+          "referenceEnglish": "How many hits do you count on the north side?",
+          "candidateMeaningFrench": "Combien d’impacts comptez-vous du côté nord ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Adjuster",
+          "speakerLabelFrench": "Expert en assurance"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:10",
+          "referenceEnglish": "On the north side we counted only 3, because the wind was coming from the west.",
+          "candidateMeaningFrench": "Du côté nord, nous n’en avons compté que trois, parce que le vent venait de l’ouest.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:12",
+          "referenceEnglish": "Sorry, can you repeat that more slowly?",
+          "candidateMeaningFrench": "Pardon, pouvez-vous répéter plus lentement ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:candidate:reader:12",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:13",
+          "referenceEnglish": "Sure, the west side measures 1,200 square feet and the north side measures 800.",
+          "candidateMeaningFrench": "Bien sûr, le côté ouest mesure mille deux cents pieds carrés et le côté nord mesure huit cents pieds carrés.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Adjuster",
+          "speakerLabelFrench": "Expert en assurance"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:14",
+          "referenceEnglish": "According to the insurance company, the west side gets fully replaced and the north side gets repaired.",
+          "candidateMeaningFrench": "Selon la compagnie d’assurance, le côté ouest sera remplacé entièrement et le côté nord sera réparé.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:14:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Adjuster",
+          "speakerLabelFrench": "Expert en assurance"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:15",
+          "referenceEnglish": "Do you agree with the scope of work, including the gutter?",
+          "candidateMeaningFrench": "Êtes-vous d’accord avec la portée des travaux, y compris la gouttière ?",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:15:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:7:fr-en:reader:16",
+          "referenceEnglish": "Yes, I'm going to note it in the report, and the insurance company will send a copy to the owner.",
+          "candidateMeaningFrench": "Oui, je vais le noter dans le rapport, et la compagnie d’assurance enverra une copie au propriétaire.",
+          "frenchEvidenceId": "master-roofing:7:fr-en:reader-alternative:16:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Adjuster",
+          "speakerLabelFrench": "Expert en assurance"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source text in ordered role-labelled transcript; Source context lines remain narration, not attributed dialogue. Bilingual labels/layout are new formatting. Questions and replies retain original dependencies.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "targetFormat": "role-labelled-transcript",
+      "linkedSourceCardIds": [
+        "master-roofing:7:fr-en:card:2",
+        "master-roofing:7:fr-en:card:3",
+        "master-roofing:7:fr-en:card:10",
+        "master-roofing:7:fr-en:card:12",
+        "master-roofing:7:fr-en:card:15",
+        "master-roofing:7:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:7:fr-en:form:1",
+        "master-roofing:7:fr-en:form:2",
+        "master-roofing:7:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:7:fr-en:dictionary:1",
+        "master-roofing:7:fr-en:dictionary:2",
+        "master-roofing:7:fr-en:dictionary:3",
+        "master-roofing:7:fr-en:dictionary:4",
+        "master-roofing:7:fr-en:dictionary:5",
+        "master-roofing:7:fr-en:dictionary:6",
+        "master-roofing:7:fr-en:dictionary:7",
+        "master-roofing:7:fr-en:dictionary:8",
+        "master-roofing:7:fr-en:dictionary:9",
+        "master-roofing:7:fr-en:dictionary:10",
+        "master-roofing:7:fr-en:dictionary:11",
+        "master-roofing:7:fr-en:dictionary:12",
+        "master-roofing:7:fr-en:dictionary:13",
+        "master-roofing:7:fr-en:dictionary:14",
+        "master-roofing:7:fr-en:dictionary:15",
+        "master-roofing:7:fr-en:dictionary:16",
+        "master-roofing:7:fr-en:dictionary:17",
+        "master-roofing:7:fr-en:dictionary:18",
+        "master-roofing:7:fr-en:dictionary:19",
+        "master-roofing:7:fr-en:dictionary:20",
+        "master-roofing:7:fr-en:dictionary:21"
+      ]
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "Existing source/canonical/Reader/speaking/lexical activities/forms/dictionaries/IDs/holds remain byte-preserved.",
+    "Insurance measurement/causation/scope decisions, lightning/wet-surface/tarp/weather/roof-access/warranty claims, exposure/alignment/three-course measurement and repair methods remain internal source/trade questions. Exact utterances retain direct vocabulary without inserted hedges.",
+    "Source-only references are unselected and unscored; all release/progress/V4/audio gates stay false.",
+    "Assistant fallback due parent-reported weekly429; zero Claude calls/retries; independent parent critique pending."
+  ]
+}

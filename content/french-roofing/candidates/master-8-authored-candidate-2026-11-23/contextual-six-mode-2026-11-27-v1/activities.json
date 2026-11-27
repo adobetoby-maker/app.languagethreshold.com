@@ -1,0 +1,1299 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:8:fr-en",
+  "sidecarId": "master-roofing:8:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "eb21bd87bffa97a101145ba89f288eb715b00491",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-8-source-decision-2026-11-18/packet.json",
+    "sha256": "5fc8850d5a92820de2b63b1f8ecab17456e887a76f87c2f267601354251e41f4"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561",
+    "content/french-roofing/review/master-8-source-decision-2026-11-18/packet.json": "5fc8850d5a92820de2b63b1f8ecab17456e887a76f87c2f267601354251e41f4",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-7-9-draft.json": "aac17166036d739fd1af9ca58bd57ccc95d4ea5337f998d639331f37de14b53c",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/README.md": "fd2b58c2842d2af876165672961f5dfddf8836aea527cd5804201cd344531d20",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "9c213908a3edc856427e9810cb711554293db492ce5cadc012b19eb31d7ff65a",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "bd6430284df7ce8644403eb84ce5565508c045200050ffef19346474cb0c1900",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "08fd759f557f16c713458e9dbd1b1283aaa644e964820b68c69ba30b985c8516",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "5f420d9a92e48225738d787c69943b1b9fd76483a0c3a02b977d2c55a0abdf82",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "c036ba9f6577263bdc257c881686fae3fb7a78e7d9fa6040fe2feb8fb14db512",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "a08674ed0e73664174861ed2ca0f169d34eab6aa4e1b6fb611aef490999de1f5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/README.md": "fd2b58c2842d2af876165672961f5dfddf8836aea527cd5804201cd344531d20",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/candidate.json": "a72eb244ad40e9279aa7d50abc536be48a1d305b36192a8a2a4e593f6c042561",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "9c213908a3edc856427e9810cb711554293db492ce5cadc012b19eb31d7ff65a",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "bd6430284df7ce8644403eb84ce5565508c045200050ffef19346474cb0c1900",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "08fd759f557f16c713458e9dbd1b1283aaa644e964820b68c69ba30b985c8516",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "5f420d9a92e48225738d787c69943b1b9fd76483a0c3a02b977d2c55a0abdf82",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "c036ba9f6577263bdc257c881686fae3fb7a78e7d9fa6040fe2feb8fb14db512",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "a08674ed0e73664174861ed2ca0f169d34eab6aa4e1b6fb611aef490999de1f5",
+    "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "sourceObjectiveEnglish": "Refuse an unsafe or improper request from a homeowner politely and firmly, and offer a safe alternative",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a homeowner in a hurry who asks for something unsafe: refuse politely and firmly with no recomiendo que and no es posible que, explain the risk, and offer a safe alternative.",
+  "existingLexicalObjectiveEnglish": "Practise a generic polite refusal, an alternative-reading question and affirmative so-is ellipsis on printed terms.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual teaching proposals are not qualified source/trade/language/audio/release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+  "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:3",
+      "sourcePacketReaderPointer": "/reader/2",
+      "sourceEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.",
+      "sourceSpanish": "Señora Flores: Mis hijos llegan el sábado, así que quiero que sigan trabajando aunque llueva.",
+      "sourceLegacyRef": "master-roofing:8:passage:3",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:3",
+      "canonicalReaderHold": "Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:3:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Mrs. Flores: And to save money, put the shingles on without the underlayment.",
+      "sourceSpanish": "Señora Flores: Y para ahorrar, pongan las tejas sin la sub-capa.",
+      "sourceLegacyRef": "master-roofing:8:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Rogelio: I understand your hurry, but I can't do it.",
+      "sourceSpanish": "Rogelio: Entiendo su prisa, pero no puedo hacerlo.",
+      "sourceLegacyRef": "master-roofing:8:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Rogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+      "sourceSpanish": "Rogelio: Con relámpagos, el techo es el peor lugar, y no recomiendo que trabajemos con relámpagos ni con la superficie mojada.",
+      "sourceLegacyRef": "master-roofing:8:passage:6",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:6",
+      "canonicalReaderHold": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure. Review stop-work, wet-surface and reentry commands. The archived French narrows some source claims; neither text specifies a site-specific all-clear, safe access or metal-tool retrieval plan.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:6:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Rogelio: A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "sourceSpanish": "Rogelio: Una descarga eléctrica puede matar a una persona, y ese riesgo no lo voy a aceptar.",
+      "sourceLegacyRef": "master-roofing:8:passage:7",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "Distinguish lightning, a lightning strike and electric shock in French. The source refusal and fatality language must remain direct, but this fictional dialogue is not a universal lightning safety procedure.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "ddb48afdc1921e86fde62520f4c42e439d0d998375c43e0370ed47c394c63d9b",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: About the underlayment, unfortunately, that's something we can't do.",
+      "sourceSpanish": "Rogelio: Sobre la sub-capa, lamentablemente, eso no lo podemos hacer.",
+      "sourceLegacyRef": "master-roofing:8:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+      "sourceSpanish": "Rogelio: No es posible que nos saltemos la sub-capa, porque el fabricante la pide para la garantía.",
+      "sourceLegacyRef": "master-roofing:8:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "The source says the manufacturer requires underlayment for warranty, while archived French makes that conditional on the system. Identify the actual product requirement before selecting a scored warranty or installation claim.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Rogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+      "sourceSpanish": "Rogelio: Ese atajo parece un ahorro hoy, pero más adelante sería una gotera y un gasto mucho mayor.",
+      "sourceLegacyRef": "master-roofing:8:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+      "sourceSpanish": "Rogelio: Lo que sí podemos hacer es cubrir el techo con lona y volver en cuanto pase la tormenta eléctrica.",
+      "sourceLegacyRef": "master-roofing:8:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:8:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "sourceSpanish": "Rogelio: Así terminaríamos el viernes, si el pronóstico ayuda, y usted tendría su techo antes del sábado.",
+      "sourceLegacyRef": "master-roofing:8:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:8:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "The source offers a tarp after the storm and a conditional Friday finish; archived French adds safety and plan conditions and removes the date promise. Resolve the source/safety/contract teaching decision, avoiding an unsafe storm-to-tarp instruction or guaranteed schedule.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-8-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "6f84e0ddb5aeaa2956e434e28dcd7990e2884cf52fc98a72efb317325ffc974d",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:8:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestionRef": {
+    "artifactPath": "content/french-roofing/review/master-8-source-decision-2026-11-18/packet.json",
+    "artifactSha256": "5fc8850d5a92820de2b63b1f8ecab17456e887a76f87c2f267601354251e41f4",
+    "jsonPointer": "/sourceDecisionQuestions"
+  },
+  "existingRecordRefs": {
+    "forms": [
+      {
+        "id": "master-roofing:8:fr-en:form:1",
+        "jsonPointer": "/forms/0"
+      },
+      {
+        "id": "master-roofing:8:fr-en:form:2",
+        "jsonPointer": "/forms/1"
+      },
+      {
+        "id": "master-roofing:8:fr-en:form:3",
+        "jsonPointer": "/forms/2"
+      }
+    ],
+    "dictionaryMappings": [
+      {
+        "id": "master-roofing:8:fr-en:dictionary:1",
+        "jsonPointer": "/dictionaryMappings/0"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:2",
+        "jsonPointer": "/dictionaryMappings/1"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:3",
+        "jsonPointer": "/dictionaryMappings/2"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:4",
+        "jsonPointer": "/dictionaryMappings/3"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:5",
+        "jsonPointer": "/dictionaryMappings/4"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:6",
+        "jsonPointer": "/dictionaryMappings/5"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:7",
+        "jsonPointer": "/dictionaryMappings/6"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:8",
+        "jsonPointer": "/dictionaryMappings/7"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:9",
+        "jsonPointer": "/dictionaryMappings/8"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:10",
+        "jsonPointer": "/dictionaryMappings/9"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:11",
+        "jsonPointer": "/dictionaryMappings/10"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:12",
+        "jsonPointer": "/dictionaryMappings/11"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:13",
+        "jsonPointer": "/dictionaryMappings/12"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:14",
+        "jsonPointer": "/dictionaryMappings/13"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:15",
+        "jsonPointer": "/dictionaryMappings/14"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:16",
+        "jsonPointer": "/dictionaryMappings/15"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:17",
+        "jsonPointer": "/dictionaryMappings/16"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:18",
+        "jsonPointer": "/dictionaryMappings/17"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:19",
+        "jsonPointer": "/dictionaryMappings/18"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:20",
+        "jsonPointer": "/dictionaryMappings/19"
+      },
+      {
+        "id": "master-roofing:8:fr-en:dictionary:21",
+        "jsonPointer": "/dictionaryMappings/20"
+      }
+    ]
+  },
+  "sourceCardRefs": [
+    {
+      "id": "master-roofing:8:fr-en:card:1",
+      "sourceEnglish": "the lightning",
+      "jsonPointer": "/cards/0"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:2",
+      "sourceEnglish": "the thunder",
+      "jsonPointer": "/cards/1"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:3",
+      "sourceEnglish": "the thunderstorm",
+      "jsonPointer": "/cards/2"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:4",
+      "sourceEnglish": "the lightning strike (electric shock)",
+      "jsonPointer": "/cards/3"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:5",
+      "sourceEnglish": "the wet surface",
+      "jsonPointer": "/cards/4"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:6",
+      "sourceEnglish": "the shortcut",
+      "jsonPointer": "/cards/5"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:7",
+      "sourceEnglish": "the risk",
+      "jsonPointer": "/cards/6"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:8",
+      "sourceEnglish": "the safety rule",
+      "jsonPointer": "/cards/7"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:9",
+      "sourceEnglish": "the responsibility",
+      "jsonPointer": "/cards/8"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:10",
+      "sourceEnglish": "the savings",
+      "jsonPointer": "/cards/9"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:11",
+      "sourceEnglish": "the manufacturer warranty",
+      "jsonPointer": "/cards/10"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:12",
+      "sourceEnglish": "the alternative",
+      "jsonPointer": "/cards/11"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:13",
+      "sourceEnglish": "the hurry",
+      "jsonPointer": "/cards/12"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:14",
+      "sourceEnglish": "the decision",
+      "jsonPointer": "/cards/13"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:15",
+      "sourceEnglish": "I don't recommend that we work in lightning.",
+      "jsonPointer": "/cards/14"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:16",
+      "sourceEnglish": "It isn't possible for us to skip the underlayment.",
+      "jsonPointer": "/cards/15"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:17",
+      "sourceEnglish": "I understand your hurry, but I can't do it.",
+      "jsonPointer": "/cards/16"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:18",
+      "sourceEnglish": "Unfortunately, that's something we can't do.",
+      "jsonPointer": "/cards/17"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:19",
+      "sourceEnglish": "What we can do is cover the roof with a tarp.",
+      "jsonPointer": "/cards/18"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:20",
+      "sourceEnglish": "Don't go up until I say so.",
+      "jsonPointer": "/cards/19"
+    },
+    {
+      "id": "master-roofing:8:fr-en:card:21",
+      "sourceEnglish": "Don't take risks for anyone.",
+      "jsonPointer": "/cards/20"
+    }
+  ],
+  "referenceLinkLimits": "Existing forms/dictionary IDs are evidence links, not approved bindings. Existing forms are related language evidence, not guaranteed coverage of the original specialist mission or its Spanish grammar. Contextual utterances below preserve the exact source wording; existing examples remain untouched. Dictionary references remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English production/French support. Source mission and Spanish grammar wording preserved exactly above; no automatic cross-language equivalence/completion claimed.",
+  "frenchReferencePolicy": "One existing unselected French option per segment supports the readable sample; exact pinned pointers identify all available variants. No selection/canonicalization.",
+  "activities": [
+    {
+      "id": "master-roofing:8:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read Mrs. Flores’s two requests. Identify in English both requests exactly, as statements made by her rather than instructions endorsed by the crew.",
+      "promptFrench": "Lisez les deux demandes de Mme Flores. Identifiez en anglais les deux demandes exactes, en les attribuant à Mme Flores, sans les présenter comme des consignes approuvées.",
+      "candidateTargetEnglish": "Mrs. Flores says: My children arrive on Saturday, so I want you to keep working even if it rains. And to save money, put the shingles on without the underlayment.",
+      "candidateMeaningFrench": "Mme Flores dit : Mes enfants arrivent samedi, alors je veux que vous continuiez à travailler même s’il pleut. Et pour économiser de l’argent, posez les bardeaux sans la sous-couche.",
+      "explanationEnglish": "Even if it rains and without the underlayment describe two different requested shortcuts. Quoting them attributes the requests, not consent or permission.",
+      "explanationFrench": "Even if it rains et without the underlayment décrivent deux raccourcis distincts demandés. La citation attribue les demandes, sans exprimer accord ni permission.",
+      "sourceAnchors": [
+        "master-roofing:8:fr-en:reader:3",
+        "master-roofing:8:fr-en:reader:4"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:3",
+          "referenceEnglish": "My children arrive on Saturday, so I want you to keep working even if it rains.",
+          "candidateMeaningFrench": "Mes enfants arrivent samedi, alors je veux que vous continuiez à travailler même s’il pleut.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:3:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:4",
+          "referenceEnglish": "And to save money, put the shingles on without the underlayment.",
+          "candidateMeaningFrench": "Et pour économiser de l’argent, posez les bardeaux sans la sous-couche.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "targetEnglishPrefix": "Mrs. Flores says: ",
+      "targetFrenchPrefix": "Mme Flores dit : ",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:3",
+          "text": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains."
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:4",
+          "text": "Mrs. Flores: And to save money, put the shingles on without the underlayment."
+        }
+      ],
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:8:fr-en:form:1",
+        "master-roofing:8:fr-en:form:2",
+        "master-roofing:8:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:8:fr-en:dictionary:1",
+        "master-roofing:8:fr-en:dictionary:2",
+        "master-roofing:8:fr-en:dictionary:3",
+        "master-roofing:8:fr-en:dictionary:4",
+        "master-roofing:8:fr-en:dictionary:5",
+        "master-roofing:8:fr-en:dictionary:6",
+        "master-roofing:8:fr-en:dictionary:7",
+        "master-roofing:8:fr-en:dictionary:8",
+        "master-roofing:8:fr-en:dictionary:9",
+        "master-roofing:8:fr-en:dictionary:10",
+        "master-roofing:8:fr-en:dictionary:11",
+        "master-roofing:8:fr-en:dictionary:12",
+        "master-roofing:8:fr-en:dictionary:13",
+        "master-roofing:8:fr-en:dictionary:14",
+        "master-roofing:8:fr-en:dictionary:15",
+        "master-roofing:8:fr-en:dictionary:16",
+        "master-roofing:8:fr-en:dictionary:17",
+        "master-roofing:8:fr-en:dictionary:18",
+        "master-roofing:8:fr-en:dictionary:19",
+        "master-roofing:8:fr-en:dictionary:20",
+        "master-roofing:8:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:8:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, give Rogelio’s English refusal and the source explanation about working in lightning or on a wet surface.",
+      "promptFrench": "À partir de l’indice français, donnez le refus anglais de Rogelio et l’explication de la scène sur le travail pendant les éclairs ou sur une surface mouillée.",
+      "candidateTargetEnglish": "I understand your hurry, but I can't do it. In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface. A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "candidateMeaningFrench": "Je comprends votre hâte, mais je ne peux pas le faire. Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée. Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+      "explanationEnglish": "I understand acknowledges hurry but does not grant permission. Can’t, don’t recommend and not going to accept keep the source refusal firm; retain can kill directly.",
+      "explanationFrench": "I understand reconnaît l’urgence sans donner de permission. Can’t, don’t recommend et not going to accept maintiennent le refus ; conservez directement le risque mortel exprimé par can kill.",
+      "sourceAnchors": [
+        "master-roofing:8:fr-en:reader:5",
+        "master-roofing:8:fr-en:reader:6",
+        "master-roofing:8:fr-en:reader:7"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:5",
+          "referenceEnglish": "I understand your hurry, but I can't do it.",
+          "candidateMeaningFrench": "Je comprends votre hâte, mais je ne peux pas le faire.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:6",
+          "referenceEnglish": "In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+          "candidateMeaningFrench": "Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:6:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+          "referenceEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "candidateMeaningFrench": "Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "cueFrench": "Je comprends votre hâte, mais je ne peux pas le faire. Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée. Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+      "linkedSourceCardIds": [
+        "master-roofing:8:fr-en:card:15",
+        "master-roofing:8:fr-en:card:17"
+      ],
+      "existingFormIds": [
+        "master-roofing:8:fr-en:form:1",
+        "master-roofing:8:fr-en:form:2",
+        "master-roofing:8:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:8:fr-en:dictionary:1",
+        "master-roofing:8:fr-en:dictionary:2",
+        "master-roofing:8:fr-en:dictionary:3",
+        "master-roofing:8:fr-en:dictionary:4",
+        "master-roofing:8:fr-en:dictionary:5",
+        "master-roofing:8:fr-en:dictionary:6",
+        "master-roofing:8:fr-en:dictionary:7",
+        "master-roofing:8:fr-en:dictionary:8",
+        "master-roofing:8:fr-en:dictionary:9",
+        "master-roofing:8:fr-en:dictionary:10",
+        "master-roofing:8:fr-en:dictionary:11",
+        "master-roofing:8:fr-en:dictionary:12",
+        "master-roofing:8:fr-en:dictionary:13",
+        "master-roofing:8:fr-en:dictionary:14",
+        "master-roofing:8:fr-en:dictionary:15",
+        "master-roofing:8:fr-en:dictionary:16",
+        "master-roofing:8:fr-en:dictionary:17",
+        "master-roofing:8:fr-en:dictionary:18",
+        "master-roofing:8:fr-en:dictionary:19",
+        "master-roofing:8:fr-en:dictionary:20",
+        "master-roofing:8:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:8:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to Rogelio’s risk statement. State in English what a lightning strike can do and what risk he refuses.",
+      "promptFrench": "Écoutez la déclaration de Rogelio sur le risque. Dites en anglais ce qu’un impact de foudre peut faire et quel risque il refuse.",
+      "candidateTargetEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "candidateMeaningFrench": "Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+      "explanationEnglish": "Can kill a person states a potentially fatal consequence. Not going to accept expresses refusal; no clinical euphemism or invented probability is added.",
+      "explanationFrench": "Can kill a person exprime une conséquence potentiellement mortelle. Not going to accept exprime le refus ; aucun euphémisme clinique ni probabilité inventée n’est ajouté.",
+      "sourceAnchors": [
+        "master-roofing:8:fr-en:reader:7"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+          "referenceEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "candidateMeaningFrench": "Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized; no recording or playback.",
+      "candidateListeningTextEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+      "listeningTextSourceAnchor": "master-roofing:8:fr-en:reader:7",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:8:fr-en:form:1",
+        "master-roofing:8:fr-en:form:2",
+        "master-roofing:8:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:8:fr-en:dictionary:1",
+        "master-roofing:8:fr-en:dictionary:2",
+        "master-roofing:8:fr-en:dictionary:3",
+        "master-roofing:8:fr-en:dictionary:4",
+        "master-roofing:8:fr-en:dictionary:5",
+        "master-roofing:8:fr-en:dictionary:6",
+        "master-roofing:8:fr-en:dictionary:7",
+        "master-roofing:8:fr-en:dictionary:8",
+        "master-roofing:8:fr-en:dictionary:9",
+        "master-roofing:8:fr-en:dictionary:10",
+        "master-roofing:8:fr-en:dictionary:11",
+        "master-roofing:8:fr-en:dictionary:12",
+        "master-roofing:8:fr-en:dictionary:13",
+        "master-roofing:8:fr-en:dictionary:14",
+        "master-roofing:8:fr-en:dictionary:15",
+        "master-roofing:8:fr-en:dictionary:16",
+        "master-roofing:8:fr-en:dictionary:17",
+        "master-roofing:8:fr-en:dictionary:18",
+        "master-roofing:8:fr-en:dictionary:19",
+        "master-roofing:8:fr-en:dictionary:20",
+        "master-roofing:8:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:8:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the source alternative’s condition in English: That way we would finish on Friday, _____, and you would have your roof before Saturday.",
+      "promptFrench": "Complétez en anglais la condition de l’alternative : That way we would finish on Friday, _____, and you would have your roof before Saturday.",
+      "candidateTargetEnglish": "if the forecast helps",
+      "candidateMeaningFrench": "si les prévisions sont favorables",
+      "explanationEnglish": "If the forecast helps makes the Friday outcome conditional, not guaranteed. Would is preserved in the complete surrounding sentence.",
+      "explanationFrench": "If the forecast helps rend l’échéance du vendredi conditionnelle, sans garantie. Would reste présent dans la phrase complète.",
+      "sourceAnchors": [
+        "master-roofing:8:fr-en:reader:12"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:12",
+          "referenceEnglish": "That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+          "candidateMeaningFrench": "Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "clozeTextEnglish": "That way we would finish on Friday, _____, and you would have your roof before Saturday.",
+      "unmaskedSourceBodyEnglish": "That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "clozeSourceAnchor": "master-roofing:8:fr-en:reader:12",
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:8:fr-en:form:1",
+        "master-roofing:8:fr-en:form:2",
+        "master-roofing:8:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:8:fr-en:dictionary:1",
+        "master-roofing:8:fr-en:dictionary:2",
+        "master-roofing:8:fr-en:dictionary:3",
+        "master-roofing:8:fr-en:dictionary:4",
+        "master-roofing:8:fr-en:dictionary:5",
+        "master-roofing:8:fr-en:dictionary:6",
+        "master-roofing:8:fr-en:dictionary:7",
+        "master-roofing:8:fr-en:dictionary:8",
+        "master-roofing:8:fr-en:dictionary:9",
+        "master-roofing:8:fr-en:dictionary:10",
+        "master-roofing:8:fr-en:dictionary:11",
+        "master-roofing:8:fr-en:dictionary:12",
+        "master-roofing:8:fr-en:dictionary:13",
+        "master-roofing:8:fr-en:dictionary:14",
+        "master-roofing:8:fr-en:dictionary:15",
+        "master-roofing:8:fr-en:dictionary:16",
+        "master-roofing:8:fr-en:dictionary:17",
+        "master-roofing:8:fr-en:dictionary:18",
+        "master-roofing:8:fr-en:dictionary:19",
+        "master-roofing:8:fr-en:dictionary:20",
+        "master-roofing:8:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:8:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Roleplay Rogelio in English with the hurried homeowner. Refuse both requests politely and firmly, explain the source lightning/underlayment risks, and offer the source tarp/return alternative with its forecast condition.",
+      "promptFrench": "Jouez Rogelio en anglais avec la propriétaire pressée. Refusez poliment mais fermement les deux demandes, expliquez les risques donnés et proposez la bâche et le retour prévus dans la scène, avec la condition météorologique.",
+      "candidateTargetEnglish": "I understand your hurry, but I can't do it. In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface. A lightning strike can kill a person, and I'm not going to accept that risk. About the underlayment, unfortunately, that's something we can't do. It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty. That shortcut looks like savings today, but later it would be a leak and a much bigger expense. What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes. That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "candidateMeaningFrench": "Je comprends votre hâte, mais je ne peux pas le faire. Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée. Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque. Pour la sous-couche, malheureusement, nous ne pouvons pas faire cela. Il ne nous est pas possible d’omettre la sous-couche, parce que le fabricant l’exige pour la garantie. Ce raccourci semble être une économie aujourd’hui, mais plus tard ce serait une fuite et une dépense beaucoup plus importante. Ce que nous pouvons faire, c’est couvrir le toit avec une bâche et revenir dès que l’orage sera passé. Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi.",
+      "explanationEnglish": "Read only the crew-lead turns; the partner reads the other named speaker. Keep source roles, conditionals, negatives, uncertainty and manufacturer/contract attributions. The reference is language practice, not approval of a field or contract decision.",
+      "explanationFrench": "Dites seulement les répliques du chef d’équipe ; le partenaire lit celles de l’autre personnage. Conservez rôles, conditionnels, négations, incertitude et références fabricant/contrat. La référence sert à la pratique linguistique, sans approuver une décision de chantier ou de contrat.",
+      "sourceAnchors": [
+        "master-roofing:8:fr-en:reader:3",
+        "master-roofing:8:fr-en:reader:4",
+        "master-roofing:8:fr-en:reader:5",
+        "master-roofing:8:fr-en:reader:6",
+        "master-roofing:8:fr-en:reader:7",
+        "master-roofing:8:fr-en:reader:8",
+        "master-roofing:8:fr-en:reader:9",
+        "master-roofing:8:fr-en:reader:10",
+        "master-roofing:8:fr-en:reader:11",
+        "master-roofing:8:fr-en:reader:12"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:5",
+          "referenceEnglish": "I understand your hurry, but I can't do it.",
+          "candidateMeaningFrench": "Je comprends votre hâte, mais je ne peux pas le faire.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:6",
+          "referenceEnglish": "In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+          "candidateMeaningFrench": "Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:6:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+          "referenceEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "candidateMeaningFrench": "Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:8",
+          "referenceEnglish": "About the underlayment, unfortunately, that's something we can't do.",
+          "candidateMeaningFrench": "Pour la sous-couche, malheureusement, nous ne pouvons pas faire cela.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:9",
+          "referenceEnglish": "It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+          "candidateMeaningFrench": "Il ne nous est pas possible d’omettre la sous-couche, parce que le fabricant l’exige pour la garantie.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:10",
+          "referenceEnglish": "That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+          "candidateMeaningFrench": "Ce raccourci semble être une économie aujourd’hui, mais plus tard ce serait une fuite et une dépense beaucoup plus importante.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:11",
+          "referenceEnglish": "What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+          "candidateMeaningFrench": "Ce que nous pouvons faire, c’est couvrir le toit avec une bâche et revenir dès que l’orage sera passé.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:12",
+          "referenceEnglish": "That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+          "candidateMeaningFrench": "Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Mrs. Flores",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:3",
+          "utteranceEnglish": "My children arrive on Saturday, so I want you to keep working even if it rains.",
+          "candidateMeaningFrench": "Mes enfants arrivent samedi, alors je veux que vous continuiez à travailler même s’il pleut.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:3:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Mrs. Flores",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:4",
+          "utteranceEnglish": "And to save money, put the shingles on without the underlayment.",
+          "candidateMeaningFrench": "Et pour économiser de l’argent, posez les bardeaux sans la sous-couche.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:4:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:5",
+          "utteranceEnglish": "I understand your hurry, but I can't do it.",
+          "candidateMeaningFrench": "Je comprends votre hâte, mais je ne peux pas le faire.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:5:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:6",
+          "utteranceEnglish": "In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+          "candidateMeaningFrench": "Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:6:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+          "utteranceEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "candidateMeaningFrench": "Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:8",
+          "utteranceEnglish": "About the underlayment, unfortunately, that's something we can't do.",
+          "candidateMeaningFrench": "Pour la sous-couche, malheureusement, nous ne pouvons pas faire cela.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:8:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:9",
+          "utteranceEnglish": "It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+          "candidateMeaningFrench": "Il ne nous est pas possible d’omettre la sous-couche, parce que le fabricant l’exige pour la garantie.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:9:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:10",
+          "utteranceEnglish": "That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+          "candidateMeaningFrench": "Ce raccourci semble être une économie aujourd’hui, mais plus tard ce serait une fuite et une dépense beaucoup plus importante.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:10:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:9",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:11",
+          "utteranceEnglish": "What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+          "candidateMeaningFrench": "Ce que nous pouvons faire, c’est couvrir le toit avec une bâche et revenir dès que l’orage sera passé.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:11:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:8:fr-en:contextual-activity:v1:say:turn:10",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:8:fr-en:reader:12",
+          "utteranceEnglish": "That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+          "candidateMeaningFrench": "Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:12:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:8:fr-en:card:2",
+        "master-roofing:8:fr-en:card:3",
+        "master-roofing:8:fr-en:card:15",
+        "master-roofing:8:fr-en:card:16",
+        "master-roofing:8:fr-en:card:17",
+        "master-roofing:8:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:8:fr-en:form:1",
+        "master-roofing:8:fr-en:form:2",
+        "master-roofing:8:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:8:fr-en:dictionary:1",
+        "master-roofing:8:fr-en:dictionary:2",
+        "master-roofing:8:fr-en:dictionary:3",
+        "master-roofing:8:fr-en:dictionary:4",
+        "master-roofing:8:fr-en:dictionary:5",
+        "master-roofing:8:fr-en:dictionary:6",
+        "master-roofing:8:fr-en:dictionary:7",
+        "master-roofing:8:fr-en:dictionary:8",
+        "master-roofing:8:fr-en:dictionary:9",
+        "master-roofing:8:fr-en:dictionary:10",
+        "master-roofing:8:fr-en:dictionary:11",
+        "master-roofing:8:fr-en:dictionary:12",
+        "master-roofing:8:fr-en:dictionary:13",
+        "master-roofing:8:fr-en:dictionary:14",
+        "master-roofing:8:fr-en:dictionary:15",
+        "master-roofing:8:fr-en:dictionary:16",
+        "master-roofing:8:fr-en:dictionary:17",
+        "master-roofing:8:fr-en:dictionary:18",
+        "master-roofing:8:fr-en:dictionary:19",
+        "master-roofing:8:fr-en:dictionary:20",
+        "master-roofing:8:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:8:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio), responding to Mrs. Flores’s unsafe requests.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), répondant aux demandes dangereuses de Mme Flores.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write a labelled English Q/A record addressed to Mrs. Flores, preserving both requests, the complete refusal and risk explanation, and the proposed alternative without turning conditional Friday completion into a promise.",
+      "promptFrench": "Rédigez un échange anglais étiqueté avec Mme Flores : les deux demandes, le refus complet et l’explication des risques, puis l’alternative, sans transformer la fin conditionnelle vendredi en promesse.",
+      "candidateTargetEnglish": "Mrs. Flores: My children arrive on Saturday, so I want you to keep working even if it rains.\nMrs. Flores: And to save money, put the shingles on without the underlayment.\nRogelio: I understand your hurry, but I can't do it.\nRogelio: In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.\nRogelio: A lightning strike can kill a person, and I'm not going to accept that risk.\nRogelio: About the underlayment, unfortunately, that's something we can't do.\nRogelio: It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.\nRogelio: That shortcut looks like savings today, but later it would be a leak and a much bigger expense.\nRogelio: What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.\nRogelio: That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+      "candidateMeaningFrench": "Mme Flores : Mes enfants arrivent samedi, alors je veux que vous continuiez à travailler même s’il pleut.\nMme Flores : Et pour économiser de l’argent, posez les bardeaux sans la sous-couche.\nRogelio : Je comprends votre hâte, mais je ne peux pas le faire.\nRogelio : Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée.\nRogelio : Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.\nRogelio : Pour la sous-couche, malheureusement, nous ne pouvons pas faire cela.\nRogelio : Il ne nous est pas possible d’omettre la sous-couche, parce que le fabricant l’exige pour la garantie.\nRogelio : Ce raccourci semble être une économie aujourd’hui, mais plus tard ce serait une fuite et une dépense beaucoup plus importante.\nRogelio : Ce que nous pouvons faire, c’est couvrir le toit avec une bâche et revenir dès que l’orage sera passé.\nRogelio : Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi.",
+      "explanationEnglish": "Keep each statement with its source audience and qualifications. The reference assembles exact source wording, without a new amount, measurement, method or permission. Source specialist objective remains incomplete pending qualified review.",
+      "explanationFrench": "Conservez le destinataire et les précisions de chaque affirmation. La référence assemble le texte exact sans ajouter de montant, mesure, méthode ou permission. L’objectif spécialisé reste incomplet dans l’attente d’une revue qualifiée.",
+      "sourceAnchors": [
+        "master-roofing:8:fr-en:reader:3",
+        "master-roofing:8:fr-en:reader:4",
+        "master-roofing:8:fr-en:reader:5",
+        "master-roofing:8:fr-en:reader:6",
+        "master-roofing:8:fr-en:reader:7",
+        "master-roofing:8:fr-en:reader:8",
+        "master-roofing:8:fr-en:reader:9",
+        "master-roofing:8:fr-en:reader:10",
+        "master-roofing:8:fr-en:reader:11",
+        "master-roofing:8:fr-en:reader:12"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:3",
+          "referenceEnglish": "My children arrive on Saturday, so I want you to keep working even if it rains.",
+          "candidateMeaningFrench": "Mes enfants arrivent samedi, alors je veux que vous continuiez à travailler même s’il pleut.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:3:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Mrs. Flores",
+          "speakerLabelFrench": "Mme Flores"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:4",
+          "referenceEnglish": "And to save money, put the shingles on without the underlayment.",
+          "candidateMeaningFrench": "Et pour économiser de l’argent, posez les bardeaux sans la sous-couche.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Mrs. Flores",
+          "speakerLabelFrench": "Mme Flores"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:5",
+          "referenceEnglish": "I understand your hurry, but I can't do it.",
+          "candidateMeaningFrench": "Je comprends votre hâte, mais je ne peux pas le faire.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:6",
+          "referenceEnglish": "In lightning, the roof is the worst place, and I don't recommend that we work in lightning or on a wet surface.",
+          "candidateMeaningFrench": "Quand il y a des éclairs, le toit est le pire endroit, et je ne recommande pas que nous travaillions en présence d’éclairs ni sur une surface mouillée.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:6:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:7",
+          "referenceEnglish": "A lightning strike can kill a person, and I'm not going to accept that risk.",
+          "candidateMeaningFrench": "Un impact de foudre peut tuer une personne, et je ne vais pas accepter ce risque.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:8",
+          "referenceEnglish": "About the underlayment, unfortunately, that's something we can't do.",
+          "candidateMeaningFrench": "Pour la sous-couche, malheureusement, nous ne pouvons pas faire cela.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:9",
+          "referenceEnglish": "It isn't possible for us to skip the underlayment, because the manufacturer requires it for the warranty.",
+          "candidateMeaningFrench": "Il ne nous est pas possible d’omettre la sous-couche, parce que le fabricant l’exige pour la garantie.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:10",
+          "referenceEnglish": "That shortcut looks like savings today, but later it would be a leak and a much bigger expense.",
+          "candidateMeaningFrench": "Ce raccourci semble être une économie aujourd’hui, mais plus tard ce serait une fuite et une dépense beaucoup plus importante.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:11",
+          "referenceEnglish": "What we can do is cover the roof with a tarp and come back as soon as the thunderstorm passes.",
+          "candidateMeaningFrench": "Ce que nous pouvons faire, c’est couvrir le toit avec une bâche et revenir dès que l’orage sera passé.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:8:fr-en:reader:12",
+          "referenceEnglish": "That way we would finish on Friday, if the forecast helps, and you would have your roof before Saturday.",
+          "candidateMeaningFrench": "Ainsi, nous terminerions vendredi, si les prévisions sont favorables, et vous auriez votre toit avant samedi.",
+          "frenchEvidenceId": "master-roofing:8:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source text in ordered role-labelled transcript; Source context lines remain narration, not attributed dialogue. Bilingual labels/layout are new formatting. Questions and replies retain original dependencies.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "targetFormat": "role-labelled-transcript",
+      "linkedSourceCardIds": [
+        "master-roofing:8:fr-en:card:2",
+        "master-roofing:8:fr-en:card:3",
+        "master-roofing:8:fr-en:card:15",
+        "master-roofing:8:fr-en:card:16",
+        "master-roofing:8:fr-en:card:17",
+        "master-roofing:8:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:8:fr-en:form:1",
+        "master-roofing:8:fr-en:form:2",
+        "master-roofing:8:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:8:fr-en:dictionary:1",
+        "master-roofing:8:fr-en:dictionary:2",
+        "master-roofing:8:fr-en:dictionary:3",
+        "master-roofing:8:fr-en:dictionary:4",
+        "master-roofing:8:fr-en:dictionary:5",
+        "master-roofing:8:fr-en:dictionary:6",
+        "master-roofing:8:fr-en:dictionary:7",
+        "master-roofing:8:fr-en:dictionary:8",
+        "master-roofing:8:fr-en:dictionary:9",
+        "master-roofing:8:fr-en:dictionary:10",
+        "master-roofing:8:fr-en:dictionary:11",
+        "master-roofing:8:fr-en:dictionary:12",
+        "master-roofing:8:fr-en:dictionary:13",
+        "master-roofing:8:fr-en:dictionary:14",
+        "master-roofing:8:fr-en:dictionary:15",
+        "master-roofing:8:fr-en:dictionary:16",
+        "master-roofing:8:fr-en:dictionary:17",
+        "master-roofing:8:fr-en:dictionary:18",
+        "master-roofing:8:fr-en:dictionary:19",
+        "master-roofing:8:fr-en:dictionary:20",
+        "master-roofing:8:fr-en:dictionary:21"
+      ]
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "Existing source/canonical/Reader/speaking/lexical activities/forms/dictionaries/IDs/holds remain byte-preserved.",
+    "Insurance measurement/causation/scope decisions, lightning/wet-surface/tarp/weather/roof-access/warranty claims, exposure/alignment/three-course measurement and repair methods remain internal source/trade questions. Exact utterances retain direct vocabulary without inserted hedges.",
+    "Source-only references are unselected and unscored; all release/progress/V4/audio gates stay false.",
+    "Assistant fallback due parent-reported weekly429; zero Claude calls/retries; independent parent critique pending."
+  ]
+}

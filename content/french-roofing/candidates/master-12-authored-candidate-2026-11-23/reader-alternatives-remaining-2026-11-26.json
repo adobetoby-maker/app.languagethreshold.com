@@ -1,0 +1,523 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:12:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "7af3f92de13428623f3600bfeb94d6c0f243b116",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "cdf96f7470089f73fce68e27b06da18b280e30f50c4f9d25632bc093ea4555b7",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-12-source-decision-2026-11-18/packet.json",
+    "sha256": "cbb9bf545a6e2f3db0e9c506960c6077abec5a8ecc84b3b3b6146ca987765148"
+  },
+  "sourceObjectiveEnglish": "Deliver the same news to a crew member, a homeowner, your manager and an inspector in the right register",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "10remaining missing Reader anchors in Master12, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "0ed341f1af1530ff6967dec511fba83660180f24cfa2f26ad6b0173bd797ce55",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/ai-assistance-metadata.json": "54b3a9b8883cb4c2f322f4de61a727150b9ec2f8e2cd9f35e86e8b74952eee02",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/candidate.json": "cdf96f7470089f73fce68e27b06da18b280e30f50c4f9d25632bc093ea4555b7",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "1016694be21b364aaf9d16a36de50826e2c78f0252c80c6bfb600e340c546406",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "29de7d6ff9c87aa4391940546f8efd7493d787b0b1e8eb46c1bf5beb0afc4113",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/README.md": "eff36853ec1825335006e17399b7e77a2e75782445dba547b90070b7b72999ee",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/final-self-check.md": "cfecd52e7d0dd211728ee98c735b3e874fad678e8651487272f4a6f8464fc201",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/validate.py": "41735f16f4e667c78084eb494008c4bb8116a01dab20ec614d090803b4a7dbb8",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "fd2816359119598eef141b7de4f032f5f5dbf6e9f34c845b84fd93b5db2ce46e",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "cd8ebc9b171179beb66516d22ceef0cbdab5a83363ebeabcc91a92296fe83221",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/opus-critique.md": "119565a862cb5c8623c66f8259b87552a7bbe9bca9d9fe03c25a1b6ac88093a0",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "dd5ac43523234dcbf445b8c695b2ff98b33d6e45e2d5f9d8162b0c50c3b3935c",
+    "content/french-roofing/candidates/master-12-authored-candidate-2026-11-23/fable-critique.md": "f345f308b8f59bc779908097e95be1ac8097be7b6f08d585231abc913fd5bbb7"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:3",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:3",
+      "sourceEnglish": "Rogelio: With the crew we use tú, sometimes a nickname, but never anything rude.",
+      "sourceSpanish": "Rogelio: Con la cuadrilla usamos el tuteo, a veces un apodo, pero nunca una grosería.",
+      "legacySourceRef": "master-roofing:12:passage:3",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: With the crew we use tú, sometimes a nickname, but never anything rude. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Map the Spanish usted/tú contrast and doña/Don address forms into natural French vous/tu/register examples without claiming one-to-one equivalence. Obtain qualified France and Québec register review."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avec les collègues proches, on peut se tutoyer, mais il faut respecter la préférence de chacun. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:3:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Avec l’équipe, nous utilisons “tú”, parfois un surnom, mais jamais rien de grossier. »",
+          "alignmentNote": "CREW WEUSEliteralSpanishTÚ/SOMETIMESnickname NEVERanythingRUDE; surrounding French translated, no automatic French-tutoiement objective substitution.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "spanishMetalinguisticTerms": [
+        "tú"
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:4",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:4",
+      "sourceEnglish": "Rogelio: To the crew I say: Look, we found rotten wood; come up and I'll show you.",
+      "sourceSpanish": "Rogelio: A la cuadrilla le digo: Mira, encontramos madera podrida; sube y te enseño.",
+      "legacySourceRef": "master-roofing:12:passage:4",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: To the crew I say: Look, we found rotten wood; come up and I'll show you. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Check the homeowner quote and boss-facing cost/schedule report against the exact source. Maintain the speaker and audience for each register shift."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « À un collègue qui accepte le tutoiement, je dirais : Regarde, nous avons trouvé du bois dégradé; viens voir. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:4:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « À l’équipe, je dis : “Regarde, nous avons trouvé du bois pourri ; monte et je te montrerai.” »",
+          "alignmentNote": "Whole TOCREWI SAY+nested LOOK WEFOUNDROTTENWOOD COMEUPANDIWILLSHOWYOU; singular French tu follows Spanish Mira/sube/te, not silently crew-plural vous.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:5",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: With the homeowner I use usted and a title, señora or doña Carmen; with her husband, señor.",
+      "sourceSpanish": "Rogelio: Con la dueña de la casa uso el trato de usted y un título, señora o doña Carmen; con su esposo, señor.",
+      "legacySourceRef": "master-roofing:12:passage:5",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: With the homeowner I use usted and a title, señora or doña Carmen; with her husband, señor. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Check the homeowner quote and boss-facing cost/schedule report against the exact source. Maintain the speaker and audience for each register shift."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avec la propriétaire, je commence par vous et par madame, sauf si elle préfère autre chose. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:5:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Avec la propriétaire, j’utilise “usted” et un titre, “señora” ou “doña Carmen” ; avec son mari, “señor”. »",
+          "alignmentNote": "FemaleHOMEOWNER USTED ANDTITLE SEÑORAORDOÑACARMEN; HERHUSBAND SEÑOR all Spanish metalinguistic forms literal, not replaced by Madame/Monsieur equivalents.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "spanishMetalinguisticTerms": [
+        "usted",
+        "señora",
+        "doña Carmen",
+        "señor"
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:8",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: With the company manager I also use usted, but I go straight to the point.",
+      "sourceSpanish": "Rogelio: Con el gerente de la compañía también uso usted, pero voy directo al punto.",
+      "legacySourceRef": "master-roofing:12:passage:8",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: With the company manager I also use usted, but I go straight to the point. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source refers to rotten roof deck and an inspection before covering. Archived French changes material/severity in places. Require qualified roofing and local-code review before selecting scored French."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avec mon responsable, je reste courtois et je vais droit au but. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:8:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Avec le responsable de l’entreprise, j’utilise aussi “usted”, mais je vais droit au but. »",
+          "alignmentNote": "CompanyMANAGER ALSO USTED BUTSTRAIGHTTOPOINT; responsable de l’entreprise broad manager-role proposal, no CEO/owner identity asserted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "spanishMetalinguisticTerms": [
+        "usted"
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:9",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now.",
+      "sourceSpanish": "Rogelio: Le aviso que encontramos un problema en la cubierta, y le mando las fotos ahora.",
+      "legacySourceRef": "master-roofing:12:passage:9",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: I'm letting you know that we found a problem in the deck, and I'm sending you the photos now. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source refers to rotten roof deck and an inspection before covering. Archived French changes material/severity in places. Require qualified roofing and local-code review before selecting scored French."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je vous informe que nous avons trouvé une zone de bois dégradé; je vous envoie les photos. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:9:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Je vous informe que nous avons trouvé un problème dans le platelage, et je vous envoie les photos maintenant. »",
+          "alignmentNote": "ILETTINGYOUKNOW WEFOUNDPROBLEMINDECK ANDSENDINGPHOTOStoYOU NOW, no future delay, no source problem upgraded to explicit rot in this turn.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:10",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: With the inspector there's more formality: no slang and no jokes.",
+      "sourceSpanish": "Rogelio: Con el inspector hay más formalidad: nada de jerga y ninguna broma.",
+      "legacySourceRef": "master-roofing:12:passage:10",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: With the inspector there's more formality: no slang and no jokes. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source refers to rotten roof deck and an inspection before covering. Archived French changes material/severity in places. Require qualified roofing and local-code review before selecting scored French."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Avec l’inspecteur, j’évite l’argot et je présente les constats clairement. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:10:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Avec l’inspecteur, c’est plus formel : pas d’argot et pas de plaisanteries. »",
+          "alignmentNote": "WITHINSPECTOR MOREformality/NOSLANGANDNOJOKES source role prescription direct, no added approval or cultural endorsement.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:11",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:11",
+      "sourceEnglish": "Rogelio: To him I would say: I'd like you to check it before we cover it.",
+      "sourceSpanish": "Rogelio: A él le diría: Me gustaría que lo revisara usted antes de cubrirlo.",
+      "legacySourceRef": "master-roofing:12:passage:11",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: To him I would say: I'd like you to check it before we cover it. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Review inspector questions, respectful answer and instructions without generalizing local inspection rules or approval."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Je souhaiterais que vous l’examiniez avant le recouvrement, selon la procédure prévue. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:11:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « À lui, je dirais : “J’aimerais que vous le vérifiiez avant que nous le recouvrions.” »",
+          "alignmentNote": "Whole TOHIMIWOULDSAY+nested IWOULDLIKE YOUCHECKIT BEFOREWECOVERIT, double conditional and shared we retained, not invented approval granted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:13",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:13",
+      "sourceEnglish": "Kevin: And what if someone on the crew is older, like Don Ernesto?",
+      "sourceSpanish": "Kevin: ¿Y si alguien de la cuadrilla es mayor, como don Ernesto?",
+      "legacySourceRef": "master-roofing:12:passage:13",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Kevin: And what if someone on the crew is older, like Don Ernesto? Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "Review inspector questions, respectful answer and instructions without generalizing local inspection rules or approval."
+        }
+      ],
+      "archivedFrenchEvidence": "Kevin : « Et si un membre de l’équipe est plus âgé, comme Ernesto ? »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:13:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Kevin : « Et si quelqu’un de l’équipe est plus âgé, comme Don Ernesto ? »",
+          "alignmentNote": "Kevin ANDWHATIFcrewMEMBER OLDER LIKE DonErnesto, age comparison and honorific literal, not automatically senior tenure.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:15",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: Many will tell you: Use tú with me, no problem.",
+      "sourceSpanish": "Rogelio: Muchos te van a decir: Háblame de tú, no hay problema.",
+      "legacySourceRef": "master-roofing:12:passage:15",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Many will tell you: Use tú with me, no problem. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio : « Il peut répondre : Vous pouvez me tutoyer, aucun problème. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:15:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Beaucoup te diront : “Emploie ‘tú’ avec moi, pas de problème.” »",
+          "alignmentNote": "MANYWILLTELLYOU+nested USETÚWITHME NOPROBLEM, Spanish term tú literal and future reporting, not French tutoyez-moi substitute.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "spanishMetalinguisticTerms": [
+        "tú"
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:12:fr-en:reader:16",
+      "candidateRowId": "master-roofing:12:fr-en:candidate:reader:16",
+      "sourceEnglish": "Rogelio: But if you're not sure, start with usted, because nobody gets offended by respect.",
+      "sourceSpanish": "Rogelio: Pero si no estás seguro, empieza con usted, porque nadie se ofende por respeto.",
+      "legacySourceRef": "master-roofing:12:passage:16",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: But if you're not sure, start with usted, because nobody gets offended by respect. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "The source's broad claim that respect offends nobody needs contextual cultural review. Author French speaking and six mode prompt/target pairs separately."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « En cas de doute, commence par vous et adapte-toi à la préférence de la personne. »",
+      "unresolvedReviewNotes": [
+        "Source teaches Spanish register/honorific forms inside English-target/French-support material. Literal named Spanish terms preserved; no one-to-one usted/vous or tú/tu equivalence, general culture rule, inspector approval, safe roof access or adopted English/French production objective selected."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:12:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Mais si tu n’es pas sûr, commence par “usted”, parce que le respect n’offense personne. »",
+          "alignmentNote": "BUTIFNOTSURE STARTWITHUSTED BECAUSENOBODYOFFENDEDBYRESPECT, absolute source cultural claim unsoftened, not independently endorsed universal etiquette.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "spanishMetalinguisticTerms": [
+        "usted"
+      ],
+      "culturalClaimIssue": {
+        "status": "open",
+        "scope": "Respect-offends-nobody is exact broad source assertion, not independently validated cross-cultural etiquette. Not softened inside quote."
+      }
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 1,
+    "canonicalFrenchProposedAfter": 1,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:12:fr-en:reader:3",
+      "master-roofing:12:fr-en:reader:4",
+      "master-roofing:12:fr-en:reader:5",
+      "master-roofing:12:fr-en:reader:8",
+      "master-roofing:12:fr-en:reader:9",
+      "master-roofing:12:fr-en:reader:10",
+      "master-roofing:12:fr-en:reader:11",
+      "master-roofing:12:fr-en:reader:13",
+      "master-roofing:12:fr-en:reader:15",
+      "master-roofing:12:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 10,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:12:fr-en:reader:1"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:12:fr-en:reader:12",
+      "master-roofing:12:fr-en:reader:14",
+      "master-roofing:12:fr-en:reader:2",
+      "master-roofing:12:fr-en:reader:6",
+      "master-roofing:12:fr-en:reader:7"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:12:fr-en:reader:10",
+      "master-roofing:12:fr-en:reader:11",
+      "master-roofing:12:fr-en:reader:13",
+      "master-roofing:12:fr-en:reader:15",
+      "master-roofing:12:fr-en:reader:16",
+      "master-roofing:12:fr-en:reader:3",
+      "master-roofing:12:fr-en:reader:4",
+      "master-roofing:12:fr-en:reader:5",
+      "master-roofing:12:fr-en:reader:8",
+      "master-roofing:12:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI will play the people you work with, one after another: tell each of them that you found rotten deck, switching between tú and usted and using softeners like quisiera and me gustaría.",
+    "scope": "Full Reader support does not automatically adapt/complete source Spanish grammar/register or specialist objectives.",
+    "sourceRowsWithSpanishRegisterTerms": [
+      "master-roofing:12:fr-en:reader:3",
+      "master-roofing:12:fr-en:reader:5",
+      "master-roofing:12:fr-en:reader:8",
+      "master-roofing:12:fr-en:reader:12",
+      "master-roofing:12:fr-en:reader:13",
+      "master-roofing:12:fr-en:reader:14",
+      "master-roofing:12:fr-en:reader:15",
+      "master-roofing:12:fr-en:reader:16"
+    ]
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

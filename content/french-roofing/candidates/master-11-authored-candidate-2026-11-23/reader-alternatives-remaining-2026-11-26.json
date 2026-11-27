@@ -1,0 +1,529 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:11:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "7af3f92de13428623f3600bfeb94d6c0f243b116",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/candidate.json",
+  "canonicalCandidateSha256": "c512d60e388a476a7fadf0bc4656cec9b2dfa71195cb0244d2382e6d68660b8e",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-11-source-decision-2026-11-18/packet.json",
+    "sha256": "b00cc69c83c44dab456e92a58c41bd96e9deaa0f4f68d33312078f42ce059b7b"
+  },
+  "sourceObjectiveEnglish": "Keep a tired crew going through a heat wave with a clear plan, firm commitments and real encouragement",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a tired crew member during a heat wave with a deadline: acknowledge the hard week, give the plan and your commitments with the future (empezaremos, habrá), and make water and breaks non-negotiable.",
+  "sourceObjectiveCompletionStatus": "held; lexical subset does not satisfy the source work objective",
+  "scope": "10remaining missing Reader anchors in Master11, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "0ed341f1af1530ff6967dec511fba83660180f24cfa2f26ad6b0173bd797ce55",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/ai-assistance-metadata.json": "54b3a9b8883cb4c2f322f4de61a727150b9ec2f8e2cd9f35e86e8b74952eee02",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/candidate.json": "c512d60e388a476a7fadf0bc4656cec9b2dfa71195cb0244d2382e6d68660b8e",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "1016694be21b364aaf9d16a36de50826e2c78f0252c80c6bfb600e340c546406",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "0f6f5a69b714c3bb6f3169675144e05c2c53354937d33ee88f1804314019586b",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/README.md": "9f664092e62aadf619ac765686ccc83e06772122db6eeb3556feb55ad8b734cd",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/final-self-check.md": "cfecd52e7d0dd211728ee98c735b3e874fad678e8651487272f4a6f8464fc201",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/validate.py": "41735f16f4e667c78084eb494008c4bb8116a01dab20ec614d090803b4a7dbb8",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "fd2816359119598eef141b7de4f032f5f5dbf6e9f34c845b84fd93b5db2ce46e",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "cd8ebc9b171179beb66516d22ceef0cbdab5a83363ebeabcc91a92296fe83221",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/opus-critique.md": "119565a862cb5c8623c66f8259b87552a7bbe9bca9d9fe03c25a1b6ac88093a0",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "32627b51c3220d92623679bb26f7c776d930d6570ba0f263950689db37739be5",
+    "content/french-roofing/candidates/master-11-authored-candidate-2026-11-23/fable-critique.md": "f345f308b8f59bc779908097e95be1ac8097be7b6f08d585231abc913fd5bbb7"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:2",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:2",
+      "sourceEnglish": "The company had a deadline: the school roof had to be ready by Friday.",
+      "sourceSpanish": "La compañía tenía una fecha límite: el techo de la escuela tenía que estar listo el viernes.",
+      "legacySourceRef": "master-roofing:11:passage:2",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: The company had a deadline: the school roof had to be ready by Friday. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Review heat exhaustion versus heatstroke wording, symptom severity and the urgent response. Keep clinical vocabulary direct and obtain qualified medical and occupational heat-safety review before a scored answer."
+        }
+      ],
+      "archivedFrenchEvidence": "L’entreprise visait une échéance : terminer le toit de l’école d’ici vendredi.",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:2:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "L’entreprise avait une échéance : le toit de l’école devait être prêt pour vendredi.",
+          "alignmentNote": "Company HADdeadline/SCHOOLroof HADTOreadyBYFRIDAY, no exact hour or invented weather condition.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:3",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:3",
+      "sourceEnglish": "On Wednesday, in the early morning, Rogelio gathered the crew before going up.",
+      "sourceSpanish": "El miércoles, en la madrugada, Rogelio reunió a la cuadrilla antes de subir.",
+      "legacySourceRef": "master-roofing:11:passage:3",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: On Wednesday, in the early morning, Rogelio gathered the crew before going up. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Mercredi, au petit matin, Rogelio a réuni l’équipe avant la montée sur le toit.",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:3:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Mercredi, tôt le matin, Rogelio a réuni l’équipe avant de monter.",
+          "alignmentNote": "WEDNESDAY EARLYMORNING RogelioGATHEREDCREW BEFOREgoingUP, not quietly noon/dawn or a numeric six-o’clock actual event.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "On Wednesday, in the early morning, Rogelio gathered the crew before going up.",
+        "exactSpanish": "El miércoles, en la madrugada, Rogelio reunió a la cuadrilla antes de subir.",
+        "status": "open",
+        "scope": "English early morning broad versus Spanish madrugada often pre-dawn; tôt le matin follows English, no exact dawn/hour selected."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:5",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: Here's the plan: we'll change the schedule until Friday.",
+      "sourceSpanish": "Rogelio: Este es el plan: cambiaremos el horario hasta el viernes.",
+      "legacySourceRef": "master-roofing:11:passage:5",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Here's the plan: we'll change the schedule until Friday. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Resolve exact source meaning for the six-to-two schedule, hourly shaded water breaks and electrolytes. The Spanish source does not provide a complete site-specific heat prevention plan."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Voici le plan : nous adapterons l’horaire selon le plan chaleur du chantier. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:5:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Voici le plan : nous changerons l’horaire jusqu’à vendredi. »",
+          "alignmentNote": "HEREPLAN WEWILLCHANGE SCHEDULE UNTILFRIDAY definite plan, no invented working hours or Friday inclusion cutoff.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:8",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: Every hour we'll take a water break in the shade, and nobody will work without a break.",
+      "sourceSpanish": "Rogelio: Cada hora haremos una pausa para tomar agua en la sombra, y nadie trabajará sin descanso.",
+      "legacySourceRef": "master-roofing:11:passage:8",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Every hour we'll take a water break in the shade, and nobody will work without a break. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Resolve exact source meaning for the six-to-two schedule, hourly shaded water breaks and electrolytes. The Spanish source does not provide a complete site-specific heat prevention plan."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous prendrons les pauses prévues à l’ombre; personne ne les sautera pour rattraper le temps. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:8:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Chaque heure, nous ferons une pause pour boire de l’eau à l’ombre, et personne ne travaillera sans pause. »",
+          "alignmentNote": "EVERYHOUR WEWILLtakeWATERbreak INshade ANDNOBODYworkWITHOUTbreak; no duration/dose/complete occupational plan invented.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:9",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:9",
+      "sourceEnglish": "Rogelio: Hydration isn't optional, even if we're behind.",
+      "sourceSpanish": "Rogelio: La hidratación no es opcional, aunque estemos atrasados.",
+      "legacySourceRef": "master-roofing:11:passage:9",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Hydration isn't optional, even if we're behind. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [],
+      "archivedFrenchEvidence": "Rogelio : « Boire de l’eau n’est pas facultatif, même si nous sommes en retard. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:9:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « L’hydratation n’est pas facultative, même si nous avons du retard. »",
+          "alignmentNote": "HYDRATION NOTOPTIONAL EVENIFWEAREBEHIND, schedule delay not physical location or optional suggestion.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:10",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:10",
+      "sourceEnglish": "Rogelio: And you, Kevin, since you're new: if you get dizzy, tell me right away.",
+      "sourceSpanish": "Rogelio: Y tú, Kevin, que eres nuevo: si te mareas, me avisas en ese momento.",
+      "legacySourceRef": "master-roofing:11:passage:10",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: And you, Kevin, since you're new: if you get dizzy, tell me right away. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 2,
+          "jsonPointer": "/sourceDecisionQuestions/1",
+          "question": "Resolve exact source meaning for the six-to-two schedule, hourly shaded water breaks and electrolytes. The Spanish source does not provide a complete site-specific heat prevention plan."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Kevin, si tu as des étourdissements ou te sens mal, préviens-moi tout de suite. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:10:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Et toi, Kevin, puisque tu es nouveau : si tu as des étourdissements, préviens-moi tout de suite. »",
+          "alignmentNote": "ANDYOUKEVIN SINCEnew IFGETDIZZY TELLME RIGHTAWAY; étourdissements direct clinical symptom, no vague feel-bad substitute or diagnosis/treatment invented.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Review heat exhaustion versus heatstroke wording, symptom severity and the urgent response. Keep clinical vocabulary direct and obtain qualified medical and occupational heat-safety review before a scored answer.",
+          "reason": "Contextual clinical-symptom or motivational/promise topic; original affectedIds do not name this Reader anchor and are not silently repaired."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:13",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rogelio: We'll finish on time, but without risks; everyone's effort counts.",
+      "sourceSpanish": "Rogelio: Terminaremos a tiempo, pero sin riesgos; el esfuerzo de cada uno cuenta.",
+      "legacySourceRef": "master-roofing:11:passage:13",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: We'll finish on time, but without risks; everyone's effort counts. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 3,
+          "jsonPointer": "/sourceDecisionQuestions/2",
+          "question": "The source says more than 100 degrees without naming a temperature scale. Archived French supplies Fahrenheit. Require a source and locale decision before selecting that unit."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous visons vendredi, mais nous ne sacrifierons pas la sécurité pour tenir ce délai. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:13:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Nous terminerons à temps, mais sans risques ; l’effort de chacun compte. »",
+          "alignmentNote": "WEWILLFINISHONTIME BUTWITHOUTRISKS/EACHpersonEFFORTCOUNTS exact source assurance and safety condition, not independently validated no-risk guarantee.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Review the Friday promise and motivational wording against the source while retaining the explicit no-risk safety condition. Author separate French speaking and six mode prompt/target pairs.",
+          "reason": "Contextual clinical-symptom or motivational/promise topic; original affectedIds do not name this Reader anchor and are not silently repaired."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:14",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: And on Friday, at the end of the workday, there will be tacos for everyone.",
+      "sourceSpanish": "Rogelio: Y el viernes, al final de la jornada, habrá tacos para todos.",
+      "legacySourceRef": "master-roofing:11:passage:14",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: And on Friday, at the end of the workday, there will be tacos for everyone. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source uses 911. Preserve the source context, and require locale review before presenting an emergency number as general French-language advice."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Vendredi, si tout se passe bien, nous partagerons des tacos après le travail. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:14:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Et vendredi, à la fin de la journée de travail, il y aura des tacos pour tout le monde. »",
+          "alignmentNote": "ANDFRIDAY ENDWORKDAY THEREWILLBETACOSFOREVERYONE; time, reward and everyone retained, no local-food substitution.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Review the Friday promise and motivational wording against the source while retaining the explicit no-risk safety condition. Author separate French speaking and six mode prompt/target pairs.",
+          "reason": "Contextual clinical-symptom or motivational/promise topic; original affectedIds do not name this Reader anchor and are not silently repaired."
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:15",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio: Give it your all, guys!",
+      "sourceSpanish": "Rogelio: ¡Échenle ganas, muchachos!",
+      "legacySourceRef": "master-roofing:11:passage:15",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: Rogelio: Give it your all, guys! Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 4,
+          "jsonPointer": "/sourceDecisionQuestions/3",
+          "question": "The source uses 911. Preserve the source context, and require locale review before presenting an emergency number as general French-language advice."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Courage, l’équipe ! »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:15:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Donnez-vous à fond, les gars ! »",
+          "alignmentNote": "GIVEITYOURALL GUYS encouragement full intensity; French donnez-vous à fond follows English, not an approved heat-exertion instruction.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "inferredSourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Review the Friday promise and motivational wording against the source while retaining the explicit no-risk safety condition. Author separate French speaking and six mode prompt/target pairs.",
+          "reason": "Contextual clinical-symptom or motivational/promise topic; original affectedIds do not name this Reader anchor and are not silently repaired."
+        }
+      ],
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: Give it your all, guys!",
+        "exactSpanish": "Rogelio: ¡Échenle ganas, muchachos!",
+        "status": "open",
+        "scope": "English give-it-your-all versus Spanish échenle ganas effort idiom; French full-intensity encouragement follows English, not an approved exertion recommendation."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:11:fr-en:reader:16",
+      "candidateRowId": "master-roofing:11:fr-en:candidate:reader:16",
+      "sourceEnglish": "In the afternoon, Rogelio called the boss: Count on us, sir; it will be ready on Friday.",
+      "sourceSpanish": "Por la tarde, Rogelio llamó al jefe: Cuente con nosotros, señor; el viernes estará listo.",
+      "legacySourceRef": "master-roofing:11:passage:16",
+      "originalCandidateHold": "Qualified source/French/locale decision pending for this exact face: In the afternoon, Rogelio called the boss: Count on us, sir; it will be ready on Friday. Linked source objective and dependent wording remain unselected.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 5,
+          "jsonPointer": "/sourceDecisionQuestions/4",
+          "question": "Review the Friday promise and motivational wording against the source while retaining the explicit no-risk safety condition. Author separate French speaking and six mode prompt/target pairs."
+        }
+      ],
+      "archivedFrenchEvidence": "Plus tard, Rogelio a dit au responsable : « Nous suivrons le plan; je confirmerai l’avancement vendredi. »",
+      "unresolvedReviewNotes": [
+        "Exact source heat-work commitments and clinical language retained, not a medically/occupationally approved prevention or response plan. No hydration amount, safe exertion threshold, diagnosis or treatment invented. Source-question affectedIds/text contain known topic mismatches; original source unaltered."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:11:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Dans l’après-midi, Rogelio a appelé le patron : « Comptez sur nous, monsieur ; ce sera prêt vendredi. »",
+          "alignmentNote": "Whole AFTERNOON RogelioCALLEDBOSS plus COUNTONUS SIR/WILLREADYFRIDAY, no missing narrator/telephone frame or invented actual completion.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 1,
+    "canonicalFrenchProposedAfter": 1,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:11:fr-en:reader:2",
+      "master-roofing:11:fr-en:reader:3",
+      "master-roofing:11:fr-en:reader:5",
+      "master-roofing:11:fr-en:reader:8",
+      "master-roofing:11:fr-en:reader:9",
+      "master-roofing:11:fr-en:reader:10",
+      "master-roofing:11:fr-en:reader:13",
+      "master-roofing:11:fr-en:reader:14",
+      "master-roofing:11:fr-en:reader:15",
+      "master-roofing:11:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 10,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [
+      "master-roofing:11:fr-en:reader:4"
+    ],
+    "priorSidecarAnchors": [
+      "master-roofing:11:fr-en:reader:1",
+      "master-roofing:11:fr-en:reader:11",
+      "master-roofing:11:fr-en:reader:12",
+      "master-roofing:11:fr-en:reader:6",
+      "master-roofing:11:fr-en:reader:7"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:11:fr-en:reader:10",
+      "master-roofing:11:fr-en:reader:13",
+      "master-roofing:11:fr-en:reader:14",
+      "master-roofing:11:fr-en:reader:15",
+      "master-roofing:11:fr-en:reader:16",
+      "master-roofing:11:fr-en:reader:2",
+      "master-roofing:11:fr-en:reader:3",
+      "master-roofing:11:fr-en:reader:5",
+      "master-roofing:11:fr-en:reader:8",
+      "master-roofing:11:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is a tired crew member during a heat wave with a deadline: acknowledge the hard week, give the plan and your commitments with the future (empezaremos, habrá), and make water and breaks non-negotiable.",
+    "scope": "Full Reader support does not automatically adapt/complete source Spanish grammar/register or specialist objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

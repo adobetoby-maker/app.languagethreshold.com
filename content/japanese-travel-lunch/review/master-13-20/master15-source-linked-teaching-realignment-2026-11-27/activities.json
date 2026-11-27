@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "kind": "inert-source-linked-English-target-teaching-realignment",
+  "baselineMain": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+  "pair": {
+    "target": "English",
+    "nativeSupport": "Japanese"
+  },
+  "lesson": 15,
+  "sourcePins": {
+    "sidecar": {
+      "gitRevision": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-form-source-reconciliation-2026-11-24.json",
+      "sha256": "26b494d07a46e95e3661c3653c6d56c4d95594fec1122f81b1fbf0a6a4e86335"
+    },
+    "candidate": {
+      "gitRevision": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-candidate.json",
+      "sha256": "dc6be0f2ada84d82fdec184524e762912bae431b2011b0129542e0bf9f3f9b43"
+    },
+    "derived": {
+      "gitRevision": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-15-derived.json",
+      "sha256": "2c682aa76fdfc9492a30adb46a048a05201d3f22f67f6cf46eefc0ef5d24b934"
+    }
+  },
+  "activities": [
+    {
+      "id": "master-travel-lunch:15:ja-en:realignment:recall:card:10",
+      "mode": "recall",
+      "sourceRef": "master-travel-lunch:15:ja-en:card:10",
+      "sourceKind": "card",
+      "sourcePositionOneBased": 10,
+      "targetEnglish": "911",
+      "supportJapaneseProposal": "911番",
+      "promptEnglish": "Recall the number printed in this Costa Rica source scene.",
+      "promptJapanese": "この コスタリカの ばめんの きょうざいに でる ばんごうを おもいだして ください。",
+      "wordBankEnglish": [
+        "911"
+      ],
+      "contextEnglish": "Alex’s narrated call at a food-truck park in San José, Costa Rica.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:realignment:type:reader:12",
+      "mode": "type",
+      "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+      "sourceKind": "reader",
+      "sourcePositionOneBased": 12,
+      "targetEnglish": "When everyone is far from the food truck, Alex dials 911 on his cell phone.",
+      "supportJapaneseProposal": "全員が屋台から遠く離れたところで、アレックスは携帯電話で911番に電話します。",
+      "promptEnglish": "Type the narrator’s full sentence describing when Alex dials and the phone he uses.",
+      "promptJapanese": "アレックスが いつ、なにを つかって でんわするかを、かたりての ぶんで にゅうりょくして ください。",
+      "wordBankEnglish": [
+        "When",
+        "everyone",
+        "is",
+        "far",
+        "from",
+        "the",
+        "food",
+        "truck,",
+        "Alex",
+        "dials",
+        "911",
+        "on",
+        "his",
+        "cell",
+        "phone."
+      ],
+      "contextEnglish": "Alex’s narrated call at a food-truck park in San José, Costa Rica.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:15:ja-en:realignment:say:reader:12",
+      "mode": "say",
+      "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+      "sourceKind": "reader",
+      "sourcePositionOneBased": 12,
+      "targetEnglish": "When everyone is far from the food truck, Alex dials 911 on his cell phone.",
+      "supportJapaneseProposal": "全員が屋台から遠く離れたところで、アレックスは携帯電話で911番に電話します。",
+      "promptEnglish": "As the narrator, report the complete source sentence about Alex’s call.",
+      "promptJapanese": "かたりてとして、アレックスの でんわについての ぶんを つたえて ください。",
+      "wordBankEnglish": [
+        "When",
+        "everyone",
+        "is",
+        "far",
+        "from",
+        "the",
+        "food",
+        "truck,",
+        "Alex",
+        "dials",
+        "911",
+        "on",
+        "his",
+        "cell",
+        "phone."
+      ],
+      "contextEnglish": "Alex’s narrated call at a food-truck park in San José, Costa Rica.",
+      "targetSpeakerRoleEnglish": "Narrator",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "forms": [
+    {
+      "id": "master-travel-lunch:15:ja-en:realignment:form:dials",
+      "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+      "exampleEnglish": "When everyone is far from the food truck, Alex dials 911 on his cell phone.",
+      "explanationEnglish": "The when-clause supplies the time relationship in the narrated scene. Alex is third-person singular, so present-simple dial becomes dials. On his cell phone names the device used. The sentence reports this source event; it is not an imperative.",
+      "explanationJapanese": "when で はじまる ぶぶんは、いつの ことかを しめします。Alex は さんにんしょうの たんすうなので、げんざいの dial に s を つけて dials に します。on his cell phone は、つかった でんわを しめします。この ぶんは、ものがたりの できごとを つたえます。",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "speaking": [
+    {
+      "id": "master-travel-lunch:15:ja-en:realignment:speaking",
+      "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+      "learnerRoleEnglish": "Narrator",
+      "partnerRoleEnglish": "Listener receiving the source report",
+      "promptEnglish": "As the narrator, report the complete source sentence about Alex’s call.",
+      "promptJapanese": "かたりてとして、アレックスの でんわについての ぶんを つたえて ください。",
+      "targetEnglish": "When everyone is far from the food truck, Alex dials 911 on his cell phone.",
+      "supportJapaneseProposal": "全員が屋台から遠く離れたところで、アレックスは携帯電話で911番に電話します。",
+      "partnerReplyEnglish": null,
+      "closureEnglish": "Finish after reporting this exact source sentence.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "selectedSourceBranch": null,
+  "audioScript": null,
+  "reviewed": false,
+  "registered": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDomain": false,
+    "qualifiedDictionary": false,
+    "runtime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "internalSourceHolds": [
+    "Source pins locate the scene in San José, Costa Rica and explicitly use 911. This is source-language teaching, not a new emergency-response instruction.",
+    "Older119 card23/Reader11 remain unmatched; no index/identity/audio/progress reuse. Five-vs-seven form variants remain unselected."
+  ],
+  "dependencies": {
+    "cards": [
+      "master-travel-lunch:15:ja-en:card:10"
+    ],
+    "reader": [
+      "master-travel-lunch:15:ja-en:reader:12",
+      "master-travel-lunch:15:ja-en:reader:12"
+    ],
+    "dictionarySourceRefs": [],
+    "exactTextAudioDependencies": [
+      {
+        "sourceRef": "master-travel-lunch:15:ja-en:card:10",
+        "englishSha256": "a5ccb1c538e34663a658b1be28b16455ee5285efb10e6f1d4caba1f69ec9782b",
+        "japaneseProposalSha256": "d96952077cb9af921380aff83580b4cd417e57a1fa794ccb9f02f7e36abe55f3",
+        "audioScript": null,
+        "existingClipReuseSelected": false
+      },
+      {
+        "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+        "englishSha256": "d3f0383a2d8aec691bf659e138a1ece73f501e3622c264e1826a70d40d539bdf",
+        "japaneseProposalSha256": "f4d7c16c5895511d4e4cb13073c6f3f5e4ced3436f4547e23e6560bfe0dbdc4c",
+        "audioScript": null,
+        "existingClipReuseSelected": false
+      },
+      {
+        "sourceRef": "master-travel-lunch:15:ja-en:reader:12",
+        "englishSha256": "d3f0383a2d8aec691bf659e138a1ece73f501e3622c264e1826a70d40d539bdf",
+        "japaneseProposalSha256": "f4d7c16c5895511d4e4cb13073c6f3f5e4ced3436f4547e23e6560bfe0dbdc4c",
+        "audioScript": null,
+        "existingClipReuseSelected": false
+      }
+    ],
+    "savedItemMigrationSelected": false
+  }
+}

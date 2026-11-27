@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "kind": "inert-source-linked-English-target-teaching-realignment",
+  "baselineMain": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+  "pair": {
+    "target": "English",
+    "nativeSupport": "Japanese"
+  },
+  "lesson": 16,
+  "sourcePins": {
+    "sidecar": {
+      "gitRevision": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-16-fever-timeline-alternatives-2026-11-24.json",
+      "sha256": "0f1a7db282ab269afe4f08c620b82f0cbbcbd279d6a0b12306efba6616debb89"
+    },
+    "candidate": {
+      "gitRevision": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-16-candidate.json",
+      "sha256": "1f36ade17bcdb1078bf55b8e61db1c48946457d1ac57afee98d442fe50d97c98"
+    },
+    "derived": {
+      "gitRevision": "830b9f5e997bd310617df9dd0d965b37fb17f3d8",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-16-derived.json",
+      "sha256": "76009d320fc56c5ecc99fe3fbd1aace1706b4a11bf75d1e0afee6e36c96fa220"
+    }
+  },
+  "activities": [
+    {
+      "id": "master-travel-lunch:16:ja-en:realignment:see:card:20",
+      "mode": "see",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:20",
+      "sourceKind": "card",
+      "sourcePositionOneBased": 20,
+      "targetEnglish": "That night, my friend had nausea, vomiting and a slight fever.",
+      "supportJapaneseProposal": "その夜、友人には吐き気と嘔吐、そして軽い発熱がありました。",
+      "promptEnglish": "Read the card’s complete symptom report for that night. Identify the past verb had.",
+      "promptJapanese": "そのよるの しょうじょうを つたえる カードを よみ、かこの どうし had を みつけて ください。",
+      "wordBankEnglish": [
+        "That",
+        "night,",
+        "my",
+        "friend",
+        "had",
+        "nausea,",
+        "vomiting",
+        "and",
+        "a",
+        "slight",
+        "fever."
+      ],
+      "contextEnglish": "The card reports the friend’s symptoms that night.",
+      "targetSpeakerRoleEnglish": "Symptom-report card",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "sourceAlternativeId": "master-travel-lunch:16:ja-en:timeline-conflict:card:20:alternative:1"
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:realignment:say:reader:11",
+      "mode": "say",
+      "sourceRef": "master-travel-lunch:16:ja-en:reader:11",
+      "sourceKind": "reader",
+      "sourcePositionOneBased": 11,
+      "targetEnglish": "Daniel: That night, Owen started to have nausea and vomiting.",
+      "supportJapaneseProposal": "ダニエル: その夜、オーウェンに吐き気と嘔吐の症状が出始めました。",
+      "promptEnglish": "As Daniel, report the complete sentence about when Owen’s nausea and vomiting started.",
+      "promptJapanese": "ダニエルとして、オーウェンの はきけと おうとが いつ はじまったかを、ぶんで つたえて ください。",
+      "wordBankEnglish": [
+        "Daniel:",
+        "That",
+        "night,",
+        "Owen",
+        "started",
+        "to",
+        "have",
+        "nausea",
+        "and",
+        "vomiting."
+      ],
+      "contextEnglish": "Daniel recounts Owen’s symptoms and the later health-centre visit.",
+      "targetSpeakerRoleEnglish": "Daniel",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "sourceAlternativeId": "master-travel-lunch:16:ja-en:timeline-conflict:reader:11:alternative:2"
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:realignment:write:reader:12",
+      "mode": "write",
+      "sourceRef": "master-travel-lunch:16:ja-en:reader:12",
+      "sourceKind": "reader",
+      "sourcePositionOneBased": 12,
+      "targetEnglish": "Daniel: The fever started the next morning, and that is why he went to the health centre.",
+      "supportJapaneseProposal": "ダニエル: 発熱は翌朝に始まり、そのため彼は診療所に行きました。",
+      "promptEnglish": "As Daniel, write the complete sentence about the next-morning fever onset and the health-centre visit.",
+      "promptJapanese": "ダニエルとして、よくあさの はつねつの はじまりと、しんりょうじょに いった ことを、ぶんで かいて ください。",
+      "wordBankEnglish": [
+        "Daniel:",
+        "The",
+        "fever",
+        "started",
+        "the",
+        "next",
+        "morning,",
+        "and",
+        "that",
+        "is",
+        "why",
+        "he",
+        "went",
+        "to",
+        "the",
+        "health",
+        "centre."
+      ],
+      "contextEnglish": "Daniel recounts Owen’s symptoms and the later health-centre visit.",
+      "targetSpeakerRoleEnglish": "Daniel",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "sourceAlternativeId": "master-travel-lunch:16:ja-en:timeline-conflict:reader:12:alternative:1"
+    }
+  ],
+  "forms": [],
+  "speaking": [
+    {
+      "id": "master-travel-lunch:16:ja-en:realignment:speaking",
+      "sourceRef": "master-travel-lunch:16:ja-en:reader:11",
+      "learnerRoleEnglish": "Daniel",
+      "partnerRoleEnglish": "Listener receiving the source report",
+      "promptEnglish": "As Daniel, report the complete sentence about when Owen’s nausea and vomiting started.",
+      "promptJapanese": "ダニエルとして、オーウェンの はきけと おうとが いつ はじまったかを、ぶんで つたえて ください。",
+      "targetEnglish": "Daniel: That night, Owen started to have nausea and vomiting.",
+      "supportJapaneseProposal": "ダニエル: その夜、オーウェンに吐き気と嘔吐の症状が出始めました。",
+      "partnerReplyEnglish": null,
+      "closureEnglish": "Finish after reporting this exact source sentence.",
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "sourceAlternativeId": "master-travel-lunch:16:ja-en:timeline-conflict:reader:11:alternative:2"
+    }
+  ],
+  "selectedJapanese": null,
+  "selectedSourceBranch": null,
+  "audioScript": null,
+  "reviewed": false,
+  "registered": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDomain": false,
+    "qualifiedDictionary": false,
+    "runtime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "internalSourceHolds": [
+    "Card20 has slight fever that night; Reader12 says fever started next morning. These tasks quote the separate source statements and never harmonise them.",
+    "No diagnosis, symptom duration, triage, treatment, causation beyond the literal source or chosen onset timeline is invented."
+  ],
+  "existingContextualFormLinks": [
+    {
+      "id": "master-travel-lunch:16:ja-en:form-timeline:1",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:20",
+      "exampleEnglish": "had nausea, vomiting and a slight fever"
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:form-timeline:2",
+      "sourceRef": "master-travel-lunch:16:ja-en:card:20",
+      "exampleEnglish": "slight fever"
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:form-timeline:3",
+      "sourceRef": "master-travel-lunch:16:ja-en:reader:11",
+      "exampleEnglish": "started to have nausea and vomiting"
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:form-timeline:4",
+      "sourceRef": "master-travel-lunch:16:ja-en:reader:12",
+      "exampleEnglish": "The fever started the next morning"
+    },
+    {
+      "id": "master-travel-lunch:16:ja-en:form-timeline:5",
+      "sourceRef": "master-travel-lunch:16:ja-en:reader:12",
+      "exampleEnglish": "that is why he went to the health centre"
+    }
+  ],
+  "dependencies": {
+    "cards": [
+      "master-travel-lunch:16:ja-en:card:20"
+    ],
+    "reader": [
+      "master-travel-lunch:16:ja-en:reader:11",
+      "master-travel-lunch:16:ja-en:reader:12"
+    ],
+    "dictionarySourceRefs": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "exactTextAudioDependencies": [
+      {
+        "sourceRef": "master-travel-lunch:16:ja-en:card:20",
+        "englishSha256": "fcf8573e1039db5c38bc69dac9c9ce3bb13de1be2d88007047202bdebfb8edc3",
+        "japaneseProposalSha256": "df787fbbbb278d227d760360238d3f5757a81ba740237d450106150704eba05e",
+        "audioScript": null,
+        "existingClipReuseSelected": false
+      },
+      {
+        "sourceRef": "master-travel-lunch:16:ja-en:reader:11",
+        "englishSha256": "7bc988e4dea3c7ee76d49d46df5966081429b4ff4c548a67e8e0efbb35c6c679",
+        "japaneseProposalSha256": "77ac239d3aa5c53397ff43aa09930f7c094ddb5a3007ed1f2571432f700c2b06",
+        "audioScript": null,
+        "existingClipReuseSelected": false
+      },
+      {
+        "sourceRef": "master-travel-lunch:16:ja-en:reader:12",
+        "englishSha256": "0925429fd9f2e6a80c7586b548e6e215fa60d886fda0d6c6fb72dea74b64b559",
+        "japaneseProposalSha256": "26e1eabba47f13b0d1cec7640a219e56d9661802bf1b03e5c529899d8540f4d0",
+        "audioScript": null,
+        "existingClipReuseSelected": false
+      }
+    ],
+    "savedItemMigrationSelected": false
+  }
+}

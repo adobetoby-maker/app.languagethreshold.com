@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "kind": "inert-English-label-conditional-teaching-realignment",
+  "baselineMain": "96ef4159f497c3e04b6d0784cbcf9cbcd1db050f",
+  "pair": {
+    "target": "English",
+    "nativeSupport": "Japanese"
+  },
+  "sourcePins": {
+    "sidecar": {
+      "gitRevision": "96ef4159f497c3e04b6d0784cbcf9cbcd1db050f",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-20-shellfish-alternatives-2026-11-24.json",
+      "sha256": "6d40c54c6e3ebd62f5c7c136e0c11b0f881ccfe3049bf6eeb490ce0ba3f5bd63"
+    },
+    "priorDerived": {
+      "gitRevision": "96ef4159f497c3e04b6d0784cbcf9cbcd1db050f",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-20-derived.json",
+      "sha256": "528d64cd32e7661491016707ca26c34f5964897bc86f6163f47288581754002b"
+    },
+    "priorCandidate": {
+      "gitRevision": "96ef4159f497c3e04b6d0784cbcf9cbcd1db050f",
+      "path": "content/japanese-travel-lunch/review/master-13-20/master-20-candidate.json",
+      "sha256": "a314ae546960599d2fb77f0e4d850f99feb4785c0fd7ec5f09cf1c0a775b2d53"
+    }
+  },
+  "scope": "English-label linguistic proposals only; Spanish source comparison preserved separately; no allergen scope/source adoption",
+  "activities": [
+    {
+      "id": "master-travel-lunch:20:ja-en:english-label-realignment:see",
+      "mode": "see",
+      "sourceSidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:7",
+      "sourceCardPositionOneBased": 7,
+      "comparisonBranch": "English-label; unselected",
+      "targetEnglish": "the shellfish",
+      "supportJapaneseProposal": "甲殻類・貝類",
+      "sourceAlternativeId": "master-travel-lunch:20:ja-en:lexical-conflict:7:alternative:english-label",
+      "preservedSpanishContrast": "los crustáceos",
+      "promptEnglish": "Read the English category label. Identify shellfish as the word modified by the definite article the.",
+      "promptJapanese": "えいごの ぶんるいの ことばを よみ、the が ついている shellfish を みつけて ください。",
+      "contextEnglish": "The host is discussing a dish with server Ignacio and asks about its ingredients.",
+      "targetSpeakerRoleEnglish": "English menu/category label",
+      "learnerPracticeRoleEnglish": "Reader of English label",
+      "wordBankEnglish": [
+        "the",
+        "shellfish"
+      ],
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:english-label-realignment:recall",
+      "mode": "recall",
+      "sourceSidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:10",
+      "sourceCardPositionOneBased": 10,
+      "comparisonBranch": "English-label; unselected",
+      "targetEnglish": "the shellfish-free option",
+      "supportJapaneseProposal": "甲殻類・貝類を使わない料理",
+      "sourceAlternativeId": "master-travel-lunch:20:ja-en:lexical-conflict:10:alternative:english-label",
+      "preservedSpanishContrast": "la opción sin mariscos",
+      "promptEnglish": "Recall the complete English menu-option label containing the compound modifier shellfish-free.",
+      "promptJapanese": "shellfish-free という せつめいが つく、えいごの メニューの えらびかたの なまえを おもいだして ください。",
+      "contextEnglish": "The host is discussing a dish with server Ignacio and asks about its ingredients.",
+      "targetSpeakerRoleEnglish": "English menu/category label",
+      "learnerPracticeRoleEnglish": "Reader of English label",
+      "wordBankEnglish": [
+        "the",
+        "shellfish-free",
+        "option"
+      ],
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:english-label-realignment:hear",
+      "mode": "hear",
+      "sourceSidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:17",
+      "sourceCardPositionOneBased": 17,
+      "comparisonBranch": "English-label; unselected",
+      "targetEnglish": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+      "supportJapaneseProposal": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類・貝類は入っていますか。",
+      "sourceAlternativeId": "master-travel-lunch:20:ja-en:lexical-conflict:17:alternative:english-label",
+      "preservedSpanishContrast": "Ignacio, perdone, ¿este plato lleva camarones o algún crustáceo?",
+      "promptEnglish": "Listen to the host’s question to Ignacio. Choose the complete question about shrimp or any shellfish.",
+      "promptJapanese": "イグナシオさんへの しつもんを きいて、えびや shellfish が はいっているかを たずねる ぶんを えらんで ください。",
+      "contextEnglish": "The host is discussing a dish with server Ignacio and asks about its ingredients.",
+      "targetSpeakerRoleEnglish": "Host",
+      "learnerPracticeRoleEnglish": "Listener",
+      "wordBankEnglish": [
+        "Ignacio,",
+        "excuse",
+        "me,",
+        "does",
+        "this",
+        "dish",
+        "have",
+        "shrimp",
+        "or",
+        "any",
+        "shellfish?"
+      ],
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false,
+      "hear": {
+        "textOnlyUnsynthesized": true,
+        "playbackEnabled": false,
+        "correctChoiceIndexZeroBased": 2,
+        "choices": [
+          {
+            "sidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:7",
+            "english": "the shellfish",
+            "japaneseSupportProposal": "甲殻類・貝類"
+          },
+          {
+            "sidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:10",
+            "english": "the shellfish-free option",
+            "japaneseSupportProposal": "甲殻類・貝類を使わない料理"
+          },
+          {
+            "sidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:17",
+            "english": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+            "japaneseSupportProposal": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類・貝類は入っていますか。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "master-travel-lunch:20:ja-en:english-label-realignment:say",
+      "mode": "say",
+      "sourceSidecarRowId": "master-travel-lunch:20:ja-en:lexical-conflict:17",
+      "sourceCardPositionOneBased": 17,
+      "comparisonBranch": "English-label; unselected",
+      "targetEnglish": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+      "supportJapaneseProposal": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類・貝類は入っていますか。",
+      "sourceAlternativeId": "master-travel-lunch:20:ja-en:lexical-conflict:17:alternative:english-label",
+      "preservedSpanishContrast": "Ignacio, perdone, ¿este plato lleva camarones o algún crustáceo?",
+      "promptEnglish": "As the host, ask Ignacio the exact source question about whether this dish has shrimp or any shellfish.",
+      "promptJapanese": "しゅさいしゃとして、この りょうりに えびや shellfish が はいっているかを、イグナシオさんに たずねて ください。",
+      "contextEnglish": "The host is discussing a dish with server Ignacio and asks about its ingredients.",
+      "targetSpeakerRoleEnglish": "Host",
+      "learnerPracticeRoleEnglish": "Host",
+      "wordBankEnglish": [
+        "Ignacio,",
+        "excuse",
+        "me,",
+        "does",
+        "this",
+        "dish",
+        "have",
+        "shrimp",
+        "or",
+        "any",
+        "shellfish?"
+      ],
+      "selectedJapanese": null,
+      "selectedBranch": null,
+      "audioScript": null,
+      "reviewed": false
+    }
+  ],
+  "selectedJapanese": null,
+  "selectedBranch": null,
+  "audioScript": null,
+  "reviewed": false,
+  "registered": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedSource": false,
+    "qualifiedJapanese": false,
+    "qualifiedDomain": false,
+    "qualifiedDictionary": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "formProposal": {
+    "id": "master-travel-lunch:20:ja-en:english-label-realignment:form",
+    "preservedPriorForm": {
+      "form": "AやほかのBは入っていますか",
+      "ja": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類は入っていますか。",
+      "sourceCardIndex": 16,
+      "sourceReaderIndex": 8,
+      "explanationEnglish": "に marks the dish and 入っていますか asks whether it contains something. えびや、ほかの甲殻類 names shrimp as one member of the crustacean group (甲殻類), not of 貝類 (molluscs), which keeps the allergen exact.",
+      "readyForLearner": false
+    },
+    "sourceCardPositionOneBased": 17,
+    "sourceReaderIndexZeroBased": 8,
+    "targetEnglish": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+    "supportJapaneseProposal": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類・貝類は入っていますか。",
+    "explanationEnglish": "Does + this dish + have asks about ingredients using present-simple do-support; have stays in its base form after does. Shrimp or any shellfish forms the coordinated ingredient object. Any is used in the question to ask whether shellfish is present.",
+    "explanationJapanese": "Does this dish have ...? は、この りょうりに なにが はいっているかを たずねる かたちです。does の あとの have は、げんけいの ままです。shrimp or any shellfish は、はいっているかを たずねる ものです。any は、しつもんで shellfish が はいっているかを たずねる ときに つかいます。",
+    "selectedJapanese": null,
+    "audioScript": null,
+    "reviewed": false
+  },
+  "speakingProposal": {
+    "id": "master-travel-lunch:20:ja-en:english-label-realignment:speaking",
+    "preservedPriorObjective": "Ask the server with ～は入っていますか whether the dish contains えび or other 甲殻類, never 貝類 as a cover term.",
+    "learnerRoleEnglish": "Host asking server Ignacio about this dish",
+    "partnerRoleEnglish": "Server receiving the ingredient question; source response not provided by this sidecar",
+    "openingEnglish": "Ignacio, excuse me, does this dish have shrimp or any shellfish?",
+    "openingJapaneseSupportProposal": "イグナシオさん、すみません。この料理にえびや、ほかの甲殻類・貝類は入っていますか。",
+    "objectiveEnglish": "Produce the complete English source question with does ... have, shrimp or any shellfish, and the polite attention phrase excuse me.",
+    "objectiveJapanese": "excuse me で よびかけ、does ... have の かたちを つかって、えびや shellfish が はいっているかを たずねます。",
+    "partnerReplyEnglish": null,
+    "ingredientAnswerSelected": false,
+    "closureEnglish": "The bounded task ends after the complete source question; no server assurance or ingredient answer is invented.",
+    "selectedJapanese": null,
+    "audioScript": null,
+    "reviewed": false
+  },
+  "atomicHolds": [
+    "English shellfish, Spanish crustáceos and mariscos source scope remains unresolved; no branch adopted.",
+    "Existing card7/10/17 and Reader9, prior modes/form/speaking objective, dictionary/word banks and exact-text audio must change together only after a source decision.",
+    "These review IDs are not saved-card/progress IDs; no row-index migration, translation selection or registration."
+  ]
+}

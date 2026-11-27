@@ -1,0 +1,1452 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:4:fr-en",
+  "sidecarId": "master-roofing:4:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "b0216eec6ee8b4625694f9b0dd852d6e8b0df560",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-4-source-decision-2026-11-18/packet.json",
+    "sha256": "b5780084b297fc312f7326dc024c858ab0e71e6376c7ef1f6849666038a80dc8"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+    "content/french-roofing/review/master-4-source-decision-2026-11-18/packet.json": "b5780084b297fc312f7326dc024c858ab0e71e6376c7ef1f6849666038a80dc8",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-4-6-draft.json": "5104d836f6b1020adc803ed96bd8dee5ee93f21251bc920394066dbe3159f3f9",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/README.md": "eaec3d79fdd6a69c7004df8ddf18e325ab4f80d3b1baf3a6e3def5628629b668",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "115e047aff7c99b66991715a50813b07ef9868c98706955c73381c4eebab0374",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "b5c58b2e25d36d570b0fea54dd065184703577f83963a4cf6d8778b3af150a75",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "325d5d6a5a4a4b595674095df3ef3c7bb5563548a7aebe5ad31c79ae7ab13cd9",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "10b17a3d4533e0bf7bf4780ac21a577d63e01b4747055fde8332718523a9b9b3",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "3881775728e75f7def2d3a211f1e2cc70e057386d9b22834ce90499609734164",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "ea33c93ae185d8bcec44fae60f15ca1fa406a4019347d619fb0c0e92e59239ff",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/README.md": "eaec3d79fdd6a69c7004df8ddf18e325ab4f80d3b1baf3a6e3def5628629b668",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "115e047aff7c99b66991715a50813b07ef9868c98706955c73381c4eebab0374",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "b5c58b2e25d36d570b0fea54dd065184703577f83963a4cf6d8778b3af150a75",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "325d5d6a5a4a4b595674095df3ef3c7bb5563548a7aebe5ad31c79ae7ab13cd9",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "10b17a3d4533e0bf7bf4780ac21a577d63e01b4747055fde8332718523a9b9b3",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "3881775728e75f7def2d3a211f1e2cc70e057386d9b22834ce90499609734164",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "ea33c93ae185d8bcec44fae60f15ca1fa406a4019347d619fb0c0e92e59239ff",
+    "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "sourceObjectiveEnglish": "Read a manufacturer instruction sheet, find the key specs, and explain the steps to the crew",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member ready to install flashing from habit: read the key steps of the manufacturer sheet aloud, explain what has to happen before and after each step, and get agreement to follow the sheet.",
+  "existingLexicalObjectiveEnglish": "Use document vocabulary, before/after reading clauses and a polite request for a moment.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual teaching proposals are not qualified source/trade/language/audio/release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+  "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:2",
+      "sourcePacketReaderPointer": "/reader/1",
+      "sourceEnglish": "Rogelio: Before installing, you have to read the sheet, even if we've been doing this for years.",
+      "sourceSpanish": "Rogelio: Antes de instalar, hay que leer la hoja, aunque llevemos años haciendo esto.",
+      "sourceLegacyRef": "master-roofing:4:passage:2",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:2",
+      "canonicalReaderHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:2:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:3",
+      "sourcePacketReaderPointer": "/reader/2",
+      "sourceEnglish": "Rogelio: The sheet rules, not habit.",
+      "sourceSpanish": "Rogelio: La hoja manda, no la costumbre.",
+      "sourceLegacyRef": "master-roofing:4:passage:3",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:3",
+      "canonicalReaderHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:3:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+          "jsonPointer": "/rows/1/alternatives/1/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:3:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+      "sourceSpanish": "Paso 1: Antes de colocar el tapajuntas, instale la sub-capa sobre la cubierta y súbala por la pared lateral según la especificación.",
+      "sourceLegacyRef": "master-roofing:4:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions. The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+      "sourceSpanish": "Paso 2: Coloque una pieza de tapajuntas escalonado en cada hilera, con el traslape mínimo que indica esta hoja.",
+      "sourceLegacyRef": "master-roofing:4:passage:6",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:6",
+      "canonicalReaderHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions. The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:6:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+      "sourceSpanish": "Paso 3: Fije cada pieza solo a la cubierta, nunca a la pared, con el sujetador indicado.",
+      "sourceLegacyRef": "master-roofing:4:passage:7",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+      "sourceSpanish": "Paso 4: Después de colocar el tapajuntas, el revestimiento de pared debe cubrirlo; no use sellador en lugar de tapajuntas.",
+      "sourceLegacyRef": "master-roofing:4:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions. The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+      "sourceSpanish": "Advertencia: Si no sigue estos pasos, el producto puede fallar y el fabricante puede no cubrir el daño.",
+      "sourceLegacyRef": "master-roofing:4:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "The source orders underlayment, fastening to deck only, siding coverage and no sealant substitution, and makes a conditional manufacturer-damage claim. Qualified product and safety review must resolve each before selecting French answers.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Kevin: Hey, have you already read all of it?",
+      "sourceSpanish": "Kevin: Oye, ¿tú ya lo leíste todo?",
+      "sourceLegacyRef": "master-roofing:4:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+          "jsonPointer": "/rows/2/alternatives/1/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:10:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: Yes, and you have to read it too; don't do it from memory.",
+      "sourceSpanish": "Rogelio: Sí, y tú también tienes que leerlo; no lo hagas de memoria.",
+      "sourceLegacyRef": "master-roofing:4:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system. Kevin's question to Rogelio and Rogelio's answer use a familiar work relationship in the Spanish scene. The archived French mixes vous and tu; resolve dialogue register before selecting a scored turn.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+      "sourceSpanish": "Rogelio: Después de leer cada paso, hay que revisar si el material del camión es el mismo de la hoja.",
+      "sourceLegacyRef": "master-roofing:4:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Rogelio: What does the sheet say about the overlap?",
+      "sourceSpanish": "Rogelio: ¿Qué dice la hoja sobre el traslape?",
+      "sourceLegacyRef": "master-roofing:4:passage:13",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:13",
+      "canonicalReaderHold": "The source says to follow the sheet, not habit, and verify truck material against the sheet. Preserve those relationships while avoiding a universal claim that one fictional sheet governs every system.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:13:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "300d1b613f2e5a32bcd8b3726b984170767083d113dfb55300966d825fcc2acc",
+          "jsonPointer": "/rows/3/alternatives/1/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:13:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:14",
+      "sourcePacketReaderPointer": "/reader/13",
+      "sourceEnglish": "Kevin: It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "sourceSpanish": "Kevin: Dice que hay que usar el traslape mínimo de la hoja, y que la chimenea y el tapajuntas para tubo tienen otra sección.",
+      "sourceLegacyRef": "master-roofing:4:passage:14",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:14",
+      "canonicalReaderHold": "Step flashing, pipe boot, minimum overlap, sidewall and siding require exact French roofing senses. The source presents a fictional manufacturer sheet; identify an actual system before these steps become scored product instructions.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "0308d820f4cea494364926188c109eff9dd086d95b2bcf778f9c70e763b6bd60",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:4:fr-en:reader-alternative:14:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:4:fr-en:reader:16",
+      "sourcePacketReaderPointer": "/reader/15",
+      "sourceEnglish": "Rogelio: That's what the manufacturer asks for, and that's how we do it.",
+      "sourceSpanish": "Rogelio: Así lo pide el fabricante, y así lo hacemos.",
+      "sourceLegacyRef": "master-roofing:4:passage:16",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:4:fr-en:candidate:reader:16",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-4-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "5fba3754e0444ebf950d53ed8f6af07e1657da12db6dcd40e969bbf4e58a496a",
+          "jsonPointer": "/candidateRows/36/candidateFrench",
+          "id": "master-roofing:4:fr-en:candidate:reader:16",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestionRef": {
+    "artifactPath": "content/french-roofing/review/master-4-source-decision-2026-11-18/packet.json",
+    "artifactSha256": "b5780084b297fc312f7326dc024c858ab0e71e6376c7ef1f6849666038a80dc8",
+    "jsonPointer": "/sourceDecisionQuestions"
+  },
+  "existingRecordRefs": {
+    "forms": [
+      {
+        "id": "master-roofing:4:fr-en:form:1",
+        "jsonPointer": "/forms/0"
+      },
+      {
+        "id": "master-roofing:4:fr-en:form:2",
+        "jsonPointer": "/forms/1"
+      },
+      {
+        "id": "master-roofing:4:fr-en:form:3",
+        "jsonPointer": "/forms/2"
+      }
+    ],
+    "dictionaryMappings": [
+      {
+        "id": "master-roofing:4:fr-en:dictionary:1",
+        "jsonPointer": "/dictionaryMappings/0"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:2",
+        "jsonPointer": "/dictionaryMappings/1"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:3",
+        "jsonPointer": "/dictionaryMappings/2"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:4",
+        "jsonPointer": "/dictionaryMappings/3"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:5",
+        "jsonPointer": "/dictionaryMappings/4"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:6",
+        "jsonPointer": "/dictionaryMappings/5"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:7",
+        "jsonPointer": "/dictionaryMappings/6"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:8",
+        "jsonPointer": "/dictionaryMappings/7"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:9",
+        "jsonPointer": "/dictionaryMappings/8"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:10",
+        "jsonPointer": "/dictionaryMappings/9"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:11",
+        "jsonPointer": "/dictionaryMappings/10"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:12",
+        "jsonPointer": "/dictionaryMappings/11"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:13",
+        "jsonPointer": "/dictionaryMappings/12"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:14",
+        "jsonPointer": "/dictionaryMappings/13"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:15",
+        "jsonPointer": "/dictionaryMappings/14"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:16",
+        "jsonPointer": "/dictionaryMappings/15"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:17",
+        "jsonPointer": "/dictionaryMappings/16"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:18",
+        "jsonPointer": "/dictionaryMappings/17"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:19",
+        "jsonPointer": "/dictionaryMappings/18"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:20",
+        "jsonPointer": "/dictionaryMappings/19"
+      },
+      {
+        "id": "master-roofing:4:fr-en:dictionary:21",
+        "jsonPointer": "/dictionaryMappings/20"
+      }
+    ]
+  },
+  "sourceCardRefs": [
+    {
+      "id": "master-roofing:4:fr-en:card:1",
+      "sourceEnglish": "the spec sheet",
+      "jsonPointer": "/cards/0"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:2",
+      "sourceEnglish": "the manufacturer instructions",
+      "jsonPointer": "/cards/1"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:3",
+      "sourceEnglish": "the step flashing",
+      "jsonPointer": "/cards/2"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:4",
+      "sourceEnglish": "the pipe boot",
+      "jsonPointer": "/cards/3"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:5",
+      "sourceEnglish": "the fastener",
+      "jsonPointer": "/cards/4"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:6",
+      "sourceEnglish": "the specification",
+      "jsonPointer": "/cards/5"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:7",
+      "sourceEnglish": "the minimum overlap",
+      "jsonPointer": "/cards/6"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:8",
+      "sourceEnglish": "the sealant",
+      "jsonPointer": "/cards/7"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:9",
+      "sourceEnglish": "the sidewall",
+      "jsonPointer": "/cards/8"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:10",
+      "sourceEnglish": "the siding",
+      "jsonPointer": "/cards/9"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:11",
+      "sourceEnglish": "the warning",
+      "jsonPointer": "/cards/10"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:12",
+      "sourceEnglish": "the step (in a procedure)",
+      "jsonPointer": "/cards/11"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:13",
+      "sourceEnglish": "the habit",
+      "jsonPointer": "/cards/12"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:14",
+      "sourceEnglish": "the chimney",
+      "jsonPointer": "/cards/13"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:15",
+      "sourceEnglish": "Before installing, you have to read the sheet.",
+      "jsonPointer": "/cards/14"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:16",
+      "sourceEnglish": "The sheet rules, not habit.",
+      "jsonPointer": "/cards/15"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:17",
+      "sourceEnglish": "What does the sheet say about the overlap?",
+      "jsonPointer": "/cards/16"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:18",
+      "sourceEnglish": "Don't do it from memory.",
+      "jsonPointer": "/cards/17"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:19",
+      "sourceEnglish": "That's what the manufacturer asks for.",
+      "jsonPointer": "/cards/18"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:20",
+      "sourceEnglish": "Hey, have you already read it?",
+      "jsonPointer": "/cards/19"
+    },
+    {
+      "id": "master-roofing:4:fr-en:card:21",
+      "sourceEnglish": "Could you give me a moment, please?",
+      "jsonPointer": "/cards/20"
+    }
+  ],
+  "referenceLinkLimits": "Existing forms/dictionary IDs are evidence links, not approved bindings. Master5 lexical repeat/write/read forms do not teach its conditional mission; contextual would examples here are source-linked new practice. Master4 before/after and Master6 future/going-to forms are related, but their existing examples/qualification status remain unchanged. Dictionary references remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English production/French support. Source mission and Spanish grammar wording preserved exactly above; no automatic cross-language equivalence/completion claimed.",
+  "frenchReferencePolicy": "One existing unselected French option per segment supports the readable sample; exact pinned pointers identify all available variants. No selection/canonicalization.",
+  "activities": [
+    {
+      "id": "master-roofing:4:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read steps 1 and 4 from the source sheet. Tell Kevin in English what the sheet says happens before placing flashing and after placing it.",
+      "promptFrench": "Lisez les étapes 1 et 4 de la fiche de la scène. Dites à Kevin en anglais ce que la fiche prévoit avant et après la pose du solin.",
+      "candidateTargetEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification. Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+      "candidateMeaningFrench": "Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification. Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin.",
+      "explanationEnglish": "Before and after anchor the sequence. Preserve according to the specification, the siding requirement and do not use sealant instead of flashing. These are quoted source-sheet claims, not a newly approved installation method.",
+      "explanationFrench": "Before et after fixent l’ordre. Conservez selon la spécification, l’exigence du revêtement extérieur et l’interdiction de remplacer le solin par du mastic. Il s’agit du texte de la fiche de la scène, pas d’une méthode nouvellement approuvée.",
+      "sourceAnchors": [
+        "master-roofing:4:fr-en:reader:5",
+        "master-roofing:4:fr-en:reader:8"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+          "referenceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+          "candidateMeaningFrench": "Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+          "referenceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+          "candidateMeaningFrench": "Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+          "text": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification."
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+          "text": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:4:fr-en:card:6",
+        "master-roofing:4:fr-en:card:9",
+        "master-roofing:4:fr-en:card:10"
+      ],
+      "existingFormIds": [
+        "master-roofing:4:fr-en:form:1",
+        "master-roofing:4:fr-en:form:2",
+        "master-roofing:4:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:4:fr-en:dictionary:1",
+        "master-roofing:4:fr-en:dictionary:2",
+        "master-roofing:4:fr-en:dictionary:3",
+        "master-roofing:4:fr-en:dictionary:4",
+        "master-roofing:4:fr-en:dictionary:5",
+        "master-roofing:4:fr-en:dictionary:6",
+        "master-roofing:4:fr-en:dictionary:7",
+        "master-roofing:4:fr-en:dictionary:8",
+        "master-roofing:4:fr-en:dictionary:9",
+        "master-roofing:4:fr-en:dictionary:10",
+        "master-roofing:4:fr-en:dictionary:11",
+        "master-roofing:4:fr-en:dictionary:12",
+        "master-roofing:4:fr-en:dictionary:13",
+        "master-roofing:4:fr-en:dictionary:14",
+        "master-roofing:4:fr-en:dictionary:15",
+        "master-roofing:4:fr-en:dictionary:16",
+        "master-roofing:4:fr-en:dictionary:17",
+        "master-roofing:4:fr-en:dictionary:18",
+        "master-roofing:4:fr-en:dictionary:19",
+        "master-roofing:4:fr-en:dictionary:20",
+        "master-roofing:4:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:4:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Use the French cue to remind Kevin in English what rules before installation, even for an experienced crew.",
+      "promptFrench": "À partir de l’indice français, rappelez à Kevin en anglais ce qui fait autorité avant la pose, même pour une équipe expérimentée.",
+      "candidateTargetEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years. The sheet rules, not habit.",
+      "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années. C’est la fiche qui prévaut, pas l’habitude.",
+      "explanationEnglish": "Even if preserves the contrast between experience and reading the sheet. The sheet rules contrasts with habit; do not turn this into permission to skip the instructions.",
+      "explanationFrench": "Even if conserve l’opposition entre expérience et lecture de la fiche. The sheet rules s’oppose à l’habitude ; n’en faites pas une permission de sauter les instructions.",
+      "sourceAnchors": [
+        "master-roofing:4:fr-en:reader:2",
+        "master-roofing:4:fr-en:reader:3"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:2",
+          "referenceEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years.",
+          "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:2:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:3",
+          "referenceEnglish": "The sheet rules, not habit.",
+          "candidateMeaningFrench": "C’est la fiche qui prévaut, pas l’habitude.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:3:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "cueFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années. C’est la fiche qui prévaut, pas l’habitude.",
+      "linkedSourceCardIds": [
+        "master-roofing:4:fr-en:card:15",
+        "master-roofing:4:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:4:fr-en:form:1",
+        "master-roofing:4:fr-en:form:2",
+        "master-roofing:4:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:4:fr-en:dictionary:1",
+        "master-roofing:4:fr-en:dictionary:2",
+        "master-roofing:4:fr-en:dictionary:3",
+        "master-roofing:4:fr-en:dictionary:4",
+        "master-roofing:4:fr-en:dictionary:5",
+        "master-roofing:4:fr-en:dictionary:6",
+        "master-roofing:4:fr-en:dictionary:7",
+        "master-roofing:4:fr-en:dictionary:8",
+        "master-roofing:4:fr-en:dictionary:9",
+        "master-roofing:4:fr-en:dictionary:10",
+        "master-roofing:4:fr-en:dictionary:11",
+        "master-roofing:4:fr-en:dictionary:12",
+        "master-roofing:4:fr-en:dictionary:13",
+        "master-roofing:4:fr-en:dictionary:14",
+        "master-roofing:4:fr-en:dictionary:15",
+        "master-roofing:4:fr-en:dictionary:16",
+        "master-roofing:4:fr-en:dictionary:17",
+        "master-roofing:4:fr-en:dictionary:18",
+        "master-roofing:4:fr-en:dictionary:19",
+        "master-roofing:4:fr-en:dictionary:20",
+        "master-roofing:4:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:4:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to Kevin’s answer. In English, report what the sheet says about minimum overlap and where the chimney and pipe boot instructions are.",
+      "promptFrench": "Écoutez la réponse de Kevin. Rapportez en anglais ce que la fiche dit du recouvrement minimal et où figurent les consignes pour la cheminée et la sortie de tuyau.",
+      "candidateTargetEnglish": "It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "candidateMeaningFrench": "Elle dit qu’il faut utiliser le recouvrement minimal de la fiche, et que la cheminée et le manchon d’étanchéité pour tuyau sont traités dans une autre section.",
+      "explanationEnglish": "It says attributes the requirement to the sheet. Preserve the sheet’s own minimum, without inventing a number, and the separate section for chimney and pipe boot.",
+      "explanationFrench": "It says attribue l’exigence à la fiche. Conservez le minimum propre à cette fiche, sans inventer de valeur, et la section distincte pour la cheminée et la sortie de tuyau.",
+      "sourceAnchors": [
+        "master-roofing:4:fr-en:reader:14"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:14",
+          "referenceEnglish": "It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+          "candidateMeaningFrench": "Elle dit qu’il faut utiliser le recouvrement minimal de la fiche, et que la cheminée et le manchon d’étanchéité pour tuyau sont traités dans une autre section.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:14:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized; no recording or playback.",
+      "candidateListeningTextEnglish": "It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+      "listeningTextSourceAnchor": "master-roofing:4:fr-en:reader:14",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [
+        "master-roofing:4:fr-en:card:4",
+        "master-roofing:4:fr-en:card:14"
+      ],
+      "existingFormIds": [
+        "master-roofing:4:fr-en:form:1",
+        "master-roofing:4:fr-en:form:2",
+        "master-roofing:4:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:4:fr-en:dictionary:1",
+        "master-roofing:4:fr-en:dictionary:2",
+        "master-roofing:4:fr-en:dictionary:3",
+        "master-roofing:4:fr-en:dictionary:4",
+        "master-roofing:4:fr-en:dictionary:5",
+        "master-roofing:4:fr-en:dictionary:6",
+        "master-roofing:4:fr-en:dictionary:7",
+        "master-roofing:4:fr-en:dictionary:8",
+        "master-roofing:4:fr-en:dictionary:9",
+        "master-roofing:4:fr-en:dictionary:10",
+        "master-roofing:4:fr-en:dictionary:11",
+        "master-roofing:4:fr-en:dictionary:12",
+        "master-roofing:4:fr-en:dictionary:13",
+        "master-roofing:4:fr-en:dictionary:14",
+        "master-roofing:4:fr-en:dictionary:15",
+        "master-roofing:4:fr-en:dictionary:16",
+        "master-roofing:4:fr-en:dictionary:17",
+        "master-roofing:4:fr-en:dictionary:18",
+        "master-roofing:4:fr-en:dictionary:19",
+        "master-roofing:4:fr-en:dictionary:20",
+        "master-roofing:4:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:4:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the English instruction: After reading each step, you have to check _____.",
+      "promptFrench": "Complétez la consigne anglaise : After reading each step, you have to check _____.",
+      "candidateTargetEnglish": "whether the material on the truck is the same as on the sheet",
+      "candidateMeaningFrench": "si le matériau sur le camion est le même que celui indiqué sur la fiche",
+      "explanationEnglish": "Whether introduces the material-matching check. Keep the comparison between the truck material and the sheet, not a generic instruction to check supplies.",
+      "explanationFrench": "Whether introduit la vérification de correspondance. Conservez la comparaison entre le matériau du camion et la fiche, pas une simple vérification des fournitures.",
+      "sourceAnchors": [
+        "master-roofing:4:fr-en:reader:12"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:12",
+          "referenceEnglish": "After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+          "candidateMeaningFrench": "Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "clozeTextEnglish": "After reading each step, you have to check _____.",
+      "unmaskedSourceBodyEnglish": "After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+      "clozeSourceAnchor": "master-roofing:4:fr-en:reader:12",
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:4:fr-en:form:1",
+        "master-roofing:4:fr-en:form:2",
+        "master-roofing:4:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:4:fr-en:dictionary:1",
+        "master-roofing:4:fr-en:dictionary:2",
+        "master-roofing:4:fr-en:dictionary:3",
+        "master-roofing:4:fr-en:dictionary:4",
+        "master-roofing:4:fr-en:dictionary:5",
+        "master-roofing:4:fr-en:dictionary:6",
+        "master-roofing:4:fr-en:dictionary:7",
+        "master-roofing:4:fr-en:dictionary:8",
+        "master-roofing:4:fr-en:dictionary:9",
+        "master-roofing:4:fr-en:dictionary:10",
+        "master-roofing:4:fr-en:dictionary:11",
+        "master-roofing:4:fr-en:dictionary:12",
+        "master-roofing:4:fr-en:dictionary:13",
+        "master-roofing:4:fr-en:dictionary:14",
+        "master-roofing:4:fr-en:dictionary:15",
+        "master-roofing:4:fr-en:dictionary:16",
+        "master-roofing:4:fr-en:dictionary:17",
+        "master-roofing:4:fr-en:dictionary:18",
+        "master-roofing:4:fr-en:dictionary:19",
+        "master-roofing:4:fr-en:dictionary:20",
+        "master-roofing:4:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:4:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "As crew lead, read the four source-sheet steps aloud in English, explain before/after and the material check, answer Kevin and ask him to agree to follow the sheet rather than memory.",
+      "promptFrench": "Comme chef d’équipe, lisez les quatre étapes de la fiche en anglais, expliquez avant/après et la vérification du matériau, répondez à Kevin et demandez son accord pour suivre la fiche plutôt que sa mémoire.",
+      "candidateTargetEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years. The sheet rules, not habit. Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification. Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates. Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener. Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing. Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage. Yes, and you have to read it too; don't do it from memory. After reading each step, you have to check whether the material on the truck is the same as on the sheet. What does the sheet say about the overlap? That's what the manufacturer asks for, and that's how we do it. Will you follow the sheet rather than work from memory?",
+      "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années. C’est la fiche qui prévaut, pas l’habitude. Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification. Étape 2 : posez une pièce de solin à gradins sur chaque rang, avec le recouvrement minimal qu’indique cette fiche. Étape 3 : fixez chaque pièce seulement au platelage, jamais au mur, avec l’élément de fixation spécifié. Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin. Avertissement : si vous ne suivez pas ces étapes, le produit peut présenter une défaillance et le fabricant peut ne pas couvrir les dommages. Oui, et toi aussi, tu dois la lire ; ne le fais pas de mémoire. Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche. Que dit la fiche sur le recouvrement ? C’est ce que demande le fabricant, et c’est ainsi que nous le faisons. Suivras-tu la fiche plutôt que de travailler de mémoire ?",
+      "explanationEnglish": "Read only the crew-lead turns; the partner reads the other named speaker. Keep source roles, conditionals, negatives, uncertainty and manufacturer/contract attributions. The reference is language practice, not approval of a field or contract decision.",
+      "explanationFrench": "Dites seulement les répliques du chef d’équipe ; le partenaire lit celles de l’autre personnage. Conservez rôles, conditionnels, négations, incertitude et références fabricant/contrat. La référence sert à la pratique linguistique, sans approuver une décision de chantier ou de contrat.",
+      "sourceAnchors": [
+        "master-roofing:4:fr-en:reader:2",
+        "master-roofing:4:fr-en:reader:3",
+        "master-roofing:4:fr-en:reader:5",
+        "master-roofing:4:fr-en:reader:6",
+        "master-roofing:4:fr-en:reader:7",
+        "master-roofing:4:fr-en:reader:8",
+        "master-roofing:4:fr-en:reader:9",
+        "master-roofing:4:fr-en:reader:10",
+        "master-roofing:4:fr-en:reader:11",
+        "master-roofing:4:fr-en:reader:12",
+        "master-roofing:4:fr-en:reader:13",
+        "master-roofing:4:fr-en:reader:14",
+        "master-roofing:4:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:2",
+          "referenceEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years.",
+          "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:2:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:3",
+          "referenceEnglish": "The sheet rules, not habit.",
+          "candidateMeaningFrench": "C’est la fiche qui prévaut, pas l’habitude.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:3:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+          "referenceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+          "candidateMeaningFrench": "Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:6",
+          "referenceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+          "candidateMeaningFrench": "Étape 2 : posez une pièce de solin à gradins sur chaque rang, avec le recouvrement minimal qu’indique cette fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:6:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:7",
+          "referenceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+          "candidateMeaningFrench": "Étape 3 : fixez chaque pièce seulement au platelage, jamais au mur, avec l’élément de fixation spécifié.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+          "referenceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+          "candidateMeaningFrench": "Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:9",
+          "referenceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+          "candidateMeaningFrench": "Avertissement : si vous ne suivez pas ces étapes, le produit peut présenter une défaillance et le fabricant peut ne pas couvrir les dommages.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:11",
+          "referenceEnglish": "Yes, and you have to read it too; don't do it from memory.",
+          "candidateMeaningFrench": "Oui, et toi aussi, tu dois la lire ; ne le fais pas de mémoire.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:12",
+          "referenceEnglish": "After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+          "candidateMeaningFrench": "Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:13",
+          "referenceEnglish": "What does the sheet say about the overlap?",
+          "candidateMeaningFrench": "Que dit la fiche sur le recouvrement ?",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:16",
+          "referenceEnglish": "That's what the manufacturer asks for, and that's how we do it.",
+          "candidateMeaningFrench": "C’est ce que demande le fabricant, et c’est ainsi que nous le faisons.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:candidate:reader:16",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:2",
+          "utteranceEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years.",
+          "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:2:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:3",
+          "utteranceEnglish": "The sheet rules, not habit.",
+          "candidateMeaningFrench": "C’est la fiche qui prévaut, pas l’habitude.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:3:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Manufacturer sheet (read aloud by Rogelio)",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+          "utteranceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+          "candidateMeaningFrench": "Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:5:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Manufacturer sheet (read aloud by Rogelio)",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:6",
+          "utteranceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+          "candidateMeaningFrench": "Étape 2 : posez une pièce de solin à gradins sur chaque rang, avec le recouvrement minimal qu’indique cette fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:6:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Manufacturer sheet (read aloud by Rogelio)",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:7",
+          "utteranceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+          "candidateMeaningFrench": "Étape 3 : fixez chaque pièce seulement au platelage, jamais au mur, avec l’élément de fixation spécifié.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:7:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Manufacturer sheet (read aloud by Rogelio)",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+          "utteranceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+          "candidateMeaningFrench": "Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:8:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Manufacturer sheet (read aloud by Rogelio)",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:9",
+          "utteranceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+          "candidateMeaningFrench": "Avertissement : si vous ne suivez pas ces étapes, le produit peut présenter une défaillance et le fabricant peut ne pas couvrir les dommages.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:9:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Kevin",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:10",
+          "utteranceEnglish": "Hey, have you already read all of it?",
+          "candidateMeaningFrench": "Hé, tu as déjà tout lu ?",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:10:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:9",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:11",
+          "utteranceEnglish": "Yes, and you have to read it too; don't do it from memory.",
+          "candidateMeaningFrench": "Oui, et toi aussi, tu dois la lire ; ne le fais pas de mémoire.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:11:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:10",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:12",
+          "utteranceEnglish": "After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+          "candidateMeaningFrench": "Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:12:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:11",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:13",
+          "utteranceEnglish": "What does the sheet say about the overlap?",
+          "candidateMeaningFrench": "Que dit la fiche sur le recouvrement ?",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:13:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:12",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Kevin",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:14",
+          "utteranceEnglish": "It says you have to use the sheet's minimum overlap, and that the chimney and the pipe boot have another section.",
+          "candidateMeaningFrench": "Elle dit qu’il faut utiliser le recouvrement minimal de la fiche, et que la cheminée et le manchon d’étanchéité pour tuyau sont traités dans une autre section.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:14:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:13",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:4:fr-en:reader:16",
+          "utteranceEnglish": "That's what the manufacturer asks for, and that's how we do it.",
+          "candidateMeaningFrench": "C’est ce que demande le fabricant, et c’est ainsi que nous le faisons.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:candidate:reader:16",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:4:fr-en:contextual-activity:v1:say:turn:14",
+          "speakerRole": "learner",
+          "sourceSpeaker": null,
+          "utteranceEnglish": "Will you follow the sheet rather than work from memory?",
+          "candidateMeaningFrench": "Suivras-tu la fiche plutôt que de travailler de mémoire ?",
+          "provenance": "New request fulfilling source speaking mission; not a quoted source utterance or evidence of actual agreement.",
+          "sourceAnchors": [
+            "master-roofing:4:fr-en:reader:3",
+            "master-roofing:4:fr-en:reader:11"
+          ],
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "newCompositionSegments": [
+        {
+          "referenceEnglish": "Will you follow the sheet rather than work from memory?",
+          "candidateMeaningFrench": "Suivras-tu la fiche plutôt que de travailler de mémoire ?",
+          "kind": "new-bilingual-agreement-request",
+          "sourceAnchors": [
+            "master-roofing:4:fr-en:reader:3",
+            "master-roofing:4:fr-en:reader:11"
+          ],
+          "provenance": "New request fulfilling source speaking mission; not a quoted source utterance or evidence of actual agreement."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:4:fr-en:card:4",
+        "master-roofing:4:fr-en:card:6",
+        "master-roofing:4:fr-en:card:7",
+        "master-roofing:4:fr-en:card:9",
+        "master-roofing:4:fr-en:card:10",
+        "master-roofing:4:fr-en:card:14",
+        "master-roofing:4:fr-en:card:15",
+        "master-roofing:4:fr-en:card:16",
+        "master-roofing:4:fr-en:card:17",
+        "master-roofing:4:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:4:fr-en:form:1",
+        "master-roofing:4:fr-en:form:2",
+        "master-roofing:4:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:4:fr-en:dictionary:1",
+        "master-roofing:4:fr-en:dictionary:2",
+        "master-roofing:4:fr-en:dictionary:3",
+        "master-roofing:4:fr-en:dictionary:4",
+        "master-roofing:4:fr-en:dictionary:5",
+        "master-roofing:4:fr-en:dictionary:6",
+        "master-roofing:4:fr-en:dictionary:7",
+        "master-roofing:4:fr-en:dictionary:8",
+        "master-roofing:4:fr-en:dictionary:9",
+        "master-roofing:4:fr-en:dictionary:10",
+        "master-roofing:4:fr-en:dictionary:11",
+        "master-roofing:4:fr-en:dictionary:12",
+        "master-roofing:4:fr-en:dictionary:13",
+        "master-roofing:4:fr-en:dictionary:14",
+        "master-roofing:4:fr-en:dictionary:15",
+        "master-roofing:4:fr-en:dictionary:16",
+        "master-roofing:4:fr-en:dictionary:17",
+        "master-roofing:4:fr-en:dictionary:18",
+        "master-roofing:4:fr-en:dictionary:19",
+        "master-roofing:4:fr-en:dictionary:20",
+        "master-roofing:4:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:4:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio), reading the source manufacturer sheet with Kevin.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), lisant la fiche du fabricant avec Kevin.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write Kevin an English briefing based on all four source-sheet steps. Keep the before/after sequence, manufacturer/product qualifications and material check, then request agreement to follow the sheet.",
+      "promptFrench": "Rédigez pour Kevin un briefing en anglais fondé sur les quatre étapes. Conservez l’ordre avant/après, les précisions du fabricant/produit et la vérification du matériau, puis demandez son accord pour suivre la fiche.",
+      "candidateTargetEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years. The sheet rules, not habit. Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification. Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates. Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener. Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing. Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage. After reading each step, you have to check whether the material on the truck is the same as on the sheet. That's what the manufacturer asks for, and that's how we do it. Will you follow the sheet rather than work from memory?",
+      "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années. C’est la fiche qui prévaut, pas l’habitude. Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification. Étape 2 : posez une pièce de solin à gradins sur chaque rang, avec le recouvrement minimal qu’indique cette fiche. Étape 3 : fixez chaque pièce seulement au platelage, jamais au mur, avec l’élément de fixation spécifié. Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin. Avertissement : si vous ne suivez pas ces étapes, le produit peut présenter une défaillance et le fabricant peut ne pas couvrir les dommages. Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche. C’est ce que demande le fabricant, et c’est ainsi que nous le faisons. Suivras-tu la fiche plutôt que de travailler de mémoire ?",
+      "explanationEnglish": "Keep each statement with its source audience and qualifications. The reference assembles exact source wording, without a new amount, measurement, method or permission. Source specialist objective remains incomplete pending qualified review. The dependent Yes reply is omitted from the standalone briefing; its reading-from-memory point is already grounded in the preceding source-sheet instructions.",
+      "explanationFrench": "Conservez le destinataire et les précisions de chaque affirmation. La référence assemble le texte exact sans ajouter de montant, mesure, méthode ou permission. L’objectif spécialisé reste incomplet dans l’attente d’une revue qualifiée. La réponse dépendante commençant par Oui est omise du briefing autonome ; les consignes précédentes fondent déjà le rappel de suivre la fiche.",
+      "sourceAnchors": [
+        "master-roofing:4:fr-en:reader:2",
+        "master-roofing:4:fr-en:reader:3",
+        "master-roofing:4:fr-en:reader:5",
+        "master-roofing:4:fr-en:reader:6",
+        "master-roofing:4:fr-en:reader:7",
+        "master-roofing:4:fr-en:reader:8",
+        "master-roofing:4:fr-en:reader:9",
+        "master-roofing:4:fr-en:reader:12",
+        "master-roofing:4:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:2",
+          "referenceEnglish": "Before installing, you have to read the sheet, even if we've been doing this for years.",
+          "candidateMeaningFrench": "Avant d’installer, il faut lire la fiche, même si nous faisons ça depuis des années.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:2:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:3",
+          "referenceEnglish": "The sheet rules, not habit.",
+          "candidateMeaningFrench": "C’est la fiche qui prévaut, pas l’habitude.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:3:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:5",
+          "referenceEnglish": "Step 1: Before placing the flashing, install the underlayment over the deck and run it up the sidewall according to the specification.",
+          "candidateMeaningFrench": "Étape 1 : avant de poser le solin, installez la sous-couche sur le platelage et faites-la remonter le long du mur latéral selon la spécification.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:6",
+          "referenceEnglish": "Step 2: Place one piece of step flashing on each course, with the minimum overlap this sheet indicates.",
+          "candidateMeaningFrench": "Étape 2 : posez une pièce de solin à gradins sur chaque rang, avec le recouvrement minimal qu’indique cette fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:6:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:7",
+          "referenceEnglish": "Step 3: Fasten each piece only to the deck, never to the wall, with the specified fastener.",
+          "candidateMeaningFrench": "Étape 3 : fixez chaque pièce seulement au platelage, jamais au mur, avec l’élément de fixation spécifié.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:8",
+          "referenceEnglish": "Step 4: After placing the flashing, the siding must cover it; do not use sealant instead of flashing.",
+          "candidateMeaningFrench": "Étape 4 : après la pose du solin, le revêtement mural doit le recouvrir ; n’utilisez pas de scellant à la place du solin.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:9",
+          "referenceEnglish": "Warning: If you do not follow these steps, the product may fail and the manufacturer may not cover the damage.",
+          "candidateMeaningFrench": "Avertissement : si vous ne suivez pas ces étapes, le produit peut présenter une défaillance et le fabricant peut ne pas couvrir les dommages.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:12",
+          "referenceEnglish": "After reading each step, you have to check whether the material on the truck is the same as on the sheet.",
+          "candidateMeaningFrench": "Après avoir lu chaque étape, il faut vérifier si le matériau qui se trouve sur le camion est le même que celui de la fiche.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:4:fr-en:reader:16",
+          "referenceEnglish": "That's what the manufacturer asks for, and that's how we do it.",
+          "candidateMeaningFrench": "C’est ce que demande le fabricant, et c’est ainsi que nous le faisons.",
+          "frenchEvidenceId": "master-roofing:4:fr-en:candidate:reader:16",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled. Standalone briefing omits Reader11 dependent Yes response entirely; exact Reader11 is retained in source evidence and Say, not rewritten.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "newCompositionSegments": [
+        {
+          "referenceEnglish": "Will you follow the sheet rather than work from memory?",
+          "candidateMeaningFrench": "Suivras-tu la fiche plutôt que de travailler de mémoire ?",
+          "kind": "new-bilingual-agreement-request",
+          "sourceAnchors": [
+            "master-roofing:4:fr-en:reader:3",
+            "master-roofing:4:fr-en:reader:11"
+          ],
+          "provenance": "New request fulfilling source speaking mission; not a quoted source utterance or evidence of actual agreement."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:4:fr-en:card:6",
+        "master-roofing:4:fr-en:card:7",
+        "master-roofing:4:fr-en:card:9",
+        "master-roofing:4:fr-en:card:10",
+        "master-roofing:4:fr-en:card:15",
+        "master-roofing:4:fr-en:card:16",
+        "master-roofing:4:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:4:fr-en:form:1",
+        "master-roofing:4:fr-en:form:2",
+        "master-roofing:4:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:4:fr-en:dictionary:1",
+        "master-roofing:4:fr-en:dictionary:2",
+        "master-roofing:4:fr-en:dictionary:3",
+        "master-roofing:4:fr-en:dictionary:4",
+        "master-roofing:4:fr-en:dictionary:5",
+        "master-roofing:4:fr-en:dictionary:6",
+        "master-roofing:4:fr-en:dictionary:7",
+        "master-roofing:4:fr-en:dictionary:8",
+        "master-roofing:4:fr-en:dictionary:9",
+        "master-roofing:4:fr-en:dictionary:10",
+        "master-roofing:4:fr-en:dictionary:11",
+        "master-roofing:4:fr-en:dictionary:12",
+        "master-roofing:4:fr-en:dictionary:13",
+        "master-roofing:4:fr-en:dictionary:14",
+        "master-roofing:4:fr-en:dictionary:15",
+        "master-roofing:4:fr-en:dictionary:16",
+        "master-roofing:4:fr-en:dictionary:17",
+        "master-roofing:4:fr-en:dictionary:18",
+        "master-roofing:4:fr-en:dictionary:19",
+        "master-roofing:4:fr-en:dictionary:20",
+        "master-roofing:4:fr-en:dictionary:21"
+      ]
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "Existing source/canonical/Reader/speaking/lexical activities/forms/dictionaries/IDs/holds remain byte-preserved.",
+    "Manufacturer overlap/attachment/siding rules, warranty language, concealed-damage diagnosis/repair/contract authorization, substitute equivalence/durability/weight and schedule dependencies remain internal source/trade questions. Exact utterances retain direct vocabulary without inserted hedges.",
+    "Source-only references are unselected and unscored; all release/progress/V4/audio gates stay false.",
+    "Assistant fallback due parent-reported weekly429; zero Claude calls/retries; independent parent critique pending."
+  ]
+}

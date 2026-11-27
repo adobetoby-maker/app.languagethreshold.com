@@ -1,0 +1,1257 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:6:fr-en",
+  "sidecarId": "master-roofing:6:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "b0216eec6ee8b4625694f9b0dd852d6e8b0df560",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "946b0374860239a900389eb5ac45755887b4082be4de347a28b428458f053f1f"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-6-source-decision-2026-11-18/packet.json",
+    "sha256": "fc3cf192615408851a228a138e0afacd71d6a9f68d70605a7d2ed6a0ef591353"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/candidate.json": "946b0374860239a900389eb5ac45755887b4082be4de347a28b428458f053f1f",
+    "content/french-roofing/review/master-6-source-decision-2026-11-18/packet.json": "fc3cf192615408851a228a138e0afacd71d6a9f68d70605a7d2ed6a0ef591353",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-4-6-draft.json": "5104d836f6b1020adc803ed96bd8dee5ee93f21251bc920394066dbe3159f3f9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/README.md": "d4255af67ce96428312938914522a39a32a632e40fccc1b9e309b5a5854552a9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/candidate.json": "946b0374860239a900389eb5ac45755887b4082be4de347a28b428458f053f1f",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "115e047aff7c99b66991715a50813b07ef9868c98706955c73381c4eebab0374",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "b5c58b2e25d36d570b0fea54dd065184703577f83963a4cf6d8778b3af150a75",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "325d5d6a5a4a4b595674095df3ef3c7bb5563548a7aebe5ad31c79ae7ab13cd9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "10b17a3d4533e0bf7bf4780ac21a577d63e01b4747055fde8332718523a9b9b3",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "5495d63062bd34b868b913396f2bae13f2e0554674905b549d3f955eb6c5470f",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "ea33c93ae185d8bcec44fae60f15ca1fa406a4019347d619fb0c0e92e59239ff",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/README.md": "d4255af67ce96428312938914522a39a32a632e40fccc1b9e309b5a5854552a9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/ai-assistance-metadata.json": "9894741950e66c4cf94f9a37002612df3c25fb18e1dbb0bc650af0d1eb879b32",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/candidate.json": "946b0374860239a900389eb5ac45755887b4082be4de347a28b428458f053f1f",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/fable-critique.md": "27af14bcefc0453db548ef1e000cdd59da1cd39787251f839517882065ed1475",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/final-self-check.md": "1f5d8af2864c6f43982e13bceaf397041dbf658c523a0275cff26f0e6d263bba",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/opus-critique.md": "3b14757929338e2d804dbe864e347d37535909411021d111b423ebdbff517e53",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "7501ea8f8d0dbf21bf66c119f3fb854bdc220c7829ee86e0b9144caba6a8cf9b",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "115e047aff7c99b66991715a50813b07ef9868c98706955c73381c4eebab0374",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "7f5085941e3bc93a02922166328fd3db58bf69d5ce8990addc95e23fc17f6c48",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "b5c58b2e25d36d570b0fea54dd065184703577f83963a4cf6d8778b3af150a75",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "1ebc62ea545e001e1a62bbf4813369fb4ac01fe5a546334cf293e9e37a626d96",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "325d5d6a5a4a4b595674095df3ef3c7bb5563548a7aebe5ad31c79ae7ab13cd9",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "71dcf060ec72d7db7d0fbb13cdc4a1b083d7681255c8c653294521f04caf6235",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "10b17a3d4533e0bf7bf4780ac21a577d63e01b4747055fde8332718523a9b9b3",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "5495d63062bd34b868b913396f2bae13f2e0554674905b549d3f955eb6c5470f",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "ea33c93ae185d8bcec44fae60f15ca1fa406a4019347d619fb0c0e92e59239ff",
+    "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "sourceObjectiveEnglish": "Handle a short delivery: get dates from the supplier, compare a substitute, and give the new plan",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the supplier: find out what is missing and when it will arrive, compare the substitute with the original product, and say what you will do next using the future and ir a.",
+  "existingLexicalObjectiveEnglish": "Ask a supplier for arrival information and practice future-call and stock questions without choosing a delivery date.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual teaching proposals are not qualified source/trade/language/audio/release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+  "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:2",
+      "sourcePacketReaderPointer": "/reader/1",
+      "sourceEnglish": "Supplier: I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+      "sourceSpanish": "Proveedor: Lo siento, el pedido no llegará completo, porque no tenemos ese color en existencia.",
+      "sourceLegacyRef": "master-roofing:6:passage:2",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:2",
+      "canonicalReaderHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:2:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:3",
+      "sourcePacketReaderPointer": "/reader/2",
+      "sourceEnglish": "Rogelio: When will the rest arrive?",
+      "sourceSpanish": "Rogelio: ¿Cuándo llegará el resto?",
+      "sourceLegacyRef": "master-roofing:6:passage:3",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:3",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "946b0374860239a900389eb5ac45755887b4082be4de347a28b428458f053f1f",
+          "jsonPointer": "/candidateRows/23/candidateFrench",
+          "id": "master-roofing:6:fr-en:candidate:reader:3",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Supplier: The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "sourceSpanish": "Proveedor: La fábrica dice que llegará a la bodega el jueves, pero no es seguro.",
+      "sourceLegacyRef": "master-roofing:6:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+          "jsonPointer": "/rows/1/alternatives/1/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:4:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Rogelio: That would be a four-day delay, and the customer wants to finish sooner.",
+      "sourceSpanish": "Rogelio: Eso sería un retraso de cuatro días, y la clienta quiere terminar antes.",
+      "sourceLegacyRef": "master-roofing:6:passage:5",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:5",
+      "canonicalReaderHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:5:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Supplier: I have the same architectural shingle from another brand, at the same price.",
+      "sourceSpanish": "Proveedor: Tengo la misma teja arquitectónica de otra marca, al mismo precio.",
+      "sourceLegacyRef": "master-roofing:6:passage:6",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:6",
+      "canonicalReaderHold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:6:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Supplier: It's just as durable, but heavier, and the color is very similar.",
+      "sourceSpanish": "Proveedor: Es igual de resistente, pero más pesada, y el color se parece mucho.",
+      "sourceLegacyRef": "master-roofing:6:passage:7",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+      "sourceSpanish": "Rogelio: La arquitectónica de otra marca me sirve, pero no voy a aceptar teja de tres lengüetas; el contrato dice arquitectónica.",
+      "sourceLegacyRef": "master-roofing:6:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "sourceSpanish": "Rogelio: Mándeme la hoja técnica, y antes de decidir voy a hablar con la clienta.",
+      "sourceLegacyRef": "master-roofing:6:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "Source compares same architectural shingle from another brand with a three-tab product excluded by the contract and asserts equivalent durability with greater weight. Archived French changes card 18 into a supplier-attributed claim and Reader 6 to the same type. Review product equivalence, load, technical sheet, French product senses and the limits of a supplier claim before selecting scored text.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "cf4002a4b6eaf28e6c306a14417396c7da6b5b825ee252e531d481ba9aa6abe9",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+      "sourceSpanish": "Rogelio: Señora, el proveedor tiene un sustituto, y este color se parece más al original que los otros.",
+      "sourceLegacyRef": "master-roofing:6:passage:11",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Rogelio: I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+      "sourceSpanish": "Rogelio: Le voy a mandar la foto del color, y si usted lo aprueba, la entrega será mañana temprano.",
+      "sourceLegacyRef": "master-roofing:6:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Mrs. Díaz approved the change by text, and Rogelio asked for a new invoice.",
+      "sourceSpanish": "La señora Díaz aprobó el cambio por mensaje, y Rogelio pidió una nueva factura.",
+      "sourceLegacyRef": "master-roofing:6:passage:13",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:13",
+      "canonicalReaderHold": "Preserve Mrs. Díaz as the female homeowner, comparison with other available colors, the photo, her conditional approval and text-message approval. Archived Reader 5/9 masculinizes the customer and Reader 12 changes source future delivery to a possibility; reconcile the factual sequence without silently substituting a different condition.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/6/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:13:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:15",
+      "sourcePacketReaderPointer": "/reader/14",
+      "sourceEnglish": "Rogelio: We're going to use another brand, and tomorrow two pallets will arrive.",
+      "sourceSpanish": "Rogelio: Vamos a usar otra marca, y mañana llegarán dos tarimas.",
+      "sourceLegacyRef": "master-roofing:6:passage:15",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:15",
+      "canonicalReaderHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/7/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:15:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:6:fr-en:reader:16",
+      "sourcePacketReaderPointer": "/reader/15",
+      "sourceEnglish": "Rogelio: Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+      "sourceSpanish": "Rogelio: Hoy vamos a terminar la sub-capa y el goterón, y mañana empezaremos con las tejas.",
+      "sourceLegacyRef": "master-roofing:6:passage:16",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:6:fr-en:candidate:reader:16",
+      "canonicalReaderHold": "Source order is incomplete because the color is out of stock; factory Thursday arrival is uncertain, while the alternative is planned for next-day delivery after approval. Review future versus near-future French and the four-day delay, pallet, underlayment and drip-edge terms.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-6-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "c818187ff57e784d7c3566f1f555ca1c1aa6b9d40157d4c2e3497c0991fe5589",
+          "jsonPointer": "/rows/8/alternatives/0/candidateFrench",
+          "id": "master-roofing:6:fr-en:reader-alternative:16:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestionRef": {
+    "artifactPath": "content/french-roofing/review/master-6-source-decision-2026-11-18/packet.json",
+    "artifactSha256": "fc3cf192615408851a228a138e0afacd71d6a9f68d70605a7d2ed6a0ef591353",
+    "jsonPointer": "/sourceDecisionQuestions"
+  },
+  "existingRecordRefs": {
+    "forms": [
+      {
+        "id": "master-roofing:6:fr-en:form:1",
+        "jsonPointer": "/forms/0"
+      },
+      {
+        "id": "master-roofing:6:fr-en:form:2",
+        "jsonPointer": "/forms/1"
+      },
+      {
+        "id": "master-roofing:6:fr-en:form:3",
+        "jsonPointer": "/forms/2"
+      }
+    ],
+    "dictionaryMappings": [
+      {
+        "id": "master-roofing:6:fr-en:dictionary:1",
+        "jsonPointer": "/dictionaryMappings/0"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:2",
+        "jsonPointer": "/dictionaryMappings/1"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:3",
+        "jsonPointer": "/dictionaryMappings/2"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:4",
+        "jsonPointer": "/dictionaryMappings/3"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:5",
+        "jsonPointer": "/dictionaryMappings/4"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:6",
+        "jsonPointer": "/dictionaryMappings/5"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:7",
+        "jsonPointer": "/dictionaryMappings/6"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:8",
+        "jsonPointer": "/dictionaryMappings/7"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:9",
+        "jsonPointer": "/dictionaryMappings/8"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:10",
+        "jsonPointer": "/dictionaryMappings/9"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:11",
+        "jsonPointer": "/dictionaryMappings/10"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:12",
+        "jsonPointer": "/dictionaryMappings/11"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:13",
+        "jsonPointer": "/dictionaryMappings/12"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:14",
+        "jsonPointer": "/dictionaryMappings/13"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:15",
+        "jsonPointer": "/dictionaryMappings/14"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:16",
+        "jsonPointer": "/dictionaryMappings/15"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:17",
+        "jsonPointer": "/dictionaryMappings/16"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:18",
+        "jsonPointer": "/dictionaryMappings/17"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:19",
+        "jsonPointer": "/dictionaryMappings/18"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:20",
+        "jsonPointer": "/dictionaryMappings/19"
+      },
+      {
+        "id": "master-roofing:6:fr-en:dictionary:21",
+        "jsonPointer": "/dictionaryMappings/20"
+      }
+    ]
+  },
+  "sourceCardRefs": [
+    {
+      "id": "master-roofing:6:fr-en:card:1",
+      "sourceEnglish": "the supplier",
+      "jsonPointer": "/cards/0"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:2",
+      "sourceEnglish": "the order",
+      "jsonPointer": "/cards/1"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:3",
+      "sourceEnglish": "the delivery",
+      "jsonPointer": "/cards/2"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:4",
+      "sourceEnglish": "the substitute",
+      "jsonPointer": "/cards/3"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:5",
+      "sourceEnglish": "the pallet",
+      "jsonPointer": "/cards/4"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:6",
+      "sourceEnglish": "the warehouse",
+      "jsonPointer": "/cards/5"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:7",
+      "sourceEnglish": "in stock",
+      "jsonPointer": "/cards/6"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:8",
+      "sourceEnglish": "the delay",
+      "jsonPointer": "/cards/7"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:9",
+      "sourceEnglish": "the brand",
+      "jsonPointer": "/cards/8"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:10",
+      "sourceEnglish": "the architectural shingle",
+      "jsonPointer": "/cards/9"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:11",
+      "sourceEnglish": "the three-tab shingle",
+      "jsonPointer": "/cards/10"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:12",
+      "sourceEnglish": "the color",
+      "jsonPointer": "/cards/11"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:13",
+      "sourceEnglish": "the invoice",
+      "jsonPointer": "/cards/12"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:14",
+      "sourceEnglish": "the price",
+      "jsonPointer": "/cards/13"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:15",
+      "sourceEnglish": "The order won't arrive complete.",
+      "jsonPointer": "/cards/14"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:16",
+      "sourceEnglish": "When will the rest arrive?",
+      "jsonPointer": "/cards/15"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:17",
+      "sourceEnglish": "We're going to use another brand.",
+      "jsonPointer": "/cards/16"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:18",
+      "sourceEnglish": "It's just as durable, but heavier.",
+      "jsonPointer": "/cards/17"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:19",
+      "sourceEnglish": "This color is closer to the original.",
+      "jsonPointer": "/cards/18"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:20",
+      "sourceEnglish": "I'm going to send you the photo of the color.",
+      "jsonPointer": "/cards/19"
+    },
+    {
+      "id": "master-roofing:6:fr-en:card:21",
+      "sourceEnglish": "Can you give me a hand?",
+      "jsonPointer": "/cards/20"
+    }
+  ],
+  "referenceLinkLimits": "Existing forms/dictionary IDs are evidence links, not approved bindings. Master5 lexical repeat/write/read forms do not teach its conditional mission; contextual would examples here are source-linked new practice. Master4 before/after and Master6 future/going-to forms are related, but their existing examples/qualification status remain unchanged. Dictionary references remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English production/French support. Source mission and Spanish grammar wording preserved exactly above; no automatic cross-language equivalence/completion claimed.",
+  "frenchReferencePolicy": "One existing unselected French option per segment supports the readable sample; exact pinned pointers identify all available variants. No selection/canonicalization.",
+  "activities": [
+    {
+      "id": "master-roofing:6:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read the supplier’s two substitute claims. Repeat in English what the supplier offers and how the supplier compares it with the original. Attribute these as the supplier’s claims.",
+      "promptFrench": "Lisez les deux affirmations du fournisseur sur le remplacement. Répétez en anglais son offre et sa comparaison avec le produit initial, en les attribuant au fournisseur.",
+      "candidateTargetEnglish": "The supplier says: I have the same architectural shingle from another brand, at the same price. It's just as durable, but heavier, and the color is very similar.",
+      "candidateMeaningFrench": "Le fournisseur dit : J’ai le même bardeau architectural d’une autre marque, au même prix. Il est tout aussi durable, mais plus lourd, et la couleur est très semblable.",
+      "explanationEnglish": "Same, just as, heavier and very similar express different comparisons; very similar is not identical. These remain quoted supplier claims, not a verified durability/equivalence decision.",
+      "explanationFrench": "Same, just as, heavier et very similar expriment des comparaisons distinctes ; très similaire ne signifie pas identique. Ce sont des affirmations citées du fournisseur, pas une équivalence ou durabilité vérifiée.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:reader:6",
+        "master-roofing:6:fr-en:reader:7"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:6",
+          "referenceEnglish": "I have the same architectural shingle from another brand, at the same price.",
+          "candidateMeaningFrench": "J’ai le même bardeau architectural d’une autre marque, au même prix.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:6:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:7",
+          "referenceEnglish": "It's just as durable, but heavier, and the color is very similar.",
+          "candidateMeaningFrench": "Il est tout aussi durable, mais plus lourd, et la couleur est très semblable.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled. Attribution prefix is a new composition; quoted supplier claims are not reassigned to the learner.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "targetEnglishPrefix": "The supplier says: ",
+      "targetFrenchPrefix": "Le fournisseur dit : ",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:6",
+          "text": "Supplier: I have the same architectural shingle from another brand, at the same price."
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:7",
+          "text": "Supplier: It's just as durable, but heavier, and the color is very similar."
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:6:fr-en:card:12",
+        "master-roofing:6:fr-en:card:18"
+      ],
+      "existingFormIds": [
+        "master-roofing:6:fr-en:form:1",
+        "master-roofing:6:fr-en:form:2",
+        "master-roofing:6:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:6:fr-en:dictionary:1",
+        "master-roofing:6:fr-en:dictionary:2",
+        "master-roofing:6:fr-en:dictionary:3",
+        "master-roofing:6:fr-en:dictionary:4",
+        "master-roofing:6:fr-en:dictionary:5",
+        "master-roofing:6:fr-en:dictionary:6",
+        "master-roofing:6:fr-en:dictionary:7",
+        "master-roofing:6:fr-en:dictionary:8",
+        "master-roofing:6:fr-en:dictionary:9",
+        "master-roofing:6:fr-en:dictionary:10",
+        "master-roofing:6:fr-en:dictionary:11",
+        "master-roofing:6:fr-en:dictionary:12",
+        "master-roofing:6:fr-en:dictionary:13",
+        "master-roofing:6:fr-en:dictionary:14",
+        "master-roofing:6:fr-en:dictionary:15",
+        "master-roofing:6:fr-en:dictionary:16",
+        "master-roofing:6:fr-en:dictionary:17",
+        "master-roofing:6:fr-en:dictionary:18",
+        "master-roofing:6:fr-en:dictionary:19",
+        "master-roofing:6:fr-en:dictionary:20",
+        "master-roofing:6:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:6:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, state in English Rogelio’s product limit and what he will do before deciding.",
+      "promptFrench": "À partir de l’indice français, dites en anglais la limite fixée par Rogelio pour le produit et ce qu’il compte faire avant de décider.",
+      "candidateTargetEnglish": "The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural. Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "candidateMeaningFrench": "Le bardeau architectural d’une autre marque me convient, mais je ne vais pas accepter de bardeau à trois pattes ; le contrat dit bardeau architectural. Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente.",
+      "explanationEnglish": "Not going to accept preserves the rejection of three-tab under the source contract. Before deciding keeps the spec-sheet request and customer discussion before a decision.",
+      "explanationFrench": "Not going to accept conserve le refus du bardeau à trois pattes selon le contrat de la scène. Before deciding place la fiche et la discussion avec le client avant la décision.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:reader:8",
+        "master-roofing:6:fr-en:reader:9"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:8",
+          "referenceEnglish": "The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+          "candidateMeaningFrench": "Le bardeau architectural d’une autre marque me convient, mais je ne vais pas accepter de bardeau à trois pattes ; le contrat dit bardeau architectural.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:9",
+          "referenceEnglish": "Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+          "candidateMeaningFrench": "Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "cueFrench": "Le bardeau architectural d’une autre marque me convient, mais je ne vais pas accepter de bardeau à trois pattes ; le contrat dit bardeau architectural. Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente.",
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:6:fr-en:form:1",
+        "master-roofing:6:fr-en:form:2",
+        "master-roofing:6:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:6:fr-en:dictionary:1",
+        "master-roofing:6:fr-en:dictionary:2",
+        "master-roofing:6:fr-en:dictionary:3",
+        "master-roofing:6:fr-en:dictionary:4",
+        "master-roofing:6:fr-en:dictionary:5",
+        "master-roofing:6:fr-en:dictionary:6",
+        "master-roofing:6:fr-en:dictionary:7",
+        "master-roofing:6:fr-en:dictionary:8",
+        "master-roofing:6:fr-en:dictionary:9",
+        "master-roofing:6:fr-en:dictionary:10",
+        "master-roofing:6:fr-en:dictionary:11",
+        "master-roofing:6:fr-en:dictionary:12",
+        "master-roofing:6:fr-en:dictionary:13",
+        "master-roofing:6:fr-en:dictionary:14",
+        "master-roofing:6:fr-en:dictionary:15",
+        "master-roofing:6:fr-en:dictionary:16",
+        "master-roofing:6:fr-en:dictionary:17",
+        "master-roofing:6:fr-en:dictionary:18",
+        "master-roofing:6:fr-en:dictionary:19",
+        "master-roofing:6:fr-en:dictionary:20",
+        "master-roofing:6:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:6:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to the supplier’s arrival estimate. In English, repeat the destination, day and uncertainty of that estimate.",
+      "promptFrench": "Écoutez l’estimation d’arrivée du fournisseur. Répétez en anglais le lieu, le jour et l’incertitude de cette estimation.",
+      "candidateTargetEnglish": "The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "candidateMeaningFrench": "L’usine dit que le reste arrivera à l’entrepôt jeudi, mais ce n’est pas certain.",
+      "explanationEnglish": "Will arrive is attributed to the factory, and but it’s not certain limits the estimate. The warehouse is not silently changed to the job site.",
+      "explanationFrench": "Will arrive est attribué à l’usine, et but it’s not certain limite l’estimation. L’entrepôt n’est pas remplacé implicitement par le chantier.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:reader:4"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:4",
+          "referenceEnglish": "The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+          "candidateMeaningFrench": "L’usine dit que le reste arrivera à l’entrepôt jeudi, mais ce n’est pas certain.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized; no recording or playback.",
+      "candidateListeningTextEnglish": "The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+      "listeningTextSourceAnchor": "master-roofing:6:fr-en:reader:4",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [
+        "master-roofing:6:fr-en:card:6"
+      ],
+      "existingFormIds": [
+        "master-roofing:6:fr-en:form:1",
+        "master-roofing:6:fr-en:form:2",
+        "master-roofing:6:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:6:fr-en:dictionary:1",
+        "master-roofing:6:fr-en:dictionary:2",
+        "master-roofing:6:fr-en:dictionary:3",
+        "master-roofing:6:fr-en:dictionary:4",
+        "master-roofing:6:fr-en:dictionary:5",
+        "master-roofing:6:fr-en:dictionary:6",
+        "master-roofing:6:fr-en:dictionary:7",
+        "master-roofing:6:fr-en:dictionary:8",
+        "master-roofing:6:fr-en:dictionary:9",
+        "master-roofing:6:fr-en:dictionary:10",
+        "master-roofing:6:fr-en:dictionary:11",
+        "master-roofing:6:fr-en:dictionary:12",
+        "master-roofing:6:fr-en:dictionary:13",
+        "master-roofing:6:fr-en:dictionary:14",
+        "master-roofing:6:fr-en:dictionary:15",
+        "master-roofing:6:fr-en:dictionary:16",
+        "master-roofing:6:fr-en:dictionary:17",
+        "master-roofing:6:fr-en:dictionary:18",
+        "master-roofing:6:fr-en:dictionary:19",
+        "master-roofing:6:fr-en:dictionary:20",
+        "master-roofing:6:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:6:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete Rogelio’s English arrival question: _____ the rest arrive?",
+      "promptFrench": "Complétez la question anglaise de Rogelio sur l’arrivée : _____ the rest arrive?",
+      "candidateTargetEnglish": "When will",
+      "candidateMeaningFrench": "Quand est-ce que … arrivera",
+      "explanationEnglish": "When will asks about future timing. The question does not guarantee the supplier’s answer or the delivery date.",
+      "explanationFrench": "When will porte sur un délai futur. La question ne garantit ni la réponse du fournisseur ni la date de livraison.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:reader:3"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:3",
+          "referenceEnglish": "When will the rest arrive?",
+          "candidateMeaningFrench": "Quand arrivera le reste ?",
+          "frenchEvidenceId": "master-roofing:6:fr-en:candidate:reader:3",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "clozeTextEnglish": "_____ the rest arrive?",
+      "unmaskedSourceBodyEnglish": "When will the rest arrive?",
+      "clozeSourceAnchor": "master-roofing:6:fr-en:reader:3",
+      "linkedSourceCardIds": [
+        "master-roofing:6:fr-en:card:16"
+      ],
+      "existingFormIds": [
+        "master-roofing:6:fr-en:form:1",
+        "master-roofing:6:fr-en:form:2",
+        "master-roofing:6:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:6:fr-en:dictionary:1",
+        "master-roofing:6:fr-en:dictionary:2",
+        "master-roofing:6:fr-en:dictionary:3",
+        "master-roofing:6:fr-en:dictionary:4",
+        "master-roofing:6:fr-en:dictionary:5",
+        "master-roofing:6:fr-en:dictionary:6",
+        "master-roofing:6:fr-en:dictionary:7",
+        "master-roofing:6:fr-en:dictionary:8",
+        "master-roofing:6:fr-en:dictionary:9",
+        "master-roofing:6:fr-en:dictionary:10",
+        "master-roofing:6:fr-en:dictionary:11",
+        "master-roofing:6:fr-en:dictionary:12",
+        "master-roofing:6:fr-en:dictionary:13",
+        "master-roofing:6:fr-en:dictionary:14",
+        "master-roofing:6:fr-en:dictionary:15",
+        "master-roofing:6:fr-en:dictionary:16",
+        "master-roofing:6:fr-en:dictionary:17",
+        "master-roofing:6:fr-en:dictionary:18",
+        "master-roofing:6:fr-en:dictionary:19",
+        "master-roofing:6:fr-en:dictionary:20",
+        "master-roofing:6:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:6:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Roleplay the crew lead in English with the supplier. Ask when the missing rest will arrive, respond to the uncertain estimate and substitute comparison, retain the contract limit and request the sheet before speaking to the customer.",
+      "promptFrench": "Jouez le chef d’équipe en anglais avec le fournisseur. Demandez quand arrivera le reste manquant, répondez à l’estimation incertaine et à la comparaison, conservez la limite du contrat et demandez la fiche avant de parler au client.",
+      "candidateTargetEnglish": "When will the rest arrive? That would be a four-day delay, and the customer wants to finish sooner. The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural. Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+      "candidateMeaningFrench": "Quand arrivera le reste ? Ce serait un retard de quatre jours, et la cliente veut terminer plus tôt. Le bardeau architectural d’une autre marque me convient, mais je ne vais pas accepter de bardeau à trois pattes ; le contrat dit bardeau architectural. Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente.",
+      "explanationEnglish": "Read only the crew-lead turns; the partner reads the other named speaker. Keep source roles, conditionals, negatives, uncertainty and manufacturer/contract attributions. The reference is language practice, not approval of a field or contract decision.",
+      "explanationFrench": "Dites seulement les répliques du chef d’équipe ; le partenaire lit celles de l’autre personnage. Conservez rôles, conditionnels, négations, incertitude et références fabricant/contrat. La référence sert à la pratique linguistique, sans approuver une décision de chantier ou de contrat.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:reader:2",
+        "master-roofing:6:fr-en:reader:3",
+        "master-roofing:6:fr-en:reader:4",
+        "master-roofing:6:fr-en:reader:5",
+        "master-roofing:6:fr-en:reader:6",
+        "master-roofing:6:fr-en:reader:7",
+        "master-roofing:6:fr-en:reader:8",
+        "master-roofing:6:fr-en:reader:9"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:3",
+          "referenceEnglish": "When will the rest arrive?",
+          "candidateMeaningFrench": "Quand arrivera le reste ?",
+          "frenchEvidenceId": "master-roofing:6:fr-en:candidate:reader:3",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:5",
+          "referenceEnglish": "That would be a four-day delay, and the customer wants to finish sooner.",
+          "candidateMeaningFrench": "Ce serait un retard de quatre jours, et la cliente veut terminer plus tôt.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:5:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:8",
+          "referenceEnglish": "The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+          "candidateMeaningFrench": "Le bardeau architectural d’une autre marque me convient, mais je ne vais pas accepter de bardeau à trois pattes ; le contrat dit bardeau architectural.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:9",
+          "referenceEnglish": "Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+          "candidateMeaningFrench": "Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Supplier",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:2",
+          "utteranceEnglish": "I'm sorry, the order won't arrive complete, because we don't have that color in stock.",
+          "candidateMeaningFrench": "Je suis désolé, la commande n’arrivera pas au complet, parce que nous n’avons pas cette couleur en stock.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:2:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:3",
+          "utteranceEnglish": "When will the rest arrive?",
+          "candidateMeaningFrench": "Quand arrivera le reste ?",
+          "frenchEvidenceId": "master-roofing:6:fr-en:candidate:reader:3",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Supplier",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:4",
+          "utteranceEnglish": "The factory says it will arrive at the warehouse on Thursday, but it's not certain.",
+          "candidateMeaningFrench": "L’usine dit que le reste arrivera à l’entrepôt jeudi, mais ce n’est pas certain.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:4:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:5",
+          "utteranceEnglish": "That would be a four-day delay, and the customer wants to finish sooner.",
+          "candidateMeaningFrench": "Ce serait un retard de quatre jours, et la cliente veut terminer plus tôt.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:5:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Supplier",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:6",
+          "utteranceEnglish": "I have the same architectural shingle from another brand, at the same price.",
+          "candidateMeaningFrench": "J’ai le même bardeau architectural d’une autre marque, au même prix.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:6:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Supplier",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:7",
+          "utteranceEnglish": "It's just as durable, but heavier, and the color is very similar.",
+          "candidateMeaningFrench": "Il est tout aussi durable, mais plus lourd, et la couleur est très semblable.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:7:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:8",
+          "utteranceEnglish": "The architectural one from another brand works for me, but I'm not going to accept three-tab shingle; the contract says architectural.",
+          "candidateMeaningFrench": "Le bardeau architectural d’une autre marque me convient, mais je ne vais pas accepter de bardeau à trois pattes ; le contrat dit bardeau architectural.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:8:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:6:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:6:fr-en:reader:9",
+          "utteranceEnglish": "Send me the spec sheet, and before deciding I'm going to talk to the customer.",
+          "candidateMeaningFrench": "Envoyez-moi la fiche technique, et avant de décider, je vais parler à la cliente.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:9:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:6:fr-en:card:2",
+        "master-roofing:6:fr-en:card:6",
+        "master-roofing:6:fr-en:card:7",
+        "master-roofing:6:fr-en:card:12",
+        "master-roofing:6:fr-en:card:16",
+        "master-roofing:6:fr-en:card:18"
+      ],
+      "existingFormIds": [
+        "master-roofing:6:fr-en:form:1",
+        "master-roofing:6:fr-en:form:2",
+        "master-roofing:6:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:6:fr-en:dictionary:1",
+        "master-roofing:6:fr-en:dictionary:2",
+        "master-roofing:6:fr-en:dictionary:3",
+        "master-roofing:6:fr-en:dictionary:4",
+        "master-roofing:6:fr-en:dictionary:5",
+        "master-roofing:6:fr-en:dictionary:6",
+        "master-roofing:6:fr-en:dictionary:7",
+        "master-roofing:6:fr-en:dictionary:8",
+        "master-roofing:6:fr-en:dictionary:9",
+        "master-roofing:6:fr-en:dictionary:10",
+        "master-roofing:6:fr-en:dictionary:11",
+        "master-roofing:6:fr-en:dictionary:12",
+        "master-roofing:6:fr-en:dictionary:13",
+        "master-roofing:6:fr-en:dictionary:14",
+        "master-roofing:6:fr-en:dictionary:15",
+        "master-roofing:6:fr-en:dictionary:16",
+        "master-roofing:6:fr-en:dictionary:17",
+        "master-roofing:6:fr-en:dictionary:18",
+        "master-roofing:6:fr-en:dictionary:19",
+        "master-roofing:6:fr-en:dictionary:20",
+        "master-roofing:6:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:6:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio), discussing the order with the supplier, then reporting the source plan to the homeowner and crew.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), discutant de la commande avec le fournisseur, puis présentant le plan de la scène à la propriétaire et à l’équipe.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write two clearly addressed English messages from the source: first the homeowner update about color/photo and conditional delivery; then the crew update about the other brand, two pallets and today/tomorrow plan. Preserve approval as a condition in the homeowner message.",
+      "promptFrench": "Rédigez deux messages anglais avec destinataires distincts : d’abord à la propriétaire sur couleur/photo et livraison conditionnelle ; ensuite à l’équipe sur l’autre marque, deux palettes et le plan aujourd’hui/demain. Conservez l’approbation comme condition dans le premier message.",
+      "candidateTargetEnglish": "To Mrs. Díaz — homeowner\nMa'am, the supplier has a substitute, and this color is closer to the original than the others. I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.\n\nTo the crew — after homeowner approval reported in Reader13\nWe're going to use another brand, and tomorrow two pallets will arrive. Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+      "candidateMeaningFrench": "À Mme Díaz — propriétaire\nMadame, le fournisseur a un produit de remplacement, et cette couleur est plus proche de l’originale que les autres. Je vais vous envoyer la photo de la couleur, et si vous l’approuvez, la livraison aura lieu demain de bonne heure.\n\nÀ l’équipe — après l’approbation rapportée en Reader13\nNous allons utiliser une autre marque, et deux palettes arriveront demain. Aujourd’hui, nous allons terminer la sous-couche et le larmier, et demain nous commencerons la pose des bardeaux.",
+      "explanationEnglish": "Keep each statement with its source audience and qualifications. The reference assembles exact source wording, without a new amount, measurement, method or permission. Source specialist objective remains incomplete pending qualified review.",
+      "explanationFrench": "Conservez le destinataire et les précisions de chaque affirmation. La référence assemble le texte exact sans ajouter de montant, mesure, méthode ou permission. L’objectif spécialisé reste incomplet dans l’attente d’une revue qualifiée.",
+      "sourceAnchors": [
+        "master-roofing:6:fr-en:reader:11",
+        "master-roofing:6:fr-en:reader:12",
+        "master-roofing:6:fr-en:reader:15",
+        "master-roofing:6:fr-en:reader:16"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:11",
+          "referenceEnglish": "Ma'am, the supplier has a substitute, and this color is closer to the original than the others.",
+          "candidateMeaningFrench": "Madame, le fournisseur a un produit de remplacement, et cette couleur est plus proche de l’originale que les autres.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:12",
+          "referenceEnglish": "I'm going to send you the photo of the color, and if you approve it, the delivery will be early tomorrow.",
+          "candidateMeaningFrench": "Je vais vous envoyer la photo de la couleur, et si vous l’approuvez, la livraison aura lieu demain de bonne heure.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:15",
+          "referenceEnglish": "We're going to use another brand, and tomorrow two pallets will arrive.",
+          "candidateMeaningFrench": "Nous allons utiliser une autre marque, et deux palettes arriveront demain.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:15:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:6:fr-en:reader:16",
+          "referenceEnglish": "Today we're going to finish the underlayment and the drip edge, and tomorrow we'll start on the shingles.",
+          "candidateMeaningFrench": "Aujourd’hui, nous allons terminer la sous-couche et le larmier, et demain nous commencerons la pose des bardeaux.",
+          "frenchEvidenceId": "master-roofing:6:fr-en:reader-alternative:16:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled. New audience headings and paragraph breaks separate the two source audiences; the crew section is explicitly after the narrator’s Reader13 approval, while the homeowner section preserves if you approve it.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audienceSections": [
+        {
+          "audienceEnglish": "Mrs. Díaz, homeowner",
+          "audienceFrench": "Mme Díaz, propriétaire",
+          "sourceAnchors": [
+            "master-roofing:6:fr-en:reader:11",
+            "master-roofing:6:fr-en:reader:12"
+          ],
+          "headingEnglish": "To Mrs. Díaz — homeowner",
+          "headingFrench": "À Mme Díaz — propriétaire"
+        },
+        {
+          "audienceEnglish": "Crew, after the narrator reports homeowner approval in Reader13",
+          "audienceFrench": "Équipe, après l’approbation rapportée par le narrateur en Reader13",
+          "sourceAnchors": [
+            "master-roofing:6:fr-en:reader:15",
+            "master-roofing:6:fr-en:reader:16"
+          ],
+          "contextSourceAnchor": "master-roofing:6:fr-en:reader:13",
+          "headingEnglish": "To the crew — after homeowner approval reported in Reader13",
+          "headingFrench": "À l’équipe — après l’approbation rapportée en Reader13"
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:6:fr-en:card:1",
+        "master-roofing:6:fr-en:card:3",
+        "master-roofing:6:fr-en:card:12",
+        "master-roofing:6:fr-en:card:17",
+        "master-roofing:6:fr-en:card:20"
+      ],
+      "existingFormIds": [
+        "master-roofing:6:fr-en:form:1",
+        "master-roofing:6:fr-en:form:2",
+        "master-roofing:6:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:6:fr-en:dictionary:1",
+        "master-roofing:6:fr-en:dictionary:2",
+        "master-roofing:6:fr-en:dictionary:3",
+        "master-roofing:6:fr-en:dictionary:4",
+        "master-roofing:6:fr-en:dictionary:5",
+        "master-roofing:6:fr-en:dictionary:6",
+        "master-roofing:6:fr-en:dictionary:7",
+        "master-roofing:6:fr-en:dictionary:8",
+        "master-roofing:6:fr-en:dictionary:9",
+        "master-roofing:6:fr-en:dictionary:10",
+        "master-roofing:6:fr-en:dictionary:11",
+        "master-roofing:6:fr-en:dictionary:12",
+        "master-roofing:6:fr-en:dictionary:13",
+        "master-roofing:6:fr-en:dictionary:14",
+        "master-roofing:6:fr-en:dictionary:15",
+        "master-roofing:6:fr-en:dictionary:16",
+        "master-roofing:6:fr-en:dictionary:17",
+        "master-roofing:6:fr-en:dictionary:18",
+        "master-roofing:6:fr-en:dictionary:19",
+        "master-roofing:6:fr-en:dictionary:20",
+        "master-roofing:6:fr-en:dictionary:21"
+      ],
+      "targetFormat": "audience-labelled-messages"
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "Existing source/canonical/Reader/speaking/lexical activities/forms/dictionaries/IDs/holds remain byte-preserved.",
+    "Manufacturer overlap/attachment/siding rules, warranty language, concealed-damage diagnosis/repair/contract authorization, substitute equivalence/durability/weight and schedule dependencies remain internal source/trade questions. Exact utterances retain direct vocabulary without inserted hedges.",
+    "Source-only references are unselected and unscored; all release/progress/V4/audio gates stay false.",
+    "Assistant fallback due parent-reported weekly429; zero Claude calls/retries; independent parent critique pending."
+  ]
+}

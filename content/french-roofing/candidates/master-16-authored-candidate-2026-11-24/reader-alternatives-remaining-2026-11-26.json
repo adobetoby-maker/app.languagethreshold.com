@@ -1,0 +1,514 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:16:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "f08d9162ae6aba872b4bb20c6dbb16858ecc129e",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/candidate.json",
+  "canonicalCandidateSha256": "1be2f1de4d3b4220d79d863b620c714d159e254c56c74d5f3944e23fd04d957d",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-16-source-decision-2026-11-18/packet.json",
+    "sha256": "714f9a1d110e70b703e1a590c7452ba3d661ab7dfea131cf156fe5fb2a3dc47d"
+  },
+  "sourceObjectiveEnglish": "Receive a city inspector formally, explain your procedures with passive se, and handle a correction notice",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; linguistic supplemental proposals do not complete source work objective",
+  "scope": "10remaining missing Reader anchors in Master16, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/reader-alternatives-self-check-2026-11-26.md": "07875c6c70361018d020acd14a7d513665e9096ebf78120e36d6d1714fdb23ad",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/ai-assistance-metadata.json": "f5d4074877b89cab5dee316b3647d98a98d70759a6063c9d12e2ee86941c90d0",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/candidate.json": "1be2f1de4d3b4220d79d863b620c714d159e254c56c74d5f3944e23fd04d957d",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/reader-alternatives-ai-assistance-2026-11-26.json": "c811a6731080e1d960a9572333064855edd8203eaf46d9c02c8abd4edcbb57ed",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/reader-alternatives-2026-11-26.json": "6e70e441b652d78ef4053549b642ca30cbbebf47a11d3863c235ee0e4bce10fd",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/README.md": "20bb892d1a3706e49a0502d4aafec117849082c2111cb4d131314e0561ac37c9",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/final-self-check.md": "b9d8d4d548d5ed5fbf66402c8e9acb60ff05052c6f0e1b9ecd28ba39821ac9e2",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/validate.py": "f23b97f5c253881559c5a088df837d5f28d7a2f79571767823b427bf65dfe2f0",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/reader-alternatives-opus-2026-11-26.md": "e6d3d2504c1e6944606d2ab0faa6be265ddfc282841e4864e37af3efc8ece888",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/reader-alternatives-fable-2026-11-26.md": "e5820d601b9dc3653cdc40d1e55cce07e450dfef63a86df7e4edf5fab743ad4d",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/opus-critique.md": "b2cb9ddf92165721254815b7b8431dd370fa8aacb2e62ac74650300ab2f55172",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/validate-reader-alternatives-2026-11-26.py": "04f69436074c14cca7b29c1cebbdcc92fa37bcc14a1f11d5b17ebe8a489d7a57",
+    "content/french-roofing/candidates/master-16-authored-candidate-2026-11-24/fable-critique.md": "ab58ed52c3558bb2f6e215bd15ab0ba0227fb24b122fff44572e72a3252e546f"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:1",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:1",
+      "sourceEnglish": "At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side.",
+      "sourceSpanish": "A las once llegó el inspector municipal, el señor Wong, mientras la cuadrilla instalaba las tejas del lado sur.",
+      "legacySourceRef": "master-roofing:16:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: At eleven the city inspector, Mr. Wong, arrived while the crew was installing the shingles on the south side.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "À onze heures, M. Wong, inspecteur municipal dans cette scène fictive, est arrivé pendant la pose des bardeaux du côté sud.",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:1:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "À onze heures, l’inspecteur municipal, M. Wong, est arrivé pendant que l’équipe posait les bardeaux du côté sud.",
+          "alignmentNote": "Keeps eleven, city inspector Mr. Wong, arrival during ongoing shingle installation and south-side location. No AM/PM conversion or completed inspection is added.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:2",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:2",
+      "sourceEnglish": "Rogelio came down from the roof and greeted him: Good morning, here's the permit.",
+      "sourceSpanish": "Rogelio bajó del techo y lo saludó: Buenos días, aquí tiene el permiso.",
+      "legacySourceRef": "master-roofing:16:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio came down from the roof and greeted him: Good morning, here's the permit.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio est descendu du toit pour l’accueillir : « Bonjour, voici le permis. »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:2:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio est descendu du toit et l’a salué : « Bonjour, voici le permis. »",
+          "alignmentNote": "Preserves descent from the roof, greeting the inspector and the full quoted good-morning/permit presentation. No permit validity or access approval is asserted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:4",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:4",
+      "sourceEnglish": "Inspector: Thank you; I'm here to check the fastening and the flashing.",
+      "sourceSpanish": "Inspector: Gracias; vengo a hacer la revisión de la fijación y del tapajuntas.",
+      "legacySourceRef": "master-roofing:16:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Inspector: Thank you; I'm here to check the fastening and the flashing.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "L’inspecteur : « Merci, je viens examiner les fixations et les solins. »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:4:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "L’inspecteur : « Merci ; je suis ici pour vérifier la fixation et les solins. »",
+          "alignmentNote": "Preserves thanks and purpose: checking fastening and flashing. This is not a finding that either is compliant.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:5",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:5",
+      "sourceEnglish": "Rogelio: Would you like to go up or would you rather see the photos?",
+      "sourceSpanish": "Rogelio: ¿Desea subir o prefiere ver las fotos?",
+      "legacySourceRef": "master-roofing:16:passage:5",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Would you like to go up or would you rather see the photos?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Préférez-vous examiner le toit ou les photos, selon les règles d’accès au chantier ? »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:5:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Aimeriez-vous monter ou préféreriez-vous voir les photos ? »",
+          "alignmentNote": "Preserves the two polite alternatives: going up or preferring to see the photos. No permission, safe-access procedure or actual ascent is inserted.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: Would you like to go up or would you rather see the photos?",
+        "exactSpanish": "Rogelio: ¿Desea subir o prefiere ver las fotos?",
+        "status": "open",
+        "scope": "English polite would/future wording versus source Spanish present-plan/preference forms. French conditional/future follows English; no automatic passive-se grammar transfer or completed action."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:6",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:6",
+      "sourceEnglish": "Inspector: I'd rather go up; how are the shingles nailed on this job?",
+      "sourceSpanish": "Inspector: Prefiero subir; ¿cómo se clavan las tejas en esta obra?",
+      "legacySourceRef": "master-roofing:16:passage:6",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Inspector: I'd rather go up; how are the shingles nailed on this job?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "L’inspecteur : « Je voudrais voir la pose; quelle méthode de fixation utilisez-vous ici ? »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:6:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "L’inspecteur : « Je préférerais monter ; comment les bardeaux sont-ils cloués sur ce chantier ? »",
+          "alignmentNote": "Keeps the preference to go up and the question about how shingles are nailed on this job. Does not invent a nail count or universal method.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Inspector: I'd rather go up; how are the shingles nailed on this job?",
+        "exactSpanish": "Inspector: Prefiero subir; ¿cómo se clavan las tejas en esta obra?",
+        "status": "open",
+        "scope": "English polite would/future wording versus source Spanish present-plan/preference forms. French conditional/future follows English; no automatic passive-se grammar transfer or completed action."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:8",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:8",
+      "sourceEnglish": "Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report.",
+      "sourceSpanish": "Rogelio: Se revisa cada hilera antes de seguir, y el método de fijación se anota en el reporte del día.",
+      "legacySourceRef": "master-roofing:16:passage:8",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Each course is checked before continuing, and the fastening method is noted in the day's report.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Chaque rang est vérifié avant de poursuivre, et la méthode est consignée dans le rapport du jour. »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:8:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Chaque rang est vérifié avant la poursuite du travail, et la méthode de fixation est notée dans le rapport du jour. »",
+          "alignmentNote": "Keeps every course, checking before continuing and recording the fastening method in the daily report. Passive actor remains unnamed; no inspection approval or omitted course is added.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:9",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:9",
+      "sourceEnglish": "The inspector checked the attic ventilation and the chimney flashing.",
+      "sourceSpanish": "El inspector revisó la ventilación del ático y el tapajuntas de la chimenea.",
+      "legacySourceRef": "master-roofing:16:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: The inspector checked the attic ventilation and the chimney flashing.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "L’inspecteur a ensuite examiné la ventilation des combles et le solin de cheminée.",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:9:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "L’inspecteur a vérifié la ventilation des combles et les solins de la cheminée.",
+          "alignmentNote": "Keeps the completed check of attic ventilation and chimney flashing without turning it into a compliant finding or successful ventilation measurement.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:12",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:12",
+      "sourceEnglish": "Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+      "sourceSpanish": "Rogelio: ¿Podría indicarme qué hay que corregir exactamente, según el requisito?",
+      "legacySourceRef": "master-roofing:16:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: Could you tell me exactly what needs to be corrected, according to the requirement?",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Pourriez-vous préciser par écrit ce qui doit être corrigé et la référence applicable ? »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:12:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Pourriez-vous m’indiquer exactement ce qu’il faut corriger, selon l’exigence ? »",
+          "alignmentNote": "Keeps the polite could-you question, exact correction requested and the requirement reference. The actual code requirement remains unverified.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:14",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:14",
+      "sourceEnglish": "Rogelio: We'll correct it today and request the re-inspection through the city website.",
+      "sourceSpanish": "Rogelio: Lo corregimos hoy mismo y pedimos la reinspección por la página de la ciudad.",
+      "legacySourceRef": "master-roofing:16:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio: We'll correct it today and request the re-inspection through the city website.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio : « Nous organiserons la correction puis demanderons une nouvelle inspection selon la procédure locale. »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:14:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio : « Nous corrigerons cela aujourd’hui et demanderons la réinspection sur le site web de la ville. »",
+          "alignmentNote": "Keeps same-day correction and the future request for re-inspection through the city website. Does not claim that correction, request or approval has already occurred.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceLanguageMeaningDifference": {
+        "exactEnglish": "Rogelio: We'll correct it today and request the re-inspection through the city website.",
+        "exactSpanish": "Rogelio: Lo corregimos hoy mismo y pedimos la reinspección por la página de la ciudad.",
+        "status": "open",
+        "scope": "English polite would/future wording versus source Spanish present-plan/preference forms. French conditional/future follows English; no automatic passive-se grammar transfer or completed action."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:16:fr-en:reader:16",
+      "candidateRowId": "master-roofing:16:fr-en:candidate:reader:16",
+      "sourceEnglish": "At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive.",
+      "sourceSpanish": "Al final, Rogelio le dijo a Kevin: La próxima vez, avísame si ves llegar al inspector.",
+      "legacySourceRef": "master-roofing:16:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: At the end, Rogelio told Kevin: Next time, let me know if you see the inspector arrive.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve permit posting, inspector roof access, nail count, step-flashing requirements, compliance claim and same-day correction/re-inspection workflow against archived French rewrites. Preserve exact source meanings until qualified local-code, product, safety and French review settles the teaching text."
+        }
+      ],
+      "archivedFrenchEvidence": "Plus tard, Rogelio a dit à Kevin : « Préviens-moi quand l’inspecteur arrive. »",
+      "unresolvedReviewNotes": [
+        "The exact inspector/permit/access/fastening/report/correction/re-inspection source statements remain unselected. No current local code, permit validity, safe roof access, product method, inspection result or city-web workflow is independently approved."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:16:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "À la fin, Rogelio a dit à Kevin : « La prochaine fois, préviens-moi si tu vois arriver l’inspecteur. »",
+          "alignmentNote": "Keeps the full narrator/quoted frame, next time, notify me and the if-you-see condition. Familiar Kevin address follows source avísame, not a new supervisor audience.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:16:fr-en:reader:1",
+      "master-roofing:16:fr-en:reader:2",
+      "master-roofing:16:fr-en:reader:4",
+      "master-roofing:16:fr-en:reader:5",
+      "master-roofing:16:fr-en:reader:6",
+      "master-roofing:16:fr-en:reader:8",
+      "master-roofing:16:fr-en:reader:9",
+      "master-roofing:16:fr-en:reader:12",
+      "master-roofing:16:fr-en:reader:14",
+      "master-roofing:16:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 10,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:16:fr-en:reader:10",
+      "master-roofing:16:fr-en:reader:11",
+      "master-roofing:16:fr-en:reader:13",
+      "master-roofing:16:fr-en:reader:15",
+      "master-roofing:16:fr-en:reader:3",
+      "master-roofing:16:fr-en:reader:7"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:16:fr-en:reader:1",
+      "master-roofing:16:fr-en:reader:12",
+      "master-roofing:16:fr-en:reader:14",
+      "master-roofing:16:fr-en:reader:16",
+      "master-roofing:16:fr-en:reader:2",
+      "master-roofing:16:fr-en:reader:4",
+      "master-roofing:16:fr-en:reader:5",
+      "master-roofing:16:fr-en:reader:6",
+      "master-roofing:16:fr-en:reader:8",
+      "master-roofing:16:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the city inspector arriving mid-install: greet them formally, show the permit, explain how fastening and flashing are done with passive se, and confirm any correction they ask for.",
+    "scope": "Full Reader support does not automatically adapt/complete original grammar, speaking, trade or locale objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

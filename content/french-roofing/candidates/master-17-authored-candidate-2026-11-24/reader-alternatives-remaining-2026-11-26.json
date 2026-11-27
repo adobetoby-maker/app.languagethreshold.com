@@ -1,0 +1,506 @@
+{
+  "schema": "french-roofing-reader-alternatives-v1",
+  "kind": "inert-source-only-reader-alternatives",
+  "lessonId": "master-roofing:17:fr-en",
+  "targetLanguage": "English",
+  "supportLanguage": "French",
+  "originMain": "f08d9162ae6aba872b4bb20c6dbb16858ecc129e",
+  "canonicalCandidatePath": "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/candidate.json",
+  "canonicalCandidateSha256": "0dc875b950a1f8c5f1fb0b09959c12d5058f2436756f49445e0304edafabee29",
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-17-source-decision-2026-11-18/packet.json",
+    "sha256": "96ae8c256936b1e005935ca49296e2c81a5c7fa3af8cb699837f15281f7eb9f8"
+  },
+  "sourceObjectiveEnglish": "Write a clear daily report: work done, deck repairs with photos, materials used and open items",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto.",
+  "sourceObjectiveCompletionStatus": "held and incomplete; linguistic supplemental proposals do not complete source work objective",
+  "scope": "10remaining missing Reader anchors in Master17, additive to all preserved first-passNov26 artifacts; full-face language proposals, not qualified selection or original objective completion.",
+  "gates": {
+    "qualifiedEnglish": false,
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false
+  },
+  "reviewed": false,
+  "selectedFrench": null,
+  "audioScript": null,
+  "scoringEnabled": false,
+  "registered": false,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "sourceMissionCompletionClaim": false,
+  "priorArtifactSha256": {
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/reader-alternatives-self-check-2026-11-26.md": "07875c6c70361018d020acd14a7d513665e9096ebf78120e36d6d1714fdb23ad",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/ai-assistance-metadata.json": "f5d4074877b89cab5dee316b3647d98a98d70759a6063c9d12e2ee86941c90d0",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/candidate.json": "0dc875b950a1f8c5f1fb0b09959c12d5058f2436756f49445e0304edafabee29",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/reader-alternatives-ai-assistance-2026-11-26.json": "c811a6731080e1d960a9572333064855edd8203eaf46d9c02c8abd4edcbb57ed",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/reader-alternatives-2026-11-26.json": "8dd4339456d3c43b01f6596200e69fb3452efc950d069d15048fa8096f3b9082",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/README.md": "7c6c72cef79f4f5e6d8bc1f3a49338e6f61a8744583c3dce1bc7bff78b1de279",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/final-self-check.md": "b9d8d4d548d5ed5fbf66402c8e9acb60ff05052c6f0e1b9ecd28ba39821ac9e2",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/validate.py": "f23b97f5c253881559c5a088df837d5f28d7a2f79571767823b427bf65dfe2f0",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/reader-alternatives-opus-2026-11-26.md": "e6d3d2504c1e6944606d2ab0faa6be265ddfc282841e4864e37af3efc8ece888",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/reader-alternatives-fable-2026-11-26.md": "e5820d601b9dc3653cdc40d1e55cce07e450dfef63a86df7e4edf5fab743ad4d",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/opus-critique.md": "b2cb9ddf92165721254815b7b8431dd370fa8aacb2e62ac74650300ab2f55172",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/validate-reader-alternatives-2026-11-26.py": "04f69436074c14cca7b29c1cebbdcc92fa37bcc14a1f11d5b17ebe8a489d7a57",
+    "content/french-roofing/candidates/master-17-authored-candidate-2026-11-24/fable-critique.md": "ab58ed52c3558bb2f6e215bd15ab0ba0227fb24b122fff44572e72a3252e546f"
+  },
+  "rows": [
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:1",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:1",
+      "sourceEnglish": "At the end of the day, Rogelio sat in the pickup to write the daily report.",
+      "sourceSpanish": "Al final del día, Rogelio se sentó en la camioneta para escribir el reporte diario.",
+      "legacySourceRef": "master-roofing:17:passage:1",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: At the end of the day, Rogelio sat in the pickup to write the daily report.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "En fin de journée, Rogelio s’est assis dans la camionnette pour rédiger le rapport quotidien.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:1:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "En fin de journée, Rogelio s’est assis dans le pick-up pour rédiger le rapport quotidien.",
+          "alignmentNote": "Keeps end of day, the completed sitting action, pickup vehicle and purpose of writing the daily report. Pick-up preserves vehicle specificity rather than silently choosing a van.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:2",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:2",
+      "sourceEnglish": "First he sent Kevin a message: Hey, send me the photos of the plywood.",
+      "sourceSpanish": "Primero le mandó un mensaje a Kevin: Oye, mándame las fotos del triplay.",
+      "legacySourceRef": "master-roofing:17:passage:2",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: First he sent Kevin a message: Hey, send me the photos of the plywood.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Il a d’abord écrit à Kevin : « Envoie-moi les photos du contreplaqué, s’il te plaît. »",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:2:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "D’abord, il a envoyé un message à Kevin : « Hé, envoie-moi les photos du contreplaqué. »",
+          "alignmentNote": "Keeps first, the message to Kevin and the entire familiar attention call/request for plywood photos. Does not substitute deck-repair photos or soften the imperative.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:3",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:3",
+      "sourceEnglish": "Then he wrote the report in a more formal tone than his messages.",
+      "sourceSpanish": "Después escribió el reporte con un tono más formal que el de sus mensajes.",
+      "legacySourceRef": "master-roofing:17:passage:3",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Then he wrote the report in a more formal tone than his messages.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Puis il a adopté un ton plus formel pour le rapport.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:3:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Ensuite, il a rédigé le rapport sur un ton plus formel que celui de ses messages.",
+          "alignmentNote": "Keeps then, completed writing and the comparison with his own messages: more formal, not merely formal or the most formal.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:4",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:4",
+      "sourceEnglish": "Daily report for October 14; address: 418 Pine Street, Ortega house.",
+      "sourceSpanish": "Reporte diario del 14 de octubre; dirección: 418 Pine Street, casa Ortega.",
+      "legacySourceRef": "master-roofing:17:passage:4",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Daily report for October 14; address: 418 Pine Street, Ortega house.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Rapport quotidien du 14 octobre; adresse fictive : 418, rue Pine, maison Ortega.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:4:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rapport quotidien du 14 octobre ; adresse : 418 Pine Street, maison Ortega.",
+          "alignmentNote": "Keeps October 14, address 418 Pine Street and Ortega house. No year, translated street name or speculative numerical correction is introduced.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:9",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:9",
+      "sourceEnglish": "Likewise, the membrane was installed in the valley and around the skylight.",
+      "sourceSpanish": "Asimismo, se instaló la membrana en la limahoya y alrededor del tragaluz.",
+      "legacySourceRef": "master-roofing:17:passage:9",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Likewise, the membrane was installed in the valley and around the skylight.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "La membrane a également été posée dans la noue et autour de la fenêtre de toit, selon le relevé.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:9:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "De même, la membrane a été installée dans la noue et autour de la fenêtre de toit.",
+          "alignmentNote": "Keeps likewise, completed membrane installation, the valley and the area around the skylight. Does not specify an unmentioned membrane product or validated assembly.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:12",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:12",
+      "sourceEnglish": "Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning.",
+      "sourceSpanish": "Pendientes: queda pendiente el caballete del lado oeste y, además, falta limpiar la canaleta.",
+      "legacySourceRef": "master-roofing:17:passage:12",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Open items: the ridge cap on the west side is still pending and, in addition, the gutter still needs cleaning.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Points ouverts : la finition du faîtage ouest et le nettoyage de la gouttière restent à faire.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:12:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Points en suspens : la faîtière du côté ouest reste à faire et, de plus, il faut encore nettoyer la gouttière.",
+          "alignmentNote": "Keeps pending west-side ridge cap, the additive connector and gutter cleaning still needed. Does not mark either item completed or expand the pending item to the whole west roof.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:13",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:13",
+      "sourceEnglish": "Rain is expected tomorrow afternoon; therefore, the crew will start at 6:30 a.m.",
+      "sourceSpanish": "Para mañana se espera lluvia por la tarde; por lo tanto, la cuadrilla empezará a las 6:30 a. m.",
+      "legacySourceRef": "master-roofing:17:passage:13",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rain is expected tomorrow afternoon; therefore, the crew will start at 6:30 a.m.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "De la pluie est prévue demain après-midi; l’horaire du lendemain reste à confirmer selon les conditions.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:13:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "De la pluie est prévue demain après-midi ; par conséquent, l’équipe commencera à six heures trente du matin.",
+          "alignmentNote": "Keeps expected rain tomorrow afternoon, therefore and definite crew start at 6:30 a.m. No additional condition, weather verification or schedule conversion is added.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:14",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:14",
+      "sourceEnglish": "With nothing further, I sign off.",
+      "sourceSpanish": "Sin otro particular, me despido.",
+      "legacySourceRef": "master-roofing:17:passage:14",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: With nothing further, I sign off.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Je termine le rapport et reste disponible pour toute question.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:14:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "N’ayant rien à ajouter, je prends congé.",
+          "alignmentNote": "Keeps the formal nothing-further/sign-off closing. It is farewell/closing language, not signing approval of an inspection or declaring a job complete.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceClosingFormulaIssue": {
+        "status": "open",
+        "scope": "English sign off/Spanish me despido is a closing/farewell formula here, not technical sign-off authorizing work. Exact French correspondence register remains reviewable."
+      }
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:15",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:15",
+      "sourceEnglish": "Rogelio Mendoza, crew lead.",
+      "sourceSpanish": "Rogelio Mendoza, jefe de cuadrilla.",
+      "legacySourceRef": "master-roofing:17:passage:15",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Rogelio Mendoza, crew lead.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Rogelio Mendoza, chef d’équipe.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:15:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Rogelio Mendoza, chef d’équipe.",
+          "alignmentNote": "Keeps the name and crew-lead role. Does not elevate him to company supervisor, owner or licensed inspector.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": true
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false
+    },
+    {
+      "sourceAnchor": "master-roofing:17:fr-en:reader:16",
+      "candidateRowId": "master-roofing:17:fr-en:candidate:reader:16",
+      "sourceEnglish": "Before sending it, Rogelio read the report again and corrected two numbers.",
+      "sourceSpanish": "Antes de enviarlo, Rogelio leyó el reporte otra vez y corrigió dos números.",
+      "legacySourceRef": "master-roofing:17:passage:16",
+      "originalCandidateHold": "Exact source face held for qualified French/source/domain/locale decision: Before sending it, Rogelio read the report again and corrected two numbers.",
+      "sourceDecisionQuestions": [
+        {
+          "ordinal1Based": 1,
+          "jsonPointer": "/sourceDecisionQuestions/0",
+          "question": "Resolve current source and archived French meanings in every face; archived wording may add conditions or omit source meaning. Qualified French, roofing, contract, locale and dictionary review must select exact text before modes, speaking, dictionary and audio are authored."
+        }
+      ],
+      "archivedFrenchEvidence": "Avant l’envoi, Rogelio a relu le rapport et corrigé deux chiffres.",
+      "unresolvedReviewNotes": [
+        "Daily-report source wording and quantities remain pinned. Vehicle/attic/ridge-cap/underlayment/crew-role terms are unselected proposals; no actual installation completion, invoice validity or report accuracy certified."
+      ],
+      "alternatives": [
+        {
+          "id": "master-roofing:17:fr-en:reader-remaining-alternative:16:1",
+          "label": "Unselected source-grounded fallback proposal",
+          "candidateFrench": "Avant de l’envoyer, Rogelio a relu le rapport et a corrigé deux nombres.",
+          "alignmentNote": "Keeps before sending, reading again and correcting exactly two numbers. The source does not identify those numbers, so no earlier quantities or address values are changed by inference.",
+          "status": "unselected full-face French meaning support; no qualified approval",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null,
+          "scoringEnabled": false,
+          "matchesArchivedFrenchAfterWhitespaceApostropheNormalization": false
+        }
+      ],
+      "reviewed": false,
+      "selectedFrench": null,
+      "audioScript": null,
+      "scoringEnabled": false,
+      "holdResolved": false,
+      "sourceNumericalCorrectionIssue": {
+        "status": "open",
+        "whichNumbersSpecified": false,
+        "earlierSourceValuesChanged": false,
+        "scope": "Source says two numbers were corrected without naming them. No alteration to earlier dates/address/14squares/15bundles/three-sheet values is inferred."
+      }
+    }
+  ],
+  "coverage": {
+    "canonicalReaderTotal": 16,
+    "canonicalFrenchProposedBefore": 0,
+    "canonicalFrenchProposedAfter": 0,
+    "canonicalRowsPromoted": 0,
+    "supplementalAnchors": [
+      "master-roofing:17:fr-en:reader:1",
+      "master-roofing:17:fr-en:reader:2",
+      "master-roofing:17:fr-en:reader:3",
+      "master-roofing:17:fr-en:reader:4",
+      "master-roofing:17:fr-en:reader:9",
+      "master-roofing:17:fr-en:reader:12",
+      "master-roofing:17:fr-en:reader:13",
+      "master-roofing:17:fr-en:reader:14",
+      "master-roofing:17:fr-en:reader:15",
+      "master-roofing:17:fr-en:reader:16"
+    ],
+    "supplementalAnchorCount": 10,
+    "supplementalFullFaceAlternativeCount": 10
+  },
+  "distinctCoverageUnion": {
+    "canonicalAnchors": [],
+    "priorSidecarAnchors": [
+      "master-roofing:17:fr-en:reader:10",
+      "master-roofing:17:fr-en:reader:11",
+      "master-roofing:17:fr-en:reader:5",
+      "master-roofing:17:fr-en:reader:6",
+      "master-roofing:17:fr-en:reader:7",
+      "master-roofing:17:fr-en:reader:8"
+    ],
+    "newSidecarAnchors": [
+      "master-roofing:17:fr-en:reader:1",
+      "master-roofing:17:fr-en:reader:12",
+      "master-roofing:17:fr-en:reader:13",
+      "master-roofing:17:fr-en:reader:14",
+      "master-roofing:17:fr-en:reader:15",
+      "master-roofing:17:fr-en:reader:16",
+      "master-roofing:17:fr-en:reader:2",
+      "master-roofing:17:fr-en:reader:3",
+      "master-roofing:17:fr-en:reader:4",
+      "master-roofing:17:fr-en:reader:9"
+    ],
+    "coveredBeforeCount": 6,
+    "coveredAfterCount": 16,
+    "sourceReaderTotal": 16,
+    "actualRemainingReaderAnchors": []
+  },
+  "remainingMissingReaderAnchorsWithoutThisSupplement": [],
+  "sourceLanguageObjectiveIssue": {
+    "status": "open",
+    "exactSourceSpeakingEnglish": "You are the crew lead and the AI is the office manager taking your end-of-day report by phone: give the hours, the squares completed, the deck repair and materials, and the open items, using report connectors like además, asimismo and por lo tanto.",
+    "scope": "Full Reader support does not automatically adapt/complete original grammar, speaking, trade or locale objectives."
+  },
+  "internalNotes": [
+    "All prior first-passNov26/canonical/source/speaking/IDs/holds byte-preserved. Direct clinical/trade/source assertions taught, actual source/safety/locale/culture decisions internal.",
+    "Quota fallback: parent reports429Claudeweekly limit resettingNov28noonDenver. No new Claude calls or claimed Haiku/Opus/Fable chain. Independent parent critique pending; no qualified review."
+  ]
+}

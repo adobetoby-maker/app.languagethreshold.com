@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-26",
+  "qualifiedApproval": false,
+  "selfAuthored": true,
+  "authoring": "source-grounded assistant-authored draft; requested CLI chain unavailable",
+  "selfCheck": "Exact pinned Reader/card/form/global-ID references checked independently; language explanations manually checked against source. No existing row changed. AI is not qualified review.",
+  "haikuAttempt": {
+    "safeMode": true,
+    "requestedModel": "claude-haiku-5-5",
+    "actualModelUsage": {},
+    "sessionId": "9931229d-d1c7-40a4-85e3-e3ddd602eece",
+    "isError": true,
+    "apiErrorStatus": 429,
+    "apiError": "usage_limit_reached",
+    "result": "Weekly limit reached; resets Nov 28 at 12pm (America/Denver); no usage credits; no generated model content."
+  },
+  "opus": {
+    "attempted": false,
+    "reason": "Claude CLI account weekly usage exhausted before authoring produced content."
+  },
+  "fable": {
+    "attempted": false,
+    "reason": "Claude CLI account weekly usage exhausted before authoring produced content."
+  }
+}

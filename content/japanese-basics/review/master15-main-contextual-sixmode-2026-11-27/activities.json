@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "kind": "inert-current-main-contextual-sixmode",
+  "baselineMain": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "lesson": 15,
+  "sourceVersionSha256": "f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e",
+  "sourcePins": {
+    "master": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    "cards": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    "cardIdentity": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "content/japanese-basics/review/master1-20-card-identity-manifest-2026-11-26/manifest.json",
+      "sha256": "0ee0c1e31d8cc09dccf83261b3645427b33098be8ec7709dd90fc4a19f74ca11"
+    }
+  },
+  "privateFormSourcePin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+    "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+  },
+  "activities": [
+    {
+      "id": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:mode:see",
+      "mode": "see",
+      "sourceTurnOneBased": 1,
+      "targetJapanese": "この みちを まっすぐ いってください。",
+      "targetEnglish": "Please go straight on this road.",
+      "promptEnglish": "Read the first direction. Identify the road and direction of travel.",
+      "promptJapanese": "さいしょの あんないを よんで、どの みちを どう いくかを たしかめて ください。",
+      "explanationEnglish": "この みちを marks the road followed, and まっすぐ means straight. いってください politely asks the traveler to go.",
+      "explanationJapanese": "「この みちを」は、とおる みちを しめします。「まっすぐ」は、まっすぐの むきです。「いってください」は、いくように たのむ いいかたです。",
+      "targetSpeakerRoleEnglish": "Guide",
+      "learnerPracticeRoleEnglish": "Guide",
+      "wordBankJapanese": [
+        "この",
+        "みちを",
+        "まっすぐ",
+        "いってください。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:reader:0:0adb2237f07bb640aa140ed13ae2ebd4eaad25c6528c682129b9442cca09de4c",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:defb0072172110daf1fc905cc445d1915647fe780f747db7cb7901073f28a6ac"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-d9ec2b2084d69cd0",
+          "sourceDialogueTurn": 1,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A guide helps a traveler find the school and its class, then checks that the route is understood. The traveler gives the capability reply; the guide gives directions and the check question.",
+      "privateExactDialogueTurnsOneBased": [
+        1
+      ]
+    },
+    {
+      "id": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:mode:recall",
+      "mode": "recall",
+      "sourceTurnOneBased": 2,
+      "targetJapanese": "えきの まえで みぎに まがってください。",
+      "targetEnglish": "Please turn right in front of the station.",
+      "promptEnglish": "Recall where the traveler should turn and which way. Give the complete direction.",
+      "promptJapanese": "どこで どちらに まがるかを おもいだして、ぶんで つたえて ください。",
+      "explanationEnglish": "えきの まえで locates the turning action in front of the station; みぎに gives the direction of the turn.",
+      "explanationJapanese": "「えきの まえで」は、まがる ばしょです。「みぎに」は、まがる むきを しめします。",
+      "targetSpeakerRoleEnglish": "Guide",
+      "learnerPracticeRoleEnglish": "Guide",
+      "wordBankJapanese": [
+        "えきの",
+        "まえで",
+        "みぎに",
+        "まがってください。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:reader:1:fbc1158c4d878b97b00beaf08acbb2dd0ae963896612603b9128c5ea4e0d7a6d",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:5f9b652ebc3706b003572235ea3f6936918f4f41702cc415ed66d055318d74ae"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-3a7955b04999ff66",
+          "sourceDialogueTurn": 2,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A guide helps a traveler find the school and its class, then checks that the route is understood. The traveler gives the capability reply; the guide gives directions and the check question.",
+      "privateExactDialogueTurnsOneBased": [
+        2
+      ]
+    },
+    {
+      "id": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:mode:hear",
+      "mode": "hear",
+      "sourceTurnOneBased": 3,
+      "targetJapanese": "がっこうは えきの となりです。",
+      "targetEnglish": "The school is next to the station.",
+      "promptEnglish": "Listen for the location of the school. Select the line locating it next to the station.",
+      "promptJapanese": "がっこうの ばしょを きいて、えきの となりに あると つたえる ぶんを えらんで ください。",
+      "explanationEnglish": "えきの となり describes the school’s relative position. It does not give a new turning instruction.",
+      "explanationJapanese": "「えきの となり」は、えきと がっこうの いちの かんけいを いいます。あたらしい まがりかたの あんないでは ありません。",
+      "targetSpeakerRoleEnglish": "Guide",
+      "learnerPracticeRoleEnglish": "Listener",
+      "wordBankJapanese": [
+        "がっこうは",
+        "えきの",
+        "となりです。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:reader:2:e5b221f551fc1e96428f2adf5b6b7b2e8cf8bbf1efdbe28a2d34c39535a8cefe",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:398b182771d2ba7a91398b4eabc07d06dd69672db0ac62adadebbc3f38e7a817"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "hear": {
+        "textOnlyUnsynthesized": true,
+        "playbackEnabled": false,
+        "correctChoiceIndexZeroBased": 1,
+        "choices": [
+          {
+            "sourceTurnOneBased": 1,
+            "japanese": "この みちを まっすぐ いってください。",
+            "english": "Please go straight on this road."
+          },
+          {
+            "sourceTurnOneBased": 3,
+            "japanese": "がっこうは えきの となりです。",
+            "english": "The school is next to the station."
+          },
+          {
+            "sourceTurnOneBased": 4,
+            "japanese": "クラスは にかいに あります。",
+            "english": "Our class is on the second floor."
+          }
+        ]
+      },
+      "contextEnglish": "A guide helps a traveler find the school and its class, then checks that the route is understood. The traveler gives the capability reply; the guide gives directions and the check question.",
+      "privateExactDialogueTurnsOneBased": [
+        3
+      ]
+    },
+    {
+      "id": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:mode:type",
+      "mode": "type",
+      "sourceTurnOneBased": 4,
+      "targetJapanese": "クラスは にかいに あります。",
+      "targetEnglish": "Our class is on the second floor.",
+      "promptEnglish": "Type the complete sentence giving the class’s floor.",
+      "promptJapanese": "クラスが なんかいに あるかを、ぶんで にゅうりょくして ください。",
+      "explanationEnglish": "にかいに marks the location of the class with あります. Compare the next line’s にかいで for the location of studying.",
+      "explanationJapanese": "「にかいに」は、クラスが ある ばしょです。つぎの「にかいで」は、べんきょうする ばしょを しめします。",
+      "targetSpeakerRoleEnglish": "Guide",
+      "learnerPracticeRoleEnglish": "Guide",
+      "wordBankJapanese": [
+        "クラスは",
+        "にかいに",
+        "あります。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:reader:3:b21a278f1014069ddee0cf2b5710105f3b92cf5e95715580b20666c258fe163d",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:06cc63364530322d863380f5549efd3c8e1d37beae8a0fee8cf295fff028b4a8"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-5a9c7e572ac93ca9",
+          "sourceDialogueTurn": 4,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A guide helps a traveler find the school and its class, then checks that the route is understood. The traveler gives the capability reply; the guide gives directions and the check question.",
+      "privateExactDialogueTurnsOneBased": [
+        4
+      ]
+    },
+    {
+      "id": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:mode:say",
+      "mode": "say",
+      "sourceTurnOneBased": 7,
+      "targetJapanese": "はい、がっこうまで いけます。",
+      "targetEnglish": "Yes, I can get to the school.",
+      "promptEnglish": "The guide asks whether you understand the route. Say the traveler’s complete confirmation that you can get to the school.",
+      "promptJapanese": "みちが わかるかと きかれました。がっこうまで いけると こたえて ください。",
+      "explanationEnglish": "いけます is the potential form of いく: can go or get there. まで marks the endpoint, the school.",
+      "explanationJapanese": "「いけます」は「いく」の かのうの かたちです。「がっこうまで」は、いける さきを しめします。",
+      "targetSpeakerRoleEnglish": "Traveler",
+      "learnerPracticeRoleEnglish": "Traveler",
+      "wordBankJapanese": [
+        "はい、がっこうまで",
+        "いけます。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:reader:6:fe45bca539371f81a925037ff2720cced88decf9c0e9acd0900dd3bc278dc477",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-2469b5cd7e58ac76",
+          "sourceDialogueTurn": 7,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A guide helps a traveler find the school and its class, then checks that the route is understood. The traveler gives the capability reply; the guide gives directions and the check question.",
+      "privateExactDialogueTurnsOneBased": [
+        7
+      ]
+    },
+    {
+      "id": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:mode:write",
+      "mode": "write",
+      "sourceTurnOneBased": 6,
+      "targetJapanese": "みちは わかりますか。",
+      "targetEnglish": "Do you understand the route?",
+      "promptEnglish": "After giving the route, write the guide’s question checking understanding.",
+      "promptJapanese": "みちを あんないした あと、わかったかを たしかめる しつもんを かいて ください。",
+      "explanationEnglish": "わかりますか asks whether the route is understood. This checks understanding rather than assuming the traveler has arrived.",
+      "explanationJapanese": "「わかりますか」は、みちが わかったかを たずねます。もう ついたと いう ぶんでは ありません。",
+      "targetSpeakerRoleEnglish": "Guide",
+      "learnerPracticeRoleEnglish": "Guide",
+      "wordBankJapanese": [
+        "みちは",
+        "わかりますか。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master15-main:f70787b063b1989a9e3eb310b53c7dff206f06b549354c43e5c8ca2fdf90178e:reader:5:ff19bb66066c21502e5ef049c3adf8336e3b11520abb2382bf59762f80021ae3",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:5d3f5b75e6563caf9a76e9884c11ae84cfa1a783779428b7947184f721135d8c"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A guide helps a traveler find the school and its class, then checks that the route is understood. The traveler gives the capability reply; the guide gives directions and the check question.",
+      "privateExactDialogueTurnsOneBased": [
+        6
+      ]
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "registered": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "runtime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "privateReaderPin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/master.json",
+    "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+  },
+  "sourceOwnershipNote": "Current main exact turns own these prompts. Matching private faces and their different turn positions are evidence only; private cue indexes, objectives and activity IDs are not adopted."
+}

@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "kind": "inert-current-main-contextual-sixmode",
+  "baselineMain": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+  "pair": {
+    "target": "Japanese",
+    "native": "English"
+  },
+  "lesson": 17,
+  "sourceVersionSha256": "7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831",
+  "sourcePins": {
+    "master": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "content/japanese-basics/master.json",
+      "sha256": "450c88455988b8738595ef08c4aeaa99cee323339ae7afe7bef37b38dba3c47a"
+    },
+    "extensions": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "content/japanese-basics/master-extensions.json",
+      "sha256": "366e7538830e6cc9f0c08021ae1d9a461005a3ce2e94024bc5d1019d6b0277e7"
+    },
+    "cards": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "src/data/core60/ja/master-japanese-basics.json",
+      "sha256": "a8c973ba434b1059b2fa5997b2a4fdbe87911438cd649bed4b3e3256368eb3db"
+    },
+    "cardIdentity": {
+      "gitRevision": "6c3c5c02a398bab30abb5d78e009a2d0323b1a0c",
+      "path": "content/japanese-basics/review/master1-20-card-identity-manifest-2026-11-26/manifest.json",
+      "sha256": "0ee0c1e31d8cc09dccf83261b3645427b33098be8ec7709dd90fc4a19f74ca11"
+    }
+  },
+  "privateFormSourcePin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/private-form-practice-master-11-20-ja-en.json",
+    "sha256": "620170d35265c9bd0622d14a811ad7f860c62cf88ace3f3dfa4c65fd7b23fb1d"
+  },
+  "activities": [
+    {
+      "id": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:mode:see",
+      "mode": "see",
+      "sourceTurnOneBased": 1,
+      "targetJapanese": "この ほんは たなかさんのですか。",
+      "targetEnglish": "Is this book Tanaka's?",
+      "promptEnglish": "Read the question about the book. Identify whose ownership is being checked.",
+      "promptJapanese": "ほんについての しつもんを よんで、だれの ほんかを たしかめているか みつけて ください。",
+      "explanationEnglish": "たなかさんの expresses Tanaka’s ownership. ですか turns the statement into a polite question.",
+      "explanationJapanese": "「たなかさんの」は、たなかさんの ものだと いう いみです。「ですか」で、ていねいに たずねます。",
+      "targetSpeakerRoleEnglish": "Questioner",
+      "learnerPracticeRoleEnglish": "Questioner",
+      "wordBankJapanese": [
+        "この",
+        "ほんは",
+        "たなかさんのですか。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:reader:0:0ac37dd98c8550ae57f334f3ba97c6cb0070dbf1d3ae3c93cccf759c6fa67286",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:ae55bdda2fc62c13f41d9b747b96b9ab310b27ba90dd8d38a850ba4ef3de9da7"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-f3042aac29ce9d6a",
+          "sourceDialogueTurn": 1,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A questioner and responder discuss a book associated with Tanaka. Aki’s book is then also mentioned. The recipient of the handover request asks which book is intended rather than silently resolving the omitted object.",
+      "privateExactDialogueTurnsOneBased": [
+        1
+      ]
+    },
+    {
+      "id": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:mode:recall",
+      "mode": "recall",
+      "sourceTurnOneBased": 2,
+      "targetJapanese": "はい、たなかさんのです。",
+      "targetEnglish": "Yes, it is Tanaka's.",
+      "promptEnglish": "Recall the answer confirming the book belongs to Tanaka, without repeating ほん.",
+      "promptJapanese": "ほんという ことばを くりかえさずに、たなかさんの ものだと こたえて ください。",
+      "explanationEnglish": "たなかさんの stands for Tanaka’s book because the book is clear from the preceding question.",
+      "explanationJapanese": "まえの しつもんで ほんの ことだと わかるので、「たなかさんの」と いって「ほん」を くりかえしません。",
+      "targetSpeakerRoleEnglish": "Responder",
+      "learnerPracticeRoleEnglish": "Responder",
+      "wordBankJapanese": [
+        "はい、たなかさんのです。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:reader:1:f5c891a3056a60c74608cea38db117c4d1e90cc85824155c8a5e1811fe22fd1c",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:911cd71cbe7249dd63c01f78b1b13aa7e59f29da5e0194b82aa70fcea0c8f000"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A questioner and responder discuss a book associated with Tanaka. Aki’s book is then also mentioned. The recipient of the handover request asks which book is intended rather than silently resolving the omitted object.",
+      "privateExactDialogueTurnsOneBased": [
+        2
+      ]
+    },
+    {
+      "id": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:mode:hear",
+      "mode": "hear",
+      "sourceTurnOneBased": 3,
+      "targetJapanese": "さっき かいました。",
+      "targetEnglish": "Tanaka bought it earlier.",
+      "promptEnglish": "Listen for when the book was bought. Select the line about the earlier purchase.",
+      "promptJapanese": "ほんを いつ かったかを きいて、さっき かったと いう ぶんを えらんで ください。",
+      "explanationEnglish": "さっき means earlier or a short time ago. かいました is polite past. Japanese leaves the subject and book unstated; the pinned English supplies Tanaka and it from context.",
+      "explanationJapanese": "「さっき」は、すこし まえの ことです。「かいました」は ていねいな かこです。だれが なにを かったかは、ぶんの なかで くりかえして いません。",
+      "targetSpeakerRoleEnglish": "Responder",
+      "learnerPracticeRoleEnglish": "Listener",
+      "wordBankJapanese": [
+        "さっき",
+        "かいました。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:reader:2:7c3ac992e5289389c81808e4260c176147d46d82247b127394e2c380025d2787",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:43e59037facf07cb70c66d89f0a10c4ff6af9bb2f2f33e3517142b7b7ebed19a"
+      ],
+      "privateCanonicalFormEvidence": null,
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "hear": {
+        "textOnlyUnsynthesized": true,
+        "playbackEnabled": false,
+        "correctChoiceIndexZeroBased": 1,
+        "choices": [
+          {
+            "sourceTurnOneBased": 1,
+            "japanese": "この ほんは たなかさんのですか。",
+            "english": "Is this book Tanaka's?"
+          },
+          {
+            "sourceTurnOneBased": 3,
+            "japanese": "さっき かいました。",
+            "english": "Tanaka bought it earlier."
+          },
+          {
+            "sourceTurnOneBased": 4,
+            "japanese": "あきさんに みせても いいですか。",
+            "english": "May I show it to Aki?"
+          }
+        ]
+      },
+      "contextEnglish": "A questioner and responder discuss a book associated with Tanaka. Aki’s book is then also mentioned. The recipient of the handover request asks which book is intended rather than silently resolving the omitted object.",
+      "privateExactDialogueTurnsOneBased": [
+        3
+      ]
+    },
+    {
+      "id": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:mode:type",
+      "mode": "type",
+      "sourceTurnOneBased": 4,
+      "targetJapanese": "あきさんに みせても いいですか。",
+      "targetEnglish": "May I show it to Aki?",
+      "promptEnglish": "Type the question asking permission to show the book to Aki.",
+      "promptJapanese": "あきさんに ほんを みせて よいかを、しつもんの ぶんで にゅうりょくして ください。",
+      "explanationEnglish": "みせても いいですか asks permission to show it. あきさんに marks the person who would be shown the book; the book is omitted because it is already the topic.",
+      "explanationJapanese": "「みせても いいですか」は、みせて よいかを たずねます。「あきさんに」は、みせる あいてです。ほんの ことは、もう わかるので くりかえしません。",
+      "targetSpeakerRoleEnglish": "Questioner",
+      "learnerPracticeRoleEnglish": "Questioner",
+      "wordBankJapanese": [
+        "あきさんに",
+        "みせても",
+        "いいですか。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:reader:3:fd35e568ea8789634cff3df5db151201437a00f6f91174e24fbcc19825c7d719",
+      "proposedVersionedCardIds": [
+        "review-ja-en-master-card:2623a4fa7140cf17eae8c573b06797291f0a78d2061e9af46b597ea31b346a2b"
+      ],
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-ca0eab39786ae1cf",
+          "sourceDialogueTurn": 4,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A questioner and responder discuss a book associated with Tanaka. Aki’s book is then also mentioned. The recipient of the handover request asks which book is intended rather than silently resolving the omitted object.",
+      "privateExactDialogueTurnsOneBased": [
+        4
+      ]
+    },
+    {
+      "id": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:mode:say",
+      "mode": "say",
+      "sourceTurnOneBased": 7,
+      "targetJapanese": "では、あとで あきさんに わたしてください。",
+      "targetEnglish": "Then please hand it to Aki later.",
+      "promptEnglish": "Say the request to hand the book to Aki later, keeping the source’s omitted object.",
+      "promptJapanese": "ほんという ことばを くりかえさずに、あとで あきさんに わたすよう たのんで ください。",
+      "explanationEnglish": "あとで gives later and あきさんに gives the recipient. わたしてください requests handing something over; it does not resolve which book when more than one is in context.",
+      "explanationJapanese": "「あとで」は、あとの ときを いいます。「あきさんに」は、わたす あいてです。「わたしてください」は、わたすように たのみます。どの ほんかは、この ぶんだけでは はっきり しません。",
+      "targetSpeakerRoleEnglish": "Requester",
+      "learnerPracticeRoleEnglish": "Requester",
+      "wordBankJapanese": [
+        "では、あとで",
+        "あきさんに",
+        "わたしてください。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:reader:6:36440c7a19c1db7d4b4a17ffec822b6bf73885ff04fe1ce669f1789c4b8052de",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-be7200a4d2f35add",
+          "sourceDialogueTurn": 7,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A questioner and responder discuss a book associated with Tanaka. Aki’s book is then also mentioned. The recipient of the handover request asks which book is intended rather than silently resolving the omitted object.",
+      "privateExactDialogueTurnsOneBased": [
+        7
+      ]
+    },
+    {
+      "id": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:mode:write",
+      "mode": "write",
+      "sourceTurnOneBased": 8,
+      "targetJapanese": "どの ほんの ことですか。",
+      "targetEnglish": "Which book do you mean?",
+      "promptEnglish": "Two books have been mentioned. Write the clarification question asking which book the request means.",
+      "promptJapanese": "ふたつの ほんの はなしが でました。どの ほんかを たしかめる しつもんを かいて ください。",
+      "explanationEnglish": "どの ほんの ことですか asks which book is meant. It repairs an unclear omitted reference rather than choosing the owner’s book without asking.",
+      "explanationJapanese": "「どの ほんの ことですか」は、どの ほんを さしているかを たずねます。わからない まま ほんを えらばずに、たしかめます。",
+      "targetSpeakerRoleEnglish": "Recipient of request",
+      "learnerPracticeRoleEnglish": "Recipient of request",
+      "wordBankJapanese": [
+        "どの",
+        "ほんの",
+        "ことですか。"
+      ],
+      "proposedVersionedReaderFaceId": "review-ja-en-master17-main:7477c19827ca00baadeea89a834e7ab9cf58861ca31e306de0f056b7520d0831:reader:7:64dc357e13e210d116a931135117897169084218254b694664a2a4d4ae50971c",
+      "proposedVersionedCardIds": null,
+      "privateCanonicalFormEvidence": [
+        {
+          "id": "form-ja-en-2d92ad61f11ae7ba",
+          "sourceDialogueTurn": 8,
+          "sourceOwnership": "private488; exact bilingual face only, not adoption"
+        }
+      ],
+      "selectedJapanese": null,
+      "audioScript": null,
+      "reviewed": false,
+      "contextEnglish": "A questioner and responder discuss a book associated with Tanaka. Aki’s book is then also mentioned. The recipient of the handover request asks which book is intended rather than silently resolving the omitted object.",
+      "privateExactDialogueTurnsOneBased": [
+        8
+      ]
+    }
+  ],
+  "selectedJapanese": null,
+  "audioScript": null,
+  "reviewed": false,
+  "registered": false,
+  "independentParentCritiquePending": true,
+  "gates": {
+    "qualifiedJapanese": false,
+    "qualifiedSource": false,
+    "qualifiedDictionary": false,
+    "runtime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4": false
+  },
+  "privateReaderPin": {
+    "gitRevision": "018e69872875ae15acc7381368bac199bf61171e",
+    "path": "content/japanese-basics/master.json",
+    "sha256": "29aa18064640ba1ed55514f61c25018e5407e7822d37e99ac68dd7015073c621"
+  },
+  "sourceOwnershipNote": "Current main exact turns own these prompts. Matching private faces and their different turn positions are evidence only; private cue indexes, objectives and activity IDs are not adopted."
+}

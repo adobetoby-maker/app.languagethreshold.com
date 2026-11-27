@@ -1,0 +1,1376 @@
+{
+  "schema": "french-roofing-contextual-six-mode-v1",
+  "kind": "inert-source-only-contextual-activity-sidecar",
+  "lessonId": "master-roofing:9:fr-en",
+  "sidecarId": "master-roofing:9:fr-en:contextual-six-mode:v1",
+  "sourceAuditOriginMain": "eb21bd87bffa97a101145ba89f288eb715b00491",
+  "canonicalCandidate": {
+    "path": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json",
+    "sha256": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef"
+  },
+  "sourcePacket": {
+    "path": "content/french-roofing/review/master-9-source-decision-2026-11-18/packet.json",
+    "sha256": "2a287f8d7ebdbcfbc9f290f2ed8252492e49240b5439adf533b0de5b6a7a6d98"
+  },
+  "inputArtifactSha256": {
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+    "content/french-roofing/review/master-9-source-decision-2026-11-18/packet.json": "2a287f8d7ebdbcfbc9f290f2ed8252492e49240b5439adf533b0de5b6a7a6d98",
+    "src/data/master-roofing-curriculum.ts": "2d0f922d0eba2227e89abc7c42cdf5443185e197c8b47d28d8b34b7f2b872353",
+    "public/lesson-content/es/master-roofing.json": "802f9b6f179e2b80096cc147990895f5b5bc7f8f084c801cd66375a519b79e65",
+    "content/review-archive/french-japanese-2026-11-15/french-roofing/master-7-9-draft.json": "aac17166036d739fd1af9ca58bd57ccc95d4ea5337f998d639331f37de14b53c",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68"
+  },
+  "preservedMainArtifactSha256": {
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/README.md": "58e43684e3ed998c89705cf10a3f7d6c8cba7692e4db285be68fc99f207cb2a6",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "9c213908a3edc856427e9810cb711554293db492ce5cadc012b19eb31d7ff65a",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "bd6430284df7ce8644403eb84ce5565508c045200050ffef19346474cb0c1900",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "08fd759f557f16c713458e9dbd1b1283aaa644e964820b68c69ba30b985c8516",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "5f420d9a92e48225738d787c69943b1b9fd76483a0c3a02b977d2c55a0abdf82",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "c036ba9f6577263bdc257c881686fae3fb7a78e7d9fa6040fe2feb8fb14db512",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "a08674ed0e73664174861ed2ca0f169d34eab6aa4e1b6fb611aef490999de1f5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "preservedWorkingTreeArtifactSha256": {
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/README.md": "58e43684e3ed998c89705cf10a3f7d6c8cba7692e4db285be68fc99f207cb2a6",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/ai-assistance-metadata.json": "0221dbdd6d1e44a8d88f0be0d738d52fe23b7a2032ead62fb87bc61990ff84d5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/fable-critique.md": "63c94eeb1852a21b7f0bc4a3aa57189f4a5d3b4b949e14681bab880d568d9a8a",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/final-self-check.md": "582b49fc6d5cc5355f198e06dbb1fb6d444f65f2c1d4698a5f540c3d5229e774",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/opus-critique.md": "1ee4904c115d508f1d7da06426bca92173a0f1ca33fcdd520bed562190fda4e0",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-25.json": "2e632049e587c62c63c65dd4de3ef9d9f302c32b3464564e415565cb80da0499",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-ai-assistance-2026-11-26.json": "9c213908a3edc856427e9810cb711554293db492ce5cadc012b19eb31d7ff65a",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-25.md": "c273c28efd2d8138508cbb8dab0a991968e3ad12704b25ae6d42ef30c1270b91",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-fable-2026-11-26.md": "bd6430284df7ce8644403eb84ce5565508c045200050ffef19346474cb0c1900",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-25.md": "66707211fb57e173c84ec91ca1ebd9a82c877bb737a799132899540c3e4304c5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-opus-2026-11-26.md": "08fd759f557f16c713458e9dbd1b1283aaa644e964820b68c69ba30b985c8516",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-25.md": "f92377c08f54beb03b36a375c61413378e0620067ab8dac5df15deb0fc1c74f2",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-self-check-2026-11-26.md": "5f420d9a92e48225738d787c69943b1b9fd76483a0c3a02b977d2c55a0abdf82",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-25.py": "c036ba9f6577263bdc257c881686fae3fb7a78e7d9fa6040fe2feb8fb14db512",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate-reader-alternatives-2026-11-26.py": "a08674ed0e73664174861ed2ca0f169d34eab6aa4e1b6fb611aef490999de1f5",
+    "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/validate.py": "0ce04272992598371be1b2646c6f3c96d1b2486db9be38a1b9dfaf8c27440e1c"
+  },
+  "sourceObjectiveEnglish": "Give a crew member private, specific feedback on a crooked course and agree on the fix",
+  "sourceSpeakingEnglish": "You are the crew lead and the AI is a crew member whose course is off: talk privately, ask what happened, say what you want them to do with quiero que, es mejor que and te pido que, and get agreement on the fix.",
+  "existingLexicalObjectiveEnglish": "Use a private language-review opening, want + object + to, a neutral past question and a reported view.",
+  "sourceObjectiveCompletionStatus": "Original specialist objective remains held/incomplete; contextual teaching proposals are not qualified source/trade/language/audio/release completion.",
+  "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+  "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+  "sourceEvidence": [
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:1",
+      "sourcePacketReaderPointer": "/reader/0",
+      "sourceEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+      "sourceSpanish": "Por la tarde, Rogelio notó que una hilera torcida subía hacia la izquierda en el lado de Julio.",
+      "sourceLegacyRef": "master-roofing:9:passage:1",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:1",
+      "canonicalReaderHold": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:1:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/0/alternatives/1/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:1:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:2",
+      "sourcePacketReaderPointer": "/reader/1",
+      "sourceEnglish": "Julio was working fast, but the exposure changed from one shingle to the next.",
+      "sourceSpanish": "Julio trabajaba rápido, pero la exposición cambiaba de una teja a otra.",
+      "sourceLegacyRef": "master-roofing:9:passage:2",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:2",
+      "canonicalReaderHold": "Choose context-specific French roofing senses for course, shingle exposure/pureau and unevenness; preserve the source's distinction between an off line, varying visible shingle exposure and a measurement error. Check France and Québec usage.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:2:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:4",
+      "sourcePacketReaderPointer": "/reader/3",
+      "sourceEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.",
+      "sourceSpanish": "Rogelio: Julio, quiero que mires esta hilera conmigo, en privado.",
+      "sourceLegacyRef": "master-roofing:9:passage:4",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:4",
+      "canonicalReaderHold": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar. The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:4:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:5",
+      "sourcePacketReaderPointer": "/reader/4",
+      "sourceEnglish": "Rogelio: It's not to scold you; your pace is good and I trust you.",
+      "sourceSpanish": "Rogelio: No es para regañarte; tu ritmo es bueno y tengo confianza en ti.",
+      "sourceLegacyRef": "master-roofing:9:passage:5",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:5",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+          "jsonPointer": "/candidateRows/25/candidateFrench",
+          "id": "master-roofing:9:fr-en:candidate:reader:5",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:6",
+      "sourcePacketReaderPointer": "/reader/5",
+      "sourceEnglish": "Rogelio: What happened here, in your view?",
+      "sourceSpanish": "Rogelio: ¿Qué pasó aquí, según tú?",
+      "sourceLegacyRef": "master-roofing:9:passage:6",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:6",
+      "canonicalReaderHold": null,
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/candidate.json",
+          "artifactSha256": "d4b09d876b67199257cc55adac8e9c9276dd75608244734e9664cac80e8be6ef",
+          "jsonPointer": "/candidateRows/26/candidateFrench",
+          "id": "master-roofing:9:fr-en:candidate:reader:6",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:7",
+      "sourcePacketReaderPointer": "/reader/6",
+      "sourceEnglish": "Julio: I think I didn't measure from the last line and I did it by eye.",
+      "sourceSpanish": "Julio: Creo que no medí desde la última línea y lo hice a ojo.",
+      "sourceLegacyRef": "master-roofing:9:passage:7",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:7",
+      "canonicalReaderHold": "Source packet marks this face held for qualified meaning/safety decision.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:7:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:8",
+      "sourcePacketReaderPointer": "/reader/7",
+      "sourceEnglish": "Rogelio: That happens, but with this unevenness the mistake can be seen from the street.",
+      "sourceSpanish": "Rogelio: Eso pasa, pero con este desnivel el error se ve desde la calle.",
+      "sourceLegacyRef": "master-roofing:9:passage:8",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:8",
+      "canonicalReaderHold": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+          "jsonPointer": "/rows/0/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:8:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:9",
+      "sourcePacketReaderPointer": "/reader/8",
+      "sourceEnglish": "Rogelio: It's better that we fix it now, before the course climbs any higher.",
+      "sourceSpanish": "Rogelio: Es mejor que lo arreglemos ahora, antes de que la hilera suba más.",
+      "sourceLegacyRef": "master-roofing:9:passage:9",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:9",
+      "canonicalReaderHold": "Archived French softens source want to would like and some we-fix instructions to impersonal corrections. A qualified French/source decision must preserve the speaker, request strength and shared repair action while using natural grammar. The source teaches Spanish present subjunctive after wishes and recommendations. Author a French grammar objective and six actual prompt/target activities for this scenario; archived mode labels do not supply them.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+          "jsonPointer": "/rows/1/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:9:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+      "sourcePacketReaderPointer": "/reader/9",
+      "sourceEnglish": "Rogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "sourceSpanish": "Rogelio: Te pido que midas cada tres hileras con la cinta métrica y que marques la medida en la teja.",
+      "sourceLegacyRef": "master-roofing:9:passage:10",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:10",
+      "canonicalReaderHold": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/4/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:11",
+      "sourcePacketReaderPointer": "/reader/10",
+      "sourceEnglish": "Rogelio: I'd rather you ask me first, if you're not sure about the alignment.",
+      "sourceSpanish": "Rogelio: Prefiero que me preguntes antes, si no estás seguro del alineamiento.",
+      "sourceLegacyRef": "master-roofing:9:passage:11",
+      "sourceSafetyOrMeaningHold": false,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:11",
+      "canonicalReaderHold": "Linked unresolved product, substrate, role or coverage sense propagated from existing source decisions; no dependent activity uses this face.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+          "jsonPointer": "/rows/2/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:11:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+          "jsonPointer": "/rows/2/alternatives/1/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:11:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:12",
+      "sourcePacketReaderPointer": "/reader/11",
+      "sourceEnglish": "Julio: All right, I'll take off these four courses and put them back on.",
+      "sourceSpanish": "Julio: Está bien, quito estas cuatro hileras y las vuelvo a poner.",
+      "sourceLegacyRef": "master-roofing:9:passage:12",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:12",
+      "canonicalReaderHold": "The fictional source asks for measurement every three courses, marking a shingle and removing four courses. Confirm product/system and safe rework scope before selecting these as scored field instructions; do not generalize them into universal nailing or removal procedure.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/5/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:12:1",
+          "selectedFrench": null
+        },
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-25.json",
+          "artifactSha256": "3607cc34d1e8d0088a8bb17f7e3f379d78f645f12fc081a4e0796c88057a2b95",
+          "jsonPointer": "/rows/5/alternatives/1/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:12:2",
+          "selectedFrench": null
+        }
+      ]
+    },
+    {
+      "sourceAnchor": "master-roofing:9:fr-en:reader:13",
+      "sourcePacketReaderPointer": "/reader/12",
+      "sourceEnglish": "Rogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "sourceSpanish": "Rogelio: Gracias; la corrección es parte del trabajo, y la calidad es de todos.",
+      "sourceLegacyRef": "master-roofing:9:passage:13",
+      "sourceSafetyOrMeaningHold": true,
+      "canonicalReaderId": "master-roofing:9:fr-en:candidate:reader:13",
+      "canonicalReaderHold": "Keep the private feedback, visible error, worker trust and later formal address to Mr. Soto distinct. Archived wording changes some exact English claims or register; settle the contextual dictionary and dialogue senses before a learner answer is selected.",
+      "authoredFrenchOptionRefs": [
+        {
+          "artifactPath": "content/french-roofing/candidates/master-9-authored-candidate-2026-11-23/reader-alternatives-2026-11-26.json",
+          "artifactSha256": "e3a113ddb130b8acacaddaed3a4bdef041edbf4cc555209a6954ffff22625f68",
+          "jsonPointer": "/rows/3/alternatives/0/candidateFrench",
+          "id": "master-roofing:9:fr-en:reader-alternative:13:1",
+          "selectedFrench": null
+        }
+      ]
+    }
+  ],
+  "sourceDecisionQuestionRef": {
+    "artifactPath": "content/french-roofing/review/master-9-source-decision-2026-11-18/packet.json",
+    "artifactSha256": "2a287f8d7ebdbcfbc9f290f2ed8252492e49240b5439adf533b0de5b6a7a6d98",
+    "jsonPointer": "/sourceDecisionQuestions"
+  },
+  "existingRecordRefs": {
+    "forms": [
+      {
+        "id": "master-roofing:9:fr-en:form:1",
+        "jsonPointer": "/forms/0"
+      },
+      {
+        "id": "master-roofing:9:fr-en:form:2",
+        "jsonPointer": "/forms/1"
+      },
+      {
+        "id": "master-roofing:9:fr-en:form:3",
+        "jsonPointer": "/forms/2"
+      }
+    ],
+    "dictionaryMappings": [
+      {
+        "id": "master-roofing:9:fr-en:dictionary:1",
+        "jsonPointer": "/dictionaryMappings/0"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:2",
+        "jsonPointer": "/dictionaryMappings/1"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:3",
+        "jsonPointer": "/dictionaryMappings/2"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:4",
+        "jsonPointer": "/dictionaryMappings/3"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:5",
+        "jsonPointer": "/dictionaryMappings/4"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:6",
+        "jsonPointer": "/dictionaryMappings/5"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:7",
+        "jsonPointer": "/dictionaryMappings/6"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:8",
+        "jsonPointer": "/dictionaryMappings/7"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:9",
+        "jsonPointer": "/dictionaryMappings/8"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:10",
+        "jsonPointer": "/dictionaryMappings/9"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:11",
+        "jsonPointer": "/dictionaryMappings/10"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:12",
+        "jsonPointer": "/dictionaryMappings/11"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:13",
+        "jsonPointer": "/dictionaryMappings/12"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:14",
+        "jsonPointer": "/dictionaryMappings/13"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:15",
+        "jsonPointer": "/dictionaryMappings/14"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:16",
+        "jsonPointer": "/dictionaryMappings/15"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:17",
+        "jsonPointer": "/dictionaryMappings/16"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:18",
+        "jsonPointer": "/dictionaryMappings/17"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:19",
+        "jsonPointer": "/dictionaryMappings/18"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:20",
+        "jsonPointer": "/dictionaryMappings/19"
+      },
+      {
+        "id": "master-roofing:9:fr-en:dictionary:21",
+        "jsonPointer": "/dictionaryMappings/20"
+      }
+    ]
+  },
+  "sourceCardRefs": [
+    {
+      "id": "master-roofing:9:fr-en:card:1",
+      "sourceEnglish": "the crooked course",
+      "jsonPointer": "/cards/0"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:2",
+      "sourceEnglish": "the exposure (visible part of the shingle)",
+      "jsonPointer": "/cards/1"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:3",
+      "sourceEnglish": "the unevenness",
+      "jsonPointer": "/cards/2"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:4",
+      "sourceEnglish": "the measurement",
+      "jsonPointer": "/cards/3"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:5",
+      "sourceEnglish": "the tape measure",
+      "jsonPointer": "/cards/4"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:6",
+      "sourceEnglish": "the mistake",
+      "jsonPointer": "/cards/5"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:7",
+      "sourceEnglish": "the correction",
+      "jsonPointer": "/cards/6"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:8",
+      "sourceEnglish": "the feedback",
+      "jsonPointer": "/cards/7"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:9",
+      "sourceEnglish": "in private",
+      "jsonPointer": "/cards/8"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:10",
+      "sourceEnglish": "the quality",
+      "jsonPointer": "/cards/9"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:11",
+      "sourceEnglish": "the alignment",
+      "jsonPointer": "/cards/10"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:12",
+      "sourceEnglish": "the trust",
+      "jsonPointer": "/cards/11"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:13",
+      "sourceEnglish": "the pace",
+      "jsonPointer": "/cards/12"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:14",
+      "sourceEnglish": "the worker",
+      "jsonPointer": "/cards/13"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:15",
+      "sourceEnglish": "I want you to look at this course with me.",
+      "jsonPointer": "/cards/14"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:16",
+      "sourceEnglish": "It's not to scold you.",
+      "jsonPointer": "/cards/15"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:17",
+      "sourceEnglish": "What happened here, in your view?",
+      "jsonPointer": "/cards/16"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:18",
+      "sourceEnglish": "It's better that we fix it now.",
+      "jsonPointer": "/cards/17"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:19",
+      "sourceEnglish": "I'm asking you to measure every three courses.",
+      "jsonPointer": "/cards/18"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:20",
+      "sourceEnglish": "I'd rather you ask me first.",
+      "jsonPointer": "/cards/19"
+    },
+    {
+      "id": "master-roofing:9:fr-en:card:21",
+      "sourceEnglish": "I'm asking you to check the exposure.",
+      "jsonPointer": "/cards/20"
+    }
+  ],
+  "referenceLinkLimits": "Existing forms/dictionary IDs are evidence links, not approved bindings. Existing forms are related language evidence, not guaranteed coverage of the original specialist mission or its Spanish grammar. Contextual utterances below preserve the exact source wording; existing examples remain untouched. Dictionary references remain unregistered and sense review pending.",
+  "sourceLanguageAdaptationStatus": "English production/French support. Source mission and Spanish grammar wording preserved exactly above; no automatic cross-language equivalence/completion claimed.",
+  "frenchReferencePolicy": "One existing unselected French option per segment supports the readable sample; exact pinned pointers identify all available variants. No selection/canonicalization.",
+  "activities": [
+    {
+      "id": "master-roofing:9:fr-en:contextual-activity:v1:see",
+      "mode": "see",
+      "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Read the source observations. Describe in English the direction of the crooked course and the changing exposure, keeping these as the source’s observations.",
+      "promptFrench": "Lisez les observations. Décrivez en anglais la direction du rang de travers et le pureau variable, en les présentant comme observations de la scène.",
+      "candidateTargetEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side. Julio was working fast, but the exposure changed from one shingle to the next.",
+      "candidateMeaningFrench": "Dans l’après-midi, Rogelio a remarqué qu’un rang de travers montait vers la gauche, du côté de Julio. Julio travaillait vite, mais le pureau changeait d’un bardeau à l’autre.",
+      "explanationEnglish": "Climbing to the left gives direction; exposure changed from one shingle to the next describes variation. Do not invent an exposure value or manufacturer tolerance.",
+      "explanationFrench": "Climbing to the left donne la direction ; exposure changed décrit la variation d’un bardeau à l’autre. N’inventez ni valeur de pureau ni tolérance fabricant.",
+      "sourceAnchors": [
+        "master-roofing:9:fr-en:reader:1",
+        "master-roofing:9:fr-en:reader:2"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:1",
+          "referenceEnglish": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side.",
+          "candidateMeaningFrench": "Dans l’après-midi, Rogelio a remarqué qu’un rang de travers montait vers la gauche, du côté de Julio.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:1:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:2",
+          "referenceEnglish": "Julio was working fast, but the exposure changed from one shingle to the next.",
+          "candidateMeaningFrench": "Julio travaillait vite, mais le pureau changeait d’un bardeau à l’autre.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:2:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": true,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "sourceDisplayEnglish": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:1",
+          "text": "In the afternoon, Rogelio noticed that a crooked course was climbing to the left on Julio's side."
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:2",
+          "text": "Julio was working fast, but the exposure changed from one shingle to the next."
+        }
+      ],
+      "linkedSourceCardIds": [],
+      "existingFormIds": [
+        "master-roofing:9:fr-en:form:1",
+        "master-roofing:9:fr-en:form:2",
+        "master-roofing:9:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:9:fr-en:dictionary:1",
+        "master-roofing:9:fr-en:dictionary:2",
+        "master-roofing:9:fr-en:dictionary:3",
+        "master-roofing:9:fr-en:dictionary:4",
+        "master-roofing:9:fr-en:dictionary:5",
+        "master-roofing:9:fr-en:dictionary:6",
+        "master-roofing:9:fr-en:dictionary:7",
+        "master-roofing:9:fr-en:dictionary:8",
+        "master-roofing:9:fr-en:dictionary:9",
+        "master-roofing:9:fr-en:dictionary:10",
+        "master-roofing:9:fr-en:dictionary:11",
+        "master-roofing:9:fr-en:dictionary:12",
+        "master-roofing:9:fr-en:dictionary:13",
+        "master-roofing:9:fr-en:dictionary:14",
+        "master-roofing:9:fr-en:dictionary:15",
+        "master-roofing:9:fr-en:dictionary:16",
+        "master-roofing:9:fr-en:dictionary:17",
+        "master-roofing:9:fr-en:dictionary:18",
+        "master-roofing:9:fr-en:dictionary:19",
+        "master-roofing:9:fr-en:dictionary:20",
+        "master-roofing:9:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:9:fr-en:contextual-activity:v1:recall",
+      "mode": "recall",
+      "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "From the French cue, invite Julio to look at the course privately in English, preserve the supportive statement and ask for his view.",
+      "promptFrench": "À partir de l’indice français, invitez Julio en anglais à regarder le rang en privé, conservez le soutien exprimé et demandez son avis.",
+      "candidateTargetEnglish": "Julio, I want you to look at this course with me, in private. It's not to scold you; your pace is good and I trust you. What happened here, in your view?",
+      "candidateMeaningFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé. Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi. Que s’est-il passé ici, à ton avis ?",
+      "explanationEnglish": "I want you to states the request; in private fixes the setting. The reassurance and open question precede the correction instead of assigning blame before hearing Julio.",
+      "explanationFrench": "I want you to exprime la demande ; in private fixe le cadre. Le soutien et la question ouverte précèdent la correction plutôt que d’attribuer la faute avant d’écouter Julio.",
+      "sourceAnchors": [
+        "master-roofing:9:fr-en:reader:4",
+        "master-roofing:9:fr-en:reader:5",
+        "master-roofing:9:fr-en:reader:6"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:4",
+          "referenceEnglish": "Julio, I want you to look at this course with me, in private.",
+          "candidateMeaningFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:5",
+          "referenceEnglish": "It's not to scold you; your pace is good and I trust you.",
+          "candidateMeaningFrench": "Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:5",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:6",
+          "referenceEnglish": "What happened here, in your view?",
+          "candidateMeaningFrench": "Que s’est-il passé ici, à ton avis ?",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:6",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "cueFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé. Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi. Que s’est-il passé ici, à ton avis ?",
+      "linkedSourceCardIds": [
+        "master-roofing:9:fr-en:card:9",
+        "master-roofing:9:fr-en:card:15",
+        "master-roofing:9:fr-en:card:16",
+        "master-roofing:9:fr-en:card:17"
+      ],
+      "existingFormIds": [
+        "master-roofing:9:fr-en:form:1",
+        "master-roofing:9:fr-en:form:2",
+        "master-roofing:9:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:9:fr-en:dictionary:1",
+        "master-roofing:9:fr-en:dictionary:2",
+        "master-roofing:9:fr-en:dictionary:3",
+        "master-roofing:9:fr-en:dictionary:4",
+        "master-roofing:9:fr-en:dictionary:5",
+        "master-roofing:9:fr-en:dictionary:6",
+        "master-roofing:9:fr-en:dictionary:7",
+        "master-roofing:9:fr-en:dictionary:8",
+        "master-roofing:9:fr-en:dictionary:9",
+        "master-roofing:9:fr-en:dictionary:10",
+        "master-roofing:9:fr-en:dictionary:11",
+        "master-roofing:9:fr-en:dictionary:12",
+        "master-roofing:9:fr-en:dictionary:13",
+        "master-roofing:9:fr-en:dictionary:14",
+        "master-roofing:9:fr-en:dictionary:15",
+        "master-roofing:9:fr-en:dictionary:16",
+        "master-roofing:9:fr-en:dictionary:17",
+        "master-roofing:9:fr-en:dictionary:18",
+        "master-roofing:9:fr-en:dictionary:19",
+        "master-roofing:9:fr-en:dictionary:20",
+        "master-roofing:9:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:9:fr-en:contextual-activity:v1:hear",
+      "mode": "hear",
+      "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Listen to Rogelio’s request. Repeat in English the measuring frequency, tool and marking action stated in the source.",
+      "promptFrench": "Écoutez la demande de Rogelio. Répétez en anglais la fréquence, l’outil et le marquage donnés dans la scène.",
+      "candidateTargetEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "candidateMeaningFrench": "Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.",
+      "explanationEnglish": "Every three courses, with the tape measure and on the shingle are separate details. Preserve the stated source request without generalizing its interval into a universal installation rule.",
+      "explanationFrench": "Tous les trois rangs, avec le mètre ruban et sur le bardeau sont des détails distincts. Conservez la demande de la scène sans généraliser cet intervalle en règle universelle.",
+      "sourceAnchors": [
+        "master-roofing:9:fr-en:reader:10"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+          "referenceEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+          "candidateMeaningFrench": "Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "audioRequired": true,
+      "audioStatus": "Text-only unsynthesized; no recording or playback.",
+      "candidateListeningTextEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "listeningTextSourceAnchor": "master-roofing:9:fr-en:reader:10",
+      "candidateVoice": null,
+      "candidateLocale": null,
+      "technicalAudioValidated": false,
+      "paidSynthesisStarted": false,
+      "synthesisCostEstimate": null,
+      "linkedSourceCardIds": [
+        "master-roofing:9:fr-en:card:4",
+        "master-roofing:9:fr-en:card:5",
+        "master-roofing:9:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:9:fr-en:form:1",
+        "master-roofing:9:fr-en:form:2",
+        "master-roofing:9:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:9:fr-en:dictionary:1",
+        "master-roofing:9:fr-en:dictionary:2",
+        "master-roofing:9:fr-en:dictionary:3",
+        "master-roofing:9:fr-en:dictionary:4",
+        "master-roofing:9:fr-en:dictionary:5",
+        "master-roofing:9:fr-en:dictionary:6",
+        "master-roofing:9:fr-en:dictionary:7",
+        "master-roofing:9:fr-en:dictionary:8",
+        "master-roofing:9:fr-en:dictionary:9",
+        "master-roofing:9:fr-en:dictionary:10",
+        "master-roofing:9:fr-en:dictionary:11",
+        "master-roofing:9:fr-en:dictionary:12",
+        "master-roofing:9:fr-en:dictionary:13",
+        "master-roofing:9:fr-en:dictionary:14",
+        "master-roofing:9:fr-en:dictionary:15",
+        "master-roofing:9:fr-en:dictionary:16",
+        "master-roofing:9:fr-en:dictionary:17",
+        "master-roofing:9:fr-en:dictionary:18",
+        "master-roofing:9:fr-en:dictionary:19",
+        "master-roofing:9:fr-en:dictionary:20",
+        "master-roofing:9:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:9:fr-en:contextual-activity:v1:type",
+      "mode": "type",
+      "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Complete the English request: I’m asking you to measure _____ with the tape measure and to mark the measurement on the shingle.",
+      "promptFrench": "Complétez la demande anglaise : I’m asking you to measure _____ with the tape measure and to mark the measurement on the shingle.",
+      "candidateTargetEnglish": "every three courses",
+      "candidateMeaningFrench": "tous les trois rangs",
+      "explanationEnglish": "Every three courses gives the source frequency. The rest of the sentence retains both measuring and marking rather than reducing the request to checking visually.",
+      "explanationFrench": "Every three courses donne la fréquence de la scène. La phrase conserve mesure et marquage plutôt qu’un simple contrôle à vue.",
+      "sourceAnchors": [
+        "master-roofing:9:fr-en:reader:10"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+          "referenceEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+          "candidateMeaningFrench": "Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "clozeTextEnglish": "I'm asking you to measure _____ with the tape measure and to mark the measurement on the shingle.",
+      "unmaskedSourceBodyEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+      "clozeSourceAnchor": "master-roofing:9:fr-en:reader:10",
+      "linkedSourceCardIds": [
+        "master-roofing:9:fr-en:card:4",
+        "master-roofing:9:fr-en:card:5",
+        "master-roofing:9:fr-en:card:19"
+      ],
+      "existingFormIds": [
+        "master-roofing:9:fr-en:form:1",
+        "master-roofing:9:fr-en:form:2",
+        "master-roofing:9:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:9:fr-en:dictionary:1",
+        "master-roofing:9:fr-en:dictionary:2",
+        "master-roofing:9:fr-en:dictionary:3",
+        "master-roofing:9:fr-en:dictionary:4",
+        "master-roofing:9:fr-en:dictionary:5",
+        "master-roofing:9:fr-en:dictionary:6",
+        "master-roofing:9:fr-en:dictionary:7",
+        "master-roofing:9:fr-en:dictionary:8",
+        "master-roofing:9:fr-en:dictionary:9",
+        "master-roofing:9:fr-en:dictionary:10",
+        "master-roofing:9:fr-en:dictionary:11",
+        "master-roofing:9:fr-en:dictionary:12",
+        "master-roofing:9:fr-en:dictionary:13",
+        "master-roofing:9:fr-en:dictionary:14",
+        "master-roofing:9:fr-en:dictionary:15",
+        "master-roofing:9:fr-en:dictionary:16",
+        "master-roofing:9:fr-en:dictionary:17",
+        "master-roofing:9:fr-en:dictionary:18",
+        "master-roofing:9:fr-en:dictionary:19",
+        "master-roofing:9:fr-en:dictionary:20",
+        "master-roofing:9:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:9:fr-en:contextual-activity:v1:say",
+      "mode": "say",
+      "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Speak privately with Julio in English. Invite him to inspect the course, ask what happened, hear his account, state the source requests, and obtain the source agreement on the four-course correction before thanking him.",
+      "promptFrench": "Parlez en privé à Julio en anglais. Invitez-le à examiner le rang, demandez ce qui s’est passé, écoutez sa réponse, formulez les demandes de la scène et obtenez l’accord sur les quatre rangs avant de le remercier.",
+      "candidateTargetEnglish": "Julio, I want you to look at this course with me, in private. It's not to scold you; your pace is good and I trust you. What happened here, in your view? That happens, but with this unevenness the mistake can be seen from the street. It's better that we fix it now, before the course climbs any higher. I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle. I'd rather you ask me first, if you're not sure about the alignment. Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "candidateMeaningFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé. Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi. Que s’est-il passé ici, à ton avis ? Cela arrive, mais avec cette irrégularité, l’erreur est visible depuis la rue. Il vaut mieux que nous corrigions cela maintenant, avant que le rang ne monte davantage. Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau. Je préfère que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement. Merci ; corriger fait partie du travail, et la qualité est l’affaire de tous.",
+      "explanationEnglish": "Read only the crew-lead turns; the partner reads the other named speaker. Keep source roles, conditionals, negatives, uncertainty and manufacturer/contract attributions. The reference is language practice, not approval of a field or contract decision.",
+      "explanationFrench": "Dites seulement les répliques du chef d’équipe ; le partenaire lit celles de l’autre personnage. Conservez rôles, conditionnels, négations, incertitude et références fabricant/contrat. La référence sert à la pratique linguistique, sans approuver une décision de chantier ou de contrat.",
+      "sourceAnchors": [
+        "master-roofing:9:fr-en:reader:4",
+        "master-roofing:9:fr-en:reader:5",
+        "master-roofing:9:fr-en:reader:6",
+        "master-roofing:9:fr-en:reader:7",
+        "master-roofing:9:fr-en:reader:8",
+        "master-roofing:9:fr-en:reader:9",
+        "master-roofing:9:fr-en:reader:10",
+        "master-roofing:9:fr-en:reader:11",
+        "master-roofing:9:fr-en:reader:12",
+        "master-roofing:9:fr-en:reader:13"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:4",
+          "referenceEnglish": "Julio, I want you to look at this course with me, in private.",
+          "candidateMeaningFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:5",
+          "referenceEnglish": "It's not to scold you; your pace is good and I trust you.",
+          "candidateMeaningFrench": "Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:5",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:6",
+          "referenceEnglish": "What happened here, in your view?",
+          "candidateMeaningFrench": "Que s’est-il passé ici, à ton avis ?",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:6",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:8",
+          "referenceEnglish": "That happens, but with this unevenness the mistake can be seen from the street.",
+          "candidateMeaningFrench": "Cela arrive, mais avec cette irrégularité, l’erreur est visible depuis la rue.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:9",
+          "referenceEnglish": "It's better that we fix it now, before the course climbs any higher.",
+          "candidateMeaningFrench": "Il vaut mieux que nous corrigions cela maintenant, avant que le rang ne monte davantage.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+          "referenceEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+          "candidateMeaningFrench": "Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:11",
+          "referenceEnglish": "I'd rather you ask me first, if you're not sure about the alignment.",
+          "candidateMeaningFrench": "Je préfère que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:13",
+          "referenceEnglish": "Thanks; correcting is part of the job, and quality belongs to everyone.",
+          "candidateMeaningFrench": "Merci ; corriger fait partie du travail, et la qualité est l’affaire de tous.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source faces or utterance bodies assembled in order; only documented speaker labels are stripped. Source sheet steps remain quoted text read aloud. New compositions separately labelled.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "dialogueSequence": [
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:1",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:4",
+          "utteranceEnglish": "Julio, I want you to look at this course with me, in private.",
+          "candidateMeaningFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:4:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:2",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:5",
+          "utteranceEnglish": "It's not to scold you; your pace is good and I trust you.",
+          "candidateMeaningFrench": "Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:5",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:3",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:6",
+          "utteranceEnglish": "What happened here, in your view?",
+          "candidateMeaningFrench": "Que s’est-il passé ici, à ton avis ?",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:6",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:4",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Julio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:7",
+          "utteranceEnglish": "I think I didn't measure from the last line and I did it by eye.",
+          "candidateMeaningFrench": "Je crois que je n’ai pas mesuré à partir de la dernière ligne et je l’ai fait à l’œil.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:7:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:5",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:8",
+          "utteranceEnglish": "That happens, but with this unevenness the mistake can be seen from the street.",
+          "candidateMeaningFrench": "Cela arrive, mais avec cette irrégularité, l’erreur est visible depuis la rue.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:8:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:6",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:9",
+          "utteranceEnglish": "It's better that we fix it now, before the course climbs any higher.",
+          "candidateMeaningFrench": "Il vaut mieux que nous corrigions cela maintenant, avant que le rang ne monte davantage.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:9:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:7",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+          "utteranceEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+          "candidateMeaningFrench": "Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:8",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:11",
+          "utteranceEnglish": "I'd rather you ask me first, if you're not sure about the alignment.",
+          "candidateMeaningFrench": "Je préfère que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:11:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:9",
+          "speakerRole": "partner",
+          "sourceSpeaker": "Julio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:12",
+          "utteranceEnglish": "All right, I'll take off these four courses and put them back on.",
+          "candidateMeaningFrench": "D’accord, je vais déposer ces quatre rangs et les reposer.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:12:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        },
+        {
+          "id": "master-roofing:9:fr-en:contextual-activity:v1:say:turn:10",
+          "speakerRole": "learner",
+          "sourceSpeaker": "Rogelio",
+          "sourceAnchor": "master-roofing:9:fr-en:reader:13",
+          "utteranceEnglish": "Thanks; correcting is part of the job, and quality belongs to everyone.",
+          "candidateMeaningFrench": "Merci ; corriger fait partie du travail, et la qualité est l’affaire de tous.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:13:1",
+          "provenance": "Exact source text/utterance body; source sheet steps are read aloud, not invented speech.",
+          "reviewed": false,
+          "selectedFrench": null,
+          "audioScript": null
+        }
+      ],
+      "linkedSourceCardIds": [
+        "master-roofing:9:fr-en:card:4",
+        "master-roofing:9:fr-en:card:5",
+        "master-roofing:9:fr-en:card:6",
+        "master-roofing:9:fr-en:card:9",
+        "master-roofing:9:fr-en:card:11",
+        "master-roofing:9:fr-en:card:15",
+        "master-roofing:9:fr-en:card:16",
+        "master-roofing:9:fr-en:card:17",
+        "master-roofing:9:fr-en:card:18",
+        "master-roofing:9:fr-en:card:19",
+        "master-roofing:9:fr-en:card:20"
+      ],
+      "existingFormIds": [
+        "master-roofing:9:fr-en:form:1",
+        "master-roofing:9:fr-en:form:2",
+        "master-roofing:9:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:9:fr-en:dictionary:1",
+        "master-roofing:9:fr-en:dictionary:2",
+        "master-roofing:9:fr-en:dictionary:3",
+        "master-roofing:9:fr-en:dictionary:4",
+        "master-roofing:9:fr-en:dictionary:5",
+        "master-roofing:9:fr-en:dictionary:6",
+        "master-roofing:9:fr-en:dictionary:7",
+        "master-roofing:9:fr-en:dictionary:8",
+        "master-roofing:9:fr-en:dictionary:9",
+        "master-roofing:9:fr-en:dictionary:10",
+        "master-roofing:9:fr-en:dictionary:11",
+        "master-roofing:9:fr-en:dictionary:12",
+        "master-roofing:9:fr-en:dictionary:13",
+        "master-roofing:9:fr-en:dictionary:14",
+        "master-roofing:9:fr-en:dictionary:15",
+        "master-roofing:9:fr-en:dictionary:16",
+        "master-roofing:9:fr-en:dictionary:17",
+        "master-roofing:9:fr-en:dictionary:18",
+        "master-roofing:9:fr-en:dictionary:19",
+        "master-roofing:9:fr-en:dictionary:20",
+        "master-roofing:9:fr-en:dictionary:21"
+      ]
+    },
+    {
+      "id": "master-roofing:9:fr-en:contextual-activity:v1:write",
+      "mode": "write",
+      "learnerRoleEnglish": "Crew lead (Rogelio), speaking privately with Julio about the crooked course.",
+      "learnerRoleFrench": "Chef d’équipe (Rogelio), parlant en privé avec Julio du rang de travers.",
+      "responseLanguage": "English",
+      "meaningSupportLanguage": "French",
+      "promptEnglish": "Write a labelled English private-feedback exchange between Rogelio and Julio. Keep the question and Julio’s explanation, supportive requests, proposed correction and Julio’s agreement in their source order.",
+      "promptFrench": "Rédigez un échange anglais étiqueté entre Rogelio et Julio en privé. Conservez la question et l’explication de Julio, les demandes encourageantes, la correction proposée et l’accord de Julio dans l’ordre de la scène.",
+      "candidateTargetEnglish": "Rogelio: Julio, I want you to look at this course with me, in private.\nRogelio: It's not to scold you; your pace is good and I trust you.\nRogelio: What happened here, in your view?\nJulio: I think I didn't measure from the last line and I did it by eye.\nRogelio: That happens, but with this unevenness the mistake can be seen from the street.\nRogelio: It's better that we fix it now, before the course climbs any higher.\nRogelio: I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.\nRogelio: I'd rather you ask me first, if you're not sure about the alignment.\nJulio: All right, I'll take off these four courses and put them back on.\nRogelio: Thanks; correcting is part of the job, and quality belongs to everyone.",
+      "candidateMeaningFrench": "Rogelio : Julio, je veux que tu regardes ce rang avec moi, en privé.\nRogelio : Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi.\nRogelio : Que s’est-il passé ici, à ton avis ?\nJulio : Je crois que je n’ai pas mesuré à partir de la dernière ligne et je l’ai fait à l’œil.\nRogelio : Cela arrive, mais avec cette irrégularité, l’erreur est visible depuis la rue.\nRogelio : Il vaut mieux que nous corrigions cela maintenant, avant que le rang ne monte davantage.\nRogelio : Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.\nRogelio : Je préfère que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement.\nJulio : D’accord, je vais déposer ces quatre rangs et les reposer.\nRogelio : Merci ; corriger fait partie du travail, et la qualité est l’affaire de tous.",
+      "explanationEnglish": "Keep each statement with its source audience and qualifications. The reference assembles exact source wording, without a new amount, measurement, method or permission. Source specialist objective remains incomplete pending qualified review.",
+      "explanationFrench": "Conservez le destinataire et les précisions de chaque affirmation. La référence assemble le texte exact sans ajouter de montant, mesure, méthode ou permission. L’objectif spécialisé reste incomplet dans l’attente d’une revue qualifiée.",
+      "sourceAnchors": [
+        "master-roofing:9:fr-en:reader:4",
+        "master-roofing:9:fr-en:reader:5",
+        "master-roofing:9:fr-en:reader:6",
+        "master-roofing:9:fr-en:reader:7",
+        "master-roofing:9:fr-en:reader:8",
+        "master-roofing:9:fr-en:reader:9",
+        "master-roofing:9:fr-en:reader:10",
+        "master-roofing:9:fr-en:reader:11",
+        "master-roofing:9:fr-en:reader:12",
+        "master-roofing:9:fr-en:reader:13"
+      ],
+      "referenceSegments": [
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:4",
+          "referenceEnglish": "Julio, I want you to look at this course with me, in private.",
+          "candidateMeaningFrench": "Julio, je veux que tu regardes ce rang avec moi, en privé.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:4:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:5",
+          "referenceEnglish": "It's not to scold you; your pace is good and I trust you.",
+          "candidateMeaningFrench": "Ce n’est pas pour te gronder; ton rythme est bon et j’ai confiance en toi.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:5",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:6",
+          "referenceEnglish": "What happened here, in your view?",
+          "candidateMeaningFrench": "Que s’est-il passé ici, à ton avis ?",
+          "frenchEvidenceId": "master-roofing:9:fr-en:candidate:reader:6",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:7",
+          "referenceEnglish": "I think I didn't measure from the last line and I did it by eye.",
+          "candidateMeaningFrench": "Je crois que je n’ai pas mesuré à partir de la dernière ligne et je l’ai fait à l’œil.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:7:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Julio",
+          "speakerLabelFrench": "Julio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:8",
+          "referenceEnglish": "That happens, but with this unevenness the mistake can be seen from the street.",
+          "candidateMeaningFrench": "Cela arrive, mais avec cette irrégularité, l’erreur est visible depuis la rue.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:8:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:9",
+          "referenceEnglish": "It's better that we fix it now, before the course climbs any higher.",
+          "candidateMeaningFrench": "Il vaut mieux que nous corrigions cela maintenant, avant que le rang ne monte davantage.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:9:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:10",
+          "referenceEnglish": "I'm asking you to measure every three courses with the tape measure and to mark the measurement on the shingle.",
+          "candidateMeaningFrench": "Je te demande de prendre une mesure tous les trois rangs avec le mètre ruban et de marquer la mesure sur le bardeau.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:10:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:11",
+          "referenceEnglish": "I'd rather you ask me first, if you're not sure about the alignment.",
+          "candidateMeaningFrench": "Je préfère que tu me poses la question d’abord, si tu n’es pas sûr de l’alignement.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:11:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:12",
+          "referenceEnglish": "All right, I'll take off these four courses and put them back on.",
+          "candidateMeaningFrench": "D’accord, je vais déposer ces quatre rangs et les reposer.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:12:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Julio",
+          "speakerLabelFrench": "Julio"
+        },
+        {
+          "sourceAnchor": "master-roofing:9:fr-en:reader:13",
+          "referenceEnglish": "Thanks; correcting is part of the job, and quality belongs to everyone.",
+          "candidateMeaningFrench": "Merci ; corriger fait partie du travail, et la qualité est l’affaire de tous.",
+          "frenchEvidenceId": "master-roofing:9:fr-en:reader-alternative:13:1",
+          "kind": "exact-source-face-or-utterance-body",
+          "speakerLabelEnglish": "Rogelio",
+          "speakerLabelFrench": "Rogelio"
+        }
+      ],
+      "referenceTargetProvenance": "Exact source text in ordered role-labelled transcript; Source context lines remain narration, not attributed dialogue. Bilingual labels/layout are new formatting. Questions and replies retain original dependencies.",
+      "reviewed": false,
+      "selectedEnglish": null,
+      "selectedFrench": null,
+      "audioScript": null,
+      "registered": false,
+      "runtimeRegistered": false,
+      "offlineRegistered": false,
+      "progressRegistered": false,
+      "audioRegistered": false,
+      "listeningReviewed": false,
+      "scoringEnabled": false,
+      "selectedRecording": null,
+      "englishReferenceVisible": false,
+      "qualifiedEnglishReviewPending": true,
+      "qualifiedFrenchReviewPending": true,
+      "answerComparisonStatus": "Unselected language reference; equivalent English wording needs review, not a scored answer key.",
+      "targetFormat": "role-labelled-transcript",
+      "linkedSourceCardIds": [
+        "master-roofing:9:fr-en:card:4",
+        "master-roofing:9:fr-en:card:5",
+        "master-roofing:9:fr-en:card:6",
+        "master-roofing:9:fr-en:card:9",
+        "master-roofing:9:fr-en:card:11",
+        "master-roofing:9:fr-en:card:15",
+        "master-roofing:9:fr-en:card:16",
+        "master-roofing:9:fr-en:card:17",
+        "master-roofing:9:fr-en:card:18",
+        "master-roofing:9:fr-en:card:19",
+        "master-roofing:9:fr-en:card:20"
+      ],
+      "existingFormIds": [
+        "master-roofing:9:fr-en:form:1",
+        "master-roofing:9:fr-en:form:2",
+        "master-roofing:9:fr-en:form:3"
+      ],
+      "dictionaryMappingIds": [
+        "master-roofing:9:fr-en:dictionary:1",
+        "master-roofing:9:fr-en:dictionary:2",
+        "master-roofing:9:fr-en:dictionary:3",
+        "master-roofing:9:fr-en:dictionary:4",
+        "master-roofing:9:fr-en:dictionary:5",
+        "master-roofing:9:fr-en:dictionary:6",
+        "master-roofing:9:fr-en:dictionary:7",
+        "master-roofing:9:fr-en:dictionary:8",
+        "master-roofing:9:fr-en:dictionary:9",
+        "master-roofing:9:fr-en:dictionary:10",
+        "master-roofing:9:fr-en:dictionary:11",
+        "master-roofing:9:fr-en:dictionary:12",
+        "master-roofing:9:fr-en:dictionary:13",
+        "master-roofing:9:fr-en:dictionary:14",
+        "master-roofing:9:fr-en:dictionary:15",
+        "master-roofing:9:fr-en:dictionary:16",
+        "master-roofing:9:fr-en:dictionary:17",
+        "master-roofing:9:fr-en:dictionary:18",
+        "master-roofing:9:fr-en:dictionary:19",
+        "master-roofing:9:fr-en:dictionary:20",
+        "master-roofing:9:fr-en:dictionary:21"
+      ]
+    }
+  ],
+  "gates": {
+    "qualifiedFrench": false,
+    "qualifiedTrade": false,
+    "dictionaryApproved": false,
+    "sourceApproved": false,
+    "learnerRuntime": false,
+    "scoring": false,
+    "audioRegistered": false,
+    "listeningReviewed": false,
+    "offline": false,
+    "savedProgress": false,
+    "v4Accepted": false,
+    "qualifiedEnglish": false
+  },
+  "reviewed": false,
+  "registered": false,
+  "runtimeRegistered": false,
+  "scoringEnabled": false,
+  "offlineRegistered": false,
+  "progressMigrationApproved": false,
+  "v4Registered": false,
+  "sourceMissionCompletionClaim": false,
+  "selectedEnglish": null,
+  "selectedFrench": null,
+  "audioScript": null,
+  "audioRegistered": false,
+  "listeningReviewed": false,
+  "progressKey": null,
+  "qualifiedReviewClaimed": false,
+  "internalNotes": [
+    "Existing source/canonical/Reader/speaking/lexical activities/forms/dictionaries/IDs/holds remain byte-preserved.",
+    "Insurance measurement/causation/scope decisions, lightning/wet-surface/tarp/weather/roof-access/warranty claims, exposure/alignment/three-course measurement and repair methods remain internal source/trade questions. Exact utterances retain direct vocabulary without inserted hedges.",
+    "Source-only references are unselected and unscored; all release/progress/V4/audio gates stay false.",
+    "Assistant fallback due parent-reported weekly429; zero Claude calls/retries; independent parent critique pending."
+  ]
+}
